@@ -7,13 +7,13 @@ public class CanvasClickHandler : MonoBehaviour, IDragHandler, IPointerUpHandler
     private GameObject Joystick;
     private Image JoystickContainer;
     private VirtualJoystick VJ;
+    private Vector3 startPosition;
     void Start()
     {
         Joystick = GameObject.Find("Joystick Container");
         JoystickContainer = Joystick.GetComponent<Image>();
         VJ = Joystick.GetComponent<VirtualJoystick>();
-        Debug.Log(VJ);
-
+        startPosition = JoystickContainer.transform.position;
     }
 
     public void OnDrag(PointerEventData ped)
@@ -29,7 +29,7 @@ public class CanvasClickHandler : MonoBehaviour, IDragHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData ped)
     {
-        Joystick.transform.position = new Vector3(-1000, -1000, 0);
+        Joystick.transform.position = startPosition;
         VJ.OnPointerUp(ped);
     }
 
