@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public 
-
 public class BasicSpawner : MonoBehaviour
 {
 
-    public float WaveCD = 1.5f;
-    public float SpawnXmin = -5;
-    public float SpawnXmax = -5;
-    public float SpawnYmin = -5;
-    public float SpawnYmax = -5;
+    public float waveCD = 10f;
+
+    //public float spawnGap = 0.1f;
+
+    public int waveSize = 4;
+
+    public GameObject enemy1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,13 @@ public class BasicSpawner : MonoBehaviour
 
         while (true)
         {
-            int xRandom = Random.Range(-5, 5)
+           
+            for (var i = 0; i < waveSize; i++)
+            {
+                Instantiate(enemy1, new Vector3(transform.position.x + i, transform.position.y, -1), Quaternion.identity);
+            }
+
+            yield return new WaitForSeconds(waveCD);
         }
 
     }
