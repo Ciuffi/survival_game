@@ -10,6 +10,7 @@ public class Attack : MonoBehaviour
     public int shotsPerAttack;
     public Effect effect;
     public float speed;
+    public float knockback;
     public GameObject projectile;
     public AttackTypes attackType;
     private Player owner;

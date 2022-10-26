@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     Player player;
     public Vector3 directionToPlayer;
     public Vector3 localScale;
+    public Vector3 knockDirection;
     public float moveSpeed = 3f;
 
     float stopDistance;
@@ -15,6 +16,8 @@ public class Enemy : MonoBehaviour
     public float stopDistanceMax;
 
     public bool isMelee;
+
+    public float health;
 
 
     // Start is called before the first frame update
@@ -31,14 +34,29 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
+        
         directionToPlayer = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (isMelee == true) //melee just run at u
+        if (isMelee == true) //melee 
         {
-            MoveEnemy();
+            if (distance <= stopDistance)
+            {
+                StopMoving();
+            }
+            else
+            {
+                MoveEnemy();
 
-        } else //ranged units stop at a distance
+            }
+
+        } else //ranged 
         {
             if (distance <= stopDistance)
             {
@@ -63,6 +81,12 @@ public class Enemy : MonoBehaviour
         rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * 0;
     }
 
+    public void TakeDamage(float damageAmount)
+    {
+        health -= damageAmount;
+        StopMoving();
+    }
+
 
     private void LateUpdate()
     {  
@@ -74,6 +98,16 @@ public class Enemy : MonoBehaviour
                             {
                                 transform.localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
                             }    
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Attack")
+        {
+            knockDirection = rb.transform.position - col.gameObject.transform.position;
+     
+            rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
+        }
     }
 
     // Update is called once per frame

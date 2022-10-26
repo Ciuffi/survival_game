@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1557163916103302380}
   m_Layer: 0
   m_Name: EnemyMelee
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,10 +102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
-  moveSpeed: 3
-  stopDistanceMin: 0
-  stopDistanceMax: 0
+  knockDirection: {x: 0, y: 0, z: 0}
+  moveSpeed: 1.5
+  stopDistanceMin: 1.1
+  stopDistanceMax: 1.1
   isMelee: 1
+  health: 8
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
