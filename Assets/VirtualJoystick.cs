@@ -8,7 +8,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
     private Image joystick;
 
     public Vector3 InputDirection;
-    public Vector3 OriginalPosition;
+    public float InputAngle;
 
 
     void Start()
@@ -30,7 +30,6 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
                 ped.pressEventCamera,
                 out position);
 
-        OriginalPosition = position;
         position.x = (position.x / jsContainer.rectTransform.sizeDelta.x);
         position.y = (position.y / jsContainer.rectTransform.sizeDelta.y);
 
@@ -43,6 +42,8 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
         //to define the area in which joystick can move around
         joystick.rectTransform.anchoredPosition = new Vector3(InputDirection.x * (jsContainer.rectTransform.sizeDelta.x / 3)
                                                                , InputDirection.y * (jsContainer.rectTransform.sizeDelta.y) / 3);
+
+        InputAngle = -Mathf.Atan2(x, y) * Mathf.Rad2Deg;
     }
 
     public void OnPointerDown(PointerEventData ped)

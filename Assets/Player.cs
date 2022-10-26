@@ -1,20 +1,34 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
     private VirtualJoystick VJ;
     public float Speed;
     public float DeadZonePercentage;
-
+    public Vector3 direction;
+    public List<Attack> attacks;
+    private int attackIndex;
+    private float AttackTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
+        attackIndex = 0;
+        attacks.Add(transform.GetComponentInChildren<Attack>());
+        direction = transform.up;
+
+
     }
 
-    void move()
+    void Move()
     {
+        if (VJ.InputDirection.magnitude == 0)
+        {
+            return;
+        }
         float InputY = VJ.InputDirection.y * 100;
         float InputX = VJ.InputDirection.x * 100;
         float TransformY = transform.position.y;
@@ -25,16 +39,29 @@ public class Player : MonoBehaviour
 
 
         transform.position = new Vector3(TransformX + x * Speed, TransformY + y * Speed, 0);
-        Quaternion turnAngle = Quaternion.LookRotation(VJ.InputDirection, VJ.OriginalPosition);
-        transform.rotation = turnAngle;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
+        direction = VJ.InputDirection;
+    }
 
-
-
+    void Attack()
+    {
+        AttackTimer += Time.deltaTime;
+        if (AttackTimer >= attacks[attackIndex].castTime)
+        {
+            attacks[attackIndex].Shoot();
+            attackIndex++;
+            if (attackIndex == attacks.Count)
+            {
+                attackIndex = 0;
+            }
+            AttackTimer = 0;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        move();
+        Move();
+        Attack();
     }
 }

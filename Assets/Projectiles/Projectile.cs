@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Direction dir { get; set; }
-    public float speed;
+    public Attack attack;
     void Start()
     {
 
     }
     void Update()
     {
-        transform.position = Utilities.SetDirection(dir, transform.position, speed);
+        Debug.Log(transform.up);
+        transform.position += transform.up * attack.speed;
+
     }
 }
