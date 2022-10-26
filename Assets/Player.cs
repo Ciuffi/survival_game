@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -28,6 +25,10 @@ public class Player : MonoBehaviour
 
 
         transform.position = new Vector3(TransformX + x * Speed, TransformY + y * Speed, 0);
+        Quaternion turnAngle = Quaternion.LookRotation(VJ.InputDirection, VJ.OriginalPosition);
+        transform.rotation = turnAngle;
+
+
 
     }
 
