@@ -103,7 +103,8 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   moveSpeed: 3
-  stopDistance: 0.5
+  stopDistance: 100
+  isMelee: 1
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
