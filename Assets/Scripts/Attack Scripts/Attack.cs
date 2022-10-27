@@ -13,12 +13,12 @@ public class Attack : MonoBehaviour
     public float knockback;
     public GameObject projectile;
     public AttackTypes attackType;
-    private Player owner;
+    public Attacker owner;
 
 
     private IEnumerator ShootSingleShot(Vector3 start, Vector3 direction)
     {
-        Quaternion rotation = owner.transform.rotation;
+        Quaternion rotation = owner.GetTransform().rotation;
         for (int i = 0; i < shotsPerAttack; i++)
         {
             GameObject projectileGO = Instantiate(projectile, start + direction / 2, Quaternion.identity);
@@ -39,7 +39,7 @@ public class Attack : MonoBehaviour
             GameObject projectileGO = Instantiate(projectile, start + direction / 2, Quaternion.identity);
             Projectile p = projectileGO.GetComponent<Projectile>();
             p.attack = this;
-            p.transform.rotation = owner.transform.rotation;
+            p.transform.rotation = owner.GetTransform().rotation;
         }
         else
         {
@@ -62,9 +62,8 @@ public class Attack : MonoBehaviour
             GameObject projectileGO = Instantiate(projectile, start + direction / 2, Quaternion.identity);
             Projectile p = projectileGO.GetComponent<Projectile>();
             p.attack = this;
-            p.transform.rotation = owner.transform.rotation;
+            p.transform.rotation = owner.GetTransform().rotation;
             p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-            Debug.Log(angle);
 
         }
         yield return null;
@@ -74,10 +73,10 @@ public class Attack : MonoBehaviour
         switch (attackType)
         {
             case AttackTypes.SingleShot:
-                StartCoroutine(ShootSingleShot(owner.transform.position, owner.direction));
+                StartCoroutine(ShootSingleShot(owner.GetTransform().position, owner.GetDirection()));
                 break;
             case AttackTypes.Shotgun:
-                StartCoroutine(ShootShotgun(owner.transform.position, owner.direction));
+                StartCoroutine(ShootShotgun(owner.GetTransform().position, owner.GetDirection()));
                 break;
             default:
                 break;
@@ -91,9 +90,9 @@ public class Attack : MonoBehaviour
     {
         if (projectile == null)
         {
-            projectile = Resources.Load("Projectiles/BasicProjectile", typeof(GameObject)) as GameObject;
+            projectile = Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
         }
-        owner = transform.GetComponentInParent<Player>();
+        owner = transform.GetComponentInParent<Attacker>();
 
     }
 

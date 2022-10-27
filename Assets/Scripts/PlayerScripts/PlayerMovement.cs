@@ -2,25 +2,18 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, Attacker
 {
     private VirtualJoystick VJ;
     public float Speed;
     public float DeadZonePercentage;
     public Vector3 direction;
-    public List<Attack> attacks;
-    private int attackIndex;
-    private float AttackTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
-        attackIndex = 0;
-        attacks.Add(transform.GetComponentInChildren<Attack>());
         direction = transform.up;
-
-
     }
 
     void Move()
@@ -43,25 +36,18 @@ public class Player : MonoBehaviour
         direction = VJ.InputDirection;
     }
 
-    void Attack()
-    {
-        AttackTimer += Time.deltaTime;
-        if (AttackTimer >= attacks[attackIndex].castTime)
-        {
-            attacks[attackIndex].Shoot();
-            attackIndex++;
-            if (attackIndex == attacks.Count)
-            {
-                attackIndex = 0;
-            }
-            AttackTimer = 0;
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
         Move();
-        Attack();
+    }
+
+    public Vector3 GetDirection()
+    {
+        return direction;
+    }
+    public Transform GetTransform()
+    {
+        return transform;
     }
 }
