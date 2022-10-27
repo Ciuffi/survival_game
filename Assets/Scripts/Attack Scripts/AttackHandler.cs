@@ -61,7 +61,7 @@ public class AttackHandler : MonoBehaviour
 
     void AddWeapon(GameObject weapon)
     {
-        weapon.transform.parent = transform;
+        weapon.transform.parent = attackContainer.transform;
         attacks.Add(weapon.GetComponent<Attack>());
     }
 
