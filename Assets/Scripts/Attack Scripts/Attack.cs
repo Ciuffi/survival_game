@@ -14,6 +14,9 @@ public class Attack : MonoBehaviour
     public GameObject projectile;
     public AttackTypes attackType;
     public Attacker owner;
+    public Attacker player;
+
+    public bool isEnemy;
 
 
     private IEnumerator ShootSingleShot(Vector3 start, Vector3 direction)
@@ -73,7 +76,16 @@ public class Attack : MonoBehaviour
         switch (attackType)
         {
             case AttackTypes.SingleShot:
-                StartCoroutine(ShootSingleShot(owner.GetTransform().position, owner.GetDirection()));
+                if (isEnemy == false)
+                {
+                    StartCoroutine(ShootSingleShot(owner.GetTransform().position, owner.GetDirection()));
+
+                }
+                else
+                {
+                    StartCoroutine(ShootSingleShot(owner.GetTransform().position, player.GetDirection()));
+                }
+
                 break;
             case AttackTypes.Shotgun:
                 StartCoroutine(ShootShotgun(owner.GetTransform().position, owner.GetDirection()));

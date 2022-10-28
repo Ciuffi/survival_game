@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour, Attacker
     public bool isMelee;
 
     public float health;
+    public float xpAmount;
 
 
     // Start is called before the first frame update
@@ -29,6 +30,8 @@ public class Enemy : MonoBehaviour, Attacker
 
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
 
+        health = 10;
+
     }
 
 
@@ -37,6 +40,7 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (health <= 0)
         {
+            player.gameObject.GetComponent<StatsHandler>().GainXP(xpAmount);
             Destroy(gameObject);
         }
 
