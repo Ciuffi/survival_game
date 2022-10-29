@@ -33,4 +33,16 @@ public class CanvasClickHandler : MonoBehaviour, IDragHandler, IPointerUpHandler
         VJ.OnPointerUp(ped);
     }
 
+    public void EnableJoystick()
+    {
+        JoystickContainer.gameObject.SetActive(true);
+        gameObject.GetComponent<Image>().raycastTarget = true;
+
+    }
+    public void DisableJoystick()
+    {
+        JoystickContainer.gameObject.SetActive(false);
+        gameObject.GetComponent<Image>().raycastTarget = false;
+    }
+
 }

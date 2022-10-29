@@ -37,6 +37,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.gameObject == null || attack.owner == null) return;
         if (col.gameObject.tag == "Enemy" && attack.owner.GetTransform().name == "Player")
         {
             col.gameObject.GetComponent<Enemy>().TakeDamage(attack.damage);
@@ -45,6 +46,7 @@ public class Projectile : MonoBehaviour
         else if (col.gameObject.name == "Player" && attack.owner.GetTransform().tag == "Enemy")
         {
             col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage);
+            Destroy(gameObject);
         }
     }
 }

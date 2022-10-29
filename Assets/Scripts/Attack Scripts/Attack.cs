@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Attack : MonoBehaviour, Upgrade
 {
     public float damage;
     public float spread;
@@ -14,9 +14,6 @@ public class Attack : MonoBehaviour
     public GameObject projectile;
     public AttackTypes attackType;
     public Attacker owner;
-    public Attacker player;
-
-    public bool isEnemy;
 
 
     private IEnumerator ShootSingleShot(Vector3 start, Vector3 direction)
@@ -76,16 +73,7 @@ public class Attack : MonoBehaviour
         switch (attackType)
         {
             case AttackTypes.SingleShot:
-                if (isEnemy == false)
-                {
-                    StartCoroutine(ShootSingleShot(owner.GetTransform().position, owner.GetDirection()));
-
-                }
-                else
-                {
-                    StartCoroutine(ShootSingleShot(owner.GetTransform().position, player.GetDirection()));
-                }
-
+                StartCoroutine(ShootSingleShot(owner.GetTransform().position, owner.GetDirection()));
                 break;
             case AttackTypes.Shotgun:
                 StartCoroutine(ShootShotgun(owner.GetTransform().position, owner.GetDirection()));
@@ -105,7 +93,6 @@ public class Attack : MonoBehaviour
             projectile = Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
         }
         owner = transform.GetComponentInParent<Attacker>();
-
     }
 
     // Update is called once per frame
@@ -113,4 +100,14 @@ public class Attack : MonoBehaviour
     {
 
     }
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+    public UpgradeType GetUpgradeType()
+    {
+        return UpgradeType.Weapon;
+    }
+
 }

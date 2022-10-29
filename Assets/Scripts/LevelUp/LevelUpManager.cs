@@ -1,30 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using System.Linq;
+using TMPro;
 public class LevelUpManager : MonoBehaviour
 {
-    public GameObject[] Attacks;
-
-    public float[] toLevelUp;
     public float baseXP;
     public float growthMultiplier;
+    private Slider xpBar;
+    private CoroutineQueue xpBarQueue;
+    private List<UpgradeHandler> upgrades;
+    private GameObject panel;
+    public GameObject[] weapons;
 
 
-    private void LevelXPSetUp()
+
+    public int GetXpToNextLevel(float level)
     {
-        for (int i = 1; i < toLevelUp.Length; i++)
-        {
-            toLevelUp[i] = (int)(Mathf.Floor(baseXP * (Mathf.Pow(i, growthMultiplier))));
-        }
+        return (int)(Mathf.Floor(baseXP * (Mathf.Pow(level, growthMultiplier))));
     }
 
-    public void LevelUp()
+
+    public void AddXP(float currXp, float newXp, float maxXp)
+    {
+        xpBarQueue.AddToQueue(BarHelper.AddToBar(xpBar, currXp, newXp, maxXp, 0.3f));
+    }
+    public void LevelUp(float level)
+    {
+        xpBarQueue.AddToQueue(BarHelper.RemoveFromBarTimed(xpBar, 0.3f));
+        ShowLevelUpUI();
+    }
+
+    private void setUpgrades()
+    {
+        upgrades.ForEach((u) =>
+        {
+            GameObject GO = weapons[Random.Range(0, weapons.Length)];
+            u.upgrade = GO.GetComponent<Attack>();
+            u.GetComponentInChildren<TMP_Text>().text = GO.name;
+        });
+    }
+
+    public void ShowLevelUpUI()
     {
         PauseGame();
-
+        setUpgrades();
+        GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
+        panel.SetActive(true);
     }
-    
+    public void SignalItemChosen()
+    {
+        panel.SetActive(false);
+        GameObject.FindObjectOfType<CanvasClickHandler>().EnableJoystick();
+        ResumeGame();
+    }
+
 
     public void PauseGame()
     {
@@ -36,19 +67,22 @@ public class LevelUpManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
-        LevelXPSetUp();
+        xpBarQueue = gameObject.AddComponent<CoroutineQueue>();
+        xpBarQueue.StartQueue();
+        xpBar = GameObject.Find("xpBar").GetComponent<Slider>();
+        panel = GameObject.Find("UpgradeContainer");
+        upgrades = new List<UpgradeHandler>(GameObject.FindObjectsOfType<UpgradeHandler>());
+        panel.SetActive(false);
+        weapons = Resources.LoadAll("Attacks", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

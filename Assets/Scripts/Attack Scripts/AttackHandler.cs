@@ -59,10 +59,11 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
-    void AddWeapon(GameObject weapon)
+    public void AddWeapon(GameObject weapon)
     {
         weapon.transform.parent = attackContainer.transform;
         attacks.Add(weapon.GetComponent<Attack>());
+        weapon.GetComponent<Attack>().owner = GetComponent<Attacker>();
     }
 
 
@@ -71,7 +72,7 @@ public class AttackHandler : MonoBehaviour
     void Start()
     {
         attackIndex = 0;
-        attackBar = FindObjectOfType<Slider>();
+        attackBar = GameObject.Find("AttackBar").GetComponent<Slider>();
         attackBarImage = attackBar.transform.GetChild(1).GetChild(0).GetComponent<Image>();
         attackContainer = new List<Transform>(GetComponentsInChildren<Transform>()).Find(t =>
         {
