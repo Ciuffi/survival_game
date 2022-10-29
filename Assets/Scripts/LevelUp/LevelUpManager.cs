@@ -61,11 +61,13 @@ public class LevelUpManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        GameObject.FindObjectOfType<PlayerMovement>().StopMoving();
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        GameObject.FindObjectOfType<PlayerMovement>().StartMoving();
     }
 
     // Start is called before the first frame update

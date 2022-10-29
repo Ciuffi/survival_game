@@ -7,6 +7,8 @@ public class Attack : MonoBehaviour, Upgrade
     public float damage;
     public float spread;
     public float castTime;
+    public float startTime;
+    public float range = 5;
     public int shotsPerAttack;
     public Effect effect;
     public float speed;
@@ -16,27 +18,32 @@ public class Attack : MonoBehaviour, Upgrade
     public Attacker owner;
 
 
-    private IEnumerator ShootSingleShot(Vector3 start, Vector3 direction)
+    private IEnumerator ShootSingleShot()
     {
-        Quaternion rotation = owner.GetTransform().rotation;
         for (int i = 0; i < shotsPerAttack; i++)
         {
-            GameObject projectileGO = Instantiate(projectile, start + direction / 2, Quaternion.identity);
+            Quaternion rotation = owner.GetTransform().rotation;
+            Vector3 position = owner.GetTransform().position;
+            Vector3 direction = owner.GetDirection();
+            GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
             Projectile p = projectileGO.GetComponent<Projectile>();
             p.attack = this;
             p.transform.rotation = rotation;
-            yield return new WaitForSeconds(0.1f);
+            p.projectileRange = range;
+            yield return new WaitForSeconds(spread);
         }
     }
-    private IEnumerator ShootShotgun(Vector3 start, Vector3 direction)
+    private IEnumerator ShootShotgun()
     {
         float spacer = 0;
         float angle = 0;
         int shotsLeft = shotsPerAttack;
         spacer = spread / (shotsPerAttack - 1);
+        Vector3 position = owner.GetTransform().position;
+        Vector3 direction = owner.GetDirection();
         if (shotsPerAttack % 2 != 0)
         {
-            GameObject projectileGO = Instantiate(projectile, start + direction / 2, Quaternion.identity);
+            GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
             Projectile p = projectileGO.GetComponent<Projectile>();
             p.attack = this;
             p.transform.rotation = owner.GetTransform().rotation;
@@ -59,7 +66,7 @@ public class Attack : MonoBehaviour, Upgrade
             {
                 angle = -angle;
             }
-            GameObject projectileGO = Instantiate(projectile, start + direction / 2, Quaternion.identity);
+            GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
             Projectile p = projectileGO.GetComponent<Projectile>();
             p.attack = this;
             p.transform.rotation = owner.GetTransform().rotation;
@@ -73,10 +80,13 @@ public class Attack : MonoBehaviour, Upgrade
         switch (attackType)
         {
             case AttackTypes.SingleShot:
-                StartCoroutine(ShootSingleShot(owner.GetTransform().position, owner.GetDirection()));
+                StartCoroutine(ShootSingleShot());
                 break;
             case AttackTypes.Shotgun:
-                StartCoroutine(ShootShotgun(owner.GetTransform().position, owner.GetDirection()));
+                StartCoroutine(ShootShotgun());
+                break;
+            case AttackTypes.Laser:
+                StartCoroutine(ShootSingleShot());
                 break;
             default:
                 break;

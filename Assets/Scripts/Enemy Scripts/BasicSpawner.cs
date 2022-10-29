@@ -14,19 +14,23 @@ public class BasicSpawner : MonoBehaviour
 
     public GameObject enemy1;
     public GameObject enemy2;
+    public StatsHandler player;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<StatsHandler>();
         StartCoroutine(SpawnEnemy());
     }
 
-    IEnumerator SpawnEnemy(){
+    IEnumerator SpawnEnemy()
+    {
 
         while (true)
         {
-           
+
             for (var i = 0; i < waveSize; i++)
             {
                 float randomChance = Random.Range(0.0f, 1.0f);
@@ -40,7 +44,7 @@ public class BasicSpawner : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(waveCD);
+            yield return new WaitForSeconds(waveCD - player.level / 2);
         }
 
     }
@@ -49,6 +53,6 @@ public class BasicSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

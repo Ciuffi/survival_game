@@ -117,6 +117,10 @@ public class Enemy : MonoBehaviour, Attacker
 
             rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
         }
+        if (col.gameObject.name == "Player")
+        {
+            col.GetComponent<StatsHandler>().TakeDamage(isMelee ? 2 : 1);
+        }
     }
 
     public Vector3 GetDirection()

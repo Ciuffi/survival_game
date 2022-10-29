@@ -47,6 +47,8 @@ MonoBehaviour:
   baseXP: 0
   growthMultiplier: 0
   weapons: []
+  stats: []
+  upgrades: []
 --- !u!1 &3287956671689121398
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +130,7 @@ MonoBehaviour:
   castTime: 2
   shotsPerAttack: 3
   effect: {fileID: 0}
-  speed: 0.015
+  speed: 0.0015
   knockback: 1000
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   attackType: 0
@@ -339,7 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764258ea83982cd40bdd7549a9acdb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 4
   DeadZonePercentage: 30
   direction: {x: 0, y: 0, z: 0}
 --- !u!114 &4022258243164444733
@@ -358,9 +359,14 @@ MonoBehaviour:
   xp: 0
   nextXp: 0
   health: 5
+  baseMaxHealth: 20
   maxHealth: 20
   speed: 4
+  baseSpeed: 0.01
   damageMultipler: 0
   defense: 0
+  baseDefense: 0.5
+  shield: 0
+  baseShield: 0
   stats: []
   LevelManager: {fileID: 0}

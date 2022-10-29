@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour, Attacker
     private VirtualJoystick VJ;
     public float DeadZonePercentage;
     public Vector3 direction;
+    public float oldSpeed;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,15 @@ public class PlayerMovement : MonoBehaviour, Attacker
         transform.position = new Vector3(TransformX + x * speed, TransformY + y * speed, 0);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
         direction = VJ.InputDirection;
+    }
+    public void StopMoving()
+    {
+        oldSpeed = GetComponent<StatsHandler>().speed;
+        GetComponent<StatsHandler>().speed = 0;
+    }
+    public void StartMoving()
+    {
+        GetComponent<StatsHandler>().speed = oldSpeed;
     }
 
     // Update is called once per frame

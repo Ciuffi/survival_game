@@ -49,13 +49,14 @@ public class AttackHandler : MonoBehaviour
             if (attacks.Count == 0) yield return null;
             Attack currentAttack = attacks[attackIndex];
             if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime));
-            yield return new WaitForSeconds(currentAttack.castTime);
-            currentAttack.Shoot();
+            yield return new WaitForSeconds(currentAttack.startTime > 0 ? currentAttack.startTime : currentAttack.castTime);
+            if (currentAttack != null) currentAttack.Shoot();
             attackIndex++;
-            if (attackIndex == attacks.Count)
+            if (attackIndex >= attacks.Count)
             {
                 attackIndex = 0;
             }
+            if (currentAttack.startTime > 0) yield return new WaitForSeconds(currentAttack.castTime - currentAttack.startTime);
             StopCoroutine("HandleAttackSlider");
         }
     }
@@ -73,6 +74,7 @@ public class AttackHandler : MonoBehaviour
         {
             Destroy(trans.gameObject);
         }
+        attacks.Clear();
         GameObject newWeapon = Instantiate(defaultWeapon, transform.position, Quaternion.identity);
 
         AddWeapon(newWeapon);
@@ -95,7 +97,7 @@ public class AttackHandler : MonoBehaviour
             AddWeapon(a.gameObject);
         });
         StartCoroutine(Attack());
-        defaultWeapon = Resources.Load<GameObject>("Attacks/SingleShot");
+        defaultWeapon = Resources.Load<GameObject>("Attacks/Single Shot");
     }
 
 }
