@@ -23,6 +23,10 @@ public class CoroutineQueue : MonoBehaviour
     {
         StopCoroutine(queueRoutine);
     }
+    public void EmptyQueue()
+    {
+        queue.Clear();
+    }
     public void AddToQueue(IEnumerator coroutine)
     {
         queue.Enqueue(coroutine);

@@ -28,6 +28,7 @@ public class LevelUpManager : MonoBehaviour
     }
     public void LevelUp(float level)
     {
+        xpBarQueue.EmptyQueue();
         xpBarQueue.AddToQueue(BarHelper.RemoveFromBarTimed(xpBar, 0.3f));
         ShowLevelUpUI();
     }

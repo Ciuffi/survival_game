@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        Application.targetFrameRate = 60;
         playerMovement = GameManager.FindObjectOfType<PlayerMovement>();
         playerPosition = playerMovement.transform.position;
         playerStats = playerMovement.GetComponent<StatsHandler>();

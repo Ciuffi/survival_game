@@ -111,7 +111,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Attack")
+        if (col.gameObject.tag == "Attack" && col.GetComponent<Projectile>().attack.owner.GetTransform().name == "Player")
         {
             knockDirection = rb.transform.position - col.gameObject.transform.position;
 

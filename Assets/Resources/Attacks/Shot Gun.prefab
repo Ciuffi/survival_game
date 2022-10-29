@@ -47,9 +47,11 @@ MonoBehaviour:
   damage: 3
   spread: 30
   castTime: 1.4
+  startTime: 0
+  range: 5
   shotsPerAttack: 3
   effect: {fileID: 0}
-  speed: 0.015
+  speed: 0.1
   knockback: 2000
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   attackType: 1

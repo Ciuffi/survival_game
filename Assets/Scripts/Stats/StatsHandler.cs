@@ -94,6 +94,7 @@ public class StatsHandler : MonoBehaviour
             {
                 Destroy(trans.gameObject);
             }
+            healthBarQueue.EmptyQueue();
             healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, health, maxHealth));
         }
     }

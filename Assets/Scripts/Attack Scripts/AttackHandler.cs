@@ -70,6 +70,8 @@ public class AttackHandler : MonoBehaviour
 
     public void ResetWeapons()
     {
+        StopCoroutine(Attack());
+
         foreach (Transform trans in attackContainer.transform)
         {
             Destroy(trans.gameObject);
@@ -78,6 +80,7 @@ public class AttackHandler : MonoBehaviour
         GameObject newWeapon = Instantiate(defaultWeapon, transform.position, Quaternion.identity);
 
         AddWeapon(newWeapon);
+        StartCoroutine(Attack());
     }
 
 
