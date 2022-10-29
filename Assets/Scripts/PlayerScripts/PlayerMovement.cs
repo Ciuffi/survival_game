@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour, Attacker
 {
     private VirtualJoystick VJ;
-    public float Speed;
     public float DeadZonePercentage;
     public Vector3 direction;
 
@@ -18,6 +17,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
     void Move()
     {
+        float speed = GetComponent<StatsHandler>().speed;
         if (VJ.InputDirection.magnitude == 0)
         {
             return;
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
         float x = Mathf.Abs(InputX) > DeadZonePercentage ? InputX / 100 : 0;
 
 
-        transform.position = new Vector3(TransformX + x * Speed, TransformY + y * Speed, 0);
+        transform.position = new Vector3(TransformX + x * speed, TransformY + y * speed, 0);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
         direction = VJ.InputDirection;
     }

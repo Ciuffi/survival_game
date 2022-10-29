@@ -8,24 +8,31 @@ public class StatsHandler : MonoBehaviour
     public int level;
     public float xp;
     public float nextXp;
-
     public float health;
-    public float maxHealth = 20;
+    public float baseMaxHealth = 20;
+
+    public float maxHealth;
     public float speed;
-    public float damageMultipler;
+    public float baseSpeed = 0.01f;
+    public float damageMultipler = 1;
     public float defense;
+    public float baseDefense = 0.5f;
+    public float shield;
+    public float baseShield = 0;
     public List<StatBoost> stats;
 
     public LevelUpManager LevelManager;
     private Slider healthBar;
     private CoroutineQueue healthBarQueue;
-
+    private GameObject StatContainer;
 
 
     public void TakeDamage(float damageAmount)
     {
-        healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, health - damageAmount, maxHealth, 0.5f));
-        health -= damageAmount;
+        float newHealth = health - damageAmount - defense;
+        healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
+        health = newHealth;
+        if (health <= 0) GameObject.FindObjectOfType<GameManager>().ResetGame();
     }
 
 
@@ -48,6 +55,49 @@ public class StatsHandler : MonoBehaviour
         LevelManager.LevelUp(level);
     }
 
+    public void CalculateStats()
+    {
+        ResetStats(false);
+        stats.ForEach((stat) =>
+        {
+            health += stat.extraHealth;
+            maxHealth += stat.extraMaxHealth;
+            speed += stat.extraSpeed;
+            shield += stat.exraShield;
+            damageMultipler += stat.damageMultipler;
+            defense += stat.exraDefense;
+        });
+        if (health > maxHealth) health = maxHealth;
+        healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, health, maxHealth));
+    }
+
+    public void AddStat(GameObject stat)
+    {
+        stat.transform.parent = StatContainer.transform;
+        this.stats.Add(stat.GetComponent<StatBoost>());
+        CalculateStats();
+    }
+    public void ResetStats(bool fullReset)
+    {
+        speed = baseSpeed;
+        maxHealth = baseMaxHealth;
+        shield = baseShield;
+        damageMultipler = 1;
+        defense = baseDefense;
+        if (fullReset)
+        {
+            level = 1;
+            xp = 0;
+            nextXp = LevelManager.GetXpToNextLevel(level);
+            health = maxHealth;
+            foreach (Transform trans in StatContainer.transform)
+            {
+                Destroy(trans.gameObject);
+            }
+            healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, health, maxHealth));
+        }
+    }
+
     void Start()
     {
         level = 1;
@@ -58,6 +108,15 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue = gameObject.AddComponent<CoroutineQueue>();
         healthBarQueue.StartQueue();
         health = maxHealth;
+        StatContainer = new List<Transform>(GetComponentsInChildren<Transform>()).Find(t =>
+        {
+            return t.name == "Weapons";
+        }).gameObject;
+        new List<StatBoost>(StatContainer.GetComponentsInChildren<StatBoost>()).ForEach(a =>
+        {
+            AddStat(a.gameObject);
+        });
+        CalculateStats();
     }
 }
 

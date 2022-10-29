@@ -45,7 +45,8 @@ public class Projectile : MonoBehaviour
         }
         else if (col.gameObject.name == "Player" && attack.owner.GetTransform().tag == "Enemy")
         {
-            col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage);
+            float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
+            col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage * multiplier);
             Destroy(gameObject);
         }
     }

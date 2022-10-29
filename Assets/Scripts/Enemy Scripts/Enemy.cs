@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour, Attacker
             if (distance <= stopDistance)
             {
                 StopMoving();
+                transform.LookAt(player.transform);
             }
             else
             {
@@ -84,6 +85,9 @@ public class Enemy : MonoBehaviour, Attacker
     private void StopMoving()
     {
         rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * 0;
+        Vector3 position = player.transform.position - transform.position;
+        position.z = 0;
+        transform.up = position;
     }
 
     public void TakeDamage(float damageAmount)
@@ -113,12 +117,6 @@ public class Enemy : MonoBehaviour, Attacker
 
             rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public Vector3 GetDirection()

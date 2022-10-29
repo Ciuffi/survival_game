@@ -10,11 +10,11 @@ public class LevelUpManager : MonoBehaviour
     public float growthMultiplier;
     private Slider xpBar;
     private CoroutineQueue xpBarQueue;
-    private List<UpgradeHandler> upgrades;
+    private List<UpgradeHandler> upgradeWindows;
     private GameObject panel;
     public GameObject[] weapons;
-
-
+    public GameObject[] stats;
+    public List<GameObject> upgrades;
 
     public int GetXpToNextLevel(float level)
     {
@@ -34,10 +34,11 @@ public class LevelUpManager : MonoBehaviour
 
     private void setUpgrades()
     {
-        upgrades.ForEach((u) =>
+        //create weighting later
+        upgradeWindows.ForEach((u) =>
         {
-            GameObject GO = weapons[Random.Range(0, weapons.Length)];
-            u.upgrade = GO.GetComponent<Attack>();
+            GameObject GO = upgrades[Random.Range(0, upgrades.Count)];
+            u.upgrade = GO.GetComponent<Upgrade>();
             u.GetComponentInChildren<TMP_Text>().text = GO.name;
         });
     }
@@ -74,10 +75,12 @@ public class LevelUpManager : MonoBehaviour
         xpBarQueue.StartQueue();
         xpBar = GameObject.Find("xpBar").GetComponent<Slider>();
         panel = GameObject.Find("UpgradeContainer");
-        upgrades = new List<UpgradeHandler>(GameObject.FindObjectsOfType<UpgradeHandler>());
+        upgradeWindows = new List<UpgradeHandler>(GameObject.FindObjectsOfType<UpgradeHandler>());
         panel.SetActive(false);
         weapons = Resources.LoadAll("Attacks", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
-
+        stats = Resources.LoadAll("Stats", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
+        upgrades = new List<GameObject>(weapons);
+        upgrades.AddRange(stats);
     }
 
     // Update is called once per frame

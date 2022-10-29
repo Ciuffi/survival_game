@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatBoost : MonoBehaviour
+public class StatBoost : MonoBehaviour, Upgrade
 {
-    // Start is called before the first frame update
-    void Start()
+    public float extraHealth;
+    public float extraMaxHealth;
+    public float extraSpeed;
+    public float damageMultipler;
+    public float exraDefense;
+    public float exraShield;
+    public UpgradeType GetUpgradeType()
     {
-        
+        return UpgradeType.StatBoost;
     }
-
-    // Update is called once per frame
-    void Update()
+    public Transform GetTransform()
     {
-        
+        return transform;
     }
 }

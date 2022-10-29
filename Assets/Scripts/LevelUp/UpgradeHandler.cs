@@ -17,6 +17,11 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
             GameObject newWeapon = Instantiate(upgrade.GetTransform().gameObject, playerAttacks.transform.position, Quaternion.identity);
             playerAttacks.AddWeapon(newWeapon);
         }
+        else
+        {
+            GameObject newStat = Instantiate(upgrade.GetTransform().gameObject, playerStats.transform.position, Quaternion.identity);
+            playerStats.AddStat(newStat);
+        }
         levelUpManager.SignalItemChosen();
     }
 

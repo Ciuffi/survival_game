@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public static class BarHelper
 {
+    public static IEnumerator ForceUpdateBar(Slider slider, float currAmount, float maxAmount)
+    {
+        slider.value = Mathf.Clamp01(currAmount / maxAmount);
+        yield break;
+    }
     public static IEnumerator AddToBar(Slider slider, float currAmount, float nextAmount, float maxAmount, float maxTime)
     {
         float timer = 0;

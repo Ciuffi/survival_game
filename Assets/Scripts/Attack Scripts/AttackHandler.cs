@@ -12,6 +12,7 @@ public class AttackHandler : MonoBehaviour
     private int attackIndex;
     private Slider attackBar;
     private Image attackBarImage;
+    private GameObject defaultWeapon;
     public Color[] colors = {
         Color.blue,
         Color.green,
@@ -66,6 +67,17 @@ public class AttackHandler : MonoBehaviour
         weapon.GetComponent<Attack>().owner = GetComponent<Attacker>();
     }
 
+    public void ResetWeapons()
+    {
+        foreach (Transform trans in attackContainer.transform)
+        {
+            Destroy(trans.gameObject);
+        }
+        GameObject newWeapon = Instantiate(defaultWeapon, transform.position, Quaternion.identity);
+
+        AddWeapon(newWeapon);
+    }
+
 
 
     // Start is called before the first frame update
@@ -83,7 +95,7 @@ public class AttackHandler : MonoBehaviour
             AddWeapon(a.gameObject);
         });
         StartCoroutine(Attack());
-
+        defaultWeapon = Resources.Load<GameObject>("Attacks/SingleShot");
     }
 
 }
