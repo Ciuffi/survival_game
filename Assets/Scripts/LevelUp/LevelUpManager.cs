@@ -21,6 +21,11 @@ public class LevelUpManager : MonoBehaviour
         return (int)(Mathf.Floor(baseXP * (Mathf.Pow(level, growthMultiplier))));
     }
 
+    public void ResetXP()
+    {
+        xpBarQueue.EmptyQueue();
+        xpBarQueue.AddToQueue(BarHelper.ForceUpdateBar(xpBar, 0, GetXpToNextLevel(1)));
+    }
 
     public void AddXP(float currXp, float newXp, float maxXp)
     {
@@ -28,7 +33,6 @@ public class LevelUpManager : MonoBehaviour
     }
     public void LevelUp(float level)
     {
-        xpBarQueue.EmptyQueue();
         xpBarQueue.AddToQueue(BarHelper.RemoveFromBarTimed(xpBar, 0.3f));
         ShowLevelUpUI();
     }

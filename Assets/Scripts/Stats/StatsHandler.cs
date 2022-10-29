@@ -96,6 +96,7 @@ public class StatsHandler : MonoBehaviour
             }
             healthBarQueue.EmptyQueue();
             healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, health, maxHealth));
+            LevelManager.ResetXP();
         }
     }
 
