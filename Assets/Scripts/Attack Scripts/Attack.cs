@@ -5,17 +5,39 @@ using UnityEngine;
 public class Attack : MonoBehaviour, Upgrade
 {
     public float damage;
+    public float damageUP;
+
     public float spread;
+    public float spreadUP;
+
     public float castTime;
+    public float castTimeUP;
+
     public float startTime;
+    public float startTimeUP;
+
     public float range = 5;
+    public float rangeUP;
+
     public int shotsPerAttack;
-    public Effect effect;
+    public int shotsPerAttackUP;
+
     public float speed;
+    public float speedUP;
+
     public float knockback;
+    public float knockbackUP;
+
     public GameObject projectile;
+    public Vector3 scaleUP;
+
+    public int rarity = 0; //0-common, 1-rare, 2-epic, 4-legendary
+
+    public Effect effect;
+
     public AttackTypes attackType;
     public Attacker owner;
+
 
 
     private IEnumerator ShootSingleShot()
@@ -103,7 +125,36 @@ public class Attack : MonoBehaviour, Upgrade
             projectile = Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
         }
         owner = transform.GetComponentInParent<Attacker>();
+
+        int y = rarity;
+        for (int i = 0; i < y; i++)
+        {
+            GenerateRarity(y, 0, 6);
+        }
+
+
     }
+
+    public static List<int> GenerateRarity(int count, int minValue, int maxValue)
+    {
+        List<int> possibleNumbers = new List<int>();
+        List<int> chosenNumbers = new List<int>();
+
+
+        for (int index = minValue; index < maxValue; index++)
+            possibleNumbers.Add(index);
+
+        while (chosenNumbers.Count < count)
+        {
+            int position = Random.Range(0, possibleNumbers.Count);
+            chosenNumbers.Add(possibleNumbers[position]);
+            possibleNumbers.RemoveAt(position);
+        }
+        return chosenNumbers;
+
+        
+    }
+
 
     // Update is called once per frame
     void Update()
