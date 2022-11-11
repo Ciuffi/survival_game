@@ -21,6 +21,10 @@ public class StatsHandler : MonoBehaviour
     public float baseShield = 0;
     public List<StatBoost> stats;
 
+    public float Iframes;
+    public float IFtimer;
+    public bool canDamage;
+
     public LevelUpManager LevelManager;
     private Slider healthBar;
     private CoroutineQueue healthBarQueue;
@@ -29,10 +33,30 @@ public class StatsHandler : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        float newHealth = health - damageAmount - defense;
-        healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
-        health = newHealth;
-        if (health <= 0) GameObject.FindObjectOfType<GameManager>().ResetGame();
+        if (canDamage == true)
+        {
+            float newHealth = health - damageAmount - defense;
+            healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
+            health = newHealth;
+            if (health <= 0) GameObject.FindObjectOfType<GameManager>().ResetGame();
+            canDamage = false;
+        }
+    }
+
+    public void Update()
+    {
+        if (canDamage == false)
+        {
+            IFtimer += Time.deltaTime;
+        } else
+        {
+            IFtimer = 0f;
+        }
+
+        if (IFtimer >= Iframes)
+        {
+            canDamage = true;
+        }
     }
 
 

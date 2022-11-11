@@ -32,13 +32,13 @@ public class Attack : MonoBehaviour, Upgrade
     public Vector3 scaleUP;
 
     public int rarity = 0; //0-common, 1-rare, 2-epic, 4-legendary
+    public List<int> chosenNumbers = new List<int>();
 
     public Effect effect;
-
     public AttackTypes attackType;
     public Attacker owner;
 
-    public List<int> chosenNumbers = new List<int>();
+    public GameObject MeleeAttack;
 
 
     private IEnumerator ShootSingleShot()
@@ -98,6 +98,56 @@ public class Attack : MonoBehaviour, Upgrade
         }
         yield return null;
     }
+
+    private IEnumerator Melee() 
+    {
+        float spacer = 0;
+        float angle = 0;
+        int shotsLeft = shotsPerAttack;
+        spacer = spread / (shotsPerAttack - 1);
+        Vector3 position = owner.GetTransform().position;
+        Vector3 direction = owner.GetDirection();
+        if (shotsPerAttack % 2 != 0)
+        {
+            GameObject projectileGO = Instantiate(MeleeAttack, position + direction / 2, Quaternion.identity);
+            Projectile p = projectileGO.GetComponent<Projectile>();
+            p.attack = this;
+            p.transform.rotation = owner.GetTransform().rotation;
+        }
+        else
+        {
+            spacer = spacer / 2;
+        }
+        for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
+        {
+            if (i == 0 && shotsPerAttack % 2 == 0)
+            {
+                angle = spacer / 2;
+            }
+            else if (i % 2 == 0)
+            {
+                angle = Mathf.Abs(angle) + spacer;
+            }
+            else
+            {
+                angle = -angle;
+            }
+            GameObject projectileGO = Instantiate(MeleeAttack, position + direction / 2, Quaternion.identity);
+            Projectile p = projectileGO.GetComponent<Projectile>();
+            p.attack = this;
+            p.transform.rotation = owner.GetTransform().rotation;
+            p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+
+        }
+        yield return null;
+
+    }
+
+   // private IEnumerator Utility() //buff effect on self
+   // {
+
+  //  }
+
     public void Shoot()
     {
         switch (attackType)
@@ -111,6 +161,12 @@ public class Attack : MonoBehaviour, Upgrade
             case AttackTypes.Laser:
                 StartCoroutine(ShootSingleShot());
                 break;
+            case AttackTypes.Melee:
+                StartCoroutine(Melee());
+                break;
+          //  case AttackTypes.Utility:
+              //  StartCoroutine(Utility());
+              //  break;
             default:
                 break;
         }

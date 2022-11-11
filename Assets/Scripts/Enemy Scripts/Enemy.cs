@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour, Attacker
     public float health;
     public float xpAmount;
 
+    public bool canDamage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,7 @@ public class Enemy : MonoBehaviour, Attacker
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
 
         health = 10;
+        canDamage = true;
 
     }
 
@@ -92,9 +95,35 @@ public class Enemy : MonoBehaviour, Attacker
 
     public void TakeDamage(float damageAmount)
     {
-        health -= damageAmount;
-        StopMoving();
+        if (canDamage == true)
+        {
+            health -= damageAmount;
+            StopMoving();
+        }
+        else
+        {
+
+        }
+        
     }
+
+
+    public void damageTickCounter(float damageTickCD)
+    {
+        float timer = 0f;
+        if (timer < damageTickCD)
+        {
+            canDamage = false;
+            timer += Time.deltaTime;
+        }
+        if (timer >= damageTickCD)
+        {
+            canDamage = true;
+            timer = 0f;
+        }
+    }
+
+
 
 
     private void LateUpdate()

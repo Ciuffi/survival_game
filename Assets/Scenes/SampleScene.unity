@@ -2082,63 +2082,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967337420}
   m_CullTransparentMesh: 1
---- !u!1001 &994868888
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1138688685}
-    m_Modifications:
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.07133351
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.99251544
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084469169486727492, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8199019244085325131, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
-      propertyPath: m_Name
-      value: Laser Gun
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7107cd7ebffa24e3f9420697c9245dc0, type: 3}
 --- !u!1 &1135953704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,11 +2119,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.5, y: 0}
   m_SizeDelta: {x: -5.0001, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &1138688685 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3287956671689121399, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-  m_PrefabInstance: {fileID: 1241507385}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1138799820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,6 +2307,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: Iframes
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: baseSpeed
       value: 0.05
       objectReference: {fileID: 0}
@@ -2376,6 +2318,54 @@ PrefabInstance:
       propertyPath: LevelManager
       value: 
       objectReference: {fileID: 1813415458}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: range
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spread
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: rangeUP
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: speedUP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damageUP
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spreadUP
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: knockback
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: castTimeUP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: knockbackUP
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170541607335219891, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: shotsPerAttack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7826251409800049588, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2395,6 +2385,10 @@ PrefabInstance:
     - target: {fileID: 8188596558862344631, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_Name
       value: Single Shot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188596558862344631, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8987731065231710456, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: rarity
