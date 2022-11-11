@@ -12,10 +12,6 @@ PrefabInstance:
       value: Laser Gun
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
-      propertyPath: range
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: speed
       value: 0.1
       objectReference: {fileID: 0}
@@ -28,39 +24,47 @@ PrefabInstance:
       value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
-      propertyPath: knockback
-      value: 250
+      propertyPath: rangeUP
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
-      propertyPath: startTime
+      propertyPath: speedUP
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: damageUP
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
-      propertyPath: attackType
-      value: 2
+      propertyPath: spreadUP
+      value: 0.0025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: knockback
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: castTimeUP
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 4908858350499337675, guid: dda17c7d9d33449c19308f85e4451365, type: 3}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: knockbackUP
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: shotsPerAttack
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: shotsPerAttackUP
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}

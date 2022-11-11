@@ -11,6 +11,16 @@ public class Projectile : MonoBehaviour
 
     public Vector2 spawnPos;
 
+    public GameObject self;
+    public Vector3 scaleRate;
+
+    public bool isBounce;
+    public float bounceRange;
+    public int bounceTimes;
+
+
+
+
     void Start()
     {
         spawnPos.x = transform.position.x;

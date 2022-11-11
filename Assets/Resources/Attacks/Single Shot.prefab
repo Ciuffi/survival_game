@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1449995561756442478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0040000007, y: 0.69, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: -2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,13 +45,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  spread: 0.1
+  damageUP: 10
+  spread: 0.2
+  spreadUP: 0.2
   castTime: 2
+  castTimeUP: 1.5
   startTime: 0
+  startTimeUP: 0
   range: 5
-  shotsPerAttack: 3
-  effect: {fileID: 0}
-  speed: 0.1
-  knockback: 1000
+  rangeUP: 10
+  shotsPerAttack: 1
+  shotsPerAttackUP: 3
+  speed: 0.08
+  speedUP: 0.12
+  knockback: 2000
+  knockbackUP: 4000
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
+  scaleUP: {x: 2, y: 2, z: 0}
+  rarity: 0
+  effect: {fileID: 0}
   attackType: 0
+  chosenNumbers: 

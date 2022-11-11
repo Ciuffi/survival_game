@@ -12,24 +12,56 @@ PrefabInstance:
       value: Long Shot
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: speed
-      value: 0.2
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: spread
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: rangeUP
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: speedUP
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: castTime
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: damageUP
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: spreadUP
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: knockback
-      value: 3000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
-      propertyPath: shotsPerAttack
-      value: 1
+      propertyPath: castTimeUP
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: knockbackUP
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: shotsPerAttackUP
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: m_RootOrder

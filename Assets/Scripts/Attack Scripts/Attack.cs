@@ -38,6 +38,7 @@ public class Attack : MonoBehaviour, Upgrade
     public AttackTypes attackType;
     public Attacker owner;
 
+    public List<int> chosenNumbers = new List<int>();
 
 
     private IEnumerator ShootSingleShot()
@@ -127,32 +128,63 @@ public class Attack : MonoBehaviour, Upgrade
         owner = transform.GetComponentInParent<Attacker>();
 
         int y = rarity;
-        for (int i = 0; i < y; i++)
+        GenerateRarity(y, 1, 5);
+  
+
+        if (chosenNumbers.Contains(1)) //Upgrade Type 1 - Damage
         {
-            GenerateRarity(y, 0, 6);
+            damage = damageUP;
+        }
+        
+        if (chosenNumbers.Contains(2)) //Upgrade Type 2 - spread /+ shotsPerAttack
+        {
+            spread = spreadUP;
+            shotsPerAttack = shotsPerAttackUP;
+        }
+        if (chosenNumbers.Contains(3)) //Upgrade Type 3 - castTime /+ startTime
+        {
+            castTime = castTimeUP;
+            startTime = startTimeUP;
+        }
+        if (chosenNumbers.Contains(4)) //Upgrade Type 4 - Range /+ speed
+        {
+            range = rangeUP;
+            speed = speedUP;
+        }
+        if (chosenNumbers.Contains(5)) //Upgrade Type 5 - Knockback
+        {
+            knockback = knockbackUP;
+        }
+        if (chosenNumbers.Contains(6)) //Upgrade Type 6 - Scale  
+        {
+           //projectile.transform.localScale = scaleUP;
         }
 
 
     }
 
-    public static List<int> GenerateRarity(int count, int minValue, int maxValue)
+    public List<int> GenerateRarity(int count, int minValue, int maxValue)
     {
         List<int> possibleNumbers = new List<int>();
-        List<int> chosenNumbers = new List<int>();
 
-
-        for (int index = minValue; index < maxValue; index++)
+        for (int index = minValue; index <= maxValue; index++)
             possibleNumbers.Add(index);
+    
 
         while (chosenNumbers.Count < count)
         {
             int position = Random.Range(0, possibleNumbers.Count);
             chosenNumbers.Add(possibleNumbers[position]);
             possibleNumbers.RemoveAt(position);
+
+            foreach (int value in chosenNumbers)
+            {
+                Debug.Log(value.ToString());
+            }
         }
         return chosenNumbers;
 
-        
+
     }
 
 
