@@ -60,9 +60,12 @@ MonoBehaviour:
   speedUP: 0.15
   knockback: 3000
   knockbackUP: 6000
+  pierce: 1
+  pierceUP: 2
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 0, y: 0, z: 0}
   rarity: 0
+  chosenNumbers: 
   effect: {fileID: 0}
   attackType: 1
-  chosenNumbers: 
+  MeleeAttack: {fileID: 0}

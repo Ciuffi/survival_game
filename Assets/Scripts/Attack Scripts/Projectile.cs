@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     public GameObject self;
     public Vector3 scaleRate;
 
+    public int pierce;
     public bool isBounce;
     public float bounceRange;
     public int bounceTimes;
@@ -25,7 +26,7 @@ public class Projectile : MonoBehaviour
     public float recovery;
     public float damageTick;
 
-    
+    public GameObject ComboManager;
 
 
     void Start()
@@ -103,12 +104,16 @@ public class Projectile : MonoBehaviour
             
             col.gameObject.GetComponent<Enemy>().TakeDamage(attack.damage);
             col.gameObject.GetComponent<Enemy>().damageTickCounter(damageTick);
+            ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
 
 
-            if (isMelee == false)
+            if (isMelee == false && pierce <= 0)
             {
                Destroy(gameObject);
-            } 
+            } else if (isMelee == false && pierce > 0)
+            {
+                pierce -= 1;
+            }
         }
         else if (col.gameObject.name == "Player" && attack.owner.GetTransform().tag == "Enemy")
         {
@@ -116,7 +121,8 @@ public class Projectile : MonoBehaviour
         
              float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
              col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage * multiplier);
-          
+             ComboManager.GetComponent<ComboTracker>().ResetCount();
+
             if (isMelee == false)
             {
                 Destroy(gameObject);

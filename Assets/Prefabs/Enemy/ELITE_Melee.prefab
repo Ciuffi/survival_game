@@ -58,6 +58,8 @@ MonoBehaviour:
   isMelee: 1
   health: 40
   xpAmount: 10
+  canDamage: 0
+  DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4

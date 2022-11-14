@@ -105,9 +105,17 @@ MonoBehaviour:
   spawnPos: {x: 0, y: 0}
   self: {fileID: 0}
   scaleRate: {x: 0, y: 0, z: 0}
+  pierce: 0
   isBounce: 0
   bounceRange: 0
   bounceTimes: 0
+  isMelee: 0
+  meleeTime: 0
+  startup: 0
+  active: 0
+  recovery: 0
+  damageTick: 0
+  ComboManager: {fileID: 6978388920087963452, guid: 148251fbb18745e4a82e164ffd9b921a, type: 3}
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4

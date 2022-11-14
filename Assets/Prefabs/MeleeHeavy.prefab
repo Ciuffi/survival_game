@@ -104,6 +104,7 @@ MonoBehaviour:
   spawnPos: {x: 0, y: 0}
   self: {fileID: 4908858350499337675}
   scaleRate: {x: 0, y: 0, z: 0}
+  pierce: 0
   isBounce: 0
   bounceRange: 0
   bounceTimes: 0
@@ -113,6 +114,7 @@ MonoBehaviour:
   active: 0.8
   recovery: 0.7
   damageTick: 0.5
+  ComboManager: {fileID: 6978388920087963452, guid: 148251fbb18745e4a82e164ffd9b921a, type: 3}
 --- !u!61 &6906953619245027108
 BoxCollider2D:
   m_ObjectHideFlags: 0

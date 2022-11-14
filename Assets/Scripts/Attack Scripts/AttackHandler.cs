@@ -51,13 +51,14 @@ public class AttackHandler : MonoBehaviour
             if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime));
             yield return new WaitForSeconds(currentAttack.startTime > 0 ? currentAttack.startTime : currentAttack.castTime);
             if (currentAttack != null) currentAttack.Shoot();
+            StopCoroutine("HandleAttackSlider");
             attackIndex++;
             if (attackIndex >= attacks.Count)
             {
                 attackIndex = 0;
             }
             if (currentAttack.startTime > 0) yield return new WaitForSeconds(currentAttack.castTime - currentAttack.startTime);
-            StopCoroutine("HandleAttackSlider");
+            //StopCoroutine("HandleAttackSlider");
         }
     }
 

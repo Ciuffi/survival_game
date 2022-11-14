@@ -28,6 +28,9 @@ public class Attack : MonoBehaviour, Upgrade
     public float knockback;
     public float knockbackUP;
 
+    public int pierce;
+    public int pierceUP;
+
     public GameObject projectile;
     public Vector3 scaleUP;
 

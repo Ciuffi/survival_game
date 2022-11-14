@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour, Attacker
     public float xpAmount;
 
     public bool canDamage;
-
+    public GameObject DamagePopup;
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +99,9 @@ public class Enemy : MonoBehaviour, Attacker
         {
             health -= damageAmount;
             StopMoving();
+            Instantiate(DamagePopup, rb.position, Quaternion.identity);
+            DamagePopup.GetComponent<DamagePopupText>().Setup(damageAmount);
+
         }
         else
         {
@@ -115,8 +118,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
             canDamage = false;
             timer += Time.deltaTime;
-        }
-        if (timer >= damageTickCD)
+        } else if (timer >= damageTickCD)
         {
             canDamage = true;
             timer = 0f;
