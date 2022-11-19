@@ -15,6 +15,9 @@ public class StatsHandler : MonoBehaviour
     public float speed;
     public float baseSpeed = 0.01f;
     public float damageMultipler = 1;
+    //public float critChance;
+    //public float critDmg;
+
     public float defense;
     public float baseDefense = 0.5f;
     public float shield;
