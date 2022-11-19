@@ -116,14 +116,21 @@ public class Enemy : MonoBehaviour, Attacker
         transform.up = position;
     }
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(float damageAmount, bool isCrit)
     {
         if (canDamage == true)
         {
             health -= damageAmount;
             StopMoving();
             Instantiate(DamagePopup, rb.position, Quaternion.identity);
-            DamagePopup.GetComponent<DamagePopupText>().Setup(damageAmount);
+            if (isCrit == true)
+            {
+                DamagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);
+            }
+            else
+            {
+                DamagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
+            }
 
         }
         else

@@ -2388,7 +2388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: growthMultiplier
-      value: 1.15
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: toLevelUp.Array.size
@@ -2398,6 +2398,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1999617144}
+    - target: {fileID: 7912857510417058254, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: critChance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7912857510417058254, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: meleeScale
       value: 0.4

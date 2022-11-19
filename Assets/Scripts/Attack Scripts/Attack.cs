@@ -33,6 +33,9 @@ public class Attack : MonoBehaviour, Upgrade
     public int pierce;
     public int pierceUP;
 
+    public float critChance; // 1 = 100% crit chance, 0 = 0% crit chance
+    public float critDmg; //1 = 100% of normal damage on a crit, 2 = 200% damage, etc.
+
     public GameObject projectile;
     public Vector3 scaleUP;
 
@@ -45,7 +48,7 @@ public class Attack : MonoBehaviour, Upgrade
     public GameObject Player;
 
     public GameObject MeleeAttack;
-    public int comboLength;
+    public int comboLength; // # of melee attacks instantiated in a row
     public float meleeScale; // scales up by % amount after each attack in the combo
     public float meleeSpacer = 0.7f; //spacer for first melee attack
     public float meleeSpacerGap = 1f; //spacer added for subsequent melee attacks 
@@ -193,6 +196,7 @@ public class Attack : MonoBehaviour, Upgrade
             // after one hit in the combo, do this
 
             MeleeAttack.transform.localScale += scaler;
+
             if (meleeScale > 0)
             {
                 localSpacer += meleeSpacerGap * (1 + meleeScale);
