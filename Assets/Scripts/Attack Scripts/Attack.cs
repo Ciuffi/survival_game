@@ -43,11 +43,12 @@ public class Attack : MonoBehaviour, Upgrade
     public AttackTypes attackType;
     public Attacker owner;
     public GameObject Player;
+
     public GameObject MeleeAttack;
     public int comboLength;
-    public float meleeScale;
-    public float meleeSpacer = 0.7f; //base 1 = 100% - increase/decrease by 0.x 
-    public float meleeSpacerGap = 1f;
+    public float meleeScale; // scales up by % amount after each attack in the combo
+    public float meleeSpacer = 0.7f; //spacer for first melee attack
+    public float meleeSpacerGap = 1f; //spacer added for subsequent melee attacks 
     public float comboWaitTime;
 
 
@@ -145,55 +146,71 @@ public class Attack : MonoBehaviour, Upgrade
         float localSpacer = meleeSpacer;
         Player.GetComponent<PlayerMovement>().NoMoving();
 
+        Vector3 originalScale = MeleeAttack.transform.localScale;
+        Vector3 scaler = new Vector3(meleeScale, meleeScale, meleeScale);
+
 
         for (int c = 0; c < comboLength; c++) { 
 
 
-        if (shotsPerAttack % 2 != 0)
-        {
-            Vector3 directionSpacer = Vector3.Scale (direction, new Vector3(localSpacer, localSpacer, localSpacer));
-
+            if (shotsPerAttack % 2 != 0)
+            {
+                    Vector3 directionSpacer = Vector3.Scale (direction, new Vector3(localSpacer, localSpacer, localSpacer));
                     GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
                     Projectile p = projectileGO.GetComponent<Projectile>();
                     p.attack = this;
                     p.transform.rotation = rotation;
 
-        }
-        else
-        {
-            spacer = spacer / 2;
-        }
-        for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
-        {
-            if (i == 0 && shotsPerAttack % 2 == 0)
+             }
+                else
+             {
+                    spacer = spacer / 2;
+                }
+                for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
+                {
+                    if (i == 0 && shotsPerAttack % 2 == 0)
+                    {
+                        angle = spacer / 2;
+                    }
+                    else if (i % 2 == 0)
+                    {
+                        angle = Mathf.Abs(angle) + spacer;
+                    }
+                    else
+                    {
+                        angle = -angle;
+                    }
+                        Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
+                        GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
+                        Projectile p = projectileGO.GetComponent<Projectile>();
+                        p.attack = this;
+                        p.transform.rotation = rotation;
+                        p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+
+                }
+              yield return new WaitForSeconds(comboWaitTime);
+
+            // after one hit in the combo, do this
+
+            MeleeAttack.transform.localScale += scaler;
+            if (meleeScale > 0)
             {
-                angle = spacer / 2;
-            }
-            else if (i % 2 == 0)
-            {
-                angle = Mathf.Abs(angle) + spacer;
+                localSpacer += meleeSpacerGap * (1 + meleeScale);
             }
             else
             {
-                angle = -angle;
+                localSpacer += meleeSpacerGap;
             }
-                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
-                GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = rotation;
-                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
 
-        }
-        yield return new WaitForSeconds(comboWaitTime);
 
-            localSpacer += meleeSpacerGap;
         }
         yield return null;
+            //can move again
+            Player.GetComponent<PlayerMovement>().YesMoving();
 
-        Player.GetComponent<PlayerMovement>().YesMoving();
-
-        localSpacer = meleeSpacer;
+            //reset gap between hits and original melee attack size
+            localSpacer = meleeSpacer;
+            MeleeAttack.transform.localScale = originalScale;
 
     }
 
