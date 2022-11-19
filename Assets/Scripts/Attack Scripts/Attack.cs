@@ -22,6 +22,8 @@ public class Attack : MonoBehaviour, Upgrade
     public int shotsPerAttack;
     public int shotsPerAttackUP;
 
+    public bool cantMove;
+
     public float speed;
     public float speedUP;
 
@@ -40,24 +42,51 @@ public class Attack : MonoBehaviour, Upgrade
     public Effect effect;
     public AttackTypes attackType;
     public Attacker owner;
-
+    public GameObject Player;
     public GameObject MeleeAttack;
+    public int comboLength;
+    public float meleeScale;
+    public float meleeSpacer = 0.7f; //base 1 = 100% - increase/decrease by 0.x 
+    public float meleeSpacerGap = 1f;
+    public float comboWaitTime;
+
 
 
     private IEnumerator ShootSingleShot()
     {
-        for (int i = 0; i < shotsPerAttack; i++)
+        if (cantMove == true)
         {
-            Quaternion rotation = owner.GetTransform().rotation;
-            Vector3 position = owner.GetTransform().position;
-            Vector3 direction = owner.GetDirection();
-            GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-            Projectile p = projectileGO.GetComponent<Projectile>();
-            p.attack = this;
-            p.transform.rotation = rotation;
-            p.projectileRange = range;
-            yield return new WaitForSeconds(spread);
+            Player.GetComponent<PlayerMovement>().NoMoving();
+            for (int i = 0; i < shotsPerAttack; i++)
+            {
+                Quaternion rotation = owner.GetTransform().rotation;
+                Vector3 position = owner.GetTransform().position;
+                Vector3 direction = owner.GetDirection();
+                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                p.projectileRange = range;
+                yield return new WaitForSeconds(spread);
+            }
+            Player.GetComponent<PlayerMovement>().YesMoving();
+
+        } else {
+
+            for (int i = 0; i < shotsPerAttack; i++)
+            {
+                Quaternion rotation = owner.GetTransform().rotation;
+                Vector3 position = owner.GetTransform().position;
+                Vector3 direction = owner.GetDirection();
+                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                p.projectileRange = range;
+                yield return new WaitForSeconds(spread);
+            }
         }
+           
     }
     private IEnumerator ShootShotgun()
     {
@@ -104,18 +133,31 @@ public class Attack : MonoBehaviour, Upgrade
 
     private IEnumerator Melee() 
     {
+
         float spacer = 0;
         float angle = 0;
         int shotsLeft = shotsPerAttack;
         spacer = spread / (shotsPerAttack - 1);
         Vector3 position = owner.GetTransform().position;
         Vector3 direction = owner.GetDirection();
+        Quaternion rotation = owner.GetTransform().rotation;
+
+        float localSpacer = meleeSpacer;
+        Player.GetComponent<PlayerMovement>().NoMoving();
+
+
+        for (int c = 0; c < comboLength; c++) { 
+
+
         if (shotsPerAttack % 2 != 0)
         {
-            GameObject projectileGO = Instantiate(MeleeAttack, position + direction / 2, Quaternion.identity);
-            Projectile p = projectileGO.GetComponent<Projectile>();
-            p.attack = this;
-            p.transform.rotation = owner.GetTransform().rotation;
+            Vector3 directionSpacer = Vector3.Scale (direction, new Vector3(localSpacer, localSpacer, localSpacer));
+
+                    GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
+                    Projectile p = projectileGO.GetComponent<Projectile>();
+                    p.attack = this;
+                    p.transform.rotation = rotation;
+
         }
         else
         {
@@ -135,21 +177,31 @@ public class Attack : MonoBehaviour, Upgrade
             {
                 angle = -angle;
             }
-            GameObject projectileGO = Instantiate(MeleeAttack, position + direction / 2, Quaternion.identity);
-            Projectile p = projectileGO.GetComponent<Projectile>();
-            p.attack = this;
-            p.transform.rotation = owner.GetTransform().rotation;
-            p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
+                GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
 
+        }
+        yield return new WaitForSeconds(comboWaitTime);
+
+            localSpacer += meleeSpacerGap;
         }
         yield return null;
 
+        Player.GetComponent<PlayerMovement>().YesMoving();
+
+        localSpacer = meleeSpacer;
+
     }
 
-   // private IEnumerator Utility() //buff effect on self
-   // {
 
-  //  }
+        // private IEnumerator Utility() //buff effect on self
+        // {
+
+        //  }
 
     public void Shoot()
     {

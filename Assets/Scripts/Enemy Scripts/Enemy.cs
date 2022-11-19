@@ -23,6 +23,10 @@ public class Enemy : MonoBehaviour, Attacker
     public bool canDamage;
     public GameObject DamagePopup;
 
+    public float Iframes;
+    float timer = 0f;
+    public bool isInvuln;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +82,25 @@ public class Enemy : MonoBehaviour, Attacker
             }
         }
 
+
+        //Iframes
+        if (isInvuln == true)
+        {
+            timer += Time.deltaTime;
+            if (timer <= Iframes)
+            {
+                canDamage = false;
+            }
+            else
+            {
+                canDamage = true;
+                timer = 0f;
+                isInvuln = false;
+            }
+        }
+
+      
+
     }
 
     private void MoveEnemy()
@@ -113,16 +136,10 @@ public class Enemy : MonoBehaviour, Attacker
 
     public void damageTickCounter(float damageTickCD)
     {
-        float timer = 0f;
-        if (timer < damageTickCD)
-        {
-            canDamage = false;
-            timer += Time.deltaTime;
-        } else if (timer >= damageTickCD)
-        {
-            canDamage = true;
-            timer = 0f;
-        }
+        //turn timer on
+        isInvuln = true;
+        //damageTickCD =  
+        
     }
 
 

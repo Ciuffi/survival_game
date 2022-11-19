@@ -484,6 +484,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeHeavy
       objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 89b385cd1fd80aa4db4276c70e825cc6, type: 3}
+      propertyPath: comboWaitTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8735341029624650593, guid: 89b385cd1fd80aa4db4276c70e825cc6, type: 3}
       propertyPath: m_RootOrder
       value: 0

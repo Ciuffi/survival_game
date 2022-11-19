@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5928492518038914266}
   - component: {fileID: 7297495058217971513}
   - component: {fileID: 1441713891751434987}
-  - component: {fileID: 6906953619245027108}
+  - component: {fileID: 8755312971848981562}
   m_Layer: 0
   m_Name: MeleeHeavy
   m_TagString: Attack
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4908858350499337675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.59, y: 0.65, z: 0}
-  m_LocalScale: {x: 0.57647514, y: 0.55725926, z: 0.7686335}
+  m_LocalScale: {x: 0.86898947, y: 0.8400231, z: 1.1586525}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 1, g: 0.6909754, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,8 +102,7 @@ MonoBehaviour:
   projectileRange: 0
   knockback: 0
   spawnPos: {x: 0, y: 0}
-  self: {fileID: 4908858350499337675}
-  scaleRate: {x: 0, y: 0, z: 0}
+  ComboManager: {fileID: 6978388920087963452, guid: 148251fbb18745e4a82e164ffd9b921a, type: 3}
   pierce: 0
   isBounce: 0
   bounceRange: 0
@@ -114,9 +113,10 @@ MonoBehaviour:
   active: 0.8
   recovery: 0.7
   damageTick: 0.5
-  ComboManager: {fileID: 6978388920087963452, guid: 148251fbb18745e4a82e164ffd9b921a, type: 3}
---- !u!61 &6906953619245027108
-BoxCollider2D:
+  scaleSpeed: 3
+  disappearSpeed: 3
+--- !u!58 &8755312971848981562
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,16 +128,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.0019159839, y: -0.000000049275368}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5210759

@@ -56,6 +56,7 @@ MonoBehaviour:
   rangeUP: 10
   shotsPerAttack: 1
   shotsPerAttackUP: 3
+  cantMove: 1
   speed: 0.08
   speedUP: 0.12
   knockback: 2000
@@ -68,4 +69,10 @@ MonoBehaviour:
   chosenNumbers: 
   effect: {fileID: 0}
   attackType: 0
+  Player: {fileID: 9136689211427610680, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
   MeleeAttack: {fileID: 0}
+  comboLength: 0
+  meleeScale: 0
+  meleeSpacer: 0.7
+  meleeSpacerGap: 1
+  comboWaitTime: 0

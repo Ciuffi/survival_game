@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class ComboTracker : MonoBehaviour
 {
@@ -19,13 +20,13 @@ public class ComboTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        string comboText = "x" + comboCount;
+        GetComponentInChildren<TMP_Text>().text = comboText;
     }
 
     private void FixedUpdate()
     {
-        string comboText = "x" + comboCount;
-        GetComponentInChildren<TMP_Text>().text = comboText;
+        
     }
 
     public void IncreaseCount(int amount)

@@ -68,6 +68,14 @@ PrefabInstance:
       value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: meleeSpacer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: meleeSpacerGap
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: shotsPerAttackUP
       value: 2
       objectReference: {fileID: 0}

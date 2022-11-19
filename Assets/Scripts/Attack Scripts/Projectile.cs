@@ -11,8 +11,7 @@ public class Projectile : MonoBehaviour
 
     public Vector2 spawnPos;
 
-    public GameObject self;
-    public Vector3 scaleRate;
+    public GameObject ComboManager;
 
     public int pierce;
     public bool isBounce;
@@ -26,7 +25,10 @@ public class Projectile : MonoBehaviour
     public float recovery;
     public float damageTick;
 
-    public GameObject ComboManager;
+
+    public float scaleSpeed;
+    public float disappearSpeed;
+
 
 
     void Start()
@@ -35,7 +37,6 @@ public class Projectile : MonoBehaviour
         spawnPos.y = transform.position.y;
 
         knockback = attack.knockback;
-        
     }
 
   
@@ -49,21 +50,34 @@ public class Projectile : MonoBehaviour
         } else
         {
             meleeTime += Time.deltaTime;
+            float alphaSpeed;
+            Vector3 scaleUp;
+
             if (meleeTime < startup)
             {
-                self.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
-                self.GetComponent<Collider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
+                GetComponent<Collider2D>().enabled = false;
             }
             else if (meleeTime >= startup && meleeTime < (startup + active))
             {
-                self.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-                self.GetComponent<Collider2D>().enabled = true;
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                GetComponent<Collider2D>().enabled = true;
             }
             else if (meleeTime >= (startup + active))
             {
-                self.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
-                self.GetComponent<Collider2D>().enabled = false;
+                alphaSpeed = disappearSpeed * Time.deltaTime;
+                scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
+
+
+                GetComponent<SpriteRenderer>().color -= new Color (0,0,0,alphaSpeed);
+                transform.localScale -= scaleUp;
+                GetComponent<Collider2D>().enabled = false;
             }
+        }
+
+        if (transform.localScale.x < 0)
+        {
+            Destroy(gameObject);
         }
 
 
@@ -83,10 +97,7 @@ public class Projectile : MonoBehaviour
             }
         } else
         {
-            if (meleeTime >= startup + active + recovery)
-            {
-                Destroy(gameObject);
-            }
+            
 
         }
 
