@@ -2399,9 +2399,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1999617144}
     - target: {fileID: 7912857510417058254, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: meleeScale
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912857510417058254, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: MeleeAttack
       value: 
       objectReference: {fileID: 4908858350499337675, guid: 79bd9af28726ad84d83073065b56f545, type: 3}
+    - target: {fileID: 7912857510417058254, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: meleeSpacer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912857510417058254, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: comboWaitTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8188596558862344631, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_Name
       value: Single Shot
