@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5928492518038914266}
   - component: {fileID: 7297495058217971513}
   - component: {fileID: 1441713891751434987}
-  - component: {fileID: 8755312971848981562}
+  - component: {fileID: 4953048033148275019}
   m_Layer: 0
   m_Name: MeleeHeavy
   m_TagString: Attack
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4908858350499337675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.59, y: 0.65, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,7 +103,6 @@ MonoBehaviour:
   projectileRange: 0
   knockback: 0
   spawnPos: {x: 0, y: 0}
-  ComboManager: {fileID: 6978388920087963452, guid: 148251fbb18745e4a82e164ffd9b921a, type: 3}
   pierce: 0
   isBounce: 0
   bounceRange: 0
@@ -111,14 +110,17 @@ MonoBehaviour:
   isMelee: 1
   meleeTime: 0
   startup: 0
-  active: 0.8
-  recovery: 0.7
+  active: 0.7
+  recovery: 0.6
   damageTick: 0.5
-  scaleSpeed: 3
+  scaleSpeed: 4
   disappearSpeed: 3
   isCrit: 0
---- !u!58 &8755312971848981562
-CircleCollider2D:
+  playerShakeTime: 0
+  playerShakeStrength: 0
+  playerShakeRotation: 0
+--- !u!60 &4953048033148275019
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,6 +132,21 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0019159839, y: -0.000000049275368}
-  serializedVersion: 2
-  m_Radius: 0.5210759
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.8828125}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.2514801, y: 0.436554}
+      - {x: -0.50397086, y: 0.0013235807}
+      - {x: -0.25384617, y: -0.4387221}
+      - {x: 0.25244284, y: -0.4395183}
+      - {x: 0.50488544, y: 0}
+      - {x: 0.2524426, y: 0.43847913}

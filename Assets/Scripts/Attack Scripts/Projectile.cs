@@ -6,13 +6,14 @@ public class Projectile : MonoBehaviour
 {
     public Attack attack;
 
+    GameObject Camera;
+    GameObject ComboManager;
+
     public float damage;
     public float projectileRange;
     public float knockback;
 
     public Vector2 spawnPos;
-
-    public GameObject ComboManager;
 
     public int pierce;
     public bool isBounce;
@@ -34,8 +35,13 @@ public class Projectile : MonoBehaviour
     float critDmg;
     public bool isCrit;
 
+    public float playerShakeTime, playerShakeStrength, playerShakeRotation;
+
     void Start()
     {
+        Camera = GameObject.FindWithTag("MainCamera");
+        ComboManager = GameObject.FindWithTag("ComboManager");
+
         spawnPos.x = transform.position.x;
         spawnPos.y = transform.position.y;
         damage = attack.damage;
@@ -146,7 +152,7 @@ public class Projectile : MonoBehaviour
             }
             col.gameObject.GetComponent<Enemy>().damageTickCounter(damageTick);
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
-
+            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
 
             if (isMelee == false && pierce <= 0)
             {
@@ -163,6 +169,7 @@ public class Projectile : MonoBehaviour
              float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
              col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage * multiplier);
              ComboManager.GetComponent<ComboTracker>().ResetCount();
+             Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
 
             if (isMelee == false)
             {

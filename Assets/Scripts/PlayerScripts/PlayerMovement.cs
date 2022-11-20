@@ -7,9 +7,10 @@ public class PlayerMovement : MonoBehaviour, Attacker
     private VirtualJoystick VJ;
     public float DeadZonePercentage;
     public Vector3 direction;
-    public float oldSpeed;
 
     public bool canMove;
+    public float oldSpeed;
+    public float localSpeed;
 
 
     // Start is called before the first frame update
@@ -18,14 +19,14 @@ public class PlayerMovement : MonoBehaviour, Attacker
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
         direction = transform.up;
         canMove = true;
+        oldSpeed = 0;
+        localSpeed = 0;
     }
 
     void Move()
-    {
-        if (canMove == true)
-        {
-            float speed = GetComponent<StatsHandler>().speed;
-            if (VJ.InputDirection.magnitude == 0)
+    { 
+
+        if (VJ.InputDirection.magnitude == 0)
             {
                 return;
             }
@@ -37,37 +38,38 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
             float x = Mathf.Abs(InputX) > DeadZonePercentage ? InputX / 100 : 0;
 
-
-            transform.position = new Vector3(TransformX + x * speed, TransformY + y * speed, 0);
+            transform.position = new Vector3(TransformX + x * localSpeed, TransformY + y * localSpeed, 0);
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
             direction = VJ.InputDirection;
-        }
+        
+        
     }
     public void StopMoving()
     {
-        oldSpeed = GetComponent<StatsHandler>().speed;
-        GetComponent<StatsHandler>().speed = 0;
+        canMove = false;
+        oldSpeed = localSpeed;
+        localSpeed = 0;
     }
     public void StartMoving()
     {
-        GetComponent<StatsHandler>().speed = oldSpeed;
-    }
-
-    public void NoMoving()
-    {
-        canMove = false;
-    }
-
-    public void YesMoving()
-    {
+        localSpeed = oldSpeed;
         canMove = true;
     }
+
 
     // Update is called once per frame
     void Update()
     {
+        float speed = GetComponent<StatsHandler>().speed;
+
+        if (canMove == true)
+        {
+            localSpeed = speed;
+        }
+
         Move();
     }
+
 
     public Vector3 GetDirection()
     {

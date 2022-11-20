@@ -23,8 +23,8 @@ public class BasicSpawner : MonoBehaviour
 
     public float gameTimer;
 
-    public float eliteInterval;
-
+    public float eliteFirstSpawn;
+    bool firstSpawn = true;
 
 
     // Start is called before the first frame update
@@ -53,7 +53,7 @@ public class BasicSpawner : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(waveCD - player.level / 2);
+            yield return new WaitForSeconds(waveCD);
         }
 
     }
@@ -77,7 +77,7 @@ public class BasicSpawner : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(waveCDElite - player.level / 2);
+            yield return new WaitForSeconds(waveCDElite);
         }
 
     }
@@ -86,12 +86,16 @@ public class BasicSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameTimer += Time.deltaTime;
 
-        if (gameTimer >= eliteInterval)
+        if (firstSpawn == true)
+        {
+            gameTimer += Time.deltaTime;
+        }
+
+        if (gameTimer >= eliteFirstSpawn && firstSpawn == true)
         {
             StartCoroutine(SpawnElite());
-            gameTimer = 0;
+            firstSpawn = false;
         }
 
     }

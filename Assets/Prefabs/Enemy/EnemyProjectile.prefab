@@ -100,11 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 0}
+  damage: 0
   projectileRange: 5
   knockback: 0
   spawnPos: {x: 0, y: 0}
-  self: {fileID: 0}
-  scaleRate: {x: 0, y: 0, z: 0}
   pierce: 0
   isBounce: 0
   bounceRange: 0
@@ -115,7 +114,12 @@ MonoBehaviour:
   active: 0
   recovery: 0
   damageTick: 0
-  ComboManager: {fileID: 6978388920087963452, guid: 148251fbb18745e4a82e164ffd9b921a, type: 3}
+  scaleSpeed: 0
+  disappearSpeed: 0
+  isCrit: 0
+  playerShakeTime: 0.3
+  playerShakeStrength: 0.3
+  playerShakeRotation: 10
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4

@@ -63,7 +63,7 @@ MonoBehaviour:
   knockbackUP: 4000
   pierce: 1
   pierceUP: 2
-  critChance: 0
+  critChance: 0.25
   critDmg: 2
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
@@ -71,10 +71,12 @@ MonoBehaviour:
   chosenNumbers: 
   effect: {fileID: 0}
   attackType: 0
-  Player: {fileID: 9136689211427610680, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
   MeleeAttack: {fileID: 0}
   comboLength: 0
   meleeScale: 0
   meleeSpacer: 0.7
   meleeSpacerGap: 1
   comboWaitTime: 0
+  shakeTime: 0
+  shakeStrength: 0
+  shakeRotation: 0

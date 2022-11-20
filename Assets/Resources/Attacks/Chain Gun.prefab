@@ -60,6 +60,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: critChance
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 4235860010000021921, guid: 979b350b6a0381e41a4a497d8296bae6, type: 3}
