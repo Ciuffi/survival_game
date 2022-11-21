@@ -1,102 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 public class BasicSpawner : MonoBehaviour
 {
-
-    public float waveCD = 10f;
-    public float waveCDElite = 20f;
-
-    //public float spawnGap = 0.1f;
-
-    public int waveSize = 4;
-    public int waveSizeElite = 1;
-
-    public GameObject enemy1;
-    public GameObject enemy2;
-    public GameObject elite1;
-    public GameObject elite2;
-
+    public bool isSpawning;
     public StatsHandler player;
-
-    public float gameTimer;
-
-    public float eliteFirstSpawn;
-    bool firstSpawn = true;
+    public Queue<EnemySpawn> enemySpawns;
+    public EnemySpawnMap spawnMap;
 
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<StatsHandler>();
-        StartCoroutine(SpawnEnemy());
+        isSpawning = true;
+        spawnMap = new LevelOneSpawnMap();
+        StartCoroutine(StartSpawner());
     }
 
-    IEnumerator SpawnEnemy()
+    public void StopSpawn()
     {
+        isSpawning = false;
+    }
 
+    public void StartSpawning()
+    {
+        isSpawning = true;
+    }
+
+    IEnumerator StartSpawner()
+    {
         while (true)
         {
-
-            for (var i = 0; i < waveSize; i++)
+            foreach (EnemySpawn enemy in spawnMap.spawnMaps)
             {
-                float randomChance = Random.Range(0.0f, 1.0f);
-                if (randomChance <= 0.5f)
+                if (!isSpawning) yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(enemy.TimeToSpawn);
+                if (!isSpawning) yield return new WaitForEndOfFrame();
+                for (int i = 0; i < enemy.EnemiesPerWave; i++)
                 {
-                    Instantiate(enemy1, new Vector3(transform.position.x + i, transform.position.y, -1), Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(enemy2, new Vector3(transform.position.x + i, transform.position.y, -1), Quaternion.identity);
+                    int spawnIndex = MathUtilities.GetWeightedResult(enemy.EnemiesToSpawn.Values.ToArray<int>());
+                    GameObject spawn = enemy.EnemiesToSpawn.Keys.ToArray<GameObject>()[spawnIndex];
+                    Vector3 spawnPosition = transform.position + MathUtilities.DegreesToVector3(enemy.Direction) * (6 + enemy.Distance);
+                    Instantiate(spawn, spawnPosition, Quaternion.identity);
                 }
             }
-
-            yield return new WaitForSeconds(waveCD);
         }
-
     }
-
-    IEnumerator SpawnElite()
-    {
-
-        while (true)
-        {
-
-            for (var i = 0; i < waveSizeElite; i++)
-            {
-                float randomChance = Random.Range(0.0f, 1.0f);
-                if (randomChance <= 0.5f)
-                {
-                    Instantiate(elite1, new Vector3(transform.position.x + i, transform.position.y, -1), Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(elite2, new Vector3(transform.position.x + i, transform.position.y, -1), Quaternion.identity);
-                }
-            }
-
-            yield return new WaitForSeconds(waveCDElite);
-        }
-
-    }
-
 
     // Update is called once per frame
     void Update()
     {
-
-        if (firstSpawn == true)
-        {
-            gameTimer += Time.deltaTime;
-        }
-
-        if (gameTimer >= eliteFirstSpawn && firstSpawn == true)
-        {
-            StartCoroutine(SpawnElite());
-            firstSpawn = false;
-        }
-
+        // Follow the player
+        transform.position = player.transform.position;
     }
 }

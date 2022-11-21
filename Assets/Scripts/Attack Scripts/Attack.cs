@@ -84,7 +84,8 @@ public class Attack : MonoBehaviour, Upgrade
             }
             Player.GetComponent<PlayerMovement>().StartMoving();
         }
-        else {
+        else
+        {
 
             for (int i = 0; i < shotsPerAttack; i++)
             {
@@ -193,7 +194,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     }
 
-    private IEnumerator Melee() 
+    private IEnumerator Melee()
     {
 
         float spacer = 0;
@@ -211,52 +212,54 @@ public class Attack : MonoBehaviour, Upgrade
         Vector3 scaler = new Vector3(meleeScale, meleeScale, meleeScale);
 
 
-        for (int c = 0; c < comboLength; c++) { 
+        for (int c = 0; c < comboLength; c++)
+        {
 
 
             if (shotsPerAttack % 2 != 0)
             {
-                    Vector3 directionSpacer = Vector3.Scale (direction, new Vector3(localSpacer, localSpacer, localSpacer));
-                    GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
-                    Projectile p = projectileGO.GetComponent<Projectile>();
-                    p.attack = this;
-                    p.transform.rotation = rotation;
-                    if (c >= 1) {
-                        p.transform.localScale += scaler * c;
-                      }
-                    Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
-
-
-            }
-                else
-             {
-                    spacer = spacer / 2;
-                }
-                for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
+                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
+                GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                if (c >= 1)
                 {
-                    if (i == 0 && shotsPerAttack % 2 == 0)
-                    {
-                        angle = spacer / 2;
-                    }
-                    else if (i % 2 == 0)
-                    {
-                        angle = Mathf.Abs(angle) + spacer;
-                    }
-                    else
-                    {
-                        angle = -angle;
-                    }
-                        Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
-                        GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
-                        Projectile p = projectileGO.GetComponent<Projectile>();
-                        p.attack = this;
-                        p.transform.rotation = rotation;
-                        p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+                    p.transform.localScale += scaler * c;
+                }
+                Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
 
-                        Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
 
             }
-              yield return new WaitForSeconds(comboWaitTime);
+            else
+            {
+                spacer = spacer / 2;
+            }
+            for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
+            {
+                if (i == 0 && shotsPerAttack % 2 == 0)
+                {
+                    angle = spacer / 2;
+                }
+                else if (i % 2 == 0)
+                {
+                    angle = Mathf.Abs(angle) + spacer;
+                }
+                else
+                {
+                    angle = -angle;
+                }
+                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
+                GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+
+                Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
+
+            }
+            yield return new WaitForSeconds(comboWaitTime);
 
             // after one hit in the combo, do this
 
@@ -272,19 +275,19 @@ public class Attack : MonoBehaviour, Upgrade
 
         }
         yield return null;
-            //can move again
-            Player.GetComponent<PlayerMovement>().StartMoving();
+        //can move again
+        Player.GetComponent<PlayerMovement>().StartMoving();
 
-            //reset gap between hits
-            localSpacer = meleeSpacer;
+        //reset gap between hits
+        localSpacer = meleeSpacer;
 
     }
 
 
-        // private IEnumerator Utility() //buff effect on self
-        // {
+    // private IEnumerator Utility() //buff effect on self
+    // {
 
-        //  }
+    //  }
 
     public void Shoot()
     {
@@ -302,9 +305,9 @@ public class Attack : MonoBehaviour, Upgrade
             case AttackTypes.Melee:
                 StartCoroutine(Melee());
                 break;
-          //  case AttackTypes.Utility:
-              //  StartCoroutine(Utility());
-              //  break;
+            //  case AttackTypes.Utility:
+            //  StartCoroutine(Utility());
+            //  break;
             default:
                 break;
         }
@@ -323,13 +326,13 @@ public class Attack : MonoBehaviour, Upgrade
 
         int y = rarity;
         GenerateRarity(y, 1, 5);
-  
+
 
         if (chosenNumbers.Contains(1)) //Upgrade Type 1 - Damage
         {
             damage = damageUP;
         }
-        
+
         if (chosenNumbers.Contains(2)) //Upgrade Type 2 - spread /+ shotsPerAttack
         {
             spread = spreadUP;
@@ -351,7 +354,7 @@ public class Attack : MonoBehaviour, Upgrade
         }
         if (chosenNumbers.Contains(6)) //Upgrade Type 6 - Scale  
         {
-           //projectile.transform.localScale = scaleUP;
+            //projectile.transform.localScale = scaleUP;
         }
 
         Camera = GameObject.FindWithTag("MainCamera");
@@ -365,7 +368,7 @@ public class Attack : MonoBehaviour, Upgrade
 
         for (int index = minValue; index <= maxValue; index++)
             possibleNumbers.Add(index);
-    
+
 
         while (chosenNumbers.Count < count)
         {
@@ -375,7 +378,6 @@ public class Attack : MonoBehaviour, Upgrade
 
             foreach (int value in chosenNumbers)
             {
-                Debug.Log(value.ToString());
             }
         }
         return chosenNumbers;

@@ -52,14 +52,14 @@ public class Projectile : MonoBehaviour
         float critRoll;
 
         critRoll = Random.value;
-        Debug.Log(critRoll);
 
         if (critChance >= critRoll)
         { //CRITS
             damage = damage * critDmg;
             isCrit = true;
 
-        } else
+        }
+        else
         {
             //no crit 
             isCrit = false;
@@ -67,15 +67,16 @@ public class Projectile : MonoBehaviour
 
     }
 
-  
+
 
     void Update()
     {
-       
+
         if (isMelee == false)
         {
             transform.position += transform.up * attack.speed;
-        } else
+        }
+        else
         {
             meleeTime += Time.deltaTime;
             float alphaSpeed;
@@ -97,7 +98,7 @@ public class Projectile : MonoBehaviour
                 scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
 
 
-                GetComponent<SpriteRenderer>().color -= new Color (0,0,0,alphaSpeed);
+                GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
                 transform.localScale -= scaleUp;
                 GetComponent<Collider2D>().enabled = false;
             }
@@ -111,7 +112,7 @@ public class Projectile : MonoBehaviour
 
     }
 
-  
+
 
     private void FixedUpdate()
     {
@@ -123,17 +124,18 @@ public class Projectile : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        } else
+        }
+        else
         {
-            
+
 
         }
 
 
 
     }
-    
-  
+
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -156,20 +158,21 @@ public class Projectile : MonoBehaviour
 
             if (isMelee == false && pierce <= 0)
             {
-               Destroy(gameObject);
-            } else if (isMelee == false && pierce > 0)
+                Destroy(gameObject);
+            }
+            else if (isMelee == false && pierce > 0)
             {
                 pierce -= 1;
             }
         }
         else if (col.gameObject.name == "Player" && attack.owner.GetTransform().tag == "Enemy")
         {
-            
-        
-             float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
-             col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage * multiplier);
-             ComboManager.GetComponent<ComboTracker>().ResetCount();
-             Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+
+
+            float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
+            col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage * multiplier);
+            ComboManager.GetComponent<ComboTracker>().ResetCount();
+            Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
 
             if (isMelee == false)
             {
