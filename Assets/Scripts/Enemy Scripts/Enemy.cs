@@ -27,16 +27,19 @@ public class Enemy : MonoBehaviour, Attacker
     float timer = 0f;
     public bool isInvuln;
 
+    GameObject ComboManager;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
+        ComboManager = GameObject.FindWithTag("ComboManager");
+
         localScale = transform.localScale;
 
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
 
-        health = 10;
         canDamage = true;
 
     }
@@ -175,6 +178,7 @@ public class Enemy : MonoBehaviour, Attacker
         if (col.gameObject.name == "Player")
         {
             col.GetComponent<StatsHandler>().TakeDamage(isMelee ? 2 : 1);
+            ComboManager.GetComponent<ComboTracker>().ResetCount();
         }
     }
 

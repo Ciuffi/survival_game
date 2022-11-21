@@ -145,11 +145,13 @@ public class Projectile : MonoBehaviour
             if (isCrit == true)
             {
                 col.gameObject.GetComponent<Enemy>().TakeDamage(damage, true);
+                
 
             }
             else
             {
                 col.gameObject.GetComponent<Enemy>().TakeDamage(damage, false);
+                col.gameObject.GetComponent<LootBox>().TakeDamage(damage, false);
 
             }
             col.gameObject.GetComponent<Enemy>().damageTickCounter(damageTick);
@@ -179,5 +181,30 @@ public class Projectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        else if (col.gameObject.tag == "Loot" && attack.owner.GetTransform().name == "Player")
+        {
+            if (isCrit == true)
+            {
+                col.gameObject.GetComponent<LootBox>().TakeDamage(damage, true);
+            }
+            else
+            {
+                col.gameObject.GetComponent<LootBox>().TakeDamage(damage, false);
+
+            }
+            ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
+            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
+
+            if (isMelee == false && pierce <= 0)
+            {
+                Destroy(gameObject);
+            }
+            else if (isMelee == false && pierce > 0)
+            {
+                pierce -= 1;
+            }
+
+        }
+
     }
 }

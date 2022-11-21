@@ -3347,6 +3347,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1448133971942663763, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552293673573798405, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3103800210338332545, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -3410,6 +3418,10 @@ PrefabInstance:
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: eliteFirstSpawn
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439431124021522764, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
