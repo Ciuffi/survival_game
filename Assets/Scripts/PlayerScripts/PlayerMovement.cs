@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour, Attacker
     public float oldSpeed;
     public float localSpeed;
 
+    public Animator animator;
+    public GameObject WeaponSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +29,8 @@ public class PlayerMovement : MonoBehaviour, Attacker
     { 
 
         if (VJ.InputDirection.magnitude == 0)
-            {
-                return;
+            {       
+            return;
             }
             float InputY = VJ.InputDirection.y * 100;
             float InputX = VJ.InputDirection.x * 100;
@@ -41,9 +43,22 @@ public class PlayerMovement : MonoBehaviour, Attacker
             transform.position = new Vector3(TransformX + x * localSpeed, TransformY + y * localSpeed, 0);
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
             direction = VJ.InputDirection;
-        
-        
+
+        WeaponSprite.GetComponent<WpnSpriteRotation>().InputXY(x, y);
+
+
+        if (x == 0 && y == 0)
+        {
+            animator.SetBool("IsMoving", false);
+
+        } else
+        {
+            animator.SetBool("IsMoving", true);
+        }
+
     }
+
+ 
     public void StopMoving()
     {
         canMove = false;
@@ -68,6 +83,9 @@ public class PlayerMovement : MonoBehaviour, Attacker
         }
 
         Move();
+
+        
+
     }
 
 

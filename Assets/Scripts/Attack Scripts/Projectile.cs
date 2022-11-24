@@ -151,7 +151,6 @@ public class Projectile : MonoBehaviour
             else
             {
                 col.gameObject.GetComponent<Enemy>().TakeDamage(damage, false);
-                col.gameObject.GetComponent<LootBox>().TakeDamage(damage, false);
 
             }
             col.gameObject.GetComponent<Enemy>().damageTickCounter(damageTick);

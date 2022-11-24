@@ -33,12 +33,14 @@ public class StatsHandler : MonoBehaviour
     private CoroutineQueue healthBarQueue;
     private GameObject StatContainer;
 
+    public Animator animator;
 
     public void TakeDamage(float damageAmount)
     {
         if (canDamage == true)
         {
             float newHealth = health - damageAmount - defense;
+            animator.SetBool("TookDamage", true);
             healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
             health = newHealth;
             if (health <= 0) GameObject.FindObjectOfType<GameManager>().ResetGame();
@@ -50,7 +52,7 @@ public class StatsHandler : MonoBehaviour
     {
         if (canDamage == false)
         {
-            IFtimer += Time.deltaTime;
+            IFtimer += Time.deltaTime;  
         } else
         {
             IFtimer = 0f;
@@ -58,7 +60,9 @@ public class StatsHandler : MonoBehaviour
 
         if (IFtimer >= Iframes)
         {
+            animator.SetBool("TookDamage", false);
             canDamage = true;
+     
         }
     }
 
