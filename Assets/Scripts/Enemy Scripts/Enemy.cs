@@ -30,7 +30,13 @@ public class Enemy : MonoBehaviour, Attacker
     GameObject ComboManager;
 
     public Animator animator;
-
+    public GameObject Sprite;
+    public float disappearSpeed;
+   // public float shinySpeed;
+    public bool isDead;
+    Color color;
+    Color OGcolor;
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +49,10 @@ public class Enemy : MonoBehaviour, Attacker
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
 
         canDamage = true;
+        isDead = false;
+        OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
+        color = Sprite.GetComponent<SpriteRenderer>().color;
+        Sprite.GetComponent<SpriteRenderer>().color = OGcolor;
 
     }
 
@@ -53,6 +63,16 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (health <= 0)
         {
+            
+            isDead = true;
+     
+            Sprite.GetComponent<SpriteRenderer>().color += new Color(0,0,0, - disappearSpeed * Time.deltaTime);
+            color = Sprite.GetComponent<SpriteRenderer>().color;
+            
+        }
+
+        if (color.a <= 0)
+        {
             player.gameObject.GetComponent<StatsHandler>().GainXP(xpAmount);
             Destroy(gameObject);
         }
@@ -61,20 +81,22 @@ public class Enemy : MonoBehaviour, Attacker
         directionToPlayer = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        animator.SetFloat("Distance", distance);
+        
       
 
         if (isMelee == true) //melee 
         {
+            animator.SetFloat("Distance", distance);
             if (distance <= stopDistance)
             {
                 StopMoving();
                 transform.LookAt(player.transform);
+                animator.SetBool("IsMoving", false); 
             }
             else
             {
                 MoveEnemy();
-
+                animator.SetBool("IsMoving", true);
             }
 
         }
@@ -83,11 +105,12 @@ public class Enemy : MonoBehaviour, Attacker
             if (distance <= stopDistance)
             {
                 StopMoving();
+                animator.SetBool("IsMoving", false);
             }
             else
             {
                 MoveEnemy();
-
+                animator.SetBool("IsMoving", true);
             }
         }
 
@@ -183,7 +206,7 @@ public class Enemy : MonoBehaviour, Attacker
 
             rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
         }
-        if (col.gameObject.name == "Player")
+        if (col.gameObject.name == "Player" && isDead == false)
         {
             col.GetComponent<StatsHandler>().TakeDamage(isMelee ? 2 : 1);
             ComboManager.GetComponent<ComboTracker>().ResetCount();

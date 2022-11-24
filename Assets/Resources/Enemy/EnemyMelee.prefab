@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.336, y: 2.3, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.80504924, y: -0.80504924, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -115,6 +115,9 @@ MonoBehaviour:
   Iframes: 0.7
   isInvuln: 0
   animator: {fileID: 488397711559394890}
+  Sprite: {fileID: 6531945945894358812}
+  disappearSpeed: 2.2
+  isDead: 0
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
