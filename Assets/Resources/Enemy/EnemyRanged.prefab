@@ -110,8 +110,8 @@ MonoBehaviour:
   stopDistanceMin: 2
   stopDistanceMax: -3.42
   isMelee: 0
-  health: 2
-  xpAmount: 0
+  health: 11
+  xpAmount: 4
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   Iframes: 0.7
