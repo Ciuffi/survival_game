@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour, Attacker
 
     GameObject ComboManager;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     private void FixedUpdate()
     {
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         if (health <= 0)
         {
@@ -57,6 +60,9 @@ public class Enemy : MonoBehaviour, Attacker
 
         directionToPlayer = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(player.transform.position, transform.position);
+
+        animator.SetFloat("Distance", distance);
+      
 
         if (isMelee == true) //melee 
         {
@@ -93,12 +99,14 @@ public class Enemy : MonoBehaviour, Attacker
             if (timer <= Iframes)
             {
                 canDamage = false;
+                animator.SetBool("IsHurt", true);
             }
             else
             {
                 canDamage = true;
                 timer = 0f;
                 isInvuln = false;
+                animator.SetBool("IsHurt", false);
             }
         }
 
