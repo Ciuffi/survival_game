@@ -105,8 +105,8 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   moveSpeed: 0.9
-  stopDistanceMin: 1.1
-  stopDistanceMax: 1.1
+  stopDistanceMin: 0.2
+  stopDistanceMax: 0.2
   isMelee: 1
   health: 6
   xpAmount: 2

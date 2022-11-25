@@ -108,7 +108,7 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   moveSpeed: 0.5
   stopDistanceMin: 2
-  stopDistanceMax: -3.42
+  stopDistanceMax: 3
   isMelee: 0
   health: 11
   xpAmount: 4

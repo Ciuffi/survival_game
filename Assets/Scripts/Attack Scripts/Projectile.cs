@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
 
     GameObject Camera;
     GameObject ComboManager;
+    GameObject Player;
 
     public float damage;
     public float projectileRange;
@@ -41,13 +42,14 @@ public class Projectile : MonoBehaviour
     {
         Camera = GameObject.FindWithTag("MainCamera");
         ComboManager = GameObject.FindWithTag("ComboManager");
+        Player = GameObject.FindWithTag("Player");
 
         spawnPos.x = transform.position.x;
         spawnPos.y = transform.position.y;
         damage = attack.damage;
         knockback = attack.knockback;
-        critChance = attack.critChance;
-        critDmg = attack.critDmg;
+        critChance = attack.critChance + Player.GetComponent<StatsHandler>().critChance;
+        critDmg = attack.critDmg + Player.GetComponent<StatsHandler>().critDmg;
 
         float critRoll;
 

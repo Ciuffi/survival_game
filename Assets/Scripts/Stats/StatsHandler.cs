@@ -15,11 +15,13 @@ public class StatsHandler : MonoBehaviour
     public float speed;
     public float baseSpeed = 0.01f;
     public float damageMultipler = 1;
-    //public float critChance;
-    //public float critDmg;
+    public float critChance;
+    public float baseCritChance;
+    public float critDmg;
+    public float baseCritDmg;
 
-    public float defense;
-    public float baseDefense = 0.5f;
+    public float defense; //flat damage decrease
+    public float baseDefense = 0f;
     public float shield;
     public float baseShield = 0;
     public List<StatBoost> stats;
@@ -94,9 +96,11 @@ public class StatsHandler : MonoBehaviour
             health += stat.extraHealth;
             maxHealth += stat.extraMaxHealth;
             speed += stat.extraSpeed;
-            shield += stat.exraShield;
+            shield += stat.extraShield;
             damageMultipler += stat.damageMultipler;
-            defense += stat.exraDefense;
+            defense += stat.extraDefense;
+            critChance += stat.extraCritChance;
+            critDmg += stat.extraCritDmg;
         });
         if (health > maxHealth) health = maxHealth;
         healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, health, maxHealth));
@@ -115,6 +119,9 @@ public class StatsHandler : MonoBehaviour
         shield = baseShield;
         damageMultipler = 1;
         defense = baseDefense;
+        critChance = baseCritChance;
+        critDmg = baseCritDmg;
+
         if (fullReset)
         {
             level = 1;

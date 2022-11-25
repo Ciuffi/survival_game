@@ -8,8 +8,10 @@ public class StatBoost : MonoBehaviour, Upgrade
     public float extraMaxHealth;
     public float extraSpeed;
     public float damageMultipler;
-    public float exraDefense;
-    public float exraShield;
+    public float extraDefense;
+    public float extraShield;
+    public float extraCritChance;
+    public float extraCritDmg;
     public UpgradeType GetUpgradeType()
     {
         return UpgradeType.StatBoost;

@@ -59,6 +59,8 @@ public class Attack : MonoBehaviour, Upgrade
     public float shakeStrength;
     public float shakeRotation;
 
+    public float attackBuff; //percent
+
 
 
     private IEnumerator ShootSingleShot()
@@ -305,9 +307,9 @@ public class Attack : MonoBehaviour, Upgrade
             case AttackTypes.Melee:
                 StartCoroutine(Melee());
                 break;
-            //  case AttackTypes.Utility:
-            //  StartCoroutine(Utility());
-            //  break;
+            //case AttackTypes.Utility:
+                //StartCoroutine(Utility());
+                //break;
             default:
                 break;
         }
