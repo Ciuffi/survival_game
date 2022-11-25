@@ -6,5 +6,4 @@ public interface Attacker
 {
     public Vector3 GetDirection();
     public Transform GetTransform();
-
 }

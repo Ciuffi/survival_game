@@ -32,11 +32,11 @@ public class Enemy : MonoBehaviour, Attacker
     public Animator animator;
     public GameObject Sprite;
     public float disappearSpeed;
-   // public float shinySpeed;
+    // public float shinySpeed;
     public bool isDead;
     Color color;
     Color OGcolor;
-  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,12 +63,12 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (health <= 0)
         {
-            
+
             isDead = true;
-     
-            Sprite.GetComponent<SpriteRenderer>().color += new Color(0,0,0, - disappearSpeed * Time.deltaTime);
+
+            Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
             color = Sprite.GetComponent<SpriteRenderer>().color;
-            
+
         }
 
         if (color.a <= 0)
@@ -81,8 +81,8 @@ public class Enemy : MonoBehaviour, Attacker
         directionToPlayer = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        
-      
+
+
 
         if (isMelee == true) //melee 
         {
@@ -91,7 +91,8 @@ public class Enemy : MonoBehaviour, Attacker
             {
                 StopMoving();
                 transform.LookAt(player.transform);
-                animator.SetBool("IsMoving", false); 
+                transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                animator.SetBool("IsMoving", false);
             }
             else
             {
@@ -133,7 +134,7 @@ public class Enemy : MonoBehaviour, Attacker
             }
         }
 
-      
+
 
     }
 
@@ -147,23 +148,23 @@ public class Enemy : MonoBehaviour, Attacker
         rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * 0;
         Vector3 position = player.transform.position - transform.position;
         position.z = 0;
-        transform.up = position;
     }
 
     public void TakeDamage(float damageAmount, bool isCrit)
     {
+        if (health <= 0) return;
         if (canDamage == true)
         {
             health -= damageAmount;
             StopMoving();
-            Instantiate(DamagePopup, rb.position, Quaternion.identity);
+            DamagePopupText damagePopup = Instantiate(DamagePopup, rb.position, Quaternion.identity).GetComponent<DamagePopupText>();
             if (isCrit == true)
             {
-                DamagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);
+                damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);
             }
             else
             {
-                DamagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
+                damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
             }
 
         }
@@ -171,7 +172,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
 
         }
-        
+
     }
 
 
@@ -180,7 +181,7 @@ public class Enemy : MonoBehaviour, Attacker
         //turn timer on
         isInvuln = true;
         //damageTickCD =  
-        
+
     }
 
 

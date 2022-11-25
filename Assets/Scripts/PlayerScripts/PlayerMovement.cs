@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour, Attacker
     private VirtualJoystick VJ;
     public float DeadZonePercentage;
     public Vector3 direction;
+    public bool isMoving
+    {
+        get => VJ.InputDirection.magnitude != 0;
+    }
 
     public bool canMove;
     public float oldSpeed;
@@ -26,39 +30,28 @@ public class PlayerMovement : MonoBehaviour, Attacker
     }
 
     void Move()
-    { 
+    {
 
         if (VJ.InputDirection.magnitude == 0)
-            {       
+        {
             return;
-            }
-            float InputY = VJ.InputDirection.y * 100;
-            float InputX = VJ.InputDirection.x * 100;
-            float TransformY = transform.position.y;
-            float TransformX = transform.position.x;
-            float y = Mathf.Abs(InputY) > DeadZonePercentage ? InputY / 100 : 0;
+        }
+        float InputY = VJ.InputDirection.y * 100;
+        float InputX = VJ.InputDirection.x * 100;
+        float TransformY = transform.position.y;
+        float TransformX = transform.position.x;
+        float y = Mathf.Abs(InputY) > DeadZonePercentage ? InputY / 100 : 0;
 
-            float x = Mathf.Abs(InputX) > DeadZonePercentage ? InputX / 100 : 0;
+        float x = Mathf.Abs(InputX) > DeadZonePercentage ? InputX / 100 : 0;
 
-            transform.position = new Vector3(TransformX + x * localSpeed, TransformY + y * localSpeed, 0);
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
-            direction = VJ.InputDirection;
+        transform.position = new Vector3(TransformX + x * localSpeed, TransformY + y * localSpeed, 0);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
+        direction = VJ.InputDirection;
 
         WeaponSprite.GetComponent<WpnSpriteRotation>().InputXY(x, y);
-
-
-        if (x == 0 && y == 0)
-        {
-            animator.SetBool("IsMoving", false);
-
-        } else
-        {
-            animator.SetBool("IsMoving", true);
-        }
-
     }
 
- 
+
     public void StopMoving()
     {
         canMove = false;
@@ -84,7 +77,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
         Move();
 
-        
+        animator.SetBool("IsMoving", isMoving);
 
     }
 

@@ -21,6 +21,8 @@ public class AttackHandler : MonoBehaviour
         Color.red,
         Color.magenta
     };
+    public AttackState attackState;
+
 
 
     IEnumerator HandleAttackSlider(float castTime)
@@ -46,19 +48,22 @@ public class AttackHandler : MonoBehaviour
     {
         while (true)
         {
+            attackState = AttackState.Casting;
             if (attacks.Count == 0) yield return null;
             Attack currentAttack = attacks[attackIndex];
             if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime));
-            yield return new WaitForSeconds(currentAttack.startTime > 0 ? currentAttack.startTime : currentAttack.castTime);
-            if (currentAttack != null) currentAttack.Shoot();
+            yield return new WaitForSeconds(currentAttack.castTime);
             StopCoroutine("HandleAttackSlider");
+            attackState = AttackState.Attacking;
+            if (currentAttack != null) currentAttack.Shoot();
+            yield return new WaitForSeconds(currentAttack.attackTime);
+            attackState = AttackState.Recovery;
             attackIndex++;
             if (attackIndex >= attacks.Count)
             {
                 attackIndex = 0;
             }
-            if (currentAttack.startTime > 0) yield return new WaitForSeconds(currentAttack.castTime - currentAttack.startTime);
-            //StopCoroutine("HandleAttackSlider");
+            if (currentAttack.recoveryTime > 0) yield return new WaitForSeconds(currentAttack.recoveryTime);
         }
     }
 

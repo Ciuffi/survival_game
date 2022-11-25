@@ -12,9 +12,13 @@ public class Attack : MonoBehaviour, Upgrade
 
     public float castTime;
     public float castTimeUP;
-
-    public float startTime;
-    public float startTimeUP;
+    public float attackTime
+    {
+        get => attackType == AttackTypes.Shotgun ? 0 : spread * shotsPerAttack;
+    }
+    public float attackTimeUp;
+    public float recoveryTime;
+    public float recoveryTimeUp;
 
     public float range = 5;
     public float rangeUP;
@@ -58,11 +62,7 @@ public class Attack : MonoBehaviour, Upgrade
     public float shakeTime;
     public float shakeStrength;
     public float shakeRotation;
-
     public float attackBuff; //percent
-
-
-
     private IEnumerator ShootSingleShot()
     {
 
@@ -89,6 +89,8 @@ public class Attack : MonoBehaviour, Upgrade
         else
         {
 
+            float startTime = Time.time;
+            float runTime = 0;
             for (int i = 0; i < shotsPerAttack; i++)
             {
                 Quaternion rotation = owner.GetTransform().rotation;
@@ -100,6 +102,11 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.rotation = rotation;
                 p.projectileRange = range;
                 yield return new WaitForSeconds(spread);
+                runTime += Time.deltaTime;
+                if (runTime > attackTime)
+                {
+                    yield break;
+                }
             }
         }
     }
@@ -308,8 +315,8 @@ public class Attack : MonoBehaviour, Upgrade
                 StartCoroutine(Melee());
                 break;
             //case AttackTypes.Utility:
-                //StartCoroutine(Utility());
-                //break;
+            //StartCoroutine(Utility());
+            //break;
             default:
                 break;
         }
@@ -343,7 +350,7 @@ public class Attack : MonoBehaviour, Upgrade
         if (chosenNumbers.Contains(3)) //Upgrade Type 3 - castTime /+ startTime
         {
             castTime = castTimeUP;
-            startTime = startTimeUP;
+            recoveryTime = recoveryTimeUp;
         }
         if (chosenNumbers.Contains(4)) //Upgrade Type 4 - Range /+ speed
         {

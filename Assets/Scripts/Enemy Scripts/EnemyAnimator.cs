@@ -16,12 +16,12 @@ public class EnemyAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startTime = weapon.GetComponent<Attack>().startTime;
+        startTime = weapon.GetComponent<Attack>().recoveryTime;
         castTime = weapon.GetComponent<Attack>().castTime;
 
         timer = startTime;
         part2 = false;
-        
+
         animator.SetBool("IsAttacking", true);
     }
 
@@ -35,12 +35,13 @@ public class EnemyAnimator : MonoBehaviour
         }
 
 
-        if (timer <= 0 && part2 == false )
+        if (timer <= 0 && part2 == false)
         {
             timer = castTime - startTime;
             animator.SetBool("IsAttacking", false);
             part2 = true;
-        } else if (timer <= 0 && part2 == true)
+        }
+        else if (timer <= 0 && part2 == true)
         {
             timer = startTime;
             animator.SetBool("IsAttacking", true);
@@ -48,8 +49,8 @@ public class EnemyAnimator : MonoBehaviour
 
         }
 
-        
 
-        
+
+
     }
 }
