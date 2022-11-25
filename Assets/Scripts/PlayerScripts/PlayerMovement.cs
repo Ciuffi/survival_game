@@ -52,18 +52,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
     }
 
 
-    public void StopMoving()
-    {
-        canMove = false;
-        oldSpeed = localSpeed;
-        localSpeed = 0;
-    }
-    public void StartMoving()
-    {
-        localSpeed = oldSpeed;
-        canMove = true;
-    }
-
+    
 
     // Update is called once per frame
     void Update()
@@ -77,9 +66,27 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
         Move();
 
-        animator.SetBool("IsMoving", isMoving);
+        if (canMove == true)
+        {
+            animator.SetBool("IsMoving", isMoving);
+        }
 
     }
+
+    public void StopMoving()
+    {
+        canMove = false;
+        animator.SetBool("IsMoving", false);
+        oldSpeed = localSpeed;
+        localSpeed = 0;
+    }
+    public void StartMoving()
+    {
+        animator.SetBool("IsMoving", isMoving);
+        localSpeed = oldSpeed;
+        canMove = true;
+    }
+
 
 
     public Vector3 GetDirection()

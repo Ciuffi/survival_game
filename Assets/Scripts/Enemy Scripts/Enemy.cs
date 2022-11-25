@@ -158,9 +158,9 @@ public class Enemy : MonoBehaviour, Attacker
             health -= damageAmount;
             StopMoving();
             Vector3 popupPosition = rb.position;
-            popupPosition.x = Random.Range(rb.position.x - 0.1f, rb.position.x + 0.1f);
+            popupPosition.x = Random.Range(rb.position.x - 0.075f, rb.position.x + 0.075f);
             popupPosition.y = Random.Range(rb.position.y, rb.position.y + 0.1f);
-            print(Random.Range(0, 2));
+ 
             DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
             if (isCrit == true)
             {

@@ -7,9 +7,11 @@ public class AttackHandler : MonoBehaviour
 {
     [SerializeField]
     public List<Attack> attacks;
+    public AttackState attackState;
     public bool usingAttackBar;
     private GameObject attackContainer;
     private int attackIndex;
+    
     private Slider attackBar;
     private Image attackBarImage;
     private GameObject defaultWeapon;
@@ -21,8 +23,6 @@ public class AttackHandler : MonoBehaviour
         Color.red,
         Color.magenta
     };
-    public AttackState attackState;
-
 
 
     IEnumerator HandleAttackSlider(float castTime)
@@ -83,6 +83,8 @@ public class AttackHandler : MonoBehaviour
             Destroy(trans.gameObject);
         }
         attacks.Clear();
+        attackIndex = 0;
+
         GameObject newWeapon = Instantiate(defaultWeapon, transform.position, Quaternion.identity);
 
         AddWeapon(newWeapon);

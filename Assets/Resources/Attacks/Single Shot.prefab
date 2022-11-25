@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449995561756442478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0040000007, y: 0.69, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.39134, y: -0.39134, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,8 +50,9 @@ MonoBehaviour:
   spreadUP: 0.2
   castTime: 2
   castTimeUP: 1.5
-  startTime: 0
-  startTimeUP: 0
+  attackTimeUp: 0
+  recoveryTime: 0
+  recoveryTimeUp: 0
   range: 5
   rangeUP: 10
   shotsPerAttack: 1
@@ -80,3 +81,4 @@ MonoBehaviour:
   shakeTime: 0
   shakeStrength: 0
   shakeRotation: 0
+  attackBuff: 0

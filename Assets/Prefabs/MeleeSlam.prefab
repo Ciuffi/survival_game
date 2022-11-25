@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1441713891751434987}
   - component: {fileID: 4953048033148275019}
   m_Layer: 0
-  m_Name: MeleeHeavy
+  m_Name: MeleeSlam
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

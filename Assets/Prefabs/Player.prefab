@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef8851fd274d9e4fb1cbeaabef79a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isChest: 0
 --- !u!1 &9136689210380629558
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks: []
+  attackState: 0
   usingAttackBar: 1
   colors:
   - {r: 0, g: 0, b: 1, a: 1}
@@ -514,7 +516,6 @@ MonoBehaviour:
   - {r: 255, g: 177, b: 0, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 1, g: 0, b: 1, a: 1}
-  attackState: 0
 --- !u!114 &9136689211427610631
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54,8 +54,9 @@ public class LootBox : MonoBehaviour
         if (health <= 0) return;
         health -= damageAmount;
         Vector3 popupPosition = rb.position;
-        popupPosition.x = Random.Range(rb.position.x - 1, rb.position.x + 1);
-        popupPosition.y = Random.Range(rb.position.y - 1, rb.position.y + 1);
+        popupPosition.x = Random.Range(rb.position.x - 0.075f, rb.position.x + 0.075f);
+        popupPosition.y = Random.Range(rb.position.y, rb.position.y + 0.1f);
+
         DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
         if (isCrit == true)
         {

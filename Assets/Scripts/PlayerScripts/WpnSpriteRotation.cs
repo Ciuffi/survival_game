@@ -19,6 +19,7 @@ public class WpnSpriteRotation : MonoBehaviour
         inputY = 0;
 
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
+
     }
 
     // Update is called once per frame
@@ -37,7 +38,6 @@ public class WpnSpriteRotation : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipY = true;
         }
-
 
     }
 

@@ -5,11 +5,14 @@ using UnityEngine;
 public class SpriteLockedRotation : MonoBehaviour
 {
     private VirtualJoystick VJ;
+    public bool isChest;
+    Vector3 SpawnPos;
 
     // Start is called before the first frame update
     void Start()
     {
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
+        SpawnPos = transform.position;
 
     }
 
@@ -17,6 +20,12 @@ public class SpriteLockedRotation : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        if (isChest == true)
+        {
+            transform.position = SpawnPos;
+
+        }
 
         if (VJ.InputAngle < 0) //input right
         {
