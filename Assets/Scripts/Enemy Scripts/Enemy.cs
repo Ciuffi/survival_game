@@ -157,7 +157,11 @@ public class Enemy : MonoBehaviour, Attacker
         {
             health -= damageAmount;
             StopMoving();
-            DamagePopupText damagePopup = Instantiate(DamagePopup, rb.position, Quaternion.identity).GetComponent<DamagePopupText>();
+            Vector3 popupPosition = rb.position;
+            popupPosition.x = Random.Range(rb.position.x - 0.1f, rb.position.x + 0.1f);
+            popupPosition.y = Random.Range(rb.position.y, rb.position.y + 0.1f);
+            print(Random.Range(0, 2));
+            DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
             if (isCrit == true)
             {
                 damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);

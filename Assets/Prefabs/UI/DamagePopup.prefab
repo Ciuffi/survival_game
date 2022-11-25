@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 4487688929921643103}
-  moveSpeed: 60
+  moveSpeed: 2
   slowSpeed: 8
   disappearTimer: 0.6
   disappearSpeed: 3

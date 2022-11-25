@@ -17,7 +17,7 @@ public class LootBox : MonoBehaviour
     public Sprite OpenedSprite;
     SpriteRenderer Sprite;
     public Color tempColor;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +34,13 @@ public class LootBox : MonoBehaviour
 
         if (health <= 0 && tempColor.a > 0)
         {
-            Sprite.sprite = OpenedSprite; 
+            Sprite.sprite = OpenedSprite;
             tempColor.a -= disappearSpeed * Time.deltaTime;
             GetComponent<SpriteRenderer>().color = tempColor;
 
 
-        } 
-        
+        }
+
         if (tempColor.a <= 0)
         {
             player.gameObject.GetComponent<StatsHandler>().GainXP(xpAmount);
@@ -51,23 +51,25 @@ public class LootBox : MonoBehaviour
 
     public void TakeDamage(float damageAmount, bool isCrit)
     {
-            health -= damageAmount;
-            Instantiate(DamagePopup, rb.position, Quaternion.identity);
-
-            if (isCrit == true)
-            {
-                DamagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);
-            }
-            else
-            {
-                DamagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
-            }
-
+        if (health <= 0) return;
+        health -= damageAmount;
+        Vector3 popupPosition = rb.position;
+        popupPosition.x = Random.Range(rb.position.x - 1, rb.position.x + 1);
+        popupPosition.y = Random.Range(rb.position.y - 1, rb.position.y + 1);
+        DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
+        if (isCrit == true)
+        {
+            damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);
+        }
+        else
+        {
+            damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

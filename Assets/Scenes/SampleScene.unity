@@ -2259,6 +2259,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7559935443346330169, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: pierce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559935443346330169, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: recoveryTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610630, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_RootOrder
       value: 3

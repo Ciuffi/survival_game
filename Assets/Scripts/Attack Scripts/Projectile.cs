@@ -44,6 +44,7 @@ public class Projectile : MonoBehaviour
         ComboManager = GameObject.FindWithTag("ComboManager");
         Player = GameObject.FindWithTag("Player");
 
+        pierce = attack.pierce;
         spawnPos.x = transform.position.x;
         spawnPos.y = transform.position.y;
         damage = attack.damage;
@@ -141,13 +142,14 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (pierce < 0) return;
         if (col.gameObject == null || attack.owner == null) return;
         if (col.gameObject.tag == "Enemy" && attack.owner.GetTransform().name == "Player")
         {
             if (isCrit == true)
             {
                 col.gameObject.GetComponent<Enemy>().TakeDamage(damage, true);
-                
+
 
             }
             else
@@ -159,14 +161,15 @@ public class Projectile : MonoBehaviour
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
             ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
 
-            if (isMelee == false && pierce <= 0)
-            {
-                Destroy(gameObject);
-            }
-            else if (isMelee == false && pierce > 0)
+            if (isMelee == false)
             {
                 pierce -= 1;
             }
+            if (isMelee == false && pierce < 0)
+            {
+                Destroy(gameObject);
+            }
+
         }
         else if (col.gameObject.name == "Player" && attack.owner.GetTransform().tag == "Enemy")
         {
@@ -195,14 +198,13 @@ public class Projectile : MonoBehaviour
             }
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
             ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
-
-            if (isMelee == false && pierce <= 0)
-            {
-                Destroy(gameObject);
-            }
-            else if (isMelee == false && pierce > 0)
+            if (isMelee == false)
             {
                 pierce -= 1;
+            }
+            if (isMelee == false && pierce < 0)
+            {
+                Destroy(gameObject);
             }
 
         }
