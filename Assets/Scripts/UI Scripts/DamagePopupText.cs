@@ -23,6 +23,15 @@ public class DamagePopupText : MonoBehaviour
 
     static int sortingOrder;
 
+
+    public float baseFontSize;
+    public float critScaleUpPercent; //1 = no scaling 2 = double
+
+    public float defaultDamageSize; //amount of damage needed for the default size
+    public float damageScaleAmount; //number IN FONTSIZE of how much to increase every increment
+    public float upScaleIncrement; //every x damage higher than above, scale up by damageScaleAmount
+    public float downScaleIncrement;
+
     public void Setup(float damageAmount, bool isCrit)
     {
         textMesh = gameObject.GetComponent<TextMeshPro>();
@@ -30,18 +39,27 @@ public class DamagePopupText : MonoBehaviour
         textMesh.SetText(damageRounded.ToString());
         moveVector = new Vector3(0.5f, 1) * moveSpeed;
 
+        textMesh.fontSize = baseFontSize;
+        textColor = new Color32(255, 255, 255, 255);
+        textMesh.color = textColor;
+
+        if (damageAmount > defaultDamageSize)
+        {
+            textMesh.fontSize += ((damageAmount - defaultDamageSize) / upScaleIncrement * damageScaleAmount);
+        } else
+        {
+            textMesh.fontSize += ((damageAmount - defaultDamageSize) / downScaleIncrement * damageScaleAmount);
+
+        }
+
         if ( isCrit == true ) {
 
-            textMesh.fontSize = 80;
+            textMesh.fontSize *= critScaleUpPercent;
             textColor = new Color32(255, 79, 79, 255);
             textMesh.color = textColor;
 
         }
-        else {
-            textMesh.fontSize = 50;
-            textColor = new Color32(255, 255, 255, 255);
-            textMesh.color = textColor;
-        }
+     
 
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;

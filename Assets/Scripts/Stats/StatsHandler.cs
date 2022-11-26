@@ -36,26 +36,35 @@ public class StatsHandler : MonoBehaviour
     private GameObject StatContainer;
 
     public Animator animator;
+    GameObject ComboManager;
 
     public void TakeDamage(float damageAmount)
     {
         if (canDamage == true)
         {
-            float newHealth = health - damageAmount - defense;
+            canDamage = false;
+            float newHealth = health - damageAmount + defense;
             animator.SetBool("TookDamage", true);
             healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
             health = newHealth;
+            ComboManager.GetComponent<ComboTracker>().ResetCount();
             if (health <= 0) GameObject.FindObjectOfType<GameManager>().ResetGame();
-            canDamage = false;
         }
     }
 
     public void Update()
     {
+
+    }
+
+
+    private void FixedUpdate()
+    {
         if (canDamage == false)
         {
-            IFtimer += Time.deltaTime;  
-        } else
+            IFtimer += Time.deltaTime;
+        }
+        else
         {
             IFtimer = 0f;
         }
@@ -64,10 +73,10 @@ public class StatsHandler : MonoBehaviour
         {
             animator.SetBool("TookDamage", false);
             canDamage = true;
-     
-        }
-    }
 
+        }
+
+    }
 
     public void GainXP(float xpAmount)
     {
@@ -143,6 +152,7 @@ public class StatsHandler : MonoBehaviour
         level = 1;
         xp = 0;
         LevelManager = GameObject.FindObjectOfType<LevelUpManager>();
+        ComboManager = GameObject.FindWithTag("ComboManager");
         nextXp = LevelManager.GetXpToNextLevel(level);
         healthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
         healthBarQueue = gameObject.AddComponent<CoroutineQueue>();

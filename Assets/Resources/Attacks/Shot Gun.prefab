@@ -50,8 +50,9 @@ MonoBehaviour:
   spreadUP: 90
   castTime: 2
   castTimeUP: 1
-  startTime: 0
-  startTimeUP: 0
+  attackTimeUp: 0
+  recoveryTime: 0
+  recoveryTimeUp: 0
   range: 3
   rangeUP: 6
   shotsPerAttack: 3
@@ -59,8 +60,8 @@ MonoBehaviour:
   cantMove: 1
   speed: 0.08
   speedUP: 0.15
-  knockback: 2000
-  knockbackUP: 4000
+  knockback: 1000
+  knockbackUP: 2000
   pierce: 1
   pierceUP: 2
   critChance: 0.25
@@ -80,3 +81,4 @@ MonoBehaviour:
   shakeTime: 0
   shakeStrength: 0
   shakeRotation: 0
+  attackBuff: 0

@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour, Attacker
     public Vector3 localScale;
     public Vector3 knockDirection;
     public float moveSpeed = 3f;
+    public float damage;
 
     float stopDistance;
     public float stopDistanceMin;
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour, Attacker
     public bool isDead;
     Color color;
     Color OGcolor;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +67,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
 
             isDead = true;
-
+            SetAllCollidersStatus(false);
             Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
             color = Sprite.GetComponent<SpriteRenderer>().color;
 
@@ -80,7 +82,6 @@ public class Enemy : MonoBehaviour, Attacker
 
         directionToPlayer = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(player.transform.position, transform.position);
-
 
 
 
@@ -189,9 +190,18 @@ public class Enemy : MonoBehaviour, Attacker
     }
 
 
+    public void SetAllCollidersStatus(bool active)
+    {
+        foreach (Collider2D c in GetComponents<Collider2D>())
+        {
+            c.enabled = active;
+        }
+    }
 
 
-    private void LateUpdate()
+
+
+        private void LateUpdate()
     {
         if (rb.velocity.x > 0)
         {
@@ -211,14 +221,22 @@ public class Enemy : MonoBehaviour, Attacker
 
             rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
         }
-        if (col.gameObject.name == "Player" && isDead == false)
+        if (col.gameObject.name == "Player" && isDead == false && player.GetComponent<StatsHandler>().canDamage == true)
         {
-            col.GetComponent<StatsHandler>().TakeDamage(isMelee ? 2 : 1);
-            ComboManager.GetComponent<ComboTracker>().ResetCount();
+            col.GetComponent<StatsHandler>().TakeDamage(damage);
         }
     }
 
-    public Vector3 GetDirection()
+    void OnTriggerStay2D(Collider2D col)
+    {
+        //if (col.gameObject.name == "Player" && isDead == false && player.GetComponent<StatsHandler>().canDamage == true)
+        //{
+            //col.GetComponent<StatsHandler>().TakeDamage(damage);
+        //}
+
+    }
+
+        public Vector3 GetDirection()
     {
         return directionToPlayer;
     }

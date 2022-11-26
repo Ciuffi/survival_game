@@ -45,13 +45,12 @@ public class Projectile : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
 
         pierce = attack.pierce;
-        spawnPos.x = transform.position.x;
+        spawnPos.x = transform.position.x;  
         spawnPos.y = transform.position.y;
-        damage = attack.damage;
+        damage = attack.damage * Player.GetComponent<StatsHandler>().damageMultipler;
         knockback = attack.knockback;
         critChance = attack.critChance + Player.GetComponent<StatsHandler>().critChance;
         critDmg = attack.critDmg + Player.GetComponent<StatsHandler>().critDmg;
-
         float critRoll;
 
         critRoll = Random.value;
@@ -174,15 +173,22 @@ public class Projectile : MonoBehaviour
         else if (col.gameObject.name == "Player" && attack.owner.GetTransform().tag == "Enemy")
         {
 
-
-            float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
-            col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage * multiplier);
-            ComboManager.GetComponent<ComboTracker>().ResetCount();
-            Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-
-            if (isMelee == false)
+            if (Player.GetComponent<StatsHandler>().canDamage == false)
             {
-                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+
+
+                float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
+                col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage * multiplier);
+                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+
+                if (isMelee == false)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
         else if (col.gameObject.tag == "Loot" && attack.owner.GetTransform().name == "Player")

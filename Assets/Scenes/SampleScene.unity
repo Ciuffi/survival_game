@@ -1001,7 +1001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2, y: -148}
+  m_AnchoredPosition: {x: 2, y: -181.99994}
   m_SizeDelta: {x: 750, y: 110.77417}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &551520680
@@ -1651,7 +1651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.28112018}
   m_AnchorMax: {x: 1, y: 0.8457193}
-  m_AnchoredPosition: {x: 0, y: 10.27832}
+  m_AnchoredPosition: {x: 0, y: -43}
   m_SizeDelta: {x: 0, y: 22.668945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838170587
@@ -2172,6 +2172,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: Iframes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7559935443346330169, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: pierce
       value: 0
@@ -2672,7 +2676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5241545, y: 0.46768904}
   m_AnchorMax: {x: 0.5241545, y: 0.46768904}
-  m_AnchoredPosition: {x: -20, y: -48.5}
+  m_AnchoredPosition: {x: -20, y: -70}
   m_SizeDelta: {x: 125, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795849907
@@ -3075,7 +3079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2, y: -66}
+  m_AnchoredPosition: {x: 2, y: -100}
   m_SizeDelta: {x: 750, y: 110.77417}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2144567793
@@ -3348,7 +3352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3641941759643214391, guid: 148251fbb18745e4a82e164ffd9b921a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -341
+      value: -375
       objectReference: {fileID: 0}
     - target: {fileID: 3641941759643214391, guid: 148251fbb18745e4a82e164ffd9b921a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

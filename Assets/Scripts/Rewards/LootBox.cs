@@ -18,7 +18,6 @@ public class LootBox : MonoBehaviour
     SpriteRenderer Sprite;
     public Color tempColor;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +36,7 @@ public class LootBox : MonoBehaviour
             Sprite.sprite = OpenedSprite;
             tempColor.a -= disappearSpeed * Time.deltaTime;
             GetComponent<SpriteRenderer>().color = tempColor;
-
-
+            SetAllCollidersStatus(false);
         }
 
         if (tempColor.a <= 0)
@@ -65,6 +63,14 @@ public class LootBox : MonoBehaviour
         else
         {
             damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
+        }
+    }
+
+    public void SetAllCollidersStatus(bool active)
+    {
+        foreach (Collider2D c in GetComponents<Collider2D>())
+        {
+            c.enabled = active;
         }
     }
 

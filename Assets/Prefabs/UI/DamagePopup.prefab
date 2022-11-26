@@ -193,3 +193,9 @@ MonoBehaviour:
   textColor: {r: 1, g: 1, b: 1, a: 1}
   scaleUpAmount: 0.3
   scaleDownAmount: 0.22
+  baseFontSize: 42
+  critScaleUpPercent: 1.25
+  defaultDamageSize: 4
+  damageScaleAmount: 2
+  upScaleIncrement: 1
+  downScaleIncrement: 1
