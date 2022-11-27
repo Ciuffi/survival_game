@@ -2172,6 +2172,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3287956671689121399, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287956671689121399, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: Iframes
       value: 1
@@ -2549,7 +2557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 1731126406}
   xOffset: 0
-  yOffset: -0.19
+  yOffset: 0
 --- !u!212 &1481340769
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2611,7 +2619,7 @@ Transform:
   m_GameObject: {fileID: 1481340767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0336, y: -0.1664, z: 0}
-  m_LocalScale: {x: 0.14, y: 0.14, z: 0}
+  m_LocalScale: {x: 0.14742, y: 0.14742, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
