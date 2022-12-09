@@ -11,6 +11,7 @@ public class AttackHandler : MonoBehaviour
     public bool usingAttackBar;
     private GameObject attackContainer;
     private int attackIndex;
+    public GameObject WeaponSprite;
     
     private Slider attackBar;
     private Image attackBarImage;
@@ -48,9 +49,12 @@ public class AttackHandler : MonoBehaviour
     {
         while (true)
         {
+
             attackState = AttackState.Casting;
             if (attacks.Count == 0) yield return null;
             Attack currentAttack = attacks[attackIndex];
+            WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack.GetComponent<Attack>().weaponSprite;
+
             if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime));
             yield return new WaitForSeconds(currentAttack.castTime);
             StopCoroutine("HandleAttackSlider");
@@ -59,6 +63,7 @@ public class AttackHandler : MonoBehaviour
             yield return new WaitForSeconds(currentAttack.attackTime);
             attackState = AttackState.Recovery;
             attackIndex++;
+     
             if (attackIndex >= attacks.Count)
             {
                 attackIndex = 0;
@@ -88,6 +93,8 @@ public class AttackHandler : MonoBehaviour
         GameObject newWeapon = Instantiate(defaultWeapon, transform.position, Quaternion.identity);
 
         AddWeapon(newWeapon);
+        WeaponSprite.GetComponent<SpriteRenderer>().sprite = newWeapon.GetComponent<Attack>().weaponSprite;
+
         StartCoroutine(Attack());
     }
 

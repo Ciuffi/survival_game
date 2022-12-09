@@ -192,7 +192,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 636803021147033465}
+  - {fileID: 4815724764106396486}
   m_Father: {fileID: 9136689211427610630}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -510,6 +510,7 @@ MonoBehaviour:
   attacks: []
   attackState: 0
   usingAttackBar: 1
+  WeaponSprite: {fileID: 0}
   colors:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
@@ -707,7 +708,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
   m_PrefabInstance: {fileID: 3280634846730452192}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &8209018251409183768
+--- !u!1001 &4318615910088771623
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -716,7 +717,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1449995561756442478, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: m_Name
-      value: Single Shot
+      value: Burst Shot
       objectReference: {fileID: 0}
     - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: m_RootOrder
@@ -764,8 +765,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
---- !u!4 &636803021147033465 stripped
+--- !u!4 &4815724764106396486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
-  m_PrefabInstance: {fileID: 8209018251409183768}
+  m_PrefabInstance: {fileID: 4318615910088771623}
   m_PrefabAsset: {fileID: 0}

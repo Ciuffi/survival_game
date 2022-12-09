@@ -63,6 +63,9 @@ public class Attack : MonoBehaviour, Upgrade
     public float shakeStrength;
     public float shakeRotation;
     public float attackBuff; //percent
+
+    public Sprite weaponSprite;
+
     private IEnumerator ShootSingleShot()
     {
 
