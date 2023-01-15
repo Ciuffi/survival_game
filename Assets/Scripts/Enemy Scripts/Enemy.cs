@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, Attacker
 {
     Rigidbody2D rb;
-    PlayerMovement player;
+    GameObject player;
     public Vector3 directionToPlayer;
     public Vector3 localScale;
     public Vector3 knockDirection;
@@ -15,6 +15,10 @@ public class Enemy : MonoBehaviour, Attacker
     float stopDistance;
     public float stopDistanceMin;
     public float stopDistanceMax;
+    public float moveDistanceCheck;
+    public bool canMove;
+    public float timeCheck;
+    float elapsedTime;
 
     public bool isMelee;
 
@@ -39,14 +43,16 @@ public class Enemy : MonoBehaviour, Attacker
     Color OGcolor;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
+        player = GameObject.FindWithTag("Player");
         ComboManager = GameObject.FindWithTag("ComboManager");
 
         localScale = transform.localScale;
+        canMove = true;
 
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
 
@@ -61,7 +67,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     private void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         if (health <= 0)
         {
@@ -81,9 +87,7 @@ public class Enemy : MonoBehaviour, Attacker
 
 
         directionToPlayer = (player.transform.position - transform.position).normalized;
-        float distance = Vector3.Distance(player.transform.position, transform.position);
-
-
+        float distance = Vector3.Distance(transform.position, player.transform.position);
 
         if (isMelee == true) //melee 
         {
@@ -97,6 +101,7 @@ public class Enemy : MonoBehaviour, Attacker
             }
             else
             {
+                StartMoving();
                 MoveEnemy();
                 animator.SetBool("IsMoving", true);
             }
@@ -111,10 +116,12 @@ public class Enemy : MonoBehaviour, Attacker
             }
             else
             {
+                StartMoving();
                 MoveEnemy();
                 animator.SetBool("IsMoving", true);
             }
         }
+       
 
 
         //Iframes
@@ -141,14 +148,25 @@ public class Enemy : MonoBehaviour, Attacker
 
     private void MoveEnemy()
     {
-        rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * moveSpeed;
+        if (canMove == true)
+        {
+            //rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * moveSpeed
+
+
+        }
     }
 
-    private void StopMoving()
+    public void StopMoving()
     {
-        rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * 0;
-        Vector3 position = player.transform.position - transform.position;
-        position.z = 0;
+        //rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * 0;
+        canMove = false;
+        //Vector3 position = player.transform.position - transform.position;
+       // position.z = 0;
+    }
+
+    public void StartMoving()
+    {
+        canMove = true;
     }
 
     public void TakeDamage(float damageAmount, bool isCrit)
@@ -227,14 +245,6 @@ public class Enemy : MonoBehaviour, Attacker
         }
     }
 
-    void OnTriggerStay2D(Collider2D col)
-    {
-        //if (col.gameObject.name == "Player" && isDead == false && player.GetComponent<StatsHandler>().canDamage == true)
-        //{
-            //col.GetComponent<StatsHandler>().TakeDamage(damage);
-        //}
-
-    }
 
         public Vector3 GetDirection()
     {

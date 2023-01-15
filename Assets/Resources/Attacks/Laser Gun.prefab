@@ -46,26 +46,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damageUP: 2
-  spread: 0.005
-  spreadUP: 0.0025
-  castTime: 2
-  castTimeUP: 1
+  spread: 0.01
+  spreadUP: 0.01
+  castTime: 3
+  castTimeUP: 3
   attackTimeUp: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 4
-  rangeUP: 6
-  shotsPerAttack: 400
-  shotsPerAttackUP: 600
+  range: 5
+  rangeUP: 7
+  shotsPerAttack: 150
+  shotsPerAttackUP: 300
   cantMove: 0
   speed: 0.1
   speedUP: 0.15
-  knockback: 100
-  knockbackUP: 200
+  knockback: 300
+  knockbackUP: 500
   pierce: 0
   pierceUP: 1
   critChance: 0.1
-  critDmg: 1.5
+  critDmg: 2
   projectile: {fileID: 4908858350499337675, guid: dda17c7d9d33449c19308f85e4451365, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0

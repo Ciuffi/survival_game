@@ -13,8 +13,8 @@ public class LevelOneSpawnMap : EnemySpawnMap
             .WithEnemiesPerWave(2)
             .WithSpawnTimer(2)
             .WithEnemyMap(new Dictionary<GameObject, int>(){
-            {enemies.lootBox, 50},
-            {enemies.meleeEnemy, 50}
+            {enemies.lootBox, 100},
+            {enemies.meleeEnemy, 100}
         });
 
         EnemySpawn wave2 = new EnemySpawn()

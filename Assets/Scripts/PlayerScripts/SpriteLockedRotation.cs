@@ -6,6 +6,7 @@ public class SpriteLockedRotation : MonoBehaviour
 {
     private VirtualJoystick VJ;
     public bool isChest;
+    public bool isPlayer;
     Vector3 SpawnPos;
 
     // Start is called before the first frame update
@@ -27,14 +28,20 @@ public class SpriteLockedRotation : MonoBehaviour
 
         }
 
-        if (VJ.InputAngle < 0) //input right
+        if (isPlayer == true)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+
+            if (VJ.InputAngle < 0) //input right
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+
+            }
+            else if (VJ.InputAngle > 0) //input left
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
 
         }
-        else if (VJ.InputAngle > 0) //input left
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
+       
     }
 }

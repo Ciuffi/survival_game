@@ -79,7 +79,7 @@ MonoBehaviour:
   meleeSpacerGap: 0.75
   comboWaitTime: 0.25
   shakeTime: 0.25
-  shakeStrength: 0.2
+  shakeStrength: 0.18
   shakeRotation: 8
   attackBuff: 0
   weaponSprite: {fileID: 21300000, guid: c83c797476fa1d94f906a3c54ecdb09e, type: 3}
