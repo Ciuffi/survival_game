@@ -110,11 +110,11 @@ MonoBehaviour:
   isMelee: 1
   meleeTime: 0
   startup: 0
-  active: 0.6
-  recovery: 0.5
+  active: 0.4
+  recovery: 0.3
   damageTick: 0.5
   scaleSpeed: 4
-  disappearSpeed: 3.5
+  disappearSpeed: 4
   isCrit: 0
   playerShakeTime: 0
   playerShakeStrength: 0

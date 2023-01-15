@@ -46,6 +46,7 @@ public class BasicSpawner : MonoBehaviour
                     GameObject spawn = enemy.EnemiesToSpawn.Keys.ToArray<GameObject>()[spawnIndex];
                     Vector3 spawnPosition = transform.position + MathUtilities.DegreesToVector3(enemy.Direction) * (6 + enemy.Distance);
                     Instantiate(spawn, spawnPosition, Quaternion.identity);
+                    AstarPath.active.Scan();
                 }
             }
         }
