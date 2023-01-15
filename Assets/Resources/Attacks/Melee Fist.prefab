@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735341029624650593}
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: Melee Hammer
+  m_Name: Melee Fist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,8 +64,8 @@ MonoBehaviour:
   knockbackUP: 2000
   pierce: 0
   pierceUP: 0
-  critChance: 0.2
-  critDmg: 2
+  critChance: 0.15
+  critDmg: 0.75
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
