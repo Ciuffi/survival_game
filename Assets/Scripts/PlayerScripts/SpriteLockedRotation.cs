@@ -7,7 +7,10 @@ public class SpriteLockedRotation : MonoBehaviour
     private VirtualJoystick VJ;
     public bool isChest;
     public bool isPlayer;
+    public bool isShadow;
     Vector3 SpawnPos;
+    private Vector3 relativePosition;
+    private Transform parentTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -15,12 +18,15 @@ public class SpriteLockedRotation : MonoBehaviour
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
         SpawnPos = transform.position;
 
+        parentTransform = transform.parent;
+        relativePosition = transform.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
 
         if (isChest == true)
         {
@@ -42,6 +48,14 @@ public class SpriteLockedRotation : MonoBehaviour
             }
 
         }
-       
+
+    }
+    void LateUpdate()
+    {
+        if (isShadow == true)
+        {
+
+            transform.localPosition = relativePosition;
+        }
     }
 }

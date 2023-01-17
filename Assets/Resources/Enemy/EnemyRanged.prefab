@@ -119,15 +119,25 @@ MonoBehaviour:
   timeCheck: 0
   isMelee: 0
   health: 11
+  maxHealth: 0
   xpAmount: 4
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
+  HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}
   Iframes: 0.7
   isInvuln: 0
   animator: {fileID: 7020551756548099047}
   Sprite: {fileID: 4773136830766705182}
   disappearSpeed: 1.6
   isDead: 0
+  isRage: 0
+  rageSpeedMod: 1.6
+  isDash: 0
+  chargeTime: 1
+  dashSpeed: 20
+  canDash: 1
+  dashCD: 0
+  waitTime: 0
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -657,3 +667,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
   m_PrefabInstance: {fileID: 8808292127916336249}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3682808208575244435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5271078019544878314, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
+  m_PrefabInstance: {fileID: 8808292127916336249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6603895575661775273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682808208575244435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef8851fd274d9e4fb1cbeaabef79a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isChest: 0
+  isPlayer: 0
+  isShadow: 1

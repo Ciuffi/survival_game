@@ -110,22 +110,32 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   moveSpeed: 0.9
   damage: 2
-  stopDistanceMin: 0.2
-  stopDistanceMax: 0.2
+  stopDistanceMin: 5
+  stopDistanceMax: 5
   moveDistanceCheck: 0.5
   canMove: 0
   timeCheck: 0.5
   isMelee: 1
-  health: 6
+  health: 7
+  maxHealth: 0
   xpAmount: 2
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
+  HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}
   Iframes: 0.7
   isInvuln: 0
   animator: {fileID: 488397711559394890}
   Sprite: {fileID: 6531945945894358812}
   disappearSpeed: 2.2
   isDead: 0
+  isRage: 1
+  rageSpeedMod: 1.8
+  isDash: 1
+  chargeTime: 2
+  dashSpeed: 20
+  canDash: 1
+  dashCD: 10
+  waitTime: 1
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -393,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChest: 0
   isPlayer: 0
+  isShadow: 0
 --- !u!1001 &7600655895498412263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -493,6 +504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChest: 0
   isPlayer: 0
+  isShadow: 1
 --- !u!4 &4475297942277503519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}

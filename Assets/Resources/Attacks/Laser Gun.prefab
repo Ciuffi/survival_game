@@ -46,27 +46,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damageUP: 2
-  spread: 0.01
-  spreadUP: 0.01
+  spread: 0.015
+  spreadUP: 0.015
   castTime: 3
   castTimeUP: 3
   attackTimeUp: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 5
-  rangeUP: 7
+  range: 4
+  rangeUP: 6
   shotsPerAttack: 150
-  shotsPerAttackUP: 300
+  shotsPerAttackUP: 200
   cantMove: 0
-  speed: 0.1
-  speedUP: 0.15
-  knockback: 300
-  knockbackUP: 500
+  speed: 0.12
+  speedUP: 0.2
+  knockback: 800
+  knockbackUP: 800
   pierce: 0
   pierceUP: 1
   critChance: 0.1
-  critDmg: 2
-  projectile: {fileID: 4908858350499337675, guid: dda17c7d9d33449c19308f85e4451365, type: 3}
+  critDmg: 1.5
+  projectile: {fileID: 7701179586538486497, guid: 6ae59e43ad7f5564d88443c339ef7519, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
@@ -82,4 +82,4 @@ MonoBehaviour:
   shakeStrength: 0
   shakeRotation: 0
   attackBuff: 0
-  weaponSprite: {fileID: 21300000, guid: 0d6169b7ac5346a48ae43626f31fd7ab, type: 3}
+  weaponSprite: {fileID: 21300000, guid: c0c723adc4f0ca5479ef3ead48687125, type: 3}

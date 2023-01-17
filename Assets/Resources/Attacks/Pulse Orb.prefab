@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4743095717860307335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8313633446718030146}
+  - component: {fileID: 3640772465946700108}
+  m_Layer: 0
+  m_Name: Pulse Orb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8313633446718030146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743095717860307335}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.07133351, y: -0.99251544, z: 0}
+  m_LocalScale: {x: 0.39134, y: -0.39134, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3640772465946700108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743095717860307335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 4
+  damageUP: 7
+  spread: 0.25
+  spreadUP: 0.2
+  castTime: 3
+  castTimeUP: 2
+  attackTimeUp: 0
+  recoveryTime: 0
+  recoveryTimeUp: 0
+  range: 6
+  rangeUP: 8
+  shotsPerAttack: 6
+  shotsPerAttackUP: 12
+  cantMove: 1
+  speed: 0.06
+  speedUP: 0.04
+  knockback: 1000
+  knockbackUP: 1500
+  pierce: 1
+  pierceUP: 2
+  critChance: 0.1
+  critDmg: 2
+  projectile: {fileID: 3966782872280218973, guid: dc28017651fe4414892ee44936f53fc3, type: 3}
+  scaleUP: {x: 2, y: 2, z: 0}
+  rarity: 0
+  chosenNumbers: 
+  effect: {fileID: 0}
+  attackType: 0
+  MeleeAttack: {fileID: 0}
+  comboLength: 0
+  meleeScale: 0
+  meleeSpacer: 0
+  meleeSpacerGap: 0
+  comboWaitTime: 0
+  shakeTime: 0
+  shakeStrength: 0
+  shakeRotation: 0
+  attackBuff: 0
+  weaponSprite: {fileID: 21300000, guid: 0d6169b7ac5346a48ae43626f31fd7ab, type: 3}

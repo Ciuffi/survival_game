@@ -11,6 +11,7 @@ public class LootBox : MonoBehaviour
     public float disappearSpeed;
 
     public GameObject DamagePopup;
+    public GameObject HitEffect;
     Rigidbody2D rb;
     PlayerMovement player;
 
@@ -55,7 +56,13 @@ public class LootBox : MonoBehaviour
         popupPosition.x = Random.Range(rb.position.x - 0.075f, rb.position.x + 0.075f);
         popupPosition.y = Random.Range(rb.position.y, rb.position.y + 0.1f);
 
+        Vector3 modifier = transform.position;
+        modifier.x = Random.Range(-0.1f, 0.1f);
+        modifier.y = Random.Range(-0.1f, 0.1f);
+
         DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
+        Instantiate(HitEffect, transform.position + modifier, Quaternion.identity);
+
         if (isCrit == true)
         {
             damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);

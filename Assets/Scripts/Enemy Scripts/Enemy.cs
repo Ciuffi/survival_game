@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour, Attacker
 {
@@ -23,10 +24,12 @@ public class Enemy : MonoBehaviour, Attacker
     public bool isMelee;
 
     public float health;
+    public float maxHealth;
     public float xpAmount;
 
     public bool canDamage;
     public GameObject DamagePopup;
+    public GameObject HitEffect;
 
     public float Iframes;
     float timer = 0f;
@@ -42,7 +45,21 @@ public class Enemy : MonoBehaviour, Attacker
     Color color;
     Color OGcolor;
 
+    private AIPath aiPath;
 
+    public bool isRage;
+    private bool rageTriggered = false;
+    public float rageSpeedMod = 1.6f;
+
+    public bool isDash;
+    public float chargeTime = 1f;
+    public float dashSpeed = 20f;
+    public bool canDash = true;
+    private Vector3 savedPlayerPosition;
+    private bool isCharging;
+    private bool isDashing;
+    public float dashCD;
+    public float waitTime;
 
     // Start is called before the first frame update
     void Start()
@@ -58,10 +75,13 @@ public class Enemy : MonoBehaviour, Attacker
 
         canDamage = true;
         isDead = false;
+        maxHealth = health;
+
         OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
         color = Sprite.GetComponent<SpriteRenderer>().color;
         Sprite.GetComponent<SpriteRenderer>().color = OGcolor;
 
+        aiPath = this.GetComponent<AIPath>();
     }
 
 
@@ -89,22 +109,76 @@ public class Enemy : MonoBehaviour, Attacker
         directionToPlayer = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
+
+        if (isRage == true)
+        {
+            if (health / maxHealth < 0.4 && !rageTriggered)
+            {
+                aiPath.maxSpeed *= rageSpeedMod;
+                animator.speed *= 1.5f;
+                rageTriggered = true;
+            }
+
+        }
+
         if (isMelee == true) //melee 
         {
             animator.SetFloat("Distance", distance);
+
+            if (isDash == false)
+            {
             if (distance <= stopDistance)
             {
                 StopMoving();
+                animator.SetBool("IsMoving", false);
                 transform.LookAt(player.transform);
                 transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                animator.SetBool("IsMoving", false);
             }
             else
             {
                 StartMoving();
-                MoveEnemy();
                 animator.SetBool("IsMoving", true);
             }
+            } else if (isDash == true) // does dash
+            {
+                if (distance <= stopDistance && canDash)
+                {
+                    canDash = false;
+                    savedPlayerPosition = player.transform.position;
+                    isCharging = true;
+                 
+                    StartCoroutine(Charge());
+                } 
+
+                if (isCharging)
+                {
+                    StopMoving();
+                    //stop movement or animation during charging
+                }
+                if (isDashing)
+                {
+                    //move towards player position
+                    transform.position = Vector3.MoveTowards(transform.position, savedPlayerPosition, dashSpeed * Time.deltaTime);
+                }
+
+                if (Vector3.Distance(this.transform.position, savedPlayerPosition) < 1f) //arrives at location
+                {
+                    isDashing = false;
+                    StartMoving();
+                    dashCD -= Time.deltaTime;
+
+
+                }
+
+                else if (dashCD <= 0)
+                {
+                    canDash = true;
+                    StartMoving();
+                }
+
+
+            }
+
 
         }
         else //ranged 
@@ -117,7 +191,6 @@ public class Enemy : MonoBehaviour, Attacker
             else
             {
                 StartMoving();
-                MoveEnemy();
                 animator.SetBool("IsMoving", true);
             }
         }
@@ -145,28 +218,27 @@ public class Enemy : MonoBehaviour, Attacker
 
 
     }
-
-    private void MoveEnemy()
+    IEnumerator Charge()
     {
-        if (canMove == true)
-        {
-            //rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * moveSpeed
-
-
-        }
+        yield return new WaitForSeconds(chargeTime);
+        isCharging = false;
+        isDashing = true;
+  
     }
 
-    public void StopMoving()
+    IEnumerator Wait()
     {
-        //rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * 0;
-        canMove = false;
-        //Vector3 position = player.transform.position - transform.position;
-       // position.z = 0;
+        yield return new WaitForSeconds(waitTime);
+    }
+
+        public void StopMoving()
+    {
+        aiPath.canMove = false;
     }
 
     public void StartMoving()
     {
-        canMove = true;
+        aiPath.canMove = true;
     }
 
     public void TakeDamage(float damageAmount, bool isCrit)
@@ -179,8 +251,13 @@ public class Enemy : MonoBehaviour, Attacker
             Vector3 popupPosition = rb.position;
             popupPosition.x = Random.Range(rb.position.x - 0.075f, rb.position.x + 0.075f);
             popupPosition.y = Random.Range(rb.position.y, rb.position.y + 0.1f);
- 
+            Vector3 modifier = transform.position;
+            modifier.x = Random.Range(-0.1f, 0.1f);
+            modifier.y = Random.Range(-0.1f, 0.1f);
+
             DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
+            Instantiate(HitEffect, transform.position + modifier, Quaternion.identity);
+
             if (isCrit == true)
             {
                 damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);

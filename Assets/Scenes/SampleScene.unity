@@ -1388,6 +1388,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &232783040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7251228105127587850, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+  m_PrefabInstance: {fileID: 1241507385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &232783044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232783040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef8851fd274d9e4fb1cbeaabef79a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isChest: 0
+  isPlayer: 0
+  isShadow: 1
 --- !u!1 &262722956
 GameObject:
   m_ObjectHideFlags: 0
@@ -6276,9 +6296,25 @@ PrefabInstance:
       propertyPath: recoveryTime
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8119190880936312414, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119190880936312414, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: critChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119190880936312414, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: shotsPerAttack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8575994268892999389, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057937255197591313, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_Name
+      value: Test Shot
       objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: WeaponSprite
