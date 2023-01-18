@@ -126,10 +126,13 @@ MonoBehaviour:
   isInvuln: 0
   animator: {fileID: 488397711559394890}
   Sprite: {fileID: 6531945945894358812}
-  disappearSpeed: 2.2
+  rageColor: {r: 0, g: 0, b: 0, a: 0}
+  disappearSpeed: 2.5
   isDead: 0
   isRage: 1
+  rageTriggerPercent: 0
   rageSpeedMod: 1.8
+  rageDmgMod: 2.5
   isDash: 1
   chargeTime: 2
   dashSpeed: 20
@@ -148,9 +151,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.64
+  m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0

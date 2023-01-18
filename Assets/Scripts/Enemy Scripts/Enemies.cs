@@ -9,12 +9,13 @@ public class Enemies
     public GameObject lootBox;
     public GameObject EliteMeleeEnemy;
     public GameObject EliteRangedEnemy;
-
+    public GameObject rageEnemy;
 
     public void LoadEnemies()
     {
         meleeEnemy = Resources.Load("Enemy/EnemyMelee", typeof(GameObject)) as GameObject;
         rangedEnemy = Resources.Load("Enemy/EnemyRanged", typeof(GameObject)) as GameObject;
+        rageEnemy = Resources.Load("Enemy/EnemyRage", typeof(GameObject)) as GameObject;
         lootBox = Resources.Load("Enemy/LootBox", typeof(GameObject)) as GameObject;
         EliteMeleeEnemy = Resources.Load("Enemy/ELITE_Melee", typeof(GameObject)) as GameObject;
         EliteRangedEnemy = Resources.Load("Enemy/ELITE_Ranged", typeof(GameObject)) as GameObject;

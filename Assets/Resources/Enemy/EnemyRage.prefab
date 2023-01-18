@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 1423453834646843858}
   - component: {fileID: 1423453834646843859}
   - component: {fileID: 485550041066969456}
-  - component: {fileID: 1557163916103302380}
   - component: {fileID: 7904818385536196546}
   - component: {fileID: 1321576414662445604}
   - component: {fileID: 8280240638215219442}
+  - component: {fileID: 1818636915474768677}
   m_Layer: 0
-  m_Name: EnemyMelee
+  m_Name: EnemyRage
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,9 +31,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423453834646843868}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.80504924, y: -0.80504924, z: 0}
+  m_LocalScale: {x: 1.5, y: -1.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1514911375676208822}
@@ -108,17 +108,17 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  moveSpeed: 0.9
+  moveSpeed: 0.1
   damage: 2
-  stopDistanceMin: 0.2
-  stopDistanceMax: 0.2
+  stopDistanceMin: 0.1
+  stopDistanceMax: 0.1
   moveDistanceCheck: 0
   canMove: 0
   timeCheck: 0
   isMelee: 1
-  health: 6
+  health: 40
   maxHealth: 0
-  xpAmount: 2
+  xpAmount: 6
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}
@@ -126,13 +126,13 @@ MonoBehaviour:
   isInvuln: 0
   animator: {fileID: 488397711559394890}
   Sprite: {fileID: 6531945945894358812}
-  rageColor: {r: 0, g: 0, b: 0, a: 0}
-  disappearSpeed: 2.5
+  rageColor: {r: 0.8773585, g: 0.3600481, b: 0.3600481, a: 0}
+  disappearSpeed: 2
   isDead: 0
-  isRage: 0
-  rageTriggerPercent: 0
-  rageSpeedMod: 1.6
-  rageDmgMod: 2.5
+  isRage: 1
+  rageTriggerPercent: 0.25
+  rageSpeedMod: 5
+  rageDmgMod: 3
   isDash: 0
   chargeTime: 1
   dashSpeed: 20
@@ -173,7 +173,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029656015, y: -0.07491627}
+  m_Offset: {x: 0.012026325, y: 0.19669151}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -184,24 +184,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.43444616, y: 0.43692493}
+  m_Size: {x: 0.48554072, y: 0.6466814}
   m_EdgeRadius: 0
---- !u!58 &1557163916103302380
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423453834646843868}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.09}
-  serializedVersion: 2
-  m_Radius: 0.35976765
 --- !u!114 &7904818385536196546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +230,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 0.5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -285,7 +269,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {fileID: 9136689211427610630, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+--- !u!61 &1818636915474768677
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423453834646843868}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008677736, y: 0.1734525}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6792524, y: 0.7230139}
+  m_EdgeRadius: 0
 --- !u!1 &6531945945894358812
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6531945945894358812}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.003, y: -0.069, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: -0.13777429, y: -0.13777429, z: -0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -360,7 +370,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c0d45148059ba844aef64228a34e2ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47a212826e3075a46958110201c422c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -381,7 +391,7 @@ Animator:
   m_GameObject: {fileID: 6531945945894358812}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c4a34cfc629ea344e89dce08688e60c1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 34a17cbc6ef5dde448fcd43dc0e83a5a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -408,11 +418,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.106174216
+      value: 0.11743929
       objectReference: {fileID: 0}
     - target: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.106174216
+      value: 0.11743929
       objectReference: {fileID: 0}
     - target: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_LocalScale.z
@@ -420,15 +430,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.003
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.441
+      value: 0.531
       objectReference: {fileID: 0}
     - target: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0059312293
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_LocalRotation.w

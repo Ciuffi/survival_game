@@ -39,6 +39,8 @@ public class Enemy : MonoBehaviour, Attacker
 
     public Animator animator;
     public GameObject Sprite;
+    private SpriteRenderer spriteRend;
+    public Color rageColor;
     public float disappearSpeed;
     // public float shinySpeed;
     public bool isDead;
@@ -48,8 +50,10 @@ public class Enemy : MonoBehaviour, Attacker
     private AIPath aiPath;
 
     public bool isRage;
+    public float rageTriggerPercent;
     private bool rageTriggered = false;
     public float rageSpeedMod = 1.6f;
+    public float rageDmgMod = 2.5f;
 
     public bool isDash;
     public float chargeTime = 1f;
@@ -82,6 +86,7 @@ public class Enemy : MonoBehaviour, Attacker
         Sprite.GetComponent<SpriteRenderer>().color = OGcolor;
 
         aiPath = this.GetComponent<AIPath>();
+        spriteRend = Sprite.GetComponent<SpriteRenderer>();
     }
 
 
@@ -93,6 +98,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
 
             isDead = true;
+            animator.SetBool("IsDead", true);
             SetAllCollidersStatus(false);
             Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
             color = Sprite.GetComponent<SpriteRenderer>().color;
@@ -112,10 +118,13 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (isRage == true)
         {
-            if (health / maxHealth < 0.4 && !rageTriggered)
+            if (health / maxHealth <= rageTriggerPercent && !rageTriggered)
             {
                 aiPath.maxSpeed *= rageSpeedMod;
                 animator.speed *= 1.5f;
+                damage *= rageDmgMod;
+                animator.SetBool("IsRage", true);
+                spriteRend.color = new Color (rageColor.r,rageColor.g,rageColor.b);
                 rageTriggered = true;
             }
 
