@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7297495058217971513}
   - component: {fileID: 1441713891751434987}
   - component: {fileID: 4953048033148275019}
+  - component: {fileID: -7148203571477760851}
   m_Layer: 0
   m_Name: MeleeSlam
   m_TagString: Attack
@@ -150,3 +151,24 @@ PolygonCollider2D:
       - {x: 0.25244284, y: -0.4395183}
       - {x: 0.50488544, y: 0}
       - {x: 0.2524426, y: 0.43847913}
+--- !u!50 &-7148203571477760851
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908858350499337675}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 2
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

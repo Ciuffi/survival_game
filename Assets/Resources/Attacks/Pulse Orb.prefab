@@ -62,8 +62,8 @@ MonoBehaviour:
   speedUP: 0.04
   knockback: 1500
   knockbackUP: 2000
-  pierce: 1
-  pierceUP: 2
+  pierce: 0
+  pierceUP: 1
   critChance: 0.1
   critDmg: 2
   projectile: {fileID: 3966782872280218973, guid: dc28017651fe4414892ee44936f53fc3, type: 3}

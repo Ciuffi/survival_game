@@ -188,7 +188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3287956671689121398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: -0.39, z: 0}
+  m_LocalPosition: {x: 0.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isChest: 0
-  isPlayer: 0
+  isPlayer: 1
   isShadow: 0
 --- !u!1 &9136689210380629558
 GameObject:
@@ -433,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 9136689211427610680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.031666756, y: 0.217, z: -2}
-  m_LocalScale: {x: 0.45, y: -0.45, z: 0}
+  m_LocalScale: {x: 0.4, y: -0.4, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9136689210380629559}
@@ -569,7 +569,7 @@ MonoBehaviour:
   shield: 0
   baseShield: 0
   stats: []
-  Iframes: 0.6
+  Iframes: 1
   IFtimer: 0
   canDamage: 0
   LevelManager: {fileID: 3287956671441075117}
@@ -701,10 +701,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6522097759947182653, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
+--- !u!1 &7251228105127587850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5271078019544878314, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
+  m_PrefabInstance: {fileID: 3280634846730452192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &232783044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251228105127587850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef8851fd274d9e4fb1cbeaabef79a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isChest: 0
+  isPlayer: 0
+  isShadow: 1
 --- !u!4 &8855958693699065368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
@@ -720,6 +740,30 @@ PrefabInstance:
     - target: {fileID: 1449995561756442478, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: m_Name
       value: Burst Shot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: pierce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: spread
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: spreadUP
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: critChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: shotsPerAttack
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: m_RootOrder

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7297495058217971513}
   - component: {fileID: 1441713891751434987}
   - component: {fileID: 5747837662269585904}
+  - component: {fileID: 7860753979652903893}
   m_Layer: 0
   m_Name: MeleeFist
   m_TagString: Attack
@@ -273,3 +274,24 @@ PolygonCollider2D:
       - {x: 0.21, y: -1.6999999}
       - {x: 0.28, y: -1.6899999}
       - {x: 0.47, y: -1.5999999}
+--- !u!50 &7860753979652903893
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908858350499337675}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 2
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

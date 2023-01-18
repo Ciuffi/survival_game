@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3966782872280218974}
   - component: {fileID: -2693713263132832062}
   - component: {fileID: 3115735194507937141}
+  - component: {fileID: -3887285398624502537}
   m_Layer: 0
   m_Name: EnergyBall_1
   m_TagString: Untagged
@@ -156,3 +157,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.060778297}
   serializedVersion: 2
   m_Radius: 1.2540483
+--- !u!50 &-3887285398624502537
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966782872280218973}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 2
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

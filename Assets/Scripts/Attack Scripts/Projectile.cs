@@ -51,6 +51,7 @@ public class Projectile : MonoBehaviour
         knockback = attack.knockback;
         critChance = attack.critChance + Player.GetComponent<StatsHandler>().critChance;
         critDmg = attack.critDmg + Player.GetComponent<StatsHandler>().critDmg;
+        projectileRange = attack.range;
         float critRoll;
 
         critRoll = Random.value;
