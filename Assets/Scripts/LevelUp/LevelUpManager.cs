@@ -15,6 +15,8 @@ public class LevelUpManager : MonoBehaviour
     public GameObject[] weapons;
     public GameObject[] stats;
     public List<GameObject> upgrades;
+    public bool isWeapon = true;
+    private List<GameObject> previousUpgrades = new List<GameObject>();
 
     public int GetXpToNextLevel(float level)
     {
@@ -39,13 +41,35 @@ public class LevelUpManager : MonoBehaviour
 
     private void setUpgrades()
     {
+        if (isWeapon)
+        {
+            upgrades = new List<GameObject>(weapons);
+            isWeapon = false;
+        }
+        else
+        { 
+            upgrades = new List<GameObject>(stats);
+            isWeapon = true;
+        }
+
         //create weighting later
         upgradeWindows.ForEach((u) =>
         {
-            GameObject GO = upgrades[Random.Range(0, upgrades.Count)];
+            GameObject GO = null;
+            while (GO == null)
+            {
+                GO = upgrades[Random.Range(0, upgrades.Count)];
+                if (previousUpgrades.Contains(GO))
+                {
+                    GO = null;
+                }
+            }
+            previousUpgrades.Add(GO);
             u.upgrade = GO.GetComponent<Upgrade>();
             u.GetComponentInChildren<TMP_Text>().text = GO.name;
         });
+
+        previousUpgrades.Clear();
     }
 
     public void ShowLevelUpUI()
@@ -86,8 +110,6 @@ public class LevelUpManager : MonoBehaviour
         panel.SetActive(false);
         weapons = Resources.LoadAll("Attacks", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
         stats = Resources.LoadAll("Stats", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
-        upgrades = new List<GameObject>(weapons);
-        upgrades.AddRange(stats);
     }
 
     // Update is called once per frame
