@@ -18,6 +18,8 @@ public class LevelUpManager : MonoBehaviour
     public bool isWeapon = true;
     private List<GameObject> previousUpgrades = new List<GameObject>();
 
+    public GameObject RerollBtn, SwapBtn;
+
     public int GetXpToNextLevel(float level)
     {
         return (int)(Mathf.Floor(baseXP * (Mathf.Pow(level, growthMultiplier))));
@@ -39,7 +41,26 @@ public class LevelUpManager : MonoBehaviour
         ShowLevelUpUI();
     }
 
-    private void setUpgrades()
+    public void reroll() //check if weapon or stat, then swap so it swaps back for setUpgrades()
+    {
+        if (isWeapon) 
+        {
+            isWeapon = false;
+            setUpgrades();
+        }
+        else
+        {
+            isWeapon = true;
+            setUpgrades();
+        }
+    }
+
+    public void swap()
+    {
+        setUpgrades();
+    }
+
+    public void setUpgrades()
     {
         if (isWeapon)
         {
@@ -72,11 +93,14 @@ public class LevelUpManager : MonoBehaviour
         previousUpgrades.Clear();
     }
 
+ 
     public void ShowLevelUpUI()
     {
         PauseGame();
+        RerollBtn.GetComponent<RollSwapHandler>().resetChances();
+        SwapBtn.GetComponent<RollSwapHandler>().resetChances();
         setUpgrades();
-        GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
+        GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick(); 
         panel.SetActive(true);
     }
     public void SignalItemChosen()
