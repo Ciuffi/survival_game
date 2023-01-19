@@ -110,6 +110,9 @@ MonoBehaviour:
   HitEffect: {fileID: 1008460165413105732, guid: f3b6b49bfc4a7c1448621acb6baf6b47, type: 3}
   OpenedSprite: {fileID: 21300000, guid: bfb738cdebbeae045a8eeb6c02fc2da8, type: 3}
   tempColor: {r: 0, g: 0, b: 0, a: 0}
+  flashDuration: 0.1
+  newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
+  canDamage: 1
 --- !u!114 &4076057847785039081
 MonoBehaviour:
   m_ObjectHideFlags: 0

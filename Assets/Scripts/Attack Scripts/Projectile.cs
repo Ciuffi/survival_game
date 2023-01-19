@@ -52,8 +52,10 @@ public class Projectile : MonoBehaviour
         critChance = attack.critChance + Player.GetComponent<StatsHandler>().critChance;
         critDmg = attack.critDmg + Player.GetComponent<StatsHandler>().critDmg;
         projectileRange = attack.range;
-        float critRoll;
 
+
+
+        float critRoll;
         critRoll = Random.value;
 
         if (critChance >= critRoll)
@@ -149,12 +151,14 @@ public class Projectile : MonoBehaviour
             if (isCrit == true)
             {
                 col.gameObject.GetComponent<Enemy>().TakeDamage(damage, true);
+                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
 
 
             }
             else
             {
                 col.gameObject.GetComponent<Enemy>().TakeDamage(damage, false);
+                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
 
             }
             col.gameObject.GetComponent<Enemy>().damageTickCounter(damageTick);
@@ -197,10 +201,13 @@ public class Projectile : MonoBehaviour
             if (isCrit == true)
             {
                 col.gameObject.GetComponent<LootBox>().TakeDamage(damage, true);
+                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+
             }
             else
             {
                 col.gameObject.GetComponent<LootBox>().TakeDamage(damage, false);
+                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
 
             }
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);

@@ -139,6 +139,8 @@ MonoBehaviour:
   canDash: 1
   dashCD: 10
   waitTime: 1
+  flashDuration: 0.1
+  newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4

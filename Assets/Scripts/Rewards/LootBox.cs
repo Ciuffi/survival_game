@@ -19,6 +19,15 @@ public class LootBox : MonoBehaviour
     SpriteRenderer Sprite;
     public Color tempColor;
 
+    public float flashDuration;
+    private Material defaultMaterial;
+    public Material newMaterial;
+    private bool resetMaterial = false;
+    private SpriteRenderer spriteRend;
+    Color OGcolor;
+    public bool canDamage = true;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +35,10 @@ public class LootBox : MonoBehaviour
         player = FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
         Sprite = gameObject.GetComponent<SpriteRenderer>();
         tempColor = GetComponent<SpriteRenderer>().color;
+        spriteRend = Sprite.GetComponent<SpriteRenderer>();
+        OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
+        defaultMaterial = spriteRend.material;
+
     }
 
     private void FixedUpdate()
@@ -60,6 +73,13 @@ public class LootBox : MonoBehaviour
         modifier.x = Random.Range(-0.1f, 0.1f);
         modifier.y = Random.Range(-0.1f, 0.1f);
 
+        spriteRend.material = newMaterial;
+        if (!resetMaterial)
+        {
+            StartCoroutine(ResetMaterial());
+            resetMaterial = true;
+        }
+
         DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
         Instantiate(HitEffect, transform.position + modifier, Quaternion.identity);
 
@@ -70,6 +90,20 @@ public class LootBox : MonoBehaviour
         else
         {
             damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
+        }
+    }
+
+    IEnumerator ResetMaterial()
+    {
+        yield return new WaitForSeconds(flashDuration);
+        if (canDamage)
+        {
+            spriteRend.material = defaultMaterial;
+            resetMaterial = false;
+        }
+        else
+        {
+            StartCoroutine(ResetMaterial());
         }
     }
 

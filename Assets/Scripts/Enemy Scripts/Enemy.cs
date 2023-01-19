@@ -65,6 +65,12 @@ public class Enemy : MonoBehaviour, Attacker
     public float dashCD;
     public float waitTime;
 
+    public float flashDuration;
+    private Material defaultMaterial;
+    public Material newMaterial;
+    private bool resetMaterial = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +93,8 @@ public class Enemy : MonoBehaviour, Attacker
 
         aiPath = this.GetComponent<AIPath>();
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
+
+        defaultMaterial = spriteRend.material;
     }
 
 
@@ -235,6 +243,20 @@ public class Enemy : MonoBehaviour, Attacker
   
     }
 
+    IEnumerator ResetMaterial()
+    {
+        yield return new WaitForSeconds(flashDuration);
+        if (canDamage)
+        {
+            spriteRend.material = defaultMaterial;
+            resetMaterial = false;
+        }
+        else
+        {
+            StartCoroutine(ResetMaterial());
+        }
+    }
+
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(waitTime);
@@ -263,6 +285,13 @@ public class Enemy : MonoBehaviour, Attacker
             Vector3 modifier = transform.position;
             modifier.x = Random.Range(-0.1f, 0.1f);
             modifier.y = Random.Range(-0.1f, 0.1f);
+
+            spriteRend.material = newMaterial;
+            if (!resetMaterial)
+            {
+                StartCoroutine(ResetMaterial());
+                resetMaterial = true;
+            }
 
             DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
             Instantiate(HitEffect, transform.position + modifier, Quaternion.identity);

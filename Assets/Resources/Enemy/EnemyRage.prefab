@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: -1.5, z: 0}
+  m_LocalScale: {x: 1.3, y: -1.3, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1514911375676208822}
@@ -139,6 +139,8 @@ MonoBehaviour:
   canDash: 1
   dashCD: 0
   waitTime: 0
+  flashDuration: 0.1
+  newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
