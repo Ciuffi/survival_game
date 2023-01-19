@@ -74,13 +74,13 @@ public class Attack : MonoBehaviour, Upgrade
         
         if (cantMove == true)
         {
-            if (isAutoAim)
-            {
-                AutoAim.SetActive(true);
-            } else
-            {
-                AutoAim.SetActive(false);
-            }
+            //if (isAutoAim)
+           // {
+              //  AutoAim.SetActive(true);
+            //} else
+           // {
+              //  AutoAim.SetActive(false);
+           // }
 
             for (int i = 0; i < shotsPerAttack; i++)
             {

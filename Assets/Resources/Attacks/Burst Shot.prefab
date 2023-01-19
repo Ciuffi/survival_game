@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 5
   damageUP: 5
   spread: 0.075
   spreadUP: 0.1
@@ -83,3 +83,6 @@ MonoBehaviour:
   shakeRotation: 0
   attackBuff: 0
   weaponSprite: {fileID: 21300000, guid: 10587861012cd6f41aa502b993f2a102, type: 3}
+  isAutoAim: 0
+  AutoAim: {fileID: 0}
+  weaponModel: {fileID: 0}
