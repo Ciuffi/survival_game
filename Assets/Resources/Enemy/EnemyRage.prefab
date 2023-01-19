@@ -132,7 +132,7 @@ MonoBehaviour:
   isRage: 1
   rageTriggerPercent: 0.25
   rageSpeedMod: 5
-  rageDmgMod: 3
+  rageDmgMod: 2
   isDash: 0
   chargeTime: 1
   dashSpeed: 20

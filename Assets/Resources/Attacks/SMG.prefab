@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1449995561756442478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8735341029624650593}
+  - component: {fileID: 1803132688626501153}
+  m_Layer: 0
+  m_Name: SMG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8735341029624650593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449995561756442478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 0.39134, y: -0.39134, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1803132688626501153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449995561756442478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  damageUP: 4
+  spread: 0.05
+  spreadUP: 0.03
+  castTime: 2
+  castTimeUP: 1.5
+  attackTimeUp: 0
+  recoveryTime: 0
+  recoveryTimeUp: 0
+  range: 6
+  rangeUP: 10
+  shotsPerAttack: 15
+  shotsPerAttackUP: 30
+  cantMove: 0
+  speed: 0.1
+  speedUP: 0.12
+  knockback: 400
+  knockbackUP: 1200
+  pierce: 0
+  pierceUP: 2
+  critChance: 0.3
+  critDmg: 1.5
+  projectile: {fileID: 4235860010000021921, guid: b6bc6cc5a13c6564fa53e6c92af8c307, type: 3}
+  scaleUP: {x: 2, y: 2, z: 0}
+  rarity: 0
+  chosenNumbers: 
+  effect: {fileID: 0}
+  attackType: 0
+  MeleeAttack: {fileID: 0}
+  comboLength: 0
+  meleeScale: 0
+  meleeSpacer: 0.7
+  meleeSpacerGap: 1
+  comboWaitTime: 0
+  shakeTime: 0
+  shakeStrength: 0
+  shakeRotation: 0
+  attackBuff: 0
+  weaponSprite: {fileID: 21300000, guid: 29a5e81a03a13bf478abe2a757791b8f, type: 3}
+  isAutoAim: 0
+  AutoAim: {fileID: 0}
+  weaponModel: {fileID: 0}
