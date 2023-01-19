@@ -577,6 +577,12 @@ MonoBehaviour:
   canDamage: 0
   LevelManager: {fileID: 3287956671441075117}
   animator: {fileID: 861954445235611945}
+  Sprite: {fileID: 6301032241555800557}
+  newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
+  flashDuration: 0.2
+  playerShakeTime: 0.4
+  playerShakeStrength: 0.5
+  playerShakeRotation: 0.3
 --- !u!61 &1999617151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -587,7 +593,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0026851296, y: 0.4390335}
@@ -746,7 +752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: damage
-      value: 30
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: pierce
@@ -761,6 +767,10 @@ PrefabInstance:
       value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: knockback
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: critChance
       value: 0
       objectReference: {fileID: 0}
@@ -770,7 +780,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: a24dcb709422d98438f512fee334cee0, type: 3}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: shotsPerAttack
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: m_RootOrder

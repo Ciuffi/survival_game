@@ -38,6 +38,17 @@ public class StatsHandler : MonoBehaviour
     public Animator animator;
     GameObject ComboManager;
 
+    public GameObject Sprite;
+    private SpriteRenderer spriteRend;
+    private Material OGMaterial;
+    public Material newMaterial;
+    private bool resetMaterial = false;
+    public float flashDuration;
+
+    GameObject Camera;
+    public float playerShakeTime, playerShakeStrength, playerShakeRotation;
+
+
     public void TakeDamage(float damageAmount)
     {
         if (canDamage == true)
@@ -45,10 +56,34 @@ public class StatsHandler : MonoBehaviour
             canDamage = false;
             float newHealth = health - damageAmount + defense;
             animator.SetBool("TookDamage", true);
+            
+            spriteRend.material = newMaterial;
+            if (!resetMaterial)
+            {
+                StartCoroutine(ResetMaterial());
+                resetMaterial = true;
+            }
+
+            Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+
             healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
             health = newHealth;
             ComboManager.GetComponent<ComboTracker>().ResetCount();
             if (health <= 0) GameObject.FindObjectOfType<GameManager>().ResetGame();
+        }
+    }
+
+    IEnumerator ResetMaterial()
+    {
+        yield return new WaitForSeconds(flashDuration);
+        if (canDamage)
+        {
+            spriteRend.material = OGMaterial;
+            resetMaterial = false;
+        }
+        else
+        {
+            StartCoroutine(ResetMaterial());
         }
     }
 
@@ -149,6 +184,11 @@ public class StatsHandler : MonoBehaviour
 
     void Start()
     {
+        spriteRend = Sprite.GetComponent<SpriteRenderer>();
+        OGMaterial = spriteRend.material;
+        Camera = GameObject.FindWithTag("MainCamera");
+
+
         level = 1;
         xp = 0;
         LevelManager = GameObject.FindObjectOfType<LevelUpManager>();
@@ -167,6 +207,7 @@ public class StatsHandler : MonoBehaviour
             AddStat(a.gameObject);
         });
         CalculateStats();
+
     }
 }
 

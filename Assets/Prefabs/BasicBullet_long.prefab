@@ -202,8 +202,8 @@ MonoBehaviour:
   scaleSpeed: 0
   disappearSpeed: 0
   isCrit: 0
-  playerShakeTime: 0.2
-  playerShakeStrength: 0.4
+  playerShakeTime: 0.15
+  playerShakeStrength: 0.7
   playerShakeRotation: 0.2
 --- !u!50 &1882446872741620868
 Rigidbody2D:

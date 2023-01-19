@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
     public Animator animator;
     public GameObject WeaponSprite;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
         canMove = true;
         oldSpeed = 0;
         localSpeed = 0;
+       
     }
 
     void Move()
