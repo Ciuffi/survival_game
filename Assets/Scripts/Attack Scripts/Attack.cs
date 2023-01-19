@@ -65,26 +65,39 @@ public class Attack : MonoBehaviour, Upgrade
     public float attackBuff; //percent
 
     public Sprite weaponSprite;
+    public bool isAutoAim;
+    public GameObject AutoAim;
+    public GameObject weaponModel;
 
     private IEnumerator ShootSingleShot()
     {
-
-
+        
         if (cantMove == true)
         {
+            if (isAutoAim)
+            {
+                AutoAim.SetActive(true);
+            } else
+            {
+                AutoAim.SetActive(false);
+            }
+
             for (int i = 0; i < shotsPerAttack; i++)
             {
                 Quaternion rotation = owner.GetTransform().rotation;
                 Vector3 position = owner.GetTransform().position;
                 Vector3 direction = owner.GetDirection();
 
-                Player.GetComponent<PlayerMovement>().StopMoving();
+                Player.GetComponent<PlayerMovement>().StopMoving(); //stop moving before shooting
 
                 GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = rotation;
-                p.projectileRange = range;
+                    Projectile p = projectileGO.GetComponent<Projectile>();
+                    p.attack = this;
+                    p.transform.rotation = rotation;
+                    p.projectileRange = range;
+             
+
+            
                 yield return new WaitForSeconds(spread);
             }
             Player.GetComponent<PlayerMovement>().StartMoving();
@@ -305,7 +318,7 @@ public class Attack : MonoBehaviour, Upgrade
     {
         switch (attackType)
         {
-            case AttackTypes.SingleShot:
+            case AttackTypes.SingleShot:   
                 StartCoroutine(ShootSingleShot());
                 break;
             case AttackTypes.Shotgun:

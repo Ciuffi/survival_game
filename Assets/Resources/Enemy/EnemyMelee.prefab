@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7904818385536196546}
   - component: {fileID: 1321576414662445604}
   - component: {fileID: 8280240638215219442}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyMelee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 1514911375676208822}
   - component: {fileID: 6101747518039411570}
   - component: {fileID: 488397711559394890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,6 +403,10 @@ PrefabInstance:
     - target: {fileID: 5271078019544878314, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_Name
       value: Shadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271078019544878314, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
       propertyPath: m_RootOrder

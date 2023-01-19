@@ -11,7 +11,9 @@ public class WpnSpriteRotation : MonoBehaviour
     public float yOffset;
     float inputX;
     float inputY;
-
+   //bool autoAiming;
+    //public GameObject AutoAim;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +28,17 @@ public class WpnSpriteRotation : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(weapon.transform.position.x + xOffset + inputX, weapon.transform.position.y + yOffset + inputY, weapon.transform.position.z);
-
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle + 90));
+
+        // if (autoAiming == true)
+        //{
+        // Vector3 newAngle = AutoAim.GetComponent<AutoAim>().autoAimDirection;
+        //  transform.rotation = Quaternion.Euler(newAngle.x + 90, newAngle.y + 90, 0);
+        //   } else
+        //  {
+        //   transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle + 90));
+        //  }
+
 
 
         if (VJ.InputAngle < 0) //input right
@@ -40,6 +51,16 @@ public class WpnSpriteRotation : MonoBehaviour
         }
 
     }
+
+   // public void isAuto()
+   // {
+   //     autoAiming = true;
+   // }
+
+ //   public void stopAuto()
+   // {
+   //     autoAiming = false;
+  //  }
 
     public void InputXY(float x, float y)
     {
