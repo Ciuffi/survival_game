@@ -202,6 +202,7 @@ MonoBehaviour:
   scaleSpeed: 0
   disappearSpeed: 0
   isCrit: 0
+  onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
   playerShakeTime: 0.1
   playerShakeStrength: 0.1
   playerShakeRotation: 0.1
@@ -213,7 +214,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4235860010000021921}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

@@ -36,6 +36,8 @@ public class Projectile : MonoBehaviour
     float critDmg;
     public bool isCrit;
 
+    public GameObject onHitParticle;
+
     public float playerShakeTime, playerShakeStrength, playerShakeRotation;
 
     void Start()
@@ -152,6 +154,7 @@ public class Projectile : MonoBehaviour
             {
                 col.gameObject.GetComponent<Enemy>().TakeDamage(damage, true);
                 Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
 
 
             }
@@ -159,6 +162,7 @@ public class Projectile : MonoBehaviour
             {
                 col.gameObject.GetComponent<Enemy>().TakeDamage(damage, false);
                 Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
 
             }
             col.gameObject.GetComponent<Enemy>().damageTickCounter(damageTick);
@@ -202,12 +206,14 @@ public class Projectile : MonoBehaviour
             {
                 col.gameObject.GetComponent<LootBox>().TakeDamage(damage, true);
                 Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
 
             }
             else
             {
                 col.gameObject.GetComponent<LootBox>().TakeDamage(damage, false);
                 Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
 
             }
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
