@@ -60,8 +60,8 @@ MonoBehaviour:
   cantMove: 1
   speed: 0.06
   speedUP: 0.04
-  knockback: 1500
-  knockbackUP: 2000
+  knockback: 1200
+  knockbackUP: 1500
   pierce: 0
   pierceUP: 1
   critChance: 0.1
@@ -83,3 +83,6 @@ MonoBehaviour:
   shakeRotation: 0
   attackBuff: 0
   weaponSprite: {fileID: 21300000, guid: 0d6169b7ac5346a48ae43626f31fd7ab, type: 3}
+  isAutoAim: 0
+  AutoAim: {fileID: 0}
+  weaponModel: {fileID: 0}
