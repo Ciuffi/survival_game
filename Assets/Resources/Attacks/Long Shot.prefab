@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  damageUP: 15
+  damage: 25
+  damageUP: 40
   spread: 0.5
   spreadUP: 0.5
   castTime: 2
@@ -64,8 +64,8 @@ MonoBehaviour:
   knockbackUP: 3500
   pierce: 1
   pierceUP: 4
-  critChance: 0.2
-  critDmg: 1.75
+  critChance: 0.15
+  critDmg: 1.5
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
@@ -83,3 +83,6 @@ MonoBehaviour:
   shakeRotation: 0
   attackBuff: 0
   weaponSprite: {fileID: 21300000, guid: c819fcd3ba82a2642b59f9660f097089, type: 3}
+  isAutoAim: 0
+  AutoAim: {fileID: 0}
+  weaponModel: {fileID: 0}

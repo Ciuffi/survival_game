@@ -116,9 +116,9 @@ MonoBehaviour:
   canMove: 0
   timeCheck: 0
   isMelee: 1
-  health: 6
+  health: 10
   maxHealth: 0
-  xpAmount: 2
+  xpAmount: 20
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}

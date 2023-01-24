@@ -140,7 +140,7 @@ MonoBehaviour:
   playerShakeTime: 0.15
   playerShakeStrength: 0.15
   playerShakeRotation: 0.1
-  damageTickDuration: 0.25
+  damageTickDuration: 0.35
 --- !u!58 &3115735194507937141
 CircleCollider2D:
   m_ObjectHideFlags: 0

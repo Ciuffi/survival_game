@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  damageUP: 2
+  damage: 2
+  damageUP: 3
   spread: 0.2
   spreadUP: 0.2
   castTime: 1
@@ -75,8 +75,8 @@ MonoBehaviour:
   MeleeAttack: {fileID: 4908858350499337675, guid: 3f3ee220eb53a4340bac2d7e0d1209fa, type: 3}
   comboLength: 1
   meleeScale: 0.2
-  meleeSpacer: 0
-  meleeSpacerGap: 0.7
+  meleeSpacer: 1
+  meleeSpacerGap: 1
   comboWaitTime: 0
   shakeTime: 0.15
   shakeStrength: 0.5

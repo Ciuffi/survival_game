@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6955858341819704981}
   - component: {fileID: 7089685550203203867}
   m_Layer: 0
-  m_Name: Laser Gun
+  m_Name: Rail Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damageUP: 2
-  spread: 0.015
+  spread: 0.02
   spreadUP: 0.015
   castTime: 3
   castTimeUP: 3
@@ -55,13 +55,13 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 4
   rangeUP: 6
-  shotsPerAttack: 150
-  shotsPerAttackUP: 200
+  shotsPerAttack: 100
+  shotsPerAttackUP: 150
   cantMove: 0
   speed: 0.12
   speedUP: 0.2
-  knockback: 800
-  knockbackUP: 800
+  knockback: 1000
+  knockbackUP: 1000
   pierce: 0
   pierceUP: 1
   critChance: 0.1
@@ -83,3 +83,6 @@ MonoBehaviour:
   shakeRotation: 0
   attackBuff: 0
   weaponSprite: {fileID: 21300000, guid: c0c723adc4f0ca5479ef3ead48687125, type: 3}
+  isAutoAim: 0
+  AutoAim: {fileID: 0}
+  weaponModel: {fileID: 0}
