@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour, Attacker
     public Material newMaterial;
     private bool resetMaterial = false;
 
-    
+    private Vector3 center;
 
 
     // Start is called before the first frame update
@@ -98,6 +98,7 @@ public class Enemy : MonoBehaviour, Attacker
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
 
         defaultMaterial = spriteRend.material;
+        center = GetComponent<SpriteRenderer>().bounds.center;
 
     }
 
@@ -110,7 +111,6 @@ public class Enemy : MonoBehaviour, Attacker
         {
 
             isDead = true;
-            Vector3 center = GetComponent<SpriteRenderer>().bounds.center;
             GameObject xpDrop = Instantiate(EXPdrop, center, Quaternion.identity);
             xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
         }
@@ -324,14 +324,6 @@ public class Enemy : MonoBehaviour, Attacker
     }
 
 
-    public void damageTickCounter(float damageTickCD)
-    {
-        //turn timer on
-        isInvuln = true;
-        //damageTickCD =  
-
-    }
-
 
     public void SetAllCollidersStatus(bool active)
     {
@@ -356,11 +348,12 @@ public class Enemy : MonoBehaviour, Attacker
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.tag == "Attack" && col.GetComponent<Projectile>().attack.owner.GetTransform().name == "Player")
         {
-            knockDirection = rb.transform.position - col.gameObject.transform.position;
+            Vector3 colCenter = col.GetComponent<SpriteRenderer>().bounds.center;
+            knockDirection = center - colCenter;
 
             rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
         }

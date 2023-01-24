@@ -112,15 +112,14 @@ MonoBehaviour:
   meleeTime: 0
   startup: 0
   active: 0.4
-  recovery: 0.3
-  damageTick: 0.5
   scaleSpeed: 4
   disappearSpeed: 4
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
-  playerShakeTime: 0
-  playerShakeStrength: 0
-  playerShakeRotation: 0
+  playerShakeTime: 0.2
+  playerShakeStrength: 1
+  playerShakeRotation: 1
+  damageTickDuration: 1
 --- !u!60 &5747837662269585904
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -283,8 +282,8 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4908858350499337675}
-  m_BodyType: 2
-  m_Simulated: 0
+  m_BodyType: 1
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2

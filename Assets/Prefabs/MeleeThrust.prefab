@@ -114,15 +114,14 @@ MonoBehaviour:
   meleeTime: 0
   startup: 0
   active: 0.4
-  recovery: 0.6
-  damageTick: 0.5
-  scaleSpeed: 7
-  disappearSpeed: 5
+  scaleSpeed: 3
+  disappearSpeed: 4
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
   playerShakeTime: 0.2
   playerShakeStrength: 1
   playerShakeRotation: 1
+  damageTickDuration: 1
 --- !u!50 &7860753979652903893
 Rigidbody2D:
   serializedVersion: 4

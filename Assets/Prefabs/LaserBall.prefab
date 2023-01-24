@@ -133,8 +133,6 @@ MonoBehaviour:
   meleeTime: 0
   startup: 0
   active: 0
-  recovery: 0
-  damageTick: 0
   scaleSpeed: 0
   disappearSpeed: 0
   isCrit: 0
@@ -142,6 +140,7 @@ MonoBehaviour:
   playerShakeTime: 0.02
   playerShakeStrength: 0.05
   playerShakeRotation: 0.05
+  damageTickDuration: 1
 --- !u!61 &878022755994954586
 BoxCollider2D:
   m_ObjectHideFlags: 0

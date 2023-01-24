@@ -25,8 +25,7 @@ public class Projectile : MonoBehaviour
     public float meleeTime;
     public float startup;
     public float active;
-    public float recovery;
-    public float damageTick;
+    //public float recovery;
 
 
     public float scaleSpeed;
@@ -39,6 +38,13 @@ public class Projectile : MonoBehaviour
     public GameObject onHitParticle;
 
     public float playerShakeTime, playerShakeStrength, playerShakeRotation;
+
+    public float damageTickDuration;
+    private List<GameObject> hitEnemies;
+    private Dictionary<GameObject, float> timers;
+    float critRoll;
+
+    private float finalDamage;
 
     void Start()
     {
@@ -55,22 +61,8 @@ public class Projectile : MonoBehaviour
         critDmg = attack.critDmg + Player.GetComponent<StatsHandler>().critDmg;
         projectileRange = attack.range;
 
-
-
-        float critRoll;
-        critRoll = Random.value;
-
-        if (critChance >= critRoll)
-        { //CRITS
-            damage = damage * critDmg;
-            isCrit = true;
-
-        }
-        else
-        {
-            //no crit 
-            isCrit = false;
-        }
+        hitEnemies = new List<GameObject>();
+        timers = new Dictionary<GameObject, float>();
 
     }
 
@@ -78,6 +70,21 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
+
+        // Check the timers for each object in the list
+        foreach (GameObject enemy in hitEnemies)
+        {
+            if (timers.ContainsKey(enemy))
+            {
+                timers[enemy] -= Time.deltaTime;
+
+                if (timers[enemy] <= 0)
+                {
+                    hitEnemies.Remove(enemy);
+                    timers.Remove(enemy);
+                }
+            }
+        }
 
         if (isMelee == false)
         {
@@ -91,12 +98,12 @@ public class Projectile : MonoBehaviour
 
             if (meleeTime < startup)
             {
-                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
+                //GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
                 GetComponent<Collider2D>().enabled = false;
             }
             else if (meleeTime >= startup && meleeTime < (startup + active))
             {
-                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                //GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                 GetComponent<Collider2D>().enabled = true;
             }
             else if (meleeTime >= (startup + active))
@@ -115,6 +122,8 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
 
 
     }
@@ -144,35 +153,64 @@ public class Projectile : MonoBehaviour
 
 
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if (pierce < 0) return;
         if (col.gameObject == null || attack.owner == null) return;
         if (col.gameObject.tag == "Enemy" && attack.owner.GetTransform().name == "Player")
         {
-            if (isCrit == true)
-            {
-                col.gameObject.GetComponent<Enemy>().TakeDamage(damage, true);
-                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
-
-            }
-            else
-            {
-                col.gameObject.GetComponent<Enemy>().TakeDamage(damage, false);
-                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
-            }
-            col.gameObject.GetComponent<Enemy>().damageTickCounter(damageTick);
+           
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
             ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
 
-            if (isMelee == false)
+            GameObject enemy = col.gameObject;
+
+            if (!hitEnemies.Contains(enemy)) //if enemy is not within hitDetection List
             {
-                pierce -= 1;
+                critRoll = Random.value; //roll for crit
+                if (critChance >= critRoll)
+                { //CRITS
+                    finalDamage = damage * critDmg;
+                    isCrit = true;
+
+                }
+                else
+                {
+                    //no crit 
+                    finalDamage = damage;
+                    isCrit = false;
+                }
+
+                hitEnemies.Add(enemy); //add enemy to hitList
+                timers[enemy] = damageTickDuration;
+
+                if (isCrit == true)
+                {
+                    col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
+                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
+
+
+                }
+                else
+                {
+                    col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
+                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
+
+                }
+
+                if (isMelee == false)
+                {
+                    pierce -= 1;
+                }
+               
+
+            } else
+            {
+                return;
             }
+      
             if (isMelee == false && pierce < 0)
             {
                 Destroy(gameObject);
@@ -202,26 +240,56 @@ public class Projectile : MonoBehaviour
         }
         else if (col.gameObject.tag == "Loot" && attack.owner.GetTransform().name == "Player")
         {
-            if (isCrit == true)
+            ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
+            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
+
+            GameObject enemy = col.gameObject;
+
+            if (!hitEnemies.Contains(enemy))
             {
-                col.gameObject.GetComponent<LootBox>().TakeDamage(damage, true);
-                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
+                critRoll = Random.value; //roll for crit
+                if (critChance >= critRoll)
+                { //CRITS
+                    finalDamage = damage * critDmg;
+                    isCrit = true;
+
+                }
+                else
+                {
+                    //no crit 
+                    finalDamage = damage;
+                    isCrit = false;
+                }
+
+                hitEnemies.Add(enemy);
+                timers[enemy] = damageTickDuration;
+                if (isCrit == true)
+                {
+                    col.gameObject.GetComponent<LootBox>().TakeDamage(finalDamage, true);
+                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
+
+                }
+                else
+                {
+                    col.gameObject.GetComponent<LootBox>().TakeDamage(finalDamage, false);
+                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
+
+                }
+
+                if (isMelee == false)
+                {
+                    pierce -= 1;
+                }
 
             }
             else
             {
-                col.gameObject.GetComponent<LootBox>().TakeDamage(damage, false);
-                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
+                return;
+            }
 
-            }
-            ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
-            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
-            if (isMelee == false)
-            {
-                pierce -= 1;
-            }
+
             if (isMelee == false && pierce < 0)
             {
                 Destroy(gameObject);
