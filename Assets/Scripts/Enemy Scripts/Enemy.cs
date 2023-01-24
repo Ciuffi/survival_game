@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour, Attacker
     public bool canDamage;
     public GameObject DamagePopup;
     public GameObject HitEffect;
+    public GameObject EXPdrop;
 
     public float Iframes;
     float timer = 0f;
@@ -70,6 +71,8 @@ public class Enemy : MonoBehaviour, Attacker
     public Material newMaterial;
     private bool resetMaterial = false;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -95,6 +98,7 @@ public class Enemy : MonoBehaviour, Attacker
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
 
         defaultMaterial = spriteRend.material;
+
     }
 
 
@@ -102,20 +106,26 @@ public class Enemy : MonoBehaviour, Attacker
     {
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
 
             isDead = true;
+            Vector3 center = GetComponent<SpriteRenderer>().bounds.center;
+            GameObject xpDrop = Instantiate(EXPdrop, center, Quaternion.identity);
+            xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
+        }
+
+        if (health <= 0)
+        {
             animator.SetBool("IsDead", true);
             SetAllCollidersStatus(false);
-            Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
             color = Sprite.GetComponent<SpriteRenderer>().color;
+            Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
 
         }
 
         if (color.a <= 0)
         {
-            player.gameObject.GetComponent<StatsHandler>().GainXP(xpAmount);
             Destroy(gameObject);
         }
 
