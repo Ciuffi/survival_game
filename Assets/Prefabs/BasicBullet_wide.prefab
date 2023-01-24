@@ -197,8 +197,6 @@ MonoBehaviour:
   meleeTime: 0
   startup: 0
   active: 0
-  recovery: 0
-  damageTick: 0
   scaleSpeed: 0
   disappearSpeed: 0
   isCrit: 0
@@ -206,6 +204,7 @@ MonoBehaviour:
   playerShakeTime: 0.2
   playerShakeStrength: 0.4
   playerShakeRotation: 0.3
+  damageTickDuration: 1
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4
