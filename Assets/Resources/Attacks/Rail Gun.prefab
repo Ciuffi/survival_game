@@ -46,10 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damageUP: 2
-  spread: 0.02
-  spreadUP: 0.015
-  castTime: 3
-  castTimeUP: 3
+  spread: 0.015
+  spreadUP: 0.01
+  castTime: 2.5
+  castTimeUP: 2.5
   attackTimeUp: 0
   recoveryTime: 0
   recoveryTimeUp: 0
@@ -57,11 +57,11 @@ MonoBehaviour:
   rangeUP: 6
   shotsPerAttack: 100
   shotsPerAttackUP: 150
-  cantMove: 0
+  cantMove: 1
   speed: 0.12
   speedUP: 0.2
-  knockback: 1
-  knockbackUP: 1
+  knockback: 2
+  knockbackUP: 3
   pierce: 0
   pierceUP: 1
   critChance: 0.1

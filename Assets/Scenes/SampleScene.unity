@@ -10322,7 +10322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5241545, y: 0.46768904}
   m_AnchorMax: {x: 0.5241545, y: 0.46768904}
-  m_AnchoredPosition: {x: -18.9, y: -43}
+  m_AnchoredPosition: {x: -18.9, y: -12.8}
   m_SizeDelta: {x: 125, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795849907
@@ -12227,6 +12227,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1975490170140608065, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
+      propertyPath: orthographic size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1975490170140608066, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
       propertyPath: m_Name
       value: Main Camera

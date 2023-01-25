@@ -109,7 +109,7 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   moveSpeed: 0.9
-  damage: 2
+  damage: 5
   stopDistanceMin: 0.2
   stopDistanceMax: 0.2
   moveDistanceCheck: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   maxHealth: 0
   xpAmount: 20
   weight: 10
+  duringKnockback: 0
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}

@@ -19,7 +19,7 @@ public class enemyProjectile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float distance = Vector3.Distance(startingPosition, transform.position);
         if (distance >= maxRange)

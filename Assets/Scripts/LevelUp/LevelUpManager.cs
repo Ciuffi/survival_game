@@ -19,7 +19,7 @@ public class LevelUpManager : MonoBehaviour
     private List<GameObject> previousUpgrades = new List<GameObject>();
 
     public GameObject RerollBtn, SwapBtn;
-
+    private bool hasRolled;
     public int GetXpToNextLevel(float level)
     {
         return (int)(Mathf.Floor(baseXP * (Mathf.Pow(level, growthMultiplier))));
@@ -45,12 +45,21 @@ public class LevelUpManager : MonoBehaviour
     {
         if (isWeapon) 
         {
-            isWeapon = false;
+            isWeapon = false;         
+         
             setUpgrades();
         }
         else
         {
             isWeapon = true;
+            //if (!hasRolled)
+            //{
+                //hasRolled = true;
+            //}
+            //else
+            //{
+                //hasRolled = false;
+            //}
             setUpgrades();
         }
     }
@@ -73,6 +82,12 @@ public class LevelUpManager : MonoBehaviour
             isWeapon = true;
         }
 
+        previousUpgrades.Clear();
+        //if (!hasRolled)
+        //{
+            //previousUpgrades.Clear();
+        //} 
+
         //create weighting later
         upgradeWindows.ForEach((u) =>
         {
@@ -90,7 +105,6 @@ public class LevelUpManager : MonoBehaviour
             u.GetComponentInChildren<TMP_Text>().text = GO.name;
         });
 
-        previousUpgrades.Clear();
     }
 
  
@@ -134,6 +148,7 @@ public class LevelUpManager : MonoBehaviour
         panel.SetActive(false);
         weapons = Resources.LoadAll("Attacks", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
         stats = Resources.LoadAll("Stats", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
+        hasRolled = false;
     }
 
     // Update is called once per frame

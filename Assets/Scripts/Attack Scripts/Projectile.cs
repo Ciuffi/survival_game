@@ -70,7 +70,7 @@ public class Projectile : MonoBehaviour
 
 
 
-    void Update()
+    void FixedUpdate()
     {
 
         // Check the timers for each object in the list
@@ -91,6 +91,12 @@ public class Projectile : MonoBehaviour
         if (isMelee == false)
         {
             transform.position += transform.up * attack.speed;
+            float distance = Vector2.Distance(spawnPos, transform.position);
+
+            if (distance >= projectileRange)
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {
@@ -127,31 +133,11 @@ public class Projectile : MonoBehaviour
 
 
 
-
     }
 
 
 
-    private void FixedUpdate()
-    {
-        if (isMelee == false)
-        {
-            float distance = Vector2.Distance(spawnPos, transform.position);
 
-            if (distance >= projectileRange)
-            {
-                Destroy(gameObject);
-            }
-        }
-        else
-        {
-
-
-        }
-
-
-
-    }
 
 
 
