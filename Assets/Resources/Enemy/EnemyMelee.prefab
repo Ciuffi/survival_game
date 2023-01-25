@@ -151,7 +151,7 @@ MonoBehaviour:
   projectileRange: 0
   projectileDamage: 0
   shootRecovery: 0
-  dangerSign: {fileID: 0}
+  dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
