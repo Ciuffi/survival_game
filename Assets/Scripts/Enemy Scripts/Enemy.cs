@@ -174,6 +174,11 @@ public class Enemy : MonoBehaviour, Attacker
             StopMoving();
             currentForce = Mathf.Lerp(currentForce, 0, weight * Time.deltaTime);
             transform.position += knockDirection * currentForce * Time.deltaTime;
+            if (currentForce <= 1)
+            {
+                duringKnockback = false;
+                StartMoving();
+            }
         }
         else
         {
@@ -255,13 +260,14 @@ public class Enemy : MonoBehaviour, Attacker
 
                     if (recovering && !canAttack)
                     {
+                    animator.SetBool("IsAttacking", false);
+                    animator.SetBool("FollowThrough", false);
                         shootRecoveryTimer -= Time.deltaTime;
                         if (shootRecoveryTimer <= 0)
                         {
                             recovering = false;
                             attacking = false;
                             StartMoving();
-                            animator.SetBool("IsAttacking", false);
                             animator.SetBool("IsMoving", true);
                             canAttack = true;
 
@@ -310,7 +316,10 @@ public class Enemy : MonoBehaviour, Attacker
         animator.SetBool("IsAttacking", true);
         dangerRenderer.enabled = true;
         
-        yield return new WaitForSeconds(shootChargeTime);
+        yield return new WaitForSeconds(shootChargeTime - 0.09f);
+        animator.SetBool("FollowThrough", true);
+        yield return new WaitForSeconds(0.09f);
+
 
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Vector3 direction = player.transform.position - transform.position;
@@ -434,10 +443,10 @@ public class Enemy : MonoBehaviour, Attacker
             ApplyKnockback(col.gameObject.GetComponent<Projectile>().knockback, knockDirection);
             //rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
         }
+
         if (col.gameObject.name == "Player" && isDead == false && player.GetComponent<StatsHandler>().canDamage == true)
         {
-            float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
-            col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage * multiplier);
+            col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
         }
     }
 

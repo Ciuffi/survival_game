@@ -6512,7 +6512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: shotsPerAttack
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
@@ -11553,6 +11553,10 @@ PrefabInstance:
     - target: {fileID: 1423453834646843868, guid: 1dfc899769fc4ea4cbe499622cd6d295, type: 3}
       propertyPath: m_Name
       value: EnemyRanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423453834646843868, guid: 1dfc899769fc4ea4cbe499622cd6d295, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfc899769fc4ea4cbe499622cd6d295, type: 3}

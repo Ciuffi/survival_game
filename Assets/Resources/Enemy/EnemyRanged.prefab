@@ -117,9 +117,9 @@ MonoBehaviour:
   canMove: 1
   timeCheck: 0
   isMelee: 0
-  health: 50
+  health: 25
   maxHealth: 0
-  xpAmount: 35
+  xpAmount: 30
   weight: 25
   duringKnockback: 0
   canDamage: 1

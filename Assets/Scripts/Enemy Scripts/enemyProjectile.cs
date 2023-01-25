@@ -36,8 +36,7 @@ public class enemyProjectile : MonoBehaviour
         if (col.gameObject == null) return;
         if (col.gameObject.tag == "Player" && Player.GetComponent<StatsHandler>().canDamage == true)
         {
-            float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
-            col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage * multiplier);
+            col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
             Destroy(gameObject);
         } else if (col.gameObject.tag == "Player" && Player.GetComponent<StatsHandler>().canDamage == false)
         {
