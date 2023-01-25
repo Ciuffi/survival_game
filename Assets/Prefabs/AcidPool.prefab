@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5928492518038914266}
   - component: {fileID: 7297495058217971513}
   - component: {fileID: 1441713891751434987}
-  - component: {fileID: 4953048033148275019}
   - component: {fileID: -7148203571477760851}
+  - component: {fileID: 4361009125059391236}
   m_Layer: 0
   m_Name: AcidPool
   m_TagString: Attack
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.80215883, g: 0.9433962, b: 0, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,37 +120,6 @@ MonoBehaviour:
   playerShakeStrength: 0.05
   playerShakeRotation: 0.05
   damageTickDuration: 0.4
---- !u!60 &4953048033148275019
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4908858350499337675}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.2514801, y: 0.436554}
-      - {x: -0.50397086, y: 0.0013235807}
-      - {x: -0.25384617, y: -0.4387221}
-      - {x: 0.25244284, y: -0.4395183}
-      - {x: 0.50488544, y: 0}
-      - {x: 0.2524426, y: 0.43847913}
 --- !u!50 &-7148203571477760851
 Rigidbody2D:
   serializedVersion: 4
@@ -172,3 +141,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &4361009125059391236
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908858350499337675}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49999997

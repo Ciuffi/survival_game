@@ -73,6 +73,21 @@ public class Enemy : MonoBehaviour, Attacker
 
     private Vector3 center;
 
+    public GameObject projectilePrefab;
+    public float attackRange;
+    public float shootChargeTime;
+    public float projectileSpeed;
+    public float projectileRange;
+    public float projectileDamage;
+    private bool canAttack = true;
+    private bool attacking = false;
+    private bool recovering = false;
+    float shootRecoveryTimer;
+    public float shootRecovery;
+
+    public GameObject attackWarning;
+    public float xOffset;
+    public float yOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -98,14 +113,13 @@ public class Enemy : MonoBehaviour, Attacker
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
 
         defaultMaterial = spriteRend.material;
-        center = GetComponent<SpriteRenderer>().bounds.center;
-
     }
 
 
     private void FixedUpdate()
     {
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        center = GetComponent<SpriteRenderer>().bounds.center;
 
         if (health <= 0 && !isDead)
         {
@@ -132,6 +146,7 @@ public class Enemy : MonoBehaviour, Attacker
 
         directionToPlayer = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.transform.position);
+   
 
 
         if (isRage == true)
@@ -210,16 +225,27 @@ public class Enemy : MonoBehaviour, Attacker
         }
         else //ranged 
         {
-            if (distance <= stopDistance)
+            //projectile attack
+            if (Vector3.Distance(transform.position, player.transform.position) <= attackRange && canAttack)
             {
-                StopMoving();
-                animator.SetBool("IsMoving", false);
+                attacking = true;
+                canAttack = false;
+                StartCoroutine(ChargeAttack());
             }
-            else
+
+            if (recovering)
             {
                 StartMoving();
                 animator.SetBool("IsMoving", true);
+                shootRecoveryTimer -= Time.deltaTime;
+                if (shootRecoveryTimer <= 0)
+                {
+                    recovering = false;
+                    canAttack = true;
+                    
+                }
             }
+
         }
        
 
@@ -246,11 +272,34 @@ public class Enemy : MonoBehaviour, Attacker
 
     }
     IEnumerator Charge()
-    {
+    {    
         yield return new WaitForSeconds(chargeTime);
         isCharging = false;
         isDashing = true;
   
+    }
+
+    IEnumerator ChargeAttack()
+    {
+        StopMoving();
+        animator.SetBool("IsMoving", false);
+
+        GameObject dangerSign = Instantiate(attackWarning, transform.position + new Vector3(xOffset, yOffset, 0), Quaternion.identity);
+
+        yield return new WaitForSeconds(shootChargeTime);
+
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Vector3 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        projectile.GetComponent<enemyProjectile>().direction = direction;
+        projectile.GetComponent<enemyProjectile>().speed = projectileSpeed;
+        projectile.GetComponent<enemyProjectile>().maxRange = projectileRange;
+        projectile.GetComponent<enemyProjectile>().damage = projectileDamage;
+        attacking = false;
+        recovering = true;
+        shootRecoveryTimer = shootRecovery;
+
+        Destroy(dangerSign);
     }
 
     IEnumerator ResetMaterial()
@@ -359,7 +408,8 @@ public class Enemy : MonoBehaviour, Attacker
         }
         if (col.gameObject.name == "Player" && isDead == false && player.GetComponent<StatsHandler>().canDamage == true)
         {
-            col.GetComponent<StatsHandler>().TakeDamage(damage);
+            float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
+            col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage * multiplier);
         }
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8314831949257108493}
   - component: {fileID: -4426948365986460865}
   m_Layer: 0
-  m_Name: Long Shot
+  m_Name: Impact Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

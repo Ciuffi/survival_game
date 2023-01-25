@@ -215,28 +215,7 @@ public class Projectile : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-
-        }
-        else if (col.gameObject.name == "Player" && attack.owner.GetTransform().tag == "Enemy")
-        {
-
-            if (Player.GetComponent<StatsHandler>().canDamage == false)
-            {
-                return;
-            }
-            else
-            {
-
-
-                float multiplier = col.gameObject.GetComponent<StatsHandler>().damageMultipler;
-                col.gameObject.GetComponent<StatsHandler>().TakeDamage(attack.damage * multiplier);
-                Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-
-                if (isMelee == false)
-                {
-                    Destroy(gameObject);
-                }
-            }
+       
         }
         else if (col.gameObject.tag == "Loot" && attack.owner.GetTransform().name == "Player")
         {

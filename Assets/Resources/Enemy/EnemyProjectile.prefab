@@ -94,12 +94,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4235860010000021948}
   - component: {fileID: 4235860010000021923}
-  - component: {fileID: 4235860010000021922}
   - component: {fileID: 1882446872741620868}
-  - component: {fileID: 3001290032395628291}
+  - component: {fileID: 5577201240302006070}
+  - component: {fileID: 6134735982993624109}
   m_Layer: 0
   m_Name: EnemyProjectile
-  m_TagString: Attack
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,39 +172,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4235860010000021922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4235860010000021921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c062f50a355f1be4abecc2dba9ef011b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack: {fileID: 0}
-  damage: 0
-  projectileRange: 5
-  knockback: 0
-  spawnPos: {x: 0, y: 0}
-  pierce: 0
-  isBounce: 0
-  bounceRange: 0
-  bounceTimes: 0
-  isMelee: 0
-  meleeTime: 0
-  startup: 0
-  active: 0
-  recovery: 0
-  damageTick: 0
-  scaleSpeed: 0
-  disappearSpeed: 0
-  isCrit: 0
-  playerShakeTime: 0.3
-  playerShakeStrength: 0.3
-  playerShakeRotation: 10
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4
@@ -213,7 +180,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4235860010000021921}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -226,7 +193,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &3001290032395628291
+--- !u!114 &5577201240302006070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4235860010000021921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29bbd2ba5946cb41b5ef443db5cd4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  speed: 0
+  direction: {x: 0, y: 0, z: 0}
+  maxRange: 0
+  Player: {fileID: 0}
+--- !u!70 &6134735982993624109
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,9 +220,9 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0018997418, y: -0.002627006}
-  m_Size: {x: 0.77581435, y: 0.9474579}
+  m_Offset: {x: -0.000000106878645, y: -0.020147929}
+  m_Size: {x: 0.7516689, y: 0.8861211}
   m_Direction: 0
