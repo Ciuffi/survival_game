@@ -6500,7 +6500,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: damage
-      value: 7
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: critDmg
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: knockback
@@ -6512,7 +6516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: shotsPerAttack
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn

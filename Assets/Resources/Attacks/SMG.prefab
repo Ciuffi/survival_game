@@ -58,8 +58,8 @@ MonoBehaviour:
   shotsPerAttack: 25
   shotsPerAttackUP: 40
   cantMove: 0
-  speed: 0.12
-  speedUP: 0.15
+  speed: 0.15
+  speedUP: 0.2
   knockback: 10
   knockbackUP: 10
   pierce: 0
