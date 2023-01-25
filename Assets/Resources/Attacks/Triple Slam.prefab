@@ -60,8 +60,8 @@ MonoBehaviour:
   cantMove: 1
   speed: 0.08
   speedUP: 0.12
-  knockback: 1200
-  knockbackUP: 1500
+  knockback: 20
+  knockbackUP: 20
   pierce: 0
   pierceUP: 0
   critChance: 0.1

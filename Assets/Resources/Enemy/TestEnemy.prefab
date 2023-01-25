@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1423453834646843856
 Transform:
   m_ObjectHideFlags: 0
@@ -115,10 +115,11 @@ MonoBehaviour:
   moveDistanceCheck: 0.5
   canMove: 0
   timeCheck: 0.5
-  isMelee: 1
+  isMelee: 0
   health: 7
   maxHealth: 0
   xpAmount: 50
+  weight: 10
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}
@@ -130,11 +131,11 @@ MonoBehaviour:
   rageColor: {r: 0, g: 0, b: 0, a: 0}
   disappearSpeed: 2.5
   isDead: 0
-  isRage: 1
+  isRage: 0
   rageTriggerPercent: 0
   rageSpeedMod: 1.8
   rageDmgMod: 2.5
-  isDash: 1
+  isDash: 0
   chargeTime: 2
   dashSpeed: 20
   canDash: 1
@@ -142,6 +143,14 @@ MonoBehaviour:
   waitTime: 1
   flashDuration: 0.1
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
+  projectilePrefab: {fileID: 4235860010000021921, guid: 0ac30ad3592e0eb4282d64a074a6ed34, type: 3}
+  attackRange: 5
+  shootChargeTime: 1
+  projectileSpeed: 5
+  projectileRange: 10
+  projectileDamage: 10
+  shootRecovery: 4
+  dangerSign: {fileID: 0}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -240,9 +249,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 2
   pickNextWaypointDist: 1
-  endReachedDistance: 0.2
+  endReachedDistance: 3
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -411,6 +420,7 @@ MonoBehaviour:
   isChest: 0
   isPlayer: 0
   isShadow: 0
+  isChild: 0
 --- !u!114 &2156767958747673617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +540,7 @@ MonoBehaviour:
   isChest: 0
   isPlayer: 0
   isShadow: 1
+  isChild: 0
 --- !u!4 &4475297942277503519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}

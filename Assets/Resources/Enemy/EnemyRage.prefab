@@ -119,6 +119,7 @@ MonoBehaviour:
   health: 80
   maxHealth: 0
   xpAmount: 60
+  weight: 10
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}
@@ -142,6 +143,14 @@ MonoBehaviour:
   waitTime: 0
   flashDuration: 0.1
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
+  projectilePrefab: {fileID: 0}
+  attackRange: 0
+  shootChargeTime: 0
+  projectileSpeed: 0
+  projectileRange: 0
+  projectileDamage: 0
+  shootRecovery: 0
+  dangerSign: {fileID: 0}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -524,6 +533,7 @@ MonoBehaviour:
   isChest: 0
   isPlayer: 0
   isShadow: 1
+  isChild: 0
 --- !u!4 &4475297942277503519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}

@@ -8,6 +8,7 @@ public class SpriteLockedRotation : MonoBehaviour
     public bool isChest;
     public bool isPlayer;
     public bool isShadow;
+    public bool isChild;
     Vector3 SpawnPos;
     private Vector3 relativePosition;
     private Transform parentTransform;
@@ -27,6 +28,11 @@ public class SpriteLockedRotation : MonoBehaviour
     {
 
         transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
+
+        if (isChild)
+        {
+            transform.localPosition = relativePosition;
+        }
 
         if (isChest == true)
         {

@@ -45,6 +45,7 @@ public class Projectile : MonoBehaviour
     float critRoll;
 
     private float finalDamage;
+    public Vector3 startPos;
 
     void Start()
     {
@@ -63,6 +64,7 @@ public class Projectile : MonoBehaviour
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
+        startPos = transform.position;
 
     }
 

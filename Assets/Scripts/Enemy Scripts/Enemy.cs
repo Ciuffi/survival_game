@@ -27,6 +27,10 @@ public class Enemy : MonoBehaviour, Attacker
     public float maxHealth;
     public float xpAmount;
 
+    public float weight; //for knockback
+    private float currentForce;
+    public bool duringKnockback;
+
     public bool canDamage;
     public GameObject DamagePopup;
     public GameObject HitEffect;
@@ -85,9 +89,10 @@ public class Enemy : MonoBehaviour, Attacker
     float shootRecoveryTimer;
     public float shootRecovery;
 
-    public GameObject attackWarning;
-    public float xOffset;
-    public float yOffset;
+    public GameObject dangerSign;
+    SpriteRenderer dangerRenderer;
+
+   
 
     // Start is called before the first frame update
     void Start()
@@ -113,6 +118,7 @@ public class Enemy : MonoBehaviour, Attacker
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
 
         defaultMaterial = spriteRend.material;
+        dangerRenderer = dangerSign.GetComponent<SpriteRenderer>();
     }
 
 
@@ -163,90 +169,109 @@ public class Enemy : MonoBehaviour, Attacker
 
         }
 
-        if (isMelee == true) //melee 
+        if (duringKnockback)
         {
-            animator.SetFloat("Distance", distance);
-
-            if (isDash == false)
-            {
-            if (distance <= stopDistance)
-            {
-                StopMoving();
-                animator.SetBool("IsMoving", false);
-                transform.LookAt(player.transform);
-                transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-            }
-            else
-            {
-                StartMoving();
-                animator.SetBool("IsMoving", true);
-            }
-            } else if (isDash == true) // does dash
-            {
-                if (distance <= stopDistance && canDash)
-                {
-                    canDash = false;
-                    savedPlayerPosition = player.transform.position;
-                    isCharging = true;
-                 
-                    StartCoroutine(Charge());
-                } 
-
-                if (isCharging)
-                {
-                    StopMoving();
-                    //stop movement or animation during charging
-                }
-                if (isDashing)
-                {
-                    //move towards player position
-                    transform.position = Vector3.MoveTowards(transform.position, savedPlayerPosition, dashSpeed * Time.deltaTime);
-                }
-
-                if (Vector3.Distance(this.transform.position, savedPlayerPosition) < 1f) //arrives at location
-                {
-                    isDashing = false;
-                    StartMoving();
-                    dashCD -= Time.deltaTime;
-
-
-                }
-
-                else if (dashCD <= 0)
-                {
-                    canDash = true;
-                    StartMoving();
-                }
-
-
-            }
-
-
+            StopMoving();
+            currentForce = Mathf.Lerp(currentForce, 0, weight * Time.deltaTime);
+            transform.position += knockDirection * currentForce * Time.deltaTime;
         }
-        else //ranged 
+        else
         {
-            //projectile attack
-            if (Vector3.Distance(transform.position, player.transform.position) <= attackRange && canAttack)
-            {
-                attacking = true;
-                canAttack = false;
-                StartCoroutine(ChargeAttack());
-            }
 
-            if (recovering)
+
+            if (isMelee == true) //melee 
             {
-                StartMoving();
-                animator.SetBool("IsMoving", true);
-                shootRecoveryTimer -= Time.deltaTime;
-                if (shootRecoveryTimer <= 0)
+                animator.SetFloat("Distance", distance);
+
+                if (isDash == false)
                 {
-                    recovering = false;
-                    canAttack = true;
-                    
+                    if (distance <= stopDistance)
+                    {
+                        StopMoving();
+                        animator.SetBool("IsMoving", false);
+                        transform.LookAt(player.transform);
+                        transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                    }
+                    else
+                    {
+                        StartMoving();
+                        animator.SetBool("IsMoving", true);
+                    }
                 }
-            }
+                else if (isDash == true) // does dash
+                {
+                    if (distance <= stopDistance && canDash)
+                    {
+                        canDash = false;
+                        savedPlayerPosition = player.transform.position;
+                        isCharging = true;
 
+                        StartCoroutine(Charge());
+                    }
+
+                    if (isCharging)
+                    {
+                        StopMoving();
+                        //stop movement or animation during charging
+                    }
+                    if (isDashing)
+                    {
+                        //move towards player position
+                        transform.position = Vector3.MoveTowards(transform.position, savedPlayerPosition, dashSpeed * Time.deltaTime);
+                    }
+
+                    if (Vector3.Distance(this.transform.position, savedPlayerPosition) < 1f) //arrives at location
+                    {
+                        isDashing = false;
+                        StartMoving();
+                        dashCD -= Time.deltaTime;
+
+
+                    }
+
+                    else if (dashCD <= 0)
+                    {
+                        canDash = true;
+                        StartMoving();
+                    }
+
+
+                }
+
+
+            }
+            else //ranged 
+            {
+  
+                    //projectile attack
+                    if (Vector3.Distance(transform.position, player.transform.position) <= attackRange && canAttack)
+                    {
+                        attacking = true;
+                        canAttack = false;
+                        StopMoving();
+                        animator.SetBool("IsMoving", false);
+                        StartCoroutine(ChargeAttack());
+                    }
+
+                    if (recovering && !canAttack)
+                    {
+                        shootRecoveryTimer -= Time.deltaTime;
+                        if (shootRecoveryTimer <= 0)
+                        {
+                            recovering = false;
+                            attacking = false;
+                            StartMoving();
+                            animator.SetBool("IsAttacking", false);
+                            animator.SetBool("IsMoving", true);
+                            canAttack = true;
+
+                        }
+                    }
+              
+
+            }
         }
+
        
 
 
@@ -257,14 +282,13 @@ public class Enemy : MonoBehaviour, Attacker
             if (timer <= Iframes)
             {
                 canDamage = false;
-                animator.SetBool("IsHurt", true);
+                
             }
             else
             {
                 canDamage = true;
                 timer = 0f;
                 isInvuln = false;
-                animator.SetBool("IsHurt", false);
             }
         }
 
@@ -283,9 +307,9 @@ public class Enemy : MonoBehaviour, Attacker
     {
         StopMoving();
         animator.SetBool("IsMoving", false);
-
-        GameObject dangerSign = Instantiate(attackWarning, transform.position + new Vector3(xOffset, yOffset, 0), Quaternion.identity);
-
+        animator.SetBool("IsAttacking", true);
+        dangerRenderer.enabled = true;
+        
         yield return new WaitForSeconds(shootChargeTime);
 
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
@@ -295,11 +319,11 @@ public class Enemy : MonoBehaviour, Attacker
         projectile.GetComponent<enemyProjectile>().speed = projectileSpeed;
         projectile.GetComponent<enemyProjectile>().maxRange = projectileRange;
         projectile.GetComponent<enemyProjectile>().damage = projectileDamage;
-        attacking = false;
-        recovering = true;
         shootRecoveryTimer = shootRecovery;
+        recovering = true;
 
-        Destroy(dangerSign);
+        dangerRenderer.enabled = false;
+
     }
 
     IEnumerator ResetMaterial()
@@ -336,8 +360,8 @@ public class Enemy : MonoBehaviour, Attacker
         if (health <= 0) return;
         if (canDamage == true)
         {
+            animator.SetBool("IsHurt", true);
             health -= damageAmount;
-            StopMoving();
             Vector3 popupPosition = rb.position;
             popupPosition.x = Random.Range(rb.position.x - 0.075f, rb.position.x + 0.075f);
             popupPosition.y = Random.Range(rb.position.y, rb.position.y + 0.1f);
@@ -363,6 +387,8 @@ public class Enemy : MonoBehaviour, Attacker
             {
                 damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
             }
+
+            animator.SetBool("IsHurt", false);
 
         }
         else
@@ -401,10 +427,12 @@ public class Enemy : MonoBehaviour, Attacker
     {
         if (col.gameObject.tag == "Attack" && col.GetComponent<Projectile>().attack.owner.GetTransform().name == "Player")
         {
-            Vector3 colCenter = col.GetComponent<SpriteRenderer>().bounds.center;
+            Vector3 colCenter = col.GetComponent<Projectile>().startPos;
+
             knockDirection = center - colCenter;
 
-            rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
+            ApplyKnockback(col.gameObject.GetComponent<Projectile>().knockback, knockDirection);
+            //rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
         }
         if (col.gameObject.name == "Player" && isDead == false && player.GetComponent<StatsHandler>().canDamage == true)
         {
@@ -413,8 +441,14 @@ public class Enemy : MonoBehaviour, Attacker
         }
     }
 
+    public void ApplyKnockback(float knockback, Vector3 direction)
+    {
+        currentForce = knockback;
+        duringKnockback = true;
+    }
 
-        public Vector3 GetDirection()
+
+    public Vector3 GetDirection()
     {
         return directionToPlayer;
     }
