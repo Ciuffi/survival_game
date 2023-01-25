@@ -82,7 +82,7 @@ MonoBehaviour:
   shakeStrength: 0
   shakeRotation: 0
   attackBuff: 0
-  weaponSprite: {fileID: 21300000, guid: c819fcd3ba82a2642b59f9660f097089, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 511638314462a2c4cb63171b98a5c32c, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   weaponModel: {fileID: 0}

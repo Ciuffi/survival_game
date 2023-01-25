@@ -57,7 +57,7 @@ MonoBehaviour:
   rangeUP: 7
   shotsPerAttack: 5
   shotsPerAttackUP: 7
-  cantMove: 1
+  cantMove: 0
   speed: 0.02
   speedUP: 0.01
   knockback: 10
