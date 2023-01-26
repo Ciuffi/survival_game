@@ -20,6 +20,10 @@ public class LevelUpManager : MonoBehaviour
 
     public GameObject RerollBtn, SwapBtn;
     private bool hasRolled;
+
+    public GameObject TimelineManager;
+
+
     public int GetXpToNextLevel(float level)
     {
         return (int)(Mathf.Floor(baseXP * (Mathf.Pow(level, growthMultiplier))));
@@ -111,15 +115,19 @@ public class LevelUpManager : MonoBehaviour
     public void ShowLevelUpUI()
     {
         PauseGame();
+        GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
         RerollBtn.GetComponent<RollSwapHandler>().resetChances();
         SwapBtn.GetComponent<RollSwapHandler>().resetChances();
+        //eventually want to move this to on-confirm-selection, and add a new button to close menu
+        TimelineManager.GetComponent<TimelineUI>().addAttack();
+        TimelineManager.GetComponent<TimelineUI>().spawnTimeline();
         setUpgrades();
-        GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick(); 
         panel.SetActive(true);
     }
     public void SignalItemChosen()
     {
         panel.SetActive(false);
+        TimelineManager.GetComponent<TimelineUI>().despawnTimeline();
         GameObject.FindObjectOfType<CanvasClickHandler>().EnableJoystick();
         ResumeGame();
     }

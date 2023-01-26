@@ -245,6 +245,7 @@ MonoBehaviour:
   isWeapon: 1
   RerollBtn: {fileID: 0}
   SwapBtn: {fileID: 0}
+  TimelineManager: {fileID: 0}
 --- !u!1 &3287956671689121398
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: damage
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: pierce
@@ -866,6 +867,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1007190625}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: critDmg
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: spreadUP
       value: 0.08
       objectReference: {fileID: 0}
@@ -875,19 +880,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: knockback
-      value: 300
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: critChance
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+      propertyPath: knockbackUP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: weaponSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 511638314462a2c4cb63171b98a5c32c, type: 3}
+      objectReference: {fileID: 21300000, guid: c819fcd3ba82a2642b59f9660f097089, type: 3}
     - target: {fileID: 1803132688626501153, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: shotsPerAttack
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8735341029624650593, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
       propertyPath: m_RootOrder
