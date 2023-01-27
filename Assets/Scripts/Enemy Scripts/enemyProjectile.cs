@@ -11,6 +11,7 @@ public class enemyProjectile : MonoBehaviour
     private Vector3 startingPosition;
     public GameObject Player;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,18 +32,22 @@ public class enemyProjectile : MonoBehaviour
 
     }
 
-     void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject == null) return;
         if (col.gameObject.tag == "Player" && Player.GetComponent<StatsHandler>().canDamage == true)
         {
             col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
             Destroy(gameObject);
-        } else if (col.gameObject.tag == "Player" && Player.GetComponent<StatsHandler>().canDamage == false)
+        }
+        else if (col.gameObject.tag == "Player" && Player.GetComponent<StatsHandler>().canDamage == false)
         {
             Destroy(gameObject);
         }
-  
-     
+
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Wall" || col.gameObject.tag == "Loot")
+        {
+            Destroy(gameObject);
+        }
     }
 }

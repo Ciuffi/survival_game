@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
   m_Name: SMG
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,8 +60,8 @@ MonoBehaviour:
   cantMove: 0
   speed: 0.15
   speedUP: 0.2
-  knockback: 10
-  knockbackUP: 10
+  knockback: 5
+  knockbackUP: 7
   pierce: 0
   pierceUP: 2
   critChance: 0.3

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6413099147738919845}
   m_Layer: 0
   m_Name: Shotgun
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,8 +60,8 @@ MonoBehaviour:
   cantMove: 1
   speed: 0.08
   speedUP: 0.15
-  knockback: 15
-  knockbackUP: 5
+  knockback: 12
+  knockbackUP: 15
   pierce: 0
   pierceUP: 1
   critChance: 0.25

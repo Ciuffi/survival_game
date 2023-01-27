@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
   m_Name: God Fist
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   cantMove: 1
   speed: 0.08
   speedUP: 0.12
-  knockback: 25
+  knockback: 22
   knockbackUP: 25
   pierce: 0
   pierceUP: 0

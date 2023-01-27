@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -4426948365986460865}
   m_Layer: 0
   m_Name: Impact Rifle
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   cantMove: 1
   speed: 0.18
   speedUP: 0.25
-  knockback: 30
+  knockback: 25
   knockbackUP: 30
   pierce: 1
   pierceUP: 4

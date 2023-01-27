@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour, Attacker
     float elapsedTime;
 
     public bool isMelee;
+    public bool isAOE;
 
     public float health;
     public float maxHealth;
@@ -88,6 +89,9 @@ public class Enemy : MonoBehaviour, Attacker
     private bool recovering = false;
     float shootRecoveryTimer;
     public float shootRecovery;
+
+    public GameObject AOEPrefab;
+
 
     public GameObject dangerSign;
     SpriteRenderer dangerRenderer;
@@ -247,7 +251,9 @@ public class Enemy : MonoBehaviour, Attacker
             }
             else //ranged 
             {
-  
+                if (!isAOE)
+                {
+      
                     //projectile attack
                     if (Vector3.Distance(transform.position, player.transform.position) <= attackRange && canAttack)
                     {
@@ -255,7 +261,7 @@ public class Enemy : MonoBehaviour, Attacker
                         canAttack = false;
                         StopMoving();
                         animator.SetBool("IsMoving", false);
-                        StartCoroutine(ChargeAttack());
+                        StartCoroutine(ProjectileAttack());
                     }
 
                     if (recovering && !canAttack)
@@ -273,7 +279,37 @@ public class Enemy : MonoBehaviour, Attacker
 
                         }
                     }
-              
+
+                }else{
+
+                    //AOE attack 
+                    if (Vector3.Distance(transform.position, player.transform.position) <= attackRange && canAttack)
+                    {
+                        attacking = true;
+                        canAttack = false;
+                        StopMoving();
+                        animator.SetBool("IsMoving", false);
+                        StartCoroutine(RangedAOEAttack());
+                    }
+
+                    if (recovering && !canAttack)
+                    {
+                        animator.SetBool("IsAttacking", false);
+                        animator.SetBool("FollowThrough", false);
+                        shootRecoveryTimer -= Time.deltaTime;
+                        if (shootRecoveryTimer <= 0)
+                        {
+                            recovering = false;
+                            attacking = false;
+                            StartMoving();
+                            animator.SetBool("IsMoving", true);
+                            canAttack = true;
+
+                        }
+                    }
+
+                }
+
 
             }
         }
@@ -309,7 +345,7 @@ public class Enemy : MonoBehaviour, Attacker
   
     }
 
-    IEnumerator ChargeAttack()
+    IEnumerator ProjectileAttack()
     {
         StopMoving();
         animator.SetBool("IsMoving", false);
@@ -328,6 +364,31 @@ public class Enemy : MonoBehaviour, Attacker
         projectile.GetComponent<enemyProjectile>().speed = projectileSpeed;
         projectile.GetComponent<enemyProjectile>().maxRange = projectileRange;
         projectile.GetComponent<enemyProjectile>().damage = projectileDamage;
+        shootRecoveryTimer = shootRecovery;
+        recovering = true;
+
+        dangerRenderer.enabled = false;
+
+    }
+
+    IEnumerator RangedAOEAttack()
+    {
+        StopMoving();
+        animator.SetBool("IsMoving", false);
+        animator.SetBool("IsAttacking", true);
+        dangerRenderer.enabled = true;
+        Vector3 pos = player.transform.position;
+        GameObject AOE = Instantiate(AOEPrefab, pos, Quaternion.identity);
+        Vector3 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        AOE.GetComponent<EnemyAOEProjectile>().damage = projectileDamage;
+        AOE.GetComponent<EnemyAOEProjectile>().AOEChargeTime = shootChargeTime;
+
+
+        yield return new WaitForSeconds(shootChargeTime - 0.09f);
+        animator.SetBool("FollowThrough", true);
+        yield return new WaitForSeconds(0.09f);
+
         shootRecoveryTimer = shootRecovery;
         recovering = true;
 

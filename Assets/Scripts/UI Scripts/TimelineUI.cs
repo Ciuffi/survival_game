@@ -37,7 +37,10 @@ public class TimelineUI : MonoBehaviour
     {
         foreach (Transform child in attackContainer.transform)
         {
-            attacks.Add(child.gameObject);
+            if (child.gameObject.tag == "Attack")
+            {
+               attacks.Add(child.gameObject);
+            }
         }
 
     }

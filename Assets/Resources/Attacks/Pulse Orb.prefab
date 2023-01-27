@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3640772465946700108}
   m_Layer: 0
   m_Name: Pulse Orb
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   cantMove: 0
   speed: 0.025
   speedUP: 0.015
-  knockback: 10
+  knockback: 7
   knockbackUP: 10
   pierce: 3
   pierceUP: 3
