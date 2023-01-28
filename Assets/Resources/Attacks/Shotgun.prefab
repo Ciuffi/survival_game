@@ -85,4 +85,6 @@ MonoBehaviour:
   weaponSprite: {fileID: 21300000, guid: 6995f37312d3fad409ff41096416f840, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
-  weaponModel: {fileID: 0}
+  thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
+  thrownSprite: {fileID: 21300000, guid: b5d87fa8e715b304794e1fb125dae5ab, type: 3}
+  throwSpeed: 4

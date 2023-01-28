@@ -12,6 +12,7 @@ public class AttackHandler : MonoBehaviour
     private GameObject attackContainer;
     private int attackIndex;
     public GameObject WeaponSprite;
+    public GameObject HandsSprite;
     
     private Slider attackBar;
     private Image attackBarImage;
@@ -26,12 +27,18 @@ public class AttackHandler : MonoBehaviour
     };
 
 
+
     IEnumerator HandleAttackSlider(float castTime)
     {
         float timer = 0;
         while (true)
         {
             if (timer == 0) attackBarImage.color = colors[attackIndex];
+
+            Color currentColor = attackBarImage.color;
+            currentColor.a = 0.5f;
+            attackBarImage.color = currentColor;
+            
             timer += Time.deltaTime;
             float progress = Mathf.Clamp01(timer / castTime);
             attackBar.value = progress;
@@ -55,12 +62,30 @@ public class AttackHandler : MonoBehaviour
             Attack currentAttack = attacks[attackIndex];
             WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack.GetComponent<Attack>().weaponSprite;
 
-            if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime));
-            yield return new WaitForSeconds(currentAttack.castTime);
+            //swap animation
+            HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);          
+            yield return new WaitForSeconds(0.3f);
+            WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
+            HandsSprite.GetComponent<SpriteRenderer>().enabled = false;
+
+            //casting
+            if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime - 0.3f));
+            yield return new WaitForSeconds(currentAttack.castTime - 0.3f);
+
+            //attacking
             StopCoroutine("HandleAttackSlider");
             attackState = AttackState.Attacking;
             if (currentAttack != null) currentAttack.Shoot();
             yield return new WaitForSeconds(currentAttack.attackTime);
+
+            //throw animation
+            HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
+            HandsSprite.GetComponent<Animator>().SetBool("IsThrow", true);
+            WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSeconds(0.3f);
+            currentAttack.ThrowWeapon();
+
+            //recovering
             attackState = AttackState.Recovery;
             attackIndex++;
      
@@ -68,7 +93,7 @@ public class AttackHandler : MonoBehaviour
             {
                 attackIndex = 0;
             }
-            if (currentAttack.recoveryTime > 0) yield return new WaitForSeconds(currentAttack.recoveryTime);
+            if (currentAttack.recoveryTime > 0) yield return new WaitForSeconds(currentAttack.recoveryTime - 0.3f);
         }
     }
 
@@ -114,8 +139,13 @@ public class AttackHandler : MonoBehaviour
         {
             AddWeapon(a.gameObject);
         });
+
+        WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
+        HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
+
         StartCoroutine(Attack());
         defaultWeapon = Resources.Load<GameObject>("Attacks/Single Shot");
+
     }
 
 }

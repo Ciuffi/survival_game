@@ -47,6 +47,8 @@ public class Projectile : MonoBehaviour
     private float finalDamage;
     public Vector3 startPos;
 
+    public bool isThrown;
+
     void Start()
     {
         Camera = GameObject.FindWithTag("MainCamera");
@@ -66,6 +68,11 @@ public class Projectile : MonoBehaviour
         timers = new Dictionary<GameObject, float>();
         startPos = transform.position;
 
+        if (isThrown)
+        {
+            damage = damage * (attack.shotsPerAttack / 2 + 2) / 2;
+        }
+
     }
 
 
@@ -74,16 +81,19 @@ public class Projectile : MonoBehaviour
     {
 
         // Check the timers for each object in the list
-        foreach (GameObject enemy in hitEnemies)
+        if (hitEnemies.Count > 0)
         {
-            if (timers.ContainsKey(enemy))
+            foreach (GameObject enemy in hitEnemies)
             {
-                timers[enemy] -= Time.deltaTime;
-
-                if (timers[enemy] <= 0)
+                if (timers.ContainsKey(enemy))
                 {
-                    hitEnemies.Remove(enemy);
-                    timers.Remove(enemy);
+                    timers[enemy] -= Time.deltaTime;
+
+                    if (timers[enemy] <= 0)
+                    {
+                        hitEnemies.Remove(enemy);
+                        timers.Remove(enemy);
+                    }
                 }
             }
         }
@@ -143,8 +153,16 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
+        if (col == null)
+        {
+            return;
+        }
         if (pierce < 0) return;
-        if (col.gameObject == null || attack.owner == null) return;
+        if (col.gameObject == null || attack.owner == null)
+        {
+            return;
+        }
+
         if (col.gameObject.tag == "Enemy" && attack.owner.GetTransform().name == "Player")
         {
            

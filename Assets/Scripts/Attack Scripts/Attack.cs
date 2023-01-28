@@ -67,7 +67,10 @@ public class Attack : MonoBehaviour, Upgrade
     public Sprite weaponSprite;
     public bool isAutoAim;
     public GameObject AutoAim;
-    public GameObject weaponModel;
+
+    public GameObject thrownWeapon;
+    public Sprite thrownSprite;
+    public float throwSpeed;
 
     private IEnumerator ShootSingleShot()
     {
@@ -339,6 +342,35 @@ public class Attack : MonoBehaviour, Upgrade
 
     }
 
+    public void ThrowWeapon()
+    {
+        if (thrownWeapon == null)
+        {
+            return;
+        }
+        else
+        {
+            Quaternion rotation = owner.GetTransform().rotation;
+            Vector3 position = owner.GetTransform().position;
+            Vector3 direction = owner.GetDirection();
+
+
+            GameObject wpnToss = Instantiate(thrownWeapon, position, Quaternion.identity);
+            wpnToss.GetComponent<SpriteRenderer>().sprite = thrownSprite;
+            Rigidbody2D rb = wpnToss.GetComponent<Rigidbody2D>();
+            rb.AddForce(direction * throwSpeed * -1, ForceMode2D.Impulse);
+            rb.AddTorque(1000f);
+
+            Projectile p = wpnToss.GetComponent<Projectile>();
+            p.attack = this;
+            p.attack.pierce = 0;
+            p.attack.range = 8;
+            p.attack.knockback = 20;
+            p.transform.rotation = rotation;
+        }
+
+}
+
 
     // Start is called before the first frame update
     void Start()
@@ -412,9 +444,8 @@ public class Attack : MonoBehaviour, Upgrade
 
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
     }
 
     public Transform GetTransform()
