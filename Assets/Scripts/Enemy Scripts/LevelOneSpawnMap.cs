@@ -106,7 +106,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
             .WithDirection(Random.Range(0, 360))
            .WithDistance(Random.Range(0, 0))
           .WithEnemiesPerWave(1)
-        .WithSpawnTimer(4)
+        .WithSpawnTimer(1)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.lootBox, 100}
           });
@@ -151,7 +151,48 @@ public class LevelOneSpawnMap : EnemySpawnMap
         spawnMaps.Add(wave11);
         spawnMaps.Add(wave11);
         spawnMaps.Add(wave11);
-
+        spawnMaps.Add(wave4);
+        spawnMaps.Add(wave5);
+        spawnMaps.Add(wave6);
+        spawnMaps.Add(wave7);
+        spawnMaps.Add(wave8);
+        spawnMaps.Add(wave9);
+        spawnMaps.Add(wave10);
+        spawnMaps.Add(wave8);
+        spawnMaps.Add(wave9);
+        spawnMaps.Add(wave10);
+        spawnMaps.Add(wave11);
+        spawnMaps.Add(wave11);
+        spawnMaps.Add(wave9);
+        spawnMaps.Add(wave10);
+        spawnMaps.Add(wave12);
+        spawnMaps.Add(wave1);
+        spawnMaps.Add(wave2);
+        spawnMaps.Add(wave3);
+        spawnMaps.Add(wave11);
+        spawnMaps.Add(wave12);
+        spawnMaps.Add(wave4);
+        spawnMaps.Add(wave5);
+        spawnMaps.Add(wave4);
+        spawnMaps.Add(wave5);
+        spawnMaps.Add(wave11);
+        spawnMaps.Add(wave11);
+        spawnMaps.Add(wave11);
+        spawnMaps.Add(wave11);
+        spawnMaps.Add(wave11);
+        spawnMaps.Add(wave4);
+        spawnMaps.Add(wave5);
+        spawnMaps.Add(wave8);
+        spawnMaps.Add(wave10);
+        spawnMaps.Add(wave12);
+        spawnMaps.Add(wave4);
+        spawnMaps.Add(wave12);
+        spawnMaps.Add(wave4);
+        spawnMaps.Add(wave12);
+        spawnMaps.Add(wave4);
+        spawnMaps.Add(wave4);
+        spawnMaps.Add(wave5);
+        spawnMaps.Add(wave5);
 
     }
 }
