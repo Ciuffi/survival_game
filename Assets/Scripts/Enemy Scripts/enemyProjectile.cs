@@ -45,7 +45,7 @@ public class enemyProjectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Wall" || col.gameObject.tag == "Loot")
+        if (col.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
         }

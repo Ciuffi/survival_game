@@ -51,7 +51,11 @@ public class StatsHandler : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        if (canDamage)
+        if (!canDamage)
+        {
+            return;
+
+        }else
         {
             canDamage = false;
             float newHealth = health - damageAmount + defense;
@@ -70,10 +74,7 @@ public class StatsHandler : MonoBehaviour
             health = newHealth;
             ComboManager.GetComponent<ComboTracker>().ResetCount();
             if (health <= 0) GameObject.FindObjectOfType<GameManager>().ResetGame();
-        } else
-        {
-            return;
-        }
+        } 
     }
 
     IEnumerator ResetMaterial()

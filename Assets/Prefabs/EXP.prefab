@@ -119,6 +119,7 @@ MonoBehaviour:
   speed: 4
   speedMultiplier: 15
   waitTime: 0.5
+  xpAmount: 0
 --- !u!96 &4467276311784156668
 TrailRenderer:
   serializedVersion: 2

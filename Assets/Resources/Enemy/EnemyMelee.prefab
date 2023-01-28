@@ -116,7 +116,8 @@ MonoBehaviour:
   canMove: 0
   timeCheck: 0
   isMelee: 1
-  health: 10
+  isAOE: 0
+  health: 11
   maxHealth: 0
   xpAmount: 20
   weight: 10
@@ -151,6 +152,7 @@ MonoBehaviour:
   projectileRange: 0
   projectileDamage: 0
   shootRecovery: 0
+  AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
 --- !u!50 &1423453834646843859
 Rigidbody2D:

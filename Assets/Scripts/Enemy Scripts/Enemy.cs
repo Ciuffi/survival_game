@@ -253,7 +253,6 @@ public class Enemy : MonoBehaviour, Attacker
             {
                 if (!isAOE)
                 {
-      
                     //projectile attack
                     if (Vector3.Distance(transform.position, player.transform.position) <= attackRange && canAttack)
                     {
@@ -356,8 +355,8 @@ public class Enemy : MonoBehaviour, Attacker
         animator.SetBool("FollowThrough", true);
         yield return new WaitForSeconds(0.09f);
 
-
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
         Vector3 direction = player.transform.position - transform.position;
         direction.Normalize();
         projectile.GetComponent<enemyProjectile>().direction = direction;

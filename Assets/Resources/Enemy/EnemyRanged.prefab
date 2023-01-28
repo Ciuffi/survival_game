@@ -110,14 +110,15 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   moveSpeed: 0.5
-  damage: 5
+  damage: 8
   stopDistanceMin: 2
   stopDistanceMax: 3
   moveDistanceCheck: 0
   canMove: 1
   timeCheck: 0
   isMelee: 0
-  health: 25
+  isAOE: 0
+  health: 30
   maxHealth: 0
   xpAmount: 30
   weight: 25
@@ -152,6 +153,7 @@ MonoBehaviour:
   projectileRange: 10
   projectileDamage: 10
   shootRecovery: 2
+  AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
