@@ -363,9 +363,6 @@ public class Attack : MonoBehaviour, Upgrade
 
             Projectile p = wpnToss.GetComponent<Projectile>();
             p.attack = this;
-            p.attack.pierce = 0;
-            p.attack.range = 8;
-            p.attack.knockback = 20;
             p.transform.rotation = rotation;
         }
 

@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 18
-  damageUP: 25
+  damageUP: 22
   spread: 0.2
   spreadUP: 0.2
-  castTime: 1.5
+  castTime: 2
   castTimeUP: 1
   attackTimeUp: 0
   recoveryTime: 0
@@ -64,8 +64,8 @@ MonoBehaviour:
   knockbackUP: 25
   pierce: 0
   pierceUP: 0
-  critChance: 0.15
-  critDmg: 2
+  critChance: 0.1
+  critDmg: 1.5
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
@@ -75,8 +75,8 @@ MonoBehaviour:
   MeleeAttack: {fileID: 4908858350499337675, guid: 56c6a42a601ee3846a6d9015b8a1ce51, type: 3}
   comboLength: 1
   meleeScale: 0.2
-  meleeSpacer: 0.8
-  meleeSpacerGap: 0.7
+  meleeSpacer: 1
+  meleeSpacerGap: 1
   comboWaitTime: 0.25
   shakeTime: 0.3
   shakeStrength: 0.25

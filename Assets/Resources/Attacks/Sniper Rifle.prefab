@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8314831949257108493}
   - component: {fileID: -4426948365986460865}
   m_Layer: 0
-  m_Name: Impact Rifle
+  m_Name: Sniper Rifle
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,4 +87,4 @@ MonoBehaviour:
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
   thrownSprite: {fileID: 21300000, guid: d7d5af20cfe0876418648b59713e5b11, type: 3}
-  throwSpeed: 5
+  throwSpeed: 6

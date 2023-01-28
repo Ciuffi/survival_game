@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  damageUP: 8
+  damageUP: 5
   spread: 0.04
   spreadUP: 0.03
-  castTime: 2
+  castTime: 1.75
   castTimeUP: 1.5
   attackTimeUp: 0
   recoveryTime: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   knockbackUP: 7
   pierce: 0
   pierceUP: 2
-  critChance: 0.3
+  critChance: 0.2
   critDmg: 1.5
   projectile: {fileID: 4235860010000021921, guid: b6bc6cc5a13c6564fa53e6c92af8c307, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}

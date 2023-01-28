@@ -64,13 +64,13 @@ public class AttackHandler : MonoBehaviour
 
             //swap animation
             HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);          
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.4f);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
             HandsSprite.GetComponent<SpriteRenderer>().enabled = false;
 
             //casting
-            if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime - 0.3f));
-            yield return new WaitForSeconds(currentAttack.castTime - 0.3f);
+            if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime - 0.4f));
+            yield return new WaitForSeconds(currentAttack.castTime - 0.4f);
 
             //attacking
             StopCoroutine("HandleAttackSlider");

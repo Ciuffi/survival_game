@@ -70,7 +70,10 @@ public class Projectile : MonoBehaviour
 
         if (isThrown)
         {
-            damage = damage * (attack.shotsPerAttack / 2 + 2) / 2;
+            damage = damage * (attack.shotsPerAttack / 2 + 2) / 3;
+            pierce = 0;
+            projectileRange = 8;
+            knockback = 20;
         }
 
     }

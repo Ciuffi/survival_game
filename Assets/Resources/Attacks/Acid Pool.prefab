@@ -64,7 +64,7 @@ MonoBehaviour:
   knockbackUP: 0
   pierce: 0
   pierceUP: 0
-  critChance: 0.1
+  critChance: 0.2
   critDmg: 2
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
