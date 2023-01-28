@@ -56,14 +56,7 @@ public class LevelUpManager : MonoBehaviour
         else
         {
             isWeapon = true;
-            //if (!hasRolled)
-            //{
-                //hasRolled = true;
-            //}
-            //else
-            //{
-                //hasRolled = false;
-            //}
+
             setUpgrades();
         }
     }
@@ -75,39 +68,57 @@ public class LevelUpManager : MonoBehaviour
 
     public void setUpgrades()
     {
+        previousUpgrades.Clear();
+
         if (isWeapon)
         {
             upgrades = new List<GameObject>(weapons);
             isWeapon = false;
+
+            //create weighting later
+            upgradeWindows.ForEach((u) =>
+            {
+                GameObject GO = null;
+                while (GO == null)
+                {
+                    GO = upgrades[Random.Range(0, upgrades.Count)];
+                    if (previousUpgrades.Contains(GO))
+                    {
+                        GO = null;
+                    }
+                }
+                previousUpgrades.Add(GO);
+                u.upgrade = GO.GetComponent<Upgrade>();
+                u.GetComponentInChildren<TMP_Text>().text = GO.name;
+                u.transform.Find("Image").GetComponent<Image>().enabled = true;
+                u.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<Attack>().thrownSprite;
+            });
+
         }
         else
         { 
             upgrades = new List<GameObject>(stats);
             isWeapon = true;
-        }
 
-        previousUpgrades.Clear();
-        //if (!hasRolled)
-        //{
-            //previousUpgrades.Clear();
-        //} 
-
-        //create weighting later
-        upgradeWindows.ForEach((u) =>
-        {
-            GameObject GO = null;
-            while (GO == null)
+            //create weighting later
+            upgradeWindows.ForEach((u) =>
             {
-                GO = upgrades[Random.Range(0, upgrades.Count)];
-                if (previousUpgrades.Contains(GO))
+                GameObject GO = null;
+                while (GO == null)
                 {
-                    GO = null;
+                    GO = upgrades[Random.Range(0, upgrades.Count)];
+                    if (previousUpgrades.Contains(GO))
+                    {
+                        GO = null;
+                    }
                 }
-            }
-            previousUpgrades.Add(GO);
-            u.upgrade = GO.GetComponent<Upgrade>();
-            u.GetComponentInChildren<TMP_Text>().text = GO.name;
-        });
+                previousUpgrades.Add(GO);
+                u.upgrade = GO.GetComponent<Upgrade>();
+                u.GetComponentInChildren<TMP_Text>().text = GO.name;
+                u.transform.Find("Image").GetComponent<Image>().enabled = false;
+
+            });
+        }
 
     }
 

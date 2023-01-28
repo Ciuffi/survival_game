@@ -79,7 +79,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
           .WithEnemiesPerWave(4)
         .WithSpawnTimer(4)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.rangedEnemy, 50},
+                {enemies.meleeEnemy, 50},
                 {enemies.rangedEnemy, 50}
         });
 

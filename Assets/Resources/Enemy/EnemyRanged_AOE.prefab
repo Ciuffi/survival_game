@@ -121,7 +121,7 @@ MonoBehaviour:
   health: 25
   maxHealth: 0
   xpAmount: 30
-  weight: 25
+  weight: 15
   duringKnockback: 0
   canDamage: 1
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}

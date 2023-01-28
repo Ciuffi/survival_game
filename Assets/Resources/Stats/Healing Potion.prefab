@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1179621969707276252}
   - component: {fileID: 1970805853126818553}
   m_Layer: 0
-  m_Name: Health Pack
+  m_Name: Healing Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b28133b492f944a5af2e1d7d04928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraHealth: 20
+  extraHealth: 40
   extraMaxHealth: 0
   extraSpeed: 0
   damageMultipler: 0
-  exraDefense: 0
-  exraShield: 0
+  extraDefense: 0
+  extraShield: 0
+  extraCritChance: 0
+  extraCritDmg: 0
