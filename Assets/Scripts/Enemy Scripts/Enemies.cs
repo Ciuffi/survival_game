@@ -10,6 +10,7 @@ public class Enemies
     public GameObject bossRage;
     public GameObject rangedAOE;
     public GameObject rageEnemy;
+    public GameObject armoredWimp;
 
     public void LoadEnemies()
     {
@@ -19,5 +20,6 @@ public class Enemies
         lootBox = Resources.Load("Enemy/LootBox", typeof(GameObject)) as GameObject;
         bossRage = Resources.Load("Enemy/BossRage", typeof(GameObject)) as GameObject;
         rangedAOE = Resources.Load("Enemy/EnemyRanged_AOE", typeof(GameObject)) as GameObject;
+        armoredWimp = Resources.Load("Enemy/EnemyArmored", typeof(GameObject)) as GameObject;
     }
 }

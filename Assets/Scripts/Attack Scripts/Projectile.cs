@@ -73,7 +73,7 @@ public class Projectile : MonoBehaviour
             damage = damage * (attack.shotsPerAttack / 2 + 2) / 3;
             pierce = 0;
             projectileRange = 8;
-            knockback = 20;
+            //knockback = 20;
         }
 
     }

@@ -108,8 +108,10 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  moveSpeed: 0.9
   damage: 5
+  health: 11
+  xpAmount: 15
+  weight: 10
   stopDistanceMin: 0.2
   stopDistanceMax: 0.2
   moveDistanceCheck: 0
@@ -117,11 +119,10 @@ MonoBehaviour:
   timeCheck: 0
   isMelee: 1
   isAOE: 0
-  health: 11
-  maxHealth: 0
-  xpAmount: 20
-  weight: 10
-  duringKnockback: 0
+  isArmor: 0
+  armorTimer: 0
+  armorPercent: 0
+  weightIncrease: 0
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}
@@ -188,7 +189,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029656015, y: -0.07491627}
+  m_Offset: {x: 0.0027671158, y: -0.09701075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -199,7 +200,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.43444616, y: 0.43692493}
+  m_Size: {x: 0.27696234, y: 0.1704059}
   m_EdgeRadius: 0
 --- !u!58 &1557163916103302380
 CircleCollider2D:
@@ -261,7 +262,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 1.1
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

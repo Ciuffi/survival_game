@@ -10,8 +10,12 @@ public class Enemy : MonoBehaviour, Attacker
     public Vector3 directionToPlayer;
     public Vector3 localScale;
     public Vector3 knockDirection;
-    public float moveSpeed = 3f;
     public float damage;
+    public float health;
+    private float maxHealth;
+    public float xpAmount;
+    public float weight; //for knockback
+
 
     float stopDistance;
     public float stopDistanceMin;
@@ -23,14 +27,18 @@ public class Enemy : MonoBehaviour, Attacker
 
     public bool isMelee;
     public bool isAOE;
+    public bool isArmor;
+    public float armorTimer;
+    private float armorTime;
+    public float armorPercent; //percentile damage reduction between 0 (no reduction) and 1 (full block)
+    private bool armorOn;
+    public float weightIncrease; //increased knockback resistance during armor
+    private float newWeight;
+    private float oldWeight;
 
-    public float health;
-    public float maxHealth;
-    public float xpAmount;
-
-    public float weight; //for knockback
     private float currentForce;
-    public bool duringKnockback;
+    private bool duringKnockback;
+
 
     public bool canDamage;
     public GameObject DamagePopup;
@@ -123,6 +131,9 @@ public class Enemy : MonoBehaviour, Attacker
 
         defaultMaterial = spriteRend.material;
         dangerRenderer = dangerSign.GetComponent<SpriteRenderer>();
+        armorTime = armorTimer;
+        oldWeight = weight;
+        newWeight = weight + weightIncrease;
     }
 
 
@@ -158,7 +169,7 @@ public class Enemy : MonoBehaviour, Attacker
         float distance = Vector3.Distance(transform.position, player.transform.position);
    
 
-
+        //rage enemies
         if (isRage == true)
         {
             if (health / maxHealth <= rageTriggerPercent && !rageTriggered)
@@ -173,6 +184,8 @@ public class Enemy : MonoBehaviour, Attacker
 
         }
 
+
+        //active actions - melee or ranged
         if (duringKnockback)
         {
             StopMoving();
@@ -182,17 +195,15 @@ public class Enemy : MonoBehaviour, Attacker
             {
                 duringKnockback = false;
                 StartMoving();
-            }
-        }
-        else
-        {
 
+            }
+        }else{
 
             if (isMelee == true) //melee 
             {
                 animator.SetFloat("Distance", distance);
 
-                if (isDash == false)
+                if (!isDash && !isArmor)
                 {
                     if (distance <= stopDistance)
                     {
@@ -206,8 +217,43 @@ public class Enemy : MonoBehaviour, Attacker
                         StartMoving();
                         animator.SetBool("IsMoving", true);
                     }
+
+                } else if (!isDash && isArmor) //armored enemies
+                {
+
+                    if (armorOn) //currently armored
+                    {
+                        animator.SetBool("IsArmored", true);
+                        StopMoving();
+                        armorTime -= Time.deltaTime;
+                        weight = newWeight;
+                        
+                        if (armorTime <= 0)
+                        {
+                            animator.SetBool("IsArmored", false);
+                            StartMoving();
+                            weight = oldWeight;
+                            armorOn = false;
+                            armorTime = armorTimer;
+                        }
+                    }else //walk to enemy
+                    {
+                        if (distance <= stopDistance)
+                        {
+                            StopMoving();
+                            animator.SetBool("IsMoving", false);
+                            transform.LookAt(player.transform);
+                            transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                        }
+                        else
+                        {
+                            StartMoving();
+                            animator.SetBool("IsMoving", true);
+                        }
+                    }
                 }
-                else if (isDash == true) // does dash
+
+                else if (isDash && !isArmor) // does dash
                 {
                     if (distance <= stopDistance && canDash)
                     {
@@ -234,8 +280,6 @@ public class Enemy : MonoBehaviour, Attacker
                         isDashing = false;
                         StartMoving();
                         dashCD -= Time.deltaTime;
-
-
                     }
 
                     else if (dashCD <= 0)
@@ -243,7 +287,6 @@ public class Enemy : MonoBehaviour, Attacker
                         canDash = true;
                         StartMoving();
                     }
-
 
                 }
 
@@ -306,13 +349,9 @@ public class Enemy : MonoBehaviour, Attacker
 
                         }
                     }
-
                 }
-
-
             }
         }
-
        
 
 
@@ -421,6 +460,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     public void StartMoving()
     {
+        animator.SetBool("IsHurt", false);
         aiPath.canMove = true;
     }
 
@@ -430,7 +470,6 @@ public class Enemy : MonoBehaviour, Attacker
         if (canDamage == true)
         {
             animator.SetBool("IsHurt", true);
-            health -= damageAmount;
             Vector3 popupPosition = rb.position;
             popupPosition.x = Random.Range(rb.position.x - 0.075f, rb.position.x + 0.075f);
             popupPosition.y = Random.Range(rb.position.y, rb.position.y + 0.1f);
@@ -448,20 +487,31 @@ public class Enemy : MonoBehaviour, Attacker
             DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
             Instantiate(HitEffect, transform.position + modifier, Quaternion.identity);
 
-            if (isCrit == true)
+            if (!armorOn) // first hit
             {
-                damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);
-            }
-            else
+                if (isArmor)
+                {
+                    armorOn = true;
+                }
+
+                if (isCrit == true)
+                {
+                    health -= damageAmount;
+                    damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);
+                }
+                else
+                {
+                    health -= damageAmount;
+                    damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
+                }
+
+            } else //armor is now active
             {
-                damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
+                float armoredDamage = damageAmount - (damageAmount * armorPercent);
+                health -= armoredDamage;
+                damagePopup.GetComponent<DamagePopupText>().Setup(armoredDamage, false);
+
             }
-
-            animator.SetBool("IsHurt", false);
-
-        }
-        else
-        {
 
         }
 
