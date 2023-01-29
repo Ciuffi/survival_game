@@ -6872,90 +6872,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1364449501376764899, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616801709358703483, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: eca863b5f655bde448930ae478718485, type: 3}
-    - target: {fileID: 5616801709358703483, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_Color.a
-      value: 0.43137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616801709358703483, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616801709358703483, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616801709358703483, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616801709358703483, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616801709358703483, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616801709358703483, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: castTime
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: throwSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: meleeSpacer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: thrownSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7ee67390dedeccb41a42fd32b73373c1, type: 3}
-    - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: weaponSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a24dcb709422d98438f512fee334cee0, type: 3}
-    - target: {fileID: 6037108042869346025, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: meleeSpacerGap
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7826251409800049588, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7826251409800049588, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7826251409800049588, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7826251409800049588, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7826251409800049588, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7826251409800049588, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -6968,10 +6884,6 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1465128669}
-    - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: growthMultiplier
-      value: 1.25
-      objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
       value: 

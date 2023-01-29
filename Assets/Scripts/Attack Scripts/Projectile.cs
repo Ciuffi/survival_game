@@ -49,6 +49,11 @@ public class Projectile : MonoBehaviour
 
     public bool isThrown;
 
+    public bool isHover;
+    public float hoverTimer;
+    private float hoverTime;
+    public bool hitFirstEnemy;
+
     void Start()
     {
         Camera = GameObject.FindWithTag("MainCamera");
@@ -67,6 +72,8 @@ public class Projectile : MonoBehaviour
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
         startPos = transform.position;
+        hitFirstEnemy = false;
+        hoverTime = hoverTimer;
 
         if (isThrown)
         {
@@ -103,12 +110,34 @@ public class Projectile : MonoBehaviour
 
         if (isMelee == false)
         {
-            transform.position += transform.up * attack.speed;
             float distance = Vector2.Distance(spawnPos, transform.position);
 
-            if (distance >= projectileRange)
+            if (!isHover)
             {
-                Destroy(gameObject);
+                transform.position += transform.up * attack.speed;
+
+                if (distance >= projectileRange)
+                {
+                    Destroy(gameObject);
+                }
+
+            } else //moves until end distance or first enemy hit, then stops
+            {
+
+                if (distance < projectileRange && !hitFirstEnemy)
+                {
+                    transform.position += transform.up * attack.speed;
+
+                } else if (distance > projectileRange || hitFirstEnemy)
+                {
+                    transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                   
+                    hoverTime -= Time.deltaTime;
+                    if (hoverTime <= 0)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
             }
         }
         else
@@ -168,7 +197,7 @@ public class Projectile : MonoBehaviour
 
         if (col.gameObject.tag == "Enemy" && attack.owner.GetTransform().name == "Player")
         {
-           
+            hitFirstEnemy = true;
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
             ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
 
@@ -228,6 +257,7 @@ public class Projectile : MonoBehaviour
         }
         else if (col.gameObject.tag == "Loot" && attack.owner.GetTransform().name == "Player")
         {
+            hitFirstEnemy = true;
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
             ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
 
@@ -286,4 +316,9 @@ public class Projectile : MonoBehaviour
         }
 
     }
+
+
+  
+
+
 }

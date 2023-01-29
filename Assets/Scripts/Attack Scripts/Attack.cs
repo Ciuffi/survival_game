@@ -53,6 +53,7 @@ public class Attack : MonoBehaviour, Upgrade
     GameObject Camera;
 
     public GameObject MeleeAttack;
+    public bool isToss;
     public int comboLength; // # of melee attacks instantiated in a row
     public float meleeScale; // scales up by % amount after each attack in the combo
     public float meleeSpacer = 0.7f; //spacer for first melee attack
