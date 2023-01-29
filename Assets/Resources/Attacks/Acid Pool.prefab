@@ -66,13 +66,14 @@ MonoBehaviour:
   pierceUP: 0
   critChance: 0.2
   critDmg: 2
-  projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
+  projectile: {fileID: 0}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
   attackType: 5
   MeleeAttack: {fileID: 4908858350499337675, guid: 3f3ee220eb53a4340bac2d7e0d1209fa, type: 3}
+  isToss: 0
   comboLength: 1
   meleeScale: 0.2
   meleeSpacer: 1

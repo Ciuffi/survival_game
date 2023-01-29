@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735341029624650593}
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: Fuma Shuriken
+  m_Name: Shuriken Spray
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,34 +44,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 9
-  damageUP: 15
-  spread: 0.15
-  spreadUP: 0.15
-  castTime: 2
+  damage: 3
+  damageUP: 5
+  spread: 120
+  spreadUP: 90
+  castTime: 1.75
   castTimeUP: 1.5
   attackTimeUp: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 5.5
-  rangeUP: 7
-  shotsPerAttack: 1
-  shotsPerAttackUP: 2
+  range: 2
+  rangeUP: 3
+  shotsPerAttack: 4
+  shotsPerAttackUP: 6
   cantMove: 0
-  speed: 0.12
-  speedUP: 0.15
+  speed: 0.09
+  speedUP: 0.12
   knockback: 0
   knockbackUP: 0
-  pierce: 15
-  pierceUP: 20
+  pierce: 10
+  pierceUP: 12
   critChance: 0.1
   critDmg: 1.5
-  projectile: {fileID: 3966782872280218973, guid: a9e5fa143214c0846b26879932cd3ad9, type: 3}
+  projectile: {fileID: 3966782872280218973, guid: 86dfe545b581c9149a8845f465e2c6b9, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
-  attackType: 0
+  attackType: 1
   MeleeAttack: {fileID: 0}
   isToss: 0
   comboLength: 0
@@ -83,9 +83,9 @@ MonoBehaviour:
   shakeStrength: 0
   shakeRotation: 0
   attackBuff: 0
-  weaponSprite: {fileID: 21300000, guid: 9741781bf5c459547bd3e654abf950bf, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 2c54ac57f09693c4587eeb69f3a0bcdb, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: 183ed69a7fc94bb4b852224d63840665, type: 3}
-  throwSpeed: 8
+  thrownSprite: {fileID: 21300000, guid: e3b119ccc5c02424599fc096a4a9fc93, type: 3}
+  throwSpeed: 7

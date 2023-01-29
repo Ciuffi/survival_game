@@ -129,9 +129,7 @@ public class Projectile : MonoBehaviour
                     transform.position += transform.up * attack.speed;
 
                 } else if (distance > projectileRange || hitFirstEnemy)
-                {
-                    transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-                   
+                {                  
                     hoverTime -= Time.deltaTime;
                     if (hoverTime <= 0)
                     {

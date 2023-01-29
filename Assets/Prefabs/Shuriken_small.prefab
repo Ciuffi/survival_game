@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3115735194507937141}
   - component: {fileID: -3887285398624502537}
   m_Layer: 0
-  m_Name: Shuriken
+  m_Name: Shuriken_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3966782872280218973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.024400318}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1602682635
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3704fc329e8a1ec478aa34649428254f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f3b5bc0acb5b2214c970d90d96d6e44d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.74509805}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 3966782872280218973}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 69cd8e8d7c3b5ef4498179995095e77e, type: 2}
+  m_Controller: {fileID: 9100000, guid: ccbb47b5ca60f574cb179f98b64a19ab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -137,14 +137,14 @@ MonoBehaviour:
   disappearSpeed: 0
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
-  playerShakeTime: 0.075
-  playerShakeStrength: 0.075
-  playerShakeRotation: 0.05
-  damageTickDuration: 0.3
+  playerShakeTime: 0.05
+  playerShakeStrength: 0.05
+  playerShakeRotation: 0.03
+  damageTickDuration: 0.275
   startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
   isHover: 1
-  hoverTimer: 2.5
+  hoverTimer: 2
   hitFirstEnemy: 0
 --- !u!58 &3115735194507937141
 CircleCollider2D:
@@ -159,9 +159,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010498671, y: -0.011389531}
+  m_Offset: {x: -0.010498364, y: -0.004347165}
   serializedVersion: 2
-  m_Radius: 3.450193
+  m_Radius: 2.3019834
 --- !u!50 &-3887285398624502537
 Rigidbody2D:
   serializedVersion: 4
