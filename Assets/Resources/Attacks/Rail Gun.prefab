@@ -60,8 +60,8 @@ MonoBehaviour:
   cantMove: 0
   speed: 0.12
   speedUP: 0.2
-  knockback: 6
-  knockbackUP: 7
+  knockback: 2
+  knockbackUP: 3
   pierce: 0
   pierceUP: 1
   critChance: 0.1
@@ -73,6 +73,7 @@ MonoBehaviour:
   effect: {fileID: 0}
   attackType: 0
   MeleeAttack: {fileID: 0}
+  isToss: 0
   comboLength: 0
   meleeScale: 0
   meleeSpacer: 0

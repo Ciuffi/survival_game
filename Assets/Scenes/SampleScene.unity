@@ -5411,6 +5411,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1364258092487029635, guid: 3f7a16c2a31fbe74ab8fcc28e74f3ac1, type: 3}
+      propertyPath: m_Color.a
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364258092487029635, guid: 3f7a16c2a31fbe74ab8fcc28e74f3ac1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364258092487029635, guid: 3f7a16c2a31fbe74ab8fcc28e74f3ac1, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364258092487029635, guid: 3f7a16c2a31fbe74ab8fcc28e74f3ac1, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1364258093182231627, guid: 3f7a16c2a31fbe74ab8fcc28e74f3ac1, type: 3}
       propertyPath: m_Name
       value: JoystickNub
@@ -6872,6 +6888,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6832370893788379046, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 

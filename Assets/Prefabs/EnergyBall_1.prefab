@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3887285398624502537}
   m_Layer: 0
   m_Name: EnergyBall_1
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +143,9 @@ MonoBehaviour:
   damageTickDuration: 0.25
   startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
+  isHover: 0
+  hoverTimer: 0
+  hitFirstEnemy: 0
 --- !u!58 &3115735194507937141
 CircleCollider2D:
   m_ObjectHideFlags: 0

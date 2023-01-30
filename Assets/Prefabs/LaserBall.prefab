@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5407143318646056876}
   m_Layer: 0
   m_Name: LaserBall
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +142,10 @@ MonoBehaviour:
   playerShakeRotation: 0.05
   damageTickDuration: 1
   startPos: {x: 0, y: 0, z: 0}
+  isThrown: 0
+  isHover: 0
+  hoverTimer: 0
+  hitFirstEnemy: 0
 --- !u!61 &878022755994954586
 BoxCollider2D:
   m_ObjectHideFlags: 0
