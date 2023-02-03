@@ -6888,6 +6888,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1999617151, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1012356
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999617151, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.30829123
+      objectReference: {fileID: 0}
+    - target: {fileID: 760271822712143496, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6832370893788379046, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -13107,6 +13119,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1731126406}
+    - target: {fileID: 7313015711702768634, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: yOffset
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
 --- !u!1 &7313015712638807195 stripped
