@@ -121,7 +121,7 @@ MonoBehaviour:
   isAOE: 0
   isArmor: 1
   armorTimer: 3
-  armorPercent: 1
+  armorPercent: 0.8
   weightIncrease: 25
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}

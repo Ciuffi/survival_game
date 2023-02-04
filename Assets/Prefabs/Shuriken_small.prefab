@@ -133,7 +133,7 @@ MonoBehaviour:
   meleeTime: 0
   startup: 0
   active: 0
-  scaleSpeed: 0
+  scaleSpeed: 1
   disappearSpeed: 0
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}

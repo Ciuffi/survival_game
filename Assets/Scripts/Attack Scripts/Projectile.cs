@@ -112,7 +112,7 @@ public class Projectile : MonoBehaviour
         {
             float distance = Vector2.Distance(spawnPos, transform.position);
 
-            if (!isHover)
+            if (!isHover) //regular projectile
             {
                 transform.position += transform.up * attack.speed;
 
@@ -121,8 +121,10 @@ public class Projectile : MonoBehaviour
                     Destroy(gameObject);
                 }
 
-            } else //moves until end distance or first enemy hit, then stops
+            } else //HOVER projectile - moves until end distance or first enemy hit, then stops
             {
+                float alphaSpeed;
+                Vector3 scaleUp;
 
                 if (distance < projectileRange && !hitFirstEnemy)
                 {
@@ -133,8 +135,19 @@ public class Projectile : MonoBehaviour
                     hoverTime -= Time.deltaTime;
                     if (hoverTime <= 0)
                     {
+                        alphaSpeed = disappearSpeed * Time.deltaTime;
+                        scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
+
+                        GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
+                        transform.localScale -= scaleUp;
+                        GetComponent<Collider2D>().enabled = false;
+                    }
+
+                    if (transform.localScale.x < 0)
+                    {
                         Destroy(gameObject);
                     }
+
                 }
             }
         }

@@ -10,6 +10,7 @@ public class enemyProjectile : MonoBehaviour
     public float maxRange;
     private Vector3 startingPosition;
     public GameObject Player;
+    public GameObject onHitParticle;
 
 
     // Start is called before the first frame update
@@ -37,6 +38,7 @@ public class enemyProjectile : MonoBehaviour
         if (col.gameObject == null) return;
         if (col.gameObject.tag == "Player" && Player.GetComponent<StatsHandler>().canDamage == true)
         {
+            Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
             col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
             Destroy(gameObject);
         }
@@ -47,11 +49,13 @@ public class enemyProjectile : MonoBehaviour
 
         if (col.gameObject.tag == "Wall")
         {
+            Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
         if (col.gameObject.tag == "Attack")
         {
+            Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
          
         }
