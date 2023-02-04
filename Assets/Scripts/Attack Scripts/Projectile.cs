@@ -106,7 +106,8 @@ public class Projectile : MonoBehaviour
                     }
                 }
             }
-        }
+        } 
+      
 
         if (isMelee == false)
         {
@@ -209,8 +210,6 @@ public class Projectile : MonoBehaviour
         if (col.gameObject.tag == "Enemy" && attack.owner.GetTransform().name == "Player")
         {
             hitFirstEnemy = true;
-            ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
-            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
 
             GameObject enemy = col.gameObject;
 
@@ -268,9 +267,7 @@ public class Projectile : MonoBehaviour
         }
         else if (col.gameObject.tag == "Loot" && attack.owner.GetTransform().name == "Player")
         {
-            hitFirstEnemy = true;
-            ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
-            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
+            hitFirstEnemy = true; 
 
             GameObject enemy = col.gameObject;
 

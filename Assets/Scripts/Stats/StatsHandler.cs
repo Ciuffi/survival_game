@@ -72,7 +72,6 @@ public class StatsHandler : MonoBehaviour
 
             healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
             health = newHealth;
-            ComboManager.GetComponent<ComboTracker>().ResetCount();
             if (health <= 0) GameObject.FindObjectOfType<GameManager>().ResetGame();
         } 
     }
@@ -191,6 +190,8 @@ public class StatsHandler : MonoBehaviour
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
         OGMaterial = spriteRend.material;
         Camera = GameObject.FindWithTag("MainCamera");
+        ComboManager = GameObject.FindWithTag("ComboManager");
+        ComboManager.GetComponent<ComboTracker>().ResetCount();
 
 
         level = 1;

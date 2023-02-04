@@ -148,6 +148,9 @@ public class Enemy : MonoBehaviour, Attacker
             isDead = true;
             GameObject xpDrop = Instantiate(EXPdrop, center, Quaternion.identity);
             xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
+
+            ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
+            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
         }
 
         if (health <= 0)
@@ -156,6 +159,7 @@ public class Enemy : MonoBehaviour, Attacker
             SetAllCollidersStatus(false);
             color = Sprite.GetComponent<SpriteRenderer>().color;
             Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
+
 
         }
 

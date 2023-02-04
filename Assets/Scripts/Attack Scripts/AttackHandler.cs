@@ -67,6 +67,8 @@ public class AttackHandler : MonoBehaviour
             yield return new WaitForSeconds(0.4f);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
             HandsSprite.GetComponent<SpriteRenderer>().enabled = false;
+            WeaponSprite.GetComponent<Collider2D>().enabled = false;
+
 
             //casting
             if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime - 0.4f));
@@ -82,6 +84,7 @@ public class AttackHandler : MonoBehaviour
             HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
             HandsSprite.GetComponent<Animator>().SetBool("IsThrow", true);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
+            WeaponSprite.GetComponent<Collider2D>().enabled = true;
             yield return new WaitForSeconds(0.3f);
             currentAttack.ThrowWeapon();
 

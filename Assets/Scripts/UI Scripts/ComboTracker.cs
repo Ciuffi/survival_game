@@ -20,7 +20,7 @@ public class ComboTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string comboText = "x" + comboCount;
+        string comboText = "Kills: " + comboCount;
         GetComponentInChildren<TMP_Text>().text = comboText;
     }
 
