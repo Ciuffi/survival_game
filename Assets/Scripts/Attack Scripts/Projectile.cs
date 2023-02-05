@@ -262,71 +262,9 @@ public class Projectile : MonoBehaviour
             if (isMelee == false && pierce < 0)
             {
                 Destroy(gameObject);
-            }
-       
+            }   
         }
-        else if (col.gameObject.tag == "Loot" && attack.owner.GetTransform().name == "Player")
-        {
-            hitFirstEnemy = true; 
-
-            GameObject enemy = col.gameObject;
-
-            if (!hitEnemies.Contains(enemy))
-            {
-                critRoll = Random.value; //roll for crit
-                if (critChance >= critRoll)
-                { //CRITS
-                    finalDamage = damage * critDmg;
-                    isCrit = true;
-
-                }
-                else
-                {
-                    //no crit 
-                    finalDamage = damage;
-                    isCrit = false;
-                }
-
-                hitEnemies.Add(enemy);
-                timers[enemy] = damageTickDuration;
-                if (isCrit == true)
-                {
-                    col.gameObject.GetComponent<LootBox>().TakeDamage(finalDamage, true);
-                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
-                }
-                else
-                {
-                    col.gameObject.GetComponent<LootBox>().TakeDamage(finalDamage, false);
-                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
-                }
-
-                if (isMelee == false)
-                {
-                    pierce -= 1;
-                }
-
-            }
-            else
-            {
-                return;
-            }
-
-
-            if (isMelee == false && pierce < 0)
-            {
-                Destroy(gameObject);
-            }
-
-        }
-
     }
-
-
-  
 
 
 }

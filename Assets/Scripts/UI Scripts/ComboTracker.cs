@@ -21,7 +21,7 @@ public class ComboTracker : MonoBehaviour
     void Update()
     {
         string comboText = "Kills: " + comboCount;
-        GetComponentInChildren<TMP_Text>().text = comboText;
+        //GetComponentInChildren<TMP_Text>().text = comboText;
     }
 
     private void FixedUpdate()
