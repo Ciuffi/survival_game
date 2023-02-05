@@ -23,13 +23,13 @@ public class CanvasClickHandler : MonoBehaviour, IDragHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData ped)
     {
-        Joystick.transform.position = new Vector3(ped.position.x - JoystickContainer.rectTransform.rect.width / 2f, ped.position.y - JoystickContainer.rectTransform.rect.height / 2f, 0);
+        //Joystick.transform.position = new Vector3(ped.position.x - JoystickContainer.rectTransform.rect.width / 2f, ped.position.y - JoystickContainer.rectTransform.rect.height / 2f, 0);
         VJ.OnPointerDown(ped);
     }
 
     public void OnPointerUp(PointerEventData ped)
     {
-        Joystick.transform.position = startPosition;
+        //Joystick.transform.position = startPosition;
         VJ.OnPointerUp(ped);
     }
 

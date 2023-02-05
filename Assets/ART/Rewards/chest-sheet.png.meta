@@ -120,10 +120,10 @@ TextureImporter:
       name: chest-sheet_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 5
-        width: 24
-        height: 24
+        x: 117
+        y: 48
+        width: 246
+        height: 244
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: chest-sheet_1
       rect:
         serializedVersion: 2
-        x: 60
-        y: 5
-        width: 24
-        height: 24
+        x: 597
+        y: 48
+        width: 246
+        height: 244
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: chest-sheet_2
       rect:
         serializedVersion: 2
-        x: 108
-        y: 5
-        width: 24
-        height: 23
+        x: 1077
+        y: 48
+        width: 246
+        height: 234
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: chest-sheet_3
       rect:
         serializedVersion: 2
-        x: 154
-        y: 5
-        width: 28
-        height: 22
+        x: 1538
+        y: 48
+        width: 284
+        height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: chest-sheet_4
       rect:
         serializedVersion: 2
-        x: 204
-        y: 5
-        width: 24
-        height: 25
+        x: 2037
+        y: 48
+        width: 246
+        height: 255
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: chest-sheet_5
       rect:
         serializedVersion: 2
-        x: 252
-        y: 5
-        width: 24
-        height: 33
+        x: 2517
+        y: 48
+        width: 246
+        height: 334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: chest-sheet_6
       rect:
         serializedVersion: 2
-        x: 299
-        y: 5
-        width: 26
-        height: 28
+        x: 2988
+        y: 48
+        width: 264
+        height: 285
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: chest-sheet_7
       rect:
         serializedVersion: 2
-        x: 348
-        y: 5
-        width: 24
-        height: 29
+        x: 3477
+        y: 48
+        width: 246
+        height: 294
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
