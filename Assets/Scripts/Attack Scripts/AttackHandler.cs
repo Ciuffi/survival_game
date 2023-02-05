@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+
 
 public class AttackHandler : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class AttackHandler : MonoBehaviour
     private int attackIndex;
     public GameObject WeaponSprite;
     public GameObject HandsSprite;
-    
+
     private Slider attackBar;
     private Image attackBarImage;
     private GameObject defaultWeapon;
@@ -38,7 +40,7 @@ public class AttackHandler : MonoBehaviour
             Color currentColor = attackBarImage.color;
             currentColor.a = 0.5f;
             attackBarImage.color = currentColor;
-            
+
             timer += Time.deltaTime;
             float progress = Mathf.Clamp01(timer / castTime);
             attackBar.value = progress;
@@ -60,10 +62,10 @@ public class AttackHandler : MonoBehaviour
             attackState = AttackState.Casting;
             if (attacks.Count == 0) yield return null;
             Attack currentAttack = attacks[attackIndex];
-            WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack.GetComponent<Attack>().weaponSprite;
+            WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack.GetComponent<Attack>().heldWeaponSprite;
 
             //swap animation
-            HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);          
+            HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);
             yield return new WaitForSeconds(0.4f);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
             HandsSprite.GetComponent<SpriteRenderer>().enabled = false;
@@ -91,7 +93,7 @@ public class AttackHandler : MonoBehaviour
             //recovering
             attackState = AttackState.Recovery;
             attackIndex++;
-     
+
             if (attackIndex >= attacks.Count)
             {
                 attackIndex = 0;
@@ -103,8 +105,33 @@ public class AttackHandler : MonoBehaviour
     public void AddWeapon(GameObject weapon)
     {
         weapon.transform.parent = attackContainer.transform;
-        attacks.Add(weapon.GetComponent<Attack>());
-        weapon.GetComponent<Attack>().owner = GetComponent<Attacker>();
+        RecalculateWeapons();
+    }
+    public void RemoveWeapon(GameObject weapon)
+    {
+        weapon.transform.parent = null;
+        Destroy(weapon);
+        RecalculateWeapons();
+    }
+
+    public List<Attack> GetAttacks()
+    {
+        return attacks;
+    }
+
+    public List<GameObject> GetAttacksGO()
+    {
+        return attacks.Select(attack => attack.gameObject).ToList();
+    }
+
+    public void RecalculateWeapons()
+    {
+        attacks.Clear();
+        new List<Attack>(attackContainer.GetComponentsInChildren<Attack>()).ForEach(a =>
+        {
+            attacks.Add(a);
+            a.owner = GetComponent<Attacker>();
+        });
     }
 
     public void ResetWeapons()
@@ -121,7 +148,7 @@ public class AttackHandler : MonoBehaviour
         GameObject newWeapon = Instantiate(defaultWeapon, transform.position, Quaternion.identity);
 
         AddWeapon(newWeapon);
-        WeaponSprite.GetComponent<SpriteRenderer>().sprite = newWeapon.GetComponent<Attack>().weaponSprite;
+        WeaponSprite.GetComponent<SpriteRenderer>().sprite = newWeapon.GetComponent<Attack>().heldWeaponSprite;
 
         StartCoroutine(Attack());
     }

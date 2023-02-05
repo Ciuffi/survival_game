@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
 
     public Vector2 spawnPos;
 
-    public int pierce;
+    public float pierce;
     public bool isBounce;
     public float bounceRange;
     public int bounceTimes;
@@ -61,12 +61,12 @@ public class Projectile : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
 
         pierce = attack.pierce;
-        spawnPos.x = transform.position.x;  
+        spawnPos.x = transform.position.x;
         spawnPos.y = transform.position.y;
         damage = attack.damage * Player.GetComponent<StatsHandler>().damageMultipler;
         knockback = attack.knockback;
         critChance = attack.critChance + Player.GetComponent<StatsHandler>().critChance;
-        critDmg = attack.critDmg + Player.GetComponent<StatsHandler>().critDmg;
+        critDmg = attack.critDamage + Player.GetComponent<StatsHandler>().critDmg;
         projectileRange = attack.range;
 
         hitEnemies = new List<GameObject>();
@@ -106,8 +106,8 @@ public class Projectile : MonoBehaviour
                     }
                 }
             }
-        } 
-      
+        }
+
 
         if (isMelee == false)
         {
@@ -122,7 +122,8 @@ public class Projectile : MonoBehaviour
                     Destroy(gameObject);
                 }
 
-            } else //HOVER projectile - moves until end distance or first enemy hit, then stops
+            }
+            else //HOVER projectile - moves until end distance or first enemy hit, then stops
             {
                 float alphaSpeed;
                 Vector3 scaleUp;
@@ -131,8 +132,9 @@ public class Projectile : MonoBehaviour
                 {
                     transform.position += transform.up * attack.speed;
 
-                } else if (distance > projectileRange || hitFirstEnemy)
-                {                  
+                }
+                else if (distance > projectileRange || hitFirstEnemy)
+                {
                     hoverTime -= Time.deltaTime;
                     if (hoverTime <= 0)
                     {
@@ -252,22 +254,23 @@ public class Projectile : MonoBehaviour
                 {
                     pierce -= 1;
                 }
-               
 
-            } else
+
+            }
+            else
             {
                 return;
             }
-      
+
             if (isMelee == false && pierce < 0)
             {
                 Destroy(gameObject);
             }
-       
+
         }
         else if (col.gameObject.tag == "Loot" && attack.owner.GetTransform().name == "Player")
         {
-            hitFirstEnemy = true; 
+            hitFirstEnemy = true;
 
             GameObject enemy = col.gameObject;
 
@@ -326,7 +329,7 @@ public class Projectile : MonoBehaviour
     }
 
 
-  
+
 
 
 }

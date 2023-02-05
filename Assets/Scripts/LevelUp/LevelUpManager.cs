@@ -47,10 +47,10 @@ public class LevelUpManager : MonoBehaviour
 
     public void reroll() //check if weapon or stat, then swap so it swaps back for setUpgrades()
     {
-        if (isWeapon) 
+        if (isWeapon)
         {
-            isWeapon = false;         
-         
+            isWeapon = false;
+
             setUpgrades();
         }
         else
@@ -91,12 +91,12 @@ public class LevelUpManager : MonoBehaviour
                 u.upgrade = GO.GetComponent<Upgrade>();
                 u.GetComponentInChildren<TMP_Text>().text = GO.name;
                 u.transform.Find("Image").GetComponent<Image>().enabled = true;
-                u.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<Attack>().thrownSprite;
+                u.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<Attack>().thrownWeaponSprite;
             });
 
         }
         else
-        { 
+        {
             upgrades = new List<GameObject>(stats);
             isWeapon = true;
 
@@ -122,7 +122,7 @@ public class LevelUpManager : MonoBehaviour
 
     }
 
- 
+
     public void ShowLevelUpUI()
     {
         PauseGame();

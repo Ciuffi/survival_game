@@ -1,458 +1,182 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class Attack : MonoBehaviour, Upgrade
+using System.Linq;
+public abstract class Attack : MonoBehaviour
 {
+    public string attackName;
+    // BaseStats
+    public float baseDamage;
+    public float baseShotsPerAttack;
+    public float baseCastTime;
+    public float baseRecoveryTime;
+    public float baseKnockback;
+    public float baseCritChance;
+    public float baseCritDamage;
+    public float baseScale;
+    public float baseShakeTime;
+    public float baseShakeStrength;
+    public float baseShakeRotation;
+    public float baseThrowSpeed;
+
+    // baseProJectile
+    public float basePierce;
+    public float baseRange;
+    public float baseSpeed;
+    public float baseSpread;
+
+    // baseMelee
+    public float baseInitialSpacer;
+    public float baseComboSpacer;
+    public float baseComboWaitTime;
+    public float baseMeleeAttackSize;
+
+
+    // Calculated stats
     public float damage;
-    public float damageUP;
-
-    public float spread;
-    public float spreadUP;
-
+    public float shotsPerAttack;
     public float castTime;
-    public float castTimeUP;
-    public float attackTime
-    {
-        get => attackType == AttackTypes.Shotgun ? 0 : spread * shotsPerAttack;
-    }
-    public float attackTimeUp;
     public float recoveryTime;
-    public float recoveryTimeUp;
-
-    public float range = 5;
-    public float rangeUP;
-
-    public int shotsPerAttack;
-    public int shotsPerAttackUP;
-
-    public bool cantMove;
-
-    public float speed;
-    public float speedUP;
-
     public float knockback;
-    public float knockbackUP;
-
-    public int pierce;
-    public int pierceUP;
-
-    public float critChance; // 1 = 100% crit chance, 0 = 0% crit chance
-    public float critDmg; //1 = 100% of normal damage on a crit, 2 = 200% damage, etc.
-
-    public GameObject projectile;
-    public Vector3 scaleUP;
-
-    public int rarity = 0; //0-common, 1-rare, 2-epic, 4-legendary
-    public List<int> chosenNumbers = new List<int>();
-
-    public Effect effect;
-    public AttackTypes attackType;
-    public Attacker owner;
-    GameObject Player;
-    GameObject Camera;
-
-    public GameObject MeleeAttack;
-    public bool isToss;
-    public int comboLength; // # of melee attacks instantiated in a row
-    public float meleeScale; // scales up by % amount after each attack in the combo
-    public float meleeSpacer = 0.7f; //spacer for first melee attack
-    public float meleeSpacerGap = 1f; //spacer added for subsequent melee attacks 
-    public float comboWaitTime;
-
+    public float critChance;
+    public float critDamage;
+    public float scale;
     public float shakeTime;
     public float shakeStrength;
     public float shakeRotation;
-    public float attackBuff; //percent
-
-    public Sprite weaponSprite;
-    public bool isAutoAim;
-    public GameObject AutoAim;
-
-    public GameObject thrownWeapon;
-    public Sprite thrownSprite;
     public float throwSpeed;
 
-    private IEnumerator ShootSingleShot()
+    // Projectile
+    public float pierce;
+    public float range;
+    public float spread;
+    public float speed;
+    public GameObject thrownWeaponGO;
+    public Sprite thrownWeaponSprite;
+
+    // Melee
+    public float initialSpacer;
+    public float comboSpacer;
+    public float comboWaitTime;
+    public float meleeAttackSize;
+
+    public GameObject Player;
+    public GameObject Camera;
+    public AttackFunctions attackType;
+
+    public Sprite heldWeaponSprite;
+    public GameObject projectile;
+    public GameObject meleeAttackGO;
+
+    public Attacker owner;
+    public float attackTime
     {
-        
-        if (cantMove == true)
-        {
-            //if (isAutoAim)
-           // {
-              //  AutoAim.SetActive(true);
-            //} else
-           // {
-              //  AutoAim.SetActive(false);
-           // }
-
-            for (int i = 0; i < shotsPerAttack; i++)
-            {
-                Quaternion rotation = owner.GetTransform().rotation;
-                Vector3 position = owner.GetTransform().position;
-                Vector3 direction = owner.GetDirection();
-
-                Player.GetComponent<PlayerMovement>().StopMoving(); //stop moving before shooting
-
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                    Projectile p = projectileGO.GetComponent<Projectile>();
-                    p.attack = this;
-                    p.transform.rotation = rotation;
-                    p.projectileRange = range;
-             
-
-            
-                yield return new WaitForSeconds(spread);
-            }
-            Player.GetComponent<PlayerMovement>().StartMoving();
-        }
-        else
-        {
-
-            float startTime = Time.time;
-            float runTime = 0;
-            for (int i = 0; i < shotsPerAttack; i++)
-            {
-                Quaternion rotation = owner.GetTransform().rotation;
-                Vector3 position = owner.GetTransform().position;
-                Vector3 direction = owner.GetDirection();
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = rotation;
-                p.projectileRange = range;
-                yield return new WaitForSeconds(spread);
-                runTime += Time.deltaTime;
-                if (runTime > attackTime)
-                {
-                    yield break;
-                }
-            }
-        }
+        get => attackType == AttackFunctions.Shotgun ? 0 : spread * shotsPerAttack;
     }
 
-    private IEnumerator ShootShotgun()
+    public bool cantMove
     {
-        float spacer = 0;
-        float angle = 0;
-        int shotsLeft = shotsPerAttack;
-        spacer = spread / (shotsPerAttack - 1);
-        Vector3 position = owner.GetTransform().position;
-        Vector3 direction = owner.GetDirection();
-
-
-        if (cantMove == true)
-        {
-            if (shotsPerAttack % 2 != 0)
-            {
-                Player.GetComponent<PlayerMovement>().StopMoving();
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = owner.GetTransform().rotation;
-            }
-            else
-            {
-                spacer = spacer / 2;
-            }
-            for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
-            {
-                if (i == 0 && shotsPerAttack % 2 == 0)
-                {
-                    angle = spacer / 2;
-                }
-                else if (i % 2 == 0)
-                {
-                    angle = Mathf.Abs(angle) + spacer;
-                }
-                else
-                {
-                    angle = -angle;
-                }
-
-                Player.GetComponent<PlayerMovement>().StopMoving();
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = owner.GetTransform().rotation;
-                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-
-            }
-            yield return null;
-
-            Player.GetComponent<PlayerMovement>().StartMoving();
-
-        }
-        else
-        {
-            if (shotsPerAttack % 2 != 0)
-            {
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = owner.GetTransform().rotation;
-            }
-            else
-            {
-                spacer = spacer / 2;
-            }
-            for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
-            {
-                if (i == 0 && shotsPerAttack % 2 == 0)
-                {
-                    angle = spacer / 2;
-                }
-                else if (i % 2 == 0)
-                {
-                    angle = Mathf.Abs(angle) + spacer;
-                }
-                else
-                {
-                    angle = -angle;
-                }
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = owner.GetTransform().rotation;
-                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-
-            }
-            yield return null;
-
-        }
-
+        get => !Player.GetComponent<PlayerMovement>().canMove;
     }
 
-    private IEnumerator Melee()
+    // Split out melee and ranged variables
+    public Attack Init(string attackName,
+                                            float baseDamage,
+                                            float baseShotsPerAttack,
+                                            float baseCastTime,
+                                            float baseRecoveryTime,
+                                            float baseKnockback,
+                                            float baseCritChance,
+                                            float baseCritDamage,
+                                            float baseScale,
+                                            float baseShakeTime,
+                                            float baseShakeStrength,
+                                            float baseShakeRotation,
+                                            float baseThrowSpeed,
+                                            float basePierce,
+                                            float baseRange,
+                                            float baseSpeed,
+                                            float baseSpread,
+                                            float baseInitialSpacer,
+                                            float baseComboSpacer,
+                                            float baseComboWaitTime,
+                                            float baseMeleeAttackSize,
+                                            AttackFunctions attackType,
+                                            Sprite thrownWeapon,
+                                            Sprite heldWeapon)
     {
-
-        float spacer = 0;
-        float angle = 0;
-        int shotsLeft = shotsPerAttack;
-        spacer = spread / (shotsPerAttack - 1);
-        Vector3 position = owner.GetTransform().position;
-        Vector3 direction = owner.GetDirection();
-        Quaternion rotation = owner.GetTransform().rotation;
-
-        float localSpacer = meleeSpacer;
-        Player.GetComponent<PlayerMovement>().StopMoving();
-
-        Vector3 originalScale = MeleeAttack.transform.localScale;
-        Vector3 scaler = new Vector3(meleeScale, meleeScale, meleeScale);
-
-
-        for (int c = 0; c < comboLength; c++)
-        {
-
-
-            if (shotsPerAttack % 2 != 0)
-            {
-                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
-                GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = rotation;
-                if (c >= 1)
-                {
-                    p.transform.localScale += scaler * c;
-                }
-                Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
-
-
-            }
-            else
-            {
-                spacer = spacer / 2;
-            }
-            for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
-            {
-                if (i == 0 && shotsPerAttack % 2 == 0)
-                {
-                    angle = spacer / 2;
-                }
-                else if (i % 2 == 0)
-                {
-                    angle = Mathf.Abs(angle) + spacer;
-                }
-                else
-                {
-                    angle = -angle;
-                }
-                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
-                GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = rotation;
-                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-
-                Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
-
-            }
-            yield return new WaitForSeconds(comboWaitTime);
-
-            // after one hit in the combo, do this
-
-            if (meleeScale > 0)
-            {
-                localSpacer += meleeSpacerGap * (1 + meleeScale);
-            }
-            else
-            {
-                localSpacer += meleeSpacerGap;
-            }
-
-
-        }
-        yield return null;
-        //can move again
-        Player.GetComponent<PlayerMovement>().StartMoving();
-
-        //reset gap between hits
-        localSpacer = meleeSpacer;
-
-    }
-
-
-    // private IEnumerator Utility() //buff effect on self
-    // {
-
-    //  }
-
-    public void Shoot()
-    {
-        switch (attackType)
-        {
-            case AttackTypes.SingleShot:   
-                StartCoroutine(ShootSingleShot());
-                break;
-            case AttackTypes.Shotgun:
-                StartCoroutine(ShootShotgun());
-                break;
-            case AttackTypes.Laser:
-                StartCoroutine(ShootSingleShot());
-                break;
-            case AttackTypes.Melee:
-                StartCoroutine(Melee());
-                break;
-            //case AttackTypes.Utility:
-            //StartCoroutine(Utility());
-            //break;
-            default:
-                break;
-        }
-
-    }
-
-    public void ThrowWeapon()
-    {
-        if (thrownWeapon == null)
-        {
-            return;
-        }
-        else
-        {
-            Quaternion rotation = owner.GetTransform().rotation;
-            Vector3 position = owner.GetTransform().position;
-            Vector3 direction = owner.GetDirection();
-
-
-            GameObject wpnToss = Instantiate(thrownWeapon, position, Quaternion.identity);
-            wpnToss.GetComponent<SpriteRenderer>().sprite = thrownSprite;
-            Rigidbody2D rb = wpnToss.GetComponent<Rigidbody2D>();
-            rb.AddForce(direction * throwSpeed * -1, ForceMode2D.Impulse);
-            rb.AddTorque(1000f);
-
-            Projectile p = wpnToss.GetComponent<Projectile>();
-            p.attack = this;
-            p.transform.rotation = rotation;
-        }
-
-}
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (projectile == null)
-        {
-            projectile = Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
-        }
-        owner = transform.GetComponentInParent<Attacker>();
-
-        int y = rarity;
-        GenerateRarity(y, 1, 5);
-
-
-        if (chosenNumbers.Contains(1)) //Upgrade Type 1 - Damage
-        {
-            damage = damageUP;
-        }
-
-        if (chosenNumbers.Contains(2)) //Upgrade Type 2 - spread /+ shotsPerAttack
-        {
-            spread = spreadUP;
-            shotsPerAttack = shotsPerAttackUP;
-        }
-        if (chosenNumbers.Contains(3)) //Upgrade Type 3 - castTime /+ startTime
-        {
-            castTime = castTimeUP;
-            recoveryTime = recoveryTimeUp;
-        }
-        if (chosenNumbers.Contains(4)) //Upgrade Type 4 - Range /+ speed
-        {
-            range = rangeUP;
-            speed = speedUP;
-        }
-        if (chosenNumbers.Contains(5)) //Upgrade Type 5 - Knockback
-        {
-            knockback = knockbackUP;
-        }
-        if (chosenNumbers.Contains(6)) //Upgrade Type 6 - Scale  
-        {
-            //projectile.transform.localScale = scaleUP;
-        }
-
+        this.attackName = attackName;
+        this.baseDamage = baseDamage;
+        this.baseShotsPerAttack = baseShotsPerAttack;
+        this.baseCastTime = baseCastTime;
+        this.baseRecoveryTime = baseRecoveryTime;
+        this.baseKnockback = baseKnockback;
+        this.baseCritChance = baseCritChance;
+        this.baseCritDamage = baseCritDamage;
+        this.baseScale = baseScale;
+        this.baseShakeTime = baseShakeTime;
+        this.baseShakeStrength = baseShakeStrength;
+        this.baseShakeRotation = baseShakeRotation;
+        this.baseThrowSpeed = baseThrowSpeed;
+        this.basePierce = basePierce;
+        this.baseRange = baseRange;
+        this.baseSpeed = baseSpeed;
+        this.baseSpread = baseSpread;
+        this.baseInitialSpacer = baseInitialSpacer;
+        this.baseComboSpacer = baseComboSpacer;
+        this.baseComboWaitTime = baseComboWaitTime;
+        this.baseMeleeAttackSize = baseMeleeAttackSize;
+        this.thrownWeaponSprite = thrownWeapon;
+        this.heldWeaponSprite = heldWeapon;
+        this.attackType = attackType;
         Camera = GameObject.FindWithTag("MainCamera");
         Player = GameObject.FindWithTag("Player");
-
+        return this;
     }
 
-    public List<int> GenerateRarity(int count, int minValue, int maxValue)
+    public void CalculateStats()
     {
-        List<int> possibleNumbers = new List<int>();
-
-        for (int index = minValue; index <= maxValue; index++)
-            possibleNumbers.Add(index);
-
-
-        while (chosenNumbers.Count < count)
+        ResetStats();
+        GetComponents<WeaponStatBoost>().ToList().ForEach(stat =>
         {
-            int position = Random.Range(0, possibleNumbers.Count);
-            chosenNumbers.Add(possibleNumbers[position]);
-            possibleNumbers.RemoveAt(position);
-
-            foreach (int value in chosenNumbers)
-            {
-            }
-        }
-        return chosenNumbers;
-
-
+            damage = stat.damage;
+            shotsPerAttack = stat.shotsPerAttack;
+            castTime = stat.castTime;
+            knockback = stat.knockback;
+            critChance = stat.critChance;
+            critDamage = stat.critDamage;
+            scale = stat.scale;
+            pierce = stat.pierce;
+            range = stat.range;
+            speed = stat.speed;
+            spread = stat.spread;
+            initialSpacer = stat.initialSpacer;
+            comboSpacer = stat.comboSpacer;
+            comboWaitTime = stat.comboWaitTime;
+        });
     }
 
-
-    // Update is called once per frame
-    private void FixedUpdate()
+    public void ResetStats()
     {
+        damage = baseDamage;
+        shotsPerAttack = baseShotsPerAttack;
+        castTime = baseCastTime;
+        recoveryTime = baseRecoveryTime;
+        knockback = baseKnockback;
+        critChance = baseCritChance;
+        critDamage = baseCritDamage;
+        scale = baseScale;
+        shakeTime = baseShakeTime;
+        shakeStrength = baseShakeStrength;
+        shakeRotation = baseShakeRotation;
+        throwSpeed = baseThrowSpeed;
+        pierce = basePierce;
+        range = baseRange;
+        speed = baseSpeed;
+        spread = baseSpread;
+        initialSpacer = baseInitialSpacer;
+        comboSpacer = baseComboSpacer;
+        comboWaitTime = baseComboWaitTime;
     }
 
-    public Transform GetTransform()
-    {
-        return transform;
-    }
-    public UpgradeType GetUpgradeType()
-    {
-        return UpgradeType.Weapon;
-    }
-
+    public abstract void Shoot();
+    public abstract void ThrowWeapon();
 }
