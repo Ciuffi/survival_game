@@ -10,8 +10,6 @@ public class RerollHandler : MonoBehaviour
     public int currentSwap;
 
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +30,15 @@ public class RerollHandler : MonoBehaviour
 
     }
 
-    public void gainChances()
+    public void gainRerolls()
     {
         currentReroll += 1;
     }
 
-
+    public void resetSwap()
+    {
+        currentSwap = 1;
+    }
 
     // Update is called once per frame
     void Update()

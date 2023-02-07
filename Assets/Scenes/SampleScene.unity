@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoot: 0
-  player: {fileID: 1731126406}
+  LevelUp: {fileID: 2052080981}
   isRoll: 1
   isSwap: 0
   currentReroll: 0
@@ -2275,7 +2275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoot: 1
-  player: {fileID: 1731126406}
+  LevelUp: {fileID: 2052080981}
   isRoll: 0
   isSwap: 1
   currentReroll: 0
@@ -7052,7 +7052,7 @@ MonoBehaviour:
   animator: {fileID: 1118731108}
   spriteRend: {fileID: 0}
   coinExplosion: {fileID: 4053501027209517257, guid: 0bab8bcc74daff54e9d8a036c29d0031, type: 3}
-  disappearSpeed: 0.55
+  disappearSpeed: 0.6
 --- !u!95 &1118731108
 Animator:
   serializedVersion: 4
@@ -9195,7 +9195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoot: 0
-  player: {fileID: 1731126406}
+  LevelUp: {fileID: 2052080981}
   isRoll: 0
   isSwap: 1
   currentReroll: 0
@@ -13948,7 +13948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoot: 1
-  player: {fileID: 1731126406}
+  LevelUp: {fileID: 2052080981}
   isRoll: 1
   isSwap: 0
   currentReroll: 0

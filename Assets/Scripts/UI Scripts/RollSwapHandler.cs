@@ -8,8 +8,7 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
 {
     public bool isLoot;
 
-    public GameObject player;
-    private RerollHandler rerollHandler;
+    public GameObject LevelUp;
     public bool isRoll;
     public bool isSwap;
     public int currentReroll;
@@ -17,7 +16,8 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
 
     void start()
     {
-        rerollHandler = player.GetComponentInChildren<RerollHandler>();
+        currentReroll = LevelUp.GetComponent<RerollHandler>().currentReroll;
+        currentSwap = LevelUp.GetComponent<RerollHandler>().currentSwap;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -26,12 +26,12 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
         {
             if (!isLoot)
             {
-                rerollHandler.usedReroll();
+                LevelUp.GetComponent<RerollHandler>().usedReroll();
                 GameObject.FindObjectOfType<LevelUpManager>().reroll();
 
             }else
             {
-                rerollHandler.usedReroll();
+                LevelUp.GetComponent<RerollHandler>().usedReroll();
                 GameObject.FindObjectOfType<LootBoxManager>().reroll();
             }
 
@@ -41,11 +41,11 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
         {
             if (!isLoot)
             {
-                rerollHandler.usedSwap();
+                LevelUp.GetComponent<RerollHandler>().usedSwap();
                 GameObject.FindObjectOfType<LevelUpManager>().swap();
             }else
             {
-                rerollHandler.usedSwap();
+                LevelUp.GetComponent<RerollHandler>().usedSwap();
                 GameObject.FindObjectOfType<LootBoxManager>().swap();
             }
         }
@@ -53,9 +53,8 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
-        rerollHandler = player.GetComponentInChildren<RerollHandler>();
-        currentReroll = player.GetComponentInChildren<RerollHandler>().currentReroll;
-        currentSwap = player.GetComponentInChildren<RerollHandler>().currentSwap;
+        currentReroll = LevelUp.GetComponent<RerollHandler>().currentReroll;
+        currentSwap = LevelUp.GetComponent<RerollHandler>().currentSwap;
 
         if (isRoll)
         {
@@ -79,7 +78,7 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
 
     public void setActive()
     {
-        currentSwap = 1;
+        LevelUp.GetComponent<RerollHandler>().resetSwap();
         gameObject.SetActive(true);
     }
 

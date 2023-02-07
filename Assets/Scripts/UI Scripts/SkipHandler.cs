@@ -18,12 +18,12 @@ public class SkipHandler : MonoBehaviour, IPointerDownHandler
         if (!isLoot)
         {
             GameObject.FindObjectOfType<LevelUpManager>().SignalItemChosen();
-            rerollHandler.GetComponent<RerollHandler>().gainChances();
+            rerollHandler.GetComponent<RerollHandler>().gainRerolls();
         }
         else
         {
             GameObject.FindObjectOfType<LootBoxManager>().SignalItemChosen();
-            rerollHandler.GetComponent<RerollHandler>().gainChances();
+            rerollHandler.GetComponent<RerollHandler>().gainRerolls();
 
         }
     }

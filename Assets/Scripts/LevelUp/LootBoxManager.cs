@@ -46,13 +46,14 @@ public class LootBoxManager : MonoBehaviour
 
     public void ShowLootReward()
     {
-        panel.SetActive(true);
         RerollBtn.GetComponent<RollSwapHandler>().setActive();
         SwapBtn.GetComponent<RollSwapHandler>().setActive();
         //eventually want to move this to on-confirm-selection, and add a new button to close menu
         TimelineManager.GetComponent<TimelineUI>().addAttack();
         TimelineManager.GetComponent<TimelineUI>().spawnTimeline();
         setUpgrades();
+        panel.SetActive(true);
+
     }
 
     public void setUpgrades()
@@ -119,8 +120,8 @@ public class LootBoxManager : MonoBehaviour
         //while (Time.realtimeSinceStartup < endTime) {yield return null;}   //for running while game is paused
 
         yield return new WaitForSeconds(waitTime);
-        GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
         PauseGame();
+        GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
         panelAnimated.SetActive(true);
     }
 
