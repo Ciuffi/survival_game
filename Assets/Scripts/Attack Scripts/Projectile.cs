@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -90,25 +91,6 @@ public class Projectile : MonoBehaviour
     void FixedUpdate()
     {
 
-        // Check the timers for each object in the list
-        if (hitEnemies.Count > 0)
-        {
-            foreach (GameObject enemy in hitEnemies)
-            {
-                if (timers.ContainsKey(enemy))
-                {
-                    timers[enemy] -= Time.deltaTime;
-
-                    if (timers[enemy] <= 0)
-                    {
-                        hitEnemies.Remove(enemy);
-                        timers.Remove(enemy);
-                    }
-                }
-            }
-        } 
-      
-
         if (isMelee == false)
         {
             float distance = Vector2.Distance(spawnPos, transform.position);
@@ -186,12 +168,31 @@ public class Projectile : MonoBehaviour
         }
 
 
+        // Check the timers for each object in the list
+        if (hitEnemies.Count > 0)
+        {
+            List<GameObject> hitEnemiesCopy = hitEnemies.ToList();
+            foreach (GameObject enemy in hitEnemiesCopy)
+            {
+                if (timers.ContainsKey(enemy))
+                {
+                    timers[enemy] -= Time.deltaTime;
+
+                    if (timers[enemy] <= 0)
+                    {
+                        hitEnemies.Remove(enemy);
+                        timers.Remove(enemy);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+            }
+        }
 
     }
-
-
-
-
 
 
 

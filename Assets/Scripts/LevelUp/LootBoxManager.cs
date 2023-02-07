@@ -21,7 +21,7 @@ public class LootBoxManager : MonoBehaviour
     private GameObject panelAnimated;
     public GameObject RerollBtn, SwapBtn, TimelineManager;
 
-
+    public GameObject VFX;
 
     // Start is called before the first frame update
     void Start()
@@ -40,10 +40,8 @@ public class LootBoxManager : MonoBehaviour
 
     public void ShowLootUI()
     {
-        PauseGame();
-        GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
-        panelAnimated.SetActive(true);
-        
+        Instantiate(VFX, transform.position, Quaternion.identity, transform);
+        StartCoroutine(WaitForTime(0.6f));  
     }
 
     public void ShowLootReward()
@@ -112,6 +110,18 @@ public class LootBoxManager : MonoBehaviour
             }
         }
 
+    }
+
+    private IEnumerator WaitForTime(float waitTime)
+    {
+        //float startTime = Time.realtimeSinceStartup;
+        //float endTime = startTime + waitTime;
+        //while (Time.realtimeSinceStartup < endTime) {yield return null;}   //for running while game is paused
+
+        yield return new WaitForSeconds(waitTime);
+        GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
+        PauseGame();
+        panelAnimated.SetActive(true);
     }
 
     public void reroll()

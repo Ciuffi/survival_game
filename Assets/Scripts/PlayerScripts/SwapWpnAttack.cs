@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class SwapWpnAttack : MonoBehaviour
 {
@@ -39,7 +41,8 @@ public class SwapWpnAttack : MonoBehaviour
     {
         if (hitEnemies.Count > 0)
         {
-            foreach (GameObject enemy in hitEnemies)
+            List<GameObject> hitEnemiesCopy = hitEnemies.ToList();
+            foreach (GameObject enemy in hitEnemiesCopy)
             {
                 if (timers.ContainsKey(enemy))
                 {
@@ -51,8 +54,13 @@ public class SwapWpnAttack : MonoBehaviour
                         timers.Remove(enemy);
                     }
                 }
+
+                else
+                {
+                    return;
+                }
             }
-        } 
+        }
     }
 
     void OnTriggerStay2D(Collider2D col)

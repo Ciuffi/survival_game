@@ -22,6 +22,7 @@ public class LevelUpManager : MonoBehaviour
     private bool hasRolled;
 
     public GameObject TimelineManager;
+    public GameObject VFX;
 
 
     public int GetXpToNextLevel(float level)
@@ -125,6 +126,13 @@ public class LevelUpManager : MonoBehaviour
  
     public void ShowLevelUpUI()
     {
+        Instantiate(VFX, transform.position, Quaternion.identity, transform);
+        StartCoroutine(WaitForTime(0.6f));
+    }
+
+    private IEnumerator WaitForTime(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         PauseGame();
         GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
         RerollBtn.GetComponent<RollSwapHandler>().setActive();
@@ -135,6 +143,7 @@ public class LevelUpManager : MonoBehaviour
         setUpgrades();
         panel.SetActive(true);
     }
+
     public void SignalItemChosen()
     {
         panel.SetActive(false);

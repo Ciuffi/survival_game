@@ -45,7 +45,7 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
 
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         if (isOpen)
         {

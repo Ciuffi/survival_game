@@ -247,6 +247,7 @@ MonoBehaviour:
   RerollBtn: {fileID: 0}
   SwapBtn: {fileID: 0}
   TimelineManager: {fileID: 0}
+  VFX: {fileID: 0}
 --- !u!114 &5247325245746788677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +268,7 @@ MonoBehaviour:
   RerollBtn: {fileID: 0}
   SwapBtn: {fileID: 0}
   TimelineManager: {fileID: 0}
+  VFX: {fileID: 0}
 --- !u!1 &3287956671689121398
 GameObject:
   m_ObjectHideFlags: 0
