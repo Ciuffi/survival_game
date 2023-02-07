@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 3287956671441075118}
   - component: {fileID: 7893436220127190815}
   - component: {fileID: 5247325245746788677}
+  - component: {fileID: 2052080985}
   m_Layer: 0
   m_Name: LevelUp
   m_TagString: Untagged
@@ -247,7 +248,7 @@ MonoBehaviour:
   RerollBtn: {fileID: 0}
   SwapBtn: {fileID: 0}
   TimelineManager: {fileID: 0}
-  VFX: {fileID: 0}
+  VFX: {fileID: 4893581131471631178, guid: 8a2928f30e149394e8d7d3961bb5dc21, type: 3}
 --- !u!114 &5247325245746788677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +269,23 @@ MonoBehaviour:
   RerollBtn: {fileID: 0}
   SwapBtn: {fileID: 0}
   TimelineManager: {fileID: 0}
-  VFX: {fileID: 0}
+  VFX: {fileID: 8139009526274993311, guid: 34697af283df79a4aa69aa59693a8e28, type: 3}
+--- !u!114 &2052080985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287956671441075117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b4bb85397155140aa738672c279e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseReroll: 1
+  currentReroll: 0
+  baseSwap: 1
+  currentSwap: 0
 --- !u!1 &3287956671689121398
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +567,7 @@ MonoBehaviour:
   attackState: 0
   usingAttackBar: 1
   WeaponSprite: {fileID: 0}
+  WeaponOutline: {fileID: 0}
   HandsSprite: {fileID: 0}
   colors:
   - {r: 0, g: 0, b: 1, a: 1}

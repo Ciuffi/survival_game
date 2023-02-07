@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b3ebf6068ebb61f46a46c1a0f8b8aa3e
+guid: 830fcfac8751c2847a636582c5c04a07
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VFX 04_0
+      name: VFX 02_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3c394beb830cd74cbf4b1a41c3b2d6d
-      internalID: 999490042
+      spriteID: 60d62321ebac0ab4ba0eab9855b8baf2
+      internalID: 362317578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_1
+      name: VFX 02_1
       rect:
         serializedVersion: 2
         x: 384
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 697c08555bfd8474e87d90b68a088d89
-      internalID: 1090467260
+      spriteID: 87f70aaa260b2b14cae2f16232d935e2
+      internalID: 630468645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_2
+      name: VFX 02_2
       rect:
         serializedVersion: 2
         x: 768
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c3ddadc7348cb747973e8f5fa2d6c60
-      internalID: 1099351698
+      spriteID: ade40dbd3f45133409c855410209dbde
+      internalID: 468559353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_3
+      name: VFX 02_3
       rect:
         serializedVersion: 2
         x: 1152
@@ -206,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f5dd216b5568f344bf2ed63f00b3fa0
-      internalID: -1007028135
+      spriteID: 081571d474d06044d882a4273700bef3
+      internalID: 1924766829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_4
+      name: VFX 02_4
       rect:
         serializedVersion: 2
         x: 1536
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7af3b258ed555d942ab4a550860d82e2
-      internalID: 1581966100
+      spriteID: 53bebdc673b3fb14a854c725db98a71b
+      internalID: -162489271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_5
+      name: VFX 02_5
       rect:
         serializedVersion: 2
         x: 1920
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2f40c879e376c34f938dd846410b2e7
-      internalID: 127411273
+      spriteID: fea4de81cbf773543bf36fb59ad43ccc
+      internalID: -412650103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_6
+      name: VFX 02_6
       rect:
         serializedVersion: 2
         x: 2304
@@ -269,14 +269,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b043e04f4925071429c153075026250f
-      internalID: -938516029
+      spriteID: f5b39447a2f6911499360b7645e20069
+      internalID: -1882110376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_7
+      name: VFX 02_7
       rect:
         serializedVersion: 2
         x: 2688
@@ -290,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f175b5258fc4caf45aadf56882885150
-      internalID: -1396022628
+      spriteID: 44f1446d229fd134780a01085eb304c2
+      internalID: 405161312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_8
+      name: VFX 02_8
       rect:
         serializedVersion: 2
         x: 3072
@@ -311,14 +311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a60e857a4cdbe4c43ba4d84bc0e9f11e
-      internalID: -1145718246
+      spriteID: 71df9274de9320c439a97c3574314412
+      internalID: -165665602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_9
+      name: VFX 02_9
       rect:
         serializedVersion: 2
         x: 3456
@@ -332,14 +332,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77931ae60a3a7ab4ab202cbbe70a3122
-      internalID: 820067055
+      spriteID: 5f20d10665ce6204da197f37a56b22d5
+      internalID: -1355614972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_10
+      name: VFX 02_10
       rect:
         serializedVersion: 2
         x: 3840
@@ -353,14 +353,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fe119bc5810c4a428530064fed6f791
-      internalID: 1074862391
+      spriteID: 6ae0c3afc0e1c13478b7ee443599a188
+      internalID: 1530049930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_11
+      name: VFX 02_11
       rect:
         serializedVersion: 2
         x: 4224
@@ -374,14 +374,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1a40bf0e959a30499b7ee672d778d04
-      internalID: 1925438059
+      spriteID: ce2d5365c77152547aeb9f2e9395d62c
+      internalID: -1978200766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_12
+      name: VFX 02_12
       rect:
         serializedVersion: 2
         x: 4608
@@ -395,14 +395,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04b3eb51c65001d41bfe562cbcb4e4d8
-      internalID: 591380396
+      spriteID: acaa6856adb2bb5438af8aad840eb025
+      internalID: -2093963209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_13
+      name: VFX 02_13
       rect:
         serializedVersion: 2
         x: 4992
@@ -416,14 +416,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b5baaf88894e7046833abb8590c6ccb
-      internalID: 1559540084
+      spriteID: 2aa81e4894d29ba4a9db1f000b5c46b3
+      internalID: -1138461351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_14
+      name: VFX 02_14
       rect:
         serializedVersion: 2
         x: 5376
@@ -437,14 +437,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f28502ea838c1048ab65ad3fb61fea6
-      internalID: 59237820
+      spriteID: 5c48db4033db00a40ab2241f16ec2c3f
+      internalID: -1934111549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_15
+      name: VFX 02_15
       rect:
         serializedVersion: 2
         x: 5760
@@ -458,14 +458,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bc7fb2d9fc3fed4bb6423168a8a8bc2
-      internalID: -1446028349
+      spriteID: 70a2a15494a9c884486d3e6ab3a9a626
+      internalID: 1963816237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VFX 04_16
+      name: VFX 02_16
       rect:
         serializedVersion: 2
         x: 6144
@@ -479,134 +479,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3204ec56e292cc145895f39777bbd9e3
-      internalID: -233260505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VFX 04_17
-      rect:
-        serializedVersion: 2
-        x: 6528
-        y: 0
-        width: 384
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a35321d1eb626ca428d3631cd5d0e309
-      internalID: -1265106866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VFX 04_18
-      rect:
-        serializedVersion: 2
-        x: 6912
-        y: 0
-        width: 384
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f010ebe2da0eaf14cb5a3af6e455aa7f
-      internalID: 1016873973
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VFX 04_19
-      rect:
-        serializedVersion: 2
-        x: 7296
-        y: 0
-        width: 384
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38ae306175377dc4a835d7bde681242f
-      internalID: -1116218755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VFX 04_20
-      rect:
-        serializedVersion: 2
-        x: 7680
-        y: 0
-        width: 384
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce8fad67cc6f17643b5fee3471da2963
-      internalID: 1928085802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VFX 04_21
-      rect:
-        serializedVersion: 2
-        x: 8064
-        y: 0
-        width: 384
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a075b7f9900713548a93927bca97e3be
-      internalID: 810074301
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VFX 04_22
-      rect:
-        serializedVersion: 2
-        x: 8448
-        y: 0
-        width: 384
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ccf7b4f55ae2be046b2d1090960243bc
-      internalID: -1008534522
+      spriteID: 3762983d19b07314d8a7f5b14beca3d2
+      internalID: 807587219
       vertices: []
       indices: 
       edges: []
@@ -622,29 +496,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      VFX 04_22: -1008534522
-      VFX 04_7: -1396022628
-      VFX 04_4: 1581966100
-      VFX 04_12: 591380396
-      VFX 04_11: 1925438059
-      VFX 04_14: 59237820
-      VFX 04_20: 1928085802
-      VFX 04_17: -1265106866
-      VFX 04_19: -1116218755
-      VFX 04_0: 999490042
-      VFX 04_21: 810074301
-      VFX 04_8: -1145718246
-      VFX 04_16: -233260505
-      VFX 04_10: 1074862391
-      VFX 04_15: -1446028349
-      VFX 04_6: -938516029
-      VFX 04_9: 820067055
-      VFX 04_5: 127411273
-      VFX 04_2: 1099351698
-      VFX 04_18: 1016873973
-      VFX 04_1: 1090467260
-      VFX 04_3: -1007028135
-      VFX 04_13: 1559540084
+      VFX 02_5: -412650103
+      VFX 02_3: 1924766829
+      VFX 02_14: -1934111549
+      VFX 02_13: -1138461351
+      VFX 02_6: -1882110376
+      VFX 02_1: 630468645
+      VFX 02_11: -1978200766
+      VFX 02_9: -1355614972
+      VFX 02_0: 362317578
+      VFX 02_16: 807587219
+      VFX 02_7: 405161312
+      VFX 02_8: -165665602
+      VFX 02_2: 468559353
+      VFX 02_10: 1530049930
+      VFX 02_4: -162489271
+      VFX 02_12: -2093963209
+      VFX 02_15: 1963816237
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

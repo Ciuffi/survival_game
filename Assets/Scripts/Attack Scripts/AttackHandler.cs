@@ -12,6 +12,7 @@ public class AttackHandler : MonoBehaviour
     private GameObject attackContainer;
     private int attackIndex;
     public GameObject WeaponSprite;
+    public GameObject WeaponOutline;
     public GameObject HandsSprite;
     
     private Slider attackBar;
@@ -61,11 +62,14 @@ public class AttackHandler : MonoBehaviour
             if (attacks.Count == 0) yield return null;
             Attack currentAttack = attacks[attackIndex];
             WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack.GetComponent<Attack>().weaponSprite;
+            WeaponOutline.GetComponent<SpriteRenderer>().sprite = currentAttack.GetComponent<Attack>().weaponSprite;
+
 
             //swap animation
             HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);          
             yield return new WaitForSeconds(0.4f);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
+            WeaponOutline.GetComponent<SpriteRenderer>().enabled = true;
             HandsSprite.GetComponent<SpriteRenderer>().enabled = false;
             WeaponSprite.GetComponent<Collider2D>().enabled = false;
 
@@ -84,6 +88,8 @@ public class AttackHandler : MonoBehaviour
             HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
             HandsSprite.GetComponent<Animator>().SetBool("IsThrow", true);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
+            WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
+
             WeaponSprite.GetComponent<Collider2D>().enabled = true;
             yield return new WaitForSeconds(0.3f);
             currentAttack.ThrowWeapon();
@@ -122,6 +128,7 @@ public class AttackHandler : MonoBehaviour
 
         AddWeapon(newWeapon);
         WeaponSprite.GetComponent<SpriteRenderer>().sprite = newWeapon.GetComponent<Attack>().weaponSprite;
+        WeaponOutline.GetComponent<SpriteRenderer>().sprite = newWeapon.GetComponent<Attack>().weaponSprite;
 
         StartCoroutine(Attack());
     }
@@ -144,6 +151,7 @@ public class AttackHandler : MonoBehaviour
         });
 
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
+        WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
         HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
 
         StartCoroutine(Attack());

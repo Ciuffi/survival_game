@@ -6013,7 +6013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1364258092487029635, guid: 3f7a16c2a31fbe74ab8fcc28e74f3ac1, type: 3}
       propertyPath: m_Color.a
-      value: 0.3529412
+      value: 0.23529412
       objectReference: {fileID: 0}
     - target: {fileID: 1364258092487029635, guid: 3f7a16c2a31fbe74ab8fcc28e74f3ac1, type: 3}
       propertyPath: m_Color.b
@@ -6725,6 +6725,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1229096016663525422, guid: fa10e6670a928df49b4aeba1425f12a9, type: 3}
   m_PrefabInstance: {fileID: 1053931091}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1056244612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6078006631497137502, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+  m_PrefabInstance: {fileID: 7313015712638807194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1056244615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056244612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974cffb28da12f54eb09d98199c3e124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1731126406}
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &1062262643
 GameObject:
   m_ObjectHideFlags: 0
@@ -7664,10 +7684,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: VFX
-      value: 
-      objectReference: {fileID: 8139009526274993311, guid: 34697af283df79a4aa69aa59693a8e28, type: 3}
-    - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
       objectReference: {fileID: 447624505}
@@ -7683,10 +7699,6 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1537696376}
-    - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: VFX
-      value: 
-      objectReference: {fileID: 4893581131471631178, guid: 8a2928f30e149394e8d7d3961bb5dc21, type: 3}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -7707,6 +7719,10 @@ PrefabInstance:
       propertyPath: WeaponSprite
       value: 
       objectReference: {fileID: 1481340767}
+    - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: WeaponOutline
+      value: 
+      objectReference: {fileID: 1056244612}
     - target: {fileID: 9136689211427610630, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -13461,22 +13477,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3287956671441075117, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
   m_PrefabInstance: {fileID: 1241507385}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2052080985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052080981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b4bb85397155140aa738672c279e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseReroll: 1
-  currentReroll: 0
-  baseSwap: 1
-  currentSwap: 0
 --- !u!1001 &2079133021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14552,10 +14552,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 600917073401863869, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: m_Color.a
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040727400949363970, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040727400949363970, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4404133455497378805, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1731126406}
+    - target: {fileID: 4404133455497378805, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: yOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7313015711702768581, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: m_Name
       value: WeaponSprite
