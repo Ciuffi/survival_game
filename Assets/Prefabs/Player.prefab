@@ -203,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3287956671441075118}
   - component: {fileID: 7893436220127190815}
+  - component: {fileID: 5247325245746788677}
   m_Layer: 0
   m_Name: LevelUp
   m_TagString: Untagged
@@ -239,6 +240,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseXP: 50
   growthMultiplier: 1.25
+  weapons: []
+  stats: []
+  upgrades: []
+  isWeapon: 1
+  RerollBtn: {fileID: 0}
+  SwapBtn: {fileID: 0}
+  TimelineManager: {fileID: 0}
+--- !u!114 &5247325245746788677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287956671441075117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7074f3890344a2438191836251585d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeWindow: {fileID: 0}
   weapons: []
   stats: []
   upgrades: []

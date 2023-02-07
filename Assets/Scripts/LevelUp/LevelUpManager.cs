@@ -127,8 +127,8 @@ public class LevelUpManager : MonoBehaviour
     {
         PauseGame();
         GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
-        RerollBtn.GetComponent<RollSwapHandler>().resetChances();
-        SwapBtn.GetComponent<RollSwapHandler>().resetChances();
+        RerollBtn.GetComponent<RollSwapHandler>().setActive();
+        SwapBtn.GetComponent<RollSwapHandler>().setActive();
         //eventually want to move this to on-confirm-selection, and add a new button to close menu
         TimelineManager.GetComponent<TimelineUI>().addAttack();
         TimelineManager.GetComponent<TimelineUI>().spawnTimeline();

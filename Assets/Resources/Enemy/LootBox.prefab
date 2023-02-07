@@ -104,16 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c3dc4132797a546ad6f3738a8cab62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpPercent: 100
-  disappearSpeed: 1
-  weapons: []
-  stats: []
-  upgrades: []
-  isWeapon: 1
-  RerollBtn: {fileID: 5965896161293586665, guid: 8bcced407e583ff43b8c9b038ac8d06d, type: 3}
-  SwapBtn: {fileID: 7970434668058713314, guid: 061fea8fb715375429dd1020c7b9a409, type: 3}
-  TimelineManager: {fileID: 6383777680565854525, guid: a1106c72021d84846964f131fdc6baa1, type: 3}
-  panel: {fileID: 515151599641929179, guid: 12b51102596beff498b13235d8319526, type: 3}
+  LootBoxManager: {fileID: 0}
 --- !u!114 &4076057847785039081
 MonoBehaviour:
   m_ObjectHideFlags: 0
