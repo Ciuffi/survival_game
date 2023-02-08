@@ -26,7 +26,7 @@ public class EnemyAnimator : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+    void Update()
     {
         if (timer > 0)
         {

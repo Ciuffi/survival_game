@@ -138,7 +138,7 @@ public class Enemy : MonoBehaviour, Attacker
     }
 
 
-    private void FixedUpdate()
+    void Update()
     {
 
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));

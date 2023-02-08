@@ -90,13 +90,8 @@ public class StatsHandler : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
 
-    }
-
-
-    private void FixedUpdate()
+    void Update()
     {
         if (canDamage == false)
         {

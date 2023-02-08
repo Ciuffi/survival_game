@@ -91,10 +91,6 @@ public class ComboTracker : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
 
     public void IncreaseCount(int amount)
     {

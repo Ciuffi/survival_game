@@ -61,13 +61,15 @@ public class BasicSpawner : MonoBehaviour
                 for (int i = 0; i < enemy.EnemiesPerWave; i++)
                 {
                     int spawnIndex = MathUtilities.GetWeightedResult(enemy.EnemiesToSpawn.Values.ToArray<int>());
+                    
                     GameObject spawn = enemy.EnemiesToSpawn.Keys.ToArray<GameObject>()[spawnIndex];
                     Vector3 spawnPosition = transform.position + MathUtilities.DegreesToVector3(enemy.Direction) * (6 + enemy.Distance);
                     GameObject newSpawn = Instantiate(spawn, spawnPosition, Quaternion.identity);
 
                     //scaling with Guilt + rescan map for pathing
-                    if (currentGuilt > 0 && newSpawn != null)
+                    if (currentGuilt > 0 && newSpawn != null && newSpawn.tag == "Enemy")
                     {
+                            Debug.Log(newSpawn.name.ToString());
                             newSpawn.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);

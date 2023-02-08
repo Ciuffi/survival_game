@@ -96,7 +96,7 @@ public class Projectile : MonoBehaviour
 
 
 
-    void FixedUpdate()
+    void Update()
     {
 
         if (isMelee == false)

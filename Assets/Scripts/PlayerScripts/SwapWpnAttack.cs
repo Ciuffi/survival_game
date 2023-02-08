@@ -37,7 +37,7 @@ public class SwapWpnAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (hitEnemies.Count > 0)
         {

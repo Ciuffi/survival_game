@@ -26,10 +26,6 @@ public class LootBox : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
-    {
-
-    }
 
     void OnTriggerStay2D(Collider2D col)
     {
