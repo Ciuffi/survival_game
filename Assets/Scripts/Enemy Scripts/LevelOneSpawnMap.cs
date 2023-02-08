@@ -134,6 +134,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         spawnMaps.Add(wave4);
         spawnMaps.Add(wave5);
         spawnMaps.Add(wave6);
+        spawnMaps.Add(wave9);
         spawnMaps.Add(wave2);
         spawnMaps.Add(wave3);
         spawnMaps.Add(wave4);

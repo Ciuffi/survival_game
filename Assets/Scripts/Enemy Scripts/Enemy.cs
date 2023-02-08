@@ -115,6 +115,8 @@ public class Enemy : MonoBehaviour, Attacker
         localScale = transform.localScale;
         canMove = true;
         maxHealth = health;
+        oldWeight = weight;
+        newWeight = weight + weightIncrease;
 
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
 
@@ -131,8 +133,7 @@ public class Enemy : MonoBehaviour, Attacker
         defaultMaterial = spriteRend.material;
         dangerRenderer = dangerSign.GetComponent<SpriteRenderer>();
         armorTime = armorTimer;
-        oldWeight = weight;
-        newWeight = weight + weightIncrease;
+        
 
     }
 

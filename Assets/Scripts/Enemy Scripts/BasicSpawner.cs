@@ -41,9 +41,12 @@ public class BasicSpawner : MonoBehaviour
 
     public void IncreaseGuilt()
     {
-        mainCamera.GetComponent<CameraController>().StartZoom();
-        uiCamera.GetComponent<CameraController>().StartZoom();
         currentGuilt += 1;
+        if (currentGuilt <= 4)
+        {
+            mainCamera.GetComponent<CameraController>().StartZoom();
+            uiCamera.GetComponent<CameraController>().StartZoom();
+        }
     }
 
     IEnumerator StartSpawner()
@@ -63,14 +66,14 @@ public class BasicSpawner : MonoBehaviour
                     GameObject newSpawn = Instantiate(spawn, spawnPosition, Quaternion.identity);
 
                     //scaling with Guilt + rescan map for pathing
-                    if (currentGuilt > 0)
+                    if (currentGuilt > 0 && newSpawn != null)
                     {
                             newSpawn.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
                             //newSpawn.GetComponent<Enemy>().calculateSpeed(speedScaling);
-                        comboManager.GetComponent<ComboTracker>().ColorChange(currentGuilt);
+                            comboManager.GetComponent<ComboTracker>().ColorChange(currentGuilt);
                     }
                     AstarPath.active.Scan();
                 }

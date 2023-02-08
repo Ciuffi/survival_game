@@ -62,8 +62,8 @@ MonoBehaviour:
   speedUP: 0.2
   knockback: 15
   knockbackUP: 20
-  pierce: 0
-  pierceUP: 1
+  pierce: 2
+  pierceUP: 3
   critChance: 0.15
   critDmg: 1.5
   projectile: {fileID: 4235860010000021921, guid: 998257703f53b5a4b8824a81233e0078, type: 3}
@@ -73,6 +73,7 @@ MonoBehaviour:
   effect: {fileID: 0}
   attackType: 1
   MeleeAttack: {fileID: 0}
+  isToss: 0
   comboLength: 0
   meleeScale: 0
   meleeSpacer: 0.7
