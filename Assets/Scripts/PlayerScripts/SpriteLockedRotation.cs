@@ -19,7 +19,10 @@ public class SpriteLockedRotation : MonoBehaviour
         SpawnPos = transform.position;
         parentTransform = transform.parent;
         relativePosition = transform.localPosition;
-        VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
+        if (isPlayer)
+        {
+            VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
+        }
 
     }
 

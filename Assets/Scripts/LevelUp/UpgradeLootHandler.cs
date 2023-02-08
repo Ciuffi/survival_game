@@ -22,17 +22,29 @@ public class UpgradeLootHandler : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (upgrade.GetUpgradeType() == UpgradeType.Weapon)
+        if (upgrade.GetUpgradeType() == UpgradeType.StatBoost)
         {
-            GameObject newWeapon = Instantiate(upgrade.GetTransform().gameObject, playerAttacks.transform.position, Quaternion.identity);
-            playerAttacks.AddWeapon(newWeapon);
+
+            GameObject newStat = Instantiate(upgrade.GetTransform().gameObject, playerStats.transform.position, Quaternion.identity);
+            playerStats.AddStat(newStat);
+            lootManager.SignalItemChosen();
+
+
         }
         else
         {
-            GameObject newStat = Instantiate(upgrade.GetTransform().gameObject, playerStats.transform.position, Quaternion.identity);
-            playerStats.AddStat(newStat);
+            if (playerAttacks.attacks.Count < 6)
+            {
+                GameObject newWeapon = Instantiate(upgrade.GetTransform().gameObject, playerAttacks.transform.position, Quaternion.identity);
+                playerAttacks.AddWeapon(newWeapon);
+                lootManager.SignalItemChosen();
+
+            }
+            else
+            {
+                return;
+            }
         }
-        lootManager.SignalItemChosen();
     }
 
     // Update is called once per frame

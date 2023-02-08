@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 9
   damageUP: 12
-  spread: 0.075
+  spread: 0.08
   spreadUP: 0.1
   castTime: 2
   castTimeUP: 1.5
@@ -58,8 +58,8 @@ MonoBehaviour:
   shotsPerAttack: 7
   shotsPerAttackUP: 12
   cantMove: 0
-  speed: 0.085
-  speedUP: 0.12
+  speed: 0.15
+  speedUP: 0.2
   knockback: 12
   knockbackUP: 15
   pierce: 0

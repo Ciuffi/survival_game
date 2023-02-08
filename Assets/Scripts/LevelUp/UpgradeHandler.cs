@@ -12,32 +12,46 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (upgrade.GetUpgradeType() == UpgradeType.Weapon)
+        if (upgrade.GetUpgradeType() == UpgradeType.StatBoost)
         {
-            GameObject newWeapon = Instantiate(upgrade.GetTransform().gameObject, playerAttacks.transform.position, Quaternion.identity);
-            playerAttacks.AddWeapon(newWeapon);
+
+            GameObject newStat = Instantiate(upgrade.GetTransform().gameObject, playerStats.transform.position, Quaternion.identity);
+            playerStats.AddStat(newStat);
+            levelUpManager.SignalItemChosen();
+
+
         }
         else
         {
-            GameObject newStat = Instantiate(upgrade.GetTransform().gameObject, playerStats.transform.position, Quaternion.identity);
-            playerStats.AddStat(newStat);
+            if (playerAttacks.attacks.Count < 6)
+            {
+                GameObject newWeapon = Instantiate(upgrade.GetTransform().gameObject, playerAttacks.transform.position, Quaternion.identity);
+                playerAttacks.AddWeapon(newWeapon);
+                levelUpManager.SignalItemChosen();
+
+            }
+            else
+            {
+                return;
+            }
         }
-        levelUpManager.SignalItemChosen();
+        }
+
+
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            GameObject player = GameObject.Find("Player");
+            playerAttacks = player.GetComponent<AttackHandler>();
+            playerStats = player.GetComponent<StatsHandler>();
+            levelUpManager = GameObject.FindObjectOfType<LevelUpManager>();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        GameObject player = GameObject.Find("Player");
-        playerAttacks = player.GetComponent<AttackHandler>();
-        playerStats = player.GetComponent<StatsHandler>();
-        levelUpManager = GameObject.FindObjectOfType<LevelUpManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-}
