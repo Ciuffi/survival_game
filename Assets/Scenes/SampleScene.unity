@@ -10552,7 +10552,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 6
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -10595,7 +10595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e868efd3b2a98e4d8940c9ee7d577b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 0.08
+  zoomSpeed: 0.1
   targetPercentIncrease: 0.1
 --- !u!1001 &1565413710
 PrefabInstance:
@@ -14399,6 +14399,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1975490170140608065, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
+      propertyPath: orthographic size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1975490170140608066, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -14446,6 +14450,14 @@ PrefabInstance:
     - target: {fileID: 1975490170140608190, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975490170140608191, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
+      propertyPath: zoomSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975490170140608191, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
+      propertyPath: targetPercentIncrease
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}

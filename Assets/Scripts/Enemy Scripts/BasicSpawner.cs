@@ -65,16 +65,11 @@ public class BasicSpawner : MonoBehaviour
                     //scaling with Guilt + rescan map for pathing
                     if (currentGuilt > 0)
                     {
-
-                        for (int g = 0; g < currentGuilt; g++)
-                        {
-                            newSpawn.GetComponent<Enemy>().health *= healthScaling;
-                            newSpawn.GetComponent<Enemy>().damage *= damageScaling;
-                            newSpawn.GetComponent<Enemy>().weight *= weightScaling;
-                            newSpawn.GetComponent<Enemy>().xpAmount *= xpScaling;
+                            newSpawn.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
+                            newSpawn.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
+                            newSpawn.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
+                            newSpawn.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
                             //newSpawn.GetComponent<Enemy>().calculateSpeed(speedScaling);
-
-                        }
                         comboManager.GetComponent<ComboTracker>().ColorChange(currentGuilt);
                     }
                     AstarPath.active.Scan();

@@ -55,11 +55,19 @@ public class Projectile : MonoBehaviour
     private float hoverTime;
     public bool hitFirstEnemy;
 
+    Animator animator;
+    public bool isAnimated;
+
+
     void Start()
     {
         Camera = GameObject.FindWithTag("MainCamera");
         ComboManager = GameObject.FindWithTag("ComboManager");
         Player = GameObject.FindWithTag("Player");
+        if (isAnimated)
+        {
+            animator = GetComponent<Animator>();
+        }
 
         pierce = attack.pierce;
         spawnPos.x = transform.position.x;  
@@ -142,16 +150,30 @@ public class Projectile : MonoBehaviour
 
             if (meleeTime < startup)
             {
-                //GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
+                if (isAnimated)
+                {
+                    animator.SetBool("IsActive", false);
+                    animator.SetBool("IsRecovery", false);
+                }
                 GetComponent<Collider2D>().enabled = false;
             }
             else if (meleeTime >= startup && meleeTime < (startup + active))
             {
-                //GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-                GetComponent<Collider2D>().enabled = true;
+                if (isAnimated)
+                {
+                    animator.SetBool("IsActive", true);
+                    animator.SetBool("IsRecovery", false);
+                    GetComponent<Collider2D>().enabled = true;
+                }
             }
             else if (meleeTime >= (startup + active))
             {
+                if (isAnimated)
+                {
+                    animator.SetBool("IsActive", false);
+                    animator.SetBool("IsRecovery", true);
+                }
+
                 alphaSpeed = disappearSpeed * Time.deltaTime;
                 scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
 

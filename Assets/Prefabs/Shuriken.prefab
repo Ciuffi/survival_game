@@ -136,7 +136,7 @@ MonoBehaviour:
   scaleSpeed: 1.75
   disappearSpeed: 1
   isCrit: 0
-  onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
+  onHitParticle: {fileID: 4053501027209517259, guid: 9834c3ac85854944980a1a437400746b, type: 3}
   playerShakeTime: 0.075
   playerShakeStrength: 0.075
   playerShakeRotation: 0.05
@@ -146,6 +146,7 @@ MonoBehaviour:
   isHover: 1
   hoverTimer: 2.5
   hitFirstEnemy: 0
+  isAnimated: 0
 --- !u!58 &3115735194507937141
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -156,8 +156,8 @@ public class LootBoxManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0;
         GameObject.FindObjectOfType<PlayerMovement>().StopMoving();
+        Time.timeScale = 0;
     }
 
     public void ResumeGame()

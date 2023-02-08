@@ -115,7 +115,7 @@ MonoBehaviour:
   scaleSpeed: 1
   disappearSpeed: 5
   isCrit: 0
-  onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
+  onHitParticle: {fileID: 4053501027209517259, guid: b5556bba7def32443a4bea0f9f94e44a, type: 3}
   playerShakeTime: 0.05
   playerShakeStrength: 0.05
   playerShakeRotation: 0.05
@@ -125,6 +125,7 @@ MonoBehaviour:
   isHover: 0
   hoverTimer: 0
   hitFirstEnemy: 0
+  isAnimated: 0
 --- !u!50 &-7148203571477760851
 Rigidbody2D:
   serializedVersion: 4

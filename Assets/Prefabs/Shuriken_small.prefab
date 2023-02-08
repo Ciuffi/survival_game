@@ -146,6 +146,7 @@ MonoBehaviour:
   isHover: 1
   hoverTimer: 2
   hitFirstEnemy: 0
+  isAnimated: 0
 --- !u!58 &3115735194507937141
 CircleCollider2D:
   m_ObjectHideFlags: 0

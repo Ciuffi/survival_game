@@ -235,7 +235,10 @@ public class Attack : MonoBehaviour, Upgrade
         Quaternion rotation = owner.GetTransform().rotation;
 
         float localSpacer = meleeSpacer;
-        Player.GetComponent<PlayerMovement>().StopMoving();
+        if (cantMove)
+        {
+            Player.GetComponent<PlayerMovement>().StopMoving();
+        }
 
         Vector3 originalScale = MeleeAttack.transform.localScale;
         Vector3 scaler = new Vector3(meleeScale, meleeScale, meleeScale);

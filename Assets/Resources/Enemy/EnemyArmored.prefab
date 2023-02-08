@@ -110,6 +110,7 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   damage: 5
   health: 40
+  maxHealth: 0
   xpAmount: 35
   weight: 30
   stopDistanceMin: 0.2
@@ -123,9 +124,11 @@ MonoBehaviour:
   armorTimer: 3
   armorPercent: 0.8
   weightIncrease: 25
+  newWeight: 0
+  oldWeight: 0
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
-  HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}
+  HitEffect: {fileID: 7299663273688184311, guid: c422bca62006ae34aa6a03d5161aa5b8, type: 3}
   EXPdrop: {fileID: 9040451915024097044, guid: 7cb6000f3688522458525e0d169ebdf1, type: 3}
   Iframes: 0.3
   isInvuln: 0

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e868efd3b2a98e4d8940c9ee7d577b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 0.08
+  zoomSpeed: 0.1
   targetPercentIncrease: 0.1
 --- !u!114 &1975490170140608188
 MonoBehaviour:

@@ -16,11 +16,11 @@ public class SpriteLockedRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
         SpawnPos = transform.position;
-
         parentTransform = transform.parent;
         relativePosition = transform.localPosition;
+        VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
+
     }
 
     // Update is called once per frame

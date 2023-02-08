@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3966782872280218973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.024400318}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
   scaleSpeed: 0
   disappearSpeed: 0
   isCrit: 0
-  onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
+  onHitParticle: {fileID: 4053501027209517259, guid: 0b35dc5fd6215b740b208c1707ea71d6, type: 3}
   playerShakeTime: 0.15
   playerShakeStrength: 0.15
   playerShakeRotation: 0.1
@@ -146,6 +146,7 @@ MonoBehaviour:
   isHover: 0
   hoverTimer: 0
   hitFirstEnemy: 0
+  isAnimated: 0
 --- !u!58 &3115735194507937141
 CircleCollider2D:
   m_ObjectHideFlags: 0

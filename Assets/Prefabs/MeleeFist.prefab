@@ -115,13 +115,17 @@ MonoBehaviour:
   scaleSpeed: 4
   disappearSpeed: 4
   isCrit: 0
-  onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
+  onHitParticle: {fileID: 4053501027209517259, guid: 0175ba2e2ce8b8549904d75a07504472, type: 3}
   playerShakeTime: 0.2
   playerShakeStrength: 1
   playerShakeRotation: 1
   damageTickDuration: 1
   startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
+  isHover: 0
+  hoverTimer: 0
+  hitFirstEnemy: 0
+  isAnimated: 0
 --- !u!60 &5747837662269585904
 PolygonCollider2D:
   m_ObjectHideFlags: 0
