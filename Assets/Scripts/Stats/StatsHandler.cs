@@ -197,7 +197,6 @@ public class StatsHandler : MonoBehaviour
         level = 1;
         xp = 0;
         LevelManager = GameObject.FindObjectOfType<LevelUpManager>();
-        ComboManager = GameObject.FindWithTag("ComboManager");
         nextXp = LevelManager.GetXpToNextLevel(level);
         healthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
         healthBarQueue = gameObject.AddComponent<CoroutineQueue>();

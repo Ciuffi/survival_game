@@ -12,10 +12,10 @@ public class Enemy : MonoBehaviour, Attacker
     public Vector3 knockDirection;
     public float damage;
     public float health;
-    private float maxHealth;
+    public float maxHealth;
     public float xpAmount;
     public float weight; //for knockback
-
+    private float newSpeed;
 
     float stopDistance;
     public float stopDistanceMin;
@@ -33,8 +33,8 @@ public class Enemy : MonoBehaviour, Attacker
     public float armorPercent; //percentile damage reduction between 0 (no reduction) and 1 (full block)
     private bool armorOn;
     public float weightIncrease; //increased knockback resistance during armor
-    private float newWeight;
-    private float oldWeight;
+    public float newWeight;
+    public float oldWeight;
 
     private float currentForce;
     private bool duringKnockback;
@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour, Attacker
     public GameObject dangerSign;
     SpriteRenderer dangerRenderer;
 
-   
+
 
     // Start is called before the first frame update
     void Start()
@@ -112,21 +112,20 @@ public class Enemy : MonoBehaviour, Attacker
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
         ComboManager = GameObject.FindWithTag("ComboManager");
-
         localScale = transform.localScale;
         canMove = true;
+        maxHealth = health;
 
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
 
         canDamage = true;
         isDead = false;
-        maxHealth = health;
 
         OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
         color = Sprite.GetComponent<SpriteRenderer>().color;
         Sprite.GetComponent<SpriteRenderer>().color = OGcolor;
 
-        aiPath = this.GetComponent<AIPath>();
+        aiPath = GetComponent<AIPath>();
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
 
         defaultMaterial = spriteRend.material;
@@ -134,11 +133,13 @@ public class Enemy : MonoBehaviour, Attacker
         armorTime = armorTimer;
         oldWeight = weight;
         newWeight = weight + weightIncrease;
+
     }
 
 
     private void FixedUpdate()
     {
+
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         center = GetComponent<SpriteRenderer>().bounds.center;
 
@@ -186,7 +187,7 @@ public class Enemy : MonoBehaviour, Attacker
                 rageTriggered = true;
             }
 
-        }
+        } 
 
 
         //active actions - melee or ranged
@@ -467,6 +468,13 @@ public class Enemy : MonoBehaviour, Attacker
         animator.SetBool("IsHurt", false);
         aiPath.canMove = true;
     }
+
+    public void calculateSpeed(float speedMod)
+    {
+        aiPath.maxSpeed *= speedMod;
+
+    }
+
 
     public void TakeDamage(float damageAmount, bool isCrit)
     {

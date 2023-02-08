@@ -13,18 +13,27 @@ public class ScreenShakeController : MonoBehaviour
 
     public bool isCombo;
     Vector3 originalPos;
-
+    private Transform parentTransform;
+    private Vector3 localPosition;
+    private Quaternion localRotation;
 
     // Start is called before the first frame update
     void Start()
     {
         originalPos = transform.position;
+        if (isCombo)
+        {
+            parentTransform = transform.parent.transform;
+            localPosition = transform.localPosition;
+            localRotation = transform.localRotation;
+        }
     }
 
     // Update is called once per frame
 
     private void LateUpdate()
-    {
+    { 
+
         if (shakeTimeLeft > 0)
         {
             shakeTimeLeft -= Time.deltaTime;
@@ -38,11 +47,10 @@ public class ScreenShakeController : MonoBehaviour
             shakeRotation = Mathf.MoveTowards(shakeRotation, 0f, shakeFadeTime * rotationMultiplier * Time.deltaTime);
         }
 
-        transform.rotation = Quaternion.Euler(0f, 0f, shakeRotation * Random.Range(-1f, 1f));
-
         if (shakeTimeLeft <= 0 && isCombo == true)
         {
-            transform.position = originalPos;
+            transform.position = parentTransform.TransformPoint(localPosition);
+            transform.rotation = parentTransform.rotation * localRotation;
         }
     }
     

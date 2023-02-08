@@ -11,10 +11,18 @@ public class BasicSpawner : MonoBehaviour
     public Queue<EnemySpawn> enemySpawns;
     public EnemySpawnMap spawnMap;
 
+    public int currentGuilt;
+    public float healthScaling, damageScaling, weightScaling, xpScaling; //percentile - start with base of 1.0f
+    //public float speedScaling; -----Doesn't work properly
+    public Camera mainCamera;
+    public Camera uiCamera;
+
+    public GameObject comboManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentGuilt = 0;
         player = GameObject.Find("Player").GetComponent<StatsHandler>();
         isSpawning = true;
         spawnMap = new LevelOneSpawnMap();
@@ -31,6 +39,13 @@ public class BasicSpawner : MonoBehaviour
         isSpawning = true;
     }
 
+    public void IncreaseGuilt()
+    {
+        mainCamera.GetComponent<CameraController>().StartZoom();
+        uiCamera.GetComponent<CameraController>().StartZoom();
+        currentGuilt += 1;
+    }
+
     IEnumerator StartSpawner()
     {
         while (true)
@@ -45,7 +60,23 @@ public class BasicSpawner : MonoBehaviour
                     int spawnIndex = MathUtilities.GetWeightedResult(enemy.EnemiesToSpawn.Values.ToArray<int>());
                     GameObject spawn = enemy.EnemiesToSpawn.Keys.ToArray<GameObject>()[spawnIndex];
                     Vector3 spawnPosition = transform.position + MathUtilities.DegreesToVector3(enemy.Direction) * (6 + enemy.Distance);
-                    Instantiate(spawn, spawnPosition, Quaternion.identity);
+                    GameObject newSpawn = Instantiate(spawn, spawnPosition, Quaternion.identity);
+
+                    //scaling with Guilt + rescan map for pathing
+                    if (currentGuilt > 0)
+                    {
+
+                        for (int g = 0; g < currentGuilt; g++)
+                        {
+                            newSpawn.GetComponent<Enemy>().health *= healthScaling;
+                            newSpawn.GetComponent<Enemy>().damage *= damageScaling;
+                            newSpawn.GetComponent<Enemy>().weight *= weightScaling;
+                            newSpawn.GetComponent<Enemy>().xpAmount *= xpScaling;
+                            //newSpawn.GetComponent<Enemy>().calculateSpeed(speedScaling);
+
+                        }
+                        comboManager.GetComponent<ComboTracker>().ColorChange(currentGuilt);
+                    }
                     AstarPath.active.Scan();
                 }
             }
