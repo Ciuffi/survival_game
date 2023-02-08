@@ -136,6 +136,10 @@ public class StatsHandler : MonoBehaviour
         stats.ForEach((stat) =>
         {
             health += stat.extraHealth;
+            if (stat.extraHealth > 0)
+            {
+                Destroy(stat);
+            }
             maxHealth += stat.extraMaxHealth;
             speed += stat.extraSpeed;
             shield += stat.extraShield;
@@ -153,6 +157,7 @@ public class StatsHandler : MonoBehaviour
         stat.transform.parent = StatContainer.transform;
         this.stats.Add(stat.GetComponent<StatBoost>());
         CalculateStats();
+        
     }
     public void ResetStats(bool fullReset)
     {
