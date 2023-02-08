@@ -36,15 +36,15 @@ public class ScreenShakeController : MonoBehaviour
 
         if (shakeTimeLeft > 0)
         {
-            shakeTimeLeft -= Time.deltaTime;
+            shakeTimeLeft -= Time.unscaledDeltaTime;
 
             float xAmount = Random.Range(-1f, 1f) * shakePower;
             float yAmount = Random.Range(-1f, 1f) * shakePower;
 
             transform.position += new Vector3(xAmount, yAmount, 0);
 
-            shakePower = Mathf.MoveTowards(shakePower, 0f, shakeFadeTime * Time.deltaTime);
-            shakeRotation = Mathf.MoveTowards(shakeRotation, 0f, shakeFadeTime * rotationMultiplier * Time.deltaTime);
+            shakePower = Mathf.MoveTowards(shakePower, 0f, shakeFadeTime * Time.unscaledDeltaTime);
+            shakeRotation = Mathf.MoveTowards(shakeRotation, 0f, shakeFadeTime * rotationMultiplier * Time.unscaledDeltaTime);
         }
 
         if (shakeTimeLeft <= 0 && isCombo == true)

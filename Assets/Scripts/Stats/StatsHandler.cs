@@ -93,6 +93,13 @@ public class StatsHandler : MonoBehaviour
 
     void Update()
     {
+
+        if (IFtimer >= Iframes)
+        {
+            animator.SetBool("TookDamage", false);
+            canDamage = true;
+        }
+
         if (canDamage == false)
         {
             IFtimer += Time.deltaTime;
@@ -100,13 +107,6 @@ public class StatsHandler : MonoBehaviour
         else
         {
             IFtimer = 0f;
-        }
-
-        if (IFtimer >= Iframes)
-        {
-            animator.SetBool("TookDamage", false);
-            canDamage = true;
-
         }
 
     }
