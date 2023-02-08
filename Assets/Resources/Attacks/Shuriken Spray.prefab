@@ -53,8 +53,8 @@ MonoBehaviour:
   attackTimeUp: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 2
-  rangeUP: 3
+  range: 3
+  rangeUP: 5
   shotsPerAttack: 4
   shotsPerAttackUP: 6
   cantMove: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   knockback: 0
   knockbackUP: 0
   pierce: 10
-  pierceUP: 12
+  pierceUP: 20
   critChance: 0.1
   critDmg: 1.5
   projectile: {fileID: 3966782872280218973, guid: 86dfe545b581c9149a8845f465e2c6b9, type: 3}

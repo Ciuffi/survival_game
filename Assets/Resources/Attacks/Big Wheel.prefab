@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735341029624650593}
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: Fuma Shuriken
+  m_Name: Big Wheel
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,8 +53,8 @@ MonoBehaviour:
   attackTimeUp: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 5.5
-  rangeUP: 7
+  range: 6
+  rangeUP: 8
   shotsPerAttack: 1
   shotsPerAttackUP: 2
   cantMove: 0
@@ -62,8 +62,8 @@ MonoBehaviour:
   speedUP: 0.15
   knockback: 0
   knockbackUP: 0
-  pierce: 15
-  pierceUP: 20
+  pierce: 40
+  pierceUP: 80
   critChance: 0.1
   critDmg: 1.5
   projectile: {fileID: 3966782872280218973, guid: a9e5fa143214c0846b26879932cd3ad9, type: 3}

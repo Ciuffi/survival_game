@@ -10777,6 +10777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomSpeed: 0.1
   targetPercentIncrease: 0.1
+  UICamera: {fileID: 1562854927}
+  isUI: 1
 --- !u!1001 &1565413710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14634,6 +14636,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1975490170140608191, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
+      propertyPath: UICamera
+      value: 
+      objectReference: {fileID: 1562854927}
+    - target: {fileID: 1975490170140608191, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
       propertyPath: zoomSpeed
       value: 0.1
       objectReference: {fileID: 0}
@@ -14657,11 +14663,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboCount: 11
   spawner: {fileID: 1517156281}
-  guiltThreshold1: 10
-  guiltThreshold2: 30
-  guiltThreshold3: 50
-  guiltThreshold4: 75
-  guiltThreshold5: 100
+  guiltThreshold1: 25
+  guiltThreshold2: 50
+  guiltThreshold3: 80
+  guiltThreshold4: 100
+  guiltThreshold5: 125
   guiltColor1: {r: 0.3207547, g: 0, b: 0.043667965, a: 1}
   guiltColor2: {r: 0.5, g: 0, b: 0.023734331, a: 1}
   guiltColor3: {r: 0.6313726, g: 0.003921557, b: 0.041516222, a: 1}
