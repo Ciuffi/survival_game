@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735341029624650593}
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: Shuriken Spray
+  m_Name: Wind Blade
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449995561756442478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 0.39134, y: -0.39134, z: 0}
+  m_LocalPosition: {x: -0.0040000007, y: 0.69, z: -1}
+  m_LocalScale: {x: 2, y: -2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,48 +44,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  damageUP: 5
-  spread: 120
-  spreadUP: 90
-  castTime: 1.75
-  castTimeUP: 1.5
-  attackTimeUp: 0
+  damage: 7
+  damageUP: 10
+  spread: 0.5
+  spreadUP: 0.5
+  castTime: 1.25
+  castTimeUP: 1
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 3
-  rangeUP: 5
-  shotsPerAttack: 4
-  shotsPerAttackUP: 6
+  range: 5
+  rangeUP: 10
+  shotsPerAttack: 3
+  shotsPerAttackUP: 1
   cantMove: 0
-  speed: 0.09
-  speedUP: 0.12
-  knockback: 0
-  knockbackUP: 0
-  pierce: 40
-  pierceUP: 60
-  critChance: 0.1
-  critDmg: 1.5
-  projectile: {fileID: 3966782872280218973, guid: 86dfe545b581c9149a8845f465e2c6b9, type: 3}
+  speed: 0
+  speedUP: 0
+  knockback: 15
+  knockbackUP: 20
+  pierce: 0
+  pierceUP: 0
+  critChance: 0.15
+  critDmg: 2
+  projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
-  attackType: 1
-  MeleeAttack: {fileID: 0}
+  attackType: 5
+  MeleeAttack: {fileID: 4908858350499337675, guid: f9f1daa0c6ae50646baec98320b59731, type: 3}
   isToss: 0
-  comboLength: 0
+  comboLength: 1
   meleeScale: 0
-  meleeSpacer: 0.7
-  meleeSpacerGap: 1
+  meleeSpacer: 1.1
+  meleeSpacerGap: 0
   comboWaitTime: 0
-  shakeTime: 0
-  shakeStrength: 0
-  shakeRotation: 0
-  attackBuff: 0
-  weaponSprite: {fileID: 21300000, guid: 2c54ac57f09693c4587eeb69f3a0bcdb, type: 3}
+  perAttackBuff: 0.5
+  swapAnimOnAttack: 1
+  shakeTime: 0.1
+  shakeStrength: 0.25
+  shakeRotation: 4
+  weaponSprite: {fileID: 21300000, guid: 5dc91b561ed85de42aef47255f47b10f, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: e3b119ccc5c02424599fc096a4a9fc93, type: 3}
-  throwSpeed: 7
+  thrownSprite: {fileID: 21300000, guid: d9638500be2d8764bb79513bf14cfee9, type: 3}
+  throwSpeed: 6

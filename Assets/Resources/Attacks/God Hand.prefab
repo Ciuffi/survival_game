@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735341029624650593}
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: Big Wheel
+  m_Name: God Hand
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449995561756442478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 0.39134, y: -0.39134, z: 0}
+  m_LocalPosition: {x: -0.0040000007, y: 0.69, z: -1}
+  m_LocalScale: {x: 2, y: -2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,48 +44,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 9
-  damageUP: 15
-  spread: 0.15
-  spreadUP: 0.15
-  castTime: 2
-  castTimeUP: 1.5
+  damage: 18
+  damageUP: 22
+  spread: 0.2
+  spreadUP: 0.2
+  castTime: 1.75
+  castTimeUP: 1
   attackTimeUp: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 6
-  rangeUP: 8
+  range: 5
+  rangeUP: 10
   shotsPerAttack: 1
-  shotsPerAttackUP: 2
-  cantMove: 0
-  speed: 0.12
-  speedUP: 0.15
-  knockback: 0
-  knockbackUP: 0
-  pierce: 40
-  pierceUP: 80
+  shotsPerAttackUP: 1
+  cantMove: 1
+  speed: 0.08
+  speedUP: 0.12
+  knockback: 22
+  knockbackUP: 25
+  pierce: 0
+  pierceUP: 0
   critChance: 0.1
   critDmg: 1.5
-  projectile: {fileID: 3966782872280218973, guid: a9e5fa143214c0846b26879932cd3ad9, type: 3}
+  projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
-  attackType: 0
-  MeleeAttack: {fileID: 0}
-  isToss: 0
-  comboLength: 0
-  meleeScale: 0
-  meleeSpacer: 0.7
+  attackType: 5
+  MeleeAttack: {fileID: 4908858350499337675, guid: 56c6a42a601ee3846a6d9015b8a1ce51, type: 3}
+  comboLength: 1
+  meleeScale: 0.2
+  meleeSpacer: 1
   meleeSpacerGap: 1
-  comboWaitTime: 0
-  shakeTime: 0
-  shakeStrength: 0
-  shakeRotation: 0
+  comboWaitTime: 0.25
+  shakeTime: 0.3
+  shakeStrength: 0.25
+  shakeRotation: 8
   attackBuff: 0
-  weaponSprite: {fileID: 21300000, guid: 9741781bf5c459547bd3e654abf950bf, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 03fd5dd25edcb5941a5fc4ecaa81670b, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
-  thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: 183ed69a7fc94bb4b852224d63840665, type: 3}
-  throwSpeed: 8
+  thrownWeapon: {fileID: 0}
+  thrownSprite: {fileID: 21300000, guid: 03fd5dd25edcb5941a5fc4ecaa81670b, type: 3}
+  throwSpeed: 0

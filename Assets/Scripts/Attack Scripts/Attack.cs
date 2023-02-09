@@ -16,7 +16,6 @@ public class Attack : MonoBehaviour, Upgrade
     {
         get => attackType == AttackTypes.Shotgun ? 0 : spread * shotsPerAttack;
     }
-    public float attackTimeUp;
     public float recoveryTime;
     public float recoveryTimeUp;
 
@@ -59,11 +58,13 @@ public class Attack : MonoBehaviour, Upgrade
     public float meleeSpacer = 0.7f; //spacer for first melee attack
     public float meleeSpacerGap = 1f; //spacer added for subsequent melee attacks 
     public float comboWaitTime;
+    public float perAttackBuff; //percent
+    public bool swapAnimOnAttack;
+    private int attackAnimState = 0;
 
     public float shakeTime;
     public float shakeStrength;
     public float shakeRotation;
-    public float attackBuff; //percent
 
     public Sprite weaponSprite;
     public bool isAutoAim;
@@ -226,14 +227,6 @@ public class Attack : MonoBehaviour, Upgrade
     private IEnumerator Melee()
     {
 
-        float spacer = 0;
-        float angle = 0;
-        int shotsLeft = shotsPerAttack;
-        spacer = spread / (shotsPerAttack - 1);
-        Vector3 position = owner.GetTransform().position;
-        Vector3 direction = owner.GetDirection();
-        Quaternion rotation = owner.GetTransform().rotation;
-
         float localSpacer = meleeSpacer;
         if (cantMove)
         {
@@ -243,75 +236,89 @@ public class Attack : MonoBehaviour, Upgrade
         Vector3 originalScale = MeleeAttack.transform.localScale;
         Vector3 scaler = new Vector3(meleeScale, meleeScale, meleeScale);
 
+        float OGdamage = damage; //save original damage amount
 
-        for (int c = 0; c < comboLength; c++)
+        for (int i = 0; i < shotsPerAttack; i++)
         {
+            Vector3 position = owner.GetTransform().position;
+            Vector3 direction = owner.GetDirection();
+            Quaternion rotation = owner.GetTransform().rotation;
+
+            float perAttackScaling = 1 + (perAttackBuff * i);
+            damage *= perAttackScaling; //scale damage per shotInAttack
 
 
-            if (shotsPerAttack % 2 != 0)
+            //chain spawn based on comboLength
+            for (int c = 0; c < comboLength; c++)
             {
-                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
-                GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = rotation;
-                if (c >= 1)
-                {
-                    p.transform.localScale += scaler * c;
-                }
+
+                    Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
+                    GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
+                    Projectile p = projectileGO.GetComponent<Projectile>();
+                    p.attack = this;
+                    p.transform.rotation = rotation;
+                    if (c >= 1)
+                    {
+                        p.transform.localScale += scaler * c;
+                    }
+
+                    //change animation state 
+                    if (swapAnimOnAttack)
+                    {
+                        Animator attackAnimator = p.GetComponent<Animator>();
+                        switch (attackAnimState)
+                        {
+                            case 0:
+                                attackAnimator.SetInteger("AttackCount", 0);
+                                break;
+                            case 1:
+                                attackAnimator.SetInteger("AttackCount", 1);
+                                break;
+                            case 2:
+                                attackAnimator.SetInteger("AttackCount", 2);
+                                break;
+                        }
+                    }
+
                 Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
+      
+                yield return new WaitForSeconds(comboWaitTime);
 
-
-            }
-            else
-            {
-                spacer = spacer / 2;
-            }
-            for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
-            {
-                if (i == 0 && shotsPerAttack % 2 == 0)
+                // after one hit in the combo, do this
+                if (meleeScale > 0)
                 {
-                    angle = spacer / 2;
-                }
-                else if (i % 2 == 0)
-                {
-                    angle = Mathf.Abs(angle) + spacer;
+                    localSpacer += meleeSpacerGap * (1 + meleeScale);
                 }
                 else
                 {
-                    angle = -angle;
+                    localSpacer += meleeSpacerGap;
                 }
-                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
-                GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = rotation;
-                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-
-                Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
 
             }
-            yield return new WaitForSeconds(comboWaitTime);
+            yield return null;
 
-            // after one hit in the combo, do this
+            //reset weapon damage
+            damage = OGdamage;
 
-            if (meleeScale > 0)
+            //reset gap between hits
+            localSpacer = meleeSpacer;
+            
+            //update attack state 
+            attackAnimState++;
+            if (attackAnimState == shotsPerAttack)
             {
-                localSpacer += meleeSpacerGap * (1 + meleeScale);
-            }
-            else
-            {
-                localSpacer += meleeSpacerGap;
+                attackAnimState = 0;
             }
 
-
+            //wait until next attack
+            yield return new WaitForSeconds(spread);
         }
-        yield return null;
-        //can move again
-        Player.GetComponent<PlayerMovement>().StartMoving();
 
-        //reset gap between hits
-        localSpacer = meleeSpacer;
+        if (cantMove)
+        {
+            //can move again
+            Player.GetComponent<PlayerMovement>().StartMoving();
+        }
 
     }
 

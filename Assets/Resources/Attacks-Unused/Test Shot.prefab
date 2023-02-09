@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1449995561756442478
+--- !u!1 &7092308523833330436
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8735341029624650593}
-  - component: {fileID: 1803132688626501153}
+  - component: {fileID: 1101605248746729227}
+  - component: {fileID: 8031494702477308491}
   m_Layer: 0
-  m_Name: Shuriken Spray
+  m_Name: Test Shot
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8735341029624650593
+--- !u!4 &1101605248746729227
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449995561756442478}
+  m_GameObject: {fileID: 7092308523833330436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.39134, y: -0.39134, z: 0}
@@ -32,60 +32,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1803132688626501153
+--- !u!114 &8031494702477308491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449995561756442478}
+  m_GameObject: {fileID: 7092308523833330436}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  damageUP: 5
-  spread: 120
-  spreadUP: 90
+  damage: 6
+  damageUP: 12
+  spread: 0.1
+  spreadUP: 0.08
   castTime: 1.75
   castTimeUP: 1.5
-  attackTimeUp: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 3
-  rangeUP: 5
-  shotsPerAttack: 4
-  shotsPerAttackUP: 6
+  range: 7
+  rangeUP: 10
+  shotsPerAttack: 3
+  shotsPerAttackUP: 12
   cantMove: 0
-  speed: 0.09
-  speedUP: 0.12
-  knockback: 0
-  knockbackUP: 0
-  pierce: 40
-  pierceUP: 60
-  critChance: 0.1
-  critDmg: 1.5
-  projectile: {fileID: 3966782872280218973, guid: 86dfe545b581c9149a8845f465e2c6b9, type: 3}
+  speed: 0.12
+  speedUP: 0.15
+  knockback: 8
+  knockbackUP: 12
+  pierce: 0
+  pierceUP: 2
+  critChance: 0.2
+  critDmg: 2
+  projectile: {fileID: 4235860010000021921, guid: 16aba6e4cebad92459997d8f231f7aa3, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
-  attackType: 1
+  attackType: 0
   MeleeAttack: {fileID: 0}
   isToss: 0
   comboLength: 0
   meleeScale: 0
-  meleeSpacer: 0.7
-  meleeSpacerGap: 1
+  meleeSpacer: 0
+  meleeSpacerGap: 0
   comboWaitTime: 0
+  perAttackBuff: 0
+  swapAnimOnAttack: 0
   shakeTime: 0
   shakeStrength: 0
   shakeRotation: 0
-  attackBuff: 0
-  weaponSprite: {fileID: 21300000, guid: 2c54ac57f09693c4587eeb69f3a0bcdb, type: 3}
-  isAutoAim: 0
+  weaponSprite: {fileID: 21300000, guid: a24dcb709422d98438f512fee334cee0, type: 3}
+  isAutoAim: 1
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: e3b119ccc5c02424599fc096a4a9fc93, type: 3}
-  throwSpeed: 7
+  thrownSprite: {fileID: 21300000, guid: 7ee67390dedeccb41a42fd32b73373c1, type: 3}
+  throwSpeed: 5
