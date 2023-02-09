@@ -7822,9 +7822,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2953268749911788828, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: weaponSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5dc91b561ed85de42aef47255f47b10f, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953268749911788828, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damageUP
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953268749911788828, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: critChance
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953268749911788828, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: comboLength
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953268749911788828, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: meleeSpacer
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -14479,15 +14495,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: damageScaling
-      value: 1.2
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: healthScaling
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: weightScaling
-      value: 1.1
+      value: 1.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
