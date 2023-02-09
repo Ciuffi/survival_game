@@ -223,9 +223,9 @@ MonoBehaviour:
   disappearSpeed: 3
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: b5556bba7def32443a4bea0f9f94e44a, type: 3}
-  playerShakeTime: 0.1
-  playerShakeStrength: 0.2
-  playerShakeRotation: 0.2
+  playerShakeTime: 0.05
+  playerShakeStrength: 0.1
+  playerShakeRotation: 0.1
   damageTickDuration: 0.5
   startPos: {x: 0, y: 0, z: 0}
   isThrown: 0

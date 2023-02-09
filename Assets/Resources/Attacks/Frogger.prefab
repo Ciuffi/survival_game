@@ -80,8 +80,8 @@ MonoBehaviour:
   comboWaitTime: 0.75
   perAttackBuff: 0
   swapAnimOnAttack: 0
-  shakeTime: 0.2
-  shakeStrength: 0.4
+  shakeTime: 0.1
+  shakeStrength: 0.2
   shakeRotation: 4
   weaponSprite: {fileID: 21300000, guid: 5c248971bf0b7cb42a4018a04508aa42, type: 3}
   isAutoAim: 0
