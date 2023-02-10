@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour, Attacker
     public bool canDamage;
     public GameObject DamagePopup;
     public GameObject HitEffect;
+    public GameObject DeathEffect;
     public GameObject EXPdrop;
 
     public float Iframes;
@@ -150,6 +151,8 @@ public class Enemy : MonoBehaviour, Attacker
             isDead = true;
             GameObject xpDrop = Instantiate(EXPdrop, center, Quaternion.identity);
             xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
+
+            Instantiate(DeathEffect, center, Quaternion.identity);
 
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
             ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
