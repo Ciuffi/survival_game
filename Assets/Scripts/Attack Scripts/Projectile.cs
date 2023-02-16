@@ -274,7 +274,14 @@ public class Projectile : MonoBehaviour
                 {
                     magnetTarget = col.transform; //set collider
                     magnetStartTime = Time.time;
-                    magnetStartPos = transform.position; //set target
+                    if (!isMelee)
+                    {
+                        magnetStartPos = transform.position; //set target
+                    }
+                    else
+                    {
+                        magnetStartPos = Player.transform.position;
+                    }
                     magnetTarget.GetComponent<Enemy>().StartMagnet(magnetStrength, magnetDuration, magnetStartPos);
                 }
 

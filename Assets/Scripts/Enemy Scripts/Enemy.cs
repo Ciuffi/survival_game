@@ -116,6 +116,7 @@ public class Enemy : MonoBehaviour, Attacker
     private float animSpeed;
     private bool isSlowing = false;
     private float currentSlowPercentage;
+    private float magnetMinDistance = 2f;
 
 
     // Start is called before the first frame update
@@ -219,9 +220,17 @@ public class Enemy : MonoBehaviour, Attacker
         //magnetizing effect
         if (magnetDuration > 0 && Time.time < magnetStartTime + magnetDuration)
         {
-            float t = (Time.time - magnetStartTime) / magnetDuration;
-            t = EaseInOutCubic(t);
-            transform.position = Vector3.Lerp(transform.position, magnetTarget, t * magnetStrength * Time.deltaTime);
+            float magDistance = Vector3.Distance(transform.position, magnetTarget);
+            if (magDistance > magnetMinDistance)
+            {
+                float t = (Time.time - magnetStartTime) / magnetDuration;
+                t = EaseInOutCubic(t);
+                transform.position = Vector3.Lerp(transform.position, magnetTarget, t * magnetStrength * Time.deltaTime);
+            }
+            else
+            {
+                magnetDuration = 0;
+            }
         }
         else
         {
