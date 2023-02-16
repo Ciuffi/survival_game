@@ -58,6 +58,20 @@ public class Projectile : MonoBehaviour
     Animator animator;
     public bool isAnimated;
 
+    public bool isMagnet;
+    public float magnetStrength;
+    public float magnetDuration;
+
+    public bool isSlow;
+    public float slowActiveSpeed;
+    public float slowPercentage;
+    public float slowDuration;
+
+    private bool isMagnetizing = false;
+    private Transform magnetTarget;
+    private float magnetStartTime;
+    private Vector3 magnetStartPos;
+
 
     void Start()
     {
@@ -255,7 +269,24 @@ public class Projectile : MonoBehaviour
                 hitEnemies.Add(enemy); //add enemy to hitList
                 timers[enemy] = damageTickDuration;
 
-                if (isCrit == true)
+                //apply magnetizing effect
+                if (isMagnet)
+                {
+                    magnetTarget = col.transform; //set collider
+                    magnetStartTime = Time.time;
+                    magnetStartPos = transform.position; //set target
+                    magnetTarget.GetComponent<Enemy>().StartMagnet(magnetStrength, magnetDuration, magnetStartPos);
+                }
+
+                //apply slow effect
+                if (isSlow)
+                {
+                    col.GetComponent<Enemy>().StartSlow(slowActiveSpeed, slowPercentage, slowDuration);
+
+                }
+
+
+                if (isCrit == true) //deal damage
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);

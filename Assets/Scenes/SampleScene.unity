@@ -7849,6 +7849,66 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1465128669}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: range
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: speed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: pierce
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: critDmg
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: rangeUP
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: speedUP
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: castTime
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damageUP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: pierceUP
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: knockback
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: critChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 4235860010000021921, guid: 015d0a5fb0b06734581927f91e026013, type: 3}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: knockbackUP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: shotsPerAttack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
       value: 
@@ -9026,7 +9086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423453834646843858, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
       propertyPath: health
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1423453834646843868, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
       propertyPath: m_Name

@@ -63,6 +63,9 @@ public class Enemy : MonoBehaviour, Attacker
     Color OGcolor;
 
     private AIPath aiPath;
+    private float speed;
+    private float originalSpeed;
+    private Coroutine slowCoroutine;
 
     public bool isRage;
     public float rageTriggerPercent;
@@ -105,6 +108,14 @@ public class Enemy : MonoBehaviour, Attacker
     public GameObject dangerSign;
     SpriteRenderer dangerRenderer;
 
+    private Vector3 magnetTarget;
+    private float magnetStrength;
+    private float magnetDuration;
+    private float magnetStartTime;
+
+    private float animSpeed;
+    private bool isSlowing = false;
+    private float currentSlowPercentage;
 
 
     // Start is called before the first frame update
@@ -134,13 +145,89 @@ public class Enemy : MonoBehaviour, Attacker
         defaultMaterial = spriteRend.material;
         dangerRenderer = dangerSign.GetComponent<SpriteRenderer>();
         armorTime = armorTimer;
-        
 
+        speed = aiPath.maxSpeed;
+        originalSpeed = speed;
+        animSpeed = animator.GetFloat("speed");
+
+    }
+
+    public void StartMagnet(float strength, float duration, Vector3 targetPos)
+    {
+        magnetStrength = strength;
+        magnetDuration = duration;
+        magnetTarget = targetPos;
+        magnetStartTime = Time.time;
+    }
+
+    private float EaseInOutCubic(float t)
+    {
+        if (t < 0.5f)
+        {
+            return 4 * t * t * t;
+        }
+        else
+        {
+            float f = ((2 * t) - 2);
+            return 0.5f * f * f * f + 1;
+        }
+    }
+
+    private IEnumerator SlowCoroutine(float slowActiveSpeed, float slowPercentage, float slowDuration)
+    {
+        float slowStartSpeed = speed;
+        float slowTargetSpeed = originalSpeed * slowPercentage;
+        float slowStartTime = Time.time;
+        float slowEndTime = slowStartTime + slowDuration;
+
+        while (Time.time < slowEndTime)
+        {
+            float t = (Time.time - slowStartTime) / slowDuration;
+            t = EaseInOutCubic(t);
+            speed = Mathf.Lerp(slowStartSpeed, slowTargetSpeed, t * slowActiveSpeed);
+            aiPath.maxSpeed = speed;
+            yield return null;
+        }
+
+
+        speed = originalSpeed;
+        aiPath.maxSpeed = speed;
+        StopCoroutine(slowCoroutine);
+    }
+
+    public void StartSlow(float slowActiveSpeed, float slowPercentage, float slowDuration)
+    {
+        if (slowCoroutine != null)
+        {
+            float currentPercentage = (speed / originalSpeed);
+            if (slowPercentage < currentPercentage)
+            {
+                return;
+            }
+            else
+            {
+                StopCoroutine(slowCoroutine);
+                slowCoroutine = StartCoroutine(SlowCoroutine(slowActiveSpeed, slowPercentage, slowDuration));
+
+            }
+        }
     }
 
 
     void Update()
     {
+        //magnetizing effect
+        if (magnetDuration > 0 && Time.time < magnetStartTime + magnetDuration)
+        {
+            float t = (Time.time - magnetStartTime) / magnetDuration;
+            t = EaseInOutCubic(t);
+            transform.position = Vector3.Lerp(transform.position, magnetTarget, t * magnetStrength * Time.deltaTime);
+        }
+        else
+        {
+            magnetDuration = 0;
+        }
+
 
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         center = GetComponent<SpriteRenderer>().bounds.center;
@@ -471,12 +558,6 @@ public class Enemy : MonoBehaviour, Attacker
     {
         animator.SetBool("IsHurt", false);
         aiPath.canMove = true;
-    }
-
-    public void calculateSpeed(float speedMod)
-    {
-        aiPath.maxSpeed *= speedMod;
-
     }
 
 
