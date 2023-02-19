@@ -67,7 +67,7 @@ public class AttackHandler : MonoBehaviour
 
             //swap animation
             HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);          
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.3f);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
             WeaponOutline.GetComponent<SpriteRenderer>().enabled = true;
             HandsSprite.GetComponent<SpriteRenderer>().enabled = false;
@@ -76,7 +76,7 @@ public class AttackHandler : MonoBehaviour
 
             //casting
             if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime - 0.4f));
-            yield return new WaitForSeconds(currentAttack.castTime - 0.4f);
+            yield return new WaitForSeconds(currentAttack.castTime);
 
             //attacking
             StopCoroutine("HandleAttackSlider");
@@ -102,7 +102,7 @@ public class AttackHandler : MonoBehaviour
             {
                 attackIndex = 0;
             }
-            if (currentAttack.recoveryTime > 0) yield return new WaitForSeconds(currentAttack.recoveryTime - 0.3f);
+            if (currentAttack.recoveryTime > 0) yield return new WaitForSeconds(currentAttack.recoveryTime);
         }
     }
 

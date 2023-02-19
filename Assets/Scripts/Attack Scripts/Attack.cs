@@ -12,13 +12,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     public float castTime;
     public float castTimeUP;
-    public float attackTime
-    {
-        get => attackType == AttackTypes.Shotgun ? 0 : spread * shotsPerAttack;
-        //add new definition for melee: comboLength * comboWaitTime;
-        //remember to add multicastWaitTime as well
-
-    }
+    public float attackTime;
     public float recoveryTime;
     public float recoveryTimeUp;
 
@@ -44,7 +38,9 @@ public class Attack : MonoBehaviour, Upgrade
 
     public float multicastChance; //every 1.0f = one guarenteed multicast.
     public float multicastWaitTime;
+    private float defaultMulticastWaitTime;
     public int multicastTimes;
+    private int numMulticast = 0;
 
     public GameObject projectile;
     public Vector3 scaleUP;
@@ -61,11 +57,12 @@ public class Attack : MonoBehaviour, Upgrade
     public GameObject MeleeAttack;
     public bool isToss;
     public int comboLength; // # of melee attacks instantiated in a row
-    public float meleeScale; // scales up by % amount after each attack in the combo
-    public float meleeSpacer = 0.7f; //spacer for first melee attack
-    public float meleeSpacerGap = 1f; //spacer added for subsequent melee attacks 
     public float comboWaitTime;
-    public float perAttackBuff; //percent
+    public float comboAttackBuff; //percent buff
+
+    public float meleeShotsScaleUp; // scales up by % amount after each attack in the shotsPerattack
+    public float meleeSpacer = 0.7f; //spacer for first melee attack
+    public float meleeSpacerGap = 1f; //spacer added for subsequent shotsperattack
     public bool swapAnimOnAttack;
     private int attackAnimState = 0;
 
@@ -82,6 +79,25 @@ public class Attack : MonoBehaviour, Upgrade
     public float throwSpeed;
     private bool firstShot = true;
 
+
+    private void Update()
+    {
+        if (attackType == AttackTypes.Shotgun)
+        {
+            attackTime = 0 + (multicastTimes * multicastWaitTime);
+        }
+        else if (attackType == AttackTypes.Melee)
+        {
+            // Add the definition for Melee attack type
+            attackTime = comboLength * comboWaitTime + (multicastTimes * multicastWaitTime);
+        }
+        else
+        {
+            // Add the default definition for SingleShot attack type
+            attackTime = spread * shotsPerAttack + (multicastTimes * multicastWaitTime);
+        }
+    }
+
     private void rollMulticast()
     {
         multicastTimes = 0; //reset
@@ -97,13 +113,23 @@ public class Attack : MonoBehaviour, Upgrade
             }
 
 
-        } else if (multicastChance >= 1)
+        } else if (multicastChance == 1)
         {
             multicastTimes += 1;
+        }
+        
+        else if (multicastChance > 1)
+        {
+            int intMulticastChance = (int)multicastChance;
+            multicastTimes += intMulticastChance;
 
-            //for multicastChance -> every 1 integer above 1, add 1 to multicastTimes
-            //take leftover decimal and roll against multicastChance
-            
+            float roll = Random.Range(0f, 1f);
+            float chance = multicastChance - intMulticastChance;
+            if (roll >= multicastChance)
+            {
+                multicastTimes += 1;
+            }
+
         }
     }
 
@@ -112,10 +138,19 @@ public class Attack : MonoBehaviour, Upgrade
 
         if (multicastTimes >= 1 && !firstShot)
         {
-            yield return new WaitForSeconds(multicastWaitTime);
+            yield return new WaitForSeconds(multicastWaitTime * numMulticast);
         }
-        firstShot = false;
 
+        firstShot = false;
+        if (multicastTimes > 0)
+        {
+            numMulticast++;
+            if (numMulticast > multicastTimes)
+            {
+                numMulticast = 0;
+                firstShot = true;
+            }
+        }
 
         if (cantMove == true)
         {
@@ -170,6 +205,7 @@ public class Attack : MonoBehaviour, Upgrade
                 }
             }
         }
+
     }
 
     private IEnumerator ShootShotgun()
@@ -183,9 +219,19 @@ public class Attack : MonoBehaviour, Upgrade
 
         if (multicastTimes >= 1 && !firstShot)
         {
-            yield return new WaitForSeconds(multicastWaitTime);
+            yield return new WaitForSeconds(multicastWaitTime * numMulticast);
         }
+
         firstShot = false;
+        if (multicastTimes > 0)
+        {
+            numMulticast++;
+            if (numMulticast > multicastTimes)
+            {
+                numMulticast = 0;
+                firstShot = true;
+            }
+        }
 
 
         if (cantMove == true)
@@ -274,9 +320,19 @@ public class Attack : MonoBehaviour, Upgrade
     {
         if (multicastTimes >= 1 && !firstShot)
         {
-            yield return new WaitForSeconds(multicastWaitTime);
+            yield return new WaitForSeconds(multicastWaitTime * numMulticast);
         }
+
         firstShot = false;
+        if (multicastTimes > 0)
+        {
+            numMulticast++;
+            if (numMulticast > multicastTimes)
+            {
+                numMulticast = 0;
+                firstShot = true;
+            }
+        }
 
         float localSpacer = meleeSpacer;
         if (cantMove)
@@ -285,7 +341,7 @@ public class Attack : MonoBehaviour, Upgrade
         }
 
         Vector3 originalScale = MeleeAttack.transform.localScale;
-        Vector3 scaler = new Vector3(meleeScale, meleeScale, meleeScale);
+        Vector3 scaler = new Vector3(meleeShotsScaleUp, meleeShotsScaleUp, meleeShotsScaleUp);
 
         float OGdamage = damage; //save original damage amount
 
@@ -295,7 +351,7 @@ public class Attack : MonoBehaviour, Upgrade
             Vector3 direction = owner.GetDirection();
             Quaternion rotation = owner.GetTransform().rotation;
 
-            float perAttackScaling = 1 + (perAttackBuff * i);
+            float perAttackScaling = 1 + (comboAttackBuff * i);
             damage *= perAttackScaling; //scale damage per shotInAttack
 
 
@@ -333,12 +389,12 @@ public class Attack : MonoBehaviour, Upgrade
 
                 Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
       
-                yield return new WaitForSeconds(comboWaitTime);
+                yield return new WaitForSeconds(spread);
 
                 // after one hit in the combo, do this
-                if (meleeScale > 0)
+                if (meleeShotsScaleUp > 0)
                 {
-                    localSpacer += meleeSpacerGap * (1 + meleeScale);
+                    localSpacer += meleeSpacerGap * (1 + meleeShotsScaleUp);
                 }
                 else
                 {
@@ -346,20 +402,12 @@ public class Attack : MonoBehaviour, Upgrade
                 }
 
             }
-            yield return null;
 
             //reset weapon damage
             damage = OGdamage;
 
             //reset gap between hits
             localSpacer = meleeSpacer;
-
-            //new MulticastTimes -> determines # of attack loops
-            //current melee combo ->   ComboLength
-            //combo length -> ShotsPerAttack
-            //combo wait time -> Spread
-
-
             
             //update attack state 
             attackAnimState++;
@@ -368,8 +416,8 @@ public class Attack : MonoBehaviour, Upgrade
                 attackAnimState = 0;
             }
 
-            //wait until next attack
-            yield return new WaitForSeconds(spread);
+            //wait until next hit in combo
+            yield return new WaitForSeconds(comboWaitTime);
         }
 
         if (cantMove)
@@ -388,6 +436,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     public void Shoot()
     {
+        firstShot = true;
         rollMulticast();
         switch (attackType)
         {
@@ -396,21 +445,18 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     StartCoroutine(ShootSingleShot());
                 }
-                firstShot = true;
                 break;
             case AttackTypes.Shotgun:
                 for (int i = 0; i < (multicastTimes + 1); i++)
                 {
                     StartCoroutine(ShootShotgun());
                 }
-                firstShot = true;
                 break;
             case AttackTypes.Melee:
                 for (int i = 0; i < (multicastTimes + 1); i++)
                 {
                     StartCoroutine(Melee());
                 }
-                firstShot = true;
                 break;
             //case AttackTypes.Utility:
             //StartCoroutine(Utility());
@@ -451,6 +497,8 @@ public class Attack : MonoBehaviour, Upgrade
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(attackTime);
+
         if (projectile == null)
         {
             projectile = Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
@@ -492,6 +540,7 @@ public class Attack : MonoBehaviour, Upgrade
 
         Camera = GameObject.FindWithTag("MainCamera");
         Player = GameObject.FindWithTag("Player");
+        defaultMulticastWaitTime = multicastWaitTime;
 
     }
 

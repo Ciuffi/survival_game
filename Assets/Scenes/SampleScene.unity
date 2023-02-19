@@ -5486,7 +5486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &838170586
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7822,16 +7822,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spread
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: castTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: comboLength
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: recoveryTime
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: comboWaitTime
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: shotsPerAttack
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: multicastChance
@@ -7843,7 +7855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3067497658390825498, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
@@ -7875,11 +7887,15 @@ PrefabInstance:
       objectReference: {fileID: 1465128669}
     - target: {fileID: 8111838711683942707, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: multicastChance
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8111838711683942707, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: multicastWaitTime
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8111838711683942709, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: range
@@ -7943,7 +7959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: multicastChance
-      value: 0.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: multicastWaitTime
@@ -7951,7 +7967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127811829339164902, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
@@ -8036,7 +8052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1251008483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12055,7 +12071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1731123099
 RectTransform:
   m_ObjectHideFlags: 0
