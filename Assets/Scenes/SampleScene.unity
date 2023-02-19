@@ -7821,42 +7821,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: spread
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: castTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: comboLength
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: recoveryTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: comboWaitTime
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: shotsPerAttack
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: multicastChance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848694138006844245, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: multicastWaitTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3067497658390825498, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -7885,90 +7849,6 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1465128669}
-    - target: {fileID: 8111838711683942707, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: multicastChance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8111838711683942707, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: multicastWaitTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8111838711683942709, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: range
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: speed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: pierce
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: critDmg
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: rangeUP
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: speedUP
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: castTime
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: damageUP
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: pierceUP
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: knockback
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: critChance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 4235860010000021921, guid: 015d0a5fb0b06734581927f91e026013, type: 3}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: knockbackUP
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: shotsPerAttack
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: multicastChance
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337826028643051945, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: multicastWaitTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9127811829339164902, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
       value: 
@@ -9154,7 +9034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423453834646843868, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
@@ -14579,7 +14459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3590323111623112659, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: uiCamera

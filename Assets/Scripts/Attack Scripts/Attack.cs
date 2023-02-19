@@ -103,7 +103,11 @@ public class Attack : MonoBehaviour, Upgrade
         multicastTimes = 0; //reset
         //remember to hook up multicast as a player stat and add it here before rolling
 
-        if (multicastChance < 1)
+        if (multicastChance == 0)
+        {
+            return;
+        }
+        else if (multicastChance < 1)
         {
             float roll = Random.Range(0f, 1f);
 

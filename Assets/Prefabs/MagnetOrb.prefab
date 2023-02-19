@@ -137,10 +137,10 @@ MonoBehaviour:
   disappearSpeed: 0
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: 9834c3ac85854944980a1a437400746b, type: 3}
-  playerShakeTime: 0.1
-  playerShakeStrength: 0.2
-  playerShakeRotation: 0.15
-  damageTickDuration: 0.45
+  playerShakeTime: 0.05
+  playerShakeStrength: 0.1
+  playerShakeRotation: 0.1
+  damageTickDuration: 1
   startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
   isHover: 0
@@ -148,8 +148,12 @@ MonoBehaviour:
   hitFirstEnemy: 0
   isAnimated: 0
   isMagnet: 1
-  magnetStrength: 3
-  magnetDuration: 0.5
+  magnetStrength: 200
+  magnetDuration: 0.9
+  isSlow: 0
+  slowActiveSpeed: 0
+  slowPercentage: 0
+  slowDuration: 0
 --- !u!58 &3115735194507937141
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -185,5 +189,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
