@@ -110,11 +110,12 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   damage: 5
-  health: 25
+  health: 40
+  maxHealth: 0
   xpAmount: 30
-  weight: 15
+  weight: 20
   stopDistanceMin: 2
-  stopDistanceMax: 3
+  stopDistanceMax: 5
   moveDistanceCheck: 0
   canMove: 1
   timeCheck: 0
@@ -124,9 +125,12 @@ MonoBehaviour:
   armorTimer: 0
   armorPercent: 0
   weightIncrease: 0
+  newWeight: 0
+  oldWeight: 0
   canDamage: 1
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}
+  DeathEffect: {fileID: 2429385742196507204, guid: 3f2c8af43e46a4c4da19b2cc74167602, type: 3}
   EXPdrop: {fileID: 9040451915024097044, guid: 7cb6000f3688522458525e0d169ebdf1, type: 3}
   Iframes: 0.3
   isInvuln: 0
@@ -153,7 +157,7 @@ MonoBehaviour:
   projectileSpeed: 0
   projectileRange: 0
   projectileDamage: 10
-  shootRecovery: 3
+  shootRecovery: 5
   AOEPrefab: {fileID: 4235860010000021921, guid: 4a0d9405c86f5ce46bd466561185c745, type: 3}
   dangerSign: {fileID: 5189165830211085352}
 --- !u!50 &1423453834646843859

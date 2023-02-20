@@ -48,8 +48,11 @@ MonoBehaviour:
   damageUP: 12
   spread: 0.2
   spreadUP: 0.2
+  spray: 0
+  sprayThreshold: 0
   castTime: 2
   castTimeUP: 1.5
+  attackTime: 0
   recoveryTime: 0
   recoveryTimeUp: 0
   range: 5
@@ -65,6 +68,9 @@ MonoBehaviour:
   pierceUP: 0
   critChance: 0.1
   critDmg: 1.5
+  multicastChance: 0
+  multicastWaitTime: 0.1
+  multicastTimes: 0
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
@@ -74,11 +80,11 @@ MonoBehaviour:
   MeleeAttack: {fileID: 4908858350499337675, guid: 79bd9af28726ad84d83073065b56f545, type: 3}
   isToss: 0
   comboLength: 3
-  meleeScale: -0.05
+  comboWaitTime: 0.75
+  comboAttackBuff: 0
+  meleeShotsScaleUp: 0
   meleeSpacer: 1
   meleeSpacerGap: 1.2
-  comboWaitTime: 0.75
-  perAttackBuff: 0
   swapAnimOnAttack: 0
   shakeTime: 0.1
   shakeStrength: 0.2
@@ -89,3 +95,7 @@ MonoBehaviour:
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
   thrownSprite: {fileID: 21300000, guid: 15e34ba3570fbb1428a9d97da7761ad5, type: 3}
   throwSpeed: 6
+  bulletCasing: {fileID: 0}
+  MuzzleFlashPrefab: []
+  muzzleFlashXOffset: 0
+  muzzleFlashYOffset: 0

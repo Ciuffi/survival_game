@@ -44,18 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 4
   damageUP: 10
   spread: 0.5
   spreadUP: 0.5
-  castTime: 1.25
+  spray: 0
+  sprayThreshold: 0
+  castTime: 1.5
   castTimeUP: 1
   attackTime: 0
   recoveryTime: 0
   recoveryTimeUp: 0
   range: 5
   rangeUP: 10
-  shotsPerAttack: 2
+  shotsPerAttack: 1
   shotsPerAttackUP: 1
   cantMove: 0
   speed: 0
@@ -66,8 +68,8 @@ MonoBehaviour:
   pierceUP: 0
   critChance: 0.05
   critDmg: 2
-  multicastChance: 1
-  multicastWaitTime: 0.15
+  multicastChance: 0
+  multicastWaitTime: 0.1
   multicastTimes: 0
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
@@ -78,7 +80,7 @@ MonoBehaviour:
   MeleeAttack: {fileID: 4908858350499337675, guid: f9f1daa0c6ae50646baec98320b59731, type: 3}
   isToss: 0
   comboLength: 3
-  comboWaitTime: 0.2
+  comboWaitTime: 0.15
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
   meleeSpacer: 0.9
@@ -93,3 +95,7 @@ MonoBehaviour:
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
   thrownSprite: {fileID: 21300000, guid: d9638500be2d8764bb79513bf14cfee9, type: 3}
   throwSpeed: 6
+  bulletCasing: {fileID: 0}
+  MuzzleFlashPrefab: []
+  muzzleFlashXOffset: 0
+  muzzleFlashYOffset: 0

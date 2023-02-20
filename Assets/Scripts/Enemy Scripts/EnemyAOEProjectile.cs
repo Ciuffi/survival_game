@@ -22,7 +22,6 @@ public class EnemyAOEProjectile : MonoBehaviour
     private bool startupPhase = true;
     private bool activePhase = false;
     private bool recoveryPhase = false;
-    private bool damagePlayer;
     private GameObject spriteObject;
     private GameObject newSpriteObject;
     private Vector3 originalScale;
@@ -54,10 +53,6 @@ public class EnemyAOEProjectile : MonoBehaviour
     {
         if (startupPhase)
         {
-
-            // Perform startup animation actions here
-            newSpriteObject.transform.localScale = Vector3.Lerp(newSpriteObject.transform.localScale, originalScale, Time.deltaTime * (1 / currentTimer));
-
             currentTimer -= Time.deltaTime;
             if (currentTimer <= 0)
             {
@@ -65,6 +60,10 @@ public class EnemyAOEProjectile : MonoBehaviour
                 startupPhase = false;
                 activePhase = true;
             }
+
+            // Perform startup animation actions here
+            newSpriteObject.transform.localScale = Vector3.Lerp(newSpriteObject.transform.localScale, originalScale, Time.deltaTime * (1 / currentTimer));
+
         }
         else if (activePhase)
         {
@@ -92,10 +91,11 @@ public class EnemyAOEProjectile : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerStay2D(Collider2D col)
     {
-        if (col.CompareTag("Player") && activePhase && Player.GetComponent<StatsHandler>().canDamage == true)
+        if (col.gameObject.tag == ("Player") && activePhase)
         {
+            Debug.Log("hittin");
             col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
         }
     }

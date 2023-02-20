@@ -532,8 +532,7 @@ public class Enemy : MonoBehaviour, Attacker
         dangerRenderer.enabled = true;
         Vector3 pos = player.transform.position;
         GameObject AOE = Instantiate(AOEPrefab, pos, Quaternion.identity);
-        Vector3 direction = player.transform.position - transform.position;
-        direction.Normalize();
+      
         AOE.GetComponent<EnemyAOEProjectile>().damage = projectileDamage;
         AOE.GetComponent<EnemyAOEProjectile>().AOEChargeTime = shootChargeTime;
 
@@ -579,7 +578,6 @@ public class Enemy : MonoBehaviour, Attacker
         aiPath.canMove = true;
     }
 
-
     public void TakeDamage(float damageAmount, bool isCrit)
     {
         if (health <= 0) return;
@@ -603,6 +601,37 @@ public class Enemy : MonoBehaviour, Attacker
             DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
             Instantiate(HitEffect, transform.position + modifier, Quaternion.identity);
 
+            //roll for DPS fudging
+            float finalDamage;
+            float randomValue = Random.value; // Generate a random number between 0 and 1
+            if (randomValue < 0.5f) // 50% chance for case 1
+            {
+                finalDamage = damageAmount;
+            }
+            else if (randomValue < 0.75f) // 25% chance for case 2
+            {
+                if (damageAmount > 1)
+                {
+                    finalDamage = damageAmount + 1;
+                }
+                else
+                {
+                    finalDamage = damageAmount;
+                }
+            }
+            else // 25% chance for case 3
+            {
+                if (damageAmount > 1)
+                {
+                    finalDamage = damageAmount - 1;
+                }
+                else
+                {
+                    finalDamage = damageAmount;
+                }
+            }
+
+
             if (!armorOn) // first hit
             {
                 if (isArmor)
@@ -612,18 +641,18 @@ public class Enemy : MonoBehaviour, Attacker
 
                 if (isCrit == true)
                 {
-                    health -= damageAmount;
-                    damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, true);
+                    health -= finalDamage;
+                    damagePopup.GetComponent<DamagePopupText>().Setup(finalDamage, true);
                 }
                 else
                 {
-                    health -= damageAmount;
-                    damagePopup.GetComponent<DamagePopupText>().Setup(damageAmount, false);
+                    health -= finalDamage;
+                    damagePopup.GetComponent<DamagePopupText>().Setup(finalDamage, false);
                 }
 
             } else //armor is now active
             {
-                float armoredDamage = damageAmount - (damageAmount * armorPercent);
+                float armoredDamage = finalDamage - (finalDamage * armorPercent);
                 health -= armoredDamage;
                 damagePopup.GetComponent<DamagePopupText>().Setup(armoredDamage, false);
 

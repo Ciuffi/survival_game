@@ -69,7 +69,7 @@ MonoBehaviour:
   critChance: 0.1
   critDmg: 1.5
   multicastChance: 0
-  multicastWaitTime: 0
+  multicastWaitTime: 0.1
   multicastTimes: 0
   projectile: {fileID: 3966782872280218973, guid: dc28017651fe4414892ee44936f53fc3, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
