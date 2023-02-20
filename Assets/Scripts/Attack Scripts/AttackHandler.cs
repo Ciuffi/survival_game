@@ -52,6 +52,11 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
+    public void triggerRecoil()
+    {
+        WeaponSprite.GetComponent<WpnSpriteRecoil>().Recoil();
+    }
+
 
     IEnumerator Attack()
     {

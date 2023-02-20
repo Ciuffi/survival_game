@@ -83,8 +83,9 @@ public class Attack : MonoBehaviour, Upgrade
     private bool firstShot = true;
 
     public GameObject bulletCasing;
-
-
+    public List<GameObject> MuzzleFlashPrefab;
+    public float muzzleFlashXOffset;
+    public float muzzleFlashYOffset;
 
     private void Update()
     {
@@ -174,6 +175,10 @@ public class Attack : MonoBehaviour, Upgrade
 
             for (int i = 0; i < shotsPerAttack; i++)
             {
+                SpawnMuzzleFlash();
+                SpawnBulletCasing();
+                Player.GetComponent<AttackHandler>().triggerRecoil();
+
                 Quaternion rotation = owner.GetTransform().rotation;
                 Vector3 position = owner.GetTransform().position;
                 Vector3 direction = owner.GetDirection();
@@ -196,7 +201,6 @@ public class Attack : MonoBehaviour, Upgrade
                     p.projectileRange = range;
 
                 shotsCount++;
-                SpawnBulletCasing();
 
                 yield return new WaitForSeconds(spread);
             }
@@ -209,6 +213,10 @@ public class Attack : MonoBehaviour, Upgrade
             float runTime = 0;
             for (int i = 0; i < shotsPerAttack; i++)
             {
+                SpawnMuzzleFlash();
+                SpawnBulletCasing();
+                Player.GetComponent<AttackHandler>().triggerRecoil();
+
                 Quaternion rotation = owner.GetTransform().rotation;
                 Vector3 position = owner.GetTransform().position;
                 Vector3 direction = owner.GetDirection();
@@ -218,7 +226,6 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.rotation = rotation;
                 p.projectileRange = range;
 
-                SpawnBulletCasing();
                 yield return new WaitForSeconds(spread);
                 runTime += Time.deltaTime;
                 if (runTime > attackTime)
@@ -258,14 +265,16 @@ public class Attack : MonoBehaviour, Upgrade
 
         if (cantMove == true)
         {
+            SpawnMuzzleFlash();
+
             if (shotsPerAttack % 2 != 0)
             {
+                SpawnBulletCasing();
                 Player.GetComponent<PlayerMovement>().StopMoving();
                 GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = owner.GetTransform().rotation;
-                SpawnBulletCasing();
             }
             else
             {
@@ -285,6 +294,7 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     angle = -angle;
                 }
+                SpawnBulletCasing();
 
                 Player.GetComponent<PlayerMovement>().StopMoving();
                 GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
@@ -293,7 +303,7 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.rotation = owner.GetTransform().rotation;
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
 
-                SpawnBulletCasing();
+                
 
             }
             yield return null;
@@ -303,13 +313,15 @@ public class Attack : MonoBehaviour, Upgrade
         }
         else
         {
+            SpawnMuzzleFlash();
+
             if (shotsPerAttack % 2 != 0)
             {
+                SpawnBulletCasing();
                 GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = owner.GetTransform().rotation;
-                SpawnBulletCasing();
             }
             else
             {
@@ -329,12 +341,12 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     angle = -angle;
                 }
+                SpawnBulletCasing();
                 GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = owner.GetTransform().rotation;
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-                SpawnBulletCasing();
             }
             yield return null;
 
@@ -520,7 +532,25 @@ public class Attack : MonoBehaviour, Upgrade
 
     }
 
-    public void SpawnBulletCasing()
+    public void SpawnMuzzleFlash()
+    {
+        if (MuzzleFlashPrefab.Count == 0)
+        {
+            return;
+        }
+
+        // Select a random MuzzleFlashPrefab from the list
+        GameObject selectedPrefab = MuzzleFlashPrefab[Random.Range(0, MuzzleFlashPrefab.Count)];
+        // Instantiate the selected MuzzleFlashPrefab at the specified position
+        Vector3 spawnPosition = transform.position + new Vector3(muzzleFlashXOffset, muzzleFlashYOffset, 0f);
+
+        GameObject MuzzleFlash = Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
+
+        Quaternion rotation = owner.GetTransform().rotation;
+        MuzzleFlash.transform.rotation = rotation;
+    }
+
+public void SpawnBulletCasing()
     {
         if (bulletCasing == null)
         {
@@ -532,7 +562,7 @@ public class Attack : MonoBehaviour, Upgrade
             float yModifier = Random.Range(-0.05f, 0.1f);
 
             // Calculate position for the new object
-            Vector3 spawnPosition = transform.position + new Vector3(xModifier + 0.5f, yModifier - 0.5f, 0f);
+            Vector3 spawnPosition = transform.position + new Vector3(xModifier + 0.5f, yModifier - 0.1f, 0f);
 
             // Instantiate the new object
             GameObject newBulletCasing = Instantiate(bulletCasing, spawnPosition, Quaternion.identity);

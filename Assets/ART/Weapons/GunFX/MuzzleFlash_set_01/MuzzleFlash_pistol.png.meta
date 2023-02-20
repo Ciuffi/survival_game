@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c945e935759a70b4dbe5ce6ea12eedf8
+guid: 6489fb9898a54b34e8a251161629f6f7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,358 +129,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MuzzleFlash_big_0
+      name: MuzzleFlash_pistol_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3328
-        width: 216
+        x: 256
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.14007151, y: 0.49450698}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e1e87635badf6e4e8de6c1d64b0e5a6
-      internalID: 1015980574
+      spriteID: a1029e64a9478944bb518355861f79ae
+      internalID: 808435615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_1
+      name: MuzzleFlash_pistol_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3200
-        width: 216
+        x: 512
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.12633896, y: 0.49450698}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7d95ecaf542cc2478e779dfea6ca0ce
-      internalID: -256187243
+      spriteID: bbdebe6bf5e5fc34e8e95ae4a9470f4d
+      internalID: -88894644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_2
+      name: MuzzleFlash_pistol_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3072
-        width: 216
+        x: 768
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.1290853, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af0df2ad5252b3e48adb7ef3d8ac4e9c
-      internalID: -1753704790
+      spriteID: 29b6303fce5badb46ba983ad65f52d5d
+      internalID: 1483735118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_3
+      name: MuzzleFlash_pistol_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2944
-        width: 216
+        x: 1024
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.13183165, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0da6623272db06498f273e714d91c6b
-      internalID: 1198160037
+      spriteID: 09d76aac39372e044b6692dada695047
+      internalID: -599248742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_4
+      name: MuzzleFlash_pistol_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2816
-        width: 216
+        x: 1279
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.120845795, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37597778aa4983948952dbe80c76420d
-      internalID: -373952883
+      spriteID: d464871ce3192ba41be7faecee314be5
+      internalID: 1812888700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_5
+      name: MuzzleFlash_pistol_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2688
-        width: 216
+        x: 1536
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.12359238, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f23b04bd1b1a154ab77fd7ea289109c
-      internalID: -1471994498
+      spriteID: e1d04f8a4939c1a42962963b6dd7fe33
+      internalID: 1659253454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_6
+      name: MuzzleFlash_pistol_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2560
-        width: 216
+        x: 1792
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.120845795, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efa2bd58e3f1dee45bbdd97d13122dce
-      internalID: 1716104536
+      spriteID: 50a58bee46df6de4dbbba8df16a9835f
+      internalID: -1206350643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_7
+      name: MuzzleFlash_pistol_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2432
-        width: 216
+        x: 2048
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.11809921, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e817091247f9b4146bada5db80bc040d
-      internalID: -1204598540
+      spriteID: 6a2cf561cd61d4d4c9d39e82e46a8ed2
+      internalID: 1061686992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_8
+      name: MuzzleFlash_pistol_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2304
-        width: 216
+        x: 2303
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.13183117, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a65a61b2df1065f4e94b250d8a8d4ddc
-      internalID: 1820148353
+      spriteID: 15a5ffd6467389c4c8730211eaf4b367
+      internalID: -1292222277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_9
+      name: MuzzleFlash_pistol_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2176
-        width: 216
+        x: 2560
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.14007092, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a82fc713b2b25a14687d7f58af6262d8
-      internalID: 2084848781
+      spriteID: 8a7f3c290038f464ea8634d762be23a5
+      internalID: 1287180712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_big_10
+      name: MuzzleFlash_pistol_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2048
-        width: 216
+        x: 2816
+        y: 0
+        width: 256
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 364c6a983a3e04e4891b581eb3b7fbcf
-      internalID: -1634813209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuzzleFlash_big_11
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1920
-        width: 216
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ece21e88e9dfe0a49ad10d14e0f06e5a
-      internalID: 423079779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuzzleFlash_big_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1792
-        width: 216
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ff3c46e373c91e46894c82e55b422dd
-      internalID: -1504056520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuzzleFlash_big_13
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1664
-        width: 216
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5089044bda3594b49b0b572b2d5c8f30
-      internalID: 888106323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuzzleFlash_big_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1536
-        width: 216
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac66e2a543c32c042adbbbc868884de5
-      internalID: -419668438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuzzleFlash_big_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1408
-        width: 216
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94a0596bab4a2fa46a69d8d6971d3860
-      internalID: 1587393496
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuzzleFlash_big_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1280
-        width: 216
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35767bc399f00494c8c0346d6e4f085c
-      internalID: 208894452
+      spriteID: 9f0533ad1c43b134099e7f61220b29a7
+      internalID: -111786986
       vertices: []
       indices: 
       edges: []
@@ -496,23 +370,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MuzzleFlash_big_13: 888106323
-      MuzzleFlash_big_4: -373952883
-      MuzzleFlash_big_5: -1471994498
-      MuzzleFlash_big_7: -1204598540
-      MuzzleFlash_big_8: 1820148353
-      MuzzleFlash_big_0: 1015980574
-      MuzzleFlash_big_11: 423079779
-      MuzzleFlash_big_15: 1587393496
-      MuzzleFlash_big_12: -1504056520
-      MuzzleFlash_big_16: 208894452
-      MuzzleFlash_big_10: -1634813209
-      MuzzleFlash_big_6: 1716104536
-      MuzzleFlash_big_3: 1198160037
-      MuzzleFlash_big_9: 2084848781
-      MuzzleFlash_big_2: -1753704790
-      MuzzleFlash_big_14: -419668438
-      MuzzleFlash_big_1: -256187243
+      MuzzleFlash_pistol_6: -1206350643
+      MuzzleFlash_pistol_9: 1287180712
+      MuzzleFlash_pistol_2: 1483735118
+      MuzzleFlash_pistol_3: -599248742
+      MuzzleFlash_pistol_7: 1061686992
+      MuzzleFlash_pistol_4: 1812888700
+      MuzzleFlash_pistol_0: 808435615
+      MuzzleFlash_pistol_1: -88894644
+      MuzzleFlash_pistol_5: 1659253454
+      MuzzleFlash_pistol_10: -111786986
+      MuzzleFlash_pistol_8: -1292222277
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

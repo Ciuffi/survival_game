@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4053501027209517258}
   - component: {fileID: 5265363277415141257}
   m_Layer: 0
-  m_Name: BulletExplosion_Red_Death
+  m_Name: BloodExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 65
+      scalar: 80
       minScalar: 5
       maxCurve:
         serializedVersion: 2

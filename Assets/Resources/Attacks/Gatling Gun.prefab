@@ -48,6 +48,8 @@ MonoBehaviour:
   damageUP: 4
   spread: 0.015
   spreadUP: 0.01
+  spray: 0
+  sprayThreshold: 0
   castTime: 2.5
   castTimeUP: 2.5
   attackTime: 0
@@ -94,3 +96,11 @@ MonoBehaviour:
   thrownSprite: {fileID: 21300000, guid: 2f20f346704b27f4ea2714ce8d212040, type: 3}
   throwSpeed: 6
   bulletCasing: {fileID: 2526348467587405025, guid: 166bb49c7f97f5a40af167155fe98935, type: 3}
+  MuzzleFlashPrefab:
+  - {fileID: 8422627715611780671, guid: 169266121d9c11d4882c377d24ef8547, type: 3}
+  - {fileID: 4447084896096771649, guid: 6dc463e19391ccf44ba866b6b20b9506, type: 3}
+  - {fileID: 9150804653361220647, guid: ae011fb9fc8afd5448eb267605d49239, type: 3}
+  - {fileID: 5610606700805667710, guid: a996571025eb2d84dbf0dbb209c5a138, type: 3}
+  - {fileID: 713053149902008299, guid: c598dfa87a68bd94b82ec6305062eff0, type: 3}
+  muzzleFlashXOffset: 0
+  muzzleFlashYOffset: 0

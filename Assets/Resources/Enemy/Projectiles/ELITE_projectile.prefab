@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1569727117
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 0.30975705, b: 0.2352941, a: 1}
@@ -104,7 +104,6 @@ MonoBehaviour:
   projectileRange: 5
   knockback: 0
   spawnPos: {x: 0, y: 0}
-  ComboManager: {fileID: 6978388920087963452, guid: 148251fbb18745e4a82e164ffd9b921a, type: 3}
   pierce: 0
   isBounce: 0
   bounceRange: 0
@@ -113,15 +112,27 @@ MonoBehaviour:
   meleeTime: 0
   startup: 0
   active: 0
-  recovery: 0
-  damageTick: 0
   scaleSpeed: 0
   disappearSpeed: 0
   isCrit: 0
-  Camera: {fileID: 1975490170140608066, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
+  onHitParticle: {fileID: 0}
   playerShakeTime: 0.4
   playerShakeStrength: 0.3
   playerShakeRotation: 10
+  damageTickDuration: 0
+  startPos: {x: 0, y: 0, z: 0}
+  isThrown: 0
+  isHover: 0
+  hoverTimer: 0
+  hitFirstEnemy: 0
+  isAnimated: 0
+  isMagnet: 0
+  magnetStrength: 0
+  magnetDuration: 0
+  isSlow: 0
+  slowActiveSpeed: 0
+  slowPercentage: 0
+  slowDuration: 0
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4

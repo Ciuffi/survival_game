@@ -4029,7 +4029,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1602682635
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a3dde6c56a59c404db0811eba5151613, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.6666667}
@@ -5060,7 +5060,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1602682635
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3617467820282214e8ca2b574ba4196f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.6666667}
@@ -7250,7 +7250,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1602682635
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 7
   m_Sprite: {fileID: -2012959645, guid: d7baced0b1becbb438c4f49e840ca663, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7821,54 +7821,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 245826999818329378, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: meleeSpacer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 704343597619721840, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 704343597619721846, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: bulletCasing
-      value: 
-      objectReference: {fileID: 2526348467587405025, guid: 166bb49c7f97f5a40af167155fe98935, type: 3}
-    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: spray
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: spread
-      value: 0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: bulletCasing
-      value: 
-      objectReference: {fileID: 2526348467587405025, guid: 166bb49c7f97f5a40af167155fe98935, type: 3}
-    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: shotsPerAttack
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: sprayThreshold
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: multicastChance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: multicastWaitTime
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3018613439738762412, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: spray
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3018613439738762412, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: sprayThreshold
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -9655,6 +9607,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7313015711702768581, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
   m_PrefabInstance: {fileID: 7313015712638807194}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1481340773
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481340767}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1483606509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14793,6 +14766,18 @@ PrefabInstance:
     - target: {fileID: 6078006631497137502, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845398078285996823, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: recoilForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845398078285996823, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: recoilDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845398078285996823, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: recoveryDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7313015711702768581, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: m_Name

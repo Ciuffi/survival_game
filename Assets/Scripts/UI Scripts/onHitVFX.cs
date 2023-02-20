@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class onHitVFX : MonoBehaviour
 {
-
+    public float deathTimer;
     public float disappearTimer;
     public float disappearSpeed;
 
@@ -18,14 +18,20 @@ public class onHitVFX : MonoBehaviour
 
     SpriteRenderer sprite;
 
+    public bool noSpriteRend;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        sprite = gameObject.GetComponent<SpriteRenderer>();
-        sortingOrder++;
-        sprite.sortingOrder = sortingOrder;
+        if (!noSpriteRend)
+        {
+            sprite = gameObject.GetComponent<SpriteRenderer>();
+            sortingOrder++;
+            sprite.sortingOrder = sortingOrder;
+        }
+        
+   
     }
 
     // Update is called once per frame
@@ -33,7 +39,7 @@ public class onHitVFX : MonoBehaviour
     {
     
         disappearTimer -= Time.deltaTime;
-
+        deathTimer -= Time.deltaTime;
 
         if (disappearTimer > disappearTimerMax * 0.8f)
         {
@@ -48,7 +54,7 @@ public class onHitVFX : MonoBehaviour
         }
 
 
-        if (disappearTimer < 0)
+        if (disappearTimer < 0 && !noSpriteRend)
         {
             alphaSpeed = disappearSpeed * Time.deltaTime;
             sprite.color -= new Color(0, 0, 0, alphaSpeed);
@@ -57,11 +63,7 @@ public class onHitVFX : MonoBehaviour
 
 
 
-        if (sprite.color.a < 0)
-        {
-            Destroy(gameObject);
-        }
-        if (transform.localScale.x < 0)
+        if (deathTimer < 0)
         {
             Destroy(gameObject);
         }

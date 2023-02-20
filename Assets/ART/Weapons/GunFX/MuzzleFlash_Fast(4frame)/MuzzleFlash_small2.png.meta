@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 944e66cb45e855940a7dcf9b89ab9f76
+guid: 33a426b4091ce6f4b9599dfcce089e2e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,85 +129,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gunFlash5_0
+      name: MuzzleFlash_small2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 320
-        height: 199
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 127
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a09ca4edb9277fa41ac493b1e058d0b1
-      internalID: -56744422
+      spriteID: e405d1d6d05e2ac478a6fe5887d2b460
+      internalID: 1080007712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunFlash5_1
+      name: MuzzleFlash_small2_1
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 320
-        height: 199
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 127
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7dcd13ee1912514d97431005b440671
-      internalID: 294414206
+      spriteID: 4befbadd91ac69f45b60065284c106e4
+      internalID: -2014856332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunFlash5_2
+      name: MuzzleFlash_small2_2
       rect:
         serializedVersion: 2
         x: 640
         y: 0
         width: 320
-        height: 199
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 127
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac30bc4d6d364be42a7b211fbe11ce22
-      internalID: 690235397
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gunFlash5_3
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 320
-        height: 199
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f813280bf29a7a41bbf7b613d8e4899
-      internalID: -124976444
+      spriteID: 6a2842eda88a7e64ba87fdef02d8c50f
+      internalID: -1166087021
       vertices: []
       indices: 
       edges: []
@@ -223,10 +202,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gunFlash5_3: -124976444
-      gunFlash5_0: -56744422
-      gunFlash5_1: 294414206
-      gunFlash5_2: 690235397
+      MuzzleFlash_small2_1: -2014856332
+      MuzzleFlash_small2_2: -1166087021
+      MuzzleFlash_small2_0: 1080007712
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
