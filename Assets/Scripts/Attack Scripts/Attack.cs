@@ -9,6 +9,9 @@ public class Attack : MonoBehaviour, Upgrade
 
     public float spread;
     public float spreadUP;
+    public float spray;
+    public int sprayThreshold;
+    private int shotsCount = 0;
 
     public float castTime;
     public float castTimeUP;
@@ -78,6 +81,9 @@ public class Attack : MonoBehaviour, Upgrade
     public Sprite thrownSprite;
     public float throwSpeed;
     private bool firstShot = true;
+
+    public GameObject bulletCasing;
+
 
 
     private void Update()
@@ -171,17 +177,27 @@ public class Attack : MonoBehaviour, Upgrade
                 Quaternion rotation = owner.GetTransform().rotation;
                 Vector3 position = owner.GetTransform().position;
                 Vector3 direction = owner.GetDirection();
+                Vector3 spreadDirection = new Vector3(0, 0, 0);
 
                 Player.GetComponent<PlayerMovement>().StopMoving(); //stop moving before shooting
 
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
+                if (shotsCount >= sprayThreshold) // calculate spray pattern
+                {
+                    float spread = spray * (shotsCount - sprayThreshold + 1);
+                    float randomSpread = Random.Range(-spread, spread);
+                    spreadDirection = new Vector3(randomSpread, randomSpread, randomSpread);
+                    direction += spreadDirection;
+                }
+
+                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
                     Projectile p = projectileGO.GetComponent<Projectile>();
                     p.attack = this;
                     p.transform.rotation = rotation;
                     p.projectileRange = range;
-             
 
-            
+                shotsCount++;
+                SpawnBulletCasing();
+
                 yield return new WaitForSeconds(spread);
             }
             Player.GetComponent<PlayerMovement>().StartMoving();
@@ -201,6 +217,8 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 p.transform.rotation = rotation;
                 p.projectileRange = range;
+
+                SpawnBulletCasing();
                 yield return new WaitForSeconds(spread);
                 runTime += Time.deltaTime;
                 if (runTime > attackTime)
@@ -247,6 +265,7 @@ public class Attack : MonoBehaviour, Upgrade
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = owner.GetTransform().rotation;
+                SpawnBulletCasing();
             }
             else
             {
@@ -274,6 +293,8 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.rotation = owner.GetTransform().rotation;
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
 
+                SpawnBulletCasing();
+
             }
             yield return null;
 
@@ -288,6 +309,7 @@ public class Attack : MonoBehaviour, Upgrade
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = owner.GetTransform().rotation;
+                SpawnBulletCasing();
             }
             else
             {
@@ -312,7 +334,7 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 p.transform.rotation = owner.GetTransform().rotation;
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-
+                SpawnBulletCasing();
             }
             yield return null;
 
@@ -441,6 +463,7 @@ public class Attack : MonoBehaviour, Upgrade
     public void Shoot()
     {
         firstShot = true;
+        shotsCount = 0;
         rollMulticast();
         switch (attackType)
         {
@@ -495,7 +518,27 @@ public class Attack : MonoBehaviour, Upgrade
             p.transform.rotation = rotation;
         }
 
-}
+    }
+
+    public void SpawnBulletCasing()
+    {
+        if (bulletCasing == null)
+        {
+            return;
+        } else
+        {
+            // Calculate random position modifiers
+            float xModifier = Random.Range(-0.075f, 0.075f);
+            float yModifier = Random.Range(-0.05f, 0.1f);
+
+            // Calculate position for the new object
+            Vector3 spawnPosition = transform.position + new Vector3(xModifier + 0.5f, yModifier - 0.5f, 0f);
+
+            // Instantiate the new object
+            GameObject newBulletCasing = Instantiate(bulletCasing, spawnPosition, Quaternion.identity);
+
+        }
+    }
 
 
     // Start is called before the first frame update

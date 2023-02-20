@@ -111,6 +111,7 @@ public class Enemy : MonoBehaviour, Attacker
     private Vector3 magnetTarget;
     private float magnetStrength;
     private float magnetDuration;
+    private bool magnetIsMelee;
     private float magnetStartTime;
 
     private float animSpeed;
@@ -153,11 +154,12 @@ public class Enemy : MonoBehaviour, Attacker
 
     }
 
-    public void StartMagnet(float strength, float duration, Vector3 targetPos)
+    public void StartMagnet(float strength, float duration, Vector3 target, bool isMelee)
     {
         magnetStrength = strength;
         magnetDuration = duration;
-        magnetTarget = targetPos;
+        magnetIsMelee = isMelee;
+        magnetTarget = target;
         magnetStartTime = Time.time;
     }
 
@@ -220,16 +222,24 @@ public class Enemy : MonoBehaviour, Attacker
         //magnetizing effect
         if (magnetDuration > 0 && Time.time < magnetStartTime + magnetDuration)
         {
-            float magDistance = Vector3.Distance(transform.position, magnetTarget);
-            if (magDistance > magnetMinDistance)
+            float magDistance = Vector3.Distance(transform.position, player.transform.position);
+            if (magnetIsMelee) //if is meleeAttack, check distance and stop if too close to player
+            {
+                if (magDistance > magnetMinDistance)
+                {
+                    float t = (Time.time - magnetStartTime) / magnetDuration;
+                    t = EaseInOutCubic(t);
+                    transform.position = Vector3.Lerp(transform.position, magnetTarget, t * magnetStrength * Time.deltaTime);
+                }
+                else
+                {
+                    magnetDuration = 0;
+                }
+            } else //not melee, no need to check
             {
                 float t = (Time.time - magnetStartTime) / magnetDuration;
                 t = EaseInOutCubic(t);
                 transform.position = Vector3.Lerp(transform.position, magnetTarget, t * magnetStrength * Time.deltaTime);
-            }
-            else
-            {
-                magnetDuration = 0;
             }
         }
         else

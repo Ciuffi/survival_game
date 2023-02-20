@@ -50,7 +50,7 @@ MonoBehaviour:
   spreadUP: 0.01
   castTime: 2.5
   castTimeUP: 2.5
-  attackTimeUp: 0
+  attackTime: 0
   recoveryTime: 0
   recoveryTimeUp: 0
   range: 5
@@ -66,7 +66,10 @@ MonoBehaviour:
   pierceUP: 1
   critChance: 0.1
   critDmg: 1.5
-  projectile: {fileID: 7701179586538486497, guid: 6ae59e43ad7f5564d88443c339ef7519, type: 3}
+  multicastChance: 0
+  multicastWaitTime: 0
+  multicastTimes: 0
+  projectile: {fileID: 4235860010000021921, guid: ce7a0faf6273b8f40a6e585d96875d42, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
@@ -75,17 +78,19 @@ MonoBehaviour:
   MeleeAttack: {fileID: 0}
   isToss: 0
   comboLength: 0
-  meleeScale: 0
+  comboWaitTime: 0
+  comboAttackBuff: 0
+  meleeShotsScaleUp: 0
   meleeSpacer: 0
   meleeSpacerGap: 0
-  comboWaitTime: 0
+  swapAnimOnAttack: 0
   shakeTime: 0
   shakeStrength: 0
   shakeRotation: 0
-  attackBuff: 0
-  weaponSprite: {fileID: 21300000, guid: c0c723adc4f0ca5479ef3ead48687125, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 1b7644ce6cd52254780011da79539b6c, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: 3e9e32f8a707b2047a09a62b3abf5bec, type: 3}
+  thrownSprite: {fileID: 21300000, guid: 2f20f346704b27f4ea2714ce8d212040, type: 3}
   throwSpeed: 6
+  bulletCasing: {fileID: 2526348467587405025, guid: 166bb49c7f97f5a40af167155fe98935, type: 3}

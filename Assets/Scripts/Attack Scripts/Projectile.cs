@@ -282,7 +282,7 @@ public class Projectile : MonoBehaviour
                     {
                         magnetStartPos = Player.transform.position;
                     }
-                    magnetTarget.GetComponent<Enemy>().StartMagnet(magnetStrength, magnetDuration, magnetStartPos);
+                    magnetTarget.GetComponent<Enemy>().StartMagnet(magnetStrength, magnetDuration, magnetStartPos, isMelee);
                 }
 
                 //apply slow effect

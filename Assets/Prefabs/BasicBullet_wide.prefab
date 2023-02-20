@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 36fcd6d37bfe6e446b9f492f5e8e0388, type: 3}
-  m_Color: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 0.78431374}
+  m_Color: {r: 1, g: 0.6179246, b: 0.6179246, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -211,6 +211,13 @@ MonoBehaviour:
   hoverTimer: 0
   hitFirstEnemy: 0
   isAnimated: 0
+  isMagnet: 0
+  magnetStrength: 0
+  magnetDuration: 0
+  isSlow: 0
+  slowActiveSpeed: 0
+  slowPercentage: 0
+  slowDuration: 0
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4
