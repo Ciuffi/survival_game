@@ -17,12 +17,14 @@ public class AttackHandler : MonoBehaviour
     
     private Slider attackBar;
     private Image attackBarImage;
+    private Slider attackBar2;
+    private Image attackBarImage2;
     private GameObject defaultWeapon;
     public Color[] colors = {
         Color.blue,
         Color.green,
-        Color.yellow,
-        new Color(255, 177, 0),
+        new Color(255, 231, 9),
+        new Color(255, 146, 8),
         Color.red,
         Color.magenta
     };
@@ -34,15 +36,21 @@ public class AttackHandler : MonoBehaviour
         float timer = 0;
         while (true)
         {
-            if (timer == 0) attackBarImage.color = colors[attackIndex];
+            if (timer == 0)
+            {
+                attackBarImage.color = colors[attackIndex];
+                attackBarImage2.color = colors[attackIndex];
+            }
 
             Color currentColor = attackBarImage.color;
-            currentColor.a = 0.5f;
+            currentColor.a = 0.175f;
             attackBarImage.color = currentColor;
-            
+            attackBarImage2.color = currentColor;
+
             timer += Time.deltaTime;
             float progress = Mathf.Clamp01(timer / castTime);
             attackBar.value = progress;
+            attackBar2.value = progress;
             yield return new WaitForEndOfFrame();
             if (timer >= castTime)
             {
@@ -162,6 +170,8 @@ public class AttackHandler : MonoBehaviour
         attackIndex = 0;
         attackBar = GameObject.Find("AttackBar").GetComponent<Slider>();
         attackBarImage = attackBar.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        attackBar2 = GameObject.Find("AttackBar2").GetComponent<Slider>();
+        attackBarImage2 = attackBar2.transform.GetChild(1).GetChild(0).GetComponent<Image>();
         attackContainer = new List<Transform>(GetComponentsInChildren<Transform>()).Find(t =>
         {
             return t.name == "Weapons";
