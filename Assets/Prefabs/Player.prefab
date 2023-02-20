@@ -613,8 +613,8 @@ MonoBehaviour:
   health: 100
   baseMaxHealth: 100
   maxHealth: 100
-  speed: 0.05
-  baseSpeed: 0.05
+  speed: 0.04
+  baseSpeed: 0.04
   damageMultipler: 0
   critChance: 0
   baseCritChance: 0
@@ -872,6 +872,14 @@ PrefabInstance:
     - target: {fileID: 8031494702477308491, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
       propertyPath: spread
       value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031494702477308491, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
+      propertyPath: knockback
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031494702477308491, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
+      propertyPath: knockbackUP
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8031494702477308491, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
       propertyPath: bulletCasing

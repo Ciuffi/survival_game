@@ -79,7 +79,7 @@ public class EnemyAOEProjectile : MonoBehaviour
         else if (recoveryPhase)
         {
             // Perform recovery actions here
-            float alpha = 0.25f;
+            float alpha = 0f;
             newSpriteObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
 
             currentTimer -= Time.deltaTime;

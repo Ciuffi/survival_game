@@ -57,12 +57,12 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 5
   rangeUP: 10
-  shotsPerAttack: 1
-  shotsPerAttackUP: 1
+  shotsPerAttack: 3
+  shotsPerAttackUP: 3
   cantMove: 0
   speed: 0.08
   speedUP: 0.12
-  knockback: 10
+  knockback: 8
   knockbackUP: 10
   pierce: 0
   pierceUP: 0
@@ -79,8 +79,8 @@ MonoBehaviour:
   attackType: 5
   MeleeAttack: {fileID: 4908858350499337675, guid: 79bd9af28726ad84d83073065b56f545, type: 3}
   isToss: 0
-  comboLength: 3
-  comboWaitTime: 0.75
+  comboLength: 1
+  comboWaitTime: 1
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
   meleeSpacer: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
   swapAnimOnAttack: 0
   shakeTime: 0.1
   shakeStrength: 0.2
-  shakeRotation: 4
+  shakeRotation: 3
   weaponSprite: {fileID: 21300000, guid: 5c248971bf0b7cb42a4018a04508aa42, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}

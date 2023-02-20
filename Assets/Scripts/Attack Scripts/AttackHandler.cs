@@ -57,6 +57,22 @@ public class AttackHandler : MonoBehaviour
         WeaponSprite.GetComponent<WpnSpriteRecoil>().Recoil();
     }
 
+    public void triggerWpnOff()
+    {
+        Attack currentAttack = attacks[attackIndex];
+        StartCoroutine(WpnSpriteOff(currentAttack.comboWaitTime/1.5f));
+    }
+
+    IEnumerator WpnSpriteOff(float duration)
+    {
+       
+        WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(duration);
+
+        WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
 
     IEnumerator Attack()
     {

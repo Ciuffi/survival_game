@@ -96,7 +96,7 @@ public class Attack : MonoBehaviour, Upgrade
         else if (attackType == AttackTypes.Melee)
         {
             // Add the definition for Melee attack type
-            attackTime = (1+comboLength) * comboWaitTime + (multicastTimes * multicastWaitTime);
+            attackTime = comboLength * comboWaitTime + (spread * shotsPerAttack) + (multicastTimes * multicastWaitTime);
         }
         else
         {
@@ -356,6 +356,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     private IEnumerator Melee()
     {
+
         if (multicastTimes >= 1 && !firstShot)
         {
             yield return new WaitForSeconds(multicastWaitTime * numMulticast);
@@ -385,6 +386,8 @@ public class Attack : MonoBehaviour, Upgrade
 
         for (int i = 0; i < comboLength; i++)
         {
+            Player.GetComponent<AttackHandler>().triggerWpnOff();
+
             Vector3 position = owner.GetTransform().position;
             Vector3 direction = owner.GetDirection();
             Quaternion rotation = owner.GetTransform().rotation;
@@ -396,7 +399,6 @@ public class Attack : MonoBehaviour, Upgrade
             //chain spawn 
             for (int c = 0; c < shotsPerAttack; c++)
             {
-
                     Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
                     GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
                     Projectile p = projectileGO.GetComponent<Projectile>();
@@ -574,7 +576,6 @@ public void SpawnBulletCasing()
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(attackTime);
 
         if (projectile == null)
         {
