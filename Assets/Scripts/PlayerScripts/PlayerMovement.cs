@@ -18,7 +18,10 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
     public Animator animator;
     public GameObject WeaponSprite;
- 
+
+    public GameObject afterimage;
+    private Animator afterimageAnim;
+    private SpriteRenderer afterimageRend;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,8 @@ public class PlayerMovement : MonoBehaviour, Attacker
         canMove = true;
         oldSpeed = 0;
         localSpeed = 0;
-       
+        afterimageAnim = afterimage.GetComponent<Animator>();
+        afterimageRend = afterimage.GetComponent<SpriteRenderer>();
     }
 
     void Move()
@@ -36,8 +40,12 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
         if (VJ.InputDirection.magnitude == 0)
         {
+            afterimageRend.enabled = false;
             return;
         }
+
+        afterimageRend.enabled = true;
+
         float InputY = VJ.InputDirection.y * 100;
         float InputX = VJ.InputDirection.x * 100;
         float TransformY = transform.position.y;
@@ -51,10 +59,12 @@ public class PlayerMovement : MonoBehaviour, Attacker
         direction = VJ.InputDirection;
 
         WeaponSprite.GetComponent<WpnSpriteRotation>().InputXY(x, y);
+
+
     }
 
 
-    
+
 
     // Update is called once per frame
     void Update()
@@ -71,6 +81,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
         if (canMove == true)
         {
             animator.SetBool("IsMoving", isMoving);
+            afterimageAnim.SetBool("IsMoving", isMoving);
         }
 
     }
@@ -79,12 +90,14 @@ public class PlayerMovement : MonoBehaviour, Attacker
     {
         canMove = false;
         animator.SetBool("IsMoving", false);
+        afterimageAnim.SetBool("IsMoving", false);
         oldSpeed = localSpeed;
         localSpeed = 0;
     }
     public void StartMoving()
     {
         animator.SetBool("IsMoving", isMoving);
+        afterimageAnim.SetBool("IsMoving", isMoving);
         localSpeed = oldSpeed;
         canMove = true;
     }

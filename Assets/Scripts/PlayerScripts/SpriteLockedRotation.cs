@@ -12,6 +12,7 @@ public class SpriteLockedRotation : MonoBehaviour
     Vector3 SpawnPos;
     private Vector3 relativePosition;
     private Transform parentTransform;
+    private Transform originalTransform;
 
     // Start is called before the first frame update
     void Start()

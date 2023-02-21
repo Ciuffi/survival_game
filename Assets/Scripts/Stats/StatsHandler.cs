@@ -36,6 +36,7 @@ public class StatsHandler : MonoBehaviour
     private GameObject StatContainer;
 
     public Animator animator;
+    public Animator afterimageAnim;
     GameObject ComboManager;
 
     public GameObject Sprite;
@@ -60,7 +61,8 @@ public class StatsHandler : MonoBehaviour
             canDamage = false;
             float newHealth = health - damageAmount + defense;
             animator.SetBool("TookDamage", true);
-            
+            afterimageAnim.SetBool("TookDamage", true);
+
             spriteRend.material = newMaterial;
             if (!resetMaterial)
             {
@@ -97,6 +99,7 @@ public class StatsHandler : MonoBehaviour
         if (IFtimer >= Iframes)
         {
             animator.SetBool("TookDamage", false);
+            afterimageAnim.SetBool("TookDamage", false);
             canDamage = true;
         }
 
