@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1402542767, guid: 73630d6a5960629439fc69f87cc35d92, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.56078434}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7294118}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -293,8 +293,8 @@ MonoBehaviour:
   magnetStrength: 9
   magnetDuration: 0.5
   isSlow: 1
-  slowPercentage: 0.3
-  slowDuration: 1
+  slowPercentage: 0.25
+  slowDuration: 1.5
 --- !u!50 &7860753979652903893
 Rigidbody2D:
   serializedVersion: 4
@@ -574,7 +574,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1402542767, guid: 73630d6a5960629439fc69f87cc35d92, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.45490196}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -679,7 +679,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1402542767, guid: 73630d6a5960629439fc69f87cc35d92, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.65882355}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8784314}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
