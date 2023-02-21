@@ -387,7 +387,6 @@ public class Attack : MonoBehaviour, Upgrade
         for (int i = 0; i < comboLength; i++)
         {
             Player.GetComponent<AttackHandler>().triggerWpnOff();
-
             Vector3 position = owner.GetTransform().position;
             Vector3 direction = owner.GetDirection();
             Quaternion rotation = owner.GetTransform().rotation;
@@ -479,6 +478,7 @@ public class Attack : MonoBehaviour, Upgrade
         firstShot = true;
         shotsCount = 0;
         rollMulticast();
+
         switch (attackType)
         {
             case AttackTypes.SingleShot:

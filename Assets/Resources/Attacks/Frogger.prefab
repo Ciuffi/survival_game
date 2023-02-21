@@ -76,7 +76,7 @@ MonoBehaviour:
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
-  attackType: 5
+  attackType: 2
   MeleeAttack: {fileID: 4908858350499337675, guid: 79bd9af28726ad84d83073065b56f545, type: 3}
   isToss: 0
   comboLength: 1

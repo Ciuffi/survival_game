@@ -147,6 +147,13 @@ MonoBehaviour:
   hoverTimer: 0
   hitFirstEnemy: 0
   isAnimated: 0
+  isMagnet: 0
+  magnetStrength: 0
+  magnetDuration: 0
+  isSlow: 0
+  slowActiveSpeed: 0
+  slowPercentage: 0
+  slowDuration: 0
 --- !u!50 &7860753979652903893
 Rigidbody2D:
   serializedVersion: 4
@@ -178,7 +185,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.04456377, y: 0.6467055}

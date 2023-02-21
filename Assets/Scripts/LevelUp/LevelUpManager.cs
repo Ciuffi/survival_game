@@ -127,7 +127,7 @@ public class LevelUpManager : MonoBehaviour
     public void ShowLevelUpUI()
     {
         Instantiate(VFX, transform.position, Quaternion.identity, transform);
-        StartCoroutine(WaitForTime(0.6f));
+        StartCoroutine(WaitForTime(0.4f));
     }
 
     private IEnumerator WaitForTime(float waitTime)

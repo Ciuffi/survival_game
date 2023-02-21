@@ -21,10 +21,10 @@ public class AttackHandler : MonoBehaviour
     private Image attackBarImage2;
     private GameObject defaultWeapon;
     public Color[] colors = {
-        Color.blue,
-        Color.green,
-        new Color(255, 231, 9),
         new Color(255, 146, 8),
+        Color.green,
+        Color.blue,
+        new Color(255, 231, 9),
         Color.red,
         Color.magenta
     };
@@ -48,11 +48,11 @@ public class AttackHandler : MonoBehaviour
             attackBarImage2.color = currentColor;
 
             timer += Time.deltaTime;
-            float progress = Mathf.Clamp01(timer / castTime);
-            attackBar.value = progress;
+            float progress = Mathf.Clamp01((timer-0.2f) / castTime);
+            attackBar.value = progress ;
             attackBar2.value = progress;
             yield return new WaitForEndOfFrame();
-            if (timer >= castTime)
+            if (timer >= castTime + 0.2f)
             {
                 timer = 0;
                 yield break;

@@ -2,10 +2,8 @@ public enum AttackTypes
 {
     SingleShot,
     Shotgun,
-    Laser,
-    Utility,
-    AOEOnPlayer,
     Melee,
+    Utility,
     Spawn,
     Custom
 }
