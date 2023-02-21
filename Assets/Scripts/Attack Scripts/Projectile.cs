@@ -146,7 +146,10 @@ public class Projectile : MonoBehaviour
                         transform.localScale -= scaleUp;
                         GetComponent<Collider2D>().enabled = false;
 
-                        animator.SetBool("Ending", true);
+                        if (isAnimated)
+                        {
+                            animator.SetBool("IsRecovery", true);
+                        }
 
 
                     }

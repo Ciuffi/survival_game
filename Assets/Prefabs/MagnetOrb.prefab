@@ -140,7 +140,7 @@ MonoBehaviour:
   playerShakeTime: 0.05
   playerShakeStrength: 0.1
   playerShakeRotation: 0.1
-  damageTickDuration: 1
+  damageTickDuration: 1.25
   startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
   isHover: 1
@@ -148,8 +148,8 @@ MonoBehaviour:
   hitFirstEnemy: 0
   isAnimated: 1
   isMagnet: 1
-  magnetStrength: 12
-  magnetDuration: 1
+  magnetStrength: 10
+  magnetDuration: 1.5
   isSlow: 0
   slowPercentage: 0
   slowDuration: 0
