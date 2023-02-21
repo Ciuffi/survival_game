@@ -7860,13 +7860,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1241652266235142548, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 515141436173596174, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2027276033989400795, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: projectile
-      value: 
+    - target: {fileID: 515141436173596174, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damageUP
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
@@ -7959,10 +7959,6 @@ PrefabInstance:
     - target: {fileID: 9136689211427610680, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9172359979600347925, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}

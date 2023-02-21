@@ -566,7 +566,7 @@ public void SpawnBulletCasing()
         {
             // Calculate random position modifiers
             float xModifier = Random.Range(-0.075f, 0.075f);
-            float yModifier = Random.Range(-0.05f, 0.1f);
+            float yModifier = Random.Range(-0.1f, 0.1f);
 
             // Calculate position for the new object
             Vector3 spawnPosition = transform.position + new Vector3(xModifier + 0.5f, yModifier - 0.1f, 0f);
