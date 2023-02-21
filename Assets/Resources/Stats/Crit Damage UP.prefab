@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5465853495475530971}
   - component: {fileID: 1218414260107360234}
   m_Layer: 0
-  m_Name: Damage UP
+  m_Name: Crit Damage UP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   extraHealth: 0
   extraMaxHealth: 0
   extraSpeed: 0
-  damageMultipler: 0.5
+  damageMultipler: 0
   extraDefense: 0
   extraShield: 0
   extraCritChance: 0
-  extraCritDmg: 0
+  extraCritDmg: 2
