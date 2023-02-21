@@ -63,8 +63,8 @@ public class Enemy : MonoBehaviour, Attacker
     Color OGcolor;
 
     private AIPath aiPath;
-    private float speed;
-    private float originalSpeed;
+    public float speed;
+    public float originalSpeed;
     private Coroutine slowCoroutine;
 
     public bool isRage;
@@ -176,46 +176,6 @@ public class Enemy : MonoBehaviour, Attacker
         }
     }
 
-    private IEnumerator SlowCoroutine(float slowActiveSpeed, float slowPercentage, float slowDuration)
-    {
-        float slowStartSpeed = speed;
-        float slowTargetSpeed = originalSpeed * slowPercentage;
-        float slowStartTime = Time.time;
-        float slowEndTime = slowStartTime + slowDuration;
-
-        while (Time.time < slowEndTime)
-        {
-            float t = (Time.time - slowStartTime) / slowDuration;
-            t = EaseInOutCubic(t);
-            speed = Mathf.Lerp(slowStartSpeed, slowTargetSpeed, t * slowActiveSpeed);
-            aiPath.maxSpeed = speed;
-            yield return null;
-        }
-
-
-        speed = originalSpeed;
-        aiPath.maxSpeed = speed;
-        StopCoroutine(slowCoroutine);
-    }
-
-    public void StartSlow(float slowActiveSpeed, float slowPercentage, float slowDuration)
-    {
-        if (slowCoroutine != null)
-        {
-            float currentPercentage = (speed / originalSpeed);
-            if (slowPercentage < currentPercentage)
-            {
-                return;
-            }
-            else
-            {
-                StopCoroutine(slowCoroutine);
-                slowCoroutine = StartCoroutine(SlowCoroutine(slowActiveSpeed, slowPercentage, slowDuration));
-
-            }
-        }
-    }
-
 
     void Update()
     {
@@ -289,7 +249,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
             if (health / maxHealth <= rageTriggerPercent && !rageTriggered)
             {
-                aiPath.maxSpeed *= rageSpeedMod;
+                aiPath.maxSpeed += rageSpeedMod;
                 animator.speed *= 1.5f;
                 damage *= rageDmgMod;
                 animator.SetBool("IsRage", true);
@@ -490,6 +450,8 @@ public class Enemy : MonoBehaviour, Attacker
 
 
     }
+
+
     IEnumerator Charge()
     {    
         yield return new WaitForSeconds(chargeTime);
@@ -660,6 +622,63 @@ public class Enemy : MonoBehaviour, Attacker
 
         }
 
+    }
+
+    public void StartSlow(float slowActiveSpeed, float slowPercentage, float slowDuration)
+    {
+        float currentPercentage = (speed / originalSpeed);
+
+        if (slowPercentage > currentPercentage)
+        {
+            return;
+        }
+        else
+        {
+            if (slowCoroutine != null)
+            {
+                StopCoroutine(slowCoroutine);
+            }
+            slowCoroutine = StartCoroutine(SlowCoroutine(slowActiveSpeed, slowPercentage, slowDuration));
+
+        }
+
+    }
+
+    private IEnumerator SlowCoroutine(float slowActiveSpeed, float slowPercentage, float slowDuration)
+    {
+        float slowStartSpeed;
+        float slowTargetSpeed;
+        float slowStartTime = Time.time;
+        float slowEndTime = slowStartTime + slowDuration;
+
+        if (!rageTriggered)
+        {
+             slowStartSpeed = speed;
+             slowTargetSpeed = originalSpeed * slowPercentage;
+        } else{
+             slowStartSpeed = speed + rageSpeedMod;
+             slowTargetSpeed = (originalSpeed + rageSpeedMod) * slowPercentage;
+        }
+
+
+        while (Time.time < slowEndTime)
+        {
+            speed = Mathf.Lerp(slowStartSpeed, slowTargetSpeed, slowActiveSpeed);
+            aiPath.maxSpeed = speed;
+            yield return null;
+        }
+
+        if (!rageTriggered)
+        {
+            speed = originalSpeed;
+            aiPath.maxSpeed = speed;
+        }
+        else
+        {
+            speed = originalSpeed;
+            aiPath.maxSpeed = speed;
+        }
+        StopCoroutine(slowCoroutine);  
     }
 
 

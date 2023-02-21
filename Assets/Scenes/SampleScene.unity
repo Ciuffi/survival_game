@@ -7860,6 +7860,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: pierceUP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 4235860010000021921, guid: 015d0a5fb0b06734581927f91e026013, type: 3}
+    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: shotsPerAttack
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 

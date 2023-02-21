@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 4235860010000021921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1.2, y: 1.3, z: 0}
+  m_LocalScale: {x: 0.9, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2046734351210729163}
@@ -215,9 +215,9 @@ MonoBehaviour:
   magnetStrength: 0
   magnetDuration: 0
   isSlow: 1
-  slowActiveSpeed: 1
-  slowPercentage: 0.5
-  slowDuration: 4
+  slowActiveSpeed: 0.5
+  slowPercentage: 0.1
+  slowDuration: 2
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4

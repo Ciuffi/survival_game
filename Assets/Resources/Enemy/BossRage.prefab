@@ -138,9 +138,11 @@ MonoBehaviour:
   rageColor: {r: 1, g: 0.18396229, b: 0.18396229, a: 0}
   disappearSpeed: 5
   isDead: 0
+  speed: 0
+  originalSpeed: 0
   isRage: 1
   rageTriggerPercent: 0.2
-  rageSpeedMod: 3
+  rageSpeedMod: 0.3
   rageDmgMod: 1.5
   isDash: 0
   chargeTime: 1
