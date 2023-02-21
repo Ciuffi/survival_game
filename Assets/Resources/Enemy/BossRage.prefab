@@ -136,7 +136,7 @@ MonoBehaviour:
   animator: {fileID: 488397711559394890}
   Sprite: {fileID: 6531945945894358812}
   rageColor: {r: 1, g: 0.18396229, b: 0.18396229, a: 0}
-  disappearSpeed: 2
+  disappearSpeed: 5
   isDead: 0
   isRage: 1
   rageTriggerPercent: 0.2

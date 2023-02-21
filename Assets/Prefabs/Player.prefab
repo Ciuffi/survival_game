@@ -315,7 +315,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8563623341070576124}
   - {fileID: 7722411929369366671}
   m_Father: {fileID: 9136689211427610630}
   m_RootOrder: 1
@@ -829,72 +828,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!1001 &1144530499820941981
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 3287956671689121399}
-    m_Modifications:
-    - target: {fileID: 1449995561756442478, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_Name
-      value: Wind Blade
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803132688626501153, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: attackType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0040000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
---- !u!4 &8563623341070576124 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8735341029624650593, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
-  m_PrefabInstance: {fileID: 1144530499820941981}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3280634846730452192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1015,7 +948,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1101605248746729227, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1101605248746729227, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1061,6 +994,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Shot
       objectReference: {fileID: 0}
+    - target: {fileID: 7092308523833330436, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031494702477308491, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
+      propertyPath: spray
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8031494702477308491, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
       propertyPath: spread
       value: 0.12
@@ -1077,6 +1018,14 @@ PrefabInstance:
       propertyPath: bulletCasing
       value: 
       objectReference: {fileID: 2526348467587405025, guid: 166bb49c7f97f5a40af167155fe98935, type: 3}
+    - target: {fileID: 8031494702477308491, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
+      propertyPath: shotsPerAttack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031494702477308491, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
+      propertyPath: sprayThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8031494702477308491, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
       propertyPath: MuzzleFlashPrefab.Array.size
       value: 5

@@ -50,8 +50,8 @@ MonoBehaviour:
   spreadUP: 0.15
   spray: 0
   sprayThreshold: 0
-  castTime: 2
-  castTimeUP: 1.5
+  castTime: 2.25
+  castTimeUP: 2
   attackTime: 0
   recoveryTime: 0
   recoveryTimeUp: 0

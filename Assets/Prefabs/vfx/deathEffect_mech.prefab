@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathTimer: 2
   disappearTimer: 0.5
-  disappearSpeed: 1
+  disappearSpeed: 3
   scaleUpAmount: 0.5
   scaleDownAmount: 0.3
   noSpriteRend: 0

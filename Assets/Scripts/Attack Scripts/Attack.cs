@@ -182,7 +182,7 @@ public class Attack : MonoBehaviour, Upgrade
                 Quaternion rotation = owner.GetTransform().rotation;
                 Vector3 position = owner.GetTransform().position;
                 Vector3 direction = owner.GetDirection();
-                Vector3 spreadDirection = new Vector3(0, 0, 0);
+                Quaternion spreadDirection;
 
                 Player.GetComponent<PlayerMovement>().StopMoving(); //stop moving before shooting
 
@@ -190,19 +190,19 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     float spread = spray * (shotsCount - sprayThreshold + 1);
                     float randomSpread = Random.Range(-spread, spread);
-                    spreadDirection = new Vector3(randomSpread, randomSpread, randomSpread);
-                    direction += spreadDirection;
+                    spreadDirection = Quaternion.Euler(0, 0, randomSpread);
+                    rotation *= spreadDirection;
                 }
 
                 GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
-                    Projectile p = projectileGO.GetComponent<Projectile>();
-                    p.attack = this;
-                    p.transform.rotation = rotation;
-                    p.projectileRange = range;
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                p.projectileRange = range;
 
-                shotsCount++;
-
+                shotsCount += 1;
                 yield return new WaitForSeconds(spread);
+                
             }
             Player.GetComponent<PlayerMovement>().StartMoving();
         }
@@ -210,7 +210,6 @@ public class Attack : MonoBehaviour, Upgrade
         {
 
             float startTime = Time.time;
-            float runTime = 0;
             for (int i = 0; i < shotsPerAttack; i++)
             {
                 SpawnMuzzleFlash();
@@ -220,18 +219,24 @@ public class Attack : MonoBehaviour, Upgrade
                 Quaternion rotation = owner.GetTransform().rotation;
                 Vector3 position = owner.GetTransform().position;
                 Vector3 direction = owner.GetDirection();
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
+                Quaternion spreadDirection;
+
+                if (shotsCount >= sprayThreshold) // calculate spray pattern
+                {
+                    float spread = spray * (shotsCount - sprayThreshold + 1);
+                    float randomSpread = Random.Range(-spread, spread);
+                    spreadDirection = Quaternion.Euler(0, 0, randomSpread);
+                    rotation *= spreadDirection;
+                }
+
+                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = rotation;
                 p.projectileRange = range;
 
+                shotsCount += 1;
                 yield return new WaitForSeconds(spread);
-                runTime += Time.deltaTime;
-                if (runTime > attackTime)
-                {
-                    yield break;
-                }
             }
         }
 
@@ -476,7 +481,6 @@ public class Attack : MonoBehaviour, Upgrade
     public void Shoot()
     {
         firstShot = true;
-        shotsCount = 0;
         rollMulticast();
 
         switch (attackType)
@@ -484,6 +488,7 @@ public class Attack : MonoBehaviour, Upgrade
             case AttackTypes.SingleShot:
                 for (int i = 0; i < (multicastTimes + 1); i++)
                 {
+                    shotsCount = 0;
                     StartCoroutine(ShootSingleShot());
                 }
                 break;

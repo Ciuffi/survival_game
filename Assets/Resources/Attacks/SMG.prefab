@@ -48,8 +48,9 @@ MonoBehaviour:
   damageUP: 5
   spread: 0.04
   spreadUP: 0.03
-  spray: 0
-  sprayThreshold: 0
+  spray: 0.2
+  sprayThreshold: 3
+  shotsCount: 0
   castTime: 1.75
   castTimeUP: 1.5
   attackTime: 0

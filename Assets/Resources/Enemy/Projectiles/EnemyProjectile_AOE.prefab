@@ -209,7 +209,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   AOEChargeTime: 0
   activeTimer: 0.5
-  recoveryTimer: 1.5
+  recoveryTimer: 0
 --- !u!61 &324262498568108676
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class EnemyAOEProjectile : MonoBehaviour
         newSpriteObject = Instantiate(spriteObject, transform.position, Quaternion.identity, transform);
         newSpriteObject.transform.parent = transform;
         newSpriteObject.transform.localScale = new Vector3(0, 0, 0);
-        newSpriteObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0.2f, 0.8f);
+        newSpriteObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0.2f, 0.5f);
         newSpriteObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
     }
@@ -80,7 +80,7 @@ public class EnemyAOEProjectile : MonoBehaviour
         {
             // Perform recovery actions here
             float alpha = 0f;
-            newSpriteObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
+            newSpriteObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, alpha);
 
             currentTimer -= Time.deltaTime;
             if (currentTimer <= 0)

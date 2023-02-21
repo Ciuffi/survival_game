@@ -48,8 +48,8 @@ MonoBehaviour:
   damageUP: 4
   spread: 0.015
   spreadUP: 0.01
-  spray: 0
-  sprayThreshold: 0
+  spray: 0.1
+  sprayThreshold: 2
   castTime: 2.5
   castTimeUP: 2.5
   attackTime: 0
@@ -60,10 +60,10 @@ MonoBehaviour:
   shotsPerAttack: 100
   shotsPerAttackUP: 150
   cantMove: 1
-  speed: 0.12
-  speedUP: 0.2
-  knockback: 5
-  knockbackUP: 8
+  speed: 0.2
+  speedUP: 0.25
+  knockback: 4
+  knockbackUP: 6
   pierce: 0
   pierceUP: 1
   critChance: 0.1
