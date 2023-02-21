@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 4
   damageUP: 6
   spread: 0.5
   spreadUP: 0.5
@@ -81,7 +81,7 @@ MonoBehaviour:
   isToss: 0
   comboLength: 3
   comboWaitTime: 0.1
-  comboAttackBuff: 0.15
+  comboAttackBuff: 0.5
   meleeShotsScaleUp: 0
   meleeSpacer: 0.9
   meleeSpacerGap: 1.25

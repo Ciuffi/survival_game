@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 18
-  damageUP: 22
+  damage: 30
+  damageUP: 50
   spread: 0.2
   spreadUP: 0.2
   spray: 0
