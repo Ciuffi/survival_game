@@ -64,8 +64,8 @@ MonoBehaviour:
   speedUP: 0.03
   knockback: 1
   knockbackUP: 2
-  pierce: 99
-  pierceUP: 99
+  pierce: 30
+  pierceUP: 60
   critChance: 0.1
   critDmg: 1.5
   multicastChance: 0

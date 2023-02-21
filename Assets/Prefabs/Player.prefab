@@ -315,7 +315,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 418154542270194048}
   - {fileID: 8969351852717861583}
   m_Father: {fileID: 9136689211427610630}
   m_RootOrder: 1
@@ -940,72 +939,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6296462738509392632, guid: 88fee1084667bab4eb1a17a5023b2ea3, type: 3}
   m_PrefabInstance: {fileID: 3280634846730452192}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7297442291959121685
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 3287956671689121399}
-    m_Modifications:
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7089685550203203867, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: muzzleFlashXOffset
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7619607172591178308, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-      propertyPath: m_Name
-      value: Gatling Gun
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
---- !u!4 &418154542270194048 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6955858341819704981, guid: fb12b331a982e8446bfecb3b898edbbe, type: 3}
-  m_PrefabInstance: {fileID: 7297442291959121685}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8300197739308533188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1015,7 +948,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1101605248746729227, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1101605248746729227, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
       propertyPath: m_LocalPosition.x
