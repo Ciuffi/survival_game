@@ -90,7 +90,7 @@ MonoBehaviour:
   originalSpeed: 0
   isRage: 1
   rageTriggerPercent: 0.25
-  rageSpeedMod: 0.6
+  rageSpeedMod: 1.7
   rageDmgMod: 1.5
   isDash: 0
   chargeTime: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 0.6
+  maxSpeed: 0.8
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

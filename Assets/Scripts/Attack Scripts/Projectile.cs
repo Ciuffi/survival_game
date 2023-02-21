@@ -63,11 +63,9 @@ public class Projectile : MonoBehaviour
     public float magnetDuration;
 
     public bool isSlow;
-    public float slowActiveSpeed;
     public float slowPercentage;
     public float slowDuration;
 
-    private bool isMagnetizing = false;
     private Transform magnetTarget;
     private float magnetStartTime;
     private Vector3 magnetStartPos;
@@ -288,7 +286,7 @@ public class Projectile : MonoBehaviour
                 //apply slow effect
                 if (isSlow)
                 {
-                    col.GetComponent<Enemy>().StartSlow(slowActiveSpeed, slowPercentage, slowDuration);
+                    col.GetComponent<Enemy>().StartSlow(slowPercentage, slowDuration);
 
                 }
 

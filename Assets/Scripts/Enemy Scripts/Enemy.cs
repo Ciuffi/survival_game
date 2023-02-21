@@ -72,6 +72,7 @@ public class Enemy : MonoBehaviour, Attacker
     private bool rageTriggered = false;
     public float rageSpeedMod = 1.6f;
     public float rageDmgMod = 2.5f;
+    private float rageSpeed;
 
     public bool isDash;
     public float chargeTime = 1f;
@@ -119,7 +120,6 @@ public class Enemy : MonoBehaviour, Attacker
     private float currentSlowPercentage;
     private float magnetMinDistance = 2f;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -151,6 +151,8 @@ public class Enemy : MonoBehaviour, Attacker
         speed = aiPath.maxSpeed;
         originalSpeed = speed;
         animSpeed = animator.GetFloat("speed");
+        rageSpeed = originalSpeed + rageSpeedMod;
+
 
     }
 
@@ -624,7 +626,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     }
 
-    public void StartSlow(float slowActiveSpeed, float slowPercentage, float slowDuration)
+    public void StartSlow(float slowPercentage, float slowDuration)
     {
         float currentPercentage = (speed / originalSpeed);
 
@@ -638,32 +640,30 @@ public class Enemy : MonoBehaviour, Attacker
             {
                 StopCoroutine(slowCoroutine);
             }
-            slowCoroutine = StartCoroutine(SlowCoroutine(slowActiveSpeed, slowPercentage, slowDuration));
+            slowCoroutine = StartCoroutine(SlowCoroutine(slowPercentage, slowDuration));
 
         }
 
     }
 
-    private IEnumerator SlowCoroutine(float slowActiveSpeed, float slowPercentage, float slowDuration)
+    private IEnumerator SlowCoroutine(float slowPercentage, float slowDuration)
     {
-        float slowStartSpeed;
         float slowTargetSpeed;
         float slowStartTime = Time.time;
         float slowEndTime = slowStartTime + slowDuration;
-
+        
         if (!rageTriggered)
         {
-             slowStartSpeed = speed;
              slowTargetSpeed = originalSpeed * slowPercentage;
-        } else{
-             slowStartSpeed = speed + rageSpeedMod;
-             slowTargetSpeed = (originalSpeed + rageSpeedMod) * slowPercentage;
+        } else{ 
+            //rage mod being added repeatedly - fix!
+             slowTargetSpeed = rageSpeed * slowPercentage;
         }
-
+        Debug.Log(rageSpeed);
 
         while (Time.time < slowEndTime)
         {
-            speed = Mathf.Lerp(slowStartSpeed, slowTargetSpeed, slowActiveSpeed);
+            speed = slowTargetSpeed;
             aiPath.maxSpeed = speed;
             yield return null;
         }
@@ -675,8 +675,9 @@ public class Enemy : MonoBehaviour, Attacker
         }
         else
         {
-            speed = originalSpeed;
+            speed = rageSpeed;
             aiPath.maxSpeed = speed;
+            Debug.Log(rageSpeed);
         }
         StopCoroutine(slowCoroutine);  
     }

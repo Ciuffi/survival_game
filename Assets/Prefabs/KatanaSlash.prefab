@@ -151,9 +151,8 @@ MonoBehaviour:
   magnetStrength: 0
   magnetDuration: 0
   isSlow: 0
-  slowActiveSpeed: 0
-  slowPercentage: 0
-  slowDuration: 0
+  slowPercentage: 0.4
+  slowDuration: 1
 --- !u!50 &7860753979652903893
 Rigidbody2D:
   serializedVersion: 4

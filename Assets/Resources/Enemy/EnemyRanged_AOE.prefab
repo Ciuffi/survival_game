@@ -139,6 +139,8 @@ MonoBehaviour:
   rageColor: {r: 0, g: 0, b: 0, a: 0}
   disappearSpeed: 5
   isDead: 0
+  speed: 0
+  originalSpeed: 0
   isRage: 0
   rageTriggerPercent: 0
   rageSpeedMod: 1.5
@@ -291,7 +293,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 0.9
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

@@ -7860,6 +7860,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 134476597520777081, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: pierceUP
       value: 0
@@ -7870,7 +7878,7 @@ PrefabInstance:
       objectReference: {fileID: 4235860010000021921, guid: 015d0a5fb0b06734581927f91e026013, type: 3}
     - target: {fileID: 799298215988596175, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: shotsPerAttack
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
@@ -9144,6 +9152,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1321576414662445604, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
+      propertyPath: maxSpeed
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1423453834646843856, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9191,6 +9203,10 @@ PrefabInstance:
     - target: {fileID: 1423453834646843858, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
       propertyPath: health
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423453834646843858, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
+      propertyPath: rageSpeedMod
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1423453834646843868, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
       propertyPath: m_Name
