@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extraHealth: 0
-  extraMaxHealth: 25
+  extraMaxHealth: 50
   extraSpeed: 0
   damageMultipler: 0
   extraDefense: 0

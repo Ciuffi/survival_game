@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extraHealth: 0
   extraMaxHealth: 0
-  extraSpeed: 0.01
+  extraSpeed: 0.015
   damageMultipler: 0
-  exraDefense: 0
-  exraShield: 0
+  extraDefense: 0
+  extraShield: 0
+  extraCritChance: 0
+  extraCritDmg: 0

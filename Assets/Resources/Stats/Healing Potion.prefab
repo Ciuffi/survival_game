@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b28133b492f944a5af2e1d7d04928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraHealth: 40
+  extraHealth: 25
   extraMaxHealth: 0
   extraSpeed: 0
   damageMultipler: 0
