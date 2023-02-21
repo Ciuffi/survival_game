@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour, Attacker
     private float animSpeed;
     private bool isSlowing = false;
     private float currentSlowPercentage;
-    private float magnetMinDistance = 2f;
+    private float magnetMinDistance = 1.8f;
 
     // Start is called before the first frame update
     void Start()

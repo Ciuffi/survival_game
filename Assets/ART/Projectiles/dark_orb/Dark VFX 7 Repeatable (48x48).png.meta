@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,7 +127,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f8027a79ba41243a8181615201df01
+      internalID: -1993932741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_1
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7942617afc51b554483c14087a600bbb
+      internalID: 1643825527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_2
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87a1b4b13e02eec448179f9f98a3d6bd
+      internalID: -1744229514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_3
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d08c07e3b3ffd4b8a02898e0ae3634
+      internalID: 216664681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_4
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d910ef9a740ccd04386c6dbb67c21e93
+      internalID: -1185087081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_5
+      rect:
+        serializedVersion: 2
+        x: 2375
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1582307927f1424e8ae901cc04430d3
+      internalID: -434133956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_6
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcd05d9696c22a243bc6a353dafec8e6
+      internalID: 1605824788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_7
+      rect:
+        serializedVersion: 2
+        x: 3325
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ba192bc2f27794da47378a16411a64
+      internalID: -1388496082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_8
+      rect:
+        serializedVersion: 2
+        x: 3800
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bebda30a4ef48494ebc3d457e1baeb04
+      internalID: 1621523939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_9
+      rect:
+        serializedVersion: 2
+        x: 4275
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61fc40e42a49cb46904a61bc762a710
+      internalID: 1083885103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_10
+      rect:
+        serializedVersion: 2
+        x: 4750
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c022dd8b1ba574d48b1474fea6886691
+      internalID: -2021498537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 7 Repeatable (48x48)_11
+      rect:
+        serializedVersion: 2
+        x: 5225
+        y: 0
+        width: 475.16666
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2e145d6bdfe8c40bdf653058e953a8
+      internalID: 508174448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +390,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dark VFX 7 Repeatable (48x48)_9: 1083885103
+      Dark VFX 7 Repeatable (48x48)_2: -1744229514
+      Dark VFX 7 Repeatable (48x48)_5: -434133956
+      Dark VFX 7 Repeatable (48x48)_1: 1643825527
+      Dark VFX 7 Repeatable (48x48)_7: -1388496082
+      Dark VFX 7 Repeatable (48x48)_8: 1621523939
+      Dark VFX 7 Repeatable (48x48)_6: 1605824788
+      Dark VFX 7 Repeatable (48x48)_10: -2021498537
+      Dark VFX 7 Repeatable (48x48)_3: 216664681
+      Dark VFX 7 Repeatable (48x48)_4: -1185087081
+      Dark VFX 7 Repeatable (48x48)_0: -1993932741
+      Dark VFX 7 Repeatable (48x48)_11: 508174448
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

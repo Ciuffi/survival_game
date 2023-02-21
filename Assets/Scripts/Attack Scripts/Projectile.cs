@@ -103,6 +103,7 @@ public class Projectile : MonoBehaviour
             projectileRange = 8;
             //knockback = 20;
         }
+        GetComponent<Collider2D>().enabled = true;
 
     }
 
@@ -144,6 +145,10 @@ public class Projectile : MonoBehaviour
                         GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
                         transform.localScale -= scaleUp;
                         GetComponent<Collider2D>().enabled = false;
+
+                        animator.SetBool("Ending", true);
+
+
                     }
 
                     if (transform.localScale.x < 0)
@@ -175,8 +180,8 @@ public class Projectile : MonoBehaviour
                 {
                     animator.SetBool("IsActive", true);
                     animator.SetBool("IsRecovery", false);
-                    GetComponent<Collider2D>().enabled = true;
                 }
+                GetComponent<Collider2D>().enabled = true;
             }
             else if (meleeTime >= (startup + active))
             {

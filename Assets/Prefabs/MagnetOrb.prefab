@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: -1602682635
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 77ac9ae6799007f44b8a00de51879ffd, type: 3}
-  m_Color: {r: 1, g: 0.7490566, b: 0.92618096, a: 0.3882353}
+  m_Sprite: {fileID: -1993932741, guid: 67e45f3560b1ff14b8937fc9b2f89bf8, type: 3}
+  m_Color: {r: 1, g: 0.8820755, b: 0.96499115, a: 0.5686275}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 3966782872280218973}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4816d178bc6fc7947a084640471ba133, type: 2}
+  m_Controller: {fileID: 9100000, guid: 21cda3a1326193148878306d6da9b1d9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -143,15 +143,14 @@ MonoBehaviour:
   damageTickDuration: 1
   startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
-  isHover: 0
-  hoverTimer: 0
+  isHover: 1
+  hoverTimer: 4
   hitFirstEnemy: 0
-  isAnimated: 0
+  isAnimated: 1
   isMagnet: 1
   magnetStrength: 12
-  magnetDuration: 0.9
+  magnetDuration: 1
   isSlow: 0
-  slowActiveSpeed: 0
   slowPercentage: 0
   slowDuration: 0
 --- !u!58 &3115735194507937141
@@ -167,9 +166,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.18128529}
+  m_Offset: {x: 0, y: 0.040872097}
   serializedVersion: 2
-  m_Radius: 1.4091278
+  m_Radius: 1.3591504
 --- !u!50 &-3887285398624502537
 Rigidbody2D:
   serializedVersion: 4
