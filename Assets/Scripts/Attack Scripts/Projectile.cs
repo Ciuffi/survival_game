@@ -98,7 +98,7 @@ public class Projectile : MonoBehaviour
 
         if (isThrown)
         {
-            damage = damage * (attack.shotsPerAttack / 2 + 2) / 3;
+            damage = attack.thrownDamage;
             pierce = 0;
             projectileRange = 8;
             //knockback = 20;

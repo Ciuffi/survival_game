@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
   xOffset: 0
-  yOffset: -0.2
+  yOffset: 0
 --- !u!1 &6078006631497137502
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,13 +131,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4040727400949363970}
   - component: {fileID: 600917073401863869}
+  - component: {fileID: 1056244615}
   m_Layer: 0
   m_Name: WeaponOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4040727400949363970
 Transform:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 6078006631497137502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7313015711702768632}
@@ -195,7 +196,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a24dcb709422d98438f512fee334cee0, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.3137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -205,6 +206,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1056244615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078006631497137502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974cffb28da12f54eb09d98199c3e124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &7313015711702768581
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +235,7 @@ GameObject:
   - component: {fileID: 7313015711702768634}
   - component: {fileID: 4748194186520430217}
   - component: {fileID: 1481340773}
+  - component: {fileID: 7318568193167111031}
   m_Layer: 0
   m_Name: WeaponSprite
   m_TagString: Untagged
@@ -235,7 +252,7 @@ Transform:
   m_GameObject: {fileID: 7313015711702768581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.17, y: 0.17, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5136872983426481226}
@@ -307,6 +324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5cc0c2eaf9d5245b3d86b6f544d3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recoilForce: 100
+  recoilDuration: 0.1
+  recoveryDuration: 0.2
 --- !u!114 &7313015711702768634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +355,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.4442558, y: -0.21454114}
+  m_Offset: {x: -0.5244812, y: 0.07842255}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -346,7 +366,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.114874, y: 3.5272226}
+  m_Size: {x: 8.302593, y: 3.9768877}
   m_EdgeRadius: 0
 --- !u!114 &1481340773
 MonoBehaviour:
@@ -360,12 +380,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17bc17407f9a744da1615cc06a8ae7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
   knockback: 20
-  critChance: 0.2
-  critDmg: 2
-  onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
+  critChance: 0
+  critDmg: 0
+  onHitParticle: {fileID: 4053501027209517259, guid: 0175ba2e2ce8b8549904d75a07504472, type: 3}
   playerShakeTime: 0.1
   playerShakeStrength: 0.2
   playerShakeRotation: 0.1
   damageTickDuration: 0.5
+--- !u!50 &7318568193167111031
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313015711702768581}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

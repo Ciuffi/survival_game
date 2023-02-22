@@ -78,7 +78,6 @@ MonoBehaviour:
   effect: {fileID: 0}
   attackType: 0
   MeleeAttack: {fileID: 0}
-  isToss: 0
   comboLength: 0
   comboWaitTime: 0
   comboAttackBuff: 0
@@ -94,6 +93,7 @@ MonoBehaviour:
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
   thrownSprite: {fileID: 21300000, guid: 0c88c086a66d65241a34f2c72d9bced1, type: 3}
+  thrownDamage: 40
   throwSpeed: 3
   bulletCasing: {fileID: 2526348467587405025, guid: c8864c4bc9c95004599382d64b0e894a, type: 3}
   MuzzleFlashPrefab:

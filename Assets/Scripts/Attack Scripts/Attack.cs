@@ -58,7 +58,6 @@ public class Attack : MonoBehaviour, Upgrade
     GameObject Camera;
 
     public GameObject MeleeAttack;
-    public bool isToss;
     public int comboLength; // # of melee attacks instantiated in a row
     public float comboWaitTime;
     public float comboAttackBuff; //percent buff
@@ -79,6 +78,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     public GameObject thrownWeapon;
     public Sprite thrownSprite;
+    public float thrownDamage;
     public float throwSpeed;
     private bool firstShot = true;
 
