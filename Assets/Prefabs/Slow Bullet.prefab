@@ -214,10 +214,11 @@ MonoBehaviour:
   isMagnet: 0
   magnetStrength: 0
   magnetDuration: 0
-  isSlow: 1
-  slowActiveSpeed: 0.5
+  isSlow: 0
   slowPercentage: 0.1
   slowDuration: 2
+  isStun: 1
+  stunDuration: 5
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4

@@ -69,11 +69,8 @@ MonoBehaviour:
   isMelee: 1
   isAOE: 0
   isArmor: 0
-  armorTimer: 0
   armorPercent: 0
   weightIncrease: 0
-  newWeight: 0
-  oldWeight: 0
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 2429385742196507204, guid: a74f4df595cf2014eb2021616ea59964, type: 3}
@@ -109,6 +106,8 @@ MonoBehaviour:
   shootRecovery: 0
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
+  isStunned: 0
+  stunColor: {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 1}
 --- !u!114 &1321576414662445604
 MonoBehaviour:
   m_ObjectHideFlags: 0

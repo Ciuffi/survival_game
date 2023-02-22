@@ -8226,6 +8226,14 @@ PrefabInstance:
       propertyPath: damageUP
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2319215334030566182, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319215334030566182, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spread
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4110862093700330377, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_IsActive
       value: 0

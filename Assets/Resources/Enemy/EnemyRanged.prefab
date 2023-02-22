@@ -159,6 +159,8 @@ MonoBehaviour:
   shootRecovery: 2
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}
+  isStunned: 0
+  stunColor: {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 1}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
