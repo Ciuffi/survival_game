@@ -6,9 +6,12 @@ using TMPro;
 public class LootGoldCounter : MonoBehaviour
 {
     public int increment = 1;
-    private int goldCount = 0;
+    public int goldCount = 0;
     public int finalGold;
     public bool finishedCounting = false;
+
+    public float incrementTime = 1f; // time between each increment
+    public int baseEffectGoldValue = 0;
 
     private TMP_Text textComponent;
 
@@ -17,10 +20,11 @@ public class LootGoldCounter : MonoBehaviour
     {
         textComponent = GetComponentInChildren<TMP_Text>();
     }
-    void ResetStats()
+    public void ResetStats()
     {
         finalGold = 0;
         goldCount = 0;
+        textComponent.text = goldCount.ToString();
     }
 
     private void Update()
@@ -33,7 +37,13 @@ public class LootGoldCounter : MonoBehaviour
         else if (goldCount >= finalGold)
         {
             finishedCounting = true;
-            ResetStats();
         }
     }
+
+    public float GetExtraIncrementTime(int finalGold)
+    {
+        int goldDiff = finalGold - baseEffectGoldValue;
+        return goldDiff * incrementTime;
+    }
+
 }

@@ -21,6 +21,13 @@ public class EXPHandler : MonoBehaviour
 
     public float xpAmount;
 
+    public List<Sprite> spriteList; // List of sprites
+    public List<int> xpTierThresholds; // List of XP thresholds
+
+    public float pickupDistance;
+    public float distancefromPlayer;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +35,27 @@ public class EXPHandler : MonoBehaviour
         currentSpeed = speed;
         player = GameObject.FindWithTag("Player");
         waitTimer = waitTime;
+    }
 
+    public void UpdateXpTier()
+    {
+        int xpTier = 0;
+        for (int i = 0; i < xpTierThresholds.Count; i++)
+        {
+            if (xpAmount >= xpTierThresholds[i])
+            {
+                xpTier = i + 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        // Set the sprite based on the xpTier
+        if (xpTier > 0 && xpTier <= spriteList.Count)
+        {
+            GetComponent<SpriteRenderer>().sprite = spriteList[xpTier - 1];
+        }
     }
 
     // Update is called once per frame
@@ -57,21 +84,18 @@ public class EXPHandler : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D col)
-    {
-        if (isAutoCollect)
+        } else //doesnt auto collect
         {
-            return;
-        }
+            distancefromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (col.gameObject.tag == "Player" && !isAutoCollect)
-        {
-            player.gameObject.GetComponent<StatsHandler>().GainXP(xpAmount);
-            Instantiate(particleSystem, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            if (distancefromPlayer < pickupDistance)
+            {
+                player.gameObject.GetComponent<StatsHandler>().GainXP(xpAmount);
+                Instantiate(particleSystem, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+
+
         }
     }
 
