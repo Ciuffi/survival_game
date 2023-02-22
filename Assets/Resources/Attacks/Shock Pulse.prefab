@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735341029624650593}
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: Shock Grenade
+  m_Name: Shock Pulse
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
