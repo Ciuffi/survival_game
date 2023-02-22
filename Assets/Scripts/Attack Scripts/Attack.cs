@@ -86,6 +86,7 @@ public class Attack : MonoBehaviour, Upgrade
     public List<GameObject> MuzzleFlashPrefab;
     public float muzzleFlashXOffset;
     public float muzzleFlashYOffset;
+    private VirtualJoystick VJ;
 
     private void Update()
     {
@@ -548,6 +549,8 @@ public class Attack : MonoBehaviour, Upgrade
 
         // Select a random MuzzleFlashPrefab from the list
         GameObject selectedPrefab = MuzzleFlashPrefab[Random.Range(0, MuzzleFlashPrefab.Count)];
+
+
         // Instantiate the selected MuzzleFlashPrefab at the specified position
         Vector3 spawnPosition = transform.position + new Vector3(muzzleFlashXOffset, muzzleFlashYOffset, 0f);
 
@@ -623,6 +626,7 @@ public void SpawnBulletCasing()
 
         Camera = GameObject.FindWithTag("MainCamera");
         Player = GameObject.FindWithTag("Player");
+        VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
         defaultMulticastWaitTime = multicastWaitTime;
 
     }

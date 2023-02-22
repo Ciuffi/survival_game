@@ -193,6 +193,7 @@ public class Enemy : MonoBehaviour, Attacker
             isDead = true;
             GameObject xpDrop = Instantiate(EXPdrop, center, Quaternion.identity);
             xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
+            xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
 
             Instantiate(DeathEffect, center, Quaternion.identity);
 

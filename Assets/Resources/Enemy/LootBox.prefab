@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: -2012959645, guid: d7baced0b1becbb438c4f49e840ca663, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,9 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c3dc4132797a546ad6f3738a8cab62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldManager: {fileID: 0}
-  minGold: 39
-  maxGold: 139
+  minGold: 50
+  maxGold: 439
   finalGold: 0
 --- !u!50 &1423453834646843859
 Rigidbody2D:

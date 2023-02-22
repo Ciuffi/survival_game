@@ -102,5 +102,5 @@ MonoBehaviour:
   - {fileID: 9150804653361220647, guid: ae011fb9fc8afd5448eb267605d49239, type: 3}
   - {fileID: 5610606700805667710, guid: a996571025eb2d84dbf0dbb209c5a138, type: 3}
   - {fileID: 713053149902008299, guid: c598dfa87a68bd94b82ec6305062eff0, type: 3}
-  muzzleFlashXOffset: 0.5
+  muzzleFlashXOffset: 0
   muzzleFlashYOffset: 0
