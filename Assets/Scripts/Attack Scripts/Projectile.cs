@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
     public int bounceTimes;
 
     public bool isMelee;
-    public float meleeTime;
+    private float meleeTime;
     public float startup;
     public float active;
     //public float recovery;
@@ -46,7 +46,6 @@ public class Projectile : MonoBehaviour
     float critRoll;
 
     private float finalDamage;
-    public Vector3 startPos;
 
     public bool isThrown;
 
@@ -72,6 +71,9 @@ public class Projectile : MonoBehaviour
     public bool isStun;
     public float stunDuration;
 
+    public bool isDeathrattle;
+    public GameObject deathSpawn;
+
     void Start()
     {
         Camera = GameObject.FindWithTag("MainCamera");
@@ -93,7 +95,6 @@ public class Projectile : MonoBehaviour
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
-        startPos = transform.position;
         hitFirstEnemy = false;
         hoverTime = hoverTimer;
 
@@ -123,6 +124,11 @@ public class Projectile : MonoBehaviour
 
                 if (distance >= projectileRange)
                 {
+                    if (isDeathrattle)
+                    {
+                        GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+
+                    }
                     Destroy(gameObject);
                 }
 
@@ -157,6 +163,11 @@ public class Projectile : MonoBehaviour
 
                     if (transform.localScale.x < 0)
                     {
+                        if (isDeathrattle)
+                        {
+                            GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+
+                        }
                         Destroy(gameObject);
                     }
 
@@ -207,6 +218,11 @@ public class Projectile : MonoBehaviour
 
         if (transform.localScale.x < 0)
         {
+            if (isDeathrattle)
+            {
+                GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+    
+            }
             Destroy(gameObject);
         }
 
@@ -335,6 +351,10 @@ public class Projectile : MonoBehaviour
       
             if (isMelee == false && pierce < 0)
             {
+                if (isDeathrattle)
+                {
+                    GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                }
                 Destroy(gameObject);
             }   
         }

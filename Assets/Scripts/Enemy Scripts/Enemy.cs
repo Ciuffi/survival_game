@@ -741,13 +741,28 @@ public class Enemy : MonoBehaviour, Attacker
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Attack" && col.GetComponent<Projectile>().attack.owner.GetTransform().name == "Player")
+        if (col == null)
         {
-            Vector3 colCenter = col.GetComponent<Projectile>().startPos;
+            return;
+        }
+
+        if (col.gameObject.tag == "Attack")
+        {
+            Vector3 colCenter = col.transform.position;
 
             knockDirection = center - colCenter;
 
             ApplyKnockback(col.gameObject.GetComponent<Projectile>().knockback, knockDirection);
+            //rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
+        }
+
+        if (col.gameObject.tag == "DeathRattle")
+        {
+            Vector3 colCenter = col.transform.position;
+
+            knockDirection = center - colCenter;
+
+            ApplyKnockback(col.gameObject.GetComponent<deathRattleAttack>().knockback, knockDirection);
             //rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
         }
 

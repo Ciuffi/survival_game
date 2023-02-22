@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1882446872741620868}
   - component: {fileID: 8598259431058866271}
   m_Layer: 0
-  m_Name: Slow Bullet
+  m_Name: Test Bullet
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 4235860010000021921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 0.9, y: 1, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2046734351210729163}
@@ -194,7 +194,6 @@ MonoBehaviour:
   bounceRange: 0
   bounceTimes: 0
   isMelee: 0
-  meleeTime: 0
   startup: 0
   active: 0
   scaleSpeed: 0
@@ -212,13 +211,15 @@ MonoBehaviour:
   hitFirstEnemy: 0
   isAnimated: 0
   isMagnet: 0
-  magnetStrength: 0
-  magnetDuration: 0
+  magnetStrength: 0.1
+  magnetDuration: 0.1
   isSlow: 0
   slowPercentage: 0.1
   slowDuration: 2
-  isStun: 1
+  isStun: 0
   stunDuration: 5
+  isDeathrattle: 1
+  deathSpawn: {fileID: 4908858350499337675, guid: 9874714d374cf67458b2889bf556b3b2, type: 3}
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4

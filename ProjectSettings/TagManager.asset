@@ -10,6 +10,7 @@ TagManager:
   - ComboManager
   - Loot
   - Weapon
+  - Deathrattle
   layers:
   - Default
   - TransparentFX

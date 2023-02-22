@@ -8234,6 +8234,10 @@ PrefabInstance:
       propertyPath: spread
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2319215334030566182, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 4235860010000021921, guid: 015d0a5fb0b06734581927f91e026013, type: 3}
     - target: {fileID: 4110862093700330377, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: m_IsActive
       value: 0
