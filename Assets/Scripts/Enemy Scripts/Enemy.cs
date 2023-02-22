@@ -122,6 +122,10 @@ public class Enemy : MonoBehaviour, Attacker
     private float currentSlowPercentage;
     private float magnetMinDistance = 1.8f;
 
+    public bool isStunned = false;
+    private float stunTimer;
+    public Color stunColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -167,6 +171,14 @@ public class Enemy : MonoBehaviour, Attacker
         magnetStartTime = Time.time;
     }
 
+    public void StartStun(float duration)
+    {
+        stunTimer = duration;
+        isStunned = true;
+        spriteRend.color = stunColor;
+        
+    }
+
     private float EaseInOutCubic(float t)
     {
         if (t < 0.5f)
@@ -183,7 +195,6 @@ public class Enemy : MonoBehaviour, Attacker
 
     void Update()
     {
-
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         center = GetComponent<SpriteRenderer>().bounds.center;
 
@@ -264,7 +275,6 @@ public class Enemy : MonoBehaviour, Attacker
 
         directionToPlayer = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.transform.position);
-   
 
         //rage enemies
         if (isRage == true)
@@ -275,26 +285,45 @@ public class Enemy : MonoBehaviour, Attacker
                 animator.speed *= 1.5f;
                 damage *= rageDmgMod;
                 animator.SetBool("IsRage", true);
-                spriteRend.color = new Color (rageColor.r,rageColor.g,rageColor.b);
+                spriteRend.color = new Color(rageColor.r, rageColor.g, rageColor.b);
                 rageTriggered = true;
             }
 
-        } 
+        }
 
-
-        //active actions - melee or ranged
-        if (duringKnockback)
+        //knockback or stunned - stop enemy actions
+        if (duringKnockback || isStunned)
         {
             StopMoving();
+            animator.speed = 0f;
+
+            //stun
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0)
+            {
+                spriteRend.color = OGcolor;
+                isStunned = false;
+                stunTimer = 0;
+                animator.speed = 1f;
+                StartMoving();
+            }
+
+            //knockback
             currentForce = Mathf.Lerp(currentForce, 0, weight * Time.deltaTime);
             transform.position += knockDirection * currentForce * Time.deltaTime;
-            if (currentForce <= 1)
+            if (currentForce < 0.1) //knockback over
             {
                 duringKnockback = false;
-                StartMoving();
-
+                if (!isStunned)
+                {
+                    animator.speed = 1f;
+                    StartMoving();
+                }
             }
-        }else{
+
+        }
+        else //perform enemy actions
+        {
 
             if (isMelee == true) //melee 
             {
@@ -315,7 +344,8 @@ public class Enemy : MonoBehaviour, Attacker
                         animator.SetBool("IsMoving", true);
                     }
 
-                } else if (!isDash && isArmor) //armored enemies
+                }
+                else if (!isDash && isArmor) //armored enemies
                 {
 
                     if (armorOn) //currently armored
@@ -324,7 +354,7 @@ public class Enemy : MonoBehaviour, Attacker
                         StopMoving();
                         armorTime -= Time.deltaTime;
                         weight = newWeight;
-                        
+
                         if (armorTime <= 0)
                         {
                             animator.SetBool("IsArmored", false);
@@ -333,7 +363,8 @@ public class Enemy : MonoBehaviour, Attacker
                             armorOn = false;
                             armorTime = armorTimer;
                         }
-                    }else //walk to enemy
+                    }
+                    else //walk to enemy
                     {
                         if (distance <= stopDistance)
                         {
@@ -405,8 +436,8 @@ public class Enemy : MonoBehaviour, Attacker
 
                     if (recovering && !canAttack)
                     {
-                    animator.SetBool("IsAttacking", false);
-                    animator.SetBool("FollowThrough", false);
+                        animator.SetBool("IsAttacking", false);
+                        animator.SetBool("FollowThrough", false);
                         shootRecoveryTimer -= Time.deltaTime;
                         if (shootRecoveryTimer <= 0)
                         {
@@ -419,7 +450,9 @@ public class Enemy : MonoBehaviour, Attacker
                         }
                     }
 
-                }else{
+                }
+                else
+                {
 
                     //AOE attack 
                     if (Vector3.Distance(transform.position, player.transform.position) <= attackRange && canAttack)
@@ -449,27 +482,6 @@ public class Enemy : MonoBehaviour, Attacker
                 }
             }
         }
-       
-
-
-        //Iframes
-        if (isInvuln == true)
-        {
-            timer += Time.deltaTime;
-            if (timer <= Iframes)
-            {
-                canDamage = false;
-                
-            }
-            else
-            {
-                canDamage = true;
-                timer = 0f;
-                isInvuln = false;
-            }
-        }
-
-
 
     }
 

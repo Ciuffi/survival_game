@@ -61,15 +61,16 @@ public class Projectile : MonoBehaviour
     public bool isMagnet;
     public float magnetStrength;
     public float magnetDuration;
+    private Transform magnetTarget;
+    private float magnetStartTime;
+    private Vector3 magnetStartPos;
 
     public bool isSlow;
     public float slowPercentage;
     public float slowDuration;
 
-    private Transform magnetTarget;
-    private float magnetStartTime;
-    private Vector3 magnetStartPos;
-
+    public bool isStun;
+    public float stunDuration;
 
     void Start()
     {
@@ -296,6 +297,12 @@ public class Projectile : MonoBehaviour
                 {
                     col.GetComponent<Enemy>().StartSlow(slowPercentage, slowDuration);
 
+                }
+
+                //apply stun effect
+                if (isStun)
+                {
+                    col.GetComponent<Enemy>().StartStun(stunDuration);
                 }
 
 
