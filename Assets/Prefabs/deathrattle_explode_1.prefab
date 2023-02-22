@@ -157,13 +157,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf6025681fe2df40a988eaafdab2c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  critChance: 0.05
+  damage: 5
+  critChance: 0.1
   critDmg: 1.5
   knockback: 8
-  startup: 0.05
-  active: 0.2
-  scaleSpeed: 2
+  startup: 0.1
+  active: 0.3
+  scaleSpeed: 1
   disappearSpeed: 5
   onHitParticle: {fileID: 4053501027209517259, guid: 0175ba2e2ce8b8549904d75a07504472, type: 3}
   playerShakeTime: 0.1
@@ -174,7 +174,7 @@ MonoBehaviour:
   isMagnet: 0
   magnetStrength: 0
   magnetDuration: 0
-  isSlow: 1
+  isSlow: 0
   slowPercentage: 0.5
   slowDuration: 2
   isStun: 1

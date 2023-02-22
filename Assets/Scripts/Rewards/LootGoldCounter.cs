@@ -14,21 +14,29 @@ public class LootGoldCounter : MonoBehaviour
     public int baseEffectGoldValue = 0;
 
     private TMP_Text textComponent;
+    private bool resetCount = false;
 
     // Start is called before the first frame update
     void Start()
     {
         textComponent = GetComponentInChildren<TMP_Text>();
+
     }
     public void ResetStats()
     {
         finalGold = 0;
         goldCount = 0;
-        textComponent.text = goldCount.ToString();
+        resetCount = true;
     }
 
     private void Update()
     {
+        if (resetCount)
+        {
+            textComponent.text = goldCount.ToString();
+            resetCount = false;
+        }
+
         if (!finishedCounting && goldCount < finalGold)
         {
             goldCount += (int)increment;

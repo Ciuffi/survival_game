@@ -23,6 +23,9 @@ public class LootBoxManager : MonoBehaviour
 
     public GameObject VFX;
 
+    private GameObject lootPopup;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,9 +123,11 @@ public class LootBoxManager : MonoBehaviour
         //while (Time.realtimeSinceStartup < endTime) {yield return null;}   //for running while game is paused
 
         yield return new WaitForSeconds(waitTime);
-        PauseGame();
         GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
         panelAnimated.SetActive(true);
+        panelAnimated.GetComponent<LootGoldCounter>().ResetStats();
+        PauseGame();
+
     }
 
     public void reroll()
