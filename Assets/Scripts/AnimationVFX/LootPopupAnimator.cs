@@ -17,6 +17,9 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
     public float disappearSpeed;
     private Color originalColor;
 
+    public GameObject goldCounter;
+    public int finalGold;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +37,15 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
     {
         if (!isOpen)
         {
-            isOpen = true;
             animator.SetBool("IsOpen", true);
+
+            goldCounter.GetComponent<LootGoldCounter>().finalGold = finalGold;
+            goldCounter.GetComponent<LootGoldCounter>().finishedCounting = false;
+
+            isOpen = true;
             Instantiate(coinExplosion, transform.position, Quaternion.identity);
-        } else
+        }
+        else
         {
             return;
         }
@@ -53,12 +61,18 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
             currentColor.a -= disappearSpeed * Time.unscaledDeltaTime;
             spriteRend.color = currentColor;
 
-            if (currentColor.a <= 0)
+            if (currentColor.a <= 0 && goldCounter.GetComponent<LootGoldCounter>().finishedCounting == true)
             {
-                player.GetComponentInChildren<LootBoxManager>().ShowLootReward();
-                TurnOff();
+                StartCoroutine(Delay());
             }
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSecondsRealtime(0.25f);
+        player.GetComponentInChildren<LootBoxManager>().ShowLootReward();
+        TurnOff();
     }
 
     public void TurnOff()

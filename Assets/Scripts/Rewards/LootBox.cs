@@ -13,7 +13,16 @@ public class LootBox : MonoBehaviour
     private SpriteRenderer spriteRend;
     Color OGcolor;
 
-   
+    private GameObject goldManager;
+
+    public int minGold;
+    public int maxGold;
+    public int finalGold;
+
+    private bool hasTriggered = false;
+    private GameObject lootOnTap;
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +31,10 @@ public class LootBox : MonoBehaviour
         Sprite = gameObject.GetComponent<SpriteRenderer>();
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
         OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
-
-        
+        goldManager = GameObject.Find("GoldManager");
+        finalGold = Random.Range(minGold, maxGold);
+        lootOnTap = GameObject.Find("TapToOpen");
+        anim = GetComponent<Animator>();
     }
 
 
@@ -34,12 +45,21 @@ public class LootBox : MonoBehaviour
             return;
         }
 
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && !hasTriggered)
         {
-            player.GetComponentInChildren<LootBoxManager>().ShowLootUI();    
-            Destroy(gameObject);
-
+            anim.SetBool("IsOpen", true);
+            player.GetComponentInChildren<LootBoxManager>().ShowLootUI();
+            lootOnTap.GetComponent<LootPopupAnimator>().finalGold = finalGold;
+            hasTriggered = true;
+            StartCoroutine(delayGold());
         }
+    }
+
+    IEnumerator delayGold()
+    {
+        yield return new WaitForSeconds(0.5f);
+        goldManager.GetComponent<GoldTracker>().IncreaseCount(finalGold);
+        Destroy(gameObject);
     }
 
    

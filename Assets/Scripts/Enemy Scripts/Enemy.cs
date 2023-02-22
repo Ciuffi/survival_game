@@ -223,7 +223,7 @@ public class Enemy : MonoBehaviour, Attacker
             Instantiate(DeathEffect, center, Quaternion.identity);
 
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
-            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.25f, 0.2f, 5f);
+            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.1f, 0.1f, 0.1f);
         }
 
         if (health <= 0)
