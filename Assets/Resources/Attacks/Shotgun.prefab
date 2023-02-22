@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   damageUP: 12
-  spread: 60
-  spreadUP: 90
+  spread: 75
+  spreadUP: 120
   spray: 0
   sprayThreshold: 0
   castTime: 1.75
@@ -55,8 +55,8 @@ MonoBehaviour:
   attackTime: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 3
-  rangeUP: 4
+  range: 3.5
+  rangeUP: 5
   shotsPerAttack: 5
   shotsPerAttackUP: 8
   cantMove: 1
@@ -64,12 +64,12 @@ MonoBehaviour:
   speedUP: 0.2
   knockback: 15
   knockbackUP: 20
-  pierce: 10
+  pierce: 12
   pierceUP: 25
   critChance: 0.15
   critDmg: 1.5
   multicastChance: 0
-  multicastWaitTime: 0.1
+  multicastWaitTime: 0.15
   multicastTimes: 0
   projectile: {fileID: 4235860010000021921, guid: 998257703f53b5a4b8824a81233e0078, type: 3}
   scaleUP: {x: 0, y: 0, z: 0}
@@ -82,8 +82,8 @@ MonoBehaviour:
   comboWaitTime: 0
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
-  meleeSpacer: 0.7
-  meleeSpacerGap: 1
+  meleeSpacer: 0
+  meleeSpacerGap: 0
   swapAnimOnAttack: 0
   shakeTime: 0
   shakeStrength: 0

@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b4bb85397155140aa738672c279e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseReroll: 1
+  baseReroll: 5
   currentReroll: 0
   baseSwap: 1
   currentSwap: 0
@@ -748,6 +748,24 @@ MonoBehaviour:
   baseDefense: 0
   shield: 0
   baseShield: 0
+  shotsPerAttack: 1
+  baseShotsPerAttack: 1
+  meleeComboLength: 1
+  baseMeleeComboLength: 1
+  multicastChance: 0
+  baseMulticastChance: 0
+  castTimeMultiplier: 1
+  baseCastTimeMultiplier: 1
+  projectileSpeedMultiplier: 1
+  baseProjectileSpeedMultiplier: 1
+  knockbackMultiplier: 1
+  baseKnockbackMultiplier: 1
+  meleeWaitTimeMultiplier: 1
+  baseMeleeWaitTimeMultiplier: 1
+  thrownDamageMultiplier: 1
+  baseThrownDamageMultiplier: 1
+  thrownSpeedMultiplier: 1
+  baseThrownSpeedMultiplier: 1
   stats: []
   Iframes: 1
   IFtimer: 0
@@ -761,6 +779,7 @@ MonoBehaviour:
   playerShakeTime: 0.4
   playerShakeStrength: 0.5
   playerShakeRotation: 0.3
+  weaponsList: {fileID: 0}
 --- !u!61 &1999617151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -807,6 +826,15 @@ MonoBehaviour:
   extraShield: 0
   extraCritChance: 0
   extraCritDmg: 0
+  extraShotsPerAttack: 0
+  extraMeleeComboLength: 0
+  extraMulticastChance: 0
+  extraCastTimeMultiplier: 0
+  extraProjectileSpeedMultiplier: 0
+  extraKnockbackMultiplier: 0
+  extraMeleeWaitTimeMultiplier: 0
+  extraThrownDamageMultiplier: 0
+  extraThrownSpeedMultiplier: 0
 --- !u!50 &1731126420
 Rigidbody2D:
   serializedVersion: 4

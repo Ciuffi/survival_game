@@ -104,6 +104,16 @@ public class Attack : MonoBehaviour, Upgrade
             // Add the default definition for SingleShot attack type
             attackTime = spread * shotsPerAttack + (multicastTimes * multicastWaitTime);
         }
+
+    }
+    public void CalculateStats()
+    {
+        multicastChance += Player.GetComponent<StatsHandler>().multicastChance;
+        castTime *= Player.GetComponent<StatsHandler>().castTimeMultiplier;
+        shotsPerAttack += Player.GetComponent<StatsHandler>().shotsPerAttack;
+        comboLength += Player.GetComponent<StatsHandler>().meleeComboLength;
+        comboWaitTime *= Player.GetComponent<StatsHandler>().meleeWaitTimeMultiplier;
+        throwSpeed *= Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
     }
 
     private void rollMulticast()
@@ -628,6 +638,8 @@ public void SpawnBulletCasing()
         Player = GameObject.FindWithTag("Player");
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
         defaultMulticastWaitTime = multicastWaitTime;
+
+        CalculateStats();
 
     }
 

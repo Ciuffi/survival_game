@@ -9,7 +9,7 @@ public class StatsHandler : MonoBehaviour
     public float xp;
     public float nextXp;
     public float health;
-    public float baseMaxHealth = 20;
+    public float baseMaxHealth;
 
     public float maxHealth;
     public float speed;
@@ -24,6 +24,27 @@ public class StatsHandler : MonoBehaviour
     public float baseDefense = 0f;
     public float shield;
     public float baseShield = 0;
+
+    public int shotsPerAttack,
+        baseShotsPerAttack,
+        meleeComboLength,
+        baseMeleeComboLength;
+
+    public float multicastChance,
+        baseMulticastChance,
+        castTimeMultiplier,
+        baseCastTimeMultiplier,
+        projectileSpeedMultiplier,
+        baseProjectileSpeedMultiplier,
+        knockbackMultiplier,
+        baseKnockbackMultiplier,
+        meleeWaitTimeMultiplier,
+        baseMeleeWaitTimeMultiplier,
+        thrownDamageMultiplier,
+        baseThrownDamageMultiplier,
+        thrownSpeedMultiplier,
+        baseThrownSpeedMultiplier;
+
     public List<StatBoost> stats;
 
     public float Iframes;
@@ -49,6 +70,7 @@ public class StatsHandler : MonoBehaviour
     GameObject Camera;
     public float playerShakeTime, playerShakeStrength, playerShakeRotation;
 
+    public GameObject weaponsList;
 
     public void TakeDamage(float damageAmount)
     {
@@ -150,7 +172,17 @@ public class StatsHandler : MonoBehaviour
             defense += stat.extraDefense;
             critChance += stat.extraCritChance;
             critDmg += stat.extraCritDmg;
-        });
+            multicastChance += stat.extraMulticastChance;
+            castTimeMultiplier += stat.extraCastTimeMultiplier;
+            meleeComboLength += stat.extraMeleeComboLength;
+            shotsPerAttack += stat.extraShotsPerAttack;
+            projectileSpeedMultiplier += stat.extraProjectileSpeedMultiplier;
+            knockbackMultiplier += stat.extraKnockbackMultiplier;
+            meleeComboLength += stat.extraMeleeComboLength;
+            meleeWaitTimeMultiplier += stat.extraMeleeWaitTimeMultiplier;
+            thrownDamageMultiplier += stat.extraThrownDamageMultiplier;
+            thrownSpeedMultiplier += stat.extraThrownSpeedMultiplier;
+});
         if (health > maxHealth) health = maxHealth;
         healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, health, maxHealth));
     }
@@ -160,7 +192,14 @@ public class StatsHandler : MonoBehaviour
         stat.transform.parent = StatContainer.transform;
         this.stats.Add(stat.GetComponent<StatBoost>());
         CalculateStats();
-        
+        // Check if the prefab is not null
+        if (weaponsList != null)
+        {
+            // Find and invoke the "CalculateStats()" function in the Attack scripts of the prefab
+            CalculateWeaponStats(weaponsList);
+        }
+
+
     }
     public void ResetStats(bool fullReset)
     {
@@ -171,6 +210,16 @@ public class StatsHandler : MonoBehaviour
         defense = baseDefense;
         critChance = baseCritChance;
         critDmg = baseCritDmg;
+        multicastChance = baseMulticastChance;
+        castTimeMultiplier = baseCastTimeMultiplier;
+        shotsPerAttack = baseShotsPerAttack;
+        projectileSpeedMultiplier = baseProjectileSpeedMultiplier;
+        knockbackMultiplier = baseKnockbackMultiplier;
+        meleeComboLength = baseMeleeComboLength;
+        meleeWaitTimeMultiplier = baseMeleeWaitTimeMultiplier;
+        thrownDamageMultiplier = baseThrownDamageMultiplier;
+        thrownSpeedMultiplier = baseThrownSpeedMultiplier;
+
 
         if (fullReset)
         {
@@ -187,6 +236,7 @@ public class StatsHandler : MonoBehaviour
             LevelManager.ResetXP();
         }
     }
+
 
     void Start()
     {
@@ -215,6 +265,40 @@ public class StatsHandler : MonoBehaviour
         });
         CalculateStats();
 
+        // Check if the prefab is not null
+        if (weaponsList != null)
+        {
+            // Find and invoke the "
+            // ()" function in the Attack scripts of the prefab
+            CalculateWeaponStats(weaponsList);
+        }
+
+    }
+    private void CalculateWeaponStats(GameObject prefab)
+    {
+        // Get all child game objects of the prefab
+        foreach (Transform child in prefab.transform)
+        {
+            // Check if the child game object has an attached Attack script
+            Attack attackScript = child.gameObject.GetComponent<Attack>();
+            if (attackScript != null)
+            {
+                // Invoke the "CalculateStats()" function if it exists
+                attackScript.CalculateStats();
+            }
+        }
+    }
+
+    private GameObject[] GetGameObjectsInPrefab(GameObject prefab)
+    {
+        // Get all game objects in the prefab
+        List<GameObject> gameObjects = new List<GameObject>();
+        foreach (Transform child in prefab.transform)
+        {
+            gameObjects.Add(child.gameObject);
+        }
+        // Return the game objects in the prefab
+        return gameObjects.ToArray();
     }
 }
 

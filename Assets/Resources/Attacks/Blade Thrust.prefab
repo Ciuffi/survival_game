@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   damageUP: 30
-  spread: 0.2
+  spread: 0.25
   spreadUP: 0.2
   spray: 0
   sprayThreshold: 0
@@ -60,8 +60,8 @@ MonoBehaviour:
   shotsPerAttack: 1
   shotsPerAttackUP: 1
   cantMove: 1
-  speed: 0.08
-  speedUP: 0.12
+  speed: 0
+  speedUP: 0
   knockback: 20
   knockbackUP: 25
   pierce: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   comboLength: 1
   comboWaitTime: 0.25
   comboAttackBuff: 0
-  meleeShotsScaleUp: 0
+  meleeShotsScaleUp: 0.1
   meleeSpacer: 1.4
   meleeSpacerGap: 2
   swapAnimOnAttack: 0

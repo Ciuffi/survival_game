@@ -47,7 +47,7 @@ MonoBehaviour:
   damage: 3
   damageUP: 5
   spread: 120
-  spreadUP: 90
+  spreadUP: 180
   spray: 0
   sprayThreshold: 0
   castTime: 1.4
@@ -58,7 +58,7 @@ MonoBehaviour:
   range: 3
   rangeUP: 5
   shotsPerAttack: 4
-  shotsPerAttackUP: 6
+  shotsPerAttackUP: 8
   cantMove: 0
   speed: 0.09
   speedUP: 0.12
@@ -69,7 +69,7 @@ MonoBehaviour:
   critChance: 0.1
   critDmg: 1.5
   multicastChance: 0
-  multicastWaitTime: 0.1
+  multicastWaitTime: 0.2
   multicastTimes: 0
   projectile: {fileID: 3966782872280218973, guid: 86dfe545b581c9149a8845f465e2c6b9, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
@@ -82,8 +82,8 @@ MonoBehaviour:
   comboWaitTime: 0
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
-  meleeSpacer: 0.7
-  meleeSpacerGap: 1
+  meleeSpacer: 0
+  meleeSpacerGap: 0
   swapAnimOnAttack: 0
   shakeTime: 0
   shakeStrength: 0

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   damageUP: 5
-  spread: 0
-  spreadUP: 0
+  spread: 0.2
+  spreadUP: 0.15
   spray: 0
   sprayThreshold: 0
   castTime: 2
@@ -78,13 +78,12 @@ MonoBehaviour:
   effect: {fileID: 0}
   attackType: 2
   MeleeAttack: {fileID: 4908858350499337675, guid: 87b4d9c99a39fdb4e8e13ddad633564b, type: 3}
-  isToss: 0
   comboLength: 1
-  comboWaitTime: 0
+  comboWaitTime: 0.6
   comboAttackBuff: 0
-  meleeShotsScaleUp: 0
+  meleeShotsScaleUp: -0.1
   meleeSpacer: 0.5
-  meleeSpacerGap: 0
+  meleeSpacerGap: 1
   swapAnimOnAttack: 0
   shakeTime: 0.2
   shakeStrength: 0.5
@@ -94,6 +93,7 @@ MonoBehaviour:
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 0}
   thrownSprite: {fileID: 21300000, guid: 87873fa187419f74092d75e291ba4475, type: 3}
+  thrownDamage: 0
   throwSpeed: 0
   bulletCasing: {fileID: 0}
   MuzzleFlashPrefab: []

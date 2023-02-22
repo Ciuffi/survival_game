@@ -46,22 +46,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   damageUP: 50
-  spread: 0.2
-  spreadUP: 0.2
+  spread: 0.18
+  spreadUP: 0.15
   spray: 0
   sprayThreshold: 0
-  castTime: 1.75
+  castTime: 1.5
   castTimeUP: 1
   attackTime: 0
-  recoveryTime: 0
+  recoveryTime: 0.25
   recoveryTimeUp: 0
-  range: 5
-  rangeUP: 10
+  range: 0
+  rangeUP: 0
   shotsPerAttack: 1
   shotsPerAttackUP: 1
   cantMove: 1
-  speed: 0.08
-  speedUP: 0.12
+  speed: 0
+  speedUP: 0
   knockback: 22
   knockbackUP: 25
   pierce: 0
@@ -78,22 +78,22 @@ MonoBehaviour:
   effect: {fileID: 0}
   attackType: 2
   MeleeAttack: {fileID: 4908858350499337675, guid: 56c6a42a601ee3846a6d9015b8a1ce51, type: 3}
-  isToss: 0
   comboLength: 1
   comboWaitTime: 0.25
-  comboAttackBuff: 0
-  meleeShotsScaleUp: 0
-  meleeSpacer: 1
+  comboAttackBuff: 0.2
+  meleeShotsScaleUp: 0.15
+  meleeSpacer: 1.5
   meleeSpacerGap: 1
   swapAnimOnAttack: 0
   shakeTime: 0.3
   shakeStrength: 0.25
-  shakeRotation: 8
+  shakeRotation: 6
   weaponSprite: {fileID: 21300000, guid: 03fd5dd25edcb5941a5fc4ecaa81670b, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 0}
   thrownSprite: {fileID: 21300000, guid: 03fd5dd25edcb5941a5fc4ecaa81670b, type: 3}
+  thrownDamage: 0
   throwSpeed: 0
   bulletCasing: {fileID: 0}
   MuzzleFlashPrefab: []

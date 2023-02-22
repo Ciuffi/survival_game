@@ -12,6 +12,18 @@ public class StatBoost : MonoBehaviour, Upgrade
     public float extraShield;
     public float extraCritChance;
     public float extraCritDmg;
+
+    public int extraShotsPerAttack,
+        extraMeleeComboLength;
+
+    public float extraMulticastChance,
+        extraCastTimeMultiplier,
+        extraProjectileSpeedMultiplier,
+        extraKnockbackMultiplier,
+        extraMeleeWaitTimeMultiplier,
+        extraThrownDamageMultiplier,
+        extraThrownSpeedMultiplier;
+
     public UpgradeType GetUpgradeType()
     {
         return UpgradeType.StatBoost;

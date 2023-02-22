@@ -65,7 +65,7 @@ MonoBehaviour:
   knockback: 10
   knockbackUP: 12
   pierce: 0
-  pierceUP: 2
+  pierceUP: 0
   critChance: 0.15
   critDmg: 1.5
   multicastChance: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
   comboWaitTime: 0
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
-  meleeSpacer: 0.7
-  meleeSpacerGap: 1
+  meleeSpacer: 0
+  meleeSpacerGap: 0
   swapAnimOnAttack: 0
   shakeTime: 0
   shakeStrength: 0

@@ -74,6 +74,8 @@ public class Projectile : MonoBehaviour
     public bool isDeathrattle;
     public GameObject deathSpawn;
 
+    float moveSpeed;
+
     void Start()
     {
         Camera = GameObject.FindWithTag("MainCamera");
@@ -88,10 +90,12 @@ public class Projectile : MonoBehaviour
         spawnPos.x = transform.position.x;  
         spawnPos.y = transform.position.y;
         damage = attack.damage * Player.GetComponent<StatsHandler>().damageMultipler;
-        knockback = attack.knockback;
+        knockback = attack.knockback * Player.GetComponent<StatsHandler>().knockbackMultiplier;
         critChance = attack.critChance + Player.GetComponent<StatsHandler>().critChance;
         critDmg = attack.critDmg + Player.GetComponent<StatsHandler>().critDmg;
         projectileRange = attack.range;
+        moveSpeed = attack.speed * Player.GetComponent<StatsHandler>().projectileSpeedMultiplier;
+        
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -100,9 +104,9 @@ public class Projectile : MonoBehaviour
 
         if (isThrown)
         {
-            damage = attack.thrownDamage;
+            damage = attack.thrownDamage * Player.GetComponent<StatsHandler>().thrownDamageMultiplier;
             pierce = 0;
-            projectileRange = 8;
+            projectileRange = 10;
             //knockback = 20;
         }
         GetComponent<Collider2D>().enabled = true;
@@ -120,7 +124,7 @@ public class Projectile : MonoBehaviour
 
             if (!isHover) //regular projectile
             {
-                transform.position += transform.up * attack.speed;
+                transform.position += transform.up * moveSpeed;
 
                 if (distance >= projectileRange)
                 {
@@ -139,7 +143,7 @@ public class Projectile : MonoBehaviour
 
                 if (distance < projectileRange && !hitFirstEnemy)
                 {
-                    transform.position += transform.up * attack.speed;
+                    transform.position += transform.up * moveSpeed;
 
                 } else if (distance > projectileRange || hitFirstEnemy)
                 {                  

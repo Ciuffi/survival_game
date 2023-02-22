@@ -57,19 +57,19 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 7
   rangeUP: 10
-  shotsPerAttack: 3
+  shotsPerAttack: 1
   shotsPerAttackUP: 12
   cantMove: 0
-  speed: 0.12
+  speed: 0.05
   speedUP: 0.15
   knockback: 2
   knockbackUP: 12
   pierce: 0
   pierceUP: 2
-  critChance: 0.2
+  critChance: 0.1
   critDmg: 2
   multicastChance: 0
-  multicastWaitTime: 0
+  multicastWaitTime: 0.1
   multicastTimes: 0
   projectile: {fileID: 4235860010000021921, guid: 015d0a5fb0b06734581927f91e026013, type: 3}
   scaleUP: {x: 2, y: 2, z: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
   thrownSprite: {fileID: 21300000, guid: 7ee67390dedeccb41a42fd32b73373c1, type: 3}
-  thrownDamage: 0
+  thrownDamage: 1
   throwSpeed: 5
   bulletCasing: {fileID: 0}
   MuzzleFlashPrefab: []

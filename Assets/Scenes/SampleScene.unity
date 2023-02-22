@@ -8210,37 +8210,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1999617151, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_IsTrigger
+    - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: multicastChance
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2052080985, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: baseReroll
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 515141436173596174, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: damage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 515141436173596174, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: damageUP
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2319215334030566182, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: damage
+    - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: baseMulticastChance
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2319215334030566182, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: spread
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2319215334030566182, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 4235860010000021921, guid: 015d0a5fb0b06734581927f91e026013, type: 3}
-    - target: {fileID: 4110862093700330377, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
@@ -8258,6 +8234,10 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1537696376}
+    - target: {fileID: 7710239593563589395, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: comboWaitTime
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 6
   damageUP: 12
-  spread: 0.5
-  spreadUP: 0.5
+  spread: 0.2
+  spreadUP: 0.1
   spray: 0
   sprayThreshold: 0
   castTime: 1.5
@@ -55,8 +55,8 @@ MonoBehaviour:
   attackTime: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 5
-  rangeUP: 10
+  range: 0
+  rangeUP: 0
   shotsPerAttack: 1
   shotsPerAttackUP: 1
   cantMove: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   comboLength: 3
   comboWaitTime: 0.1
   comboAttackBuff: 0.5
-  meleeShotsScaleUp: 0
+  meleeShotsScaleUp: 0.05
   meleeSpacer: 0.9
   meleeSpacerGap: 1.25
   swapAnimOnAttack: 1

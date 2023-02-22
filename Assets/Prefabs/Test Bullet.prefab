@@ -204,7 +204,6 @@ MonoBehaviour:
   playerShakeStrength: 0.2
   playerShakeRotation: 1
   damageTickDuration: 1
-  startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
   isHover: 0
   hoverTimer: 0
