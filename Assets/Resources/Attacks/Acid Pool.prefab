@@ -53,7 +53,7 @@ MonoBehaviour:
   castTime: 1.75
   castTimeUP: 1
   attackTime: 0
-  recoveryTime: 0.25
+  recoveryTime: 0
   recoveryTimeUp: 0
   range: 8
   rangeUP: 10

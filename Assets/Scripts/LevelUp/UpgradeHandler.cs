@@ -39,8 +39,8 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
 
 
 
-        // Start is called before the first frame update
-        void Start()
+    // Start is called before the first frame update
+    void Start()
         {
             GameObject player = GameObject.Find("Player");
             playerAttacks = player.GetComponent<AttackHandler>();

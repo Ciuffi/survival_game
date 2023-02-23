@@ -139,7 +139,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0047264784, y: -0.38099614}
@@ -162,13 +162,13 @@ MonoBehaviour:
   critDmg: 1.5
   knockback: 8
   startup: 0.25
-  active: 0.5
-  scaleSpeed: 1
-  disappearSpeed: 5
-  onHitParticle: {fileID: 4053501027209517259, guid: 0175ba2e2ce8b8549904d75a07504472, type: 3}
+  active: 0.75
+  scaleSpeed: 0.05
+  disappearSpeed: 1
+  onHitParticle: {fileID: 2429385742196507204, guid: 3f2c8af43e46a4c4da19b2cc74167602, type: 3}
   playerShakeTime: 0.2
   playerShakeStrength: 1
-  playerShakeRotation: 1
+  playerShakeRotation: 0.5
   damageTickDuration: 1
   isAnimated: 1
   isMagnet: 0

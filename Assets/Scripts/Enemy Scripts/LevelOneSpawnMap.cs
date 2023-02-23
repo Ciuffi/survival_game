@@ -40,7 +40,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave4 = new EnemySpawn()
             .WithDirection(Random.Range(0, 360))
            .WithDistance(Random.Range(1, 2))
-          .WithEnemiesPerWave(3)
+          .WithEnemiesPerWave(Random.Range(3,4))
         .WithSpawnTimer(2)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.meleeEnemy, 100}
@@ -49,7 +49,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave5 = new EnemySpawn()
             .WithDirection(Random.Range(0, 360))
            .WithDistance(Random.Range(1, 3))
-              .WithEnemiesPerWave(1)
+              .WithEnemiesPerWave(2)
             .WithSpawnTimer(3)
             .WithEnemyMap(new Dictionary<GameObject, int>(){
                 { enemies.meleeEnemy, 50},
@@ -59,7 +59,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave6 = new EnemySpawn()
             .WithDirection(Random.Range(0, 360))
            .WithDistance(Random.Range(1, 2))
-          .WithEnemiesPerWave(1)
+          .WithEnemiesPerWave(Random.Range(1,2))
         .WithSpawnTimer(5)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.armoredWimp, 100}
@@ -69,7 +69,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave7 = new EnemySpawn()
             .WithDirection(Random.Range(0, 360))
            .WithDistance(Random.Range(1, 5))
-          .WithEnemiesPerWave(5)
+          .WithEnemiesPerWave(6)
         .WithSpawnTimer(6)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.meleeEnemy, 90},
@@ -90,7 +90,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave9 = new EnemySpawn()
             .WithDirection(Random.Range(0, 360))
            .WithDistance(Random.Range(1, 4))
-          .WithEnemiesPerWave(1)
+          .WithEnemiesPerWave(2)
         .WithSpawnTimer(6)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.rageEnemy, 100}
@@ -99,11 +99,12 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave10 = new EnemySpawn()
             .WithDirection(Random.Range(0, 360))
            .WithDistance(Random.Range(1, 5))
-          .WithEnemiesPerWave(5)
+          .WithEnemiesPerWave(Random.Range(5,7))
         .WithSpawnTimer(6)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.meleeEnemy, 80},
-                {enemies.armoredWimp, 20}
+                {enemies.armoredWimp, 10},
+                {enemies.rageEnemy, 10}
           });
 
         EnemySpawn wave11 = new EnemySpawn()

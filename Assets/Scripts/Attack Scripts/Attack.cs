@@ -95,6 +95,65 @@ public class Attack : MonoBehaviour, Upgrade
     private int OGshotPerAttack,
         OGcomboLength;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        if (projectile == null)
+        {
+            projectile = Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
+        }
+        owner = transform.GetComponentInParent<Attacker>();
+
+        int y = rarity;
+        GenerateRarity(y, 1, 5);
+
+
+        if (chosenNumbers.Contains(1)) //Upgrade Type 1 - Damage
+        {
+            damage = damageUP;
+        }
+
+        if (chosenNumbers.Contains(2)) //Upgrade Type 2 - spread /+ shotsPerAttack
+        {
+            spread = spreadUP;
+            shotsPerAttack = shotsPerAttackUP;
+        }
+        if (chosenNumbers.Contains(3)) //Upgrade Type 3 - castTime /+ startTime
+        {
+            castTime = castTimeUP;
+            recoveryTime = recoveryTimeUp;
+        }
+        if (chosenNumbers.Contains(4)) //Upgrade Type 4 - Range /+ speed
+        {
+            range = rangeUP;
+            speed = speedUP;
+        }
+        if (chosenNumbers.Contains(5)) //Upgrade Type 5 - Knockback
+        {
+            knockback = knockbackUP;
+        }
+        if (chosenNumbers.Contains(6)) //Upgrade Type 6 - Scale  
+        {
+            //projectile.transform.localScale = scaleUP;
+        }
+
+        Camera = GameObject.FindWithTag("MainCamera");
+        Player = GameObject.FindWithTag("Player");
+        VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
+        defaultMulticastWaitTime = multicastWaitTime;
+
+        OGmulticastChance = multicastChance;
+        OGcastTime = castTime;
+        OGshotPerAttack = shotsPerAttack;
+        OGcomboLength = comboLength;
+        OGcomboWaitTime = comboWaitTime;
+        OGthrowSpeed = throwSpeed;
+
+        CalculateStats();
+
+    }
+
     private void Update()
     {
         if (attackType == AttackTypes.Shotgun)
@@ -599,64 +658,6 @@ public void SpawnBulletCasing()
     }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        if (projectile == null)
-        {
-            projectile = Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
-        }
-        owner = transform.GetComponentInParent<Attacker>();
-
-        int y = rarity;
-        GenerateRarity(y, 1, 5);
-
-
-        if (chosenNumbers.Contains(1)) //Upgrade Type 1 - Damage
-        {
-            damage = damageUP;
-        }
-
-        if (chosenNumbers.Contains(2)) //Upgrade Type 2 - spread /+ shotsPerAttack
-        {
-            spread = spreadUP;
-            shotsPerAttack = shotsPerAttackUP;
-        }
-        if (chosenNumbers.Contains(3)) //Upgrade Type 3 - castTime /+ startTime
-        {
-            castTime = castTimeUP;
-            recoveryTime = recoveryTimeUp;
-        }
-        if (chosenNumbers.Contains(4)) //Upgrade Type 4 - Range /+ speed
-        {
-            range = rangeUP;
-            speed = speedUP;
-        }
-        if (chosenNumbers.Contains(5)) //Upgrade Type 5 - Knockback
-        {
-            knockback = knockbackUP;
-        }
-        if (chosenNumbers.Contains(6)) //Upgrade Type 6 - Scale  
-        {
-            //projectile.transform.localScale = scaleUP;
-        }
-
-        Camera = GameObject.FindWithTag("MainCamera");
-        Player = GameObject.FindWithTag("Player");
-        VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
-        defaultMulticastWaitTime = multicastWaitTime;
-
-        OGmulticastChance = multicastChance;
-        OGcastTime = castTime;
-        OGshotPerAttack = shotsPerAttack;
-        OGcomboLength = comboLength;
-        OGcomboWaitTime = comboWaitTime;
-        OGthrowSpeed = throwSpeed;
-
-        CalculateStats();
-
-    }
 
     public List<int> GenerateRarity(int count, int minValue, int maxValue)
     {
