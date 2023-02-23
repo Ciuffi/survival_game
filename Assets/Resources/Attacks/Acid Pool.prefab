@@ -66,7 +66,7 @@ MonoBehaviour:
   knockbackUP: 0
   pierce: 0
   pierceUP: 0
-  critChance: 0.2
+  critChance: 0.075
   critDmg: 2
   multicastChance: 0
   multicastWaitTime: 0.1

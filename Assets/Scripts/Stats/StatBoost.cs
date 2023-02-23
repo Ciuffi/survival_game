@@ -7,7 +7,7 @@ public class StatBoost : MonoBehaviour, Upgrade
     public float extraHealth;
     public float extraMaxHealth;
     public float extraSpeed;
-    public float damageMultipler;
+    public float extraDamageMultipler;
     public float extraDefense;
     public float extraShield;
     public float extraCritChance;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7771748027295808622}
   - component: {fileID: 7044413831109656880}
   m_Layer: 0
-  m_Name: Occultist
+  m_Name: 1_Testing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,3 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  speed: 0.1
+  damageMultiplier: 1
+  critChance: 1
+  critDmg: 2
+  defense: 10
+  shield: 0
+  shotsPerAttack: 1
+  meleeComboLength: 1
+  multicastChance: 1
+  castTimeMultiplier: 0.2
+  projectileSpeedMultiplier: 2
+  knockbackMultiplier: 4
+  meleeWaitTimeMultiplier: 0.2
+  thrownDamageMultiplier: 10
+  thrownSpeedMultiplier: 5
+  startingWeapons:
+  - {fileID: 7092308523833330436, guid: 8bddc841ee357a94ea23acbe1d38d188, type: 3}
+  - {fileID: 1449995561756442478, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}

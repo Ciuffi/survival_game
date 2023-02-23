@@ -113,16 +113,6 @@ public class AttackHandler : MonoBehaviour
             if (currentAttack != null) currentAttack.Shoot();
             yield return new WaitForSeconds(currentAttack.attackTime);
 
-            //throw animation
-            HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
-            HandsSprite.GetComponent<Animator>().SetBool("IsThrow", true);
-            WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
-            WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
-
-            WeaponSprite.GetComponent<Collider2D>().enabled = true;
-            yield return new WaitForSeconds(0.3f);
-            currentAttack.ThrowWeapon();
-
             //recovering
             attackState = AttackState.Recovery;
             attackIndex++;
@@ -132,6 +122,16 @@ public class AttackHandler : MonoBehaviour
                 attackIndex = 0;
             }
             if (currentAttack.recoveryTime > 0) yield return new WaitForSeconds(currentAttack.recoveryTime);
+
+            //throw animation
+            HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
+            HandsSprite.GetComponent<Animator>().SetBool("IsThrow", true);
+            WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
+            WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
+
+            WeaponSprite.GetComponent<Collider2D>().enabled = true;
+            yield return new WaitForSeconds(0.3f);
+            currentAttack.ThrowWeapon();
         }
     }
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6413099147738919843
+--- !u!1 &1449995561756442478
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6413099147738919844}
-  - component: {fileID: 6413099147738919845}
+  - component: {fileID: 8735341029624650593}
+  - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: Shotgun
+  m_Name: Impact Nova
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6413099147738919844
+--- !u!4 &8735341029624650593
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6413099147738919843}
+  m_GameObject: {fileID: 1449995561756442478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,71 +32,70 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6413099147738919845
+--- !u!114 &1803132688626501153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6413099147738919843}
+  m_GameObject: {fileID: 1449995561756442478}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 8
-  damageUP: 12
-  spread: 75
-  spreadUP: 120
+  damage: 25
+  damageUP: 40
+  spread: 0.15
+  spreadUP: 0.1
   spray: 0
   sprayThreshold: 0
-  castTime: 1.75
-  castTimeUP: 1
+  castTime: 1
+  castTimeUP: 0.75
   attackTime: 0
-  recoveryTime: 0
-  recoveryTimeUp: 0
-  range: 3.5
-  rangeUP: 5
-  shotsPerAttack: 5
-  shotsPerAttackUP: 8
-  cantMove: 1
-  speed: 0.15
-  speedUP: 0.2
-  knockback: 15
-  knockbackUP: 20
-  pierce: 99
-  pierceUP: 99
+  recoveryTime: 0.5
+  recoveryTimeUp: 0.2
+  range: 0
+  rangeUP: 0
+  shotsPerAttack: 1
+  shotsPerAttackUP: 1
+  cantMove: 0
+  speed: 0
+  speedUP: 0
+  knockback: 6
+  knockbackUP: 8
+  pierce: 0
+  pierceUP: 0
   critChance: 0.05
-  critDmg: 2
+  critDmg: 1.5
   multicastChance: 0
-  multicastWaitTime: 0.15
+  multicastWaitTime: 0.1
   multicastTimes: 0
-  projectile: {fileID: 4235860010000021921, guid: 998257703f53b5a4b8824a81233e0078, type: 3}
-  scaleUP: {x: 0, y: 0, z: 0}
+  projectile: {fileID: 0}
+  scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
-  attackType: 1
-  MeleeAttack: {fileID: 0}
-  comboLength: 0
-  comboWaitTime: 0
+  attackType: 2
+  MeleeAttack: {fileID: 4908858350499337675, guid: dc68a2ec937697a489312f8803cfdc02, type: 3}
+  comboLength: 1
+  comboWaitTime: 0.4
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
   meleeSpacer: 0
   meleeSpacerGap: 0
   swapAnimOnAttack: 0
-  shakeTime: 0
-  shakeStrength: 0
-  shakeRotation: 0
-  weaponSprite: {fileID: 21300000, guid: 6995f37312d3fad409ff41096416f840, type: 3}
+  shakeTime: 0.1
+  shakeStrength: 0.5
+  shakeRotation: 1
+  weaponSprite: {fileID: 21300000, guid: 058b02585a221e74e898a35df0609fcf, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: b5d87fa8e715b304794e1fb125dae5ab, type: 3}
-  thrownDamage: 20
-  throwSpeed: 5
-  bulletCasing: {fileID: 2526348467587405025, guid: 166bb49c7f97f5a40af167155fe98935, type: 3}
-  MuzzleFlashPrefab:
-  - {fileID: 2526348467587405025, guid: 03272ce7df005f44f9cd657a16d798f6, type: 3}
+  thrownSprite: {fileID: 21300000, guid: f174f798d45438f4b80ed735d6588c4e, type: 3}
+  thrownDamage: 15
+  throwSpeed: 6
+  bulletCasing: {fileID: 0}
+  MuzzleFlashPrefab: []
   muzzleFlashXOffset: 0
   muzzleFlashYOffset: 0

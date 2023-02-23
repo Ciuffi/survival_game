@@ -12,14 +12,15 @@ public class PlayerCharacterStats : MonoBehaviour
         critDmg,
         defense,
         shield,
+        shotsPerAttack,
+        meleeComboLength,
         multicastChance,
         castTimeMultiplier,
-        shotsPerAttack,
         projectileSpeedMultiplier,
         knockbackMultiplier,
-        meleeComboLength,
         meleeWaitTimeMultiplier,
         thrownDamageMultiplier,
         thrownSpeedMultiplier;
 
+    public List<GameObject> startingWeapons;
 }

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8374027959730413455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7771748027295808622}
+  - component: {fileID: 7044413831109656880}
+  m_Layer: 0
+  m_Name: Blademaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7771748027295808622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8374027959730413455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7044413831109656880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8374027959730413455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
+  speed: 0.05
+  damageMultiplier: 1
+  critChance: 0.1
+  critDmg: 0.25
+  defense: 0
+  shield: 0
+  shotsPerAttack: 0
+  meleeComboLength: 0
+  multicastChance: 0
+  castTimeMultiplier: 1
+  projectileSpeedMultiplier: 0.75
+  knockbackMultiplier: 1
+  meleeWaitTimeMultiplier: 0.9
+  thrownDamageMultiplier: 0
+  thrownSpeedMultiplier: 0.25
+  startingWeapons:
+  - {fileID: 1449995561756442478, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}

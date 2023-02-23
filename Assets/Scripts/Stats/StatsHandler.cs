@@ -13,17 +13,17 @@ public class StatsHandler : MonoBehaviour
 
     public float maxHealth;
     public float speed;
-    public float baseSpeed = 0.01f;
-    public float damageMultipler = 1;
+    public float baseSpeed;
+    public float damageMultipler, baseDamageMultiplier;
     public float critChance;
     public float baseCritChance;
     public float critDmg;
     public float baseCritDmg;
 
     public float defense; //flat damage decrease
-    public float baseDefense = 0f;
+    public float baseDefense;
     public float shield;
-    public float baseShield = 0;
+    public float baseShield;
 
     public int shotsPerAttack,
         baseShotsPerAttack,
@@ -160,7 +160,7 @@ public class StatsHandler : MonoBehaviour
         speed = baseSpeed;
         maxHealth = baseMaxHealth;
         shield = baseShield;
-        damageMultipler = 1;
+        damageMultipler = baseDamageMultiplier;
         defense = baseDefense;
         critChance = baseCritChance;
         critDmg = baseCritDmg;
@@ -233,7 +233,7 @@ public class StatsHandler : MonoBehaviour
             maxHealth += sb.extraMaxHealth;
             speed += sb.extraSpeed;
             shield += sb.extraShield;
-            damageMultipler += sb.damageMultipler;
+            damageMultipler += sb.extraDamageMultipler;
             defense += sb.extraDefense;
             critChance += sb.extraCritChance;
             critDmg += sb.extraCritDmg;
@@ -243,7 +243,7 @@ public class StatsHandler : MonoBehaviour
             shotsPerAttack += sb.extraShotsPerAttack;
             projectileSpeedMultiplier += sb.extraProjectileSpeedMultiplier;
             knockbackMultiplier += sb.extraKnockbackMultiplier;
-            meleeWaitTimeMultiplier += sb.extraMeleeWaitTimeMultiplier;
+            meleeWaitTimeMultiplier = (float)((meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) > 0.1 ? (meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) : 0.1);
             thrownDamageMultiplier += sb.extraThrownDamageMultiplier;
             thrownSpeedMultiplier += sb.extraThrownSpeedMultiplier;
 
