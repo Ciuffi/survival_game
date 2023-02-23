@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 1822861191
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 2828741c5d0cbb84980490cef76b9334, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c342150bbc386a54f935d89777fb1f5b, type: 3}
   m_Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0.74509805}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 3966782872280218973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.024400318}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7248703019052639747}
@@ -183,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: 1822861191
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2828741c5d0cbb84980490cef76b9334, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c342150bbc386a54f935d89777fb1f5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.74509805}
   m_FlipX: 0
   m_FlipY: 0
@@ -204,7 +204,7 @@ Animator:
   m_GameObject: {fileID: 3966782872280218973}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b23a94f729a9ec247865e849efbdbc4c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 33f91fbc029a3fd418c9ea7879df4efd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   damageTickDuration: 1
   isThrown: 0
   isHover: 1
-  hoverTimer: 1
+  hoverTimer: 0.75
   hitFirstEnemy: 0
   isAnimated: 0
   isMagnet: 0

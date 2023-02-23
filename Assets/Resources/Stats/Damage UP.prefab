@@ -47,8 +47,17 @@ MonoBehaviour:
   extraHealth: 0
   extraMaxHealth: 0
   extraSpeed: 0
-  damageMultipler: 0.5
+  extraDamageMultipler: 0.25
   extraDefense: 0
   extraShield: 0
   extraCritChance: 0
   extraCritDmg: 0
+  extraShotsPerAttack: 0
+  extraMeleeComboLength: 0
+  extraMulticastChance: 0
+  extraCastTimeMultiplier: 0
+  extraProjectileSpeedMultiplier: 0
+  extraKnockbackMultiplier: 0
+  extraMeleeWaitTimeMultiplier: 0
+  extraThrownDamageMultiplier: 0
+  extraThrownSpeedMultiplier: 0

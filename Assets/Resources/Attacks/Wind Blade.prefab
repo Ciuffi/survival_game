@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 6
   damageUP: 10
-  spread: 0.2
+  spread: 0.15
   spreadUP: 0.1
   spray: 0
   sprayThreshold: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   attackType: 2
   MeleeAttack: {fileID: 4908858350499337675, guid: f9f1daa0c6ae50646baec98320b59731, type: 3}
   comboLength: 3
-  comboWaitTime: 0.1
+  comboWaitTime: 0.2
   comboAttackBuff: 0.5
   meleeShotsScaleUp: 0.05
   meleeSpacer: 0.9

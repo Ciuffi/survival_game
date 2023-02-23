@@ -94,7 +94,7 @@ MonoBehaviour:
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
   thrownSprite: {fileID: 21300000, guid: 183ed69a7fc94bb4b852224d63840665, type: 3}
   thrownDamage: 15
-  throwSpeed: 8
+  throwSpeed: 6
   bulletCasing: {fileID: 0}
   MuzzleFlashPrefab: []
   muzzleFlashXOffset: 0

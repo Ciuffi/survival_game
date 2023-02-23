@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c85cf6d99433c147809a22e9706345c
+guid: cfa103b23965e6d498241ef42a3eda92
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Impact_toss_0
+      name: impact_toss_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 29
-        width: 272
-        height: 422
+        x: 43
+        y: 57
+        width: 299
+        height: 363
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04359b8635bed0c4f81bd3081ac18174
-      internalID: 800355129
+      spriteID: f1f5242574c97bc42868002fb851fc5f
+      internalID: -667435131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Impact_toss_1
+      name: impact_toss_1
       rect:
         serializedVersion: 2
-        x: 386
-        y: 19
-        width: 415
-        height: 426
+        x: 397
+        y: 46
+        width: 400
+        height: 381
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 522e425725dd19544915b03741d12c97
-      internalID: -1936985549
+      spriteID: bd2cf900770b367429690493dcb239ef
+      internalID: 48144991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Impact_toss_2
+      name: impact_toss_2
       rect:
         serializedVersion: 2
-        x: 852
-        y: 19
-        width: 403
-        height: 426
+        x: 856
+        y: 32
+        width: 369
+        height: 412
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a948dd8194c2a74439f6d32ea7a4c9cb
-      internalID: -1251329242
+      spriteID: 25b09be342d566240b00add783bcc14f
+      internalID: -624808330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Impact_toss_3
+      name: impact_toss_3
       rect:
         serializedVersion: 2
-        x: 1306
-        y: 19
-        width: 367
-        height: 439
+        x: 1283
+        y: 41
+        width: 359
+        height: 387
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75c9509ae6c476d4da5a3806af6975fd
-      internalID: -1221747706
+      spriteID: b91db54a007a86743845c1817f22c8c3
+      internalID: 627281255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Impact_toss_4
+      name: impact_toss_4
       rect:
         serializedVersion: 2
-        x: 1724
-        y: 26
-        width: 394
-        height: 425
+        x: 1725
+        y: 24
+        width: 368
+        height: 412
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,8 +227,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 303b0527a00e4c6438547db87fe46079
-      internalID: -1147526731
+      spriteID: c6b4b2f778625c641bedc1a8ab84bd81
+      internalID: 495641484
       vertices: []
       indices: 
       edges: []
@@ -244,11 +244,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Impact_toss_1: -1936985549
-      Impact_toss_3: -1221747706
-      Impact_toss_4: -1147526731
-      Impact_toss_0: 800355129
-      Impact_toss_2: -1251329242
+      impact_toss_4: 495641484
+      impact_toss_3: 627281255
+      impact_toss_0: -667435131
+      impact_toss_2: -624808330
+      impact_toss_1: 48144991
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

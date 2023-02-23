@@ -1763,6 +1763,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 94860984551097323, guid: e89130871519a1c4f875022804e0ada5, type: 3}
+      propertyPath: maxGold
+      value: 439
+      objectReference: {fileID: 0}
+    - target: {fileID: 94860984551097323, guid: e89130871519a1c4f875022804e0ada5, type: 3}
+      propertyPath: minGold
+      value: 49
+      objectReference: {fileID: 0}
     - target: {fileID: 1423453834646843856, guid: e89130871519a1c4f875022804e0ada5, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5030,7 +5038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: UPGRADE
+  m_text: UPGRADE.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0abe3aca28ee9ed4982e844f87188c1f, type: 2}
   m_sharedMaterial: {fileID: 3521513208676722102, guid: 0abe3aca28ee9ed4982e844f87188c1f, type: 2}
@@ -8210,6 +8218,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3361447723226432987, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: comboWaitTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 

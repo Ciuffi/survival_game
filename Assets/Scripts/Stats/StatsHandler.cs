@@ -207,21 +207,8 @@ public class StatsHandler : MonoBehaviour
     {
         ResetStats(false);
 
-
-        // Create a HashSet to keep track of which stat names have already been applied
-        HashSet<string> appliedStatNames = new HashSet<string>();
-
         foreach (var stat in stats)
         {
-            // Get the name of the current stat
-            string statName = stat.name;
-
-            // Check if this stat's name has already been applied
-            if (appliedStatNames.Contains(statName))
-            {
-                continue; // Skip over this stat, since its values have already been applied
-            }
-
             StatBoost sb = stat.GetComponent<StatBoost>();
 
             // Apply the stat's values
@@ -247,8 +234,6 @@ public class StatsHandler : MonoBehaviour
             thrownDamageMultiplier += sb.extraThrownDamageMultiplier;
             thrownSpeedMultiplier += sb.extraThrownSpeedMultiplier;
 
-            // Add this stat's name to the HashSet of applied stat names
-            appliedStatNames.Add(statName);
         }
 
 

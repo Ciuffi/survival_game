@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   damageUP: 40
-  spread: 0.15
-  spreadUP: 0.1
+  spread: 0.2
+  spreadUP: 0.15
   spray: 0
   sprayThreshold: 0
   castTime: 1
@@ -94,7 +94,7 @@ MonoBehaviour:
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
   thrownSprite: {fileID: 21300000, guid: f174f798d45438f4b80ed735d6588c4e, type: 3}
   thrownDamage: 15
-  throwSpeed: 6
+  throwSpeed: 5
   bulletCasing: {fileID: 0}
   MuzzleFlashPrefab: []
   muzzleFlashXOffset: 0

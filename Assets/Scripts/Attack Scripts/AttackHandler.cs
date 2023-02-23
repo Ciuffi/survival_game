@@ -95,8 +95,9 @@ public class AttackHandler : MonoBehaviour
 
 
             //swap animation
-            HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);          
+            HandsSprite.GetComponent<Animator>().SetBool("IsSwap", true);          
             yield return new WaitForSeconds(0.3f);
+            HandsSprite.GetComponent<Animator>().SetBool("IsSwap", false);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
             WeaponOutline.GetComponent<SpriteRenderer>().enabled = true;
             HandsSprite.GetComponent<SpriteRenderer>().enabled = false;
@@ -123,15 +124,21 @@ public class AttackHandler : MonoBehaviour
             }
             if (currentAttack.recoveryTime > 0) yield return new WaitForSeconds(currentAttack.recoveryTime);
 
-            //throw animation
             HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
-            HandsSprite.GetComponent<Animator>().SetBool("IsThrow", true);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
             WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
-
             WeaponSprite.GetComponent<Collider2D>().enabled = true;
-            yield return new WaitForSeconds(0.3f);
-            currentAttack.ThrowWeapon();
+
+
+            if (currentAttack.thrownWeapon != null)
+            {
+                //throw animation
+                HandsSprite.GetComponent<Animator>().SetBool("IsThrow", true);
+                yield return new WaitForSeconds(0.3f);
+                currentAttack.ThrowWeapon();
+                HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);
+            }
+            
         }
     }
 

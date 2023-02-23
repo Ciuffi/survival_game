@@ -88,6 +88,13 @@ public class Attack : MonoBehaviour, Upgrade
     public float muzzleFlashYOffset;
     private VirtualJoystick VJ;
 
+    private float OGmulticastChance,
+        OGcastTime,
+        OGcomboWaitTime,
+        OGthrowSpeed;
+    private int OGshotPerAttack,
+        OGcomboLength;
+
     private void Update()
     {
         if (attackType == AttackTypes.Shotgun)
@@ -108,13 +115,13 @@ public class Attack : MonoBehaviour, Upgrade
     }
     public void CalculateStats()
     {
-        Debug.Log("calculatin");
-        multicastChance += Player.GetComponent<StatsHandler>().multicastChance;
-        castTime *= Player.GetComponent<StatsHandler>().castTimeMultiplier;
-        shotsPerAttack += Player.GetComponent<StatsHandler>().shotsPerAttack;
-        comboLength += Player.GetComponent<StatsHandler>().meleeComboLength;
-        comboWaitTime *= Player.GetComponent<StatsHandler>().meleeWaitTimeMultiplier;
-        throwSpeed *= Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
+        //Debug.Log("calculatin");
+        multicastChance = OGmulticastChance + Player.GetComponent<StatsHandler>().multicastChance;
+        castTime = OGcastTime * Player.GetComponent<StatsHandler>().castTimeMultiplier;
+        shotsPerAttack = OGshotPerAttack + Player.GetComponent<StatsHandler>().shotsPerAttack;
+        comboLength = OGcomboLength + Player.GetComponent<StatsHandler>().meleeComboLength;
+        comboWaitTime = OGcomboWaitTime * Player.GetComponent<StatsHandler>().meleeWaitTimeMultiplier;
+        throwSpeed = OGthrowSpeed * Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
     }
 
     private void rollMulticast()
@@ -639,6 +646,13 @@ public void SpawnBulletCasing()
         Player = GameObject.FindWithTag("Player");
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
         defaultMulticastWaitTime = multicastWaitTime;
+
+        OGmulticastChance = multicastChance;
+        OGcastTime = castTime;
+        OGshotPerAttack = shotsPerAttack;
+        OGcomboLength = comboLength;
+        OGcomboWaitTime = comboWaitTime;
+        OGthrowSpeed = throwSpeed;
 
         CalculateStats();
 

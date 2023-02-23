@@ -110,7 +110,7 @@ MonoBehaviour:
   bounceRange: 0
   bounceTimes: 0
   isMelee: 1
-  startup: 0.075
+  startup: 0.05
   active: 0.15
   scaleSpeed: 2
   disappearSpeed: 5
