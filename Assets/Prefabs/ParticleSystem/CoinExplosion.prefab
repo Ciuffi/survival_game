@@ -42,7 +42,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4053501027209517259}
   serializedVersion: 8
-  lengthInSec: 7.53444
+  lengthInSec: 6.18417
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -241,7 +241,7 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.6784314, g: 0.25248507, b: 0.08627452, a: 1}
+      minColor: {r: 0.7264151, g: 0.29356593, b: 0.12677999, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
@@ -304,8 +304,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.25
-      minScalar: 0.5
+      scalar: 1.75
+      minScalar: 0.75
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -626,15 +626,15 @@ ParticleSystem:
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
+      minMaxState: 1
+      scalar: 2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: -0.44705963
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -642,8 +642,26 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
+          time: 0.09534922
+          value: 0.67058945
+          inSlope: -0.00000052997194
+          outSlope: -0.00000052997194
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 1
+          outWeight: 0.18479612
+        - serializedVersion: 3
+          time: 0.3713183
+          value: 0.50588226
+          inSlope: -0.5789268
+          outSlope: -0.5789268
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.44182324
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 1
-          value: 0
+          value: 0.03529358
           inSlope: 0
           outSlope: 0
           tangentMode: 0

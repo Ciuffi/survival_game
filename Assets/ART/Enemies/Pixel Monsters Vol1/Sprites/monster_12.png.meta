@@ -859,7 +859,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      monster_12_25: 8992383180637113855
+      monster_12_5: 8844800197608207819
       monster_12_20: -5672784318877352898
       monster_12_22: 7994948362390815947
       monster_12_12: 5514663654445604330
@@ -888,7 +888,7 @@ TextureImporter:
       monster_12_24: -4033064371519516423
       monster_12_4: -408843398323206036
       monster_12_15: -4426076589157970193
-      monster_12_5: 8844800197608207819
+      monster_12_25: 8992383180637113855
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
