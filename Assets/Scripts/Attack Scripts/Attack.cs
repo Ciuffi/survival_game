@@ -108,6 +108,7 @@ public class Attack : MonoBehaviour, Upgrade
     }
     public void CalculateStats()
     {
+        Debug.Log("calculatin");
         multicastChance += Player.GetComponent<StatsHandler>().multicastChance;
         castTime *= Player.GetComponent<StatsHandler>().castTimeMultiplier;
         shotsPerAttack += Player.GetComponent<StatsHandler>().shotsPerAttack;

@@ -109,7 +109,7 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   damage: 8
-  health: 22
+  health: 30
   maxHealth: 0
   xpAmount: 35
   weight: 10
@@ -133,7 +133,7 @@ MonoBehaviour:
   animator: {fileID: 7020551756548099047}
   Sprite: {fileID: 4773136830766705182}
   rageColor: {r: 0, g: 0, b: 0, a: 0}
-  disappearSpeed: 5
+  disappearSpeed: 10
   isDead: 0
   speed: 0
   originalSpeed: 0

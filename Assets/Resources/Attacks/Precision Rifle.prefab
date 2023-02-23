@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 45
-  damageUP: 70
+  damage: 30
+  damageUP: 50
   spread: 0.55
   spreadUP: 0.5
   spray: 0.5
@@ -64,8 +64,8 @@ MonoBehaviour:
   speedUP: 0.25
   knockback: 25
   knockbackUP: 30
-  pierce: 10
-  pierceUP: 50
+  pierce: 999
+  pierceUP: 999
   critChance: 0.15
   critDmg: 1.5
   multicastChance: 0

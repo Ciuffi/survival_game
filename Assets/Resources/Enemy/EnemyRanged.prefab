@@ -110,9 +110,9 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   damage: 8
-  health: 30
+  health: 25
   maxHealth: 0
-  xpAmount: 25
+  xpAmount: 20
   weight: 20
   stopDistanceMin: 2
   stopDistanceMax: 4
@@ -134,7 +134,7 @@ MonoBehaviour:
   animator: {fileID: 7020551756548099047}
   Sprite: {fileID: 4773136830766705182}
   rageColor: {r: 0, g: 0, b: 0, a: 0}
-  disappearSpeed: 3
+  disappearSpeed: 5
   isDead: 0
   speed: 0
   originalSpeed: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   shootChargeTime: 1.25
   projectileSpeed: 2
   projectileRange: 12
-  projectileDamage: 10
+  projectileDamage: 8
   shootRecovery: 2
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}

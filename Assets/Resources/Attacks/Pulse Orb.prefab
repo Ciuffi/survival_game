@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 6
-  damageUP: 12
+  damageUP: 9
   spread: 0.75
   spreadUP: 0.6
   spray: 1
@@ -62,10 +62,10 @@ MonoBehaviour:
   cantMove: 0
   speed: 0.035
   speedUP: 0.03
-  knockback: 1
-  knockbackUP: 2
-  pierce: 30
-  pierceUP: 60
+  knockback: 0.25
+  knockbackUP: 0.5
+  pierce: 99
+  pierceUP: 99
   critChance: 0.1
   critDmg: 1.5
   multicastChance: 0

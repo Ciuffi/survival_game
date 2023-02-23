@@ -24,7 +24,8 @@ public class LootBoxManager : MonoBehaviour
     public GameObject VFX;
 
     private GameObject lootPopup;
-
+    public int finalGold;
+    public GameObject lootOnTap;
 
     // Start is called before the first frame update
     void Start()
@@ -126,6 +127,7 @@ public class LootBoxManager : MonoBehaviour
         GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
         panelAnimated.SetActive(true);
         panelAnimated.GetComponent<LootGoldCounter>().ResetStats();
+        lootOnTap.GetComponent<LootPopupAnimator>().finalGold = finalGold;
         PauseGame();
 
     }

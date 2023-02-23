@@ -8210,14 +8210,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: multicastChance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: baseMulticastChance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -8227,6 +8219,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2123377711}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootOnTap
+      value: 
+      objectReference: {fileID: 1118731105}
+    - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: upgradeWindow
       value: 
       objectReference: {fileID: 872535647}
@@ -8234,10 +8230,6 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1537696376}
-    - target: {fileID: 7710239593563589395, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: comboWaitTime
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 

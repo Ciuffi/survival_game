@@ -20,7 +20,6 @@ public class LootBox : MonoBehaviour
     public int finalGold;
 
     private bool hasTriggered = false;
-    private GameObject lootOnTap;
     Animator anim;
 
     // Start is called before the first frame update
@@ -33,7 +32,6 @@ public class LootBox : MonoBehaviour
         OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
         goldManager = GameObject.Find("GoldManager");
         finalGold = Random.Range(minGold, maxGold);
-        lootOnTap = GameObject.Find("TapToOpen");
         anim = GetComponent<Animator>();
     }
 
@@ -51,7 +49,7 @@ public class LootBox : MonoBehaviour
             anim.SetBool("IsOpen", true);
 
             player.GetComponentInChildren<LootBoxManager>().ShowLootUI();
-            lootOnTap.GetComponent<LootPopupAnimator>().finalGold = finalGold;
+            player.GetComponentInChildren<LootBoxManager>().finalGold = finalGold;
             hasTriggered = true;
             StartCoroutine(delayGold());
         }

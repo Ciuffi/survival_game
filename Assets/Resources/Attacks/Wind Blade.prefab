@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 6
-  damageUP: 12
+  damageUP: 10
   spread: 0.2
   spreadUP: 0.1
   spray: 0

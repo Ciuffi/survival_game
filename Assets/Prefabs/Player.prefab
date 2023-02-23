@@ -270,6 +270,8 @@ MonoBehaviour:
   SwapBtn: {fileID: 0}
   TimelineManager: {fileID: 0}
   VFX: {fileID: 8139009526274993311, guid: 34697af283df79a4aa69aa59693a8e28, type: 3}
+  finalGold: 0
+  lootOnTap: {fileID: 0}
 --- !u!114 &2052080985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,10 +750,10 @@ MonoBehaviour:
   baseDefense: 0
   shield: 0
   baseShield: 0
-  shotsPerAttack: 1
-  baseShotsPerAttack: 1
-  meleeComboLength: 1
-  baseMeleeComboLength: 1
+  shotsPerAttack: 0
+  baseShotsPerAttack: 0
+  meleeComboLength: 0
+  baseMeleeComboLength: 0
   multicastChance: 0
   baseMulticastChance: 0
   castTimeMultiplier: 1
@@ -779,7 +781,7 @@ MonoBehaviour:
   playerShakeTime: 0.4
   playerShakeStrength: 0.5
   playerShakeRotation: 0.3
-  weaponsList: {fileID: 0}
+  weaponsList: {fileID: 3287956671689121398}
 --- !u!61 &1999617151
 BoxCollider2D:
   m_ObjectHideFlags: 0
