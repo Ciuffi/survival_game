@@ -10,7 +10,7 @@ public class SpriteAnimation : MonoBehaviour
 
     [SerializeField] Animator ani;
     [SerializeField] float delayTime;
-    int reset_count = 0;
+    //int reset_count = 0;
 
     public AudioSource audioSource;
     public AudioClip[] audioClipKnock;

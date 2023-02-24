@@ -11,6 +11,7 @@ TagManager:
   - Loot
   - Weapon
   - Deathrattle
+  - SelectedCharacter
   layers:
   - Default
   - TransparentFX

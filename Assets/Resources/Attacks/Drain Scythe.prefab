@@ -57,6 +57,7 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 0
   rangeUP: 0
+  OGrange: 0
   shotsPerAttack: 1
   shotsPerAttackUP: 1
   cantMove: 0
@@ -68,11 +69,12 @@ MonoBehaviour:
   pierceUP: 0
   critChance: 0.05
   critDmg: 1.5
+  shootOpppositeSide: 0
+  OGshootOpposite: 0
   multicastChance: 0
   multicastWaitTime: 0.15
   multicastTimes: 0
   projectile: {fileID: 0}
-  scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
@@ -83,7 +85,7 @@ MonoBehaviour:
   comboAttackBuff: 0
   meleeShotsScaleUp: 0.15
   meleeSpacer: 1.5
-  meleeSpacerGap: 1.25
+  meleeSpacerGap: 1.5
   swapAnimOnAttack: 0
   shakeTime: 0.2
   shakeStrength: 0.5

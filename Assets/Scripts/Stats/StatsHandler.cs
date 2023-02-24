@@ -77,6 +77,71 @@ public class StatsHandler : MonoBehaviour
     public float playerShakeTime, playerShakeStrength, playerShakeRotation;
 
     public GameObject weaponsList;
+    PlayerCharacterStats characterStats;
+
+
+    private void MatchCharacter()
+    {
+        string storedName = PlayerPrefs.GetString("CharacterName");
+        GameObject[] characters = Resources.LoadAll<GameObject>("PlayerCharacters");
+
+        foreach (GameObject obj in characters)
+        {
+            if (obj.name == storedName)
+            {
+                characterStats = obj.GetComponent<PlayerCharacterStats>();
+                break;
+            }
+        }
+    }
+
+
+    public void InhereitStats()
+    {
+
+        // Get the selected character's stats from PlayerPrefs
+        float health = characterStats.health;
+        float speed = characterStats.speed;
+        float damage = characterStats.damageMultiplier;
+        float critChance = characterStats.critChance;
+        float critDmg = characterStats.critDmg;
+        float defense = characterStats.defense;
+        float shield = characterStats.shield;
+        int shotsPerAttack = characterStats.shotsPerAttack;
+        int comboLength = characterStats.meleeComboLength;
+        float multicast = characterStats.multicastChance;
+        float castTime = characterStats.castTimeMultiplier;
+        float projSpeed = characterStats.projectileSpeedMultiplier;
+        float knockback = characterStats.knockbackMultiplier;
+        float comboWaitTime = characterStats.meleeWaitTimeMultiplier;
+        float thrownDmg = characterStats.thrownDamageMultiplier;
+        float thrownSpd = characterStats.thrownSpeedMultiplier;
+        float range = characterStats.rangeMultiplier;
+        bool shootOpposite = characterStats.shootOpposideSide;
+
+
+        // Assign the selected character's stats to the player's stats
+        baseMaxHealth = health;
+        baseSpeed = speed;
+        baseDamageMultiplier = damage;
+        baseCritChance = critChance;
+        baseCritDmg = critDmg;
+        baseDefense = defense;
+        baseShield = shield;
+        baseShotsPerAttack = shotsPerAttack;
+        baseMeleeComboLength = comboLength;
+        baseMulticastChance = multicast;
+        baseCastTimeMultiplier = castTime;
+        baseProjectileSpeedMultiplier = projSpeed;
+        baseKnockbackMultiplier = knockback;
+        baseMeleeWaitTimeMultiplier = comboWaitTime;
+        baseThrownDamageMultiplier = thrownDmg;
+        baseThrownSpeedMultiplier = thrownSpd;
+        baseRangeMultiplier = range;
+        baseShootOppositeSide = shootOpposite;
+
+    }
+
 
     public void TakeDamage(float damageAmount)
     {
@@ -262,8 +327,6 @@ public class StatsHandler : MonoBehaviour
         Camera = GameObject.FindWithTag("MainCamera");
         ComboManager = GameObject.FindWithTag("ComboManager");
         ComboManager.GetComponent<ComboTracker>().ResetCount();
-
-
         level = 1;
         xp = 0;
         LevelManager = GameObject.FindObjectOfType<LevelUpManager>();
@@ -272,6 +335,10 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue = gameObject.AddComponent<CoroutineQueue>();
         healthBarQueue.StartQueue();
         health = maxHealth;
+
+        MatchCharacter();
+        InhereitStats();
+        //add extra stats?
         StatContainer = new List<Transform>(GetComponentsInChildren<Transform>()).Find(t =>
         {
             return t.name == "Stats";
@@ -280,8 +347,10 @@ public class StatsHandler : MonoBehaviour
         {
             AddStat(a.gameObject);
         });
+
         CalculateStats();
         CalculateWeaponStats(weaponsList);
+
 
     }
     private void CalculateWeaponStats(GameObject prefab)

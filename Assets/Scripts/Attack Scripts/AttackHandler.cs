@@ -29,7 +29,22 @@ public class AttackHandler : MonoBehaviour
         Color.magenta
     };
 
+    PlayerCharacterStats characterStats;
 
+    private void MatchCharacter()
+    {
+        string storedName = PlayerPrefs.GetString("CharacterName");
+        GameObject[] characters = Resources.LoadAll<GameObject>("PlayerCharacters");
+
+        foreach (GameObject obj in characters)
+        {
+            if (obj.name == storedName)
+            {
+                characterStats = obj.GetComponent<PlayerCharacterStats>();
+                break;
+            }
+        }
+    }
 
     IEnumerator HandleAttackSlider(float castTime)
     {
@@ -183,17 +198,28 @@ public class AttackHandler : MonoBehaviour
         {
             return t.name == "Weapons";
         }).gameObject;
+
+        
+        MatchCharacter(); //inherit weapons
+        foreach (GameObject weapon in characterStats.startingWeapons)
+        {
+            GameObject newWeapon = Instantiate(weapon, transform);
+            AddWeapon(newWeapon.gameObject);
+
+        }
+
+        //add any other attacks
         new List<Attack>(attackContainer.GetComponentsInChildren<Attack>()).ForEach(a =>
         {
             AddWeapon(a.gameObject);
         });
+
 
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
         WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
         HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
 
         StartCoroutine(Attack());
-        defaultWeapon = Resources.Load<GameObject>("Attacks/Single Shot");
 
     }
 

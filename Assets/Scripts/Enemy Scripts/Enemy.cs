@@ -126,6 +126,8 @@ public class Enemy : MonoBehaviour, Attacker
     private float stunTimer;
     public Color stunColor;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -206,8 +208,8 @@ public class Enemy : MonoBehaviour, Attacker
             xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
             xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
 
-            Instantiate(DeathEffect, center, Quaternion.identity);
-
+            Vector3 deathSpawnPos = new Vector3(Random.Range(center.x - 0.1f, center.x + 0.1f), Random.Range(center.y - 0.1f, center.y + 0.1f), center.z);
+            Instantiate(DeathEffect, deathSpawnPos, Quaternion.identity);
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
             ComboManager.GetComponent<ScreenShakeController>().StartShake(0.1f, 0.1f, 0.1f);
         }
@@ -216,6 +218,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
             animator.SetBool("IsDead", true);
             SetAllCollidersStatus(false);
+
             color = Sprite.GetComponent<SpriteRenderer>().color;
             Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
 
@@ -714,7 +717,12 @@ public class Enemy : MonoBehaviour, Attacker
         StopCoroutine(slowCoroutine);  
     }
 
+    
 
+    public static float EaseInQuint(float t)
+    {
+        return t * t * t * t * t;
+    }
 
     public void SetAllCollidersStatus(bool active)
     {

@@ -11,16 +11,25 @@ public class PlayerCharacterStats : MonoBehaviour
         critChance,
         critDmg,
         defense,
-        shield,
-        shotsPerAttack,
-        meleeComboLength,
-        multicastChance,
+        shield;
+
+    public int shotsPerAttack,
+        meleeComboLength;
+
+   public float multicastChance,
         castTimeMultiplier,
-        projectileSpeedMultiplier,
-        knockbackMultiplier,
         meleeWaitTimeMultiplier,
+        projectileSpeedMultiplier,
+        rangeMultiplier,
+        knockbackMultiplier,
         thrownDamageMultiplier,
         thrownSpeedMultiplier;
 
+
+
+    public bool shootOpposideSide;
+
     public List<GameObject> startingWeapons;
+
+
 }
