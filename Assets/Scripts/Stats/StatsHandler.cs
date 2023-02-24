@@ -334,10 +334,12 @@ public class StatsHandler : MonoBehaviour
         healthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
         healthBarQueue = gameObject.AddComponent<CoroutineQueue>();
         healthBarQueue.StartQueue();
-        health = maxHealth;
 
         MatchCharacter();
         InhereitStats();
+        health = maxHealth;
+
+
         //add extra stats?
         StatContainer = new List<Transform>(GetComponentsInChildren<Transform>()).Find(t =>
         {

@@ -208,12 +208,6 @@ public class AttackHandler : MonoBehaviour
 
         }
 
-        //add any other attacks
-        new List<Attack>(attackContainer.GetComponentsInChildren<Attack>()).ForEach(a =>
-        {
-            AddWeapon(a.gameObject);
-        });
-
 
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
         WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;

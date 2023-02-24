@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7329280640904233847}
   - component: {fileID: 2619886986464292918}
   m_Layer: 5
-  m_Name: 0_Default
+  m_Name: Shrek'd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,26 +53,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  speed: 0.04
-  damageMultiplier: 1
+  health: 90
+  speed: 0.03
+  damageMultiplier: 2
   critChance: 0
   critDmg: 0
-  defense: 0
+  defense: 5
   shield: 0
   shotsPerAttack: 0
   meleeComboLength: 0
   multicastChance: 0
-  castTimeMultiplier: 1
-  meleeWaitTimeMultiplier: 1
+  castTimeMultiplier: 1.5
+  meleeWaitTimeMultiplier: 1.5
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
-  knockbackMultiplier: 1
-  thrownDamageMultiplier: 1
-  thrownSpeedMultiplier: 1
+  knockbackMultiplier: 2
+  thrownDamageMultiplier: 2
+  thrownSpeedMultiplier: 2
   shootOpposideSide: 0
   startingWeapons:
-  - {fileID: 1449995561756442478, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+  - {fileID: 1449995561756442478, guid: 461344ea67bc86c4482ddb80c32e722f, type: 3}
+  - {fileID: 1449995561756442478, guid: 89b385cd1fd80aa4db4276c70e825cc6, type: 3}
 --- !u!222 &3817268471581327505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f5d0dc4073c1c84cb0e291a73aa678e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8014b4e1fb77f1449bd310309a36ec0f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

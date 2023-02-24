@@ -53,23 +53,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  speed: 0.04
+  health: 60
+  speed: 0.02
   damageMultiplier: 1
   critChance: 0
-  critDmg: 1
-  defense: 5
+  critDmg: 0
+  defense: 8
   shield: 0
+  shotsPerAttack: 0
+  meleeComboLength: 0
   multicastChance: 0
   castTimeMultiplier: 1
-  projectileSpeedMultiplier: 1
-  knockbackMultiplier: 1
   meleeWaitTimeMultiplier: 1
+  projectileSpeedMultiplier: 1
+  rangeMultiplier: 1
+  knockbackMultiplier: 1
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
-  rangeMultiplier: 1
-  shotsPerAttack: 0
-  meleeComboLength: 1
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: d858553e20b94884c8176ca49cc83a10, type: 3}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cabc687c6d913d04793282f48bb81ce9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e953a9532d0a6c749a5fe6e85bc7adc8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -126,6 +126,7 @@ MonoBehaviour:
   selectedImage: {fileID: 2131905964779344643}
   nameText: {fileID: 0}
   infoText: {fileID: 0}
+  weaponsText: {fileID: 0}
   startBtn: {fileID: 0}
 --- !u!1001 &1813468869995501071
 PrefabInstance:

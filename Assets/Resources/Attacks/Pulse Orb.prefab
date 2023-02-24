@@ -57,6 +57,7 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 6
   rangeUP: 7
+  OGrange: 0
   shotsPerAttack: 4
   shotsPerAttackUP: 7
   cantMove: 0
@@ -68,11 +69,12 @@ MonoBehaviour:
   pierceUP: 99
   critChance: 0.05
   critDmg: 1.5
+  shootOpppositeSide: 0
+  OGshootOpposite: 0
   multicastChance: 0
   multicastWaitTime: 0.1
   multicastTimes: 0
   projectile: {fileID: 3966782872280218973, guid: dc28017651fe4414892ee44936f53fc3, type: 3}
-  scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
@@ -88,11 +90,11 @@ MonoBehaviour:
   shakeTime: 0
   shakeStrength: 0
   shakeRotation: 0
-  weaponSprite: {fileID: 21300000, guid: 0d6169b7ac5346a48ae43626f31fd7ab, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 7653e16d5d486204d9dccf194a066f38, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: 8a86555c60126cc44b302367e02a3e27, type: 3}
+  thrownSprite: {fileID: 21300000, guid: 26926dc75045bf04fa2c23bf45ab39cd, type: 3}
   thrownDamage: 25
   throwSpeed: 5
   bulletCasing: {fileID: 2526348467587405025, guid: c8864c4bc9c95004599382d64b0e894a, type: 3}

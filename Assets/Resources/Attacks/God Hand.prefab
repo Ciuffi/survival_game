@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1449995561756442478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   damageUP: 40
-  spread: 0.18
-  spreadUP: 0.15
+  spread: 0.25
+  spreadUP: 0.2
   spray: 0
   sprayThreshold: 0
   castTime: 1.5
@@ -57,6 +57,7 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 0
   rangeUP: 0
+  OGrange: 0
   shotsPerAttack: 1
   shotsPerAttackUP: 1
   cantMove: 1
@@ -68,26 +69,27 @@ MonoBehaviour:
   pierceUP: 0
   critChance: 0.075
   critDmg: 1.5
+  shootOpppositeSide: 0
+  OGshootOpposite: 0
   multicastChance: 0
   multicastWaitTime: 0.1
   multicastTimes: 0
   projectile: {fileID: 4235860010000021921, guid: 0a4df0d48ae8b464692b544318a1dd7f, type: 3}
-  scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
   attackType: 2
   MeleeAttack: {fileID: 4908858350499337675, guid: 56c6a42a601ee3846a6d9015b8a1ce51, type: 3}
   comboLength: 1
-  comboWaitTime: 0.25
+  comboWaitTime: 0.4
   comboAttackBuff: 0.2
-  meleeShotsScaleUp: 0.15
-  meleeSpacer: 1.5
-  meleeSpacerGap: 1
+  meleeShotsScaleUp: 0.3
+  meleeSpacer: 2
+  meleeSpacerGap: 3
   swapAnimOnAttack: 0
-  shakeTime: 0.3
+  shakeTime: 0.2
   shakeStrength: 0.25
-  shakeRotation: 6
+  shakeRotation: 5
   weaponSprite: {fileID: 21300000, guid: 03fd5dd25edcb5941a5fc4ecaa81670b, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}

@@ -52,7 +52,7 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
             Instantiate(coinExplosion, transform.position, Quaternion.identity);
 
             ParticleSystem Ps_sparkle = sparkle.GetComponent<ParticleSystem>();
-            var main2 = Ps.main;
+            var main2 = Ps_sparkle.main;
             main2.duration = OGduration + extraIncrementTime;
             Instantiate(sparkle, transform.position, Quaternion.identity);
 

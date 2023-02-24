@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7562844569638490226, guid: 52d38c84e469b9149a91af5359b9e041, type: 2}
+  - {fileID: 7562844569638490226, guid: 35d6705d20ebf294582186413b83971d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,8 +103,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 52d38c84e469b9149a91af5359b9e041, type: 2}
-  m_sharedMaterial: {fileID: 7562844569638490226, guid: 52d38c84e469b9149a91af5359b9e041, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35d6705d20ebf294582186413b83971d, type: 2}
+  m_sharedMaterial: {fileID: 7562844569638490226, guid: 35d6705d20ebf294582186413b83971d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -186,16 +186,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 4487688929921643103}
-  moveSpeed: 4
-  slowSpeed: 6
+  moveSpeed: 3
+  slowSpeed: 2.5
   disappearTimer: 0.6
   disappearSpeed: 3
   textColor: {r: 1, g: 1, b: 1, a: 1}
-  scaleUpAmount: 0.3
-  scaleDownAmount: 0.22
-  baseFontSize: 60
-  critScaleUpPercent: 1.25
-  defaultDamageSize: 50
+  scaleUpAmount: 0.25
+  scaleDownAmount: 0.15
+  baseFontSize: 50
+  critScaleUpPercent: 1.4
+  defaultDamageSize: 10
   damageScaleAmount: 2
   upScaleIncrement: 5
-  downScaleIncrement: 10
+  downScaleIncrement: 2

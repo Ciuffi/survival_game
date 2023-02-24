@@ -8,19 +8,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2621842918715029964}
+  - component: {fileID: 6880843106958158523}
   - component: {fileID: 7044413831109656880}
-  - component: {fileID: 3817268471581327505}
-  - component: {fileID: 7329280640904233847}
-  - component: {fileID: 2619886986464292918}
+  - component: {fileID: 4206294333654784577}
+  - component: {fileID: 2893022063597476336}
+  - component: {fileID: 8037613301776779558}
   m_Layer: 5
-  m_Name: 0_Default
+  m_Name: Scout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2621842918715029964
+--- !u!224 &6880843106958158523
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32,7 +32,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5207177187710735063}
+  - {fileID: 138188589792740082}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54,26 +54,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  speed: 0.04
+  speed: 0.05
   damageMultiplier: 1
-  critChance: 0
-  critDmg: 0
+  critChance: 0.05
+  critDmg: 0.1
   defense: 0
   shield: 0
   shotsPerAttack: 0
   meleeComboLength: 0
   multicastChance: 0
-  castTimeMultiplier: 1
+  castTimeMultiplier: 0.9
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
-  knockbackMultiplier: 1
+  knockbackMultiplier: 1.2
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
   shootOpposideSide: 0
   startingWeapons:
-  - {fileID: 1449995561756442478, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
---- !u!222 &3817268471581327505
+  - {fileID: 1449995561756442478, guid: 9cfd520238eb4504e9d4b94af94b46af, type: 3}
+--- !u!222 &4206294333654784577
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8374027959730413455}
   m_CullTransparentMesh: 1
---- !u!114 &7329280640904233847
+--- !u!114 &2893022063597476336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f5d0dc4073c1c84cb0e291a73aa678e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 378f99e0bf6ba2a40b55c90c5cb1e1ec, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2619886986464292918
+--- !u!114 &8037613301776779558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,17 +123,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a067344567a224488d5eb087b765ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedImage: {fileID: 8134051254173000062}
+  selectedImage: {fileID: 4127717693787910491}
   nameText: {fileID: 0}
   infoText: {fileID: 0}
   weaponsText: {fileID: 0}
   startBtn: {fileID: 0}
---- !u!1001 &8384935033218491506
+--- !u!1001 &4464237277344216151
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2621842918715029964}
+    m_TransformParent: {fileID: 6880843106958158523}
     m_Modifications:
     - target: {fileID: 341342808285250828, guid: be8ad3b99c713b346a04c077805fb5ba, type: 3}
       propertyPath: m_Name
@@ -225,13 +225,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be8ad3b99c713b346a04c077805fb5ba, type: 3}
---- !u!224 &5207177187710735063 stripped
+--- !u!224 &138188589792740082 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4332139503435347621, guid: be8ad3b99c713b346a04c077805fb5ba, type: 3}
-  m_PrefabInstance: {fileID: 8384935033218491506}
+  m_PrefabInstance: {fileID: 4464237277344216151}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8134051254173000062 stripped
+--- !u!1 &4127717693787910491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 341342808285250828, guid: be8ad3b99c713b346a04c077805fb5ba, type: 3}
-  m_PrefabInstance: {fileID: 8384935033218491506}
+  m_PrefabInstance: {fileID: 4464237277344216151}
   m_PrefabAsset: {fileID: 0}

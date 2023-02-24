@@ -56,20 +56,20 @@ MonoBehaviour:
   health: 30
   speed: 0.05
   damageMultiplier: 1
-  critChance: 0.1
+  critChance: 0.05
   critDmg: 0.25
   defense: 0
   shield: 0
+  shotsPerAttack: 0
+  meleeComboLength: 1
   multicastChance: 0
   castTimeMultiplier: 1
-  projectileSpeedMultiplier: 0.75
-  knockbackMultiplier: 1
   meleeWaitTimeMultiplier: 0.9
+  projectileSpeedMultiplier: 0.75
+  rangeMultiplier: 1
+  knockbackMultiplier: 1
   thrownDamageMultiplier: 0
   thrownSpeedMultiplier: 0.25
-  rangeMultiplier: 1
-  shotsPerAttack: 0
-  meleeComboLength: 0
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: 032dcd135d1de634f88a8a098ab9a272, type: 3}
@@ -126,6 +126,7 @@ MonoBehaviour:
   selectedImage: {fileID: 3111784946308519929}
   nameText: {fileID: 0}
   infoText: {fileID: 0}
+  weaponsText: {fileID: 0}
   startBtn: {fileID: 0}
 --- !u!1001 &3428354849163088629
 PrefabInstance:
