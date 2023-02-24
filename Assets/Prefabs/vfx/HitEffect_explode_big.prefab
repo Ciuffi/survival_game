@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6403608253968370079}
   - component: {fileID: 1437761089197894157}
   m_Layer: 0
-  m_Name: deathEffect_mech
+  m_Name: HitEffect_explode_big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

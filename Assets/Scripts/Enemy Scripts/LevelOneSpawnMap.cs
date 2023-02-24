@@ -21,7 +21,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
             .WithDirection(Random.Range(0, 360))
             .WithDistance(Random.Range(1, 2))
         .WithEnemiesPerWave(2)
-        .WithSpawnTimer(2)
+        .WithSpawnTimer(0)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.meleeEnemy, 100}
 
@@ -31,7 +31,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
             .WithDirection(Random.Range(0, 360))
            .WithDistance(Random.Range(1, 2))
           .WithEnemiesPerWave(1)
-        .WithSpawnTimer(4)
+        .WithSpawnTimer(2)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.rangedEnemy, 50},
                 {enemies.rangedAOE, 50}
@@ -146,13 +146,16 @@ public class LevelOneSpawnMap : EnemySpawnMap
 
         spawnMaps.Add(wave1);
         spawnMaps.Add(wave2);
-        spawnMaps.Add(wave1);
-        spawnMaps.Add(wave2);
-        spawnMaps.Add(wave1);
         spawnMaps.Add(wave2);
         spawnMaps.Add(wave3);
+        spawnMaps.Add(wave1);
+        spawnMaps.Add(wave2);
         spawnMaps.Add(wave4);
+        spawnMaps.Add(wave1);
+        spawnMaps.Add(wave2);
         spawnMaps.Add(wave5);
+        spawnMaps.Add(wave1);
+        spawnMaps.Add(wave2);
         spawnMaps.Add(wave6);
         spawnMaps.Add(wave13);
         spawnMaps.Add(wave14);
@@ -162,6 +165,8 @@ public class LevelOneSpawnMap : EnemySpawnMap
         spawnMaps.Add(wave3);
         spawnMaps.Add(wave4);
         spawnMaps.Add(wave5);
+        spawnMaps.Add(wave1);
+        spawnMaps.Add(wave2);
         spawnMaps.Add(wave6);
         spawnMaps.Add(wave7);
         spawnMaps.Add(wave13);

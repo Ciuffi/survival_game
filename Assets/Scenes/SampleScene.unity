@@ -7027,7 +7027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.0037735105, b: 0.0037735105, a: 0.6666667}
+  m_Color: {r: 1, g: 0.0037735105, b: 0.0037735105, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8242,6 +8242,30 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1537696376}
+    - target: {fileID: 5963081994719383478, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: cantMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963081994719383478, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: meleeSpacer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963081994719383478, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: meleeSpacerGap
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963081994719383478, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: shotsPerAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6097812609038008204, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: cantMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6097812609038008204, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: shootOpppositeSide
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -13003,7 +13027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.0037735105, b: 0.0037735105, a: 0.6666667}
+  m_Color: {r: 1, g: 0.0037735105, b: 0.0037735105, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

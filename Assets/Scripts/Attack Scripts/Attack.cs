@@ -39,6 +39,8 @@ public class Attack : MonoBehaviour, Upgrade
     public float critChance; // 1 = 100% crit chance, 0 = 0% crit chance
     public float critDmg; //1 = 100% of normal damage on a crit, 2 = 200% damage, etc.
 
+    public bool shootOpppositeSide = false;
+
     public float multicastChance; //every 1.0f = one guarenteed multicast.
     public float multicastWaitTime;
     private float defaultMulticastWaitTime;
@@ -241,82 +243,68 @@ public class Attack : MonoBehaviour, Upgrade
             }
         }
 
-        if (cantMove == true)
+        if (cantMove)
         {
-            //if (isAutoAim)
-           // {
-              //  AutoAim.SetActive(true);
-            //} else
-           // {
-              //  AutoAim.SetActive(false);
-           // }
+            Player.GetComponent<PlayerMovement>().StopMoving();
+        }
 
-            for (int i = 0; i < shotsPerAttack; i++)
+        //if (isAutoAim)
+        // {
+        //  AutoAim.SetActive(true);
+        //} else
+        // {
+        //  AutoAim.SetActive(false);
+        // }
+
+        for (int i = 0; i < shotsPerAttack; i++)
+        {
+            SpawnMuzzleFlash();
+            SpawnBulletCasing();
+            Player.GetComponent<AttackHandler>().triggerRecoil();
+
+            Quaternion rotation = owner.GetTransform().rotation;
+            Vector3 position = owner.GetTransform().position;
+            Vector3 direction = owner.GetDirection();
+            Quaternion spreadDirection;
+
+            Player.GetComponent<PlayerMovement>().StopMoving(); //stop moving before shooting
+
+            if (shotsCount >= sprayThreshold) // calculate spray pattern
             {
-                SpawnMuzzleFlash();
-                SpawnBulletCasing();
-                Player.GetComponent<AttackHandler>().triggerRecoil();
+                float spread = spray * (shotsCount - sprayThreshold + 1);
+                float randomSpread = Random.Range(-spread, spread);
+                spreadDirection = Quaternion.Euler(0, 0, randomSpread);
+                rotation *= spreadDirection;
+            }
 
-                Quaternion rotation = owner.GetTransform().rotation;
-                Vector3 position = owner.GetTransform().position;
-                Vector3 direction = owner.GetDirection();
-                Quaternion spreadDirection;
-
-                Player.GetComponent<PlayerMovement>().StopMoving(); //stop moving before shooting
-
-                if (shotsCount >= sprayThreshold) // calculate spray pattern
-                {
-                    float spread = spray * (shotsCount - sprayThreshold + 1);
-                    float randomSpread = Random.Range(-spread, spread);
-                    spreadDirection = Quaternion.Euler(0, 0, randomSpread);
-                    rotation *= spreadDirection;
-                }
-
+            if (!shootOpppositeSide) //only shoots forward
+            {
                 GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = rotation;
-                p.projectileRange = range;
 
-                shotsCount += 1;
-                yield return new WaitForSeconds(spread);
-                
             }
+            else //does shoot opposite side
+            {
+                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                p.transform.up = direction;
+
+                GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
+                Projectile p2 = projectileGO2.GetComponent<Projectile>();
+                p2.attack = this;
+                p2.transform.rotation = Quaternion.LookRotation(-direction);
+                p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
+            }
+
+            shotsCount += 1;
+            yield return new WaitForSeconds(spread);
+        }
+
             Player.GetComponent<PlayerMovement>().StartMoving();
-        }
-        else
-        {
-
-            float startTime = Time.time;
-            for (int i = 0; i < shotsPerAttack; i++)
-            {
-                SpawnMuzzleFlash();
-                SpawnBulletCasing();
-                Player.GetComponent<AttackHandler>().triggerRecoil();
-
-                Quaternion rotation = owner.GetTransform().rotation;
-                Vector3 position = owner.GetTransform().position;
-                Vector3 direction = owner.GetDirection();
-                Quaternion spreadDirection;
-
-                if (shotsCount >= sprayThreshold) // calculate spray pattern
-                {
-                    float spread = spray * (shotsCount - sprayThreshold + 1);
-                    float randomSpread = Random.Range(-spread, spread);
-                    spreadDirection = Quaternion.Euler(0, 0, randomSpread);
-                    rotation *= spreadDirection;
-                }
-
-                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = rotation;
-                p.projectileRange = range;
-
-                shotsCount += 1;
-                yield return new WaitForSeconds(spread);
-            }
-        }
 
     }
 
@@ -328,6 +316,7 @@ public class Attack : MonoBehaviour, Upgrade
         spacer = spread / (shotsPerAttack - 1);
         Vector3 position = owner.GetTransform().position;
         Vector3 direction = owner.GetDirection();
+        Quaternion rotation = owner.GetTransform().rotation;
 
         if (multicastTimes >= 1 && !firstShot)
         {
@@ -344,20 +333,40 @@ public class Attack : MonoBehaviour, Upgrade
                 firstShot = true;
             }
         }
-
-
-        if (cantMove == true)
-        {
-            SpawnMuzzleFlash();
-
+        
             if (shotsPerAttack % 2 != 0)
             {
+                SpawnMuzzleFlash();
                 SpawnBulletCasing();
-                Player.GetComponent<PlayerMovement>().StopMoving();
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = owner.GetTransform().rotation;
+                if (cantMove)
+                {
+                    Player.GetComponent<PlayerMovement>().StopMoving();
+                }
+
+            if (!shootOpppositeSide) //only shoots forward
+                {
+                    GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                    Projectile p = projectileGO.GetComponent<Projectile>();
+                    p.attack = this;
+                    p.transform.rotation = rotation;
+
+                }
+                else //does shoot opposite side
+                {
+                    GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                    Projectile p = projectileGO.GetComponent<Projectile>();
+                    p.attack = this;
+                    p.transform.rotation = rotation;
+                    p.transform.up = direction;
+
+                    GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
+                    Projectile p2 = projectileGO2.GetComponent<Projectile>();
+                    p2.attack = this;
+                    p2.transform.rotation = Quaternion.LookRotation(-direction);
+                    p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
+
+                }
+
             }
             else
             {
@@ -377,63 +386,42 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     angle = -angle;
                 }
+
                 SpawnBulletCasing();
-
                 Player.GetComponent<PlayerMovement>().StopMoving();
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = owner.GetTransform().rotation;
-                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
 
-                
+                if (!shootOpppositeSide) //only shoots forward
+                {
+                    GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                    Projectile p = projectileGO.GetComponent<Projectile>();
+                    p.attack = this;
+                    p.transform.rotation = rotation;
+                    p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+
+
+                }
+                else //does shoot opposite side
+                {
+                    GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                    Projectile p = projectileGO.GetComponent<Projectile>();
+                    p.attack = this;
+                    p.transform.rotation = rotation;
+                    p.transform.up = direction;
+                    p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+
+                    GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
+                    Projectile p2 = projectileGO2.GetComponent<Projectile>();
+                    p2.attack = this;
+                    p2.transform.rotation = Quaternion.LookRotation(-direction);
+                    p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
+                    p2.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+                }
 
             }
-            yield return null;
+
 
             Player.GetComponent<PlayerMovement>().StartMoving();
 
-        }
-        else
-        {
-            SpawnMuzzleFlash();
-
-            if (shotsPerAttack % 2 != 0)
-            {
-                SpawnBulletCasing();
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = owner.GetTransform().rotation;
-            }
-            else
-            {
-                spacer = spacer / 2;
-            }
-            for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
-            {
-                if (i == 0 && shotsPerAttack % 2 == 0)
-                {
-                    angle = spacer / 2;
-                }
-                else if (i % 2 == 0)
-                {
-                    angle = Mathf.Abs(angle) + spacer;
-                }
-                else
-                {
-                    angle = -angle;
-                }
-                SpawnBulletCasing();
-                GameObject projectileGO = Instantiate(projectile, position + direction / 2, Quaternion.identity);
-                Projectile p = projectileGO.GetComponent<Projectile>();
-                p.attack = this;
-                p.transform.rotation = owner.GetTransform().rotation;
-                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-            }
-            yield return null;
-
-        }
 
     }
 
@@ -481,8 +469,11 @@ public class Attack : MonoBehaviour, Upgrade
             //chain spawn 
             for (int c = 0; c < shotsPerAttack; c++)
             {
-                    Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
-                    GameObject projectileGO = Instantiate(MeleeAttack, position + directionSpacer, Quaternion.identity);
+                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
+
+                if (!shootOpppositeSide) //only shoots forward
+                {
+                    GameObject projectileGO = Instantiate(MeleeAttack, (position + directionSpacer / 2), Quaternion.identity);
                     Projectile p = projectileGO.GetComponent<Projectile>();
                     p.attack = this;
                     p.transform.rotation = rotation;
@@ -490,7 +481,6 @@ public class Attack : MonoBehaviour, Upgrade
                     {
                         p.transform.localScale += scaler * c;
                     }
-
                     //change animation state 
                     if (swapAnimOnAttack)
                     {
@@ -508,6 +498,66 @@ public class Attack : MonoBehaviour, Upgrade
                                 break;
                         }
                     }
+
+                }
+                else //does shoot opposite side
+                {
+                    GameObject projectileGO = Instantiate(MeleeAttack, (position + directionSpacer / 2), Quaternion.identity);
+                    Projectile p = projectileGO.GetComponent<Projectile>();
+                    p.attack = this;
+                    p.transform.rotation = rotation;
+                    p.transform.up = direction;
+                    if (c >= 1)
+                    {
+                        p.transform.localScale += scaler * c;
+                    }
+                    //change animation state 
+                    if (swapAnimOnAttack)
+                    {
+                        Animator attackAnimator = p.GetComponent<Animator>();
+                        switch (attackAnimState)
+                        {
+                            case 0:
+                                attackAnimator.SetInteger("AttackCount", 0);
+                                break;
+                            case 1:
+                                attackAnimator.SetInteger("AttackCount", 1);
+                                break;
+                            case 2:
+                                attackAnimator.SetInteger("AttackCount", 2);
+                                break;
+                        }
+                    }
+
+                    GameObject projectileGO2 = Instantiate(MeleeAttack, (position - directionSpacer / 2), Quaternion.identity);
+                    Projectile p2 = projectileGO2.GetComponent<Projectile>();
+                    p2.attack = this;
+                    p2.transform.rotation = Quaternion.LookRotation(-directionSpacer);
+                    p2.transform.up = -directionSpacer; // set the projectile's up direction to the opposite of the direction
+                    if (c >= 1)
+                    {
+                        p2.transform.localScale += scaler * c;
+                    }
+                    //change animation state 
+                    if (swapAnimOnAttack)
+                    {
+                        Animator attackAnimator2 = p2.GetComponent<Animator>();
+                        switch (attackAnimState)
+                        {
+                            case 0:
+                                attackAnimator2.SetInteger("AttackCount", 0);
+                                break;
+                            case 1:
+                                attackAnimator2.SetInteger("AttackCount", 1);
+                                break;
+                            case 2:
+                                attackAnimator2.SetInteger("AttackCount", 2);
+                                break;
+                        }
+                    }
+
+                }
+ 
 
                 Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
       
@@ -542,11 +592,9 @@ public class Attack : MonoBehaviour, Upgrade
             yield return new WaitForSeconds(comboWaitTime);
         }
 
-        if (cantMove)
-        {
+
             //can move again
             Player.GetComponent<PlayerMovement>().StartMoving();
-        }
 
     }
 

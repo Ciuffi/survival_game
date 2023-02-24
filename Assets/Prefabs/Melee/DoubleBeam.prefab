@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5928492518038914266}
   - component: {fileID: 7297495058217971513}
   - component: {fileID: 1441713891751434987}
-  - component: {fileID: 5205817159011200887}
-  - component: {fileID: -7148203571477760851}
-  - component: {fileID: 7939817361406362620}
+  - component: {fileID: 7860753979652903893}
+  - component: {fileID: 1518672816756547981}
+  - component: {fileID: 3064850022452947998}
   m_Layer: 0
-  m_Name: Nova_impact
+  m_Name: DoubleBeam
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4908858350499337675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.15, y: 1.15, z: 1}
+  m_LocalScale: {x: 0.38, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,15 +74,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1822861191
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 52829240, guid: fa318c18e2ee32148a50049a8bbaae7f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.74509805}
+  m_Sprite: {fileID: 567813993, guid: 533c42b2defe7ec4eb52b97469fabf7c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.8, y: 12}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -111,20 +111,20 @@ MonoBehaviour:
   bounceTimes: 0
   isMelee: 1
   startup: 0.05
-  active: 0.15
-  scaleSpeed: 2
-  disappearSpeed: 5
+  active: 0.25
+  scaleSpeed: 0
+  disappearSpeed: 1
   isCrit: 0
-  onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
-  playerShakeTime: 0.05
-  playerShakeStrength: 0.1
+  onHitParticle: {fileID: 2429385742196507204, guid: cd241bfe4a9e72046941acf458ff255c, type: 3}
+  playerShakeTime: 0.1
+  playerShakeStrength: 0.2
   playerShakeRotation: 0.1
   damageTickDuration: 0.5
   isThrown: 0
   isHover: 0
   hoverTimer: 0
   hitFirstEnemy: 0
-  isAnimated: 1
+  isAnimated: 0
   isMagnet: 0
   magnetStrength: 0
   magnetDuration: 0
@@ -135,27 +135,7 @@ MonoBehaviour:
   stunDuration: 0
   isDeathrattle: 0
   deathSpawn: {fileID: 0}
---- !u!95 &5205817159011200887
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4908858350499337675}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ddb1bbdf93e5c6149bed039fc0d0341b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &-7148203571477760851
+--- !u!50 &7860753979652903893
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -176,8 +156,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7939817361406362620
-CircleCollider2D:
+--- !u!61 &1518672816756547981
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -186,9 +166,39 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004726516, y: 0.014179548}
+  m_Offset: {x: 0.006401658, y: -0.031201363}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.32, y: 4.32}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 2.0455587
+  m_Size: {x: 2.0000775, y: 4.4141884}
+  m_EdgeRadius: 0
+--- !u!95 &3064850022452947998
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908858350499337675}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cee9bb5cc806e7c49898405a910b4f79, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
