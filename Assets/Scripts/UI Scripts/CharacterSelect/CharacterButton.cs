@@ -15,8 +15,8 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
 
     private CharSelectController characterSelector;
     public GameObject startBtn;
-    
-    
+    private bool hasSelected;
+
     private void Start()
     {
         // Find the CharacterSelector component in the scene
@@ -27,14 +27,28 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         infoText = text2.transform.Find("Info").GetComponent<TextMeshProUGUI>();
         GameObject text3 = GameObject.Find("WeaponsName");
         weaponsText = text3.GetComponent<TextMeshProUGUI>();
-
+        hasSelected = false;
         startBtn = GameObject.Find("StartBtn");
+    }
 
-
+    private void Update()
+    {
+        if (hasSelected)
+        {
+            characterSelector.GetComponent<CharSelectController>().hasSelected = true;
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+
+        if (!hasSelected)
+        {
+            startBtn.GetComponent<Image>().enabled = true;
+            hasSelected = true;
+        }
+
+
         // Deselect the previously selected character, if any
         GameObject previouslySelected = GameObject.FindGameObjectWithTag("SelectedCharacter");
         if (previouslySelected != null)

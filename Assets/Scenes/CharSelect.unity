@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chosenName: 
+  charController: {fileID: 1557372003}
 --- !u!114 &537809112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1229,11 +1230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WEAPON ONE
-
-    WEAPON TWO
-
-    WEAPON THREE'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 52d38c84e469b9149a91af5359b9e041, type: 2}
   m_sharedMaterial: {fileID: 7562844569638490226, guid: 52d38c84e469b9149a91af5359b9e041, type: 2}
@@ -1448,8 +1445,8 @@ MonoBehaviour:
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 1
-  m_ScrollSensitivity: 1
+  m_DecelerationRate: 2
+  m_ScrollSensitivity: 0.4
   m_Viewport: {fileID: 1172863126}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -1520,6 +1517,7 @@ MonoBehaviour:
   - {fileID: 8374027959730413455, guid: bd27d4e52c054b148b876671b8cb180d, type: 3}
   selectedCharacter: {fileID: 0}
   selectedImagePrefab: {fileID: 0}
+  hasSelected: 0
 --- !u!1 &1747443140
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class CharSelectController : MonoBehaviour
     public PlayerCharacterStats selectedCharacter;
     public GameObject selectedImagePrefab;
     private GameObject selectedImage;
+    public bool hasSelected;
 
     void Start()
     {
