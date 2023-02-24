@@ -43,7 +43,13 @@ public class StatsHandler : MonoBehaviour
         thrownDamageMultiplier,
         baseThrownDamageMultiplier,
         thrownSpeedMultiplier,
-        baseThrownSpeedMultiplier;
+        baseThrownSpeedMultiplier,
+        rangeMultiplier,
+        baseRangeMultiplier;
+
+    public bool shootOppositeSide,
+        baseShootOppositeSide;
+
 
     public List<StatBoost> stats;
 
@@ -173,6 +179,8 @@ public class StatsHandler : MonoBehaviour
         meleeWaitTimeMultiplier = baseMeleeWaitTimeMultiplier;
         thrownDamageMultiplier = baseThrownDamageMultiplier;
         thrownSpeedMultiplier = baseThrownSpeedMultiplier;
+        rangeMultiplier = baseRangeMultiplier;
+        shootOppositeSide = baseShootOppositeSide;
 
 
         if (fullReset)
@@ -233,7 +241,11 @@ public class StatsHandler : MonoBehaviour
             meleeWaitTimeMultiplier = (float)((meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) > 0.1 ? (meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) : 0.1);
             thrownDamageMultiplier += sb.extraThrownDamageMultiplier;
             thrownSpeedMultiplier += sb.extraThrownSpeedMultiplier;
-
+            rangeMultiplier += sb.extraRangeMultiplier;
+            if (!shootOppositeSide)
+            {
+                shootOppositeSide = sb.shootOppositeSide;
+            }
         }
 
 

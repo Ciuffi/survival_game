@@ -7585,6 +7585,7 @@ MonoBehaviour:
   animator: {fileID: 1118731108}
   spriteRend: {fileID: 0}
   coinExplosion: {fileID: 4053501027209517257, guid: 0bab8bcc74daff54e9d8a036c29d0031, type: 3}
+  sparkle: {fileID: 4053501027209517257, guid: 0f369c1fea2ed054fa92e59193393fa6, type: 3}
   disappearSpeed: 0.6
   goldCounter: {fileID: 1251008482}
   finalGold: 0

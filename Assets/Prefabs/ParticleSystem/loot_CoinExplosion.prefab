@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4053501027209517258}
   - component: {fileID: 5265363277415141257}
   m_Layer: 5
-  m_Name: CoinExplosion
+  m_Name: loot_CoinExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4053501027209517259}
   serializedVersion: 8
-  lengthInSec: 2.43342
+  lengthInSec: 2.51677
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0

@@ -22,7 +22,10 @@ public class StatBoost : MonoBehaviour, Upgrade
         extraKnockbackMultiplier,
         extraMeleeWaitTimeMultiplier,
         extraThrownDamageMultiplier,
-        extraThrownSpeedMultiplier;
+        extraThrownSpeedMultiplier,
+        extraRangeMultiplier;
+
+    public bool shootOppositeSide;
 
     public UpgradeType GetUpgradeType()
     {

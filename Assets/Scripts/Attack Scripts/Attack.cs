@@ -21,6 +21,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     public float range = 5;
     public float rangeUP;
+    public float OGrange;
 
     public int shotsPerAttack;
     public int shotsPerAttackUP;
@@ -40,6 +41,7 @@ public class Attack : MonoBehaviour, Upgrade
     public float critDmg; //1 = 100% of normal damage on a crit, 2 = 200% damage, etc.
 
     public bool shootOpppositeSide = false;
+    public bool OGshootOpposite;
 
     public float multicastChance; //every 1.0f = one guarenteed multicast.
     public float multicastWaitTime;
@@ -48,7 +50,7 @@ public class Attack : MonoBehaviour, Upgrade
     private int numMulticast = 0;
 
     public GameObject projectile;
-    public Vector3 scaleUP;
+    private Vector3 scaleUP;
 
     public int rarity = 0; //0-common, 1-rare, 2-epic, 4-legendary
     public List<int> chosenNumbers = new List<int>();
@@ -151,6 +153,8 @@ public class Attack : MonoBehaviour, Upgrade
         OGcomboLength = comboLength;
         OGcomboWaitTime = comboWaitTime;
         OGthrowSpeed = throwSpeed;
+        OGshootOpposite = shootOpppositeSide;
+        OGrange = range;
 
         CalculateStats();
 
@@ -183,6 +187,12 @@ public class Attack : MonoBehaviour, Upgrade
         comboLength = OGcomboLength + Player.GetComponent<StatsHandler>().meleeComboLength;
         comboWaitTime = OGcomboWaitTime * Player.GetComponent<StatsHandler>().meleeWaitTimeMultiplier;
         throwSpeed = OGthrowSpeed * Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
+        range = OGrange * Player.GetComponent<StatsHandler>().rangeMultiplier;
+        if (!shootOpppositeSide)
+        {
+            shootOpppositeSide = Player.GetComponent<StatsHandler>().shootOppositeSide;
+        }
+
     }
 
     private void rollMulticast()

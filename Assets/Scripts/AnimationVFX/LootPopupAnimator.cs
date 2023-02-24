@@ -12,6 +12,7 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
     public Animator animator;
     public SpriteRenderer spriteRend;
     public ParticleSystem coinExplosion;
+    public ParticleSystem sparkle;
     private float OGduration = 2;
 
     private bool isOpen;
@@ -49,6 +50,11 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
             var main = Ps.main;
             main.duration = OGduration + extraIncrementTime;
             Instantiate(coinExplosion, transform.position, Quaternion.identity);
+
+            ParticleSystem Ps_sparkle = sparkle.GetComponent<ParticleSystem>();
+            var main2 = Ps.main;
+            main2.duration = OGduration + extraIncrementTime;
+            Instantiate(sparkle, transform.position, Quaternion.identity);
 
         }
         else
