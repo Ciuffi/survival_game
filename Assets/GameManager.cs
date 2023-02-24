@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        new List<Enemy>(GameManager.FindObjectsOfType<Enemy>()).ForEach((e) => Destroy(e.gameObject));
-        new List<Projectile>(GameManager.FindObjectsOfType<Projectile>()).ForEach((e) => Destroy(e.gameObject));
-        playerMovement.transform.position = playerPosition;
-        playerStats.ResetStats(true);
-        playerAttacks.ResetWeapons();
+        SceneManager.LoadScene(0);
+
+        //new List<Enemy>(GameManager.FindObjectsOfType<Enemy>()).ForEach((e) => Destroy(e.gameObject));
+        //new List<Projectile>(GameManager.FindObjectsOfType<Projectile>()).ForEach((e) => Destroy(e.gameObject));
+        //playerMovement.transform.position = playerPosition;
+        //playerStats.ResetStats(true);
+        //playerAttacks.ResetWeapons();
     }
     void Start()
     {
