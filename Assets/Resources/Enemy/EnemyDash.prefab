@@ -108,7 +108,7 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  damage: 8
+  damage: 4
   health: 30
   maxHealth: 0
   xpAmount: 35
