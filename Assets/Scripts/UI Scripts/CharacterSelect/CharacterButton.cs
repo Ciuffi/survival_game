@@ -113,15 +113,15 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             // Check each stat and add it to the string if it meets the criteria
             if (stats.damageMultiplier != 1)
             {
-                statsString += "DMG% " + stats.damageMultiplier + "\n";
+                statsString += "DmgMultiplier% " + stats.damageMultiplier + "\n";
             }
             if (stats.critChance != 0)
             {
-                statsString += "Crit% " + stats.critChance + "\n";
+                statsString += "Crit% +" + stats.critChance + "\n";
             }
             if (stats.critDmg != 0)
             {
-                statsString += "Crit DMG% " + stats.critDmg + "\n";
+                statsString += "Crit DMG% +" + stats.critDmg + "\n";
             }
             if (stats.defense != 0)
             {
@@ -141,15 +141,15 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             }
             if (stats.multicastChance != 0)
             {
-                statsString += "Multicast% " + stats.multicastChance + "\n";
+                statsString += "Multicast% +" + stats.multicastChance + "\n";
             }
             if (stats.castTimeMultiplier != 1)
             {
-                statsString += "Atk Spd% " + stats.castTimeMultiplier + "\n";
+                statsString += "Cast Time% " + stats.castTimeMultiplier + "\n";
             }
             if (stats.meleeWaitTimeMultiplier != 1)
             {
-                statsString += "Melee Spd% " + stats.meleeWaitTimeMultiplier + "\n";
+                statsString += "Melee Time% " + stats.meleeWaitTimeMultiplier + "\n";
             }
             if (stats.projectileSpeedMultiplier != 1)
             {

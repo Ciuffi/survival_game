@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.6746705, g: 0.94509804, b: 0, a: 0.50980395}
+  m_Color: {r: 0.6746705, g: 0.94509804, b: 0, a: 0.1764706}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,7 +109,6 @@ MonoBehaviour:
   bounceRange: 0
   bounceTimes: 0
   isMelee: 1
-  meleeTime: 0
   startup: 0
   active: 4
   scaleSpeed: 1
@@ -120,12 +119,21 @@ MonoBehaviour:
   playerShakeStrength: 0.05
   playerShakeRotation: 0.05
   damageTickDuration: 0.6
-  startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
   isHover: 0
   hoverTimer: 0
   hitFirstEnemy: 0
   isAnimated: 0
+  isMagnet: 0
+  magnetStrength: 0
+  magnetDuration: 0
+  isSlow: 0
+  slowPercentage: 0
+  slowDuration: 0
+  isStun: 0
+  stunDuration: 0
+  isDeathrattle: 0
+  deathSpawn: {fileID: 0}
 --- !u!50 &-7148203571477760851
 Rigidbody2D:
   serializedVersion: 4

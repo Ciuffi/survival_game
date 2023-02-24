@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 60
+  health: 50
   speed: 0.02
-  damageMultiplier: 1
+  damageMultiplier: 1.1
   critChance: 0
   critDmg: 0
   defense: 8
@@ -63,7 +63,7 @@ MonoBehaviour:
   shotsPerAttack: 0
   meleeComboLength: 0
   multicastChance: 0
-  castTimeMultiplier: 1
+  castTimeMultiplier: 0.5
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1

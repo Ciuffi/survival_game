@@ -65,7 +65,7 @@ MonoBehaviour:
   multicastChance: 0.1
   castTimeMultiplier: 0.75
   meleeWaitTimeMultiplier: 0.75
-  projectileSpeedMultiplier: 0.25
+  projectileSpeedMultiplier: 0.4
   rangeMultiplier: 0.5
   knockbackMultiplier: 0.25
   thrownDamageMultiplier: 1

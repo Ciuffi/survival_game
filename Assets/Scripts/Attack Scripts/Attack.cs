@@ -277,8 +277,6 @@ public class Attack : MonoBehaviour, Upgrade
             Vector3 direction = owner.GetDirection();
             Quaternion spreadDirection;
 
-            Player.GetComponent<PlayerMovement>().StopMoving(); //stop moving before shooting
-
             if (shotsCount >= sprayThreshold) // calculate spray pattern
             {
                 float spread = spray * (shotsCount - sprayThreshold + 1);
@@ -314,8 +312,10 @@ public class Attack : MonoBehaviour, Upgrade
             yield return new WaitForSeconds(spread);
         }
 
+        if (cantMove)
+        {
             Player.GetComponent<PlayerMovement>().StartMoving();
-
+        }
     }
 
     private IEnumerator ShootShotgun()
@@ -398,7 +398,6 @@ public class Attack : MonoBehaviour, Upgrade
                 }
 
                 SpawnBulletCasing();
-                Player.GetComponent<PlayerMovement>().StopMoving();
 
                 if (!shootOpppositeSide) //only shoots forward
                 {
@@ -430,8 +429,10 @@ public class Attack : MonoBehaviour, Upgrade
             }
 
 
+        if (cantMove)
+        {
             Player.GetComponent<PlayerMovement>().StartMoving();
-
+        }
 
     }
 
@@ -602,9 +603,10 @@ public class Attack : MonoBehaviour, Upgrade
             yield return new WaitForSeconds(comboWaitTime);
         }
 
-
-            //can move again
+        if (cantMove)
+        {
             Player.GetComponent<PlayerMovement>().StartMoving();
+        }
 
     }
 
