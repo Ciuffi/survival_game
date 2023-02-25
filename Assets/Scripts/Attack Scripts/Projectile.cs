@@ -73,6 +73,7 @@ public class Projectile : MonoBehaviour
 
     public bool isDeathrattle;
     public GameObject deathSpawn;
+    public float projSize;
 
     float moveSpeed;
 
@@ -95,7 +96,7 @@ public class Projectile : MonoBehaviour
         critDmg = attack.critDmg + Player.GetComponent<StatsHandler>().critDmg;
         projectileRange = attack.range;
         moveSpeed = attack.speed * Player.GetComponent<StatsHandler>().projectileSpeedMultiplier;
-        
+        projSize = Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -131,6 +132,8 @@ public class Projectile : MonoBehaviour
                     if (isDeathrattle)
                     {
                         GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                        Vector3 currentScale = rattle.transform.localScale;
+                        rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
 
                     }
                     Destroy(gameObject);

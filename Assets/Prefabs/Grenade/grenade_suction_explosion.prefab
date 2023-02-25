@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 1083885103, guid: 67e45f3560b1ff14b8937fc9b2f89bf8, type: 3}
-  m_Color: {r: 0.8389725, g: 0.7607843, b: 1, a: 0.54901963}
-  m_FlipX: 0
+  m_Color: {r: 0.93342096, g: 0.9009434, b: 1, a: 0.627451}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 10.8, y: 12}
@@ -172,10 +172,10 @@ MonoBehaviour:
   damageTickDuration: 2
   isAnimated: 1
   isMagnet: 1
-  magnetStrength: 5
-  magnetDuration: 1
+  magnetStrength: 7
+  magnetDuration: 2
   isSlow: 1
   slowPercentage: 0.5
-  slowDuration: 1.5
+  slowDuration: 2
   isStun: 0
   stunDuration: 0.5

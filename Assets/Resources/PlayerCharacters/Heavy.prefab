@@ -54,8 +54,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 55
-  speed: 0.03
-  pickupRange: 2
+  speed: 0.028
+  pickupRange: 1.5
   damageMultiplier: 1.2
   critChance: 0
   critDmg: 0

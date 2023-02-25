@@ -62,13 +62,15 @@ MonoBehaviour:
   cantMove: 0
   speed: 0.035
   speedUP: 0.03
-  knockback: 0.25
-  knockbackUP: 0.5
+  knockback: 10
+  knockbackUP: 15
   pierce: 99
   pierceUP: 99
   critChance: 0.05
   critDmg: 1.5
   shootOpppositeSide: 0
+  projectileSize: 0
+  meleeSize: 0
   multicastChance: 0
   multicastWaitTime: 0.2
   multicastTimes: 0

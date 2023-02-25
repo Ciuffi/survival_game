@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1993932741, guid: 67e45f3560b1ff14b8937fc9b2f89bf8, type: 3}
-  m_Color: {r: 1, g: 0.8820755, b: 0.96499115, a: 0.5686275}
+  m_Color: {r: 1, g: 0.8820755, b: 0.96499115, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   hitFirstEnemy: 0
   isAnimated: 1
   isMagnet: 1
-  magnetStrength: 4
+  magnetStrength: 5
   magnetDuration: 1
   isSlow: 0
   slowPercentage: 0

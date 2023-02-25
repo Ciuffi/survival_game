@@ -50,14 +50,13 @@ MonoBehaviour:
   spreadUP: 0.5
   spray: 0
   sprayThreshold: 0
-  castTime: 2.25
-  castTimeUP: 2
+  castTime: 3
+  castTimeUP: 2.5
   attackTime: 0
   recoveryTime: 0
   recoveryTimeUp: 0
   range: 6
   rangeUP: 7
-  baseRange: 0
   shotsPerAttack: 1
   shotsPerAttackUP: 2
   cantMove: 0
@@ -70,7 +69,8 @@ MonoBehaviour:
   critChance: 0.05
   critDmg: 2
   shootOpppositeSide: 0
-  baseShootOpposite: 0
+  projectileSize: 0
+  meleeSize: 0
   multicastChance: 0
   multicastWaitTime: 0.2
   multicastTimes: 0

@@ -230,7 +230,6 @@ public class StatsHandler : MonoBehaviour
         }
     }
 
-
     public void LevelUp()
     {
         xp = 0;
@@ -300,7 +299,7 @@ public class StatsHandler : MonoBehaviour
             StatBoost sb = stat.GetComponent<StatBoost>();
 
             // Apply the stat's values
-            health += sb.extraHealth + sb.extraMaxHealth;
+            health += sb.extraHealth;
             if (sb.extraHealth > 0)
             {
                 Destroy(stat);
@@ -368,8 +367,6 @@ public class StatsHandler : MonoBehaviour
 
         CalculateStats();
         CalculateWeaponStats(weaponsList);
-
-        health = maxHealth;
 
     }
     private void CalculateWeaponStats(GameObject prefab)
