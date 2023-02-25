@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735341029624650593}
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: SMG
+  m_Name: Suction Nova
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,65 +44,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  damageUP: 8
-  spread: 0.04
-  spreadUP: 0.03
-  spray: 1.25
-  sprayThreshold: 1
-  castTime: 1
-  castTimeUP: 0.75
+  damage: 8
+  damageUP: 15
+  spread: 0.3
+  spreadUP: 0.25
+  spray: 0
+  sprayThreshold: 0
+  castTime: 2
+  castTimeUP: 1.5
   attackTime: 0
-  recoveryTime: 0.25
+  recoveryTime: 0
   recoveryTimeUp: 0
-  range: 7
-  rangeUP: 10
-  shotsPerAttack: 25
-  shotsPerAttackUP: 40
+  range: 0
+  rangeUP: 0
+  shotsPerAttack: 1
+  shotsPerAttackUP: 1
   cantMove: 0
-  speed: 0.15
-  speedUP: 0.2
-  knockback: 3.5
-  knockbackUP: 5
+  speed: 0
+  speedUP: 0
+  knockback: 10
+  knockbackUP: 15
   pierce: 0
-  pierceUP: 2
+  pierceUP: 0
   critChance: 0.05
-  critDmg: 2
+  critDmg: 1.5
   shootOpppositeSide: 0
   projectileSize: 0
   meleeSize: 0
   multicastChance: 0
   multicastWaitTime: 0.25
   multicastTimes: 0
-  projectile: {fileID: 4235860010000021921, guid: b6bc6cc5a13c6564fa53e6c92af8c307, type: 3}
+  projectile: {fileID: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
-  attackType: 0
-  MeleeAttack: {fileID: 0}
-  comboLength: 0
-  comboWaitTime: 0
+  attackType: 2
+  MeleeAttack: {fileID: 4908858350499337675, guid: c454c8b8f810ad446a207eda9e39ead8, type: 3}
+  comboLength: 1
+  comboWaitTime: 0.5
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
   meleeSpacer: 0
   meleeSpacerGap: 0
   swapAnimOnAttack: 0
-  shakeTime: 0
-  shakeStrength: 0
-  shakeRotation: 0
-  weaponSprite: {fileID: 21300000, guid: 29a5e81a03a13bf478abe2a757791b8f, type: 3}
+  shakeTime: 0.2
+  shakeStrength: 1.5
+  shakeRotation: 2
+  weaponSprite: {fileID: 21300000, guid: c6b670be674aa2345b8e890a65d5c44c, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: a0e8c9136b65f5744ac72a84bb0aa5bc, type: 3}
-  thrownDamage: 16
+  thrownSprite: {fileID: 21300000, guid: a779772523fb1ea43a4719cb83009edf, type: 3}
+  thrownDamage: 20
   throwSpeed: 5
-  bulletCasing: {fileID: 2526348467587405025, guid: 166bb49c7f97f5a40af167155fe98935, type: 3}
-  MuzzleFlashPrefab:
-  - {fileID: 8422627715611780671, guid: 169266121d9c11d4882c377d24ef8547, type: 3}
-  - {fileID: 4447084896096771649, guid: 6dc463e19391ccf44ba866b6b20b9506, type: 3}
-  - {fileID: 9150804653361220647, guid: ae011fb9fc8afd5448eb267605d49239, type: 3}
-  - {fileID: 5610606700805667710, guid: a996571025eb2d84dbf0dbb209c5a138, type: 3}
-  - {fileID: 713053149902008299, guid: c598dfa87a68bd94b82ec6305062eff0, type: 3}
+  bulletCasing: {fileID: 0}
+  MuzzleFlashPrefab: []
   muzzleFlashXOffset: 0
   muzzleFlashYOffset: 0

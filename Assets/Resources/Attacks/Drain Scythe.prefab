@@ -83,9 +83,9 @@ MonoBehaviour:
   comboLength: 1
   comboWaitTime: 0.5
   comboAttackBuff: 0
-  meleeShotsScaleUp: 0
+  meleeShotsScaleUp: -0.1
   meleeSpacer: 2
-  meleeSpacerGap: 3
+  meleeSpacerGap: 3.5
   swapAnimOnAttack: 0
   shakeTime: 0.2
   shakeStrength: 0.5

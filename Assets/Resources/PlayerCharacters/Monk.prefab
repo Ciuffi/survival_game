@@ -56,15 +56,15 @@ MonoBehaviour:
   health: 40
   speed: 0.04
   pickupRange: 1.5
-  damageMultiplier: 0.75
-  critChance: 0
+  damageMultiplier: 0.6
+  critChance: 0.3
   critDmg: 0
   defense: 0
   shield: 0
   shotsPerAttack: 0
   meleeComboLength: 1
   multicastChance: 0
-  castTimeMultiplier: 1.25
+  castTimeMultiplier: 1.2
   meleeWaitTimeMultiplier: 0.25
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
