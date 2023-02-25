@@ -21,7 +21,6 @@ public class Attack : MonoBehaviour, Upgrade
 
     public float range = 5;
     public float rangeUP;
-    public float OGrange;
 
     public int shotsPerAttack;
     public int shotsPerAttackUP;
@@ -41,13 +40,14 @@ public class Attack : MonoBehaviour, Upgrade
     public float critDmg; //1 = 100% of normal damage on a crit, 2 = 200% damage, etc.
 
     public bool shootOpppositeSide = false;
-    public bool OGshootOpposite;
 
     public float multicastChance; //every 1.0f = one guarenteed multicast.
     public float multicastWaitTime;
     private float defaultMulticastWaitTime;
     public int multicastTimes;
     private int numMulticast = 0;
+    private float multicastAlphaFade = 0.15f;
+    private float multicastAlphaAmount;
 
     public GameObject projectile;
     private Vector3 scaleUP;
@@ -95,9 +95,13 @@ public class Attack : MonoBehaviour, Upgrade
     private float OGmulticastChance,
         OGcastTime,
         OGcomboWaitTime,
+        OGrange,
         OGthrowSpeed;
     private int OGshotPerAttack,
         OGcomboLength;
+    private bool OGshootOpposite;
+
+    private Quaternion spreadDirection2;
 
     // Start is called before the first frame update
     void Start()
@@ -226,7 +230,7 @@ public class Attack : MonoBehaviour, Upgrade
 
             float roll = Random.Range(0f, 1f);
             float chance = multicastChance - intMulticastChance;
-            if (roll >= multicastChance)
+            if (roll >= chance)
             {
                 multicastTimes += 1;
             }
@@ -234,24 +238,16 @@ public class Attack : MonoBehaviour, Upgrade
         }
     }
 
-    private IEnumerator ShootSingleShot()
+    private IEnumerator ShootSingleShot(float multicastAlpha)
     {
 
-        if (multicastTimes >= 1 && !firstShot)
+        if (numMulticast >= 1 && !firstShot)
         {
-            yield return new WaitForSeconds(multicastWaitTime * numMulticast);
+            yield return new WaitForSeconds(multicastWaitTime);
         }
 
         firstShot = false;
-        if (multicastTimes > 0)
-        {
-            numMulticast++;
-            if (numMulticast > multicastTimes)
-            {
-                numMulticast = 0;
-                firstShot = true;
-            }
-        }
+
 
         if (cantMove)
         {
@@ -275,40 +271,123 @@ public class Attack : MonoBehaviour, Upgrade
             Quaternion rotation = owner.GetTransform().rotation;
             Vector3 position = owner.GetTransform().position;
             Vector3 direction = owner.GetDirection();
-            Quaternion spreadDirection;
-
-            if (shotsCount >= sprayThreshold) // calculate spray pattern
-            {
-                float spread = spray * (shotsCount - sprayThreshold + 1);
-                float randomSpread = Random.Range(-spread, spread);
-                spreadDirection = Quaternion.Euler(0, 0, randomSpread);
-                rotation *= spreadDirection;
-            }
 
             if (!shootOpppositeSide) //only shoots forward
             {
+                // Forward bullet
                 GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
-                p.transform.rotation = rotation;
 
+                Quaternion forwardRotation = rotation;
+
+                if (shotsCount >= sprayThreshold) // calculate spray pattern
+                {
+                    float spread = spray * (shotsCount - sprayThreshold + 1);
+                    float randomSpread = Random.Range(-spread, spread);
+                    Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
+                    forwardRotation *= spreadDirection;
+                }
+
+                p.transform.rotation = forwardRotation;
+
+                if (multicastTimes > 0)
+                {
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color spriteColor = sr.color;
+                        if (spriteColor.a <= multicastAlpha)
+                        {
+                            spriteColor.a = 0.05f;
+                        }
+                        else
+                        {
+                            spriteColor.a -= multicastAlpha;
+                        }
+                        sr.color = spriteColor;
+                    }
+                }
             }
             else //does shoot opposite side
             {
+                // Forward bullet
                 GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
-                p.transform.rotation = rotation;
-                p.transform.up = direction;
 
+                Quaternion forwardRotation = rotation;
+
+                if (shotsCount >= sprayThreshold) // calculate spray pattern
+                {
+                    float spread = spray * (shotsCount - sprayThreshold + 1);
+                    float randomSpread = Random.Range(-spread, spread);
+                    Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
+                    forwardRotation *= spreadDirection;
+                }
+
+                p.transform.rotation = forwardRotation;
+
+                if (multicastTimes > 0)
+                {
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color spriteColor = sr.color;
+                        if (spriteColor.a <= multicastAlpha)
+                        {
+                            spriteColor.a = 0.05f;
+                        }
+                        else
+                        {
+                            spriteColor.a -= multicastAlpha;
+                        }
+                        sr.color = spriteColor;
+                    }
+                }
+
+                // Backward bullet
                 GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
                 Projectile p2 = projectileGO2.GetComponent<Projectile>();
                 p2.attack = this;
-                p2.transform.rotation = Quaternion.LookRotation(-direction);
-                p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
+
+                Quaternion backwardRotation = Quaternion.LookRotation(-transform.right, Vector3.forward);
+                if (shotsCount >= sprayThreshold)
+                {
+                    float spread = spray * (shotsCount - sprayThreshold + 1);
+                    float randomSpread = Random.Range(-spread, spread);
+                    Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
+                    backwardRotation *= spreadDirection;
+                }
+                backwardRotation *= forwardRotation;
+                p2.transform.rotation = backwardRotation;
+
+                // Calculate the position of the backward bullet based on the updated direction
+                Vector3 backwardPosition = position - direction / 2;
+
+                p2.transform.position = backwardPosition;
+                p2.transform.up = Quaternion.AngleAxis(180f, Vector3.forward) * backwardRotation * spreadDirection2 * -direction;
+
+                if (multicastTimes > 0)
+                {
+                    SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color spriteColor = sr.color;
+                        if (spriteColor.a <= multicastAlpha)
+                        {
+                            spriteColor.a = 0.05f;
+                        }
+                        else
+                        {
+                            spriteColor.a -= multicastAlpha;
+                        }
+                        sr.color = spriteColor;
+                    }
+                }
             }
 
-            shotsCount += 1;
+                shotsCount += 1;
             yield return new WaitForSeconds(spread);
         }
 
@@ -318,7 +397,7 @@ public class Attack : MonoBehaviour, Upgrade
         }
     }
 
-    private IEnumerator ShootShotgun()
+    private IEnumerator ShootShotgun(float multicastAlpha)
     {
         float spacer = 0;
         float angle = 0;
@@ -328,107 +407,198 @@ public class Attack : MonoBehaviour, Upgrade
         Vector3 direction = owner.GetDirection();
         Quaternion rotation = owner.GetTransform().rotation;
 
-        if (multicastTimes >= 1 && !firstShot)
+        if (numMulticast >= 1 && !firstShot)
         {
-            yield return new WaitForSeconds(multicastWaitTime * numMulticast);
+            yield return new WaitForSeconds(multicastWaitTime);
         }
 
         firstShot = false;
-        if (multicastTimes > 0)
+
+
+        if (shotsPerAttack % 2 != 0)
         {
-            numMulticast++;
-            if (numMulticast > multicastTimes)
+            SpawnMuzzleFlash();
+            SpawnBulletCasing();
+            if (cantMove)
             {
-                numMulticast = 0;
-                firstShot = true;
+                Player.GetComponent<PlayerMovement>().StopMoving();
             }
-        }
-        
-            if (shotsPerAttack % 2 != 0)
-            {
-                SpawnMuzzleFlash();
-                SpawnBulletCasing();
-                if (cantMove)
-                {
-                    Player.GetComponent<PlayerMovement>().StopMoving();
-                }
 
             if (!shootOpppositeSide) //only shoots forward
+            {
+                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                if (multicastTimes > 0)
                 {
-                    GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
-                    Projectile p = projectileGO.GetComponent<Projectile>();
-                    p.attack = this;
-                    p.transform.rotation = rotation;
-
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color spriteColor = sr.color;
+                        if (spriteColor.a <= multicastAlpha)
+                        {
+                            spriteColor.a = 0.05f;
+                        }
+                        else
+                        {
+                            spriteColor.a -= multicastAlpha;
+                        }
+                        sr.color = spriteColor;
+                    }
                 }
-                else //does shoot opposite side
+
+            }
+            else //does shoot opposite side
+            {
+                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                p.transform.up = direction;
+                if (multicastTimes > 0)
                 {
-                    GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
-                    Projectile p = projectileGO.GetComponent<Projectile>();
-                    p.attack = this;
-                    p.transform.rotation = rotation;
-                    p.transform.up = direction;
-
-                    GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
-                    Projectile p2 = projectileGO2.GetComponent<Projectile>();
-                    p2.attack = this;
-                    p2.transform.rotation = Quaternion.LookRotation(-direction);
-                    p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
-
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color spriteColor = sr.color;
+                        if (spriteColor.a <= multicastAlpha)
+                        {
+                            spriteColor.a = 0.05f;
+                        }
+                        else
+                        {
+                            spriteColor.a -= multicastAlpha;
+                        }
+                        sr.color = spriteColor;
+                    }
                 }
 
+                GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
+                Projectile p2 = projectileGO2.GetComponent<Projectile>();
+                p2.attack = this;
+                p2.transform.rotation = Quaternion.LookRotation(-direction);
+                p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
+                if (multicastTimes > 0)
+                {
+                    SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color spriteColor = sr.color;
+                        if (spriteColor.a <= multicastAlpha)
+                        {
+                            spriteColor.a = 0.05f;
+                        }
+                        else
+                        {
+                            spriteColor.a -= multicastAlpha;
+                        }
+                        sr.color = spriteColor;
+                    }
+                }
+
+            }
+
+        }
+        else
+        {
+            spacer = spacer / 2;
+        }
+        for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
+        {
+            if (i == 0 && shotsPerAttack % 2 == 0)
+            {
+                angle = spacer / 2;
+            }
+            else if (i % 2 == 0)
+            {
+                angle = Mathf.Abs(angle) + spacer;
             }
             else
             {
-                spacer = spacer / 2;
+                angle = -angle;
             }
-            for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
+
+            SpawnBulletCasing();
+
+            if (!shootOpppositeSide) //only shoots forward
             {
-                if (i == 0 && shotsPerAttack % 2 == 0)
+                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+                if (multicastTimes > 0)
                 {
-                    angle = spacer / 2;
-                }
-                else if (i % 2 == 0)
-                {
-                    angle = Mathf.Abs(angle) + spacer;
-                }
-                else
-                {
-                    angle = -angle;
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color spriteColor = sr.color;
+                        if (spriteColor.a <= multicastAlpha)
+                        {
+                            spriteColor.a = 0.05f;
+                        }
+                        else
+                        {
+                            spriteColor.a -= multicastAlpha;
+                        }
+                        sr.color = spriteColor;
+                    }
                 }
 
-                SpawnBulletCasing();
-
-                if (!shootOpppositeSide) //only shoots forward
-                {
-                    GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
-                    Projectile p = projectileGO.GetComponent<Projectile>();
-                    p.attack = this;
-                    p.transform.rotation = rotation;
-                    p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-
-
-                }
-                else //does shoot opposite side
-                {
-                    GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
-                    Projectile p = projectileGO.GetComponent<Projectile>();
-                    p.attack = this;
-                    p.transform.rotation = rotation;
-                    p.transform.up = direction;
-                    p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-
-                    GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
-                    Projectile p2 = projectileGO2.GetComponent<Projectile>();
-                    p2.attack = this;
-                    p2.transform.rotation = Quaternion.LookRotation(-direction);
-                    p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
-                    p2.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-                }
 
             }
+            else //does shoot opposite side
+            {
+                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                Projectile p = projectileGO.GetComponent<Projectile>();
+                p.attack = this;
+                p.transform.rotation = rotation;
+                p.transform.up = direction;
+                p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+                if (multicastTimes > 0)
+                {
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color spriteColor = sr.color;
+                        if (spriteColor.a <= multicastAlpha)
+                        {
+                            spriteColor.a = 0.05f;
+                        }
+                        else
+                        {
+                            spriteColor.a -= multicastAlpha;
+                        }
+                        sr.color = spriteColor;
+                    }
+                }
 
-
+                GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
+                Projectile p2 = projectileGO2.GetComponent<Projectile>();
+                p2.attack = this;
+                p2.transform.rotation = Quaternion.LookRotation(-direction);
+                p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
+                p2.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+                if (multicastTimes > 0)
+                {
+                    SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color spriteColor = sr.color;
+                        if (spriteColor.a <= multicastAlpha)
+                        {
+                            spriteColor.a = 0.05f;
+                        }
+                        else
+                        {
+                            spriteColor.a -= multicastAlpha;
+                        }
+                        sr.color = spriteColor;
+                    }
+                }
+            }
+        }
         if (cantMove)
         {
             Player.GetComponent<PlayerMovement>().StartMoving();
@@ -436,26 +606,17 @@ public class Attack : MonoBehaviour, Upgrade
 
     }
 
-    private IEnumerator Melee()
+    private IEnumerator Melee(float multicastAlpha)
     {
 
-        if (multicastTimes >= 1 && !firstShot)
+        if (numMulticast >= 1 && !firstShot)
         {
-            yield return new WaitForSeconds(multicastWaitTime * numMulticast);
+            yield return new WaitForSeconds(multicastWaitTime);
         }
 
         firstShot = false;
-        if (multicastTimes > 0)
-        {
-            numMulticast++;
-            if (numMulticast > multicastTimes)
-            {
-                numMulticast = 0;
-                firstShot = true;
-            }
-        }
-
         float localSpacer = meleeSpacer;
+
         if (cantMove)
         {
             Player.GetComponent<PlayerMovement>().StopMoving();
@@ -509,6 +670,23 @@ public class Attack : MonoBehaviour, Upgrade
                                 break;
                         }
                     }
+                    if (multicastTimes > 0)
+                    {
+                        SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                        foreach (SpriteRenderer sr in spriteRenderers)
+                        {
+                            Color spriteColor = sr.color;
+                            if (spriteColor.a <= multicastAlpha)
+                            {
+                                spriteColor.a = 0.05f;
+                            }
+                            else
+                            {
+                                spriteColor.a -= multicastAlpha;
+                            }
+                            sr.color = spriteColor;
+                        }
+                    }
 
                 }
                 else //does shoot opposite side
@@ -539,6 +717,23 @@ public class Attack : MonoBehaviour, Upgrade
                                 break;
                         }
                     }
+                    if (multicastTimes > 0)
+                    {
+                        SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                        foreach (SpriteRenderer sr in spriteRenderers)
+                        {
+                            Color spriteColor = sr.color;
+                            if (spriteColor.a <= multicastAlpha)
+                            {
+                                spriteColor.a = 0.05f;
+                            }
+                            else
+                            {
+                                spriteColor.a -= multicastAlpha;
+                            }
+                            sr.color = spriteColor;
+                        }
+                    }
 
                     GameObject projectileGO2 = Instantiate(MeleeAttack, (position - directionSpacer / 2), Quaternion.identity);
                     Projectile p2 = projectileGO2.GetComponent<Projectile>();
@@ -566,12 +761,26 @@ public class Attack : MonoBehaviour, Upgrade
                                 break;
                         }
                     }
-
+                    if (multicastTimes > 0)
+                    {
+                        SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
+                        foreach (SpriteRenderer sr in spriteRenderers)
+                        {
+                            Color spriteColor = sr.color;
+                            if (spriteColor.a <= multicastAlpha)
+                            {
+                                spriteColor.a = 0.05f;
+                            }
+                            else
+                            {
+                                spriteColor.a -= multicastAlpha;
+                            }
+                            sr.color = spriteColor;
+                        }
+                    }
                 }
- 
 
                 Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
-      
                 yield return new WaitForSeconds(spread);
 
                 // after one hit in the combo, do this
@@ -583,15 +792,13 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     localSpacer += meleeSpacerGap;
                 }
-
             }
 
             //reset weapon damage
             damage = OGdamage;
-
             //reset gap between hits
             localSpacer = meleeSpacer;
-            
+
             //update attack state 
             attackAnimState++;
             if (attackAnimState == comboLength)
@@ -619,36 +826,50 @@ public class Attack : MonoBehaviour, Upgrade
     public void Shoot()
     {
         firstShot = true;
+        multicastAlphaAmount = 0f;
         rollMulticast();
 
         switch (attackType)
         {
             case AttackTypes.SingleShot:
-                for (int i = 0; i < (multicastTimes + 1); i++)
+                for (int i = 0; i < (multicastTimes +1); i++)
                 {
-                    shotsCount = 0;
-                    StartCoroutine(ShootSingleShot());
+                    shotsCount = 0; //reset Spray pattern
+                    StartCoroutine(ShootSingleShot(multicastAlphaAmount));
+                    numMulticast++;
+                    multicastAlphaAmount += multicastAlphaFade;
                 }
+                    numMulticast = 0;
                 break;
+
             case AttackTypes.Shotgun:
                 for (int i = 0; i < (multicastTimes + 1); i++)
                 {
-                    StartCoroutine(ShootShotgun());
+                    shotsCount = 0; //reset Spray pattern
+                    StartCoroutine(ShootShotgun(multicastAlphaAmount));
+                    numMulticast++;
+                    multicastAlphaAmount += multicastAlphaFade;
                 }
+                numMulticast = 0;
+
                 break;
             case AttackTypes.Melee:
                 for (int i = 0; i < (multicastTimes + 1); i++)
                 {
-                    StartCoroutine(Melee());
+                    shotsCount = 0; //reset Spray pattern
+                    StartCoroutine(Melee(multicastAlphaAmount));
+                    numMulticast++;
+                    multicastAlphaAmount += multicastAlphaFade;
                 }
+                numMulticast = 0;
+
                 break;
             //case AttackTypes.Utility:
             //StartCoroutine(Utility());
             //break;
             default:
                 break;
-        }
-
+        } 
     }
 
     public void ThrowWeapon()

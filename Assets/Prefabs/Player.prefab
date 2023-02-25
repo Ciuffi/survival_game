@@ -768,12 +768,12 @@ MonoBehaviour:
   baseThrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
   baseThrownSpeedMultiplier: 1
-  rangeMultiplier: 0
-  baseRangeMultiplier: 0
+  rangeMultiplier: 1
+  baseRangeMultiplier: 1
   shootOppositeSide: 0
   baseShootOppositeSide: 0
   stats: []
-  Iframes: 1
+  Iframes: 0.75
   IFtimer: 0
   canDamage: 1
   LevelManager: {fileID: 3287956671441075117}

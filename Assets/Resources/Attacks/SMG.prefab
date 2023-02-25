@@ -57,6 +57,7 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 7
   rangeUP: 10
+  baseRange: 0
   shotsPerAttack: 25
   shotsPerAttackUP: 40
   cantMove: 0
@@ -68,11 +69,12 @@ MonoBehaviour:
   pierceUP: 2
   critChance: 0.05
   critDmg: 2
+  shootOpppositeSide: 0
+  baseShootOpposite: 0
   multicastChance: 0
-  multicastWaitTime: 0.1
+  multicastWaitTime: 0.2
   multicastTimes: 0
   projectile: {fileID: 4235860010000021921, guid: b6bc6cc5a13c6564fa53e6c92af8c307, type: 3}
-  scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}

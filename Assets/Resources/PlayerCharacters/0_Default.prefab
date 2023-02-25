@@ -62,7 +62,7 @@ MonoBehaviour:
   shield: 0
   shotsPerAttack: 0
   meleeComboLength: 0
-  multicastChance: 0
+  multicastChance: 4
   castTimeMultiplier: 1
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
@@ -70,7 +70,7 @@ MonoBehaviour:
   knockbackMultiplier: 1
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
-  shootOpposideSide: 0
+  shootOpposideSide: 1
   startingWeapons:
   - {fileID: 1449995561756442478, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
 --- !u!222 &3817268471581327505

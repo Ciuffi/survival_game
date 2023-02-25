@@ -34,11 +34,10 @@ public class LootBoxManager : MonoBehaviour
 
         panel = GameObject.Find("LootContainer");
         panelAnimated = GameObject.Find("LootPopup");
-        panel.SetActive(false);
-        panelAnimated.SetActive(false);
-
         weapons = Resources.LoadAll("Attacks", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
         stats = Resources.LoadAll("Stats", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
+        panel.SetActive(false);
+        panelAnimated.SetActive(false);
 
     }
 

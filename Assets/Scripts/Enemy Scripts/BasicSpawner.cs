@@ -69,7 +69,7 @@ public class BasicSpawner : MonoBehaviour
                     //scaling with Guilt + rescan map for pathing
                     if (currentGuilt > 0 && newSpawn != null && newSpawn.tag == "Enemy")
                     {
-                            Debug.Log(newSpawn.name.ToString());
+                            //Debug.Log(newSpawn.name.ToString());
                             newSpawn.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);

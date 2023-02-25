@@ -95,7 +95,7 @@ public class EnemyAOEProjectile : MonoBehaviour
     {
         if (col.gameObject.tag == ("Player") && activePhase)
         {
-            Debug.Log("hittin");
+            //Debug.Log("hittin");
             col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
         }
     }

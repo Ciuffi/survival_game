@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  speed: 0.045
+  speed: 0.038
   damageMultiplier: 1
   critChance: 0
   critDmg: 0

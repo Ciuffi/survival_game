@@ -694,7 +694,7 @@ public class Enemy : MonoBehaviour, Attacker
             //rage mod being added repeatedly - fix!
              slowTargetSpeed = rageSpeed * slowPercentage;
         }
-        Debug.Log(rageSpeed);
+        //Debug.Log(rageSpeed);
 
         while (Time.time < slowEndTime)
         {
@@ -712,7 +712,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
             speed = rageSpeed;
             aiPath.maxSpeed = speed;
-            Debug.Log(rageSpeed);
+            //Debug.Log(rageSpeed);
         }
         StopCoroutine(slowCoroutine);  
     }

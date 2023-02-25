@@ -173,10 +173,10 @@ public class LevelUpManager : MonoBehaviour
         xpBar = GameObject.Find("xpBar").GetComponent<Slider>();
         panel = GameObject.Find("UpgradeContainer");
         upgradeWindows = new List<UpgradeHandler>(GameObject.FindObjectsOfType<UpgradeHandler>());
-        panel.SetActive(false);
         weapons = Resources.LoadAll("Attacks", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
         stats = Resources.LoadAll("Stats", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
         hasRolled = false;
+        panel.SetActive(false);
     }
 
     // Update is called once per frame

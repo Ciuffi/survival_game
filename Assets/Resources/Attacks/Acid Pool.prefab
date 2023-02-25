@@ -68,11 +68,11 @@ MonoBehaviour:
   pierceUP: 0
   critChance: 0.075
   critDmg: 2
+  shootOpppositeSide: 0
   multicastChance: 0
-  multicastWaitTime: 0.1
+  multicastWaitTime: 0.2
   multicastTimes: 0
   projectile: {fileID: 0}
-  scaleUP: {x: 2, y: 2, z: 0}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}

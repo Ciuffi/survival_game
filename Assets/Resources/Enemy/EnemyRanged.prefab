@@ -155,7 +155,7 @@ MonoBehaviour:
   shootChargeTime: 1.25
   projectileSpeed: 2
   projectileRange: 12
-  projectileDamage: 7
+  projectileDamage: 8
   shootRecovery: 2
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}

@@ -54,11 +54,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  speed: 0.04
+  speed: 0.038
   damageMultiplier: 1.2
   critChance: 0.1
   critDmg: 0.5
-  defense: -2
+  defense: -1
   shield: 0
   shotsPerAttack: 0
   meleeComboLength: 0

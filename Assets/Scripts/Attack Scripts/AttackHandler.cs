@@ -58,13 +58,13 @@ public class AttackHandler : MonoBehaviour
             }
 
             Color currentColor = attackBarImage.color;
-            currentColor.a = 0.175f;
+            currentColor.a = 0.2f;
             attackBarImage.color = currentColor;
             attackBarImage2.color = currentColor;
 
-            timer += Time.deltaTime;
-            float progress = Mathf.Clamp01((timer-0.2f) / castTime);
-            attackBar.value = progress ;
+            timer += Time.deltaTime * 0.90f;
+            float progress = Mathf.Clamp01(timer / castTime);
+            attackBar.value = progress;
             attackBar2.value = progress;
             yield return new WaitForEndOfFrame();
             if (timer >= castTime + 0.2f)

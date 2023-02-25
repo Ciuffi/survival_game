@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 6
   damageUP: 9
-  spread: 0.75
-  spreadUP: 0.6
+  spread: 0.6
+  spreadUP: 0.4
   spray: 1
   sprayThreshold: 2
   castTime: 2.5
@@ -57,7 +57,6 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 6
   rangeUP: 7
-  OGrange: 0
   shotsPerAttack: 4
   shotsPerAttackUP: 7
   cantMove: 0
@@ -70,9 +69,8 @@ MonoBehaviour:
   critChance: 0.05
   critDmg: 1.5
   shootOpppositeSide: 0
-  OGshootOpposite: 0
   multicastChance: 0
-  multicastWaitTime: 0.1
+  multicastWaitTime: 0.2
   multicastTimes: 0
   projectile: {fileID: 3966782872280218973, guid: dc28017651fe4414892ee44936f53fc3, type: 3}
   rarity: 0

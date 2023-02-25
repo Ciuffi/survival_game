@@ -135,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 4908858350499337675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6919730805365769229}
@@ -216,7 +216,6 @@ MonoBehaviour:
   bounceRange: 0
   bounceTimes: 0
   isMelee: 1
-  meleeTime: 0
   startup: 0.3
   active: 0.5
   scaleSpeed: 1
@@ -227,12 +226,21 @@ MonoBehaviour:
   playerShakeStrength: 0.1
   playerShakeRotation: 0.1
   damageTickDuration: 0.5
-  startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
   isHover: 0
   hoverTimer: 0
   hitFirstEnemy: 0
   isAnimated: 1
+  isMagnet: 0
+  magnetStrength: 0
+  magnetDuration: 0
+  isSlow: 0
+  slowPercentage: 0
+  slowDuration: 0
+  isStun: 0
+  stunDuration: 0
+  isDeathrattle: 0
+  deathSpawn: {fileID: 0}
 --- !u!95 &5205817159011200887
 Animator:
   serializedVersion: 4

@@ -8219,18 +8219,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3361447723226432987, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: comboWaitTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: rangeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: baseRangeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -8251,30 +8239,6 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1537696376}
-    - target: {fileID: 5963081994719383478, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: cantMove
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5963081994719383478, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: meleeSpacer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5963081994719383478, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: meleeSpacerGap
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5963081994719383478, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: shotsPerAttack
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097812609038008204, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: cantMove
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097812609038008204, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: shootOpppositeSide
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -15417,18 +15381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 3590323111623112659, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: uiCamera
       value: 
       objectReference: {fileID: 1562854927}
-    - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: xpScaling
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: mainCamera
       value: 
@@ -15437,22 +15393,6 @@ PrefabInstance:
       propertyPath: comboManager
       value: 
       objectReference: {fileID: 6026111911227451478}
-    - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: speedScaling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: damageScaling
-      value: 1.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: healthScaling
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: weightScaling
-      value: 1.05
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
 --- !u!1001 &1229096017908389058
@@ -15675,10 +15615,18 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1731126406}
+    - target: {fileID: 1481340773, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4404133455497378805, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1731126406}
+    - target: {fileID: 4748194186520430217, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7313015711702768581, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: m_Name
       value: WeaponSprite
@@ -15731,6 +15679,14 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1731126406}
+    - target: {fileID: 7318568193167111031, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318568193167111031, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: m_Simulated
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
 --- !u!1 &7313015712638807195 stripped
