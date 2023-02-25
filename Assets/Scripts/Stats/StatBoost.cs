@@ -23,7 +23,11 @@ public class StatBoost : MonoBehaviour, Upgrade
         extraMeleeWaitTimeMultiplier,
         extraThrownDamageMultiplier,
         extraThrownSpeedMultiplier,
-        extraRangeMultiplier;
+        extraRangeMultiplier,
+        extraPickupRange,
+        extraProjectileSizeMultiplier,
+        extraMeleeSizeMultiplier;
+
 
     public bool shootOppositeSide;
 

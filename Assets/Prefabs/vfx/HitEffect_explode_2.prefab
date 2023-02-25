@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6403608253968370079}
   - component: {fileID: 1437761089197894157}
   m_Layer: 0
-  m_Name: onHit_explode_2
+  m_Name: HitEffect_explode_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 4949119630209171492, guid: 9056a3ba246aa294295de0252d1c082c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

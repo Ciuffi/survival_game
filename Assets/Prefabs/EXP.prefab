@@ -102,8 +102,8 @@ MonoBehaviour:
   player: {fileID: 0}
   particleSystem: {fileID: 4053501027209517259, guid: 20e36e8cedd06654eb8624be054dcb05, type: 3}
   pickupDistance: 2
-  speed: 5
-  speedMultiplier: 0.1
+  speed: 6
+  speedMultiplier: 2
   waitTime: 0.5
   maxAwayDistance: 1
   spriteList:

@@ -54,22 +54,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  speed: 0.032
-  damageMultiplier: 1.25
+  speed: 0.035
+  pickupRange: 2
+  damageMultiplier: 1.5
   critChance: 0.05
   critDmg: 0
   defense: 0
-  shield: 2
+  shield: 0
   shotsPerAttack: 0
   meleeComboLength: 0
   multicastChance: 0
-  castTimeMultiplier: 1
-  meleeWaitTimeMultiplier: 0.75
-  projectileSpeedMultiplier: 1
+  castTimeMultiplier: 0.9
+  meleeWaitTimeMultiplier: 1
+  projectileSpeedMultiplier: 0.8
   rangeMultiplier: 1
-  knockbackMultiplier: 0.6
+  knockbackMultiplier: 0.5
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
+  projectileSizeMultiplier: 1
+  meleeSizeMultiplier: 0.8
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: b6e27a87eb0cdfb478f1116f02112f7a, type: 3}

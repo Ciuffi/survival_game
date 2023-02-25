@@ -770,6 +770,12 @@ MonoBehaviour:
   baseThrownSpeedMultiplier: 1
   rangeMultiplier: 1
   baseRangeMultiplier: 1
+  pickupRange: 2
+  basePickupRange: 2
+  projectileSizeMultiplier: 1
+  baseProjectileSizeMultiplier: 1
+  meleeSizeMultiplier: 1
+  baseMeleeSizeMultiplier: 1
   shootOppositeSide: 0
   baseShootOppositeSide: 0
   stats: []
@@ -842,6 +848,9 @@ MonoBehaviour:
   extraThrownDamageMultiplier: 0
   extraThrownSpeedMultiplier: 0
   extraRangeMultiplier: 0
+  extraPickupRange: 0
+  extraProjectileSizeMultiplier: 0
+  extraMeleeSizeMultiplier: 0
   shootOppositeSide: 0
 --- !u!50 &1731126420
 Rigidbody2D:

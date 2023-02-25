@@ -55,6 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   speed: 0.038
+  pickupRange: 2
   damageMultiplier: 1.2
   critChance: 0.1
   critDmg: 0.5
@@ -70,6 +71,8 @@ MonoBehaviour:
   knockbackMultiplier: 5
   thrownDamageMultiplier: 2
   thrownSpeedMultiplier: 1
+  projectileSizeMultiplier: 1
+  meleeSizeMultiplier: 1
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 8959033644543485683, guid: 546c1e372197f1b49a4b36d6760fbb7d, type: 3}

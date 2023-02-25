@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7329280640904233847}
   - component: {fileID: 2619886986464292918}
   m_Layer: 5
-  m_Name: Anti-Gravity
+  m_Name: Space Marine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 55
-  speed: 0.04
+  speed: 0.035
+  pickupRange: 2
   damageMultiplier: 1
   critChance: 0
   critDmg: 0
@@ -62,14 +63,16 @@ MonoBehaviour:
   shield: 0
   shotsPerAttack: 0
   meleeComboLength: 0
-  multicastChance: 0.1
-  castTimeMultiplier: 0.75
-  meleeWaitTimeMultiplier: 0.75
+  multicastChance: 0
+  castTimeMultiplier: 1
+  meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 0.3
   rangeMultiplier: 0.5
   knockbackMultiplier: 0.5
   thrownDamageMultiplier: 1
-  thrownSpeedMultiplier: 2
+  thrownSpeedMultiplier: 1
+  projectileSizeMultiplier: 1.5
+  meleeSizeMultiplier: 1
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 4743095717860307335, guid: 2b5d4dd4a4ee33f45a121fde1b219500, type: 3}

@@ -1819,6 +1819,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LootBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e89130871519a1c4f875022804e0ada5, type: 3}
 --- !u!1001 &291117401

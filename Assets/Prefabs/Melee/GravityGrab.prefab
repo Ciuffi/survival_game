@@ -277,7 +277,7 @@ MonoBehaviour:
   scaleSpeed: 4
   disappearSpeed: 4
   isCrit: 0
-  onHitParticle: {fileID: 4053501027209517259, guid: 0175ba2e2ce8b8549904d75a07504472, type: 3}
+  onHitParticle: {fileID: 4053501027209517259, guid: 9834c3ac85854944980a1a437400746b, type: 3}
   playerShakeTime: 0.1
   playerShakeStrength: 0.5
   playerShakeRotation: 0.3

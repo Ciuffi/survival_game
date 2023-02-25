@@ -24,6 +24,8 @@ public class StatsHandler : MonoBehaviour
     public float baseDefense;
     public float shield;
     public float baseShield;
+    public float pickupRange,
+        basePickupRange;
 
     public int shotsPerAttack,
         baseShotsPerAttack,
@@ -45,10 +47,15 @@ public class StatsHandler : MonoBehaviour
         thrownSpeedMultiplier,
         baseThrownSpeedMultiplier,
         rangeMultiplier,
-        baseRangeMultiplier;
+        baseRangeMultiplier,
+        projectileSizeMultiplier,
+        baseProjectileSizeMultiplier,
+        meleeSizeMultiplier,
+        baseMeleeSizeMultiplier;
 
     public bool shootOppositeSide,
         baseShootOppositeSide;
+
 
 
     public List<StatBoost> stats;
@@ -118,7 +125,9 @@ public class StatsHandler : MonoBehaviour
         float thrownSpd = characterStats.thrownSpeedMultiplier;
         float range = characterStats.rangeMultiplier;
         bool shootOpposite = characterStats.shootOpposideSide;
-
+        float pickupRange = characterStats.pickupRange;
+        float projSize = characterStats.projectileSizeMultiplier;
+        float meleeSize = characterStats.meleeSizeMultiplier;
 
         // Assign the selected character's stats to the player's stats
         baseMaxHealth = health;
@@ -139,6 +148,9 @@ public class StatsHandler : MonoBehaviour
         baseThrownSpeedMultiplier = thrownSpd;
         baseRangeMultiplier = range;
         baseShootOppositeSide = shootOpposite;
+        basePickupRange = pickupRange;
+        baseProjectileSizeMultiplier = projSize;
+        baseMeleeSizeMultiplier = meleeSize;
 
     }
 
@@ -246,6 +258,9 @@ public class StatsHandler : MonoBehaviour
         thrownSpeedMultiplier = baseThrownSpeedMultiplier;
         rangeMultiplier = baseRangeMultiplier;
         shootOppositeSide = baseShootOppositeSide;
+        pickupRange = basePickupRange;
+        projectileSizeMultiplier = baseProjectileSizeMultiplier;
+        meleeSizeMultiplier = baseMeleeSizeMultiplier;
 
 
         if (fullReset)
@@ -311,6 +326,9 @@ public class StatsHandler : MonoBehaviour
             {
                 shootOppositeSide = sb.shootOppositeSide;
             }
+            pickupRange += sb.extraPickupRange;
+            projectileSizeMultiplier += sb.extraProjectileSizeMultiplier;
+            meleeSizeMultiplier += sb.extraMeleeSizeMultiplier;
         }
 
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7644757005017607147}
   - component: {fileID: 521703672725736103}
   m_Layer: 5
-  m_Name: Idle Gamer
+  m_Name: AFK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   speed: 0.02
-  damageMultiplier: 1.1
+  pickupRange: 2
+  damageMultiplier: 1
   critChance: 0
   critDmg: 0
   defense: 5
@@ -67,9 +68,11 @@ MonoBehaviour:
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
-  knockbackMultiplier: 1
+  knockbackMultiplier: 1.8
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
+  projectileSizeMultiplier: 1.2
+  meleeSizeMultiplier: 1.2
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: d858553e20b94884c8176ca49cc83a10, type: 3}

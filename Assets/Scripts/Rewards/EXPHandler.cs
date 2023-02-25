@@ -110,6 +110,7 @@ public class EXPHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pickupDistance = player.GetComponent<StatsHandler>().pickupRange;
 
         distancefromPlayer = Vector3.Distance(transform.position, player.transform.position);
 

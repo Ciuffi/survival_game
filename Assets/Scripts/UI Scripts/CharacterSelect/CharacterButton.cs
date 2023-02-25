@@ -109,8 +109,20 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             statsString += "Health " + stats.health + "\n";
             statsString += "Speed " + stats.speed + "\n";
 
-
             // Check each stat and add it to the string if it meets the criteria
+
+            if (stats.pickupRange != 2)
+            {
+                statsString += "Pickup Range +" + stats.pickupRange + "\n";
+            }
+            if (stats.defense != 0)
+            {
+                statsString += "Defense " + stats.defense + "\n";
+            }
+            if (stats.shield != 0)
+            {
+                statsString += "Shield " + stats.shield + "\n";
+            }
             if (stats.damageMultiplier != 1)
             {
                 statsString += "DmgMultiplier% " + stats.damageMultiplier + "\n";
@@ -123,33 +135,17 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             {
                 statsString += "Crit DMG% +" + stats.critDmg + "\n";
             }
-            if (stats.defense != 0)
-            {
-                statsString += "Defense " + stats.defense + "\n";
-            }
-            if (stats.shield != 0)
-            {
-                statsString += "Shield " + stats.shield + "\n";
-            }
-            if (stats.shotsPerAttack != 0)
-            {
-                statsString += "Projectiles +" + stats.shotsPerAttack + "\n";
-            }
-            if (stats.meleeComboLength != 0)
-            {
-                statsString += "Melee +" + stats.meleeComboLength + "\n";
-            }
-            if (stats.multicastChance != 0)
-            {
-                statsString += "Multicast% +" + stats.multicastChance + "\n";
-            }
             if (stats.castTimeMultiplier != 1)
             {
                 statsString += "Cast Time% " + stats.castTimeMultiplier + "\n";
             }
-            if (stats.meleeWaitTimeMultiplier != 1)
+            if (stats.multicastChance != 0)
             {
-                statsString += "Melee Time% " + stats.meleeWaitTimeMultiplier + "\n";
+                statsString += "Multicast% +" + stats.multicastChance + "\n";
+            } 
+            if (stats.shotsPerAttack != 0)
+            {
+                statsString += "Projectiles +" + stats.shotsPerAttack + "\n";
             }
             if (stats.projectileSpeedMultiplier != 1)
             {
@@ -159,19 +155,34 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             {
                 statsString += "Proj Range% " + stats.rangeMultiplier + "\n";
             }
+            if (stats.projectileSizeMultiplier != 1)
+            {
+                statsString += "Proj Size% " + stats.projectileSizeMultiplier + "\n";
+            }
+            if (stats.meleeComboLength != 0)
+            {
+                statsString += "Melee Hits +" + stats.meleeComboLength + "\n";
+            }
+            if (stats.meleeWaitTimeMultiplier != 1)
+            {
+                statsString += "Melee Recovery% " + stats.meleeWaitTimeMultiplier + "\n";
+            }
+            if (stats.meleeSizeMultiplier != 1)
+            {
+                statsString += "Melee Size% " + stats.meleeSizeMultiplier + "\n";
+            }         
             if (stats.knockbackMultiplier != 1)
             {
                 statsString += "Knockback% " + stats.knockbackMultiplier + "\n";
-            }
+            }                    
             if (stats.thrownDamageMultiplier != 1)
             {
-                statsString += "Wpn Toss% " + stats.thrownDamageMultiplier + "\n";
+                statsString += "Wpn Toss Dmg% " + stats.thrownDamageMultiplier + "\n";
             }
             if (stats.thrownSpeedMultiplier != 1)
             {
-                statsString += "Wpn Toss% " + stats.thrownSpeedMultiplier + "\n";
-            }
-            
+                statsString += "Wpn Toss Speed% " + stats.thrownSpeedMultiplier + "\n";
+            }           
             if (stats.shootOpposideSide != false)
             {
                 statsString += "DOUBLE TROUBLE\n";

@@ -41,6 +41,11 @@ public class Attack : MonoBehaviour, Upgrade
 
     public bool shootOpppositeSide = false;
 
+    public float projectileSize;
+    private float OGprojectileSize;
+    public float meleeSize;
+    private float OGmeleeSize;
+
     public float multicastChance; //every 1.0f = one guarenteed multicast.
     public float multicastWaitTime;
     private float defaultMulticastWaitTime;
@@ -159,6 +164,8 @@ public class Attack : MonoBehaviour, Upgrade
         OGthrowSpeed = throwSpeed;
         OGshootOpposite = shootOpppositeSide;
         OGrange = range;
+        OGprojectileSize = projectileSize;
+        OGmeleeSize = meleeSize;
 
         CalculateStats();
 
@@ -196,6 +203,8 @@ public class Attack : MonoBehaviour, Upgrade
         {
             shootOpppositeSide = Player.GetComponent<StatsHandler>().shootOppositeSide;
         }
+        projectileSize = Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
+        meleeSize = Player.GetComponent<StatsHandler>().meleeSizeMultiplier;
 
     }
 
@@ -278,6 +287,8 @@ public class Attack : MonoBehaviour, Upgrade
                 GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
+                Vector3 currentScale = p.transform.localScale;
+                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
 
                 Quaternion forwardRotation = rotation;
 
@@ -315,6 +326,8 @@ public class Attack : MonoBehaviour, Upgrade
                 GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
+                Vector3 currentScale = p.transform.localScale;
+                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
 
                 Quaternion forwardRotation = rotation;
 
@@ -350,6 +363,7 @@ public class Attack : MonoBehaviour, Upgrade
                 GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
                 Projectile p2 = projectileGO2.GetComponent<Projectile>();
                 p2.attack = this;
+                p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
 
                 Quaternion backwardRotation = Quaternion.LookRotation(-transform.right, Vector3.forward);
                 if (shotsCount >= sprayThreshold)
@@ -430,6 +444,9 @@ public class Attack : MonoBehaviour, Upgrade
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = rotation;
+                Vector3 currentScale = p.transform.localScale;
+                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+
                 if (multicastTimes > 0)
                 {
                     SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
@@ -456,6 +473,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 p.transform.rotation = rotation;
                 p.transform.up = direction;
+                Vector3 currentScale = p.transform.localScale;
+                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+
                 if (multicastTimes > 0)
                 {
                     SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
@@ -479,6 +499,8 @@ public class Attack : MonoBehaviour, Upgrade
                 p2.attack = this;
                 p2.transform.rotation = Quaternion.LookRotation(-direction);
                 p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
+                p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+
                 if (multicastTimes > 0)
                 {
                     SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
@@ -528,6 +550,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 p.transform.rotation = rotation;
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+                Vector3 currentScale = p.transform.localScale;
+                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+
                 if (multicastTimes > 0)
                 {
                     SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
@@ -556,6 +581,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.rotation = rotation;
                 p.transform.up = direction;
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+                Vector3 currentScale = p.transform.localScale;
+                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+
                 if (multicastTimes > 0)
                 {
                     SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
@@ -580,6 +608,8 @@ public class Attack : MonoBehaviour, Upgrade
                 p2.transform.rotation = Quaternion.LookRotation(-direction);
                 p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
                 p2.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
+                p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+
                 if (multicastTimes > 0)
                 {
                     SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
@@ -651,7 +681,16 @@ public class Attack : MonoBehaviour, Upgrade
                     p.transform.rotation = rotation;
                     if (c >= 1)
                     {
+                        Vector3 currentScale = p.transform.localScale;
+                        p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
                         p.transform.localScale += scaler * c;
+
+                    }
+                    else
+                    {
+                        Vector3 currentScale = p.transform.localScale;
+                        p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+
                     }
                     //change animation state 
                     if (swapAnimOnAttack)
@@ -698,7 +737,16 @@ public class Attack : MonoBehaviour, Upgrade
                     p.transform.up = direction;
                     if (c >= 1)
                     {
+                        Vector3 currentScale = p.transform.localScale;
+                        p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
                         p.transform.localScale += scaler * c;
+
+                    }
+                    else
+                    {
+                        Vector3 currentScale = p.transform.localScale;
+                        p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+
                     }
                     //change animation state 
                     if (swapAnimOnAttack)
@@ -742,7 +790,16 @@ public class Attack : MonoBehaviour, Upgrade
                     p2.transform.up = -directionSpacer; // set the projectile's up direction to the opposite of the direction
                     if (c >= 1)
                     {
+                        Vector3 currentScale = p2.transform.localScale;
+                        p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
                         p2.transform.localScale += scaler * c;
+
+                    }
+                    else
+                    {
+                        Vector3 currentScale = p2.transform.localScale;
+                        p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+
                     }
                     //change animation state 
                     if (swapAnimOnAttack)
