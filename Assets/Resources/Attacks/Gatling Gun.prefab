@@ -57,7 +57,6 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 5
   rangeUP: 6
-  baseRange: 0
   shotsPerAttack: 100
   shotsPerAttackUP: 150
   cantMove: 1
@@ -70,9 +69,10 @@ MonoBehaviour:
   critChance: 0.05
   critDmg: 2
   shootOpppositeSide: 0
-  baseShootOpposite: 0
+  projectileSize: 0
+  meleeSize: 0
   multicastChance: 0
-  multicastWaitTime: 0.2
+  multicastWaitTime: 0.25
   multicastTimes: 0
   projectile: {fileID: 4235860010000021921, guid: ce7a0faf6273b8f40a6e585d96875d42, type: 3}
   rarity: 0

@@ -72,7 +72,7 @@ MonoBehaviour:
   projectileSize: 0
   meleeSize: 0
   multicastChance: 0
-  multicastWaitTime: 0.2
+  multicastWaitTime: 0.25
   multicastTimes: 0
   projectile: {fileID: 3966782872280218973, guid: dc28017651fe4414892ee44936f53fc3, type: 3}
   rarity: 0
