@@ -101,18 +101,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   particleSystem: {fileID: 4053501027209517259, guid: 20e36e8cedd06654eb8624be054dcb05, type: 3}
-  isAutoCollect: 0
-  speed: 4
-  speedMultiplier: 15
+  pickupDistance: 2
+  speed: 5
+  speedMultiplier: 0.1
   waitTime: 0.5
-  xpAmount: 0
+  maxAwayDistance: 1
   spriteList:
   - {fileID: 21300000, guid: 6fda33c7748f1ff4e830a507acacd516, type: 3}
   - {fileID: 21300000, guid: a58b6c23976fcc84dbad758e4d6fc55c, type: 3}
   - {fileID: 21300000, guid: 6b11b9655a5af6345ad0fd8fac369aee, type: 3}
-  xpTierThresholds: 000000003c00000096000000
-  pickupDistance: 1
-  distancefromPlayer: 0
+  xpTierThresholds: 000000003c000000c8000000
+  xpAmount: 0
 --- !u!61 &4666552734587107983
 BoxCollider2D:
   m_ObjectHideFlags: 0

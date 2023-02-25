@@ -7,11 +7,15 @@ public class EXPHandler : MonoBehaviour
     public GameObject player;
 
     public GameObject particleSystem;
-    public bool isAutoCollect;
+
+    public float pickupDistance;
+    private float consumeDistance = 0.5f;
 
     public float speed;
     public float speedMultiplier;
     public float waitTime;
+    public float maxAwayDistance;
+
 
     private bool waiting = true;
     private bool movingTowardsPlayer = false;
@@ -19,14 +23,14 @@ public class EXPHandler : MonoBehaviour
     private float currentSpeed;
     private float waitTimer;
 
-    public float xpAmount;
-
     public List<Sprite> spriteList; // List of sprites
     public List<int> xpTierThresholds; // List of XP thresholds
+    public float xpAmount;
 
-    public float pickupDistance;
-    public float distancefromPlayer;
-
+    private float distancefromPlayer;
+    private bool movingAway;
+    private Vector3 capturedPos;
+    private bool hasTriggered;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,7 @@ public class EXPHandler : MonoBehaviour
         currentSpeed = speed;
         player = GameObject.FindWithTag("Player");
         waitTimer = waitTime;
+        hasTriggered = false;
     }
 
     public void UpdateXpTier()
@@ -58,45 +63,61 @@ public class EXPHandler : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Move()
     {
-        if (isAutoCollect)
+        while (waiting)
         {
-
-            if (waiting)
+            waitTimer -= Time.deltaTime;
+            if (waitTimer <= 0)
             {
-                waitTimer -= Time.deltaTime;
-                if (waitTimer <= 0)
-                {
-                    waiting = false;
-                    movingTowardsPlayer = true;
-                }
+                waiting = false;
+                movingAway = true;
             }
-            else if (movingTowardsPlayer)
-            {
-                currentSpeed += speedMultiplier * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed * Time.deltaTime);
+            capturedPos = transform.position;
+            yield return null;
+        }
 
-                if (transform.position == player.transform.position)
-                {
-                    player.gameObject.GetComponent<StatsHandler>().GainXP(xpAmount);
-                    Destroy(gameObject);
-                }
-            }
-        } else //doesnt auto collect
+        while (movingAway)
         {
-            distancefromPlayer = Vector3.Distance(transform.position, player.transform.position);
+            currentSpeed += speedMultiplier * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -currentSpeed * Time.deltaTime);
 
-            if (distancefromPlayer < pickupDistance)
+            float distanceFromSpot = Vector3.Distance(transform.position, capturedPos);
+
+            if (distanceFromSpot > maxAwayDistance)
+            {
+                movingAway = false;
+                movingTowardsPlayer = true;
+            }
+            yield return null;
+        }
+
+        while (movingTowardsPlayer)
+        {
+            currentSpeed += speedMultiplier * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed * Time.deltaTime);
+
+            if (distancefromPlayer <= consumeDistance)
             {
                 player.gameObject.GetComponent<StatsHandler>().GainXP(xpAmount);
                 Instantiate(particleSystem, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
-
-
+            yield return null;
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+
+        distancefromPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distancefromPlayer < pickupDistance && !hasTriggered)
+        {
+            StartCoroutine(Move());
+            hasTriggered = true;
+        }
+
+    }
 }
