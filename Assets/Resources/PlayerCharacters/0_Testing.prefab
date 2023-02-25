@@ -62,10 +62,10 @@ MonoBehaviour:
   defense: 10
   shield: 0
   shotsPerAttack: 4
-  meleeComboLength: 1
+  meleeComboLength: 2
   multicastChance: 1.5
-  castTimeMultiplier: 0.2
-  meleeWaitTimeMultiplier: 0.2
+  castTimeMultiplier: 0.4
+  meleeWaitTimeMultiplier: 0.4
   projectileSpeedMultiplier: 2
   rangeMultiplier: 2
   knockbackMultiplier: 2

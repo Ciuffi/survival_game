@@ -682,14 +682,14 @@ public class Attack : MonoBehaviour, Upgrade
                     if (c >= 1)
                     {
                         Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                        p.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
                         p.transform.localScale += scaler * c;
 
                     }
                     else
                     {
                         Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                        p.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
 
                     }
                     //change animation state 
@@ -738,14 +738,14 @@ public class Attack : MonoBehaviour, Upgrade
                     if (c >= 1)
                     {
                         Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                        p.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
                         p.transform.localScale += scaler * c;
 
                     }
                     else
                     {
                         Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                        p.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
 
                     }
                     //change animation state 
@@ -791,14 +791,14 @@ public class Attack : MonoBehaviour, Upgrade
                     if (c >= 1)
                     {
                         Vector3 currentScale = p2.transform.localScale;
-                        p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                        p2.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
                         p2.transform.localScale += scaler * c;
 
                     }
                     else
                     {
                         Vector3 currentScale = p2.transform.localScale;
-                        p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                        p2.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
 
                     }
                     //change animation state 

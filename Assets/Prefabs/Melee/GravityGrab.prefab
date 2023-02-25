@@ -288,7 +288,7 @@ MonoBehaviour:
   hitFirstEnemy: 0
   isAnimated: 0
   isMagnet: 1
-  magnetStrength: 6
+  magnetStrength: 8
   magnetDuration: 0.5
   isSlow: 0
   slowPercentage: 0.25

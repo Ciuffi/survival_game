@@ -130,7 +130,7 @@ public class StatsHandler : MonoBehaviour
         float meleeSize = characterStats.meleeSizeMultiplier;
 
         // Assign the selected character's stats to the player's stats
-        baseMaxHealth = health;
+        baseMaxHealth = maxHealth;
         baseSpeed = speed;
         baseDamageMultiplier = damage;
         baseCritChance = critChance;
@@ -300,7 +300,7 @@ public class StatsHandler : MonoBehaviour
             StatBoost sb = stat.GetComponent<StatBoost>();
 
             // Apply the stat's values
-            health += sb.extraHealth;
+            health += sb.extraHealth + sb.extraMaxHealth;
             if (sb.extraHealth > 0)
             {
                 Destroy(stat);
@@ -355,8 +355,6 @@ public class StatsHandler : MonoBehaviour
 
         MatchCharacter();
         InhereitStats();
-        health = maxHealth;
-
 
         //add extra stats?
         StatContainer = new List<Transform>(GetComponentsInChildren<Transform>()).Find(t =>
@@ -371,6 +369,7 @@ public class StatsHandler : MonoBehaviour
         CalculateStats();
         CalculateWeaponStats(weaponsList);
 
+        health = maxHealth;
 
     }
     private void CalculateWeaponStats(GameObject prefab)

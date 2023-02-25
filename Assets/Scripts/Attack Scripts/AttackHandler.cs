@@ -120,11 +120,15 @@ public class AttackHandler : MonoBehaviour
 
 
             //casting
-            if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime - 0.4f));
+            attackBar.fillRect.gameObject.SetActive(true);
+            attackBar2.fillRect.gameObject.SetActive(true);
+            if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime - 0.3f));
             yield return new WaitForSeconds(currentAttack.castTime);
 
             //attacking
             StopCoroutine("HandleAttackSlider");
+            attackBar.fillRect.gameObject.SetActive(false); 
+            attackBar2.fillRect.gameObject.SetActive(false); 
             attackState = AttackState.Attacking;
             if (currentAttack != null) currentAttack.Shoot();
             yield return new WaitForSeconds(currentAttack.attackTime);
