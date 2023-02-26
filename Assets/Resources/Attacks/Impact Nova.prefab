@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
-  damageUP: 40
+  damage: 18
+  damageUP: 30
   spread: 0.2
   spreadUP: 0.15
   spray: 0
@@ -57,13 +57,14 @@ MonoBehaviour:
   recoveryTimeUp: 0.2
   range: 0
   rangeUP: 0
-  shotsPerAttack: 1
-  shotsPerAttackUP: 1
+  shotsPerAttack: 0
+  shotsPerAttackUP: 0
+  shotsPerAttackMelee: 1
   cantMove: 0
   speed: 0
   speedUP: 0
-  knockback: 6
-  knockbackUP: 8
+  knockback: 4
+  knockbackUP: 6
   pierce: 0
   pierceUP: 0
   critChance: 0.05
@@ -95,7 +96,7 @@ MonoBehaviour:
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
   thrownSprite: {fileID: 21300000, guid: f174f798d45438f4b80ed735d6588c4e, type: 3}
-  thrownDamage: 15
+  thrownDamage: 10
   throwSpeed: 5
   bulletCasing: {fileID: 0}
   MuzzleFlashPrefab: []

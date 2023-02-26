@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b28133b492f944a5af2e1d7d04928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UiIcon: {fileID: 21300000, guid: c6520bd12aa20514f940734f3ac8514c, type: 3}
   extraHealth: 0
   extraMaxHealth: 0
   extraSpeed: 0.012

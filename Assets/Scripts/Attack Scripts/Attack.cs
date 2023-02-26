@@ -25,6 +25,8 @@ public class Attack : MonoBehaviour, Upgrade
     public int shotsPerAttack;
     public int shotsPerAttackUP;
 
+    public int shotsPerAttackMelee;
+
     public bool cantMove;
 
     public float speed;
@@ -103,6 +105,7 @@ public class Attack : MonoBehaviour, Upgrade
         OGrange,
         OGthrowSpeed;
     private int OGshotPerAttack,
+        OGshotsPerAttackMelee,
         OGcomboLength;
     private bool OGshootOpposite;
 
@@ -166,6 +169,7 @@ public class Attack : MonoBehaviour, Upgrade
         OGrange = range;
         OGprojectileSize = projectileSize;
         OGmeleeSize = meleeSize;
+        OGshotsPerAttackMelee = shotsPerAttackMelee;
 
         CalculateStats();
 
@@ -195,6 +199,7 @@ public class Attack : MonoBehaviour, Upgrade
         multicastChance = OGmulticastChance + Player.GetComponent<StatsHandler>().multicastChance;
         castTime = OGcastTime * Player.GetComponent<StatsHandler>().castTimeMultiplier;
         shotsPerAttack = OGshotPerAttack + Player.GetComponent<StatsHandler>().shotsPerAttack;
+        shotsPerAttackMelee = OGshotsPerAttackMelee + Player.GetComponent<StatsHandler>().shotsPerAttackMelee;
         comboLength = OGcomboLength + Player.GetComponent<StatsHandler>().meleeComboLength;
         comboWaitTime = OGcomboWaitTime * Player.GetComponent<StatsHandler>().meleeWaitTimeMultiplier;
         throwSpeed = OGthrowSpeed * Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
@@ -669,7 +674,7 @@ public class Attack : MonoBehaviour, Upgrade
 
 
             //chain spawn 
-            for (int c = 0; c < shotsPerAttack; c++)
+            for (int c = 0; c < shotsPerAttackMelee; c++)
             {
                 Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
 

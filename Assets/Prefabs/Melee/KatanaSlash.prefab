@@ -133,7 +133,7 @@ MonoBehaviour:
   startup: 0
   active: 0.18
   scaleSpeed: 0
-  disappearSpeed: 4
+  disappearSpeed: 10
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: 0175ba2e2ce8b8549904d75a07504472, type: 3}
   playerShakeTime: 0.1
@@ -153,8 +153,10 @@ MonoBehaviour:
   slowDuration: 1
   isStun: 0
   stunDuration: 0
-  isDeathrattle: 0
+  hasDeathrattle: 0
   deathSpawn: {fileID: 0}
+  projSize: 0
+  meleeSize: 0
 --- !u!50 &7860753979652903893
 Rigidbody2D:
   serializedVersion: 4

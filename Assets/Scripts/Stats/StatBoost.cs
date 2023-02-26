@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StatBoost : MonoBehaviour, Upgrade
 {
+    public Sprite UiIcon;
+
     public float extraHealth;
     public float extraMaxHealth;
     public float extraSpeed;
@@ -14,6 +16,7 @@ public class StatBoost : MonoBehaviour, Upgrade
     public float extraCritDmg;
 
     public int extraShotsPerAttack,
+        extraShotsPerAttackMelee,
         extraMeleeComboLength;
 
     public float extraMulticastChance,

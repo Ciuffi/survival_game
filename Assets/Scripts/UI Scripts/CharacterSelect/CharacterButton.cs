@@ -163,9 +163,13 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             {
                 statsString += "Melee Hits +" + stats.meleeComboLength + "\n";
             }
+            if (stats.shotsPerAttackMelee != 0)
+            {
+                statsString += "Aftershock +" + stats.shotsPerAttackMelee + "\n";
+            }
             if (stats.meleeWaitTimeMultiplier != 1)
             {
-                statsString += "Melee Recovery% " + stats.meleeWaitTimeMultiplier + "\n";
+                statsString += "Melee Speed% " + stats.meleeWaitTimeMultiplier + "\n";
             }
             if (stats.meleeSizeMultiplier != 1)
             {

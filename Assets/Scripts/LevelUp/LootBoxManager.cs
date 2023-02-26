@@ -85,6 +85,8 @@ public class LootBoxManager : MonoBehaviour
                     upgradeWindow.GetComponentInChildren<TMP_Text>().text = GO.name;
                     upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = true;
                     upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<Attack>().thrownSprite;
+                    TMP_Text[] textComponents = upgradeWindow.GetComponentsInChildren<TMP_Text>();
+                    textComponents[1].text = GO.GetComponent<Attack>().attackType.ToString();
                 }
             }
 
@@ -108,8 +110,10 @@ public class LootBoxManager : MonoBehaviour
                     Upgrade upgrade = GO.GetComponent<Upgrade>();
                     upgradeWindow.GetComponent<UpgradeLootHandler>().upgrade = upgrade;
                     upgradeWindow.GetComponentInChildren<TMP_Text>().text = GO.name;
-                    upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = false;
-                    //upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<Attack>().thrownSprite;
+                    upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = true;
+                    upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<StatBoost>().UiIcon;
+                    TMP_Text[] textComponents = upgradeWindow.GetComponentsInChildren<TMP_Text>();
+                    textComponents[1].text = "";
                 }
             }
         }

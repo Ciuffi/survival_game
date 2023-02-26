@@ -71,9 +71,10 @@ public class Projectile : MonoBehaviour
     public bool isStun;
     public float stunDuration;
 
-    public bool isDeathrattle;
+    public bool hasDeathrattle;
     public GameObject deathSpawn;
     public float projSize;
+    public float meleeSize;
 
     float moveSpeed;
 
@@ -97,6 +98,7 @@ public class Projectile : MonoBehaviour
         projectileRange = attack.range;
         moveSpeed = attack.speed * Player.GetComponent<StatsHandler>().projectileSpeedMultiplier;
         projSize = Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
+        meleeSize = Player.GetComponent<StatsHandler>().meleeSizeMultiplier;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -129,7 +131,7 @@ public class Projectile : MonoBehaviour
 
                 if (distance >= projectileRange)
                 {
-                    if (isDeathrattle)
+                    if (hasDeathrattle)
                     {
                         GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
                         Vector3 currentScale = rattle.transform.localScale;
@@ -168,11 +170,13 @@ public class Projectile : MonoBehaviour
 
                     }
 
-                    if (transform.localScale.x < 0)
+                    if (transform.localScale.x < 0 || GetComponent<SpriteRenderer>().color.a <= 0)
                     {
-                        if (isDeathrattle)
+                        if (hasDeathrattle)
                         {
                             GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                            Vector3 currentScale = rattle.transform.localScale;
+                            rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
 
                         }
                         Destroy(gameObject);
@@ -223,12 +227,13 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        if (transform.localScale.x < 0)
+        if (transform.localScale.x < 0 || GetComponent<SpriteRenderer>().color.a <= 0)
         {
-            if (isDeathrattle)
+            if (hasDeathrattle)
             {
                 GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
-    
+                Vector3 currentScale = rattle.transform.localScale;
+                rattle.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
             }
             Destroy(gameObject);
         }
@@ -358,9 +363,11 @@ public class Projectile : MonoBehaviour
       
             if (isMelee == false && pierce < 0)
             {
-                if (isDeathrattle)
+                if (hasDeathrattle)
                 {
                     GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                    Vector3 currentScale = rattle.transform.localScale;
+                    rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
                 }
                 Destroy(gameObject);
             }   

@@ -93,13 +93,8 @@ public class LevelUpManager : MonoBehaviour
                 u.GetComponentInChildren<TMP_Text>().text = GO.name;
                 u.transform.Find("Image").GetComponent<Image>().enabled = true;
                 u.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<Attack>().thrownSprite;
-                
-                if (GO.GetComponent<Attack>() != null) //if it's an attack
-                {
-                    TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
-                    textComponents[1].text = GO.GetComponent<Attack>().attackType.ToString();
-
-                } 
+                TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
+                textComponents[1].text = GO.GetComponent<Attack>().attackType.ToString();
 
             });
 
@@ -124,7 +119,8 @@ public class LevelUpManager : MonoBehaviour
                 previousUpgrades.Add(GO);
                 u.upgrade = GO.GetComponent<Upgrade>();
                 u.GetComponentInChildren<TMP_Text>().text = GO.name;
-                u.transform.Find("Image").GetComponent<Image>().enabled = false;
+                u.transform.Find("Image").GetComponent<Image>().enabled = true;
+                u.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<StatBoost>().UiIcon;
                 TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
                 textComponents[1].text = "";
             });

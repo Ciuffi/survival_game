@@ -57,8 +57,9 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 5
   rangeUP: 10
-  shotsPerAttack: 1
-  shotsPerAttackUP: 1
+  shotsPerAttack: 0
+  shotsPerAttackUP: 0
+  shotsPerAttackMelee: 1
   cantMove: 1
   speed: 0
   speedUP: 0

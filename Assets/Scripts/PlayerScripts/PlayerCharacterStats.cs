@@ -16,6 +16,7 @@ public class PlayerCharacterStats : MonoBehaviour
        
 
     public int shotsPerAttack,
+        shotsPerAttackMelee,
         meleeComboLength;
 
     public float multicastChance,

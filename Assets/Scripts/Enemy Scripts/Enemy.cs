@@ -200,6 +200,19 @@ public class Enemy : MonoBehaviour, Attacker
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         center = GetComponent<SpriteRenderer>().bounds.center;
 
+        
+
+        if (health <= 0)
+        {
+            animator.SetBool("IsDead", true);
+            SetAllCollidersStatus(false);
+
+            color = Sprite.GetComponent<SpriteRenderer>().color;
+            Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
+
+
+        }
+
         if (health <= 0 && !isDead)
         {
 
@@ -212,17 +225,6 @@ public class Enemy : MonoBehaviour, Attacker
             Instantiate(DeathEffect, deathSpawnPos, Quaternion.identity);
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
             ComboManager.GetComponent<ScreenShakeController>().StartShake(0.1f, 0.1f, 0.1f);
-        }
-
-        if (health <= 0)
-        {
-            animator.SetBool("IsDead", true);
-            SetAllCollidersStatus(false);
-
-            color = Sprite.GetComponent<SpriteRenderer>().color;
-            Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
-
-
         }
 
         if (color.a <= 0)

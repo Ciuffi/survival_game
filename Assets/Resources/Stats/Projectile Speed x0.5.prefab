@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b28133b492f944a5af2e1d7d04928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UiIcon: {fileID: 21300000, guid: a10eaeb65df8cdf498d8ad5e385a2130, type: 3}
   extraHealth: 0
   extraMaxHealth: 0
   extraSpeed: 0
@@ -62,4 +63,7 @@ MonoBehaviour:
   extraThrownDamageMultiplier: 0
   extraThrownSpeedMultiplier: 0
   extraRangeMultiplier: 0
+  extraPickupRange: 0
+  extraProjectileSizeMultiplier: 0
+  extraMeleeSizeMultiplier: 0
   shootOppositeSide: 0

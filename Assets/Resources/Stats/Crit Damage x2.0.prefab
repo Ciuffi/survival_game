@@ -44,11 +44,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b28133b492f944a5af2e1d7d04928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UiIcon: {fileID: 21300000, guid: b6e73ca71c545d845b38cb9d68257807, type: 3}
   extraHealth: 0
   extraMaxHealth: 0
   extraSpeed: 0
-  damageMultipler: 0
+  extraDamageMultipler: 0
   extraDefense: 0
   extraShield: 0
   extraCritChance: 0
   extraCritDmg: 2
+  extraShotsPerAttack: 0
+  extraMeleeComboLength: 0
+  extraMulticastChance: 0
+  extraCastTimeMultiplier: 0
+  extraProjectileSpeedMultiplier: 0
+  extraKnockbackMultiplier: 0
+  extraMeleeWaitTimeMultiplier: 0
+  extraThrownDamageMultiplier: 0
+  extraThrownSpeedMultiplier: 0
+  extraRangeMultiplier: 0
+  extraPickupRange: 0
+  extraProjectileSizeMultiplier: 0
+  extraMeleeSizeMultiplier: 0
+  shootOppositeSide: 0

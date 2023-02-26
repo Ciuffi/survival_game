@@ -29,6 +29,8 @@ public class StatsHandler : MonoBehaviour
 
     public int shotsPerAttack,
         baseShotsPerAttack,
+        shotsPerAttackMelee,
+        baseShotsPerAttackMelee,
         meleeComboLength,
         baseMeleeComboLength;
 
@@ -115,6 +117,7 @@ public class StatsHandler : MonoBehaviour
         float defense = characterStats.defense;
         float shield = characterStats.shield;
         int shotsPerAttack = characterStats.shotsPerAttack;
+        int shotsPerAttackMelee = characterStats.shotsPerAttackMelee;
         int comboLength = characterStats.meleeComboLength;
         float multicast = characterStats.multicastChance;
         float castTime = characterStats.castTimeMultiplier;
@@ -138,6 +141,7 @@ public class StatsHandler : MonoBehaviour
         baseDefense = defense;
         baseShield = shield;
         baseShotsPerAttack = shotsPerAttack;
+        baseShotsPerAttackMelee = shotsPerAttackMelee;
         baseMeleeComboLength = comboLength;
         baseMulticastChance = multicast;
         baseCastTimeMultiplier = castTime;
@@ -249,6 +253,7 @@ public class StatsHandler : MonoBehaviour
         multicastChance = baseMulticastChance;
         castTimeMultiplier = baseCastTimeMultiplier;
         shotsPerAttack = baseShotsPerAttack;
+        shotsPerAttackMelee = baseShotsPerAttackMelee;
         projectileSpeedMultiplier = baseProjectileSpeedMultiplier;
         knockbackMultiplier = baseKnockbackMultiplier;
         meleeComboLength = baseMeleeComboLength;
@@ -315,6 +320,7 @@ public class StatsHandler : MonoBehaviour
             castTimeMultiplier = (float)((castTimeMultiplier + sb.extraCastTimeMultiplier) > 0.1 ? (castTimeMultiplier + sb.extraCastTimeMultiplier) : 0.1);
             meleeComboLength += sb.extraMeleeComboLength;
             shotsPerAttack += sb.extraShotsPerAttack;
+            shotsPerAttackMelee += sb.extraShotsPerAttackMelee;
             projectileSpeedMultiplier += sb.extraProjectileSpeedMultiplier;
             knockbackMultiplier += sb.extraKnockbackMultiplier;
             meleeWaitTimeMultiplier = (float)((meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) > 0.1 ? (meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) : 0.1);

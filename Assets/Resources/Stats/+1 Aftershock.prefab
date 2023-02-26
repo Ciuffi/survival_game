@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5465853495475530971}
   - component: {fileID: 1218414260107360234}
   m_Layer: 0
-  m_Name: +1 Melee
+  m_Name: +1 Aftershock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,16 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b28133b492f944a5af2e1d7d04928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UiIcon: {fileID: 21300000, guid: c505b1e61cbf345459cd3b37f0f841a9, type: 3}
   extraHealth: 0
   extraMaxHealth: 0
   extraSpeed: 0
-  damageMultipler: 0
+  extraDamageMultipler: 0
   extraDefense: 0
   extraShield: 0
   extraCritChance: 0
   extraCritDmg: 0
   extraShotsPerAttack: 0
-  extraMeleeComboLength: 1
+  extraShotsPerAttackMelee: 1
+  extraMeleeComboLength: 0
   extraMulticastChance: 0
   extraCastTimeMultiplier: 0
   extraProjectileSpeedMultiplier: 0
@@ -61,3 +63,8 @@ MonoBehaviour:
   extraMeleeWaitTimeMultiplier: 0
   extraThrownDamageMultiplier: 0
   extraThrownSpeedMultiplier: 0
+  extraRangeMultiplier: 0
+  extraPickupRange: 0
+  extraProjectileSizeMultiplier: 0
+  extraMeleeSizeMultiplier: 0
+  shootOppositeSide: 0
