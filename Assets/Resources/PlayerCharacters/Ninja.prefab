@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
-  speed: 0.045
+  speed: 0.042
   pickupRange: 1.5
   damageMultiplier: 1
   critChance: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   shield: 0
   shotsPerAttack: 0
   shotsPerAttackMelee: 1
-  meleeComboLength: 1
+  meleeComboLength: 0
   multicastChance: 0
   castTimeMultiplier: 1
   meleeWaitTimeMultiplier: 1
@@ -78,7 +78,6 @@ MonoBehaviour:
   startingWeapons:
   - {fileID: 1449995561756442478, guid: 5cd3c9de7a1fe684ca7332c1c0ab9bd2, type: 3}
   - {fileID: 1449995561756442478, guid: fc1971afb06bcee4aa1c90408493c265, type: 3}
-  - {fileID: 1449995561756442478, guid: dd5c67cc31275374a9335df2fb450456, type: 3}
 --- !u!222 &3817268471581327505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -107,7 +106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 536944cf65757474c8007311e8bb59e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 378f99e0bf6ba2a40b55c90c5cb1e1ec, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

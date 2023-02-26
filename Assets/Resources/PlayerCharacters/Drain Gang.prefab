@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7329280640904233847}
   - component: {fileID: 2619886986464292918}
   m_Layer: 5
-  m_Name: Sniper
+  m_Name: Drain Gang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,30 +53,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 45
-  speed: 0.04
-  pickupRange: 1.5
-  damageMultiplier: 1.2
-  critChance: 0.1
-  critDmg: 0.5
-  defense: -1
+  health: 50
+  speed: 0.035
+  pickupRange: 2
+  damageMultiplier: 1.1
+  critChance: 0
+  critDmg: 0
+  defense: 0
   shield: 0
   shotsPerAttack: 0
-  shotsPerAttackMelee: 0
+  shotsPerAttackMelee: 1
   meleeComboLength: 0
-  multicastChance: 0.01
-  castTimeMultiplier: 1.05
-  meleeWaitTimeMultiplier: 1
-  projectileSpeedMultiplier: 1.5
-  rangeMultiplier: 2
-  knockbackMultiplier: 2
-  thrownDamageMultiplier: 2
+  multicastChance: 0
+  castTimeMultiplier: 1
+  meleeWaitTimeMultiplier: 0.75
+  projectileSpeedMultiplier: 1
+  rangeMultiplier: 1
+  knockbackMultiplier: 1
+  thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
-  projectileSizeMultiplier: 1
-  meleeSizeMultiplier: 1
+  projectileSizeMultiplier: 1.25
+  meleeSizeMultiplier: 0.75
   shootOpposideSide: 0
   startingWeapons:
-  - {fileID: 8959033644543485683, guid: 546c1e372197f1b49a4b36d6760fbb7d, type: 3}
+  - {fileID: 1449995561756442478, guid: 481fa8a1fb12b354587a6f1fcc33aba1, type: 3}
 --- !u!222 &3817268471581327505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 61558427f773efa429a07f87730ec975, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 536944cf65757474c8007311e8bb59e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

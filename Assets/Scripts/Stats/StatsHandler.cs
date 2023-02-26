@@ -306,39 +306,42 @@ public class StatsHandler : MonoBehaviour
 
         foreach (var stat in stats)
         {
-            StatBoost sb = stat.GetComponent<StatBoost>();
+            if (stat != null)
+            {
+                StatBoost sb = stat.GetComponent<StatBoost>();
 
-            // Apply the stat's values
-            health += sb.extraHealth;
-            if (sb.extraHealth > 0)
-            {
-                Destroy(stat);
+                // Apply the stat's values
+                health += sb.extraHealth;
+                if (sb.extraHealth > 0)
+                {
+                    Destroy(stat);
+                }
+                maxHealth += sb.extraMaxHealth;
+                speed += sb.extraSpeed;
+                shield += sb.extraShield;
+                damageMultipler += sb.extraDamageMultipler;
+                defense += sb.extraDefense;
+                critChance += sb.extraCritChance;
+                critDmg += sb.extraCritDmg;
+                multicastChance += sb.extraMulticastChance;
+                castTimeMultiplier = (float)((castTimeMultiplier + sb.extraCastTimeMultiplier) > 0.1 ? (castTimeMultiplier + sb.extraCastTimeMultiplier) : 0.1);
+                meleeComboLength += sb.extraMeleeComboLength;
+                shotsPerAttack += sb.extraShotsPerAttack;
+                shotsPerAttackMelee += sb.extraShotsPerAttackMelee;
+                projectileSpeedMultiplier += sb.extraProjectileSpeedMultiplier;
+                knockbackMultiplier += sb.extraKnockbackMultiplier;
+                meleeWaitTimeMultiplier = (float)((meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) > 0.1 ? (meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) : 0.1);
+                thrownDamageMultiplier += sb.extraThrownDamageMultiplier;
+                thrownSpeedMultiplier += sb.extraThrownSpeedMultiplier;
+                rangeMultiplier += sb.extraRangeMultiplier;
+                if (!shootOppositeSide)
+                {
+                    shootOppositeSide = sb.shootOppositeSide;
+                }
+                pickupRange += sb.extraPickupRange;
+                projectileSizeMultiplier += sb.extraProjectileSizeMultiplier;
+                meleeSizeMultiplier += sb.extraMeleeSizeMultiplier;
             }
-            maxHealth += sb.extraMaxHealth;
-            speed += sb.extraSpeed;
-            shield += sb.extraShield;
-            damageMultipler += sb.extraDamageMultipler;
-            defense += sb.extraDefense;
-            critChance += sb.extraCritChance;
-            critDmg += sb.extraCritDmg;
-            multicastChance += sb.extraMulticastChance;
-            castTimeMultiplier = (float)((castTimeMultiplier + sb.extraCastTimeMultiplier) > 0.1 ? (castTimeMultiplier + sb.extraCastTimeMultiplier) : 0.1);
-            meleeComboLength += sb.extraMeleeComboLength;
-            shotsPerAttack += sb.extraShotsPerAttack;
-            shotsPerAttackMelee += sb.extraShotsPerAttackMelee;
-            projectileSpeedMultiplier += sb.extraProjectileSpeedMultiplier;
-            knockbackMultiplier += sb.extraKnockbackMultiplier;
-            meleeWaitTimeMultiplier = (float)((meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) > 0.1 ? (meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) : 0.1);
-            thrownDamageMultiplier += sb.extraThrownDamageMultiplier;
-            thrownSpeedMultiplier += sb.extraThrownSpeedMultiplier;
-            rangeMultiplier += sb.extraRangeMultiplier;
-            if (!shootOppositeSide)
-            {
-                shootOppositeSide = sb.shootOppositeSide;
-            }
-            pickupRange += sb.extraPickupRange;
-            projectileSizeMultiplier += sb.extraProjectileSizeMultiplier;
-            meleeSizeMultiplier += sb.extraMeleeSizeMultiplier;
         }
 
 
