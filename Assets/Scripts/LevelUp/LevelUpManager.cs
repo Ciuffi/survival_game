@@ -9,6 +9,8 @@ public class LevelUpManager : MonoBehaviour
     public float baseXP;
     public float growthMultiplier;
     private Slider xpBar;
+    public Color flashColor;
+    private Color xpColor;
     private CoroutineQueue xpBarQueue;
     private List<UpgradeHandler> upgradeWindows;
     private GameObject panel;
@@ -132,6 +134,8 @@ public class LevelUpManager : MonoBehaviour
     public void ShowLevelUpUI()
     {
         Instantiate(VFX, transform.position, Quaternion.identity, transform);
+        xpBar.fillRect.GetComponent<Image>().color = flashColor;
+
         StartCoroutine(WaitForTime(0.4f));
     }
 
@@ -154,6 +158,7 @@ public class LevelUpManager : MonoBehaviour
         panel.SetActive(false);
         TimelineManager.GetComponent<TimelineUI>().despawnTimeline();
         GameObject.FindObjectOfType<CanvasClickHandler>().EnableJoystick();
+        xpBar.fillRect.GetComponent<Image>().color = xpColor;
         ResumeGame();
     }
 
@@ -181,6 +186,7 @@ public class LevelUpManager : MonoBehaviour
         weapons = Resources.LoadAll("Attacks", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
         stats = Resources.LoadAll("Stats", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
         hasRolled = false;
+        xpColor = xpBar.fillRect.GetComponent<Image>().color;
         panel.SetActive(false);
     }
 

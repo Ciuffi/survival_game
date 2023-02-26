@@ -58,8 +58,6 @@ public class StatsHandler : MonoBehaviour
     public bool shootOppositeSide,
         baseShootOppositeSide;
 
-
-
     public List<StatBoost> stats;
 
     public float Iframes;
@@ -68,6 +66,7 @@ public class StatsHandler : MonoBehaviour
 
     public LevelUpManager LevelManager;
     private Slider healthBar;
+    private Color healthColor;
     private CoroutineQueue healthBarQueue;
     private GameObject StatContainer;
 
@@ -173,6 +172,7 @@ public class StatsHandler : MonoBehaviour
             afterimageAnim.SetBool("TookDamage", true);
 
             spriteRend.material = newMaterial;
+            healthBar.fillRect.GetComponent<Image>().color = Color.red;
             if (!resetMaterial)
             {
                 StartCoroutine(ResetMaterial());
@@ -192,6 +192,7 @@ public class StatsHandler : MonoBehaviour
         yield return new WaitForSeconds(flashDuration);
         if (canDamage)
         {
+            healthBar.fillRect.GetComponent<Image>().color = healthColor;
             spriteRend.material = OGMaterial;
             resetMaterial = false;
         }
@@ -357,6 +358,7 @@ public class StatsHandler : MonoBehaviour
         healthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
         healthBarQueue = gameObject.AddComponent<CoroutineQueue>();
         healthBarQueue.StartQueue();
+        healthColor = healthBar.fillRect.GetComponent<Image>().color;
 
         MatchCharacter();
         InhereitStats();
