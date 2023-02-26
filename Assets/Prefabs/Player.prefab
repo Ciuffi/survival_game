@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseXP: 60
   growthMultiplier: 1.25
-  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  flashColor: {r: 0.32549024, g: 0.9117146, b: 1, a: 0.92156863}
   weapons: []
   stats: []
   upgrades: []
@@ -759,6 +759,10 @@ MonoBehaviour:
   baseShotsPerAttackMelee: 0
   meleeComboLength: 0
   baseMeleeComboLength: 0
+  spreadMultiplier: 1
+  baseSpreadMultiplier: 1
+  shotgunSpread: 0
+  baseShotgunSpread: 0
   multicastChance: 0
   baseMulticastChance: 0
   castTimeMultiplier: 1
@@ -845,6 +849,8 @@ MonoBehaviour:
   extraShotsPerAttack: 0
   extraShotsPerAttackMelee: 0
   extraMeleeComboLength: 0
+  extraSpreadMultiplier: 0
+  extraShotgunSpread: 0
   extraMulticastChance: 0
   extraCastTimeMultiplier: 0
   extraProjectileSpeedMultiplier: 0

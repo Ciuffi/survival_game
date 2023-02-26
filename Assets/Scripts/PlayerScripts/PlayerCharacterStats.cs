@@ -19,16 +19,19 @@ public class PlayerCharacterStats : MonoBehaviour
         shotsPerAttackMelee,
         meleeComboLength;
 
-    public float multicastChance,
-         castTimeMultiplier,
-         meleeWaitTimeMultiplier,
-         projectileSpeedMultiplier,
-         rangeMultiplier,
-         knockbackMultiplier,
-         thrownDamageMultiplier,
-         thrownSpeedMultiplier,
-         projectileSizeMultiplier,
-         meleeSizeMultiplier;
+    public float
+        multicastChance,
+        shotgunSpread,
+        spreadMultiplier,
+        castTimeMultiplier,
+        meleeWaitTimeMultiplier,
+        projectileSpeedMultiplier,
+        rangeMultiplier,
+        knockbackMultiplier,
+        thrownDamageMultiplier,
+        thrownSpeedMultiplier,
+        projectileSizeMultiplier,
+        meleeSizeMultiplier;
 
 
 

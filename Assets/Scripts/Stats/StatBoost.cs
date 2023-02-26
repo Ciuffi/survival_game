@@ -19,7 +19,9 @@ public class StatBoost : MonoBehaviour, Upgrade
         extraShotsPerAttackMelee,
         extraMeleeComboLength;
 
-    public float extraMulticastChance,
+    public float extraSpreadMultiplier,
+        extraShotgunSpread,
+        extraMulticastChance,
         extraCastTimeMultiplier,
         extraProjectileSpeedMultiplier,
         extraKnockbackMultiplier,

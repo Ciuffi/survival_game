@@ -6,38 +6,41 @@ using UnityEngine;
 public class Attack : MonoBehaviour, Upgrade
 {
     public float damage;
-    public float damageUP;
+    private float damageUP;
 
     public float spread;
-    public float spreadUP;
+    private float spreadUP;
+
+    public float shotgunSpread;
+
     public float spray;
     public int sprayThreshold;
     private int shotsCount = 0;
 
     public float castTime;
-    public float castTimeUP;
+    private float castTimeUP;
     public float attackTime;
     public float recoveryTime;
-    public float recoveryTimeUp;
+    private float recoveryTimeUp;
 
     public float range = 5;
     public float rangeUP;
 
     public int shotsPerAttack;
-    public int shotsPerAttackUP;
+    private int shotsPerAttackUP;
 
     public int shotsPerAttackMelee;
 
     public bool cantMove;
 
     public float speed;
-    public float speedUP;
+    private float speedUP;
 
     public float knockback;
-    public float knockbackUP;
+    private float knockbackUP;
 
     public int pierce;
-    public int pierceUP;
+    private int pierceUP;
 
     public float critChance; // 1 = 100% crit chance, 0 = 0% crit chance
     public float critDmg; //1 = 100% of normal damage on a crit, 2 = 200% damage, etc.
@@ -100,7 +103,9 @@ public class Attack : MonoBehaviour, Upgrade
     public float muzzleFlashYOffset;
     private VirtualJoystick VJ;
 
-    private float OGmulticastChance,
+    private float OGspread,
+        OGshotgunSpread,
+        OGmulticastChance,
         OGcastTime,
         OGcomboWaitTime,
         OGrange,
@@ -173,6 +178,8 @@ public class Attack : MonoBehaviour, Upgrade
         OGprojectileSize = projectileSize;
         OGmeleeSize = meleeSize;
         OGshotsPerAttackMelee = shotsPerAttackMelee;
+        OGspread = spread;
+        OGshotgunSpread = shotgunSpread;
 
         CalculateStats();
 
@@ -204,6 +211,9 @@ public class Attack : MonoBehaviour, Upgrade
     public void CalculateStats()
     {
         //Debug.Log("calculatin");
+        spread = OGspread * Player.GetComponent<StatsHandler>().spreadMultiplier;
+        shotgunSpread = OGshotgunSpread + Player.GetComponent<StatsHandler>().shotgunSpread;
+
         multicastChance = OGmulticastChance + Player.GetComponent<StatsHandler>().multicastChance;
         castTime = OGcastTime * Player.GetComponent<StatsHandler>().castTimeMultiplier;
         shotsPerAttack = OGshotPerAttack + Player.GetComponent<StatsHandler>().shotsPerAttack;
@@ -425,7 +435,7 @@ public class Attack : MonoBehaviour, Upgrade
         float spacer = 0;
         float angle = 0;
         int shotsLeft = shotsPerAttack;
-        spacer = spread / (shotsPerAttack - 1);
+        spacer = shotgunSpread / (shotsPerAttack - 1);
         Vector3 position = owner.GetTransform().position;
         Vector3 direction = owner.GetDirection();
         Quaternion rotation = owner.GetTransform().rotation;

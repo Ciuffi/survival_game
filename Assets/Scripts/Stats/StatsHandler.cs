@@ -34,7 +34,11 @@ public class StatsHandler : MonoBehaviour
         meleeComboLength,
         baseMeleeComboLength;
 
-    public float multicastChance,
+    public float spreadMultiplier,
+        baseSpreadMultiplier,
+        shotgunSpread,
+        baseShotgunSpread,
+        multicastChance,
         baseMulticastChance,
         castTimeMultiplier,
         baseCastTimeMultiplier,
@@ -130,6 +134,8 @@ public class StatsHandler : MonoBehaviour
         float pickupRange = characterStats.pickupRange;
         float projSize = characterStats.projectileSizeMultiplier;
         float meleeSize = characterStats.meleeSizeMultiplier;
+        float spread = characterStats.spreadMultiplier;
+        float shotgunSpread = characterStats.shotgunSpread;
 
         // Assign the selected character's stats to the player's stats
         baseMaxHealth = maxHealth;
@@ -154,6 +160,8 @@ public class StatsHandler : MonoBehaviour
         basePickupRange = pickupRange;
         baseProjectileSizeMultiplier = projSize;
         baseMeleeSizeMultiplier = meleeSize;
+        baseSpreadMultiplier = spread;
+        baseShotgunSpread = shotgunSpread;
 
     }
 
@@ -270,6 +278,8 @@ public class StatsHandler : MonoBehaviour
         pickupRange = basePickupRange;
         projectileSizeMultiplier = baseProjectileSizeMultiplier;
         meleeSizeMultiplier = baseMeleeSizeMultiplier;
+        spreadMultiplier = baseSpreadMultiplier;
+        shotgunSpread = baseShotgunSpread;
 
 
         if (fullReset)
@@ -341,6 +351,9 @@ public class StatsHandler : MonoBehaviour
                 pickupRange += sb.extraPickupRange;
                 projectileSizeMultiplier += sb.extraProjectileSizeMultiplier;
                 meleeSizeMultiplier += sb.extraMeleeSizeMultiplier;
+
+                spreadMultiplier = (float)((spreadMultiplier + sb.extraSpreadMultiplier) > 0.005 ? (spreadMultiplier + sb.extraSpreadMultiplier) : 0.005);
+                shotgunSpread += sb.extraShotgunSpread;
             }
         }
 

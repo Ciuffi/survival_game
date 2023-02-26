@@ -139,6 +139,14 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             {
                 statsString += "Cast Time% " + stats.castTimeMultiplier + "\n";
             }
+            if (stats.spreadMultiplier != 1)
+            {
+                statsString += "Rate of Fire% " + stats.castTimeMultiplier + "\n";
+            }
+            if (stats.shotgunSpread > 0)
+            {
+                statsString += "Shotgun Spread +" + stats.castTimeMultiplier + "\n";
+            }
             if (stats.multicastChance != 0)
             {
                 statsString += "Multicast% +" + stats.multicastChance + "\n";

@@ -290,8 +290,12 @@ public class Enemy : MonoBehaviour, Attacker
                 animator.speed *= 1.5f;
                 damage *= rageDmgMod;
                 animator.SetBool("IsRage", true);
-                spriteRend.color = new Color(rageColor.r, rageColor.g, rageColor.b);
                 rageTriggered = true;
+            }
+
+            if (rageTriggered && !isStunned) //back to red
+            {
+                spriteRend.color = new Color(rageColor.r, rageColor.g, rageColor.b);
             }
 
         }
@@ -756,16 +760,6 @@ public class Enemy : MonoBehaviour, Attacker
             return;
         }
 
-        if (col.gameObject.tag == "Attack")
-        {
-            Vector3 colCenter = col.transform.position;
-
-            knockDirection = center - colCenter;
-
-            ApplyKnockback(col.gameObject.GetComponent<Projectile>().knockback, knockDirection);
-            //rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
-        }
-
         if (col.gameObject.tag == "DeathRattle")
         {
             Vector3 colCenter = col.transform.position;
@@ -785,6 +779,7 @@ public class Enemy : MonoBehaviour, Attacker
     public void ApplyKnockback(float knockback, Vector3 direction)
     {
         currentForce = knockback;
+        knockDirection = direction;
         duringKnockback = true;
     }
 

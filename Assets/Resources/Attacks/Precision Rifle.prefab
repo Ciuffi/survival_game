@@ -61,10 +61,10 @@ MonoBehaviour:
   shotsPerAttackUP: 2
   shotsPerAttackMelee: 0
   cantMove: 1
-  speed: 0.18
+  speed: 0.2
   speedUP: 0.25
-  knockback: 25
-  knockbackUP: 40
+  knockback: 50
+  knockbackUP: 100
   pierce: 999
   pierceUP: 999
   critChance: 0.075

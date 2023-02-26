@@ -65,6 +65,8 @@ MonoBehaviour:
   shotsPerAttackMelee: 0
   meleeComboLength: 0
   multicastChance: 0.05
+  shotgunSpread: 0
+  spreadMultiplier: 1
   castTimeMultiplier: 1.2
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1.2

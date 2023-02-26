@@ -65,6 +65,8 @@ MonoBehaviour:
   shotsPerAttackMelee: 0
   meleeComboLength: 0
   multicastChance: 0
+  shotgunSpread: 0
+  spreadMultiplier: 1
   castTimeMultiplier: 1
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
@@ -77,6 +79,8 @@ MonoBehaviour:
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+  - {fileID: 1449995561756442478, guid: 5cd3c9de7a1fe684ca7332c1c0ab9bd2, type: 3}
+  - {fileID: 6413099147738919843, guid: 1f8c9019d9b9d3c44aec76fe1d96ebfc, type: 3}
 --- !u!222 &3817268471581327505
 CanvasRenderer:
   m_ObjectHideFlags: 0

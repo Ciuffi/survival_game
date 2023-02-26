@@ -9075,22 +9075,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 184930422}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: flashColor.a
-      value: 0.92156863
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: flashColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: flashColor.g
-      value: 0.9117146
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: flashColor.r
-      value: 0.32549024
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1465128669}

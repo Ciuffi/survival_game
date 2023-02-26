@@ -55,18 +55,18 @@ MonoBehaviour:
   attackTime: 0
   recoveryTime: 0
   recoveryTimeUp: 0
-  range: 5
-  rangeUP: 6
+  range: 5.5
+  rangeUP: 7
   shotsPerAttack: 100
   shotsPerAttackUP: 150
   shotsPerAttackMelee: 0
   cantMove: 1
   speed: 0.2
   speedUP: 0.25
-  knockback: 55
-  knockbackUP: 100
+  knockback: 15
+  knockbackUP: 30
   pierce: 0
-  pierceUP: 1
+  pierceUP: 0
   critChance: 0.05
   critDmg: 2
   shootOpppositeSide: 0

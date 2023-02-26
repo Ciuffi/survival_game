@@ -8,6 +8,7 @@ public class deathRattleAttack : MonoBehaviour
     public Attack attack;
     GameObject Player;
     GameObject Camera;
+    private Vector3 startPos;
 
     public float damage;
     public float critChance;
@@ -57,6 +58,7 @@ public class deathRattleAttack : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player");
         Camera = GameObject.FindWithTag("MainCamera");
+        startPos = transform.position;
 
         damage = damage * Player.GetComponent<StatsHandler>().damageMultipler;
         critChance = critChance + Player.GetComponent<StatsHandler>().critChance;
@@ -200,6 +202,9 @@ public class deathRattleAttack : MonoBehaviour
                 if (isCrit == true)
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
+                    Vector3 knockDirection = col.transform.position - startPos;
+                    col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
+
                     attack.OnDamageDealt(finalDamage);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
@@ -209,6 +214,9 @@ public class deathRattleAttack : MonoBehaviour
                 else
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
+                    Vector3 knockDirection = col.transform.position - startPos;
+                    col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
+
                     attack.OnDamageDealt(finalDamage);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);

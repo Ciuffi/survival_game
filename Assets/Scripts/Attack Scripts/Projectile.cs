@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     public float damage;
     public float projectileRange;
     public float knockback;
+    private Vector3 startPos;
 
     public Vector2 spawnPos;
 
@@ -83,6 +84,8 @@ public class Projectile : MonoBehaviour
         Camera = GameObject.FindWithTag("MainCamera");
         ComboManager = GameObject.FindWithTag("ComboManager");
         Player = GameObject.FindWithTag("Player");
+        startPos = transform.position;
+
         if (isAnimated)
         {
             animator = GetComponent<Animator>();
@@ -110,10 +113,9 @@ public class Projectile : MonoBehaviour
             damage = attack.thrownDamage * Player.GetComponent<StatsHandler>().thrownDamageMultiplier;
             pierce = 0;
             projectileRange = 10;
-            knockback = 30 * Player.GetComponent<StatsHandler>().knockbackMultiplier;
+            knockback = 15 * Player.GetComponent<StatsHandler>().knockbackMultiplier;
         }
         GetComponent<Collider2D>().enabled = true;
-
     }
 
 
@@ -340,6 +342,9 @@ public class Projectile : MonoBehaviour
                 if (isCrit == true) //deal damage
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
+                    Vector3 knockDirection = col.transform.position - startPos;
+                    col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
+
                     attack.OnDamageDealt(finalDamage);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
@@ -349,6 +354,9 @@ public class Projectile : MonoBehaviour
                 else
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
+                    Vector3 knockDirection = col.transform.position - startPos;
+                    col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
+
                     attack.OnDamageDealt(finalDamage);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
