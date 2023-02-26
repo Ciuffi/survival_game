@@ -196,7 +196,7 @@ public class Attack : MonoBehaviour, Upgrade
         }
         else
         {
-            // Add the default definition for SingleShot attack type
+            // Add the default definition for Projectile attack type
             attackTime = spread * shotsPerAttack + (multicastTimes * multicastWaitTime);
         }
 
@@ -900,7 +900,7 @@ public class Attack : MonoBehaviour, Upgrade
 
         switch (attackType)
         {
-            case AttackTypes.SingleShot:
+            case AttackTypes.Projectile:
                 { 
                     StartCoroutine(ShootSingleShot(multicastAlphaAmount));
                     multicastAlphaAmount += multicastAlphaFade;

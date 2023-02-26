@@ -110,7 +110,7 @@ public class Projectile : MonoBehaviour
             damage = attack.thrownDamage * Player.GetComponent<StatsHandler>().thrownDamageMultiplier;
             pierce = 0;
             projectileRange = 10;
-            //knockback = 20;
+            knockback = 30 * Player.GetComponent<StatsHandler>().knockbackMultiplier;
         }
         GetComponent<Collider2D>().enabled = true;
 

@@ -58,6 +58,7 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
 
         if (isRoll)
         {
+
             if (currentReroll <= 0)
             {
                 gameObject.SetActive(false);

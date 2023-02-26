@@ -1,6 +1,6 @@
 public enum AttackTypes
 {
-    SingleShot,
+    Projectile,
     Shotgun,
     Melee,
     Utility,

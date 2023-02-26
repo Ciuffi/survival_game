@@ -77,7 +77,7 @@ MonoBehaviour:
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: b6e27a87eb0cdfb478f1116f02112f7a, type: 3}
-  - {fileID: 4908858350499337675, guid: 79bd9af28726ad84d83073065b56f545, type: 3}
+  - {fileID: 1449995561756442478, guid: 89b385cd1fd80aa4db4276c70e825cc6, type: 3}
 --- !u!222 &4206294333654784577
 CanvasRenderer:
   m_ObjectHideFlags: 0

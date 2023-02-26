@@ -193,6 +193,9 @@ public class LevelUpManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (RerollBtn != null)
+        {
+            RerollBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll " + "(" + RerollBtn.GetComponent<RollSwapHandler>().currentReroll.ToString() + ")";
+        }
     }
 }

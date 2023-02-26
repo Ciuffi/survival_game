@@ -59,11 +59,12 @@ MonoBehaviour:
   rangeUP: 0
   shotsPerAttack: 1
   shotsPerAttackUP: 1
+  shotsPerAttackMelee: 0
   cantMove: 0
   speed: 0
   speedUP: 0
-  knockback: 0
-  knockbackUP: 0
+  knockback: 50
+  knockbackUP: 100
   pierce: 0
   pierceUP: 0
   critChance: 0.05
@@ -102,3 +103,4 @@ MonoBehaviour:
   - {fileID: 2526348467587405025, guid: a3543cd68c061744181f54b160e82491, type: 3}
   muzzleFlashXOffset: 0
   muzzleFlashYOffset: 0
+  totalDamageDealt: 0

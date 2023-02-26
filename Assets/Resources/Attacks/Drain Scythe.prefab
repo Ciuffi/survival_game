@@ -63,8 +63,8 @@ MonoBehaviour:
   cantMove: 0
   speed: 0
   speedUP: 0
-  knockback: 3
-  knockbackUP: 5
+  knockback: 5
+  knockbackUP: 10
   pierce: 0
   pierceUP: 0
   critChance: 0.05
@@ -97,8 +97,9 @@ MonoBehaviour:
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
   thrownSprite: {fileID: 21300000, guid: 1a4fb3b8635dd8d44b23602224e8ab8e, type: 3}
   thrownDamage: 9
-  throwSpeed: 5
+  throwSpeed: 0.5
   bulletCasing: {fileID: 0}
   MuzzleFlashPrefab: []
   muzzleFlashXOffset: 0
   muzzleFlashYOffset: 0
+  totalDamageDealt: 0

@@ -109,7 +109,7 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  damage: 5
+  damage: 1
   health: 25
   maxHealth: 0
   xpAmount: 20
@@ -155,7 +155,7 @@ MonoBehaviour:
   shootChargeTime: 1.25
   projectileSpeed: 2
   projectileRange: 12
-  projectileDamage: 8
+  projectileDamage: 5
   shootRecovery: 2
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}

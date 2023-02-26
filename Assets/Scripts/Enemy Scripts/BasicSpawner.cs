@@ -71,6 +71,7 @@ public class BasicSpawner : MonoBehaviour
                     {
                             //Debug.Log(newSpawn.name.ToString());
                             newSpawn.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
+                            newSpawn.GetComponent<Enemy>().projectileDamage *= (damageScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
                             newSpawn.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
