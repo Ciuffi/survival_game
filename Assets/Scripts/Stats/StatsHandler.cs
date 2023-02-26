@@ -183,7 +183,11 @@ public class StatsHandler : MonoBehaviour
 
             healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
             health = newHealth;
-            if (health <= 0) GameObject.FindObjectOfType<GameManager>().ResetGame();
+            if (health <= 0)
+            {
+                GameObject.FindObjectOfType<EndgameStatTracker>().OnPlayerDeath();
+                GameObject.FindObjectOfType<GameManager>().EndGame();
+            }
         } 
     }
 

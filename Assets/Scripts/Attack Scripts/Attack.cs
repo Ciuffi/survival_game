@@ -111,10 +111,12 @@ public class Attack : MonoBehaviour, Upgrade
     private bool OGshootOpposite;
 
     private Quaternion spreadDirection2;
+    public float totalDamageDealt;
 
     // Start is called before the first frame update
     void Start()
     {
+        totalDamageDealt = 0;
 
         if (projectile == null)
         {
@@ -174,6 +176,11 @@ public class Attack : MonoBehaviour, Upgrade
 
         CalculateStats();
 
+    }
+
+    public void OnDamageDealt(float damage)
+    {
+        totalDamageDealt += damage;
     }
 
     private void Update()

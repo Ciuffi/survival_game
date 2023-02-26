@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class deathRattleAttack : MonoBehaviour
 {
+    public Attack attack;
     GameObject Player;
     GameObject Camera;
 
@@ -199,6 +200,7 @@ public class deathRattleAttack : MonoBehaviour
                 if (isCrit == true)
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
+                    attack.OnDamageDealt(finalDamage);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
 
@@ -207,6 +209,7 @@ public class deathRattleAttack : MonoBehaviour
                 else
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
+                    attack.OnDamageDealt(finalDamage);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
 

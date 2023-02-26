@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
-
+    public string time;
     public TextMeshProUGUI timerText; // Reference to the UI Text component to display the timer
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class GameTimer : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(timeElapsed / 60);
         int seconds = Mathf.FloorToInt(timeElapsed % 60);
-
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        time = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = time;
     }
 }

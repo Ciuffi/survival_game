@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
         //playerStats.ResetStats(true);
         //playerAttacks.ResetWeapons();
     }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     void Start()
     {
         Application.targetFrameRate = 60;

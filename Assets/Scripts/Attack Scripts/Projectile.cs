@@ -134,6 +134,7 @@ public class Projectile : MonoBehaviour
                     if (hasDeathrattle)
                     {
                         GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                        rattle.GetComponent<deathRattleAttack>().attack = attack;
                         Vector3 currentScale = rattle.transform.localScale;
                         rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
 
@@ -175,6 +176,7 @@ public class Projectile : MonoBehaviour
                         if (hasDeathrattle)
                         {
                             GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                            rattle.GetComponent<deathRattleAttack>().attack = attack;
                             Vector3 currentScale = rattle.transform.localScale;
                             rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
 
@@ -232,6 +234,7 @@ public class Projectile : MonoBehaviour
             if (hasDeathrattle)
             {
                 GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                rattle.GetComponent<deathRattleAttack>().attack = attack;
                 Vector3 currentScale = rattle.transform.localScale;
                 rattle.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
             }
@@ -337,6 +340,7 @@ public class Projectile : MonoBehaviour
                 if (isCrit == true) //deal damage
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
+                    attack.OnDamageDealt(finalDamage);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
 
@@ -345,6 +349,7 @@ public class Projectile : MonoBehaviour
                 else
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
+                    attack.OnDamageDealt(finalDamage);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
 
@@ -366,6 +371,7 @@ public class Projectile : MonoBehaviour
                 if (hasDeathrattle)
                 {
                     GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                    rattle.GetComponent<deathRattleAttack>().attack = attack;
                     Vector3 currentScale = rattle.transform.localScale;
                     rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
                 }

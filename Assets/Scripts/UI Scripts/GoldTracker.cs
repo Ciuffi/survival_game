@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class GoldTracker : MonoBehaviour
 {
-    public int goldCount;
+    public int goldCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        goldCount = 0;
+        //goldCount = 0;
     }
 
     // Update is called once per frame
