@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  damageUP: 8
+  damageUP: 10
   spread: 0.04
   spreadUP: 0.03
   spray: 1.25
@@ -59,6 +59,7 @@ MonoBehaviour:
   rangeUP: 10
   shotsPerAttack: 25
   shotsPerAttackUP: 40
+  shotsPerAttackMelee: 0
   cantMove: 0
   speed: 0.15
   speedUP: 0.2

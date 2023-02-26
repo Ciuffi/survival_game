@@ -62,6 +62,7 @@ MonoBehaviour:
   defense: 0
   shield: 0
   shotsPerAttack: 0
+  shotsPerAttackMelee: 0
   meleeComboLength: 0
   multicastChance: 0
   castTimeMultiplier: 1

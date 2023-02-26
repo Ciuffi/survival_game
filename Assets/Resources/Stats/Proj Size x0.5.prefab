@@ -47,13 +47,14 @@ MonoBehaviour:
   UiIcon: {fileID: 21300000, guid: a685e1af2dd76dd479baf921a9272ae0, type: 3}
   extraHealth: 0
   extraMaxHealth: 0
-  extraSpeed: 0.012
+  extraSpeed: 0
   extraDamageMultipler: 0
   extraDefense: 0
   extraShield: 0
   extraCritChance: 0
   extraCritDmg: 0
   extraShotsPerAttack: 0
+  extraShotsPerAttackMelee: 0
   extraMeleeComboLength: 0
   extraMulticastChance: 0
   extraCastTimeMultiplier: 0

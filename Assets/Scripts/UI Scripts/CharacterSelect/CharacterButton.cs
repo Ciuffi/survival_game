@@ -143,9 +143,13 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             {
                 statsString += "Multicast% +" + stats.multicastChance + "\n";
             } 
-            if (stats.shotsPerAttack != 0)
+            if (stats.shotsPerAttack != 0 && stats.shotsPerAttack > 0)
             {
                 statsString += "Projectiles +" + stats.shotsPerAttack + "\n";
+            }
+            if (stats.shotsPerAttack != 0 && stats.shotsPerAttack < 0)
+            {
+                statsString += "Projectiles " + stats.shotsPerAttack + "\n";
             }
             if (stats.projectileSpeedMultiplier != 1)
             {
@@ -159,13 +163,21 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             {
                 statsString += "Proj Size% " + stats.projectileSizeMultiplier + "\n";
             }
-            if (stats.meleeComboLength != 0)
+            if (stats.meleeComboLength != 0 && stats.meleeComboLength > 0)
             {
                 statsString += "Melee Hits +" + stats.meleeComboLength + "\n";
             }
-            if (stats.shotsPerAttackMelee != 0)
+            if (stats.meleeComboLength != 0 && stats.meleeComboLength < 0)
+            {
+                statsString += "Melee Hits " + stats.meleeComboLength + "\n";
+            }
+            if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee > 0)
             {
                 statsString += "Aftershock +" + stats.shotsPerAttackMelee + "\n";
+            }
+            if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee < 0)
+            {
+                statsString += "Aftershock " + stats.meleeComboLength + "\n";
             }
             if (stats.meleeWaitTimeMultiplier != 1)
             {

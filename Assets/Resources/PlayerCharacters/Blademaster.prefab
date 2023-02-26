@@ -53,21 +53,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 35
   speed: 0.04
   pickupRange: 1.5
   damageMultiplier: 1
-  critChance: 0.05
-  critDmg: 0.25
+  critChance: 0.1
+  critDmg: 0
   defense: 0
   shield: 0
   shotsPerAttack: 0
-  meleeComboLength: 1
+  shotsPerAttackMelee: 0
+  meleeComboLength: 0
   multicastChance: 0
   castTimeMultiplier: 1
-  meleeWaitTimeMultiplier: 0.75
+  meleeWaitTimeMultiplier: 0.6
   projectileSpeedMultiplier: 0.25
-  rangeMultiplier: 1
+  rangeMultiplier: 0.25
   knockbackMultiplier: 1
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1

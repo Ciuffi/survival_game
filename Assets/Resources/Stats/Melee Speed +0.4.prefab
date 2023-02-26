@@ -55,7 +55,7 @@ MonoBehaviour:
   extraCritDmg: 0
   extraShotsPerAttack: 0
   extraShotsPerAttackMelee: 0
-  extraMeleeComboLength: 1
+  extraMeleeComboLength: 0
   extraMulticastChance: 0
   extraCastTimeMultiplier: 0
   extraProjectileSpeedMultiplier: 0

@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  damageUP: 2
+  damage: 2
+  damageUP: 3
   spread: 0.7
   spreadUP: 0.5
   spray: 2
@@ -59,6 +59,7 @@ MonoBehaviour:
   rangeUP: 7
   shotsPerAttack: 1
   shotsPerAttackUP: 2
+  shotsPerAttackMelee: 0
   cantMove: 0
   speed: 0.0075
   speedUP: 0.01

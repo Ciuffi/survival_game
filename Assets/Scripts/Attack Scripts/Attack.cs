@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Attack : MonoBehaviour, Upgrade
@@ -199,8 +200,20 @@ public class Attack : MonoBehaviour, Upgrade
         multicastChance = OGmulticastChance + Player.GetComponent<StatsHandler>().multicastChance;
         castTime = OGcastTime * Player.GetComponent<StatsHandler>().castTimeMultiplier;
         shotsPerAttack = OGshotPerAttack + Player.GetComponent<StatsHandler>().shotsPerAttack;
+        if (shotsPerAttack <= 0)
+        {
+            shotsPerAttack = 1;
+        }
         shotsPerAttackMelee = OGshotsPerAttackMelee + Player.GetComponent<StatsHandler>().shotsPerAttackMelee;
+        if (shotsPerAttackMelee <= 0)
+        {
+            shotsPerAttackMelee = 1;
+        }
         comboLength = OGcomboLength + Player.GetComponent<StatsHandler>().meleeComboLength;
+        if (comboLength <= 0)
+        {
+            comboLength = 1;
+        }
         comboWaitTime = OGcomboWaitTime * Player.GetComponent<StatsHandler>().meleeWaitTimeMultiplier;
         throwSpeed = OGthrowSpeed * Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
         range = OGrange * Player.GetComponent<StatsHandler>().rangeMultiplier;
@@ -216,52 +229,36 @@ public class Attack : MonoBehaviour, Upgrade
     private void rollMulticast()
     {
         multicastTimes = 0; //reset
-        //remember to hook up multicast as a player stat and add it here before rolling
 
-        if (multicastChance == 0)
-        {
-            return;
-        }
-        else if (multicastChance < 1)
-        {
-            float roll = Random.Range(0f, 1f);
 
-            if (roll >= multicastChance)
+        if (multicastChance > 0)
+        {
+            if (multicastChance < 1)
             {
-                multicastTimes += 1;
+                float randomRoll = Random.Range(0f, 1f);
+                if (randomRoll <= multicastChance)
+                {
+                    multicastTimes++;
+                }
             }
-
-
-        } else if (multicastChance == 1)
-        {
-            multicastTimes += 1;
-        }
-        
-        else if (multicastChance > 1)
-        {
-            int intMulticastChance = (int)multicastChance;
-            multicastTimes += intMulticastChance;
-
-            float roll = Random.Range(0f, 1f);
-            float chance = multicastChance - intMulticastChance;
-            if (roll >= chance)
+            else
             {
-                multicastTimes += 1;
+                multicastTimes += (int)multicastChance;
+                float leftoverChance = multicastChance - (float)multicastTimes;
+                if (leftoverChance > 0f)
+                {
+                    float randomRoll = Random.Range(0f, 1f);
+                    if (randomRoll <= leftoverChance)
+                    {
+                        multicastTimes++;
+                    }
+                }
             }
-
         }
     }
 
     private IEnumerator ShootSingleShot(float multicastAlpha)
     {
-
-        if (numMulticast >= 1 && !firstShot)
-        {
-            yield return new WaitForSeconds(multicastWaitTime);
-        }
-
-        firstShot = false;
-
 
         if (cantMove)
         {
@@ -670,8 +667,6 @@ public class Attack : MonoBehaviour, Upgrade
             Quaternion rotation = owner.GetTransform().rotation;
 
             float perAttackScaling = 1 + (comboAttackBuff * i);
-            damage *= perAttackScaling; //scale damage per shotInAttack
-
 
             //chain spawn 
             for (int c = 0; c < shotsPerAttackMelee; c++)
@@ -683,6 +678,7 @@ public class Attack : MonoBehaviour, Upgrade
                     GameObject projectileGO = Instantiate(MeleeAttack, (position + directionSpacer / 2), Quaternion.identity);
                     Projectile p = projectileGO.GetComponent<Projectile>();
                     p.attack = this;
+                    p.attack.damage *= perAttackScaling; //scale damage per shotInAttack
                     p.transform.rotation = rotation;
                     if (c >= 1)
                     {
@@ -738,6 +734,8 @@ public class Attack : MonoBehaviour, Upgrade
                     GameObject projectileGO = Instantiate(MeleeAttack, (position + directionSpacer / 2), Quaternion.identity);
                     Projectile p = projectileGO.GetComponent<Projectile>();
                     p.attack = this;
+                    p.attack.damage *= perAttackScaling; //scale damage per shotInAttack
+
                     p.transform.rotation = rotation;
                     p.transform.up = direction;
                     if (c >= 1)
@@ -791,6 +789,8 @@ public class Attack : MonoBehaviour, Upgrade
                     GameObject projectileGO2 = Instantiate(MeleeAttack, (position - directionSpacer / 2), Quaternion.identity);
                     Projectile p2 = projectileGO2.GetComponent<Projectile>();
                     p2.attack = this;
+                    p.attack.damage *= perAttackScaling; //scale damage per shotInAttack
+
                     p2.transform.rotation = Quaternion.LookRotation(-directionSpacer);
                     p2.transform.up = -directionSpacer; // set the projectile's up direction to the opposite of the direction
                     if (c >= 1)
@@ -884,54 +884,60 @@ public class Attack : MonoBehaviour, Upgrade
     // {
 
     //  }
+    private IEnumerator WaitThenShoot(int numMulticast)
+    {
+        if (numMulticast > 0)
+        {
+            yield return new WaitForSeconds(multicastWaitTime * numMulticast);
+        }
+
+        switch (attackType)
+        {
+            case AttackTypes.SingleShot:
+                { 
+                    StartCoroutine(ShootSingleShot(multicastAlphaAmount));
+                    multicastAlphaAmount += multicastAlphaFade;
+
+                }
+                break;
+
+            case AttackTypes.Shotgun:
+                {
+                    StartCoroutine(ShootShotgun(multicastAlphaAmount));
+                    multicastAlphaAmount += multicastAlphaFade;
+
+                }
+                break;
+            case AttackTypes.Melee:
+                { 
+                    StartCoroutine(Melee(multicastAlphaAmount));
+                    multicastAlphaAmount += multicastAlphaFade;
+
+                }
+                break;
+
+            //case AttackTypes.Utility:
+            //StartCoroutine(Utility());
+            //break;
+            default:
+                break;
+        }
+
+    }
 
     public void Shoot()
     {
         firstShot = true;
         multicastAlphaAmount = 0f;
         rollMulticast();
-
-        switch (attackType)
+        
+        for (int i = 0; i < (multicastTimes + 1); i++)
         {
-            case AttackTypes.SingleShot:
-                for (int i = 0; i < (multicastTimes +1); i++)
-                {
-                    shotsCount = 0; //reset Spray pattern
-                    StartCoroutine(ShootSingleShot(multicastAlphaAmount));
-                    numMulticast++;
-                    multicastAlphaAmount += multicastAlphaFade;
-                }
-                    numMulticast = 0;
-                break;
-
-            case AttackTypes.Shotgun:
-                for (int i = 0; i < (multicastTimes + 1); i++)
-                {
-                    shotsCount = 0; //reset Spray pattern
-                    StartCoroutine(ShootShotgun(multicastAlphaAmount));
-                    numMulticast++;
-                    multicastAlphaAmount += multicastAlphaFade;
-                }
-                numMulticast = 0;
-
-                break;
-            case AttackTypes.Melee:
-                for (int i = 0; i < (multicastTimes + 1); i++)
-                {
-                    shotsCount = 0; //reset Spray pattern
-                    StartCoroutine(Melee(multicastAlphaAmount));
-                    numMulticast++;
-                    multicastAlphaAmount += multicastAlphaFade;
-                }
-                numMulticast = 0;
-
-                break;
-            //case AttackTypes.Utility:
-            //StartCoroutine(Utility());
-            //break;
-            default:
-                break;
-        } 
+            shotsCount = 0; //reset Spray pattern
+            StartCoroutine(WaitThenShoot(numMulticast));
+            numMulticast++;
+        }
+        numMulticast = 0;
     }
 
     public void ThrowWeapon()
