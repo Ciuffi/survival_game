@@ -118,7 +118,7 @@ MonoBehaviour:
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: 0175ba2e2ce8b8549904d75a07504472, type: 3}
   playerShakeTime: 0.15
-  playerShakeStrength: 0.4
+  playerShakeStrength: 0.3
   playerShakeRotation: 0.4
   damageTickDuration: 1
   isThrown: 0

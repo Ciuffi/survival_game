@@ -166,8 +166,8 @@ MonoBehaviour:
   scaleSpeed: 0.01
   disappearSpeed: 1
   onHitParticle: {fileID: 2429385742196507204, guid: a74f4df595cf2014eb2021616ea59964, type: 3}
-  playerShakeTime: 0.15
-  playerShakeStrength: 1
+  playerShakeTime: 0.1
+  playerShakeStrength: 0.75
   playerShakeRotation: 0.5
   damageTickDuration: 1
   isAnimated: 1

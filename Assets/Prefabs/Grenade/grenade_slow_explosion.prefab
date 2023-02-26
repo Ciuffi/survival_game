@@ -146,8 +146,8 @@ MonoBehaviour:
   disappearSpeed: 1
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
   playerShakeTime: 0.1
-  playerShakeStrength: 0.1
-  playerShakeRotation: 0.1
+  playerShakeStrength: 0.05
+  playerShakeRotation: 0.05
   damageTickDuration: 1.5
   isAnimated: 1
   isMagnet: 0

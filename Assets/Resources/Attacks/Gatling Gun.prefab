@@ -48,7 +48,7 @@ MonoBehaviour:
   damageUP: 3
   spread: 0.015
   spreadUP: 0.01
-  spray: 0.15
+  spray: 0.2
   sprayThreshold: 1
   castTime: 2.5
   castTimeUP: 2.25
@@ -59,6 +59,7 @@ MonoBehaviour:
   rangeUP: 6
   shotsPerAttack: 100
   shotsPerAttackUP: 150
+  shotsPerAttackMelee: 0
   cantMove: 1
   speed: 0.2
   speedUP: 0.25

@@ -53,31 +53,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 35
+  health: 40
   speed: 0.045
   pickupRange: 1.5
   damageMultiplier: 1
-  critChance: 0.05
-  critDmg: 0.5
-  defense: 0
+  critChance: 0
+  critDmg: 0
+  defense: -2
   shield: 0
   shotsPerAttack: 0
-  shotsPerAttackMelee: 0
+  shotsPerAttackMelee: 1
   meleeComboLength: 1
   multicastChance: 0
   castTimeMultiplier: 1
-  meleeWaitTimeMultiplier: 0.5
-  projectileSpeedMultiplier: 1.5
+  meleeWaitTimeMultiplier: 1
+  projectileSpeedMultiplier: 1.3
   rangeMultiplier: 0.8
   knockbackMultiplier: 0.8
   thrownDamageMultiplier: 2
-  thrownSpeedMultiplier: 2
-  projectileSizeMultiplier: 1
-  meleeSizeMultiplier: 1.25
+  thrownSpeedMultiplier: 1
+  projectileSizeMultiplier: 1.3
+  meleeSizeMultiplier: 1
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: 5cd3c9de7a1fe684ca7332c1c0ab9bd2, type: 3}
-  - {fileID: 1449995561756442478, guid: 8e234336e1b65e24abe0b29406393611, type: 3}
+  - {fileID: 1449995561756442478, guid: fc1971afb06bcee4aa1c90408493c265, type: 3}
   - {fileID: 1449995561756442478, guid: dd5c67cc31275374a9335df2fb450456, type: 3}
 --- !u!222 &3817268471581327505
 CanvasRenderer:

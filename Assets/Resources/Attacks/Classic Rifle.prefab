@@ -47,8 +47,8 @@ MonoBehaviour:
   damage: 11
   damageUP: 20
   spread: 0.085
-  spreadUP: 0.08
-  spray: 1.25
+  spreadUP: 0.075
+  spray: 1.5
   sprayThreshold: 1
   castTime: 2
   castTimeUP: 1.5
@@ -57,7 +57,7 @@ MonoBehaviour:
   recoveryTimeUp: 0
   range: 8
   rangeUP: 10
-  shotsPerAttack: 10
+  shotsPerAttack: 12
   shotsPerAttackUP: 20
   shotsPerAttackMelee: 0
   cantMove: 0

@@ -59,9 +59,10 @@ MonoBehaviour:
   damageMultiplier: 1
   critChance: 0.05
   critDmg: 0.1
-  defense: -2
+  defense: 0
   shield: 0
   shotsPerAttack: 0
+  shotsPerAttackMelee: 0
   meleeComboLength: 0
   multicastChance: 0
   castTimeMultiplier: 0.9
