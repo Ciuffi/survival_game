@@ -58,7 +58,7 @@ MonoBehaviour:
   shotsPerAttackMelee: 1
   cantMove: 0
   speed: 0
-  knockback: 0.2
+  knockback: 0.25
   pierce: 0
   critChance: 0.05
   critDmg: 1.5

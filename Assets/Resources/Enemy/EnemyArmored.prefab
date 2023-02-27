@@ -109,7 +109,7 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   damage: 2
-  health: 25
+  health: 30
   maxHealth: 0
   xpAmount: 30
   weight: 20
@@ -121,8 +121,8 @@ MonoBehaviour:
   isMelee: 1
   isAOE: 0
   isArmor: 1
-  armorPercent: 1
-  weightIncrease: 15
+  armorPercent: 0.99
+  weightIncrease: 20
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 7299663273688184311, guid: c422bca62006ae34aa6a03d5161aa5b8, type: 3}
@@ -132,11 +132,12 @@ MonoBehaviour:
   isInvuln: 0
   animator: {fileID: 488397711559394890}
   Sprite: {fileID: 6531945945894358812}
-  rageColor: {r: 0.8773585, g: 0.3600481, b: 0.3600481, a: 0}
+  rageColor: {r: 0.8784314, g: 0.36078432, b: 0.36078432, a: 1}
   disappearSpeed: 15
   isDead: 0
   speed: 0
   originalSpeed: 0
+  slowColor: {r: 0.5254902, g: 0.5568628, b: 0.30980393, a: 1}
   isRage: 0
   rageTriggerPercent: 0.25
   rageSpeedMod: 5
@@ -159,7 +160,7 @@ MonoBehaviour:
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
   isStunned: 0
-  stunColor: {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 1}
+  stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4

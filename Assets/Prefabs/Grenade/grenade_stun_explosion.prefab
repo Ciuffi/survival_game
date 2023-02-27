@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf6025681fe2df40a988eaafdab2c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: {fileID: 0}
   damage: 5
   critChance: 0.05
   critDmg: 2
@@ -178,4 +179,4 @@ MonoBehaviour:
   slowPercentage: 0.5
   slowDuration: 2
   isStun: 1
-  stunDuration: 5
+  stunDuration: 6

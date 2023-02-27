@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 5928492518038914266}
   - component: {fileID: 7297495058217971513}
   - component: {fileID: 1441713891751434987}
-  - component: {fileID: -7148203571477760851}
-  - component: {fileID: 4361009125059391236}
+  - component: {fileID: 7860753979652903893}
+  - component: {fileID: 1518672816756547981}
+  - component: {fileID: 3064850022452947998}
+  - component: {fileID: 792125003300969388}
   m_Layer: 0
-  m_Name: AcidPool
+  m_Name: BladePhalanx
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4908858350499337675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.59, y: 0.65, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 2}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.2, z: 0.3166431}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.6746705, g: 0.94509804, b: 0, a: 0.1764706}
+  m_Sprite: {fileID: 21300000, guid: a8cc1fca333bfab43b73aadba0bf45a5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.87058824}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,21 +110,21 @@ MonoBehaviour:
   isBounce: 0
   bounceRange: 0
   bounceTimes: 0
-  isMelee: 1
+  isMelee: 0
   startup: 0
-  active: 4
-  scaleSpeed: 1
-  disappearSpeed: 5
+  active: 0
+  scaleSpeed: 4
+  disappearSpeed: 8
   isCrit: 0
-  onHitParticle: {fileID: 4053501027209517259, guid: b5556bba7def32443a4bea0f9f94e44a, type: 3}
-  playerShakeTime: 0.025
-  playerShakeStrength: 0.05
+  onHitParticle: {fileID: 4053501027209517259, guid: db5fc2f7be9884046b5e04c089b15541, type: 3}
+  playerShakeTime: 0.12
+  playerShakeStrength: 0.1
   playerShakeRotation: 0.05
-  damageTickDuration: 0.55
+  damageTickDuration: 1.5
   isThrown: 0
-  isHover: 0
-  hoverTimer: 0
-  hitFirstEnemy: 0
+  isHover: 1
+  hoverTimer: 1.5
+  hitFirstEnemy: 1
   isAnimated: 0
   isMagnet: 0
   magnetStrength: 0
@@ -130,13 +132,13 @@ MonoBehaviour:
   isSlow: 0
   slowPercentage: 0
   slowDuration: 0
-  isStun: 1
-  stunDuration: 0.15
+  isStun: 0
+  stunDuration: 0
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
   projSize: 0
   meleeSize: 0
---- !u!50 &-7148203571477760851
+--- !u!50 &7860753979652903893
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -157,8 +159,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4361009125059391236
-CircleCollider2D:
+--- !u!61 &1518672816756547981
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -170,6 +172,62 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.083611965, y: 2.0534792}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.4, y: 13.39}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Size: {x: 3.3898644, y: 9.263}
+  m_EdgeRadius: 0
+--- !u!95 &3064850022452947998
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908858350499337675}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9da1a89a1d46464d8152619fff96e33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &792125003300969388
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908858350499337675}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.12108749, y: -4.5629864}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.4, y: 13.39}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.040843, y: 3.9209452}
+  m_EdgeRadius: 0

@@ -62,7 +62,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9136689211427610630}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1007190628
 BoxCollider2D:
@@ -139,7 +139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9136689211427610630}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5616801709358703483
 SpriteRenderer:
@@ -334,6 +334,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoAim: {fileID: 1007190625}
+--- !u!1 &4097361229217368469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 455421009127226651}
+  - component: {fileID: 7946484064487538779}
+  m_Layer: 0
+  m_Name: ConstantSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &455421009127226651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097361229217368469}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.06342275, z: 0}
+  m_LocalScale: {x: 2.857143, y: -2.857143, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9136689211427610630}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7946484064487538779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097361229217368469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2173fc19cd9964080aa34817ab1d0075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  diameter: 15
+  spawnRate: 1
+  scaleRateSeconds: 6
+  spawnRateScaling: 1
+  spawnTimer: 3
 --- !u!1 &6301032241555800557
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +669,7 @@ Transform:
   - {fileID: 3287956671689121399}
   - {fileID: 3287956671441075118}
   - {fileID: 503785879}
+  - {fileID: 455421009127226651}
   - {fileID: 7826251409800049588}
   - {fileID: 1007190626}
   m_Father: {fileID: 0}

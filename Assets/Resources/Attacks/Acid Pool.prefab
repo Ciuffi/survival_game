@@ -44,29 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  damageUP: 5
+  damage: 7
   spread: 0.2
-  spreadUP: 0.18
+  shotgunSpread: 0
   spray: 0
   sprayThreshold: 0
   castTime: 1.75
-  castTimeUP: 1
   attackTime: 0
   recoveryTime: 0
-  recoveryTimeUp: 0
   range: 8
   rangeUP: 10
   shotsPerAttack: 0
-  shotsPerAttackUP: 0
-  shotsPerAttackMelee: 1
+  shotsPerAttackMelee: 0
   cantMove: 1
   speed: 0.08
-  speedUP: 0.12
   knockback: 0
-  knockbackUP: 0
   pierce: 0
-  pierceUP: 0
   critChance: 0.075
   critDmg: 2
   shootOpppositeSide: 0
@@ -102,3 +95,4 @@ MonoBehaviour:
   MuzzleFlashPrefab: []
   muzzleFlashXOffset: 0
   muzzleFlashYOffset: 0
+  totalDamageDealt: 0

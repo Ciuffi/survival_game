@@ -132,11 +132,12 @@ MonoBehaviour:
   isInvuln: 0
   animator: {fileID: 7020551756548099047}
   Sprite: {fileID: 4773136830766705182}
-  rageColor: {r: 0, g: 0, b: 0, a: 0}
+  rageColor: {r: 0.8784314, g: 0.36078432, b: 0.36078432, a: 1}
   disappearSpeed: 15
   isDead: 0
   speed: 0
   originalSpeed: 0
+  slowColor: {r: 0.5254902, g: 0.5568628, b: 0.30980393, a: 1}
   isRage: 0
   rageTriggerPercent: 0
   rageSpeedMod: 1.6
@@ -159,7 +160,7 @@ MonoBehaviour:
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
   isStunned: 0
-  stunColor: {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 1}
+  stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4

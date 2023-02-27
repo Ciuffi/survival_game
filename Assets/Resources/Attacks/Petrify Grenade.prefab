@@ -45,28 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  damageUP: 10
-  spread: 0.5
-  spreadUP: 0.4
+  spread: 0
+  shotgunSpread: 50
   spray: 0
   sprayThreshold: 0
   castTime: 1.75
-  castTimeUP: 1.5
   attackTime: 0
-  recoveryTime: 0.25
-  recoveryTimeUp: 0
+  recoveryTime: 0
   range: 2
   rangeUP: 3
-  shotsPerAttack: 1
-  shotsPerAttackUP: 1
+  shotsPerAttack: 2
   shotsPerAttackMelee: 0
   cantMove: 0
   speed: 0.1
-  speedUP: 0.15
   knockback: 0
-  knockbackUP: 0
   pierce: 0
-  pierceUP: 0
   critChance: 0.05
   critDmg: 1.5
   shootOpppositeSide: 0
@@ -79,7 +72,7 @@ MonoBehaviour:
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
-  attackType: 0
+  attackType: 1
   MeleeAttack: {fileID: 0}
   comboLength: 0
   comboWaitTime: 0
@@ -103,3 +96,4 @@ MonoBehaviour:
   - {fileID: 2526348467587405025, guid: a3543cd68c061744181f54b160e82491, type: 3}
   muzzleFlashXOffset: 0
   muzzleFlashYOffset: 0
+  totalDamageDealt: 0

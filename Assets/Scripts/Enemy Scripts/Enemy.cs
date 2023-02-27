@@ -72,6 +72,8 @@ public class Enemy : MonoBehaviour, Attacker
     public float originalSpeed;
     private Coroutine slowCoroutine;
 
+    public Color slowColor;
+
     public bool isRage;
     public float rageTriggerPercent;
     private bool rageTriggered = false;
@@ -150,7 +152,6 @@ public class Enemy : MonoBehaviour, Attacker
 
         OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
         color = Sprite.GetComponent<SpriteRenderer>().color;
-        Sprite.GetComponent<SpriteRenderer>().color = OGcolor;
 
         aiPath = GetComponent<AIPath>();
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
@@ -673,7 +674,7 @@ public class Enemy : MonoBehaviour, Attacker
     public void StartSlow(float slowPercentage, float slowDuration)
     {
         float currentPercentage = (speed / originalSpeed);
-
+        
         if (slowPercentage > currentPercentage)
         {
             return;
@@ -685,7 +686,10 @@ public class Enemy : MonoBehaviour, Attacker
                 StopCoroutine(slowCoroutine);
             }
             slowCoroutine = StartCoroutine(SlowCoroutine(slowPercentage, slowDuration));
-
+            if (isStunned == false)
+            {
+                spriteRend.color = slowColor;
+            }
         }
 
     }
@@ -716,11 +720,13 @@ public class Enemy : MonoBehaviour, Attacker
         {
             speed = originalSpeed;
             aiPath.maxSpeed = speed;
+            spriteRend.color = OGcolor;
         }
         else
         {
             speed = rageSpeed;
             aiPath.maxSpeed = speed;
+            spriteRend.color = rageColor;
             //Debug.Log(rageSpeed);
         }
         StopCoroutine(slowCoroutine);  
