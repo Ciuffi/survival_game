@@ -202,7 +202,7 @@ public class deathRattleAttack : MonoBehaviour
                 if (isCrit == true)
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
-                    Vector3 knockDirection = col.transform.position - startPos;
+                    Vector3 knockDirection = (col.transform.position - startPos).normalized;
                     col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
 
                     attack.OnDamageDealt(finalDamage);
@@ -214,7 +214,7 @@ public class deathRattleAttack : MonoBehaviour
                 else
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
-                    Vector3 knockDirection = col.transform.position - startPos;
+                    Vector3 knockDirection = (col.transform.position - startPos).normalized;
                     col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
 
                     attack.OnDamageDealt(finalDamage);

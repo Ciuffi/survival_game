@@ -33,10 +33,12 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
         player = GameObject.FindWithTag("Player");
         spriteRend = GetComponent<SpriteRenderer>();
         originalColor = spriteRend.color;
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        Debug.Log(finalGold);
         if (!isOpen)
         {
             animator.SetBool("IsOpen", true);

@@ -171,21 +171,20 @@ public class StatsHandler : MonoBehaviour
         if (!canDamage)
         {
             return;
-
-        }else
-        {
-            canDamage = false;
-            float newHealth = health - damageAmount + defense;
+        }
+        canDamage = false;
+            float newHealth;
+			if ((damageAmount - defense) > 0) {
+			newHealth = health - damageAmount + defense;
+			} else {
+			newHealth = health;
+			} 
             animator.SetBool("TookDamage", true);
             afterimageAnim.SetBool("TookDamage", true);
-
+			
             spriteRend.material = newMaterial;
+			resetMaterial = true;
             healthBar.fillRect.GetComponent<Image>().color = Color.red;
-            if (!resetMaterial)
-            {
-                StartCoroutine(ResetMaterial());
-                resetMaterial = true;
-            }
 
             Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
 
@@ -196,22 +195,12 @@ public class StatsHandler : MonoBehaviour
                 GameObject.FindObjectOfType<EndgameStatTracker>().OnPlayerDeath();
                 GameObject.FindObjectOfType<GameManager>().EndGame();
             }
-        } 
-    }
+        }
 
-    IEnumerator ResetMaterial()
+    void ResetMaterial()
     {
-        yield return new WaitForSeconds(flashDuration);
-        if (canDamage)
-        {
-            healthBar.fillRect.GetComponent<Image>().color = healthColor;
-            spriteRend.material = OGMaterial;
-            resetMaterial = false;
-        }
-        else
-        {
-            StartCoroutine(ResetMaterial());
-        }
+        healthBar.fillRect.GetComponent<Image>().color = healthColor;
+        spriteRend.material = OGMaterial;
     }
 
 
@@ -222,6 +211,11 @@ public class StatsHandler : MonoBehaviour
         {
             animator.SetBool("TookDamage", false);
             afterimageAnim.SetBool("TookDamage", false);
+			if (resetMaterial)
+			{
+				ResetMaterial();
+				resetMaterial = false;
+			}
             canDamage = true;
         }
 

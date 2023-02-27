@@ -49,7 +49,6 @@ public class LootBox : MonoBehaviour
             anim.SetBool("IsOpen", true);
 
             player.GetComponentInChildren<LootBoxManager>().ShowLootUI();
-            player.GetComponentInChildren<LootBoxManager>().finalGold = finalGold;
             hasTriggered = true;
             StartCoroutine(delayGold());
         }
@@ -58,6 +57,7 @@ public class LootBox : MonoBehaviour
     IEnumerator delayGold()
     {
         yield return new WaitForSeconds(0.5f);
+        player.GetComponentInChildren<LootBoxManager>().finalGold = finalGold;
         goldManager.GetComponent<GoldTracker>().IncreaseCount(finalGold);
         Destroy(gameObject);
     }

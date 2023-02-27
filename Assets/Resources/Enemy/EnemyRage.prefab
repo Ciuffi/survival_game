@@ -60,7 +60,7 @@ MonoBehaviour:
   health: 120
   maxHealth: 0
   xpAmount: 60
-  weight: 25
+  weight: 10
   stopDistanceMin: 0.1
   stopDistanceMax: 0.1
   moveDistanceCheck: 0

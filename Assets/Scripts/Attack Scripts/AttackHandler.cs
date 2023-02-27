@@ -58,7 +58,7 @@ public class AttackHandler : MonoBehaviour
             }
 
             Color currentColor = attackBarImage.color;
-            currentColor.a = 0.2f;
+            currentColor.a = 0.4f;
             attackBarImage.color = currentColor;
             attackBarImage2.color = currentColor;
 

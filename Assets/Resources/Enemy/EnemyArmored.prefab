@@ -112,7 +112,7 @@ MonoBehaviour:
   health: 25
   maxHealth: 0
   xpAmount: 30
-  weight: 30
+  weight: 20
   stopDistanceMin: 0.2
   stopDistanceMax: 0.5
   moveDistanceCheck: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   isAOE: 0
   isArmor: 1
   armorPercent: 1
-  weightIncrease: 25
+  weightIncrease: 15
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 7299663273688184311, guid: c422bca62006ae34aa6a03d5161aa5b8, type: 3}

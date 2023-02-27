@@ -127,7 +127,7 @@ MonoBehaviour:
   isAnimated: 1
   isMagnet: 1
   magnetStrength: 4
-  magnetDuration: 0.75
+  magnetDuration: 1
   isSlow: 1
   slowPercentage: 0.5
   slowDuration: 1.5

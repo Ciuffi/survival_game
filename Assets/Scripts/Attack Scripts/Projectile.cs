@@ -113,7 +113,7 @@ public class Projectile : MonoBehaviour
             damage = attack.thrownDamage * Player.GetComponent<StatsHandler>().thrownDamageMultiplier;
             pierce = 0;
             projectileRange = 10;
-            knockback = 15 * Player.GetComponent<StatsHandler>().knockbackMultiplier;
+            knockback = 0.15f * Player.GetComponent<StatsHandler>().knockbackMultiplier;
         }
         GetComponent<Collider2D>().enabled = true;
     }
@@ -342,7 +342,8 @@ public class Projectile : MonoBehaviour
                 if (isCrit == true) //deal damage
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
-                    Vector3 knockDirection = col.transform.position - startPos;
+                    Vector3 knockDirection =
+                        isMelee ? (col.transform.position - transform.position).normalized : transform.up;
                     col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
 
                     attack.OnDamageDealt(finalDamage);
@@ -354,9 +355,9 @@ public class Projectile : MonoBehaviour
                 else
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
-                    Vector3 knockDirection = col.transform.position - startPos;
+                    Vector3 knockDirection =
+                        isMelee ? (col.transform.position - transform.position).normalized : transform.up;
                     col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
-
                     attack.OnDamageDealt(finalDamage);
                     Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);

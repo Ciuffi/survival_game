@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using Unity.Mathematics;
+using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour, Attacker
 {
@@ -215,7 +218,7 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (health <= 0 && !isDead)
         {
-
+            
             isDead = true;
             GameObject xpDrop = Instantiate(EXPdrop, center, Quaternion.identity);
             xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
@@ -293,7 +296,7 @@ public class Enemy : MonoBehaviour, Attacker
                 rageTriggered = true;
             }
 
-            if (rageTriggered && !isStunned) //back to red
+            if (rageTriggered && !isStunned && isDead == false) //back to red
             {
                 spriteRend.color = new Color(rageColor.r, rageColor.g, rageColor.b);
             }
@@ -318,8 +321,8 @@ public class Enemy : MonoBehaviour, Attacker
             }
 
             //knockback
-            currentForce = Mathf.Lerp(currentForce, 0, weight * Time.deltaTime);
-            transform.position += knockDirection * currentForce * Time.deltaTime;
+            currentForce = EasingFunction.EaseOutExpo(currentForce, 0,  Time.deltaTime);
+            transform.position += knockDirection * (currentForce - (currentForce - weight >= 0 ? weight : 0));
             if (currentForce < 0.1) //knockback over
             {
                 duringKnockback = false;
@@ -759,16 +762,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
             return;
         }
-
-        if (col.gameObject.tag == "DeathRattle")
-        {
-            Vector3 colCenter = col.transform.position;
-
-            knockDirection = center - colCenter;
-
-            ApplyKnockback(col.gameObject.GetComponent<deathRattleAttack>().knockback, knockDirection);
-            //rb.AddForce(knockDirection.normalized * col.gameObject.GetComponent<Projectile>().knockback);
-        }
+        
 
         if (col.gameObject.name == "Player" && isDead == false && player.GetComponent<StatsHandler>().canDamage == true)
         {

@@ -157,10 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf6025681fe2df40a988eaafdab2c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: {fileID: 0}
   damage: 18
   critChance: 0.05
   critDmg: 1.5
-  knockback: 8
+  knockback: 0.35
   startup: 0.1
   active: 0.3
   scaleSpeed: 1
