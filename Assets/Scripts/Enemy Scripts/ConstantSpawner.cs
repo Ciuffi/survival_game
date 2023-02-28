@@ -13,6 +13,10 @@ public class ConstantSpawner : MonoBehaviour
 
     public float spawnTimer = 0f;
     private float elapsedTime = 0f;
+    public GameObject basicSpawner;
+
+    private int currentGuilt;
+    private float healthScaling, damageScaling, weightScaling, xpScaling;
 
     // Update is called once per frame
     void Update () {
@@ -32,6 +36,13 @@ public class ConstantSpawner : MonoBehaviour
             SpawnEnemies ();
             spawnTimer = 1f / spawnRate;
         }
+
+        currentGuilt = basicSpawner.GetComponent<BasicSpawner>().currentGuilt;
+        healthScaling = basicSpawner.GetComponent<BasicSpawner>().healthScaling;
+        weightScaling = basicSpawner.GetComponent<BasicSpawner>().weightScaling;
+        damageScaling = basicSpawner.GetComponent<BasicSpawner>().damageScaling;
+        xpScaling = basicSpawner.GetComponent<BasicSpawner>().xpScaling;
+
     }
 
     // Spawn enemies along the edge of the circle
@@ -45,6 +56,11 @@ public class ConstantSpawner : MonoBehaviour
 
         // Instantiate the enemy at the spawn position
         Instantiate (enemyPrefab, (Vector2) transform.position + spawnPosition, Quaternion.identity);
+        enemyPrefab.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
+        enemyPrefab.GetComponent<Enemy>().projectileDamage *= (damageScaling * currentGuilt);
+        enemyPrefab.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
+        enemyPrefab.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
+        enemyPrefab.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
     }
 
     // Draw the circle in the editor for easier debugging
