@@ -54,6 +54,8 @@ public class LootBoxManager : MonoBehaviour
         //eventually want to move this to on-confirm-selection, and add a new button to close menu
         TimelineManager.GetComponent<TimelineUI>().addAttack();
         TimelineManager.GetComponent<TimelineUI>().spawnTimeline();
+
+        isWeapon = true; //always set to weapon
         setUpgrades();
         panel.SetActive(true);
 
@@ -137,7 +139,18 @@ public class LootBoxManager : MonoBehaviour
 
     public void reroll()
     {
-        setUpgrades();
+        if (isWeapon)
+        {
+            isWeapon = true;
+
+            setUpgrades();
+        }
+        else
+        {
+            isWeapon = false;
+
+            setUpgrades();
+        }
     }
 
     public void swap()

@@ -173,8 +173,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: m13_Dead_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 480
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: m13_Dead_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 960
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: m13_Dead_3
       rect:
         serializedVersion: 2
-        x: 288
+        x: 1440
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: m13_Dead_4
       rect:
         serializedVersion: 2
-        x: 384
+        x: 1920
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +276,10 @@ TextureImporter:
       name: m13_Dead_5
       rect:
         serializedVersion: 2
-        x: 480
+        x: 2400
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +297,10 @@ TextureImporter:
       name: m13_Dead_6
       rect:
         serializedVersion: 2
-        x: 576
+        x: 2880
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +318,10 @@ TextureImporter:
       name: m13_Dead_7
       rect:
         serializedVersion: 2
-        x: 672
+        x: 3360
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,10 +339,10 @@ TextureImporter:
       name: m13_Dead_8
       rect:
         serializedVersion: 2
-        x: 768
+        x: 3840
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: m13_Dead_9
       rect:
         serializedVersion: 2
-        x: 864
+        x: 4320
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,10 +381,10 @@ TextureImporter:
       name: m13_Dead_10
       rect:
         serializedVersion: 2
-        x: 960
+        x: 4800
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,10 +402,10 @@ TextureImporter:
       name: m13_Dead_11
       rect:
         serializedVersion: 2
-        x: 1056
+        x: 5280
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,10 +423,10 @@ TextureImporter:
       name: m13_Dead_12
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 5760
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

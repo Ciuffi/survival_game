@@ -280,11 +280,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 100
-        width: 33
-        height: 25
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -300,12 +300,12 @@ TextureImporter:
       name: monster_05_brood_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 100
-        width: 33
-        height: 25
+        x: 198
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -321,12 +321,12 @@ TextureImporter:
       name: monster_05_brood_2
       rect:
         serializedVersion: 2
-        x: 66
-        y: 100
-        width: 33
-        height: 25
+        x: 396
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -342,12 +342,12 @@ TextureImporter:
       name: monster_05_brood_3
       rect:
         serializedVersion: 2
-        x: 99
-        y: 100
-        width: 33
-        height: 25
+        x: 594
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -363,12 +363,12 @@ TextureImporter:
       name: monster_05_brood_4
       rect:
         serializedVersion: 2
-        x: 132
-        y: 100
-        width: 33
-        height: 25
+        x: 792
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -384,12 +384,12 @@ TextureImporter:
       name: monster_05_brood_5
       rect:
         serializedVersion: 2
-        x: 165
-        y: 100
-        width: 33
-        height: 25
+        x: 990
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -405,12 +405,12 @@ TextureImporter:
       name: monster_05_brood_6
       rect:
         serializedVersion: 2
-        x: 198
-        y: 100
-        width: 33
-        height: 25
+        x: 1188
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -426,12 +426,12 @@ TextureImporter:
       name: monster_05_brood_7
       rect:
         serializedVersion: 2
-        x: 231
-        y: 100
-        width: 33
-        height: 25
+        x: 1386
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -447,12 +447,12 @@ TextureImporter:
       name: monster_05_brood_8
       rect:
         serializedVersion: 2
-        x: 264
-        y: 100
-        width: 33
-        height: 25
+        x: 1584
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -468,12 +468,12 @@ TextureImporter:
       name: monster_05_brood_9
       rect:
         serializedVersion: 2
-        x: 297
-        y: 100
-        width: 33
-        height: 25
+        x: 1782
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -489,12 +489,12 @@ TextureImporter:
       name: monster_05_brood_10
       rect:
         serializedVersion: 2
-        x: 330
-        y: 100
-        width: 33
-        height: 25
+        x: 1980
+        y: 600
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -511,11 +511,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 75
-        width: 33
-        height: 25
+        y: 450
+        width: 198
+        height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -531,12 +531,12 @@ TextureImporter:
       name: monster_05_brood_12
       rect:
         serializedVersion: 2
-        x: 33
-        y: 75
-        width: 33
-        height: 25
+        x: 198
+        y: 450
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -552,12 +552,12 @@ TextureImporter:
       name: monster_05_brood_13
       rect:
         serializedVersion: 2
-        x: 66
-        y: 75
-        width: 33
-        height: 25
+        x: 396
+        y: 450
+        width: 198
+        height: 145
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -573,12 +573,12 @@ TextureImporter:
       name: monster_05_brood_14
       rect:
         serializedVersion: 2
-        x: 99
-        y: 75
-        width: 33
-        height: 25
+        x: 594
+        y: 451
+        width: 198
+        height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -594,12 +594,12 @@ TextureImporter:
       name: monster_05_brood_15
       rect:
         serializedVersion: 2
-        x: 132
-        y: 75
-        width: 33
-        height: 25
+        x: 792
+        y: 450
+        width: 198
+        height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -615,12 +615,12 @@ TextureImporter:
       name: monster_05_brood_16
       rect:
         serializedVersion: 2
-        x: 165
-        y: 75
-        width: 33
-        height: 25
+        x: 990
+        y: 450
+        width: 198
+        height: 145
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -636,12 +636,12 @@ TextureImporter:
       name: monster_05_brood_17
       rect:
         serializedVersion: 2
-        x: 198
-        y: 75
-        width: 33
-        height: 25
+        x: 1189
+        y: 450
+        width: 198
+        height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -657,12 +657,12 @@ TextureImporter:
       name: monster_05_brood_18
       rect:
         serializedVersion: 2
-        x: 231
-        y: 75
-        width: 33
-        height: 25
+        x: 1386
+        y: 450
+        width: 198
+        height: 145
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -678,12 +678,12 @@ TextureImporter:
       name: monster_05_brood_19
       rect:
         serializedVersion: 2
-        x: 264
-        y: 75
-        width: 33
-        height: 25
+        x: 1584
+        y: 450
+        width: 198
+        height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -699,12 +699,12 @@ TextureImporter:
       name: monster_05_brood_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 50
-        width: 33
-        height: 25
+        x: 1782
+        y: 450
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -720,12 +720,12 @@ TextureImporter:
       name: monster_05_brood_21
       rect:
         serializedVersion: 2
-        x: 33
-        y: 50
-        width: 33
-        height: 25
+        x: 1980
+        y: 450
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -741,12 +741,12 @@ TextureImporter:
       name: monster_05_brood_22
       rect:
         serializedVersion: 2
-        x: 66
-        y: 50
-        width: 33
-        height: 25
+        x: 0
+        y: 300
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -762,12 +762,12 @@ TextureImporter:
       name: monster_05_brood_23
       rect:
         serializedVersion: 2
-        x: 99
-        y: 50
-        width: 33
-        height: 25
+        x: 198
+        y: 300
+        width: 198
+        height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -783,12 +783,12 @@ TextureImporter:
       name: monster_05_brood_24
       rect:
         serializedVersion: 2
-        x: 132
-        y: 50
-        width: 33
-        height: 25
+        x: 396
+        y: 300
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -804,12 +804,12 @@ TextureImporter:
       name: monster_05_brood_25
       rect:
         serializedVersion: 2
-        x: 165
-        y: 50
-        width: 33
-        height: 25
+        x: 594
+        y: 300
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -825,12 +825,12 @@ TextureImporter:
       name: monster_05_brood_26
       rect:
         serializedVersion: 2
-        x: 198
-        y: 50
-        width: 33
-        height: 25
+        x: 792
+        y: 300
+        width: 198
+        height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -846,12 +846,12 @@ TextureImporter:
       name: monster_05_brood_27
       rect:
         serializedVersion: 2
-        x: 231
-        y: 50
-        width: 33
-        height: 25
+        x: 990
+        y: 300
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -867,12 +867,12 @@ TextureImporter:
       name: monster_05_brood_28
       rect:
         serializedVersion: 2
-        x: 0
-        y: 25
-        width: 33
-        height: 25
+        x: 1188
+        y: 300
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -888,12 +888,12 @@ TextureImporter:
       name: monster_05_brood_29
       rect:
         serializedVersion: 2
-        x: 33
-        y: 25
-        width: 33
-        height: 25
+        x: 1386
+        y: 300
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -909,12 +909,12 @@ TextureImporter:
       name: monster_05_brood_30
       rect:
         serializedVersion: 2
-        x: 66
-        y: 25
-        width: 33
-        height: 25
+        x: 1584
+        y: 300
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -930,12 +930,12 @@ TextureImporter:
       name: monster_05_brood_31
       rect:
         serializedVersion: 2
-        x: 99
-        y: 25
-        width: 33
-        height: 25
+        x: 0
+        y: 150
+        width: 198
+        height: 148
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -951,12 +951,12 @@ TextureImporter:
       name: monster_05_brood_32
       rect:
         serializedVersion: 2
-        x: 132
-        y: 25
-        width: 33
-        height: 25
+        x: 198
+        y: 150
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -972,12 +972,12 @@ TextureImporter:
       name: monster_05_brood_33
       rect:
         serializedVersion: 2
-        x: 165
-        y: 25
-        width: 33
-        height: 25
+        x: 396
+        y: 150
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -993,12 +993,12 @@ TextureImporter:
       name: monster_05_brood_34
       rect:
         serializedVersion: 2
-        x: 198
-        y: 25
-        width: 33
-        height: 25
+        x: 594
+        y: 150
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1014,12 +1014,12 @@ TextureImporter:
       name: monster_05_brood_35
       rect:
         serializedVersion: 2
-        x: 231
-        y: 25
-        width: 33
-        height: 25
+        x: 792
+        y: 150
+        width: 198
+        height: 149
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1035,12 +1035,12 @@ TextureImporter:
       name: monster_05_brood_36
       rect:
         serializedVersion: 2
-        x: 264
-        y: 25
-        width: 33
-        height: 25
+        x: 990
+        y: 150
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1056,12 +1056,12 @@ TextureImporter:
       name: monster_05_brood_37
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 33
-        height: 25
+        x: 1188
+        y: 150
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1077,12 +1077,12 @@ TextureImporter:
       name: monster_05_brood_38
       rect:
         serializedVersion: 2
-        x: 33
-        y: 0
-        width: 33
-        height: 25
+        x: 1386
+        y: 150
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1098,12 +1098,12 @@ TextureImporter:
       name: monster_05_brood_39
       rect:
         serializedVersion: 2
-        x: 66
-        y: 0
-        width: 33
-        height: 25
+        x: 1584
+        y: 150
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1119,12 +1119,12 @@ TextureImporter:
       name: monster_05_brood_40
       rect:
         serializedVersion: 2
-        x: 99
+        x: 0
         y: 0
-        width: 33
-        height: 25
+        width: 198
+        height: 145
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1140,12 +1140,12 @@ TextureImporter:
       name: monster_05_brood_41
       rect:
         serializedVersion: 2
-        x: 132
+        x: 198
         y: 0
-        width: 33
-        height: 25
+        width: 198
+        height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1161,12 +1161,12 @@ TextureImporter:
       name: monster_05_brood_42
       rect:
         serializedVersion: 2
-        x: 165
+        x: 396
         y: 0
-        width: 33
-        height: 25
+        width: 198
+        height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1182,12 +1182,12 @@ TextureImporter:
       name: monster_05_brood_43
       rect:
         serializedVersion: 2
-        x: 198
+        x: 594
         y: 0
-        width: 33
-        height: 25
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1203,12 +1203,12 @@ TextureImporter:
       name: monster_05_brood_44
       rect:
         serializedVersion: 2
-        x: 231
+        x: 792
         y: 0
-        width: 33
-        height: 25
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1224,12 +1224,12 @@ TextureImporter:
       name: monster_05_brood_45
       rect:
         serializedVersion: 2
-        x: 264
+        x: 990
         y: 0
-        width: 33
-        height: 25
+        width: 198
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1245,12 +1245,12 @@ TextureImporter:
       name: monster_05_brood_46
       rect:
         serializedVersion: 2
-        x: 297
+        x: 1188
         y: 0
-        width: 33
-        height: 25
+        width: 198
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1266,12 +1266,12 @@ TextureImporter:
       name: monster_05_brood_47
       rect:
         serializedVersion: 2
-        x: 330
+        x: 1386
         y: 0
-        width: 33
-        height: 25
+        width: 198
+        height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1287,12 +1287,12 @@ TextureImporter:
       name: monster_05_brood_48
       rect:
         serializedVersion: 2
-        x: 363
+        x: 1584
         y: 0
-        width: 33
-        height: 25
+        width: 198
+        height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1300,6 +1300,69 @@ TextureImporter:
       bones: []
       spriteID: 0fde19fa278d51b60800000000000000
       internalID: 7716311523652660720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_05_brood_49
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 0
+        width: 198
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd01668655f2e66419019c17dd8314a4
+      internalID: 1322262905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_05_brood_50
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 0
+        width: 198
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cbc044c06ddf7549bcaf604c23e2601
+      internalID: -1777499032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_05_brood_51
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 0
+        width: 198
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86b64ec8683d1a54cae633666ecf79ec
+      internalID: -1271396620
       vertices: []
       indices: 
       edges: []
@@ -1323,7 +1386,9 @@ TextureImporter:
       monster_05_brood_26: -814160269736546039
       monster_05_brood_46: -8958315865748488891
       monster_05_brood_2: 8568554070642847587
+      monster_05_brood_49: 1322262905
       monster_05_brood_47: -7315314384126523869
+      monster_05_brood_51: -1271396620
       monster_05_brood_45: -3019937789687339173
       monster_05_brood_39: 9083766042960287214
       monster_05_brood_20: -4818456754350988039
@@ -1346,6 +1411,7 @@ TextureImporter:
       monster_05_brood_22: 274430966630482952
       monster_05_brood_27: -2814739997837797366
       monster_05_brood_37: -6877104144088039411
+      monster_05_brood_50: -1777499032
       monster_05_brood_24: 22391836663992453
       monster_05_brood_9: 2901279503529348320
       monster_05_brood_18: -7329553369596496938

@@ -149,8 +149,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: m16_Hit_1
       rect:
         serializedVersion: 2
-        x: 175
+        x: 315
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: m16_Hit_2
       rect:
         serializedVersion: 2
-        x: 350
+        x: 630
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: m16_Hit_3
       rect:
         serializedVersion: 2
-        x: 525
+        x: 945
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: m16_Hit_4
       rect:
         serializedVersion: 2
-        x: 700
+        x: 1260
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -146,8 +146,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 74
-        height: 74
+        width: 444
+        height: 444
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: m4_Hit_1
       rect:
         serializedVersion: 2
-        x: 74
+        x: 444
         y: 0
-        width: 74
-        height: 74
+        width: 444
+        height: 444
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: m4_Hit_2
       rect:
         serializedVersion: 2
-        x: 148
+        x: 888
         y: 0
-        width: 74
-        height: 74
+        width: 444
+        height: 444
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: m4_Hit_3
       rect:
         serializedVersion: 2
-        x: 222
+        x: 1332
         y: 0
-        width: 74
-        height: 74
+        width: 444
+        height: 444
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

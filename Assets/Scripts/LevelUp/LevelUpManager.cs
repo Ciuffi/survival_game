@@ -17,7 +17,7 @@ public class LevelUpManager : MonoBehaviour
     public GameObject[] weapons;
     public GameObject[] stats;
     public List<GameObject> upgrades;
-    public bool isWeapon = true;
+    public bool isWeapon = false;
     private List<GameObject> previousUpgrades = new List<GameObject>();
 
     public GameObject RerollBtn, SwapBtn;
@@ -52,8 +52,24 @@ public class LevelUpManager : MonoBehaviour
     {
         if (isWeapon) 
         {
-            isWeapon = false;         
+            isWeapon = true;         
          
+            setUpgrades();
+        }
+        else
+        {
+            isWeapon = false;
+
+            setUpgrades();
+        }
+    }
+
+    public void swap()
+    {
+        if (isWeapon)
+        {
+            isWeapon = false;
+
             setUpgrades();
         }
         else
@@ -64,11 +80,6 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
-    public void swap()
-    {
-        setUpgrades();
-    }
-
     public void setUpgrades()
     {
         previousUpgrades.Clear();
@@ -76,7 +87,7 @@ public class LevelUpManager : MonoBehaviour
         if (isWeapon)
         {
             upgrades = new List<GameObject>(weapons);
-            isWeapon = false;
+            //isWeapon = false;
 
             //create weighting later
             upgradeWindows.ForEach((u) =>
@@ -149,6 +160,8 @@ public class LevelUpManager : MonoBehaviour
         //eventually want to move this to on-confirm-selection, and add a new button to close menu
         TimelineManager.GetComponent<TimelineUI>().addAttack();
         TimelineManager.GetComponent<TimelineUI>().spawnTimeline();
+
+        isWeapon = false; //always show upgrade 
         setUpgrades();
         panel.SetActive(true);
     }

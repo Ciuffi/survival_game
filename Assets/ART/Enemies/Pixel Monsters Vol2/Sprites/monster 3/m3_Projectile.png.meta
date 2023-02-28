@@ -152,8 +152,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 34
+        width: 352
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: m3_Projectile_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 352
         y: 0
-        width: 64
-        height: 34
+        width: 352
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: m3_Projectile_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 704
         y: 0
-        width: 64
-        height: 34
+        width: 352
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: m3_Projectile_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 1056
         y: 0
-        width: 64
-        height: 34
+        width: 352
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: m3_Projectile_4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 1408
         y: 0
-        width: 64
-        height: 34
+        width: 352
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: m3_Projectile_5
       rect:
         serializedVersion: 2
-        x: 320
+        x: 1760
         y: 0
-        width: 64
-        height: 34
+        width: 352
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -284,7 +284,7 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        if (col.gameObject.tag == "Enemy" && attack.owner.GetTransform().name == "Player")
+        if (col.gameObject.tag == "Enemy")
         {
             hitFirstEnemy = true;
 

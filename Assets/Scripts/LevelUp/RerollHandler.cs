@@ -37,7 +37,7 @@ public class RerollHandler : MonoBehaviour
 
     public void resetSwap()
     {
-        currentSwap = 1;
+        currentSwap = baseSwap;
     }
 
     // Update is called once per frame

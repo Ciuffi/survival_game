@@ -152,8 +152,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: m13_Idle_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 480
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: m13_Idle_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 960
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: m13_Idle_3
       rect:
         serializedVersion: 2
-        x: 288
+        x: 1440
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: m13_Idle_4
       rect:
         serializedVersion: 2
-        x: 384
+        x: 1920
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: m13_Idle_5
       rect:
         serializedVersion: 2
-        x: 480
+        x: 2400
         y: 0
-        width: 96
-        height: 96
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

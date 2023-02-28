@@ -205,9 +205,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 84
-        width: 67
-        height: 42
+        y: 462
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: monster_20_1
       rect:
         serializedVersion: 2
-        x: 67
-        y: 84
-        width: 67
-        height: 42
+        x: 368
+        y: 462
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: monster_20_2
       rect:
         serializedVersion: 2
-        x: 134
-        y: 84
-        width: 67
-        height: 42
+        x: 736
+        y: 462
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: monster_20_3
       rect:
         serializedVersion: 2
-        x: 201
-        y: 84
-        width: 67
-        height: 42
+        x: 1104
+        y: 462
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: monster_20_4
       rect:
         serializedVersion: 2
-        x: 268
-        y: 84
-        width: 67
-        height: 42
+        x: 1472
+        y: 462
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +309,10 @@ TextureImporter:
       name: monster_20_5
       rect:
         serializedVersion: 2
-        x: 335
-        y: 84
-        width: 67
-        height: 42
+        x: 1840
+        y: 462
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,9 +331,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 42
-        width: 67
-        height: 42
+        y: 231
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +351,10 @@ TextureImporter:
       name: monster_20_7
       rect:
         serializedVersion: 2
-        x: 67
-        y: 42
-        width: 67
-        height: 42
+        x: 368
+        y: 231
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,10 +372,10 @@ TextureImporter:
       name: monster_20_8
       rect:
         serializedVersion: 2
-        x: 134
-        y: 42
-        width: 67
-        height: 42
+        x: 736
+        y: 231
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,10 +393,10 @@ TextureImporter:
       name: monster_20_9
       rect:
         serializedVersion: 2
-        x: 201
-        y: 42
-        width: 67
-        height: 42
+        x: 1104
+        y: 231
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,10 +414,10 @@ TextureImporter:
       name: monster_20_10
       rect:
         serializedVersion: 2
-        x: 268
-        y: 42
-        width: 67
-        height: 42
+        x: 1472
+        y: 231
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -435,10 +435,10 @@ TextureImporter:
       name: monster_20_11
       rect:
         serializedVersion: 2
-        x: 335
-        y: 42
-        width: 67
-        height: 42
+        x: 1840
+        y: 231
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -456,10 +456,10 @@ TextureImporter:
       name: monster_20_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 67
-        height: 42
+        x: 2208
+        y: 231
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -477,10 +477,10 @@ TextureImporter:
       name: monster_20_13
       rect:
         serializedVersion: 2
-        x: 67
-        y: 0
-        width: 67
-        height: 42
+        x: 2576
+        y: 231
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -498,10 +498,10 @@ TextureImporter:
       name: monster_20_14
       rect:
         serializedVersion: 2
-        x: 134
-        y: 0
-        width: 67
-        height: 42
+        x: 2944
+        y: 231
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -519,10 +519,10 @@ TextureImporter:
       name: monster_20_15
       rect:
         serializedVersion: 2
-        x: 201
+        x: 0
         y: 0
-        width: 67
-        height: 42
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -540,10 +540,10 @@ TextureImporter:
       name: monster_20_16
       rect:
         serializedVersion: 2
-        x: 268
+        x: 368
         y: 0
-        width: 67
-        height: 42
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -561,10 +561,10 @@ TextureImporter:
       name: monster_20_17
       rect:
         serializedVersion: 2
-        x: 335
+        x: 736
         y: 0
-        width: 67
-        height: 42
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -582,10 +582,10 @@ TextureImporter:
       name: monster_20_18
       rect:
         serializedVersion: 2
-        x: 402
+        x: 1104
         y: 0
-        width: 67
-        height: 42
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -603,10 +603,10 @@ TextureImporter:
       name: monster_20_19
       rect:
         serializedVersion: 2
-        x: 469
+        x: 1472
         y: 0
-        width: 67
-        height: 42
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -624,10 +624,10 @@ TextureImporter:
       name: monster_20_20
       rect:
         serializedVersion: 2
-        x: 536
+        x: 1840
         y: 0
-        width: 67
-        height: 42
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -645,10 +645,10 @@ TextureImporter:
       name: monster_20_21
       rect:
         serializedVersion: 2
-        x: 603
+        x: 2208
         y: 0
-        width: 67
-        height: 42
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -666,10 +666,10 @@ TextureImporter:
       name: monster_20_22
       rect:
         serializedVersion: 2
-        x: 670
+        x: 2576
         y: 0
-        width: 67
-        height: 42
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -687,10 +687,10 @@ TextureImporter:
       name: monster_20_23
       rect:
         serializedVersion: 2
-        x: 737
+        x: 2944
         y: 0
-        width: 67
-        height: 42
+        width: 368.5
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -700,6 +700,69 @@ TextureImporter:
       bones: []
       spriteID: cbf2dc0ab778fb8c0800000000000000
       internalID: -3981314580523700292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_20_24
+      rect:
+        serializedVersion: 2
+        x: 3312
+        y: 0
+        width: 368.5
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f8011517e1d9945b15218dd3593a84
+      internalID: 1479241362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_20_25
+      rect:
+        serializedVersion: 2
+        x: 3680
+        y: 0
+        width: 368.5
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d10ce71151d40488e4a4aa0e78829c
+      internalID: 1822359134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_20_26
+      rect:
+        serializedVersion: 2
+        x: 4048
+        y: 0
+        width: 368.5
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9484e9491ff5641adb5a622ddd651b
+      internalID: 1235849437
       vertices: []
       indices: 
       edges: []
@@ -721,6 +784,7 @@ TextureImporter:
       monster_20_21: 4708905166518455505
       monster_20_4: -4488643775618947416
       monster_20_10: 6288459331769966291
+      monster_20_25: 1822359134
       monster_20_23: -3981314580523700292
       monster_20_8: -9164558309552621525
       monster_20_16: 7869039811566064175
@@ -733,10 +797,12 @@ TextureImporter:
       monster_20_13: -5905163618125339
       monster_20_9: -804743486499031393
       monster_20_0: 2339420804348245720
+      monster_20_26: 1235849437
       monster_20_18: 4588096190332215322
       monster_20_17: 1027313467849918446
       monster_20_11: -6270064905972315942
       monster_20_14: -6734469437482269404
+      monster_20_24: 1479241362
       monster_20_7: 5491096210203331574
       monster_20_15: -5800677727678635481
   spritePackingTag: 

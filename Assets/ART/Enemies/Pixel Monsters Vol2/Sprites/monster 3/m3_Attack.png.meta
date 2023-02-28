@@ -182,8 +182,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +201,10 @@ TextureImporter:
       name: m3_Attack_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 409
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +222,10 @@ TextureImporter:
       name: m3_Attack_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 818
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,10 +243,10 @@ TextureImporter:
       name: m3_Attack_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 1227
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +264,10 @@ TextureImporter:
       name: m3_Attack_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 1636
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: m3_Attack_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 2045
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +306,10 @@ TextureImporter:
       name: m3_Attack_6
       rect:
         serializedVersion: 2
-        x: 768
+        x: 2454
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,10 +327,10 @@ TextureImporter:
       name: m3_Attack_7
       rect:
         serializedVersion: 2
-        x: 896
+        x: 2863
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +348,10 @@ TextureImporter:
       name: m3_Attack_8
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 3272
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,10 +369,10 @@ TextureImporter:
       name: m3_Attack_9
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 3681
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,10 +390,10 @@ TextureImporter:
       name: m3_Attack_10
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 4090
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -411,10 +411,10 @@ TextureImporter:
       name: m3_Attack_11
       rect:
         serializedVersion: 2
-        x: 1408
+        x: 4499
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -432,10 +432,10 @@ TextureImporter:
       name: m3_Attack_12
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 4908
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -453,10 +453,10 @@ TextureImporter:
       name: m3_Attack_13
       rect:
         serializedVersion: 2
-        x: 1664
+        x: 5317
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -474,10 +474,10 @@ TextureImporter:
       name: m3_Attack_14
       rect:
         serializedVersion: 2
-        x: 1792
+        x: 5726
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -495,10 +495,10 @@ TextureImporter:
       name: m3_Attack_15
       rect:
         serializedVersion: 2
-        x: 1920
+        x: 6135
         y: 0
-        width: 128
-        height: 128
+        width: 409.625
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

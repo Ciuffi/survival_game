@@ -190,9 +190,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 170
-        width: 175
-        height: 170
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: m16_Dead_1
       rect:
         serializedVersion: 2
-        x: 175
-        y: 170
-        width: 175
-        height: 170
+        x: 315
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: m16_Dead_2
       rect:
         serializedVersion: 2
-        x: 350
-        y: 170
-        width: 175
-        height: 170
+        x: 630
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: m16_Dead_3
       rect:
         serializedVersion: 2
-        x: 525
-        y: 170
-        width: 175
-        height: 170
+        x: 945
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: m16_Dead_4
       rect:
         serializedVersion: 2
-        x: 700
-        y: 170
-        width: 175
-        height: 170
+        x: 1260
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: m16_Dead_5
       rect:
         serializedVersion: 2
-        x: 875
-        y: 170
-        width: 175
-        height: 170
+        x: 1575
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: m16_Dead_6
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 170
-        width: 175
-        height: 170
+        x: 1890
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: m16_Dead_7
       rect:
         serializedVersion: 2
-        x: 1225
-        y: 170
-        width: 175
-        height: 170
+        x: 2205
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +357,10 @@ TextureImporter:
       name: m16_Dead_8
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 170
-        width: 175
-        height: 170
+        x: 2520
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +378,10 @@ TextureImporter:
       name: m16_Dead_9
       rect:
         serializedVersion: 2
-        x: 1575
-        y: 170
-        width: 175
-        height: 170
+        x: 2835
+        y: 306
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -401,8 +401,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,10 +420,10 @@ TextureImporter:
       name: m16_Dead_11
       rect:
         serializedVersion: 2
-        x: 175
+        x: 315
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,10 +441,10 @@ TextureImporter:
       name: m16_Dead_12
       rect:
         serializedVersion: 2
-        x: 350
+        x: 630
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,10 +462,10 @@ TextureImporter:
       name: m16_Dead_13
       rect:
         serializedVersion: 2
-        x: 525
+        x: 945
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +483,10 @@ TextureImporter:
       name: m16_Dead_14
       rect:
         serializedVersion: 2
-        x: 700
+        x: 1260
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -504,10 +504,10 @@ TextureImporter:
       name: m16_Dead_15
       rect:
         serializedVersion: 2
-        x: 875
+        x: 1575
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -525,10 +525,10 @@ TextureImporter:
       name: m16_Dead_16
       rect:
         serializedVersion: 2
-        x: 1050
+        x: 1890
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,10 +546,10 @@ TextureImporter:
       name: m16_Dead_17
       rect:
         serializedVersion: 2
-        x: 1225
+        x: 2205
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -567,10 +567,10 @@ TextureImporter:
       name: m16_Dead_18
       rect:
         serializedVersion: 2
-        x: 1400
+        x: 2520
         y: 0
-        width: 175
-        height: 170
+        width: 315
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
