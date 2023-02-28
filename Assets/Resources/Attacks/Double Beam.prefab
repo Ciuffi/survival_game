@@ -55,7 +55,7 @@ MonoBehaviour:
   range: 0
   rangeUP: 0
   shotsPerAttack: 0
-  shotsPerAttackMelee: 1
+  shotsPerAttackMelee: 0
   cantMove: 0
   speed: 0
   knockback: 0

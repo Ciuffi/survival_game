@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 1
   speed: 100
-  deathTime: 3
+  deathTime: 2.75
 --- !u!114 &1282756736
 MonoBehaviour:
   m_ObjectHideFlags: 0

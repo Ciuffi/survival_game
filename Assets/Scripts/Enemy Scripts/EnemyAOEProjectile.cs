@@ -13,6 +13,7 @@ public class EnemyAOEProjectile : MonoBehaviour
 
     private Vector3 startingPosition;
     public GameObject Player;
+    public GameObject caster;
 
     public float AOEChargeTime;
     public float activeTimer;
@@ -42,7 +43,7 @@ public class EnemyAOEProjectile : MonoBehaviour
         newSpriteObject = Instantiate(spriteObject, transform.position, Quaternion.identity, transform);
         newSpriteObject.transform.parent = transform;
         newSpriteObject.transform.localScale = new Vector3(0, 0, 0);
-        newSpriteObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0.2f, 0.5f);
+        newSpriteObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0.2f, 0.35f);
         newSpriteObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
     }
@@ -51,6 +52,11 @@ public class EnemyAOEProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (caster.GetComponent<Enemy>().isDead == true)
+        {
+            Destroy(gameObject);
+        }
+
         if (startupPhase)
         {
             currentTimer -= Time.deltaTime;

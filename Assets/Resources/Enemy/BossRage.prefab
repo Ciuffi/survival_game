@@ -109,10 +109,10 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   damage: 5
-  health: 1500
+  health: 1000
   maxHealth: 0
   xpAmount: 500
-  weight: 100
+  weight: 200
   stopDistanceMin: 0.01
   stopDistanceMax: 0.1
   moveDistanceCheck: 0
@@ -181,7 +181,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &485550041066969456
 BoxCollider2D:
   m_ObjectHideFlags: 0

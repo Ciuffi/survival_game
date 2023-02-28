@@ -2143,7 +2143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e89130871519a1c4f875022804e0ada5, type: 3}
@@ -9046,6 +9046,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2052080985, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: baseSwap
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -9067,6 +9071,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1537696376}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: baseXP
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
       objectReference: {fileID: 1429944098}
@@ -9078,142 +9086,10 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1465128669}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: spawnRate
-      value: 1
+    - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: growthMultiplier
+      value: 1.1
       objectReference: {fileID: 0}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: spawnTimer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: scaleRateSeconds
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.size
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 3f90fb51a2a0dcd4ea8f32d1ad767696, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 1dfc899769fc4ea4cbe499622cd6d295, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[3]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[4]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[5]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[6]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[7]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[8]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[9]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[10]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[11]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[12]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[13]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[14]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[15]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[16]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[17]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[18]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[19]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[20]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[21]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[22]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[23]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[24]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[25]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[26]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[27]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[28]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
-    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: enemies.Array.data[29]
-      value: 
-      objectReference: {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
       value: 
@@ -16677,10 +16553,10 @@ MonoBehaviour:
   comboCount: 11
   spawner: {fileID: 1517156281}
   guiltThreshold1: 50
-  guiltThreshold2: 100
-  guiltThreshold3: 150
-  guiltThreshold4: 200
-  guiltThreshold5: 300
+  guiltThreshold2: 200
+  guiltThreshold3: 300
+  guiltThreshold4: 500
+  guiltThreshold5: 666
   guiltColor1: {r: 0.16981131, g: 0.09211462, b: 0.09211462, a: 1}
   guiltColor2: {r: 0.3207547, g: 0.07716268, b: 0.07716268, a: 1}
   guiltColor3: {r: 0.5377358, g: 0.043120332, b: 0.043120332, a: 1}

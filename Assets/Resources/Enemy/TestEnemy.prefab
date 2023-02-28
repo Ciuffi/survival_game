@@ -108,21 +108,25 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  moveSpeed: 0.9
   damage: 2
+  health: 7
+  maxHealth: 0
+  xpAmount: 50
+  weight: 10
   stopDistanceMin: 5
   stopDistanceMax: 5
   moveDistanceCheck: 0.5
   canMove: 0
   timeCheck: 0.5
   isMelee: 0
-  health: 7
-  maxHealth: 0
-  xpAmount: 50
-  weight: 10
+  isAOE: 0
+  isArmor: 0
+  armorPercent: 0
+  weightIncrease: 0
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 1008460165413105732, guid: 049e5ada8a5743d4ab327ff7ccb956e5, type: 3}
+  DeathEffect: {fileID: 0}
   EXPdrop: {fileID: 9040451915024097044, guid: 7cb6000f3688522458525e0d169ebdf1, type: 3}
   Iframes: 0.7
   isInvuln: 0
@@ -131,6 +135,9 @@ MonoBehaviour:
   rageColor: {r: 0, g: 0, b: 0, a: 0}
   disappearSpeed: 2.5
   isDead: 0
+  speed: 0
+  originalSpeed: 0
+  slowColor: {r: 0, g: 0, b: 0, a: 0}
   isRage: 0
   rageTriggerPercent: 0
   rageSpeedMod: 1.8
@@ -150,7 +157,10 @@ MonoBehaviour:
   projectileRange: 10
   projectileDamage: 10
   shootRecovery: 4
+  AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 0}
+  isStunned: 0
+  stunColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -171,7 +181,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &485550041066969456
 BoxCollider2D:
   m_ObjectHideFlags: 0

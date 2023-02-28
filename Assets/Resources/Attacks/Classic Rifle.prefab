@@ -47,17 +47,17 @@ MonoBehaviour:
   damage: 15
   spread: 0.085
   shotgunSpread: 0
-  spray: 2
+  spray: 1.75
   sprayThreshold: 0
-  castTime: 2
+  castTime: 1.75
   attackTime: 0
   recoveryTime: 0
   range: 8
   rangeUP: 10
-  shotsPerAttack: 15
+  shotsPerAttack: 18
   shotsPerAttackMelee: 0
   cantMove: 0
-  speed: 0.16
+  speed: 0.17
   knockback: 0.35
   pierce: 0
   critChance: 0.05

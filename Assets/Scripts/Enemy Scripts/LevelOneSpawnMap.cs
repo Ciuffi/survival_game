@@ -134,8 +134,6 @@ public class LevelOneSpawnMap : EnemySpawnMap
         spawnMaps.Add(wave6);
 		spawnMaps.Add(wave3);
         spawnMaps.Add(wave11);
-		spawnMaps.Add(wave4);
-		spawnMaps.Add(wave5);
 		spawnMaps.Add(wave6);
 		spawnMaps.Add(wave7);
 		spawnMaps.Add(wave8);
@@ -157,6 +155,8 @@ public class LevelOneSpawnMap : EnemySpawnMap
         spawnMaps.Add(wave8);
         spawnMaps.Add(wave4);
         spawnMaps.Add(wave11);
+        spawnMaps.Add(wave10);
+        spawnMaps.Add(wave9);
         spawnMaps.Add(wave7);
         spawnMaps.Add(wave11);
         spawnMaps.Add(wave8);
@@ -182,7 +182,6 @@ public class LevelOneSpawnMap : EnemySpawnMap
         spawnMaps.Add(wave5);
         spawnMaps.Add(wave7);
         spawnMaps.Add(wave6);
-		spawnMaps.Add(wave10);
         spawnMaps.Add(wave9);
 
  		spawnMaps.Add(wave3);
@@ -195,6 +194,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         spawnMaps.Add(wave5);
         spawnMaps.Add(wave6);
         spawnMaps.Add(wave9);
+        spawnMaps.Add(wave10);
         spawnMaps.Add(wave7);
         spawnMaps.Add(wave6);
 		spawnMaps.Add(wave9);

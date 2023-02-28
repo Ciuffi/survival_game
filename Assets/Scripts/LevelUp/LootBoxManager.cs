@@ -179,6 +179,13 @@ public class LootBoxManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (RerollBtn != null)
+        {
+            RerollBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll " + "(" + RerollBtn.GetComponent<RollSwapHandler>().currentReroll.ToString() + ")";
+        }
+        if (SwapBtn != null)
+        {
+            SwapBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Swap " + "(" + SwapBtn.GetComponent<RollSwapHandler>().currentSwap.ToString() + ")";
+        }
     }
 }

@@ -245,7 +245,7 @@ MonoBehaviour:
   weapons: []
   stats: []
   upgrades: []
-  isWeapon: 1
+  isWeapon: 0
   RerollBtn: {fileID: 0}
   SwapBtn: {fileID: 0}
   TimelineManager: {fileID: 0}
@@ -378,10 +378,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2173fc19cd9964080aa34817ab1d0075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - {fileID: 1423453834646843868, guid: d457e7d81ba072d4ca15118c0815c12a, type: 3}
+  - {fileID: 1423453834646843868, guid: 3f90fb51a2a0dcd4ea8f32d1ad767696, type: 3}
+  - {fileID: 1423453834646843868, guid: 1dfc899769fc4ea4cbe499622cd6d295, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
+  - {fileID: 1423453834646843868, guid: 97cab01dcd4695d40ad6b0f465c2e76c, type: 3}
   diameter: 15
   spawnRate: 1
-  scaleRateSeconds: 6
+  scaleRateSeconds: 45
   spawnRateScaling: 1
   spawnTimer: 3
 --- !u!1 &6301032241555800557

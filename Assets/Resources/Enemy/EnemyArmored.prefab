@@ -112,7 +112,7 @@ MonoBehaviour:
   health: 30
   maxHealth: 0
   xpAmount: 30
-  weight: 20
+  weight: 25
   stopDistanceMin: 0.2
   stopDistanceMax: 0.5
   moveDistanceCheck: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 0.4
+  maxSpeed: 0.3
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

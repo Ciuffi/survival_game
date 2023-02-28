@@ -104,7 +104,7 @@ public class LevelUpManager : MonoBehaviour
         else
         { 
             upgrades = new List<GameObject>(stats);
-            isWeapon = true;
+            //isWeapon = true;
 
             //create weighting later
             upgradeWindows.ForEach((u) =>
@@ -196,6 +196,10 @@ public class LevelUpManager : MonoBehaviour
         if (RerollBtn != null)
         {
             RerollBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll " + "(" + RerollBtn.GetComponent<RollSwapHandler>().currentReroll.ToString() + ")";
+        }
+        if (SwapBtn != null)
+        {
+            SwapBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Swap " + "(" + SwapBtn.GetComponent<RollSwapHandler>().currentSwap.ToString() + ")";
         }
     }
 }

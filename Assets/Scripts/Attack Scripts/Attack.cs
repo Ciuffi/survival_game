@@ -222,9 +222,9 @@ public class Attack : MonoBehaviour, Upgrade
             shotsPerAttack = 1;
         }
         shotsPerAttackMelee = OGshotsPerAttackMelee + Player.GetComponent<StatsHandler>().shotsPerAttackMelee;
-        if (shotsPerAttackMelee <= 0)
+        if (shotsPerAttackMelee < 0)
         {
-            shotsPerAttackMelee = 1;
+            shotsPerAttackMelee = 0;
         }
         comboLength = OGcomboLength + Player.GetComponent<StatsHandler>().meleeComboLength;
         if (comboLength <= 0)
@@ -686,7 +686,7 @@ public class Attack : MonoBehaviour, Upgrade
             float perAttackScaling = 1 + (comboAttackBuff * i);
 
             //chain spawn 
-            for (int c = 0; c < shotsPerAttackMelee; c++)
+            for (int c = 0; c < shotsPerAttackMelee + 1; c++)
             {
                 Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
 

@@ -152,12 +152,12 @@ MonoBehaviour:
   flashDuration: 0.1
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   projectilePrefab: {fileID: 4235860010000021921, guid: 0ac30ad3592e0eb4282d64a074a6ed34, type: 3}
-  attackRange: 4
-  shootChargeTime: 2
+  attackRange: 3.5
+  shootChargeTime: 1.5
   projectileSpeed: 0
   projectileRange: 0
   projectileDamage: 6
-  shootRecovery: 5
+  shootRecovery: 4.5
   AOEPrefab: {fileID: 4235860010000021921, guid: 4a0d9405c86f5ce46bd466561185c745, type: 3}
   dangerSign: {fileID: 5189165830211085352}
   isStunned: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 0.9
+  maxSpeed: 0.7
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

@@ -154,7 +154,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4235860010000021921, guid: 0ac30ad3592e0eb4282d64a074a6ed34, type: 3}
   attackRange: 6
   shootChargeTime: 1.25
-  projectileSpeed: 2
+  projectileSpeed: 1.5
   projectileRange: 12
   projectileDamage: 5
   shootRecovery: 2
@@ -293,7 +293,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 0.9
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

@@ -185,7 +185,6 @@ public class StatsHandler : MonoBehaviour
             spriteRend.material = newMaterial;
 			resetMaterial = true;
             healthBar.fillRect.GetComponent<Image>().color = Color.red;
-
             Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
 
             healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
@@ -417,5 +416,12 @@ public class StatsHandler : MonoBehaviour
         // Return the game objects in the prefab
         return gameObjects.ToArray();
     }
+
+    public float GetPlayerHpPercent()
+    {
+        return (float)health / maxHealth;
+    }
+
+
 }
 

@@ -474,7 +474,7 @@ public class Enemy : MonoBehaviour, Attacker
                         canAttack = false;
                         StopMoving();
                         animator.SetBool("IsMoving", false);
-                        StartCoroutine(RangedAOEAttack());
+                        StartCoroutine(RangedAOEAttack(gameObject));
                     }
 
                     if (recovering && !canAttack)
@@ -533,7 +533,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     }
 
-    IEnumerator RangedAOEAttack()
+    IEnumerator RangedAOEAttack(GameObject caster)
     {
         StopMoving();
         animator.SetBool("IsMoving", false);
@@ -544,7 +544,7 @@ public class Enemy : MonoBehaviour, Attacker
       
         AOE.GetComponent<EnemyAOEProjectile>().damage = projectileDamage;
         AOE.GetComponent<EnemyAOEProjectile>().AOEChargeTime = shootChargeTime;
-
+        AOE.GetComponent<EnemyAOEProjectile>().caster = caster;
 
         yield return new WaitForSeconds(shootChargeTime - 0.09f);
         animator.SetBool("FollowThrough", true);

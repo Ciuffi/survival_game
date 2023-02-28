@@ -79,7 +79,7 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
 
     public void setActive()
     {
-        LevelUp.GetComponent<RerollHandler>().resetSwap();
+        //LevelUp.GetComponent<RerollHandler>().resetSwap();
         gameObject.SetActive(true);
     }
 
