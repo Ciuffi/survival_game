@@ -179,4 +179,4 @@ MonoBehaviour:
   slowPercentage: 0.5
   slowDuration: 2
   isStun: 1
-  stunDuration: 6
+  stunDuration: 5

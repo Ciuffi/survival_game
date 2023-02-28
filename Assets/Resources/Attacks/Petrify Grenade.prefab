@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   spread: 0
-  shotgunSpread: 50
+  shotgunSpread: 40
   spray: 0
   sprayThreshold: 0
   castTime: 1.75
@@ -54,7 +54,7 @@ MonoBehaviour:
   recoveryTime: 0
   range: 2
   rangeUP: 3
-  shotsPerAttack: 2
+  shotsPerAttack: 3
   shotsPerAttackMelee: 0
   cantMove: 0
   speed: 0.1

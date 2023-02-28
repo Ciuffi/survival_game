@@ -56,11 +56,15 @@ public class ConstantSpawner : MonoBehaviour
 
         // Instantiate the enemy at the spawn position
         Instantiate (enemyPrefab, (Vector2) transform.position + spawnPosition, Quaternion.identity);
-        enemyPrefab.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
-        enemyPrefab.GetComponent<Enemy>().projectileDamage *= (damageScaling * currentGuilt);
-        enemyPrefab.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
-        enemyPrefab.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
-        enemyPrefab.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
+        if (currentGuilt > 0)
+        {
+            enemyPrefab.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
+            enemyPrefab.GetComponent<Enemy>().projectileDamage *= (damageScaling * currentGuilt);
+            enemyPrefab.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
+            enemyPrefab.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
+            enemyPrefab.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
+        }
+        
     }
 
     // Draw the circle in the editor for easier debugging

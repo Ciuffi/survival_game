@@ -156,7 +156,7 @@ MonoBehaviour:
   magnetDuration: 0
   isSlow: 1
   slowPercentage: 0.3
-  slowDuration: 4
+  slowDuration: 3
   isStun: 0
   stunDuration: 0.5
 --- !u!50 &-2823286280073615893
