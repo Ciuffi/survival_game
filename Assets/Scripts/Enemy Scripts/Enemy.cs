@@ -130,8 +130,7 @@ public class Enemy : MonoBehaviour, Attacker
     public bool isStunned = false;
     private float stunTimer;
     public Color stunColor;
-
-
+    public GameObject shadow;
 
     // Start is called before the first frame update
     void Start()
@@ -208,18 +207,25 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (health <= 0)
         {
+            canMove = false;
+
             animator.SetBool("IsDead", true);
             SetAllCollidersStatus(false);
 
             color = Sprite.GetComponent<SpriteRenderer>().color;
             Sprite.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
 
+            if (shadow != null)
+            {
+                shadow.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
+            }
+
+
 
         }
 
         if (health <= 0 && !isDead)
         {
-            
             isDead = true;
             GameObject xpDrop = Instantiate(EXPdrop, center, Quaternion.identity);
             xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
@@ -340,7 +346,7 @@ public class Enemy : MonoBehaviour, Attacker
 
             if (isMelee == true) //melee 
             {
-                animator.SetFloat("Distance", distance);
+                //animator.SetFloat("Distance", distance);
 
                 if (!isDash && !isArmor)
                 {
@@ -599,8 +605,9 @@ public class Enemy : MonoBehaviour, Attacker
             Vector3 modifier = transform.position;
             modifier.x = Random.Range(-0.1f, 0.1f);
             modifier.y = Random.Range(-0.1f, 0.1f);
-
+            
             spriteRend.material = newMaterial;
+            Debug.Log(spriteRend.material);
             if (!resetMaterial)
             {
                 StartCoroutine(ResetMaterial());

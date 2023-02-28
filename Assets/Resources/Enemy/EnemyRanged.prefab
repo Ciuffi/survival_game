@@ -149,7 +149,7 @@ MonoBehaviour:
   canDash: 0
   dashCD: 0
   waitTime: 0
-  flashDuration: 0.1
+  flashDuration: 0.25
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   projectilePrefab: {fileID: 4235860010000021921, guid: 0ac30ad3592e0eb4282d64a074a6ed34, type: 3}
   attackRange: 6
@@ -162,6 +162,7 @@ MonoBehaviour:
   dangerSign: {fileID: 5189165830211085352}
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  shadow: {fileID: 0}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4

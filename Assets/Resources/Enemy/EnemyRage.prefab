@@ -96,7 +96,7 @@ MonoBehaviour:
   canDash: 1
   dashCD: 0
   waitTime: 0
-  flashDuration: 0.1
+  flashDuration: 0.25
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   projectilePrefab: {fileID: 0}
   attackRange: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  shadow: {fileID: 0}
 --- !u!114 &1321576414662445604
 MonoBehaviour:
   m_ObjectHideFlags: 0

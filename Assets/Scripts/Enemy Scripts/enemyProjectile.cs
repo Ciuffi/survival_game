@@ -38,7 +38,7 @@ public class enemyProjectile : MonoBehaviour
         if (col.gameObject == null) return;
         if (col.gameObject.tag == "Player" && Player.GetComponent<StatsHandler>().canDamage == true)
         {
-            Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
+            Instantiate(onHitParticle, transform.position, Quaternion.identity);
             col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
             Destroy(gameObject);
         }
