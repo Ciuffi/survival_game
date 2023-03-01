@@ -58,7 +58,7 @@ MonoBehaviour:
   damage: 4
   health: 80
   maxHealth: 0
-  xpAmount: 18
+  xpAmount: 20
   weight: 5
   stopDistanceMin: 0.2
   stopDistanceMax: 0.2
@@ -341,7 +341,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 336606855
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.20392157}
@@ -477,7 +477,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 336606855
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: -3972794921605716158, guid: 0a1cfd16a92d03b4a9fb1406f1525e5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

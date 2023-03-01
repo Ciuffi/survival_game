@@ -8914,7 +8914,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1602682635
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -2012959645, guid: d7baced0b1becbb438c4f49e840ca663, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17343,11 +17343,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboCount: 11
   spawner: {fileID: 1517156281}
-  guiltThreshold1: 50
-  guiltThreshold2: 200
-  guiltThreshold3: 300
-  guiltThreshold4: 500
-  guiltThreshold5: 666
+  guiltThreshold1: 100
+  guiltThreshold2: 300
+  guiltThreshold3: 600
+  guiltThreshold4: 800
+  guiltThreshold5: 1000
   guiltColor1: {r: 0.16981131, g: 0.09211462, b: 0.09211462, a: 1}
   guiltColor2: {r: 0.3207547, g: 0.07716268, b: 0.07716268, a: 1}
   guiltColor3: {r: 0.5377358, g: 0.043120332, b: 0.043120332, a: 1}

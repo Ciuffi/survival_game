@@ -58,7 +58,7 @@ MonoBehaviour:
   damage: 3
   health: 200
   maxHealth: 0
-  xpAmount: 20
+  xpAmount: 25
   weight: 8
   stopDistanceMin: 0.2
   stopDistanceMax: 0.2

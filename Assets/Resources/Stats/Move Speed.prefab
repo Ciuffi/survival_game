@@ -47,7 +47,7 @@ MonoBehaviour:
   UiIcon: {fileID: 21300000, guid: 4568ba069c897254daee27a21bc6d07d, type: 3}
   extraHealth: 0
   extraMaxHealth: 0
-  extraSpeed: 0.008
+  extraSpeed: 0.009
   extraDamageMultipler: 0
   extraDefense: 0
   extraShield: 0

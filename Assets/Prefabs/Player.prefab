@@ -162,7 +162,10 @@ MonoBehaviour:
   initialDelay: 120
   spawnTimer: 120
   spawnRate: 1
-  scaleRateSeconds: 60
+  spawnRateLimit_G1: 1
+  spawnRateLimit_G3: 1
+  spawnRateLimit_G4: 2
+  scaleRateSeconds: 240
   spawnRateScaling: 0
   basicSpawner: {fileID: 0}
 --- !u!1 &1364449501376764899
@@ -447,9 +450,12 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
   diameter: 15
   initialDelay: 0
-  spawnTimer: 2
+  spawnTimer: 3
   spawnRate: 2
-  scaleRateSeconds: 45
+  spawnRateLimit_G1: 4
+  spawnRateLimit_G3: 6
+  spawnRateLimit_G4: 8
+  scaleRateSeconds: 90
   spawnRateScaling: 1
   basicSpawner: {fileID: 0}
 --- !u!1 &5842482141046252549
@@ -497,17 +503,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: 25f3ff65bfdfc9a469ce25ee755bf618, type: 3}
   - {fileID: 1423453834646843868, guid: 7252c597ddc35604caad5bf2eabb00eb, type: 3}
-  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+  - {fileID: 1423453834646843868, guid: 25f3ff65bfdfc9a469ce25ee755bf618, type: 3}
+  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
+  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
   - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
-  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
-  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
+  - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
+  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
   diameter: 16
   initialDelay: 30
-  spawnTimer: 5
+  spawnTimer: 10
   spawnRate: 1
-  scaleRateSeconds: 60
+  spawnRateLimit_G1: 1
+  spawnRateLimit_G3: 2
+  spawnRateLimit_G4: 4
+  scaleRateSeconds: 90
   spawnRateScaling: 1
   basicSpawner: {fileID: 0}
 --- !u!1 &6301032241555800557
@@ -804,14 +817,19 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: 1e9d2bcac89fb044e95f1ec7e14308ab, type: 3}
   - {fileID: 1423453834646843868, guid: 617b961231dd1f6428482cbd982f736a, type: 3}
   - {fileID: 1423453834646843868, guid: 2b60050c318efa24385bf6be1d8da3c5, type: 3}
+  - {fileID: 1423453834646843868, guid: 2b60050c318efa24385bf6be1d8da3c5, type: 3}
+  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
+  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
   - {fileID: 1423453834646843868, guid: e3ac25b16635f49498eeb787e037c6d6, type: 3}
-  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
-  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
+  - {fileID: 1423453834646843868, guid: e3ac25b16635f49498eeb787e037c6d6, type: 3}
   diameter: 17
-  initialDelay: 60
-  spawnTimer: 15
+  initialDelay: 120
+  spawnTimer: 30
   spawnRate: 1
-  scaleRateSeconds: 90
+  spawnRateLimit_G1: 1
+  spawnRateLimit_G3: 2
+  spawnRateLimit_G4: 3
+  scaleRateSeconds: 120
   spawnRateScaling: 1
   basicSpawner: {fileID: 0}
 --- !u!1 &9136689211427610680

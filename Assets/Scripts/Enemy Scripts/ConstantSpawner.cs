@@ -11,6 +11,11 @@ public class ConstantSpawner : MonoBehaviour
     public float spawnTimer = 0f;
 
     public float spawnRate = 1f;
+    private int spawnRateLimit;
+    public int spawnRateLimit_G1 = 3;
+    public int spawnRateLimit_G3 = 4;
+    public int spawnRateLimit_G4 = 5;
+
     public float scaleRateSeconds = 10f;
     public int spawnRateScaling = 1;
 
@@ -32,7 +37,10 @@ public class ConstantSpawner : MonoBehaviour
             // Check if it's time to increase spawn rate
             if (elapsedTime >= scaleRateSeconds)
             {
-                spawnRate += spawnRateScaling;
+                if (spawnRate < spawnRateLimit)
+                {
+                    spawnRate += spawnRateScaling;
+                }
                 elapsedTime = 0f;
             }
 
@@ -61,19 +69,31 @@ public class ConstantSpawner : MonoBehaviour
         damageScaling = basicSpawner.GetComponent<BasicSpawner>().damageScaling;
         xpScaling = basicSpawner.GetComponent<BasicSpawner>().xpScaling;
 
+        if (currentGuilt == 1)
+        {
+            spawnRateLimit = spawnRateLimit_G1;
+        } else if (currentGuilt == 3)
+        {
+            spawnRateLimit = spawnRateLimit_G3;
+        } else if (currentGuilt == 4)
+        {
+            spawnRateLimit = spawnRateLimit_G4;
+        }
+
+
     }
 
     // Spawn enemies along the edge of the circle
     void SpawnEnemies () {
 
         // Pick a random enemy prefab from the list
-        GameObject enemyPrefab = enemies[Random.Range (0, enemies.Count)];
+        GameObject enemyPrefab = enemies[Random.Range(0, enemies.Count)];
 
         // Pick a random point along the edge of the circle
         Vector2 spawnPosition = Random.insideUnitCircle.normalized * diameter / 2f;
 
         // Instantiate the enemy at the spawn position
-        Instantiate (enemyPrefab, (Vector2) transform.position + spawnPosition, Quaternion.identity);
+        Instantiate(enemyPrefab, (Vector2)transform.position + spawnPosition, Quaternion.identity);
         if (currentGuilt > 0)
         {
             enemyPrefab.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
@@ -82,13 +102,13 @@ public class ConstantSpawner : MonoBehaviour
             enemyPrefab.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
             enemyPrefab.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
         }
-        
+
     }
 
     // Draw the circle in the editor for easier debugging
     void OnDrawGizmosSelected () {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere (transform.position, diameter / 2f);
+        Gizmos.DrawWireSphere(transform.position, diameter / 2f);
     }
 
 }

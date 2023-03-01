@@ -68,5 +68,5 @@ MonoBehaviour:
   extraRangeMultiplier: 0
   extraPickupRange: 0
   extraProjectileSizeMultiplier: 0
-  extraMeleeSizeMultiplier: 0.2
+  extraMeleeSizeMultiplier: 0.3
   shootOppositeSide: 0

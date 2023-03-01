@@ -51,10 +51,13 @@ MonoBehaviour:
   extraDamageMultipler: 0
   extraDefense: 0
   extraShield: 0
-  extraCritChance: 0.25
+  extraCritChance: 0.3
   extraCritDmg: 0
   extraShotsPerAttack: 0
+  extraShotsPerAttackMelee: 0
   extraMeleeComboLength: 0
+  extraSpreadMultiplier: 0
+  extraShotgunSpread: 0
   extraMulticastChance: 0
   extraCastTimeMultiplier: 0
   extraProjectileSpeedMultiplier: 0

@@ -55,8 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   speed: 0.035
-  pickupRange: 1.5
-  damageMultiplier: 0.6
+  pickupRange: 2
+  damageMultiplier: 1
   critChance: 0
   critDmg: 0
   defense: -2
@@ -67,7 +67,7 @@ MonoBehaviour:
   multicastChance: 0
   shotgunSpread: 0
   spreadMultiplier: 1
-  castTimeMultiplier: 1
+  castTimeMultiplier: 1.2
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
