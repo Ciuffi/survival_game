@@ -55,11 +55,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 55
   speed: 0.033
-  pickupRange: 1.5
+  pickupRange: 3
   damageMultiplier: 1
   critChance: 0
   critDmg: 0
-  defense: 0
+  defense: 1
   shield: 0
   shotsPerAttack: 0
   shotsPerAttackMelee: 0

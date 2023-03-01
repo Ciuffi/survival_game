@@ -57,8 +57,8 @@ MonoBehaviour:
   speed: 0.04
   pickupRange: 1.5
   damageMultiplier: 1
-  critChance: 0.1
-  critDmg: 0
+  critChance: 0.15
+  critDmg: 0.25
   defense: 0
   shield: 0
   shotsPerAttack: 0
@@ -73,8 +73,8 @@ MonoBehaviour:
   rangeMultiplier: 0.25
   knockbackMultiplier: 1
   thrownDamageMultiplier: 1
-  thrownSpeedMultiplier: 1
-  projectileSizeMultiplier: 0.5
+  thrownSpeedMultiplier: 1.2
+  projectileSizeMultiplier: 0.6
   meleeSizeMultiplier: 1
   shootOpposideSide: 0
   startingWeapons:

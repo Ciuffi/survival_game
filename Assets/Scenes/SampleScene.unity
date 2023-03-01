@@ -9510,6 +9510,10 @@ PrefabInstance:
       propertyPath: spawnRateLimit_G0
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4097361229217368469, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -9532,18 +9536,26 @@ PrefabInstance:
       objectReference: {fileID: 1537696376}
     - target: {fileID: 5559672820335209276, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: spawnTimer
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5559672820335209276, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: basicSpawner
       value: 
       objectReference: {fileID: 1517156281}
     - target: {fileID: 5559672820335209276, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: initialDelay
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559672820335209276, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: scaleRateSeconds
       value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 5559672820335209276, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: spawnRateLimit_G0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842482141046252549, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7352463173102318213, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
