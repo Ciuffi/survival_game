@@ -122,9 +122,9 @@ MonoBehaviour:
   playerShakeRotation: 0.05
   damageTickDuration: 1.5
   isThrown: 0
-  isHover: 1
+  isHover: 0
   hoverTimer: 1.5
-  hitFirstEnemy: 1
+  hitFirstEnemy: 0
   isAnimated: 0
   isMagnet: 0
   magnetStrength: 0

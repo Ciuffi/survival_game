@@ -48,7 +48,7 @@ MonoBehaviour:
   extraHealth: 0
   extraMaxHealth: 0
   extraSpeed: 0
-  extraDamageMultipler: 0.4
+  extraDamageMultipler: 0.5
   extraDefense: 0
   extraShield: 0
   extraCritChance: 0
