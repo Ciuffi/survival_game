@@ -12,6 +12,7 @@ public class ConstantSpawner : MonoBehaviour
 
     public float spawnRate = 1f;
     private int spawnRateLimit;
+    public int spawnRateLimit_G0 = 2;
     public int spawnRateLimit_G1 = 3;
     public int spawnRateLimit_G3 = 4;
     public int spawnRateLimit_G4 = 5;
@@ -69,7 +70,10 @@ public class ConstantSpawner : MonoBehaviour
         damageScaling = basicSpawner.GetComponent<BasicSpawner>().damageScaling;
         xpScaling = basicSpawner.GetComponent<BasicSpawner>().xpScaling;
 
-        if (currentGuilt == 1)
+        if (currentGuilt == 0)
+        {
+            spawnRateLimit = spawnRateLimit_G0;
+        } else if (currentGuilt == 1)
         {
             spawnRateLimit = spawnRateLimit_G1;
         } else if (currentGuilt == 3)

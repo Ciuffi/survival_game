@@ -9491,9 +9491,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3890435450056343299, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spawnTimer
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890435450056343299, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: basicSpawner
       value: 
       objectReference: {fileID: 1517156281}
+    - target: {fileID: 3890435450056343299, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: initialDelay
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890435450056343299, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890435450056343299, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spawnRateLimit_G0
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -9515,13 +9531,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1537696376}
     - target: {fileID: 5559672820335209276, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spawnTimer
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559672820335209276, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: basicSpawner
       value: 
       objectReference: {fileID: 1517156281}
+    - target: {fileID: 5559672820335209276, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559672820335209276, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spawnRateLimit_G0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352463173102318213, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spawnTimer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7352463173102318213, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: basicSpawner
       value: 
       objectReference: {fileID: 1517156281}
+    - target: {fileID: 7352463173102318213, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: spawnRateLimit_G0
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7893436220127190815, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SwapBtn
       value: 
@@ -9538,6 +9574,10 @@ PrefabInstance:
       propertyPath: basicSpawner
       value: 
       objectReference: {fileID: 1517156281}
+    - target: {fileID: 7946484064487538779, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
       value: 
@@ -17154,6 +17194,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1562854927}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: xpScaling
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 519420031}
@@ -17327,7 +17371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboCount: 11
   spawner: {fileID: 1517156281}
-  guiltThreshold1: 20
+  guiltThreshold1: 150
   guiltThreshold2: 300
   guiltThreshold3: 600
   guiltThreshold4: 800
