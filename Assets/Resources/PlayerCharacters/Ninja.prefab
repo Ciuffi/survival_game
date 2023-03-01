@@ -59,7 +59,7 @@ MonoBehaviour:
   damageMultiplier: 1
   critChance: 0
   critDmg: 0
-  defense: -2
+  defense: -1
   shield: 0
   shotsPerAttack: 0
   shotsPerAttackMelee: 1
@@ -71,11 +71,11 @@ MonoBehaviour:
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1.3
   rangeMultiplier: 0.8
-  knockbackMultiplier: 0.8
+  knockbackMultiplier: 1
   thrownDamageMultiplier: 2
   thrownSpeedMultiplier: 1
   projectileSizeMultiplier: 1.3
-  meleeSizeMultiplier: 1
+  meleeSizeMultiplier: 0.8
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: 5cd3c9de7a1fe684ca7332c1c0ab9bd2, type: 3}

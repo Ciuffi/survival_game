@@ -7,11 +7,14 @@ public class ConstantSpawner : MonoBehaviour
     // Public variables that can be adjusted in the inspector
     public List<GameObject> enemies;
     public float diameter = 10f;
+    public float initialDelay;
+    public float spawnTimer = 0f;
+
     public float spawnRate = 1f;
     public float scaleRateSeconds = 10f;
     public int spawnRateScaling = 1;
 
-    public float spawnTimer = 0f;
+    private bool delayFinished;
     private float elapsedTime = 0f;
     public GameObject basicSpawner;
 
@@ -21,20 +24,35 @@ public class ConstantSpawner : MonoBehaviour
     // Update is called once per frame
     void Update () {
 
-        // Increase elapsed time
-        elapsedTime += Time.deltaTime;
+        // Increment elapsed time if initial delay is complete
+        if (delayFinished)
+        {
+            elapsedTime += Time.deltaTime;
 
-        // Check if it's time to increase spawn rate
-        if (elapsedTime >= scaleRateSeconds) {
-            spawnRate += spawnRateScaling;
-            elapsedTime = 0f;
+            // Check if it's time to increase spawn rate
+            if (elapsedTime >= scaleRateSeconds)
+            {
+                spawnRate += spawnRateScaling;
+                elapsedTime = 0f;
+            }
+
+            // Check if it's time to spawn enemies
+            spawnTimer -= Time.deltaTime;
+            if (spawnTimer <= 0f)
+            {
+                SpawnEnemies();
+                spawnTimer = 1f / spawnRate;
+            }
         }
-
-        // Check if it's time to spawn enemies
-        spawnTimer -= Time.deltaTime;
-        if (spawnTimer <= 0f) {
-            SpawnEnemies ();
-            spawnTimer = 1f / spawnRate;
+        else
+        {
+            // Wait for initial delay to complete
+            initialDelay -= Time.deltaTime;
+            if (initialDelay <= 0f)
+            {
+                delayFinished = true;
+                spawnTimer = 1f / spawnRate;
+            }
         }
 
         currentGuilt = basicSpawner.GetComponent<BasicSpawner>().currentGuilt;

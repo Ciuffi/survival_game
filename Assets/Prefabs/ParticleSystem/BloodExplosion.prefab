@@ -628,7 +628,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 5
-      minScalar: 4
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2700,7 +2700,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxis: 0
     inWorldSpace: 0
-    multiplyDragByParticleSize: 0
+    multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 1
     dampen: 0.3
     drag:

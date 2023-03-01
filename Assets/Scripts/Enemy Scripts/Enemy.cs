@@ -18,8 +18,8 @@ public class Enemy : MonoBehaviour, Attacker
     public float maxHealth;
     public float xpAmount;
     public float weight; //for knockback
-    private float magnetWeightThreshold = 11f;
-    private float magnetWeightEffect = 0.5f;
+    private float magnetWeightThreshold = 20f;
+    private float magnetWeightEffect = 0.6f;
     private float newSpeed;
 
     float stopDistance;
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour, Attacker
     public bool isAOE;
     public bool isArmor;
     private float armorTimer;
-    private float armorTime;
+    public float armorTime;
     public float armorPercent; //percentile damage reduction between 0 (no reduction) and 1 (full block)
     private bool armorOn;
     public float weightIncrease; //increased knockback resistance during armor
@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     private float currentForce;
     private bool duringKnockback;
+    private float knockbackWeight, newKnockbackWeight, oldKnockbackWeight;
 
 
     public bool canDamage;
@@ -131,6 +132,7 @@ public class Enemy : MonoBehaviour, Attacker
     private float stunTimer;
     public Color stunColor;
     public GameObject shadow;
+    Vector3 deathPos;
 
     // Start is called before the first frame update
     void Start()
@@ -143,6 +145,9 @@ public class Enemy : MonoBehaviour, Attacker
         maxHealth = health;
         oldWeight = weight;
         newWeight = weight + weightIncrease;
+        knockbackWeight = weight / 100; //scale weight down for knockback (2 decimal places)
+        oldKnockbackWeight = knockbackWeight;
+        newKnockbackWeight = newWeight / 100;
 
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
 
@@ -157,13 +162,11 @@ public class Enemy : MonoBehaviour, Attacker
 
         defaultMaterial = spriteRend.material;
         dangerRenderer = dangerSign.GetComponent<SpriteRenderer>();
-        armorTime = armorTimer;
 
         speed = aiPath.maxSpeed;
         originalSpeed = speed;
         animSpeed = animator.GetFloat("speed");
         rageSpeed = originalSpeed + rageSpeedMod;
-
 
     }
 
@@ -201,14 +204,24 @@ public class Enemy : MonoBehaviour, Attacker
     void Update()
     {
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        center = GetComponent<SpriteRenderer>().bounds.center;
+        if (health <= 0 && !isDead)
+        {
+            isDead = true;
+            canMove = false;
+            deathPos = transform.position;
+            GameObject xpDrop = Instantiate(EXPdrop, transform.position, Quaternion.identity);
+            xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
+            xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
 
-        
+            Vector3 deathSpawnPos = new Vector3(Random.Range(transform.position.x - 0.1f, transform.position.x + 0.1f), Random.Range(transform.position.y - 0.1f, transform.position.y + 0.1f), transform.position.z);
+            Instantiate(DeathEffect, deathSpawnPos, Quaternion.identity);
+            ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
+            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.1f, 0.1f, 0.1f);
+        }
 
         if (health <= 0)
         {
-            canMove = false;
-
+            transform.position = deathPos;
             animator.SetBool("IsDead", true);
             SetAllCollidersStatus(false);
 
@@ -219,22 +232,6 @@ public class Enemy : MonoBehaviour, Attacker
             {
                 shadow.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
             }
-
-
-
-        }
-
-        if (health <= 0 && !isDead)
-        {
-            isDead = true;
-            GameObject xpDrop = Instantiate(EXPdrop, center, Quaternion.identity);
-            xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
-            xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
-
-            Vector3 deathSpawnPos = new Vector3(Random.Range(center.x - 0.1f, center.x + 0.1f), Random.Range(center.y - 0.1f, center.y + 0.1f), center.z);
-            Instantiate(DeathEffect, deathSpawnPos, Quaternion.identity);
-            ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
-            ComboManager.GetComponent<ScreenShakeController>().StartShake(0.1f, 0.1f, 0.1f);
         }
 
         if (color.a <= 0)
@@ -292,7 +289,7 @@ public class Enemy : MonoBehaviour, Attacker
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
         //rage enemies
-        if (isRage == true)
+        if (isRage)
         {
             if (health / maxHealth <= rageTriggerPercent && !rageTriggered)
             {
@@ -310,8 +307,29 @@ public class Enemy : MonoBehaviour, Attacker
 
         }
 
-        //knockback or stunned - stop enemy actions
-        if (duringKnockback || isStunned)
+        if (armorOn) //currently armored
+        {
+            armorTimer += Time.deltaTime;
+            //Debug.Log(armorTime);
+
+            animator.SetBool("IsArmored", true);
+            StopMoving();
+            weight = newWeight;
+            knockbackWeight = newKnockbackWeight;
+
+            if (armorTimer > armorTime)
+            {
+                animator.SetBool("IsArmored", false);
+                StartMoving();
+                weight = oldWeight;
+                knockbackWeight = oldKnockbackWeight;
+                armorOn = false;
+                armorTimer = 0;
+            }
+        }
+
+            //knockback or stunned - stop enemy actions
+            if (duringKnockback || isStunned)
         {
             StopMoving();
             animator.speed = 0f;
@@ -327,9 +345,14 @@ public class Enemy : MonoBehaviour, Attacker
                 StartMoving();
             }
 
-            //knockback
+            //knockback            
             currentForce = EasingFunction.EaseOutExpo(currentForce, 0,  Time.deltaTime);
-            transform.position += knockDirection * (currentForce - (currentForce - weight >= 0 ? weight : 0));
+            
+            float forceToApply = Mathf.Max(currentForce - knockbackWeight, 0);
+            currentForce = (currentForce > knockbackWeight) ? forceToApply : 0f;
+            transform.position += knockDirection * forceToApply;
+            //Debug.Log(forceToApply);
+
             if (currentForce < 0.1) //knockback over
             {
                 duringKnockback = false;
@@ -366,25 +389,6 @@ public class Enemy : MonoBehaviour, Attacker
                 }
                 else if (!isDash && isArmor) //armored enemies
                 {
-
-                    if (armorOn) //currently armored
-                    {
-                        animator.SetBool("IsArmored", true);
-                        StopMoving();
-                        armorTime -= Time.deltaTime;
-                        weight = newWeight;
-
-                        if (armorTime <= 0)
-                        {
-                            animator.SetBool("IsArmored", false);
-                            StartMoving();
-                            weight = oldWeight;
-                            armorOn = false;
-                            armorTime = armorTimer;
-                        }
-                    }
-                    else //walk to enemy
-                    {
                         if (distance <= stopDistance)
                         {
                             StopMoving();
@@ -397,7 +401,6 @@ public class Enemy : MonoBehaviour, Attacker
                             StartMoving();
                             animator.SetBool("IsMoving", true);
                         }
-                    }
                 }
 
                 else if (isDash && !isArmor) // does dash
@@ -516,6 +519,7 @@ public class Enemy : MonoBehaviour, Attacker
     IEnumerator ProjectileAttack()
     {
         StopMoving();
+        Sprite.GetComponent<SpriteChargeUpAnim>().ChargeUpColorChange(shootChargeTime);
         animator.SetBool("IsMoving", false);
         animator.SetBool("IsAttacking", true);
         dangerRenderer.enabled = true;
@@ -528,6 +532,12 @@ public class Enemy : MonoBehaviour, Attacker
 
         Vector3 direction = player.transform.position - transform.position;
         direction.Normalize();
+
+        // Calculate the angle of rotation using the direction vector
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        // Rotate the projectile to face the correct direction
+        projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         projectile.GetComponent<enemyProjectile>().direction = direction;
         projectile.GetComponent<enemyProjectile>().speed = projectileSpeed;
         projectile.GetComponent<enemyProjectile>().maxRange = projectileRange;
@@ -542,6 +552,7 @@ public class Enemy : MonoBehaviour, Attacker
     IEnumerator RangedAOEAttack(GameObject caster)
     {
         StopMoving();
+        Sprite.GetComponent<SpriteChargeUpAnim>().ChargeUpColorChange(shootChargeTime);
         animator.SetBool("IsMoving", false);
         animator.SetBool("IsAttacking", true);
         dangerRenderer.enabled = true;
@@ -607,7 +618,7 @@ public class Enemy : MonoBehaviour, Attacker
             modifier.y = Random.Range(-0.1f, 0.1f);
             
             spriteRend.material = newMaterial;
-            Debug.Log(spriteRend.material);
+            //Debug.Log(spriteRend.material);
             if (!resetMaterial)
             {
                 StartCoroutine(ResetMaterial());

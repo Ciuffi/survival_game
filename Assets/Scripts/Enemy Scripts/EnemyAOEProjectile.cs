@@ -23,7 +23,7 @@ public class EnemyAOEProjectile : MonoBehaviour
     private bool startupPhase = true;
     private bool activePhase = false;
     private bool recoveryPhase = false;
-    private GameObject spriteObject;
+    public GameObject spriteFill;
     private GameObject newSpriteObject;
     private Vector3 originalScale;
 
@@ -37,13 +37,12 @@ public class EnemyAOEProjectile : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
 
         currentTimer = AOEChargeTime;
-        spriteObject = transform.GetChild(0).gameObject;
-        originalScale = spriteObject.transform.localScale;
+        originalScale = spriteFill.transform.localScale;
 
-        newSpriteObject = Instantiate(spriteObject, transform.position, Quaternion.identity, transform);
+        newSpriteObject = Instantiate(spriteFill, transform.position, Quaternion.identity, transform);
         newSpriteObject.transform.parent = transform;
         newSpriteObject.transform.localScale = new Vector3(0, 0, 0);
-        newSpriteObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0.2f, 0.35f);
+        newSpriteObject.GetComponent<SpriteRenderer>().color *= new Color(1, 0, 0.2f, 0.30f);
         newSpriteObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
     }
@@ -101,7 +100,7 @@ public class EnemyAOEProjectile : MonoBehaviour
     {
         if (col.gameObject.tag == ("Player") && activePhase)
         {
-            Debug.Log("woo");
+            //Debug.Log("woo");
             col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
         }
     }

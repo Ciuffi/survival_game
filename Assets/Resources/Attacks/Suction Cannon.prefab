@@ -45,28 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  damageUP: 3
   spread: 0.7
-  spreadUP: 0.5
+  shotgunSpread: 0
   spray: 2
   sprayThreshold: 1
   castTime: 3
-  castTimeUP: 2.5
   attackTime: 0
   recoveryTime: 0
-  recoveryTimeUp: 0
   range: 6
   rangeUP: 7
   shotsPerAttack: 1
-  shotsPerAttackUP: 2
   shotsPerAttackMelee: 0
   cantMove: 0
   speed: 0.0075
-  speedUP: 0.01
   knockback: 0
-  knockbackUP: 0
   pierce: 999
-  pierceUP: 999
   critChance: 0.05
   critDmg: 2
   shootOpppositeSide: 0

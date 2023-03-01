@@ -1076,7 +1076,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1008
         y: 286
-        width: 168
+        width: 164
         height: 136
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1118,7 +1118,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1344
         y: 286
-        width: 168
+        width: 166
         height: 136
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2062,8 +2062,8 @@ TextureImporter:
       monster_01_43: 7078604683032559932
       monster_01_20: -5254357919307980209
       monster_01_30: -7689839472028057338
-      monster_01_11: -3906145323577185318
       monster_01_8: 9144946786812302637
+      monster_01_11: -3906145323577185318
       monster_01_46: 5506187513038245408
       monster_01_22: 5488036365095005198
       monster_01_63: 1832614565
