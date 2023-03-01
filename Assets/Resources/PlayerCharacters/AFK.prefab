@@ -71,7 +71,7 @@ MonoBehaviour:
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
-  knockbackMultiplier: 1.5
+  knockbackMultiplier: 1.2
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
   projectileSizeMultiplier: 1.2

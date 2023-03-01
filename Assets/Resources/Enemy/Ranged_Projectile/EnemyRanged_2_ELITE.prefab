@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7013586690032072450}
@@ -100,7 +100,7 @@ MonoBehaviour:
   waitTime: 0
   flashDuration: 0.25
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
-  projectilePrefab: {fileID: 1509856878078853610, guid: eb3a09f6a3eccc94790d84902cadcacb, type: 3}
+  projectilePrefab: {fileID: 6915753770271991320, guid: ba515cfd54e3a4e1b848eeb0d0d2f5d9, type: 3}
   attackRange: 5.5
   shootChargeTime: 1.5
   projectileSpeed: 1.75
