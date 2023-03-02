@@ -73,7 +73,7 @@ MonoBehaviour:
   rangeMultiplier: 0.5
   knockbackMultiplier: 0.5
   thrownDamageMultiplier: 1
-  thrownSpeedMultiplier: 1
+  thrownSpeedMultiplier: 3
   projectileSizeMultiplier: 1.5
   meleeSizeMultiplier: 1
   shootOpposideSide: 0

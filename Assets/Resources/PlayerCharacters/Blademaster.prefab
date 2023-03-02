@@ -57,7 +57,7 @@ MonoBehaviour:
   speed: 0.04
   pickupRange: 1.5
   damageMultiplier: 1
-  critChance: 0.15
+  critChance: 0.1
   critDmg: 0.25
   defense: 0
   shield: 0
@@ -69,8 +69,8 @@ MonoBehaviour:
   spreadMultiplier: 1
   castTimeMultiplier: 1
   meleeWaitTimeMultiplier: 0.6
-  projectileSpeedMultiplier: 0.25
-  rangeMultiplier: 0.25
+  projectileSpeedMultiplier: 0.4
+  rangeMultiplier: 0.3
   knockbackMultiplier: 1
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1.2

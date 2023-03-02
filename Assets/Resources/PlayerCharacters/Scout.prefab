@@ -58,7 +58,7 @@ MonoBehaviour:
   pickupRange: 2.5
   damageMultiplier: 1
   critChance: 0.05
-  critDmg: 0.1
+  critDmg: 0.2
   defense: 0
   shield: 0
   shotsPerAttack: 0
