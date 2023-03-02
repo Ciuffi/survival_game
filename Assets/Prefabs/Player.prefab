@@ -62,7 +62,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9136689211427610630}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1007190628
 BoxCollider2D:
@@ -159,14 +159,74 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: 6349e5fb12c6ddf4abc375fe7b730287, type: 3}
   - {fileID: 1423453834646843868, guid: 90802e0d6d82bfa40adbcd872a507abb, type: 3}
   diameter: 16
-  initialDelay: 240
-  spawnTimer: 240
+  initialDelay: 300
+  spawnTimer: 300
   spawnRate: 1
+  spawnRateLimit_G0: 1
   spawnRateLimit_G1: 1
   spawnRateLimit_G3: 1
   spawnRateLimit_G4: 1
-  scaleRateSeconds: 240
+  scaleRateSeconds: 300
   spawnRateScaling: 0
+  elapsedTime: 0
+  basicSpawner: {fileID: 0}
+--- !u!1 &1153039977566848756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7057741953727278608}
+  - component: {fileID: 5117216392859450048}
+  m_Layer: 0
+  m_Name: ConstantSpawner_Circle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7057741953727278608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153039977566848756}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.06342275, z: 0}
+  m_LocalScale: {x: 2.857143, y: -2.857143, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9136689211427610630}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5117216392859450048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153039977566848756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2173fc19cd9964080aa34817ab1d0075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
+  diameter: 15
+  initialDelay: 60
+  spawnTimer: 60
+  spawnRate: 15
+  spawnRateLimit_G0: 15
+  spawnRateLimit_G1: 20
+  spawnRateLimit_G3: 25
+  spawnRateLimit_G4: 30
+  scaleRateSeconds: 10
+  spawnRateScaling: 1
+  elapsedTime: 0
   basicSpawner: {fileID: 0}
 --- !u!1 &1364449501376764899
 GameObject:
@@ -198,7 +258,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9136689211427610630}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5616801709358703483
 SpriteRenderer:
@@ -447,16 +507,17 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: df38c6492d2f8e14ab33ca7a5a45db72, type: 3}
   - {fileID: 1423453834646843868, guid: df38c6492d2f8e14ab33ca7a5a45db72, type: 3}
   - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
-  - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
   diameter: 15
   initialDelay: 0
   spawnTimer: 2
   spawnRate: 1
+  spawnRateLimit_G0: 2
   spawnRateLimit_G1: 4
   spawnRateLimit_G3: 6
   spawnRateLimit_G4: 8
-  scaleRateSeconds: 90
+  scaleRateSeconds: 120
   spawnRateScaling: 1
+  elapsedTime: 0
   basicSpawner: {fileID: 0}
 --- !u!1 &5842482141046252549
 GameObject:
@@ -515,13 +576,15 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
   diameter: 15
   initialDelay: 30
-  spawnTimer: 15
+  spawnTimer: 20
   spawnRate: 1
+  spawnRateLimit_G0: 1
   spawnRateLimit_G1: 1
   spawnRateLimit_G3: 2
   spawnRateLimit_G4: 3
   scaleRateSeconds: 150
   spawnRateScaling: 1
+  elapsedTime: 0
   basicSpawner: {fileID: 0}
 --- !u!1 &6301032241555800557
 GameObject:
@@ -822,13 +885,15 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
   diameter: 16
   initialDelay: 60
-  spawnTimer: 40
+  spawnTimer: 60
   spawnRate: 1
+  spawnRateLimit_G0: 1
   spawnRateLimit_G1: 1
   spawnRateLimit_G3: 1
   spawnRateLimit_G4: 2
-  scaleRateSeconds: 180
+  scaleRateSeconds: 240
   spawnRateScaling: 1
+  elapsedTime: 0
   basicSpawner: {fileID: 0}
 --- !u!1 &9136689211427610680
 GameObject:
@@ -873,6 +938,7 @@ Transform:
   - {fileID: 8718372696640823893}
   - {fileID: 6159846311026593554}
   - {fileID: 1336073887034564807}
+  - {fileID: 7057741953727278608}
   - {fileID: 7826251409800049588}
   - {fileID: 1007190626}
   m_Father: {fileID: 0}

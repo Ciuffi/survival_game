@@ -209,6 +209,9 @@ public class Enemy : MonoBehaviour, Attacker
             isDead = true;
             canMove = false;
             deathPos = transform.position;
+
+            StopCoroutine(ProjectileAttack());
+
             GameObject xpDrop = Instantiate(EXPdrop, transform.position, Quaternion.identity);
             xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
             xpDrop.GetComponent<EXPHandler>().UpdateXpTier();

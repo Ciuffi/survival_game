@@ -57,10 +57,10 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   damage: 1
-  health: 90
+  health: 110
   maxHealth: 0
-  xpAmount: 30
-  weight: 7
+  xpAmount: 35
+  weight: 12
   stopDistanceMin: 4.5
   stopDistanceMax: 5.2
   moveDistanceCheck: 0
@@ -101,11 +101,11 @@ MonoBehaviour:
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   projectilePrefab: {fileID: 1509856878078853610, guid: eb3a09f6a3eccc94790d84902cadcacb, type: 3}
   attackRange: 5
-  shootChargeTime: 1.75
+  shootChargeTime: 1.5
   projectileSpeed: 1.75
   projectileRange: 12
   projectileDamage: 6
-  shootRecovery: 1.25
+  shootRecovery: 1.5
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}
   isStunned: 0

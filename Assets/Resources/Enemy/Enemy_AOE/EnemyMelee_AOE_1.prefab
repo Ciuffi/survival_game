@@ -59,8 +59,8 @@ MonoBehaviour:
   damage: 1
   health: 120
   maxHealth: 0
-  xpAmount: 40
-  weight: 20
+  xpAmount: 35
+  weight: 15
   stopDistanceMin: 1
   stopDistanceMax: 1.5
   moveDistanceCheck: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   shootChargeTime: 1.25
   projectileSpeed: 0
   projectileRange: 0
-  projectileDamage: 5
+  projectileDamage: 6
   shootRecovery: 1.25
   AOEPrefab: {fileID: 4235860010000021921, guid: 4a0d9405c86f5ce46bd466561185c745, type: 3}
   dangerSign: {fileID: 5189165830211085352}

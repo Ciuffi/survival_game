@@ -57,10 +57,10 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   damage: 1
-  health: 100
+  health: 110
   maxHealth: 0
   xpAmount: 35
-  weight: 10
+  weight: 12
   stopDistanceMin: 3
   stopDistanceMax: 4
   moveDistanceCheck: 0

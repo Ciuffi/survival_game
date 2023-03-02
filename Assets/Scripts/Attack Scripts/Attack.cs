@@ -674,8 +674,6 @@ public class Attack : MonoBehaviour, Upgrade
         Vector3 originalScale = MeleeAttack.transform.localScale;
         Vector3 scaler = new Vector3(meleeShotsScaleUp, meleeShotsScaleUp, meleeShotsScaleUp);
 
-        float OGdamage = damage; //save original damage amount
-
         for (int i = 0; i < comboLength; i++)
         {
             Player.GetComponent<AttackHandler>().triggerWpnOff();
@@ -873,8 +871,6 @@ public class Attack : MonoBehaviour, Upgrade
                 }
             }
 
-            //reset weapon damage
-            damage = OGdamage;
             //reset gap between hits
             localSpacer = meleeSpacer;
 

@@ -56,11 +56,11 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  damage: 3
+  damage: 2
   health: 140
   maxHealth: 0
-  xpAmount: 50
-  weight: 15
+  xpAmount: 35
+  weight: 20
   stopDistanceMin: 0.1
   stopDistanceMax: 0.1
   moveDistanceCheck: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   isRage: 1
   rageTriggerPercent: 0.3
   rageSpeedMod: 2
-  rageDmgMod: 1.5
+  rageDmgMod: 2
   isDash: 0
   chargeTime: 1
   dashSpeed: 20

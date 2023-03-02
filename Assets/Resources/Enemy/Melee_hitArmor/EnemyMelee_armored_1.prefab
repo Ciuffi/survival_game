@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.12, y: -1.12, z: 0}
+  m_LocalScale: {x: 1.05, y: -1.05, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1514911375676208822}
@@ -56,12 +56,12 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   damage: 2
-  health: 50
-  maxHealth: 50
-  xpAmount: 22
-  weight: 20
+  health: 60
+  maxHealth: 0
+  xpAmount: 28
+  weight: 25
   stopDistanceMin: 0.2
-  stopDistanceMax: 0.5
+  stopDistanceMax: 0.3
   moveDistanceCheck: 0
   canMove: 0
   timeCheck: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   isArmor: 1
   armorTime: 2
   armorPercent: 1
-  weightIncrease: 15
+  weightIncrease: 25
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
   HitEffect: {fileID: 7299663273688184311, guid: c422bca62006ae34aa6a03d5161aa5b8, type: 3}
@@ -341,7 +341,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 336606855
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.2901961}
   m_FlipX: 0
@@ -463,9 +463,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 336606855
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 4978147331656936126, guid: 674f4c4a042f5654e84523c567c82504, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9575472, b: 0.9986733, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

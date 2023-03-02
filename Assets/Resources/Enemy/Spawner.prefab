@@ -105,7 +105,7 @@ MonoBehaviour:
   healthScaling: 1.1
   damageScaling: 1.005
   weightScaling: 1.01
-  xpScaling: 1.25
+  xpScaling: 1.15
   mainCamera: {fileID: 0}
   uiCamera: {fileID: 0}
   comboManager: {fileID: 0}
