@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1822861191
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -156114637, guid: 1020ce25022b50944a8b4aeae27e0967, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.8235294}
@@ -157,7 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf6025681fe2df40a988eaafdab2c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 22
+  attack: {fileID: 0}
+  damage: 20
   critChance: 0.05
   critDmg: 1.5
   knockback: 8
@@ -166,9 +167,9 @@ MonoBehaviour:
   scaleSpeed: 0.05
   disappearSpeed: 1
   onHitParticle: {fileID: 2429385742196507204, guid: 3f2c8af43e46a4c4da19b2cc74167602, type: 3}
-  playerShakeTime: 0.2
-  playerShakeStrength: 1
-  playerShakeRotation: 0.5
+  playerShakeTime: 0.15
+  playerShakeStrength: 0.7
+  playerShakeRotation: 0.4
   damageTickDuration: 1
   isAnimated: 1
   isMagnet: 0

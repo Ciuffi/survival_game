@@ -224,7 +224,7 @@ MonoBehaviour:
   onHitParticle: {fileID: 4053501027209517259, guid: b5556bba7def32443a4bea0f9f94e44a, type: 3}
   playerShakeTime: 0.05
   playerShakeStrength: 0.1
-  playerShakeRotation: 0.1
+  playerShakeRotation: 0.05
   damageTickDuration: 0.5
   isThrown: 0
   isHover: 0

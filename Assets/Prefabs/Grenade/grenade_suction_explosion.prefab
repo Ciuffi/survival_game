@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4908858350499337675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
+  m_LocalScale: {x: 1.45, y: 1.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1822861191
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 1083885103, guid: 67e45f3560b1ff14b8937fc9b2f89bf8, type: 3}
   m_Color: {r: 0.93342096, g: 0.9009434, b: 1, a: 0.627451}
@@ -157,7 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf6025681fe2df40a988eaafdab2c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 7
+  attack: {fileID: 0}
+  damage: 12
   critChance: 0.05
   critDmg: 1.5
   knockback: 0
@@ -166,9 +167,9 @@ MonoBehaviour:
   scaleSpeed: 0.01
   disappearSpeed: 0.5
   onHitParticle: {fileID: 4053501027209517259, guid: 9834c3ac85854944980a1a437400746b, type: 3}
-  playerShakeTime: 0.1
-  playerShakeStrength: 0.5
-  playerShakeRotation: 1
+  playerShakeTime: 0.05
+  playerShakeStrength: 0.3
+  playerShakeRotation: 0.5
   damageTickDuration: 2
   isAnimated: 1
   isMagnet: 1

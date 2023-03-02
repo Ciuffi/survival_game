@@ -59,7 +59,7 @@ MonoBehaviour:
   damageMultiplier: 1.25
   critChance: 0.05
   critDmg: 0
-  defense: -2
+  defense: -1
   shield: 0
   shotsPerAttack: 1
   shotsPerAttackMelee: 0

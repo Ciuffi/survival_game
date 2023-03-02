@@ -81,8 +81,8 @@ MonoBehaviour:
   meleeSpacer: 0
   meleeSpacerGap: 0
   swapAnimOnAttack: 0
-  shakeTime: 0
-  shakeStrength: 0
+  shakeTime: 0.01
+  shakeStrength: 0.01
   shakeRotation: 0
   weaponSprite: {fileID: 21300000, guid: 29a5e81a03a13bf478abe2a757791b8f, type: 3}
   isAutoAim: 0

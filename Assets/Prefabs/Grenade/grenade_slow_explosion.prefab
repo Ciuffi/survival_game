@@ -137,25 +137,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 0}
-  damage: 4
+  damage: 6
   critChance: 0.05
   critDmg: 1.5
   knockback: 0
   startup: 0
-  active: 3
+  active: 2.5
   scaleSpeed: 0.01
-  disappearSpeed: 1
+  disappearSpeed: 0.5
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
-  playerShakeTime: 0.1
+  playerShakeTime: 0.05
   playerShakeStrength: 0.05
   playerShakeRotation: 0.05
-  damageTickDuration: 1.5
+  damageTickDuration: 1
   isAnimated: 1
   isMagnet: 0
   magnetStrength: 0
   magnetDuration: 0
   isSlow: 1
-  slowPercentage: 0.3
+  slowPercentage: 0.25
   slowDuration: 3
   isStun: 0
   stunDuration: 0.5
