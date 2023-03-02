@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 0}
-  damage: 8
+  damage: 3
   critChance: 0.05
   critDmg: 2
   knockback: 0
@@ -179,4 +179,4 @@ MonoBehaviour:
   slowPercentage: 0.5
   slowDuration: 2
   isStun: 1
-  stunDuration: 4.5
+  stunDuration: 5

@@ -158,12 +158,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 0}
-  damage: 20
+  damage: 18
   critChance: 0.05
   critDmg: 1.5
   knockback: 8
   startup: 0.25
-  active: 0.75
+  active: 0.5
   scaleSpeed: 0.05
   disappearSpeed: 1
   onHitParticle: {fileID: 2429385742196507204, guid: 3f2c8af43e46a4c4da19b2cc74167602, type: 3}
