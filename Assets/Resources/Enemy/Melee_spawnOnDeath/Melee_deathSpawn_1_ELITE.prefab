@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1321576414662445604}
   - component: {fileID: 8280240638215219442}
   - component: {fileID: 1818636915474768677}
+  - component: {fileID: 8122528122535192478}
   m_Layer: 7
   m_Name: Melee_deathSpawn_1_ELITE
   m_TagString: Enemy
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1514911375676208822}
@@ -56,8 +57,9 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isElite: 0
   damage: 4
-  health: 2200
+  health: 650
   maxHealth: 0
   xpAmount: 200
   weight: 25
@@ -157,7 +159,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.19816464, y: -0.33881962}
+  m_Offset: {x: 0.04524243, y: -0.39446783}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -168,7 +170,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9333596, y: 0.8545642}
+  m_Size: {x: 0.6947336, y: 0.7835988}
   m_EdgeRadius: 0
 --- !u!114 &7904818385536196546
 MonoBehaviour:
@@ -267,7 +269,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.21093345, y: -0.31983852}
+  m_Offset: {x: 0.062720746, y: -0.7692059}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -278,8 +280,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4294636, y: 1.4209023}
+  m_Size: {x: 1.1579561, y: 0.47511435}
   m_EdgeRadius: 0
+--- !u!58 &8122528122535192478
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423453834646843868}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05737146, y: -0.28542328}
+  serializedVersion: 2
+  m_Radius: 0.5788856
 --- !u!1 &2331833043301358605
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,8 +326,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2331833043301358605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001, y: -1.018, z: 0}
-  m_LocalScale: {x: 0.26322955, y: 0.43155003, z: 0}
+  m_LocalPosition: {x: 0.001, y: -1.01, z: 0}
+  m_LocalScale: {x: 0.25944564, y: 0.8846775, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
@@ -354,10 +372,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.1764706}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -490,7 +508,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -662902435344139210, guid: d86a3de7b11430248b0bcbeea8956f12, type: 3}
   m_Color: {r: 0.6117647, g: 0, b: 0.7254902, a: 1}
@@ -610,7 +628,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -662902435344139210, guid: d86a3de7b11430248b0bcbeea8956f12, type: 3}
   m_Color: {r: 1, g: 0.9575472, b: 0.9986733, a: 1}

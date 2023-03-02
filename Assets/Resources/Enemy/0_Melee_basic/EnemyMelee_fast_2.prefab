@@ -55,6 +55,7 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isElite: 0
   damage: 2
   health: 22
   maxHealth: 0
@@ -107,9 +108,12 @@ MonoBehaviour:
   shootRecovery: 0
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
+  isDeathrattle: 0
+  deathRattle: []
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
+  eliteOutline: {fileID: 0}
 --- !u!61 &485550041066969456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -254,7 +258,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021704644, y: -0.047528096}
+  m_Offset: {x: -0.021704644, y: -0.037198707}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -265,7 +269,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2580511, y: 0.26400143}
+  m_Size: {x: 0.2580511, y: 0.24334264}
   m_EdgeRadius: 0
 --- !u!1 &2331833043301358605
 GameObject:
@@ -341,7 +345,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 336606855
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.20392157}
@@ -477,7 +481,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 336606855
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 3
   m_Sprite: {fileID: 7076663258273082030, guid: 48c8a9616cadbc646ba895fcac60fa35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

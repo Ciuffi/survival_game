@@ -142,7 +142,7 @@ MonoBehaviour:
   critDmg: 1.5
   knockback: 0
   startup: 0
-  active: 2.75
+  active: 3
   scaleSpeed: 0.01
   disappearSpeed: 0.5
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}

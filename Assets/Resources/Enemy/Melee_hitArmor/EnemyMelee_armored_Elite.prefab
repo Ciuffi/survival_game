@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1321576414662445604}
   - component: {fileID: 8280240638215219442}
   - component: {fileID: 1818636915474768677}
+  - component: {fileID: 190519749629455227}
   m_Layer: 7
   m_Name: EnemyMelee_armored_Elite
   m_TagString: Enemy
@@ -56,8 +57,9 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isElite: 0
   damage: 2
-  health: 800
+  health: 400
   maxHealth: 0
   xpAmount: 200
   weight: 30
@@ -108,7 +110,7 @@ MonoBehaviour:
   shootRecovery: 0
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
-  isDeathrattle: 0
+  isDeathrattle: 1
   deathRattle:
   - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
   isStunned: 0
@@ -149,7 +151,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0046678483, y: 0.22077465}
+  m_Offset: {x: 0.0046678483, y: 0.2892407}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -160,7 +162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8411538, y: 0.7065698}
+  m_Size: {x: 0.8411538, y: 0.69818646}
   m_EdgeRadius: 0
 --- !u!114 &7904818385536196546
 MonoBehaviour:
@@ -259,7 +261,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011409283, y: 0.08811554}
+  m_Offset: {x: 0.0058204234, y: 0.21526688}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -270,7 +272,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6036644, y: 1.3559294}
+  m_Size: {x: 1.2627318, y: 1.0345582}
+  m_EdgeRadius: 0
+--- !u!61 &190519749629455227
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423453834646843868}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.15090483, y: -0.34652224}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6422998, y: 0.4466824}
   m_EdgeRadius: 0
 --- !u!1 &1450570267614955896
 GameObject:
@@ -345,7 +373,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 336606855
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 4978147331656936126, guid: 674f4c4a042f5654e84523c567c82504, type: 3}
   m_Color: {r: 0.6117647, g: 0, b: 0.7254902, a: 1}
@@ -465,10 +493,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 336606855
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2901961}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3529412}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -587,7 +615,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 336606855
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 4978147331656936126, guid: 674f4c4a042f5654e84523c567c82504, type: 3}
   m_Color: {r: 1, g: 0.9575472, b: 0.9986733, a: 1}

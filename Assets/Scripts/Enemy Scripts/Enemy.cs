@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour, Attacker
     public Vector3 directionToPlayer;
     public Vector3 localScale;
     public Vector3 knockDirection;
+
+    public bool isElite;
+    private Animator eliteBorder;
     public float damage;
     public float health;
     public float maxHealth;
@@ -127,7 +130,7 @@ public class Enemy : MonoBehaviour, Attacker
     private float animSpeed;
     private bool isSlowing = false;
     private float currentSlowPercentage;
-    private float magnetMinDistance = 1.3f;
+    private float magnetMinDistance = 1.7f;
 
     public bool isStunned = false;
     private float stunTimer;
@@ -161,6 +164,10 @@ public class Enemy : MonoBehaviour, Attacker
 
         aiPath = GetComponent<AIPath>();
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
+        if (isElite)
+        {
+            eliteBorder = transform.GetChild(1).GetComponent<Animator>();
+        }
 
         defaultMaterial = spriteRend.material;
         dangerRenderer = dangerSign.GetComponent<SpriteRenderer>();
@@ -231,6 +238,10 @@ public class Enemy : MonoBehaviour, Attacker
         {
             transform.position = deathPos;
             animator.SetBool("IsDead", true);
+            if (isElite)
+            {
+                eliteBorder.SetBool("IsDead", true);
+            }
             SetAllCollidersStatus(false);
 
             color = Sprite.GetComponent<SpriteRenderer>().color;
@@ -321,6 +332,13 @@ public class Enemy : MonoBehaviour, Attacker
                 animator.speed *= 1.5f;
                 damage *= rageDmgMod;
                 animator.SetBool("IsRage", true);
+
+                if (isElite)
+                {
+                    eliteBorder.speed *= 1.5f;
+                    eliteBorder.SetBool("IsRage", true);
+                }
+
                 rageTriggered = true;
             }
 
@@ -337,6 +355,10 @@ public class Enemy : MonoBehaviour, Attacker
             //Debug.Log(armorTime);
 
             animator.SetBool("IsArmored", true);
+            if (isElite)
+            {
+                eliteBorder.SetBool("IsArmored", true);
+            }
             StopMoving();
             weight = newWeight;
             knockbackWeight = newKnockbackWeight;
@@ -344,6 +366,10 @@ public class Enemy : MonoBehaviour, Attacker
             if (armorTimer > armorTime)
             {
                 animator.SetBool("IsArmored", false);
+                if (isElite)
+                {
+                    eliteBorder.SetBool("IsArmored", false);
+                }
                 StartMoving();
                 weight = oldWeight;
                 knockbackWeight = oldKnockbackWeight;
@@ -357,6 +383,10 @@ public class Enemy : MonoBehaviour, Attacker
         {
             StopMoving();
             animator.speed = 0f;
+            if (isElite)
+            {
+                eliteBorder.speed = 0f;
+            }
 
             //stun
             stunTimer -= Time.deltaTime;
@@ -366,6 +396,10 @@ public class Enemy : MonoBehaviour, Attacker
                 isStunned = false;
                 stunTimer = 0;
                 animator.speed = 1f;
+                if (isElite)
+                {
+                    eliteBorder.speed = 1f;
+                }
                 StartMoving();
             }
 
@@ -383,6 +417,10 @@ public class Enemy : MonoBehaviour, Attacker
                 if (!isStunned)
                 {
                     animator.speed = 1f;
+                    if (isElite)
+                    {
+                        eliteBorder.speed = 1f;
+                    }
                     StartMoving();
                 }
             }
@@ -400,14 +438,12 @@ public class Enemy : MonoBehaviour, Attacker
                     if (distance <= stopDistance)
                     {
                         StopMoving();
-                        animator.SetBool("IsMoving", false);
                         transform.LookAt(player.transform);
                         transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                     }
                     else
                     {
                         StartMoving();
-                        animator.SetBool("IsMoving", true);
                     }
 
                 }
@@ -416,14 +452,12 @@ public class Enemy : MonoBehaviour, Attacker
                         if (distance <= stopDistance)
                         {
                             StopMoving();
-                            animator.SetBool("IsMoving", false);
                             transform.LookAt(player.transform);
                             transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                         }
                         else
                         {
                             StartMoving();
-                            animator.SetBool("IsMoving", true);
                         }
                 }
 
@@ -476,7 +510,6 @@ public class Enemy : MonoBehaviour, Attacker
                         attacking = true;
                         canAttack = false;
                         StopMoving();
-                        animator.SetBool("IsMoving", false);
                         StartCoroutine(ProjectileAttack());
                     }
 
@@ -484,13 +517,18 @@ public class Enemy : MonoBehaviour, Attacker
                     {
                         animator.SetBool("IsAttacking", false);
                         animator.SetBool("FollowThrough", false);
+
+                        if (isElite)
+                        {
+                            eliteBorder.SetBool("IsAttacking", false);
+                            eliteBorder.SetBool("FollowThrough", false);
+                        }
                         shootRecoveryTimer -= Time.deltaTime;
                         if (shootRecoveryTimer <= 0)
                         {
                             recovering = false;
                             attacking = false;
                             StartMoving();
-                            animator.SetBool("IsMoving", true);
                             canAttack = true;
 
                         }
@@ -506,7 +544,6 @@ public class Enemy : MonoBehaviour, Attacker
                         attacking = true;
                         canAttack = false;
                         StopMoving();
-                        animator.SetBool("IsMoving", false);
                         StartCoroutine(RangedAOEAttack(gameObject));
                     }
 
@@ -514,13 +551,17 @@ public class Enemy : MonoBehaviour, Attacker
                     {
                         animator.SetBool("IsAttacking", false);
                         animator.SetBool("FollowThrough", false);
+                        if (isElite)
+                        {
+                            eliteBorder.SetBool("IsAttacking", false);
+                            eliteBorder.SetBool("FollowThrough", false);
+                        }
                         shootRecoveryTimer -= Time.deltaTime;
                         if (shootRecoveryTimer <= 0)
                         {
                             recovering = false;
                             attacking = false;
                             StartMoving();
-                            animator.SetBool("IsMoving", true);
                             canAttack = true;
 
                         }
@@ -546,10 +587,19 @@ public class Enemy : MonoBehaviour, Attacker
         Sprite.GetComponent<SpriteChargeUpAnim>().ChargeUpColorChange(shootChargeTime);
         animator.SetBool("IsMoving", false);
         animator.SetBool("IsAttacking", true);
+        if (isElite)
+        {
+            eliteBorder.SetBool("IsMoving", false);
+            eliteBorder.SetBool("IsAttacking", true);
+        }
         dangerRenderer.enabled = true;
         
         yield return new WaitForSeconds(shootChargeTime - 0.09f);
         animator.SetBool("FollowThrough", true);
+        if (isElite)
+        {
+            eliteBorder.SetBool("FollowThrough", true);
+        }
         yield return new WaitForSeconds(0.09f);
 
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
@@ -579,6 +629,11 @@ public class Enemy : MonoBehaviour, Attacker
         Sprite.GetComponent<SpriteChargeUpAnim>().ChargeUpColorChange(shootChargeTime);
         animator.SetBool("IsMoving", false);
         animator.SetBool("IsAttacking", true);
+        if (isElite)
+        {
+            eliteBorder.SetBool("IsMoving", false);
+            eliteBorder.SetBool("IsAttacking", true);
+        }
         dangerRenderer.enabled = true;
         Vector3 pos = player.transform.position;
         GameObject AOE = Instantiate(AOEPrefab, pos, Quaternion.identity);
@@ -589,6 +644,10 @@ public class Enemy : MonoBehaviour, Attacker
 
         yield return new WaitForSeconds(shootChargeTime - 0.09f);
         animator.SetBool("FollowThrough", true);
+        if (isElite)
+        {
+            eliteBorder.SetBool("FollowThrough", true);
+        }
         yield return new WaitForSeconds(0.09f);
 
         shootRecoveryTimer = shootRecovery;
@@ -619,12 +678,23 @@ public class Enemy : MonoBehaviour, Attacker
 
         public void StopMoving()
     {
+        animator.SetBool("IsMoving", false);
+        if (isElite)
+        {
+            eliteBorder.SetBool("IsMoving", false);
+        }
         aiPath.canMove = false;
     }
 
     public void StartMoving()
     {
         animator.SetBool("IsHurt", false);
+        animator.SetBool("IsMoving", true);
+        if (isElite)
+        {
+            eliteBorder.SetBool("IsHurt", false);
+            eliteBorder.SetBool("IsMoving", true);
+        }
         aiPath.canMove = true;
     }
 
@@ -634,6 +704,10 @@ public class Enemy : MonoBehaviour, Attacker
         if (canDamage == true)
         {
             animator.SetBool("IsHurt", true);
+            if (isElite)
+            {
+                eliteBorder.SetBool("IsHurt", true);
+            }
             Vector3 popupPosition = rb.position;
             popupPosition.x = Random.Range(rb.position.x - 0.075f, rb.position.x + 0.075f);
             popupPosition.y = Random.Range(rb.position.y, rb.position.y + 0.1f);

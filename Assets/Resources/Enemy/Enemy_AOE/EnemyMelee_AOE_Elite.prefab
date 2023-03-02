@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -8836167781385124993}
   - component: {fileID: 221838847563530693}
   - component: {fileID: 2515681787891723295}
+  - component: {fileID: 2409384295191761587}
   m_Layer: 7
   m_Name: EnemyMelee_AOE_Elite
   m_TagString: Enemy
@@ -57,8 +58,9 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isElite: 0
   damage: 2
-  health: 2000
+  health: 800
   maxHealth: 0
   xpAmount: 200
   weight: 30
@@ -150,7 +152,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030467361, y: 0.17939368}
+  m_Offset: {x: -0.13824779, y: 0.03731647}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.00996, y: 0.8440408}
+  m_Size: {x: 1.2331283, y: 0.72309893}
   m_EdgeRadius: 0
 --- !u!61 &4531238196566912174
 BoxCollider2D:
@@ -176,7 +178,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04433036, y: 0.40326685}
+  m_Offset: {x: -0.13733867, y: 0.028937012}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -187,7 +189,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7663827, y: 1.5518233}
+  m_Size: {x: 2.124651, y: 0.80316335}
   m_EdgeRadius: 0
 --- !u!114 &-8836167781385124993
 MonoBehaviour:
@@ -273,6 +275,32 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!61 &2409384295191761587
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423453834646843868}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.20587027, y: 0.33940756}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.41174, y: 1.3969026}
+  m_EdgeRadius: 0
 --- !u!1 &3682808208575244435
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +374,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
@@ -469,7 +497,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 8762077471657801085, guid: 5cf241261cc02644f994b5afa02bf992, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.9411765}
@@ -604,7 +632,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 8762077471657801085, guid: 5cf241261cc02644f994b5afa02bf992, type: 3}
   m_Color: {r: 0.70980394, g: 0, b: 0.7254902, a: 0.9019608}

@@ -248,6 +248,7 @@ MonoBehaviour:
   damageTickDuration: 0.3
   isThrown: 0
   isHover: 1
+  stopOnHit: 0
   hoverTimer: 2.5
   hitFirstEnemy: 0
   isAnimated: 0

@@ -61,7 +61,7 @@ MonoBehaviour:
   knockback: 0.25
   pierce: 0
   critChance: 0.05
-  critDmg: 2
+  critDmg: 1.5
   shootOpppositeSide: 0
   projectileSize: 0
   meleeSize: 0

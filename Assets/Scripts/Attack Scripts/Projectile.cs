@@ -51,6 +51,7 @@ public class Projectile : MonoBehaviour
     public bool isThrown;
 
     public bool isHover;
+    public bool stopOnHit;
     public float hoverTimer;
     private float hoverTime;
     public bool hitFirstEnemy;
@@ -149,12 +150,8 @@ public class Projectile : MonoBehaviour
                 float alphaSpeed;
                 Vector3 scaleUp;
 
-                if (distance < projectileRange && !hitFirstEnemy)
+                if (!stopOnHit && distance > projectileRange) // doesnt stop on hit - has to reach max range
                 {
-                    transform.position += transform.up * moveSpeed;
-
-                } else if (distance > projectileRange || hitFirstEnemy)
-                {                  
                     hoverTime -= Time.deltaTime;
                     if (hoverTime <= 0)
                     {
@@ -169,8 +166,6 @@ public class Projectile : MonoBehaviour
                         {
                             animator.SetBool("IsRecovery", true);
                         }
-
-
                     }
 
                     if (transform.localScale.x < 0 || GetComponent<SpriteRenderer>().color.a <= 0)
@@ -185,8 +180,45 @@ public class Projectile : MonoBehaviour
                         }
                         Destroy(gameObject);
                     }
-
                 }
+                else if (stopOnHit && (distance > projectileRange || hitFirstEnemy)) // stops when it hits something
+                {
+                    hoverTime -= Time.deltaTime;
+                    if (hoverTime <= 0)
+                    {
+                        alphaSpeed = disappearSpeed * Time.deltaTime;
+                        scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
+
+                        GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
+                        transform.localScale -= scaleUp;
+                        GetComponent<Collider2D>().enabled = false;
+
+                        if (isAnimated)
+                        {
+                            animator.SetBool("IsRecovery", true);
+                        }
+                    }
+
+                    if (transform.localScale.x < 0 || GetComponent<SpriteRenderer>().color.a <= 0)
+                    {
+                        if (hasDeathrattle)
+                        {
+                            GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                            rattle.GetComponent<deathRattleAttack>().attack = attack;
+                            Vector3 currentScale = rattle.transform.localScale;
+                            rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
+
+                        }
+                        Destroy(gameObject);
+                    }
+                }
+                else // if neither condition is true, keep moving the projectile
+                {
+                    transform.position += transform.up * moveSpeed;
+                }
+
+
+  
             }
         }
         else

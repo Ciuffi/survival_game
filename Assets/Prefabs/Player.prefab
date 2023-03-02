@@ -162,13 +162,13 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: 192c54fe29a9c3c4ba51991f31c521f2, type: 3}
   diameter: 16
   initialDelay: 0
-  spawnTimer: 90
+  spawnTimer: 120
   spawnRate: 1
   spawnRateLimit_G0: 1
   spawnRateLimit_G1: 1
   spawnRateLimit_G3: 1
   spawnRateLimit_G4: 2
-  scaleRateSeconds: 90
+  scaleRateSeconds: 120
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 0}
@@ -1031,7 +1031,7 @@ Transform:
   m_GameObject: {fileID: 9136689211427610680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 0.35, y: -0.35, z: 0}
+  m_LocalScale: {x: 0.32, y: -0.32, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 760271822712143496}
