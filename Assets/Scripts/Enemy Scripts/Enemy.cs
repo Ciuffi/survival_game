@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     private Vector3 center;
 
-    public GameObject projectilePrefab;
+    public GameObject projectilePrefab; //projectile attack
     public float attackRange;
     public float shootChargeTime;
     public float projectileSpeed;
@@ -111,11 +111,12 @@ public class Enemy : MonoBehaviour, Attacker
     float shootRecoveryTimer;
     public float shootRecovery;
 
-    public GameObject AOEPrefab;
-
-
+    public GameObject AOEPrefab; //AOE attack
     public GameObject dangerSign;
     SpriteRenderer dangerRenderer;
+
+    public bool isDeathrattle;
+    public List<GameObject> deathRattle;
 
     private Vector3 magnetTarget;
     private float magnetStrength;
@@ -126,12 +127,13 @@ public class Enemy : MonoBehaviour, Attacker
     private float animSpeed;
     private bool isSlowing = false;
     private float currentSlowPercentage;
-    private float magnetMinDistance = 1.8f;
+    private float magnetMinDistance = 1.3f;
 
     public bool isStunned = false;
     private float stunTimer;
     public Color stunColor;
     public GameObject shadow;
+    public GameObject eliteOutline;
     Vector3 deathPos;
 
     // Start is called before the first frame update
@@ -212,9 +214,12 @@ public class Enemy : MonoBehaviour, Attacker
 
             StopCoroutine(ProjectileAttack());
 
-            GameObject xpDrop = Instantiate(EXPdrop, transform.position, Quaternion.identity);
-            xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
-            xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
+            if (xpAmount > 0)
+            {
+                GameObject xpDrop = Instantiate(EXPdrop, transform.position, Quaternion.identity);
+                xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
+                xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
+            }
 
             Vector3 deathSpawnPos = new Vector3(Random.Range(transform.position.x - 0.1f, transform.position.x + 0.1f), Random.Range(transform.position.y - 0.1f, transform.position.y + 0.1f), transform.position.z);
             Instantiate(DeathEffect, deathSpawnPos, Quaternion.identity);
@@ -235,10 +240,26 @@ public class Enemy : MonoBehaviour, Attacker
             {
                 shadow.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
             }
+            if (eliteOutline != null)
+            {
+                eliteOutline.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, -disappearSpeed * Time.deltaTime);
+            }
         }
 
         if (color.a <= 0)
         {
+            if (isDeathrattle)
+            {
+                foreach (GameObject rattle in deathRattle)
+                {
+                    Vector3 newPosition = transform.position;
+                    newPosition.x += Random.Range(-0.3f, 0.3f);
+                    newPosition.y += Random.Range(-0.3f, 0.3f);
+                    GameObject dr = Instantiate(rattle, newPosition, Quaternion.identity);
+                }
+
+            }
+
             Destroy(gameObject);
         }
 

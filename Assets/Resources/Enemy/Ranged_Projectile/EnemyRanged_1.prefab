@@ -100,7 +100,7 @@ MonoBehaviour:
   flashDuration: 0.25
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   projectilePrefab: {fileID: 6915753770271991320, guid: 36158fabe1aace94baac9fe2f95950d7, type: 3}
-  attackRange: 3.5
+  attackRange: 4
   shootChargeTime: 1.2
   projectileSpeed: 1.3
   projectileRange: 8
@@ -108,9 +108,12 @@ MonoBehaviour:
   shootRecovery: 1.2
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}
+  isDeathrattle: 0
+  deathRattle: []
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  shadow: {fileID: 0}
+  shadow: {fileID: 3682808208575244435}
+  eliteOutline: {fileID: 0}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4

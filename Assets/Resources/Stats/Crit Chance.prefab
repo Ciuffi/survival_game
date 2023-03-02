@@ -51,7 +51,7 @@ MonoBehaviour:
   extraDamageMultipler: 0
   extraDefense: 0
   extraShield: 0
-  extraCritChance: 0.3
+  extraCritChance: 0.25
   extraCritDmg: 0
   extraShotsPerAttack: 0
   extraShotsPerAttackMelee: 0

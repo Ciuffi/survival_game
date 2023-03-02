@@ -108,9 +108,12 @@ MonoBehaviour:
   shootRecovery: 0
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
+  isDeathrattle: 0
+  deathRattle: []
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  shadow: {fileID: 0}
+  shadow: {fileID: 4303292662091484887}
+  eliteOutline: {fileID: 0}
 --- !u!114 &1321576414662445604
 MonoBehaviour:
   m_ObjectHideFlags: 0

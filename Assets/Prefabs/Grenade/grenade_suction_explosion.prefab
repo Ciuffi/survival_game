@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 0}
-  damage: 12
+  damage: 8
   critChance: 0.05
   critDmg: 1.5
   knockback: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735341029624650593}
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: Suction Nova
+  m_Name: Revolver
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,55 +44,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 11
-  spread: 0.3
+  damage: 20
+  spread: 0.375
   shotgunSpread: 0
-  spray: 0
+  spray: 2
   sprayThreshold: 0
-  castTime: 2
+  castTime: 1.25
   attackTime: 0
   recoveryTime: 0
-  range: 0
-  rangeUP: 0
-  shotsPerAttack: 0
+  range: 7
+  rangeUP: 10
+  shotsPerAttack: 6
   shotsPerAttackMelee: 0
   cantMove: 0
-  speed: 0
+  speed: 0.18
   knockback: 0.35
-  pierce: 0
+  pierce: 10
   critChance: 0.05
-  critDmg: 1.5
+  critDmg: 1.75
   shootOpppositeSide: 0
   projectileSize: 0
   meleeSize: 0
   multicastChance: 0
   multicastWaitTime: 0.25
   multicastTimes: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 4235860010000021921, guid: c8f5d5cf7f6ada046974b0d8ab352e52, type: 3}
   rarity: 0
   chosenNumbers: 
   effect: {fileID: 0}
-  attackType: 2
-  MeleeAttack: {fileID: 4908858350499337675, guid: c454c8b8f810ad446a207eda9e39ead8, type: 3}
-  comboLength: 1
-  comboWaitTime: 0.5
+  attackType: 0
+  MeleeAttack: {fileID: 0}
+  comboLength: 0
+  comboWaitTime: 0
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
   meleeSpacer: 0
   meleeSpacerGap: 0
   swapAnimOnAttack: 0
-  shakeTime: 0.2
-  shakeStrength: 1.5
-  shakeRotation: 2
-  weaponSprite: {fileID: 21300000, guid: c6b670be674aa2345b8e890a65d5c44c, type: 3}
+  shakeTime: 0.015
+  shakeStrength: 0.05
+  shakeRotation: 0.01
+  weaponSprite: {fileID: 21300000, guid: 803bd54077b23c648b655edace0730c3, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: a779772523fb1ea43a4719cb83009edf, type: 3}
-  thrownDamage: 20
+  thrownSprite: {fileID: 21300000, guid: efec412c96cac8847896df45976515e1, type: 3}
+  thrownDamage: 10
   throwSpeed: 0.5
-  bulletCasing: {fileID: 0}
-  MuzzleFlashPrefab: []
+  bulletCasing: {fileID: 2526348467587405025, guid: 166bb49c7f97f5a40af167155fe98935, type: 3}
+  MuzzleFlashPrefab:
+  - {fileID: 2526348467587405025, guid: a3543cd68c061744181f54b160e82491, type: 3}
   muzzleFlashXOffset: 0
   muzzleFlashYOffset: 0
   totalDamageDealt: 0

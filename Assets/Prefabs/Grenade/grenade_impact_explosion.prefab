@@ -161,7 +161,7 @@ MonoBehaviour:
   damage: 18
   critChance: 0.05
   critDmg: 1.5
-  knockback: 0.35
+  knockback: 0.42
   startup: 0.1
   active: 0.3
   scaleSpeed: 1

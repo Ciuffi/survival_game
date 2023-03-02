@@ -62,7 +62,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9136689211427610630}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1007190628
 BoxCollider2D:
@@ -158,16 +158,18 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: 0f9e167d8877c4b4b8fdf9efac587042, type: 3}
   - {fileID: 1423453834646843868, guid: 6349e5fb12c6ddf4abc375fe7b730287, type: 3}
   - {fileID: 1423453834646843868, guid: 90802e0d6d82bfa40adbcd872a507abb, type: 3}
+  - {fileID: 1423453834646843868, guid: c190cf3259ce79b43bf33681c2a098c4, type: 3}
+  - {fileID: 1423453834646843868, guid: 192c54fe29a9c3c4ba51991f31c521f2, type: 3}
   diameter: 16
-  initialDelay: 300
-  spawnTimer: 300
+  initialDelay: 0
+  spawnTimer: 90
   spawnRate: 1
   spawnRateLimit_G0: 1
   spawnRateLimit_G1: 1
   spawnRateLimit_G3: 1
-  spawnRateLimit_G4: 1
-  scaleRateSeconds: 300
-  spawnRateScaling: 0
+  spawnRateLimit_G4: 2
+  scaleRateSeconds: 90
+  spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 0}
 --- !u!1 &1153039977566848756
@@ -215,16 +217,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
+  - {fileID: 1423453834646843868, guid: da9efb1b854dfe745af4c4561d7df9ed, type: 3}
   - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
   diameter: 15
-  initialDelay: 60
-  spawnTimer: 60
-  spawnRate: 15
-  spawnRateLimit_G0: 15
-  spawnRateLimit_G1: 20
-  spawnRateLimit_G3: 25
-  spawnRateLimit_G4: 30
-  scaleRateSeconds: 10
+  initialDelay: 0
+  spawnTimer: 12
+  spawnRate: 10
+  spawnRateLimit_G0: 12
+  spawnRateLimit_G1: 15
+  spawnRateLimit_G3: 20
+  spawnRateLimit_G4: 25
+  scaleRateSeconds: 12
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 0}
@@ -258,7 +261,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9136689211427610630}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5616801709358703483
 SpriteRenderer:
@@ -499,24 +502,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: c2f52e19ec35e2146ae75fec9608576a, type: 3}
-  - {fileID: 1423453834646843868, guid: c2f52e19ec35e2146ae75fec9608576a, type: 3}
-  - {fileID: 1423453834646843868, guid: c2f52e19ec35e2146ae75fec9608576a, type: 3}
-  - {fileID: 1423453834646843868, guid: da9efb1b854dfe745af4c4561d7df9ed, type: 3}
-  - {fileID: 1423453834646843868, guid: da9efb1b854dfe745af4c4561d7df9ed, type: 3}
-  - {fileID: 1423453834646843868, guid: df38c6492d2f8e14ab33ca7a5a45db72, type: 3}
-  - {fileID: 1423453834646843868, guid: df38c6492d2f8e14ab33ca7a5a45db72, type: 3}
-  - {fileID: 1423453834646843868, guid: df38c6492d2f8e14ab33ca7a5a45db72, type: 3}
   - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
+  - {fileID: 1423453834646843868, guid: df38c6492d2f8e14ab33ca7a5a45db72, type: 3}
+  - {fileID: 1423453834646843868, guid: df38c6492d2f8e14ab33ca7a5a45db72, type: 3}
   diameter: 15
   initialDelay: 0
   spawnTimer: 2
-  spawnRate: 1
-  spawnRateLimit_G0: 2
-  spawnRateLimit_G1: 4
-  spawnRateLimit_G3: 6
-  spawnRateLimit_G4: 8
-  scaleRateSeconds: 120
+  spawnRate: 4
+  spawnRateLimit_G0: 5
+  spawnRateLimit_G1: 7
+  spawnRateLimit_G3: 8
+  spawnRateLimit_G4: 10
+  scaleRateSeconds: 30
   spawnRateScaling: 1
+  elapsedTime: 0
+  basicSpawner: {fileID: 0}
+--- !u!1 &5825551874341785115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599073600324889549}
+  - component: {fileID: 7045052503347013593}
+  m_Layer: 0
+  m_Name: ConstantSpawner_Circle_Rare
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &599073600324889549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825551874341785115}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.06342275, z: 0}
+  m_LocalScale: {x: 2.857143, y: -2.857143, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9136689211427610630}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7045052503347013593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825551874341785115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2173fc19cd9964080aa34817ab1d0075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1423453834646843868, guid: 25f3ff65bfdfc9a469ce25ee755bf618, type: 3}
+  diameter: 18
+  initialDelay: 30
+  spawnTimer: 90
+  spawnRate: 6
+  spawnRateLimit_G0: 6
+  spawnRateLimit_G1: 6
+  spawnRateLimit_G3: 8
+  spawnRateLimit_G4: 12
+  scaleRateSeconds: 90
+  spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 0}
 --- !u!1 &5842482141046252549
@@ -564,25 +620,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: 7252c597ddc35604caad5bf2eabb00eb, type: 3}
-  - {fileID: 1423453834646843868, guid: 25f3ff65bfdfc9a469ce25ee755bf618, type: 3}
+  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
   - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
   - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
-  - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
-  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
-  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
-  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
-  - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
-  - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
   diameter: 15
-  initialDelay: 30
-  spawnTimer: 20
+  initialDelay: 35
+  spawnTimer: 10
   spawnRate: 1
   spawnRateLimit_G0: 1
-  spawnRateLimit_G1: 1
+  spawnRateLimit_G1: 2
   spawnRateLimit_G3: 2
   spawnRateLimit_G4: 3
-  scaleRateSeconds: 150
+  scaleRateSeconds: 60
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 0}
@@ -832,6 +883,64 @@ MonoBehaviour:
   isPlayer: 1
   isShadow: 0
   isChild: 0
+--- !u!1 &7802425497857358986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4404813555444899856}
+  - component: {fileID: 1787527789466612786}
+  m_Layer: 0
+  m_Name: ConstantSpawner_Circle_Uncommon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4404813555444899856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802425497857358986}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.06342275, z: 0}
+  m_LocalScale: {x: 2.857143, y: -2.857143, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9136689211427610630}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1787527789466612786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802425497857358986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2173fc19cd9964080aa34817ab1d0075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
+  diameter: 18
+  initialDelay: 20
+  spawnTimer: 40
+  spawnRate: 10
+  spawnRateLimit_G0: 10
+  spawnRateLimit_G1: 10
+  spawnRateLimit_G3: 15
+  spawnRateLimit_G4: 20
+  scaleRateSeconds: 40
+  spawnRateScaling: 5
+  elapsedTime: 0
+  basicSpawner: {fileID: 0}
 --- !u!1 &8649804389678134831
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,21 +986,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: 1e9d2bcac89fb044e95f1ec7e14308ab, type: 3}
-  - {fileID: 1423453834646843868, guid: 617b961231dd1f6428482cbd982f736a, type: 3}
-  - {fileID: 1423453834646843868, guid: 2b60050c318efa24385bf6be1d8da3c5, type: 3}
-  - {fileID: 1423453834646843868, guid: 2b60050c318efa24385bf6be1d8da3c5, type: 3}
-  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
-  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
+  - {fileID: 1423453834646843868, guid: 558ef957fad818245b932140cf2dd553, type: 3}
   diameter: 16
-  initialDelay: 60
-  spawnTimer: 60
+  initialDelay: 50
+  spawnTimer: 25
   spawnRate: 1
   spawnRateLimit_G0: 1
   spawnRateLimit_G1: 1
-  spawnRateLimit_G3: 1
-  spawnRateLimit_G4: 2
-  scaleRateSeconds: 240
+  spawnRateLimit_G3: 2
+  spawnRateLimit_G4: 4
+  scaleRateSeconds: 50
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 0}
@@ -939,6 +1043,8 @@ Transform:
   - {fileID: 6159846311026593554}
   - {fileID: 1336073887034564807}
   - {fileID: 7057741953727278608}
+  - {fileID: 4404813555444899856}
+  - {fileID: 599073600324889549}
   - {fileID: 7826251409800049588}
   - {fileID: 1007190626}
   m_Father: {fileID: 0}
@@ -986,7 +1092,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.57254905, b: 0.03137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1015,12 +1121,8 @@ MonoBehaviour:
   WeaponOutline: {fileID: 0}
   HandsSprite: {fileID: 0}
   colors:
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  - {r: 255, g: 177, b: 0, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 1, g: 0, b: 1, a: 1}
+  - {r: 0.1509434, g: 0.14093797, b: 0.08757565, a: 1}
+  flashColor: {r: 0.36601102, g: 0.3918061, b: 0.4433962, a: 0.5882353}
 --- !u!114 &9136689211427610631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,9 +1293,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9136689211427610680}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

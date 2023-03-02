@@ -86,7 +86,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
           .WithEnemiesPerWave(1)
         .WithSpawnTimer(35)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.lootBox, 100}
+                {enemies.ranged_proj_2, 100}
           });
 
         EnemySpawn wave10 = new EnemySpawn()
@@ -95,7 +95,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
          .WithEnemiesPerWave(1)
        .WithSpawnTimer(120)
        .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.lootBox, 100}
+                {enemies.ranged_proj_2, 100}
          });
 
         EnemySpawn wave11 = new EnemySpawn()

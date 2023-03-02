@@ -22,12 +22,10 @@ public class AttackHandler : MonoBehaviour
     private GameObject defaultWeapon;
     public Color[] colors = {
         new Color(255, 146, 8),
-        Color.green,
-        Color.blue,
-        new Color(255, 231, 9),
-        Color.red,
-        Color.magenta
     };
+
+    public Color flashColor;
+
 
     PlayerCharacterStats characterStats;
 
@@ -49,20 +47,43 @@ public class AttackHandler : MonoBehaviour
     IEnumerator HandleAttackSlider(float castTime)
     {
         float timer = 0;
+        bool isFlashing = false;
+        Color originalColor = colors[0];
+        float flashDuration = castTime / 4f; // Set the duration of the flash here
+
         while (true)
         {
             if (timer == 0)
             {
-                attackBarImage.color = colors[attackIndex];
-                attackBarImage2.color = colors[attackIndex];
+                attackBarImage.color = originalColor;
+                attackBarImage2.color = originalColor;
             }
 
+            if (castTime - timer <= flashDuration)
+            {
+                if (!isFlashing)
+                {
+                    // Start the flash
+                    StartCoroutine(FlashColor(flashColor, flashDuration));
+                    isFlashing = true;
+                }
+            }
+            else if (isFlashing)
+            {
+                // End the flash
+                StopCoroutine("FlashColor");
+                attackBarImage.color = originalColor;
+                attackBarImage2.color = originalColor;
+                isFlashing = false;
+            }
+
+            float opacity = Mathf.Lerp(0.1f, 1f, attackBar.value);
             Color currentColor = attackBarImage.color;
-            currentColor.a = 0.4f;
+            currentColor.a = opacity;
             attackBarImage.color = currentColor;
             attackBarImage2.color = currentColor;
 
-            timer += Time.deltaTime * 0.90f;
+            timer += Time.deltaTime * 0.85f;
             float progress = Mathf.Clamp01(timer / castTime);
             attackBar.value = progress;
             attackBar2.value = progress;
@@ -70,8 +91,25 @@ public class AttackHandler : MonoBehaviour
             if (timer >= castTime + 0.2f)
             {
                 timer = 0;
+                isFlashing = false;
                 yield break;
             }
+        }
+    }
+
+    IEnumerator FlashColor(Color flashColor, float duration)
+    {
+        float timer = 0;
+        Color originalColor = attackBarImage.color;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            float t = timer / duration;
+            Color currentColor = Color.Lerp(originalColor, flashColor, t);
+            attackBarImage.color = currentColor;
+            attackBarImage2.color = currentColor;
+            yield return null;
         }
     }
 

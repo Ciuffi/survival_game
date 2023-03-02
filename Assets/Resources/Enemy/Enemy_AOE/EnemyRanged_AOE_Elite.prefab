@@ -109,9 +109,13 @@ MonoBehaviour:
   shootRecovery: 2.5
   AOEPrefab: {fileID: 4235860010000021921, guid: ad77bd235e9814843b64406f807ba8aa, type: 3}
   dangerSign: {fileID: 5189165830211085352}
+  isDeathrattle: 0
+  deathRattle:
+  - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  shadow: {fileID: 0}
+  shadow: {fileID: 3682808208575244435}
+  eliteOutline: {fileID: 3007568865302962041}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4

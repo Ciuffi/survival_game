@@ -54,12 +54,9 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
         float x = Mathf.Abs(InputX) > DeadZonePercentage ? InputX / 100 : 0;
 
-        Vector3 newPosition = new Vector3(TransformX + x * localSpeed, TransformY + y * localSpeed, 0);
-        Quaternion newRotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
-        GetComponent<Rigidbody2D>().MovePosition(newPosition);
-        GetComponent<Rigidbody2D>().MoveRotation(newRotation);
+        transform.position = new Vector3(TransformX + x * localSpeed, TransformY + y * localSpeed, 0);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
         direction = VJ.InputDirection;
-
         WeaponSprite.GetComponent<WpnSpriteRotation>().InputXY(x, y);
 
 
