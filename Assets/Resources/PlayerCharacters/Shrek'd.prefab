@@ -67,7 +67,7 @@ MonoBehaviour:
   multicastChance: 0
   shotgunSpread: 0
   spreadMultiplier: 1
-  castTimeMultiplier: 1.5
+  castTimeMultiplier: 1.8
   meleeWaitTimeMultiplier: 1.5
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
@@ -75,7 +75,7 @@ MonoBehaviour:
   thrownDamageMultiplier: 2
   thrownSpeedMultiplier: 2
   projectileSizeMultiplier: 1.5
-  meleeSizeMultiplier: 1.5
+  meleeSizeMultiplier: 1.3
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: 461344ea67bc86c4482ddb80c32e722f, type: 3}

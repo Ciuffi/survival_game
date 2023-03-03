@@ -219,8 +219,6 @@ public class Enemy : MonoBehaviour, Attacker
             canMove = false;
             deathPos = transform.position;
 
-            StopCoroutine(ProjectileAttack());
-
             if (xpAmount > 0)
             {
                 GameObject xpDrop = Instantiate(EXPdrop, transform.position, Quaternion.identity);
@@ -602,24 +600,26 @@ public class Enemy : MonoBehaviour, Attacker
         }
         yield return new WaitForSeconds(0.09f);
 
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-
-        Vector3 direction = player.transform.position - transform.position;
-        direction.Normalize();
-
-        // Calculate the angle of rotation using the direction vector
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        // Rotate the projectile to face the correct direction
-        projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        projectile.GetComponent<enemyProjectile>().direction = direction;
-        projectile.GetComponent<enemyProjectile>().speed = projectileSpeed;
-        projectile.GetComponent<enemyProjectile>().maxRange = projectileRange;
-        projectile.GetComponent<enemyProjectile>().damage = projectileDamage;
-        shootRecoveryTimer = shootRecovery;
-        recovering = true;
-
         dangerRenderer.enabled = false;
+        if (!isDead)
+        {
+            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
+            Vector3 direction = player.transform.position - transform.position;
+            direction.Normalize();
+
+            // Calculate the angle of rotation using the direction vector
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // Rotate the projectile to face the correct direction
+            projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            projectile.GetComponent<enemyProjectile>().direction = direction;
+            projectile.GetComponent<enemyProjectile>().speed = projectileSpeed;
+            projectile.GetComponent<enemyProjectile>().maxRange = projectileRange;
+            projectile.GetComponent<enemyProjectile>().damage = projectileDamage;
+            shootRecoveryTimer = shootRecovery;
+            recovering = true;
+        }
 
     }
 

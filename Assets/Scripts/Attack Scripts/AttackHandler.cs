@@ -83,12 +83,12 @@ public class AttackHandler : MonoBehaviour
             attackBarImage.color = currentColor;
             attackBarImage2.color = currentColor;
 
-            timer += Time.deltaTime * 0.85f;
+            timer += Time.deltaTime;
             float progress = Mathf.Clamp01(timer / castTime);
             attackBar.value = progress;
             attackBar2.value = progress;
             yield return new WaitForEndOfFrame();
-            if (timer >= castTime + 0.2f)
+            if (timer >= castTime)
             {
                 timer = 0;
                 isFlashing = false;
@@ -160,7 +160,7 @@ public class AttackHandler : MonoBehaviour
             //casting
             attackBar.fillRect.gameObject.SetActive(true);
             attackBar2.fillRect.gameObject.SetActive(true);
-            if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime - 0.3f));
+            if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime));
             yield return new WaitForSeconds(currentAttack.castTime);
 
             //attacking

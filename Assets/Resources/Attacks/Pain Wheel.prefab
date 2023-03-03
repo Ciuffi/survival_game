@@ -52,8 +52,8 @@ MonoBehaviour:
   castTime: 1.75
   attackTime: 0
   recoveryTime: 0
-  range: 4
-  rangeUP: 5
+  range: 3.5
+  rangeUP: 4
   shotsPerAttack: 1
   shotsPerAttackMelee: 0
   cantMove: 0

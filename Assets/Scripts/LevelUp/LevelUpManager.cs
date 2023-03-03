@@ -22,6 +22,7 @@ public class LevelUpManager : MonoBehaviour
 
     public GameObject RerollBtn, SwapBtn;
     private bool hasRolled;
+    public GameObject SkipBtn;
 
     public GameObject TimelineManager;
     public GameObject VFX;
@@ -40,11 +41,11 @@ public class LevelUpManager : MonoBehaviour
 
     public void AddXP(float currXp, float newXp, float maxXp)
     {
-        xpBarQueue.AddToQueue(BarHelper.AddToBar(xpBar, currXp, newXp, maxXp, 0.3f));
+        xpBarQueue.AddToQueue(BarHelper.AddToBar(xpBar, currXp, newXp, maxXp, 0.1f));
     }
     public void LevelUp(float level)
     {
-        xpBarQueue.AddToQueue(BarHelper.RemoveFromBarTimed(xpBar, 0.3f));
+        xpBarQueue.AddToQueue(BarHelper.RemoveFromBarTimed(xpBar, 0.2f));
         ShowLevelUpUI();
     }
 
@@ -157,6 +158,12 @@ public class LevelUpManager : MonoBehaviour
         GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
         RerollBtn.GetComponent<RollSwapHandler>().setActive();
         SwapBtn.GetComponent<RollSwapHandler>().setActive();
+        SkipBtn.GetComponent<SkipHandler>().setActive();
+        upgradeWindows.ForEach((u) =>
+        {
+            u.GetComponent<UpgradeHandler>().setActive();
+        });
+
         //eventually want to move this to on-confirm-selection, and add a new button to close menu
         TimelineManager.GetComponent<TimelineUI>().addAttack();
         TimelineManager.GetComponent<TimelineUI>().spawnTimeline();

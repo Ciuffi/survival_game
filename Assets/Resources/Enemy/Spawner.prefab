@@ -102,10 +102,10 @@ MonoBehaviour:
   isSpawning: 0
   player: {fileID: 0}
   currentGuilt: 0
-  healthScaling: 1.1
-  damageScaling: 1.005
-  weightScaling: 1.01
-  xpScaling: 1.15
+  healthScaling: 1.2
+  damageScaling: 1.004
+  weightScaling: 1.008
+  xpScaling: 1.5
   mainCamera: {fileID: 0}
   uiCamera: {fileID: 0}
   comboManager: {fileID: 0}

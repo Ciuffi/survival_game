@@ -20,6 +20,7 @@ public class LootBoxManager : MonoBehaviour
     private GameObject panel;
     private GameObject panelAnimated;
     public GameObject RerollBtn, SwapBtn, TimelineManager;
+    public GameObject SkipBtn;
 
     public GameObject VFX;
 
@@ -51,6 +52,9 @@ public class LootBoxManager : MonoBehaviour
     {
         RerollBtn.GetComponent<RollSwapHandler>().setActive();
         SwapBtn.GetComponent<RollSwapHandler>().setActive();
+        SkipBtn.GetComponent<SkipHandler>().setActive();
+        upgradeWindow.GetComponent<UpgradeLootHandler>().setActive();
+
         //eventually want to move this to on-confirm-selection, and add a new button to close menu
         TimelineManager.GetComponent<TimelineUI>().addAttack();
         TimelineManager.GetComponent<TimelineUI>().spawnTimeline();

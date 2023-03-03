@@ -11,7 +11,7 @@ public class ConstantSpawner : MonoBehaviour
     public float spawnTimer = 0f;
     private float OGspawnTimer;
 
-    public float spawnRate = 1f;
+    public int spawnRate = 1;
     private int spawnRateLimit;
     public int spawnRateLimit_G0 = 2;
     public int spawnRateLimit_G1 = 3;
@@ -58,7 +58,14 @@ public class ConstantSpawner : MonoBehaviour
             // Check if it's time to increase spawn rate
             if (elapsedTime >= scaleRateSeconds)
             {
-                spawnRate += spawnRateScaling;
+                if (spawnRate < spawnRateLimit) //if current rate is less than max spawnRate
+                {
+                    spawnRate += spawnRateScaling; 
+                }else if (spawnRate > spawnRateLimit) //if current rate is greater than the max
+                {
+                    spawnRate = spawnRateLimit;
+                } 
+
                 elapsedTime = 0f;
             }
 
@@ -109,9 +116,8 @@ public class ConstantSpawner : MonoBehaviour
 
         // Pick a random enemy prefab from the list
         GameObject enemyPrefab = enemies[Random.Range(0, enemies.Count)];
-        int numEnemies = Mathf.RoundToInt(spawnRate);
 
-        if (numEnemies > 1f)
+        if (spawnRate > 1)
         {
             // Pick a random point along the edge of the circle
             Vector2 spawnCenter = (Vector2)transform.position;
@@ -119,13 +125,13 @@ public class ConstantSpawner : MonoBehaviour
             Vector2 spawnPosition = spawnCenter + (spawnDirection * diameter / 2f);
 
             // Calculate the angle between each enemy
-            float angleBetween = 360f / numEnemies;
+            float angleBetween = 360f / spawnRate;
 
             // Calculate the range of angles to randomize within
             float angleRange = angleBetween * 0.25f;
 
             // Spawn enemies evenly around the edge of the circle
-            for (int i = 0; i < numEnemies; i++)
+            for (int i = 0; i < spawnRate; i++)
             {
                 // Randomly adjust the angle within the range
                 float angleOffset = Random.Range(-angleRange, angleRange);
@@ -148,7 +154,7 @@ public class ConstantSpawner : MonoBehaviour
 
             }
         }
-        else
+        else if (spawnRate == 1)
         {
             // Spawn a single enemy at a random position on the edge of the circle
             Vector2 spawnPosition = Random.insideUnitCircle.normalized * diameter / 2f;
@@ -161,6 +167,9 @@ public class ConstantSpawner : MonoBehaviour
                 newEnemy.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
                 newEnemy.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
             }
+        } else
+        {
+
         }
 
 

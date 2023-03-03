@@ -51,7 +51,7 @@ MonoBehaviour:
   sprayThreshold: 0
   castTime: 1.15
   attackTime: 0
-  recoveryTime: 0.25
+  recoveryTime: 0.28
   range: 6
   rangeUP: 8
   shotsPerAttack: 30

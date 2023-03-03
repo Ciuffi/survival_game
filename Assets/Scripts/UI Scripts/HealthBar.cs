@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Slider slider;
-    public Color defaultColor;
+    public Color fullHPColor;
     public Color midHPColor;
     public Color lowHPColor;
-    public float midHPLimitPercent = 0.5f;
-    public float lowHPLimitPercent = 0.25f;
+    private Color currentColor;
 
     private GameObject player;
 
@@ -18,25 +17,46 @@ public class HealthBar : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         slider = GetComponent<Slider>();
-        slider.fillRect.GetComponentInChildren<Image>().color = defaultColor; // Set the default color of the HP bar
+        slider.fillRect.GetComponentInChildren<Image>().color = fullHPColor; // Set the default color of the HP bar
+        currentColor = fullHPColor;
     }
 
-    private void Update()
+    public void FlashRed()
     {
-        float currentHpPercent = player.GetComponent<StatsHandler>().GetPlayerHpPercent(); // Replace GetPlayerHpPercent() with your own method for retrieving the player's current HP percentage
+        slider.fillRect.GetComponent<Image>().color = Color.red;
+    }
+    public void ResetColor()
+    {
+        slider.fillRect.GetComponent<Image>().color = currentColor;
+    }
 
-        if (currentHpPercent <= lowHPLimitPercent)
+    public void UpdateHealthBar()
+    {
+        float fillAmount = player.GetComponent<StatsHandler>().health / player.GetComponent<StatsHandler>().maxHealth;
+        Color targetColor;
+
+        if (fillAmount >= 0.7f)
         {
-            slider.fillRect.GetComponentInChildren<Image>().color = lowHPColor; // Set the HP bar color to the low HP color
+            currentColor = fullHPColor;
+            targetColor = fullHPColor;
         }
-        else if (currentHpPercent <= midHPLimitPercent)
+        else if (fillAmount >= 0.3f)
         {
-            float t = Mathf.InverseLerp(lowHPLimitPercent, midHPLimitPercent, currentHpPercent); // Calculate the transition value between the low HP color and the mid HP color
-            slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(lowHPColor, midHPColor, t); // Set the HP bar color to the interpolated color
+            currentColor = midHPColor;
+            targetColor = Color.Lerp(midHPColor, fullHPColor, (fillAmount - 0.3f) / 0.4f);
         }
         else
         {
-            slider.fillRect.GetComponentInChildren<Image>().color = defaultColor; // Set the HP bar color back to the default color
+            currentColor = lowHPColor;
+            targetColor = Color.Lerp(lowHPColor, fullHPColor, fillAmount / 0.3f);
         }
+
+        slider.fillRect.GetComponent<Image>().color = Color.Lerp(slider.fillRect.GetComponent<Image>().color, targetColor, Time.deltaTime);
+    }
+
+
+    private void Update()
+    {
+        UpdateHealthBar();
     }
 }

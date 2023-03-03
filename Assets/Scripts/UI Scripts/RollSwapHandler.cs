@@ -14,6 +14,11 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
     public int currentReroll;
     public int currentSwap;
 
+    public float uiDelay;
+    public bool startDelay;
+    public bool delayFinished;
+    private float timer; // make timer a class member variable
+
     void start()
     {
         currentReroll = LevelUp.GetComponent<RerollHandler>().currentReroll;
@@ -22,33 +27,39 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (isRoll)
+        if (delayFinished)
         {
-            if (!isLoot)
+            if (isRoll)
             {
-                LevelUp.GetComponent<RerollHandler>().usedReroll();
-                GameObject.FindObjectOfType<LevelUpManager>().reroll();
+                if (!isLoot)
+                {
+                    LevelUp.GetComponent<RerollHandler>().usedReroll();
+                    GameObject.FindObjectOfType<LevelUpManager>().reroll();
 
-            }else
-            {
-                LevelUp.GetComponent<RerollHandler>().usedReroll();
-                GameObject.FindObjectOfType<LootBoxManager>().reroll();
+                }
+                else
+                {
+                    LevelUp.GetComponent<RerollHandler>().usedReroll();
+                    GameObject.FindObjectOfType<LootBoxManager>().reroll();
+                }
+
             }
 
-        }
-
-        if (isSwap)
-        {
-            if (!isLoot)
+            if (isSwap)
             {
-                LevelUp.GetComponent<RerollHandler>().usedSwap();
-                GameObject.FindObjectOfType<LevelUpManager>().swap();
-            }else
-            {
-                LevelUp.GetComponent<RerollHandler>().usedSwap();
-                GameObject.FindObjectOfType<LootBoxManager>().swap();
+                if (!isLoot)
+                {
+                    LevelUp.GetComponent<RerollHandler>().usedSwap();
+                    GameObject.FindObjectOfType<LevelUpManager>().swap();
+                }
+                else
+                {
+                    LevelUp.GetComponent<RerollHandler>().usedSwap();
+                    GameObject.FindObjectOfType<LootBoxManager>().swap();
+                }
             }
         }
+       
     }
 
     void Update()
@@ -58,15 +69,12 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
 
         if (isRoll)
         {
-
             if (currentReroll <= 0)
             {
                 gameObject.SetActive(false);
             }
         }
-
-
-        if (!isRoll)
+        else
         {
             if (currentSwap <= 0)
             {
@@ -74,12 +82,24 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
             }
         }
 
+        if (startDelay)
+        {
+            timer += Time.unscaledDeltaTime; // increment timer each frame
+            if (timer >= uiDelay)
+            {
+                startDelay = false;
+                delayFinished = true;
+            }
+        }
     }
 
 
     public void setActive()
     {
         //LevelUp.GetComponent<RerollHandler>().resetSwap();
+        timer = 0f; // reset timer when panel is set active
+        startDelay = true;
+        delayFinished = false;
         gameObject.SetActive(true);
     }
 
