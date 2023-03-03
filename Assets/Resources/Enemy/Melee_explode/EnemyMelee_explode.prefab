@@ -56,8 +56,8 @@ MonoBehaviour:
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
   isElite: 0
-  damage: 5
-  health: 35
+  damage: 6
+  health: 30
   maxHealth: 0
   xpAmount: 20
   weight: 5
@@ -207,7 +207,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 1.25
+  maxSpeed: 2
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

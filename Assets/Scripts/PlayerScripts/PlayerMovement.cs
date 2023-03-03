@@ -70,9 +70,9 @@ public class PlayerMovement : MonoBehaviour, Attacker
     public void SetAnimSpeed(float speed, float baseSpeed)
     {
         // Calculate the animator speed based on the move speed ratio
-        float speedRatio = speed / baseSpeed;
-        animSpeed = animator.speed;
-        animSpeed *= speedRatio;
+        float speedRatio = (speed / baseSpeed) ;
+        float scalingFactor = 0.5f; // adjust this as needed
+        float animSpeed = animator.speed * (1.0f + scalingFactor * (speedRatio - 1.0f));
         animator.speed = animSpeed;
         afterimageAnim.speed = animSpeed;
     }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7329280640904233847}
   - component: {fileID: 2619886986464292918}
   m_Layer: 5
-  m_Name: 0_Default
+  m_Name: Howdy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,12 +53,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 40
   speed: 0.038
   pickupRange: 1.5
   damageMultiplier: 1
-  critChance: 0
-  critDmg: 0
+  critChance: 0.2
+  critDmg: 0.5
   defense: 0
   shield: 0
   shotsPerAttack: 0
@@ -67,18 +67,19 @@ MonoBehaviour:
   multicastChance: 0
   shotgunSpread: 0
   spreadMultiplier: 1
-  castTimeMultiplier: 1
+  castTimeMultiplier: 0.75
   meleeWaitTimeMultiplier: 1
-  projectileSpeedMultiplier: 1
+  projectileSpeedMultiplier: 1.25
   rangeMultiplier: 1
-  knockbackMultiplier: 1
+  knockbackMultiplier: 1.25
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
   projectileSizeMultiplier: 1
   meleeSizeMultiplier: 1
   shootOpposideSide: 0
   startingWeapons:
-  - {fileID: 1449995561756442478, guid: 776340eb4f8bb8548a8365d418ba8bf8, type: 3}
+  - {fileID: 1449995561756442478, guid: e71c3054363864f44b10a368909288a9, type: 3}
+  - {fileID: 6413099147738919843, guid: 65082da2323e68049b5d5ac2bacbf69d, type: 3}
 --- !u!222 &3817268471581327505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f5d0dc4073c1c84cb0e291a73aa678e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61558427f773efa429a07f87730ec975, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

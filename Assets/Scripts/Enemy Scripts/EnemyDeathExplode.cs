@@ -30,7 +30,7 @@ public class EnemyDeathExplode : MonoBehaviour
             {
                 Instantiate(onHitParticle, col.transform.position, Quaternion.identity);
 
-                float enemyDmg = damage * 5;
+                float enemyDmg = damage * 10;
                 col.gameObject.GetComponent<Enemy>().TakeDamage(enemyDmg, true);
 
                 Vector3 knockDirection = (col.transform.position - transform.position).normalized;
