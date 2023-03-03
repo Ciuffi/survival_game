@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1822861191
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 65abf4a5301fadb4891a13fceecb7813, type: 3}
   m_Color: {r: 0.6855345, g: 0, b: 1, a: 0.3529412}
@@ -116,12 +116,13 @@ MonoBehaviour:
   disappearSpeed: 0.5
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: 9834c3ac85854944980a1a437400746b, type: 3}
-  playerShakeTime: 0.02
-  playerShakeStrength: 0.02
-  playerShakeRotation: 0.01
+  playerShakeTime: 0.03
+  playerShakeStrength: 0.03
+  playerShakeRotation: 0.03
   damageTickDuration: 0.5
   isThrown: 0
   isHover: 0
+  stopOnHit: 0
   hoverTimer: 0
   hitFirstEnemy: 0
   isAnimated: 1

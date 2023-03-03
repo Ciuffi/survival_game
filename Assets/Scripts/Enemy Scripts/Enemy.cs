@@ -119,6 +119,7 @@ public class Enemy : MonoBehaviour, Attacker
     SpriteRenderer dangerRenderer;
 
     public bool isDeathrattle;
+    public bool isDeathExplode;
     public List<GameObject> deathRattle;
 
     private Vector3 magnetTarget;
@@ -230,6 +231,22 @@ public class Enemy : MonoBehaviour, Attacker
             Instantiate(DeathEffect, deathSpawnPos, Quaternion.identity);
             ComboManager.GetComponent<ComboTracker>().IncreaseCount(1);
             ComboManager.GetComponent<ScreenShakeController>().StartShake(0.1f, 0.1f, 0.1f);
+
+
+            if (isDeathrattle)
+            {
+                foreach (GameObject rattle in deathRattle)
+                {
+                    Vector3 newPosition = transform.position;
+                    newPosition.x += Random.Range(-0.3f, 0.3f);
+                    newPosition.y += Random.Range(-0.3f, 0.3f);
+                    GameObject dr = Instantiate(rattle, newPosition, Quaternion.identity);
+                    if (isDeathExplode)
+                    {
+                        dr.GetComponent<EnemyDeathExplode>().damage = damage;
+                    }
+                }
+            }
         }
 
         if (health <= 0)
@@ -257,17 +274,6 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (color.a <= 0)
         {
-            if (isDeathrattle)
-            {
-                foreach (GameObject rattle in deathRattle)
-                {
-                    Vector3 newPosition = transform.position;
-                    newPosition.x += Random.Range(-0.3f, 0.3f);
-                    newPosition.y += Random.Range(-0.3f, 0.3f);
-                    GameObject dr = Instantiate(rattle, newPosition, Quaternion.identity);
-                }
-
-            }
 
             Destroy(gameObject);
         }

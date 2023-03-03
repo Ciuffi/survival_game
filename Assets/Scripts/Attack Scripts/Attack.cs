@@ -1007,11 +1007,11 @@ public void SpawnBulletCasing()
         } else
         {
             // Calculate random position modifiers
-            float xModifier = Random.Range(-0.075f, 0.075f);
-            float yModifier = Random.Range(-0.1f, 0.1f);
+            float xModifier = Random.Range(-0.1f, 0.1f);
+            float yModifier = Random.Range(-0.5f, 0.1f);
 
             // Calculate position for the new object
-            Vector3 spawnPosition = transform.position + new Vector3(xModifier + 0.5f, yModifier - 0.1f, 0f);
+            Vector3 spawnPosition = transform.position + new Vector3(xModifier, yModifier, 0f);
 
             // Instantiate the new object
             GameObject newBulletCasing = Instantiate(bulletCasing, spawnPosition, Quaternion.identity);

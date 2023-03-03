@@ -47,7 +47,7 @@ MonoBehaviour:
   damage: 16
   spread: 0.085
   shotgunSpread: 0
-  spray: 1.75
+  spray: 1.6
   sprayThreshold: 0
   castTime: 1.75
   attackTime: 0

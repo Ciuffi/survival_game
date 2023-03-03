@@ -15,13 +15,17 @@ public class PlayerMovement : MonoBehaviour, Attacker
     public bool canMove;
     public float oldSpeed;
     public float localSpeed;
+    private float baseSpeed;
+    private float animSpeed;
 
     public Animator animator;
     public GameObject WeaponSprite;
 
     public GameObject afterimage;
-    private Animator afterimageAnim;
+    public Animator afterimageAnim;
     private SpriteRenderer afterimageRend;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +35,8 @@ public class PlayerMovement : MonoBehaviour, Attacker
         canMove = true;
         oldSpeed = 0;
         localSpeed = 0;
-        afterimageAnim = afterimage.GetComponent<Animator>();
         afterimageRend = afterimage.GetComponent<SpriteRenderer>();
+
     }
 
     void Move()
@@ -62,7 +66,16 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
     }
 
-
+    // Update the move speed
+    public void SetAnimSpeed(float speed, float baseSpeed)
+    {
+        // Calculate the animator speed based on the move speed ratio
+        float speedRatio = speed / baseSpeed;
+        animSpeed = animator.speed;
+        animSpeed *= speedRatio;
+        animator.speed = animSpeed;
+        afterimageAnim.speed = animSpeed;
+    }
 
 
     // Update is called once per frame

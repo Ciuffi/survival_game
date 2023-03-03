@@ -47,7 +47,7 @@ MonoBehaviour:
   damage: 20
   spread: 0.38
   shotgunSpread: 0
-  spray: 2
+  spray: 1.8
   sprayThreshold: 0
   castTime: 1.25
   attackTime: 0
@@ -81,9 +81,9 @@ MonoBehaviour:
   meleeSpacer: 0
   meleeSpacerGap: 0
   swapAnimOnAttack: 0
-  shakeTime: 0.015
-  shakeStrength: 0.05
-  shakeRotation: 0.01
+  shakeTime: 0.1
+  shakeStrength: 0.1
+  shakeRotation: 0.05
   weaponSprite: {fileID: 21300000, guid: 803bd54077b23c648b655edace0730c3, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}

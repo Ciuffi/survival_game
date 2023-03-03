@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScreenShakeController : MonoBehaviour
 {
+    public float maxShakePower;
 
     private float shakeTimeLeft;
     private float shakePower;
@@ -16,6 +17,7 @@ public class ScreenShakeController : MonoBehaviour
     private Transform parentTransform;
     private Vector3 localPosition;
     private Quaternion localRotation;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,29 +60,35 @@ public class ScreenShakeController : MonoBehaviour
     {
         if (shakeTimeLeft <= 0)
         {
+            // check if the new shake power will exceed the maximum threshold
+            if (shakePower + power > maxShakePower)
+            {
+                // cap the shake power at the maximum value
+                shakePower = maxShakePower;
+            }
+            else
+            {
+                // add the new power value to the existing shake power
+                shakePower += power;
+            }
+
             shakeTimeLeft = length;
-            shakePower = power;
+            shakeFadeTime = shakePower / length;
 
-            shakeFadeTime = power / length;
-
-            shakeRotation = power * rotation;
+            shakeRotation = shakePower * rotation;
             rotationMultiplier = rotation;
-        } else
+        }
+        else
         {
-            //reset
+            // reset
             shakeTimeLeft = 0;
             shakePower = 0;
             shakeFadeTime = 0;
             shakeRotation = 0;
             rotationMultiplier = 0;
 
-            //again
-            shakeTimeLeft = length;
-            shakePower = power;
-            shakeFadeTime = power / length;
-            shakeRotation = power * rotation;
-            rotationMultiplier = rotation;
+            // call StartShake again with the new parameters
+            StartShake(length, power, rotation);
         }
-        
     }
 }
