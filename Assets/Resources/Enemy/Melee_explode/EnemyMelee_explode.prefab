@@ -74,8 +74,8 @@ MonoBehaviour:
   weightIncrease: 0
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
-  HitEffect: {fileID: 4053501027209517259, guid: 0b35dc5fd6215b740b208c1707ea71d6, type: 3}
-  DeathEffect: {fileID: 4053501027209517259, guid: f6bfbf867992f954eb5ac838f82ae5b3, type: 3}
+  HitEffect: {fileID: 4053501027209517259, guid: 0175ba2e2ce8b8549904d75a07504472, type: 3}
+  DeathEffect: {fileID: 2429385742196507204, guid: 3f2c8af43e46a4c4da19b2cc74167602, type: 3}
   EXPdrop: {fileID: 9040451915024097044, guid: 7cb6000f3688522458525e0d169ebdf1, type: 3}
   Iframes: 0.3
   isInvuln: 0

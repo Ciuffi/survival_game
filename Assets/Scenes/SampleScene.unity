@@ -18684,8 +18684,8 @@ MonoBehaviour:
   spawner: {fileID: 1517156281}
   guiltThreshold1: 100
   guiltThreshold2: 300
-  guiltThreshold3: 500
-  guiltThreshold4: 800
+  guiltThreshold3: 600
+  guiltThreshold4: 900
   guiltThreshold5: 1200
   guiltColor1: {r: 0.2264151, g: 0.10145959, b: 0.10145959, a: 1}
   guiltColor2: {r: 0.3490566, g: 0.04774832, b: 0.04774832, a: 1}

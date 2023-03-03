@@ -291,10 +291,10 @@ MonoBehaviour:
   isMagnet: 1
   magnetStrength: 8
   magnetDuration: 0.5
-  isSlow: 0
+  isSlow: 1
   slowPercentage: 0.25
-  slowDuration: 1.5
-  isStun: 1
+  slowDuration: 0.5
+  isStun: 0
   stunDuration: 0.75
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
