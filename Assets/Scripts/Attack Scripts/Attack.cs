@@ -561,6 +561,7 @@ public class Attack : MonoBehaviour, Upgrade
             }
 
             SpawnBulletCasing();
+            SpawnMuzzleFlash();
 
             if (!shootOpppositeSide) //only shoots forward
             {

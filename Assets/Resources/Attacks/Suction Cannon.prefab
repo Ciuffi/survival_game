@@ -52,12 +52,12 @@ MonoBehaviour:
   castTime: 3
   attackTime: 0
   recoveryTime: 0
-  range: 6
-  rangeUP: 7
+  range: 5
+  rangeUP: 6
   shotsPerAttack: 1
   shotsPerAttackMelee: 0
   cantMove: 0
-  speed: 0.0075
+  speed: 0.01
   knockback: 0
   pierce: 999
   critChance: 0.05
