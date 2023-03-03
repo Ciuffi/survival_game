@@ -139,6 +139,7 @@ public class Enemy : MonoBehaviour, Attacker
     public GameObject shadow;
     public GameObject eliteOutline;
     Vector3 deathPos;
+    Vector3 stunPos;
 
     // Start is called before the first frame update
     void Start()
@@ -194,7 +195,8 @@ public class Enemy : MonoBehaviour, Attacker
         stunTimer = duration;
         isStunned = true;
         spriteRend.color = stunColor;
-        
+
+        stunPos = transform.position;
     }
 
     private float EaseInOutCubic(float t)
@@ -392,34 +394,17 @@ public class Enemy : MonoBehaviour, Attacker
                 eliteBorder.speed = 0f;
             }
 
-            //stun
-            stunTimer -= Time.deltaTime;
-            if (stunTimer <= 0)
-            {
-                spriteRend.color = OGcolor;
-                isStunned = false;
-                stunTimer = 0;
-                animator.speed = 1f;
-                if (isElite)
-                {
-                    eliteBorder.speed = 1f;
-                }
-                StartMoving();
-            }
-
-            //knockback            
-            currentForce = EasingFunction.EaseOutExpo(currentForce, 0,  Time.deltaTime);
             
-            float forceToApply = Mathf.Max(currentForce - knockbackWeight, 0);
-            currentForce = (currentForce > knockbackWeight) ? forceToApply : 0f;
-            transform.position += knockDirection * forceToApply;
-            //Debug.Log(forceToApply);
-
-            if (currentForce < 0.1) //knockback over
+            //stun
+            if (isStunned)
             {
-                duringKnockback = false;
-                if (!isStunned)
+                stunTimer -= Time.deltaTime;
+                transform.position = stunPos;
+                if (stunTimer <= 0)
                 {
+                    spriteRend.color = OGcolor;
+                    isStunned = false;
+                    stunTimer = 0;
                     animator.speed = 1f;
                     if (isElite)
                     {
@@ -427,8 +412,32 @@ public class Enemy : MonoBehaviour, Attacker
                     }
                     StartMoving();
                 }
-            }
 
+            } else
+            {
+                //knockback            
+                currentForce = EasingFunction.EaseOutExpo(currentForce, 0, Time.deltaTime);
+
+                float forceToApply = Mathf.Max(currentForce - knockbackWeight, 0);
+                currentForce = (currentForce > knockbackWeight) ? forceToApply : 0f;
+                transform.position += knockDirection * forceToApply;
+                //Debug.Log(forceToApply);
+
+                if (currentForce < 0.1) //knockback over
+                {
+                    duringKnockback = false;
+                    if (!isStunned)
+                    {
+                        animator.speed = 1f;
+                        if (isElite)
+                        {
+                            eliteBorder.speed = 1f;
+                        }
+                        StartMoving();
+                    }
+                }
+
+            }          
         }
         else //perform enemy actions
         {

@@ -356,20 +356,7 @@ public class Projectile : MonoBehaviour
                     }
                     magnetTarget.GetComponent<Enemy>().StartMagnet(magnetStrength, magnetDuration, magnetStartPos, isMelee);
                 }
-
-                //apply slow effect
-                if (isSlow)
-                {
-                    col.GetComponent<Enemy>().StartSlow(slowPercentage, slowDuration);
-
-                }
-
-                //apply stun effect
-                if (isStun)
-                {
-                    col.GetComponent<Enemy>().StartStun(stunDuration);
-                }
-
+    
 
                 if (isCrit == true) //deal damage
                 {
@@ -395,6 +382,19 @@ public class Projectile : MonoBehaviour
                     Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
 
                 }
+
+                //apply slow effect
+                if (isSlow)
+                {
+                    col.GetComponent<Enemy>().StartSlow(slowPercentage, slowDuration);
+                }
+
+                //apply stun effect
+                if (isStun)
+                {
+                    col.GetComponent<Enemy>().StartStun(stunDuration);
+                }
+
 
                 if (isMelee == false)
                 {

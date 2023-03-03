@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735341029624650593}
   - component: {fileID: 1803132688626501153}
   m_Layer: 0
-  m_Name: Impact Nova
+  m_Name: Petrify Nova
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,21 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 18
-  spread: 0.2
+  damage: 3
+  spread: 0.4
   shotgunSpread: 0
   spray: 0
   sprayThreshold: 0
-  castTime: 1
+  castTime: 2.25
   attackTime: 0
-  recoveryTime: 0.5
+  recoveryTime: 0
   range: 0
   rangeUP: 0
   shotsPerAttack: 0
   shotsPerAttackMelee: 0
   cantMove: 0
   speed: 0
-  knockback: 0.55
+  knockback: 0
   pierce: 0
   critChance: 0.05
   critDmg: 1.5
@@ -73,23 +73,23 @@ MonoBehaviour:
   chosenNumbers: 
   effect: {fileID: 0}
   attackType: 2
-  MeleeAttack: {fileID: 4908858350499337675, guid: dc68a2ec937697a489312f8803cfdc02, type: 3}
+  MeleeAttack: {fileID: 4908858350499337675, guid: 5e6c27b2f8af4af47bde4eba5ea0b49b, type: 3}
   comboLength: 1
-  comboWaitTime: 0.4
+  comboWaitTime: 0.6
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
   meleeSpacer: 0
   meleeSpacerGap: 0
   swapAnimOnAttack: 0
   shakeTime: 0.1
-  shakeStrength: 0.5
+  shakeStrength: 0.6
   shakeRotation: 0.5
-  weaponSprite: {fileID: 21300000, guid: 058b02585a221e74e898a35df0609fcf, type: 3}
+  weaponSprite: {fileID: 21300000, guid: b78bddc4f5cc10141b19ed9d6b1b0aac, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 7313015711702768581, guid: a056c0710ffb81943a3a448b013e69e1, type: 3}
-  thrownSprite: {fileID: 21300000, guid: f174f798d45438f4b80ed735d6588c4e, type: 3}
-  thrownDamage: 10
+  thrownSprite: {fileID: 21300000, guid: 4605fd4414279ef44ad6fde48553c012, type: 3}
+  thrownDamage: 15
   throwSpeed: 0.5
   bulletCasing: {fileID: 0}
   MuzzleFlashPrefab: []
