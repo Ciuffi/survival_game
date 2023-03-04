@@ -9940,6 +9940,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1481340767}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: flashColor.b
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: flashColor.g
+      value: 0.73448867
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: flashColor.r
+      value: 0.71885014
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: WeaponOutline
       value: 
       objectReference: {fileID: 1056244612}
@@ -18432,11 +18444,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboCount: 11
   spawner: {fileID: 1517156281}
-  guiltThreshold1: 100
-  guiltThreshold2: 300
-  guiltThreshold3: 600
-  guiltThreshold4: 900
-  guiltThreshold5: 1200
+  guiltThreshold1: 150
+  guiltThreshold2: 350
+  guiltThreshold3: 700
+  guiltThreshold4: 1000
+  guiltThreshold5: 1500
   guiltColor1: {r: 0.2264151, g: 0.10145959, b: 0.10145959, a: 1}
   guiltColor2: {r: 0.3490566, g: 0.04774832, b: 0.04774832, a: 1}
   guiltColor3: {r: 0.6037736, g: 0.054111768, b: 0.054111768, a: 1}

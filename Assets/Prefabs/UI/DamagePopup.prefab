@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 4487688929921643103}
-  moveSpeed: 3
+  moveSpeed: 2.8
   slowSpeed: 2.5
   disappearTimer: 0.6
   disappearSpeed: 3
@@ -194,6 +194,7 @@ MonoBehaviour:
   scaleUpAmount: 0.25
   scaleDownAmount: 0.15
   baseFontSize: 50
+  maxFontSize: 500
   critScaleUpPercent: 1.4
   defaultDamageSize: 10
   damageScaleAmount: 2

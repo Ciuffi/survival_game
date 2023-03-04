@@ -59,7 +59,7 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   isElite: 0
   damage: 2
-  health: 140
+  health: 160
   maxHealth: 0
   xpAmount: 35
   weight: 20

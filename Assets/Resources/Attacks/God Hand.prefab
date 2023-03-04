@@ -49,18 +49,18 @@ MonoBehaviour:
   shotgunSpread: 0
   spray: 0
   sprayThreshold: 0
-  castTime: 1.5
+  castTime: 1.75
   attackTime: 0
-  recoveryTime: 0.25
+  recoveryTime: 0
   range: 0
   rangeUP: 0
   shotsPerAttack: 0
   shotsPerAttackMelee: 0
-  cantMove: 1
+  cantMove: 0
   speed: 0
-  knockback: 0.55
+  knockback: 0.8
   pierce: 0
-  critChance: 0.075
+  critChance: 0.05
   critDmg: 1.5
   shootOpppositeSide: 0
   projectileSize: 0
@@ -79,16 +79,16 @@ MonoBehaviour:
   comboAttackBuff: 0
   meleeShotsScaleUp: 0.3
   meleeSpacer: 2
-  meleeSpacerGap: 3
+  meleeSpacerGap: 2
   swapAnimOnAttack: 0
   shakeTime: 0.15
   shakeStrength: 0.7
   shakeRotation: 0.5
-  weaponSprite: {fileID: 21300000, guid: 03fd5dd25edcb5941a5fc4ecaa81670b, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 0663ac4550af2df4198035ce932e41f0, type: 3}
   isAutoAim: 0
   AutoAim: {fileID: 0}
   thrownWeapon: {fileID: 0}
-  thrownSprite: {fileID: 21300000, guid: 03fd5dd25edcb5941a5fc4ecaa81670b, type: 3}
+  thrownSprite: {fileID: 21300000, guid: 0663ac4550af2df4198035ce932e41f0, type: 3}
   thrownDamage: 0
   throwSpeed: 0
   bulletCasing: {fileID: 0}

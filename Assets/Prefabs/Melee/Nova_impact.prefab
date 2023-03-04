@@ -77,10 +77,10 @@ SpriteRenderer:
   m_SortingLayerID: 1822861191
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 52829240, guid: fa318c18e2ee32148a50049a8bbaae7f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
+  m_Sprite: {fileID: -2013033289, guid: 2ddd5b9c8924f9d4a94bbd1b37112e09, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 10.8, y: 12}
   m_AdaptiveModeThreshold: 0.5
@@ -110,10 +110,10 @@ MonoBehaviour:
   bounceRange: 0
   bounceTimes: 0
   isMelee: 1
-  startup: 0.05
-  active: 0.15
-  scaleSpeed: 2
-  disappearSpeed: 5
+  startup: 0.15
+  active: 0.2
+  scaleSpeed: 0
+  disappearSpeed: 2.25
   isCrit: 0
   onHitParticle: {fileID: 2429385742196507204, guid: cd241bfe4a9e72046941acf458ff255c, type: 3}
   playerShakeTime: 0.05
@@ -148,7 +148,7 @@ Animator:
   m_GameObject: {fileID: 4908858350499337675}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ddb1bbdf93e5c6149bed039fc0d0341b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 544e1981ad48de548b9ea254d8761e23, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

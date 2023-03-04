@@ -25,6 +25,8 @@ public class DamagePopupText : MonoBehaviour
 
 
     public float baseFontSize;
+    public float maxFontSize;
+
     public float critScaleUpPercent; //1 = no scaling 2 = double
 
     public float defaultDamageSize; //amount of damage needed for the default size
@@ -50,16 +52,19 @@ public class DamagePopupText : MonoBehaviour
         {
             textMesh.fontSize += ((damageAmount - defaultDamageSize) / downScaleIncrement * damageScaleAmount);
 
-        }
+        }  
 
         if ( isCrit == true ) {
 
             textMesh.fontSize *= critScaleUpPercent;
             textColor = new Color32(255, 79, 79, 255);
             textMesh.color = textColor;
-
         }
-     
+
+        if (textMesh.fontSize >= maxFontSize)
+        {
+            textMesh.fontSize = maxFontSize;
+        }
 
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;

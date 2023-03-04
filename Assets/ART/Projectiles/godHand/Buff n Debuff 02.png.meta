@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c2a97aacd703854bb76910aa53e72fc
+guid: e45d84ada8bd0124abbe6191290e6e03
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Thrust VFX 05 Color 1_0
+      name: Buff n Debuff 02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 576
-        height: 576
+        width: 336
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 102ba2e05f229744caec5f03c732f6e6
-      internalID: 2095581016
+      spriteID: 6d69a35dd59ecb747ac6b14a663e0192
+      internalID: -2060246298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Thrust VFX 05 Color 1_1
+      name: Buff n Debuff 02_1
       rect:
         serializedVersion: 2
-        x: 576
+        x: 336
         y: 0
-        width: 576
-        height: 576
+        width: 336
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09e7cf6caf2eb61428baaf697b3ecc6b
-      internalID: -47733481
+      spriteID: 7fdb6822251e65b4a9fd13475182f536
+      internalID: 558829190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Thrust VFX 05 Color 1_2
+      name: Buff n Debuff 02_2
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 672
         y: 0
-        width: 576
-        height: 576
+        width: 336
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad0d98981ad7e1545baa7a95ade786a2
-      internalID: -1296748448
+      spriteID: 066d95ab4631e054fbacfb23e67194a3
+      internalID: 805371745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Thrust VFX 05 Color 1_3
+      name: Buff n Debuff 02_3
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 1008
         y: 0
-        width: 576
-        height: 576
+        width: 336
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ef5e36df135e694abb596e207518171
-      internalID: -1524529233
+      spriteID: 63462f5da5e14d847a0f20aa674ded22
+      internalID: 1846221153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Thrust VFX 05 Color 1_4
+      name: Buff n Debuff 02_4
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 1344
         y: 0
-        width: 576
-        height: 576
+        width: 336
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d146521dfe54204298bc61ca2d91bde
-      internalID: 1982706874
+      spriteID: fffff56c134808c4a8160752a58cb8c9
+      internalID: -974606390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Thrust VFX 05 Color 1_5
+      name: Buff n Debuff 02_5
       rect:
         serializedVersion: 2
-        x: 2880
+        x: 1680
         y: 0
-        width: 576
-        height: 576
+        width: 336
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,8 +248,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5186b6448520f74bb9e8c5249504016
-      internalID: 1630436014
+      spriteID: e99c72480faa91b4e992cf5277873eaa
+      internalID: -1791629545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buff n Debuff 02_6
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90f371c02c752e74fbfecfadd36c219f
+      internalID: -882156711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buff n Debuff 02_7
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 0
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11b1cee25e481e45977560829beb22d
+      internalID: 1872371690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buff n Debuff 02_8
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e4f67649eaf3d478eb835d5cd26f2a
+      internalID: -1725214200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buff n Debuff 02_9
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 0
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3495bc7a5bb6c41bc7e211079f5bfe
+      internalID: 671381678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buff n Debuff 02_10
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b3b1d6a67405d44a8b0ed1fdc54c4e
+      internalID: -755860527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buff n Debuff 02_11
+      rect:
+        serializedVersion: 2
+        x: 3696
+        y: 0
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79129c153b0b0cf4391184ffec4b364b
+      internalID: -1871906463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buff n Debuff 02_12
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf3cdcf169fca94e9774364872af613
+      internalID: -2133857633
       vertices: []
       indices: 
       edges: []
@@ -265,12 +412,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Thrust VFX 05 Color 1_0: 2095581016
-      Thrust VFX 05 Color 1_1: -47733481
-      Thrust VFX 05 Color 1_2: -1296748448
-      Thrust VFX 05 Color 1_4: 1982706874
-      Thrust VFX 05 Color 1_5: 1630436014
-      Thrust VFX 05 Color 1_3: -1524529233
+      Buff n Debuff 02_6: -882156711
+      Buff n Debuff 02_12: -2133857633
+      Buff n Debuff 02_2: 805371745
+      Buff n Debuff 02_3: 1846221153
+      Buff n Debuff 02_4: -974606390
+      Buff n Debuff 02_7: 1872371690
+      Buff n Debuff 02_0: -2060246298
+      Buff n Debuff 02_9: 671381678
+      Buff n Debuff 02_8: -1725214200
+      Buff n Debuff 02_5: -1791629545
+      Buff n Debuff 02_1: 558829190
+      Buff n Debuff 02_10: -755860527
+      Buff n Debuff 02_11: -1871906463
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
