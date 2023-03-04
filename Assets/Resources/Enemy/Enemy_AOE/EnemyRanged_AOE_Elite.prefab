@@ -61,9 +61,9 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   isElite: 0
   damage: 2
-  health: 800
+  health: 750
   maxHealth: 0
-  xpAmount: 200
+  xpAmount: 250
   weight: 25
   stopDistanceMin: 5
   stopDistanceMax: 6
@@ -113,6 +113,7 @@ MonoBehaviour:
   AOEPrefab: {fileID: 4235860010000021921, guid: ad77bd235e9814843b64406f807ba8aa, type: 3}
   dangerSign: {fileID: 5189165830211085352}
   isDeathrattle: 1
+  isDeathExplode: 0
   deathRattle:
   - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
   isStunned: 0
@@ -784,6 +785,10 @@ PrefabInstance:
     - target: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
       propertyPath: m_Name
       value: DangerIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}

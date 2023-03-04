@@ -138,8 +138,10 @@ public class Enemy : MonoBehaviour, Attacker
     public Color stunColor;
     public GameObject shadow;
     public GameObject eliteOutline;
+    
     Vector3 deathPos;
     Vector3 stunPos;
+    private GameObject maxEnemiesTracker;
 
     // Start is called before the first frame update
     void Start()
@@ -160,6 +162,7 @@ public class Enemy : MonoBehaviour, Attacker
 
         canDamage = true;
         isDead = false;
+        maxEnemiesTracker = GameObject.Find("EnemyTracker");
 
         OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
         color = Sprite.GetComponent<SpriteRenderer>().color;
@@ -221,6 +224,7 @@ public class Enemy : MonoBehaviour, Attacker
             isDead = true;
             canMove = false;
             deathPos = transform.position;
+            maxEnemiesTracker.GetComponent<MaxEnemyTracker>().DecreaseCount();
 
             if (xpAmount > 0)
             {

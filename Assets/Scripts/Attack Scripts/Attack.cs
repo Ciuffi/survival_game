@@ -971,7 +971,7 @@ public class Attack : MonoBehaviour, Upgrade
             wpnToss.GetComponent<SpriteRenderer>().sprite = thrownSprite;
             Rigidbody2D rb = wpnToss.GetComponent<Rigidbody2D>();
             rb.AddForce(direction * throwSpeed * -1, ForceMode2D.Impulse);
-            rb.AddTorque(1000f);
+            rb.AddTorque(1200f);
 
             Projectile p = wpnToss.GetComponent<Projectile>();
             p.attack = this;

@@ -105,11 +105,12 @@ MonoBehaviour:
   shootChargeTime: 1.2
   projectileSpeed: 1.3
   projectileRange: 8
-  projectileDamage: 4
+  projectileDamage: 3
   shootRecovery: 1.2
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}
   isDeathrattle: 0
+  isDeathExplode: 0
   deathRattle: []
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}

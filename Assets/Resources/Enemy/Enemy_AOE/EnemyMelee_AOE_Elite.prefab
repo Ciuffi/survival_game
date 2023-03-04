@@ -60,9 +60,9 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   isElite: 0
   damage: 2
-  health: 800
+  health: 750
   maxHealth: 0
-  xpAmount: 200
+  xpAmount: 250
   weight: 30
   stopDistanceMin: 2
   stopDistanceMax: 3
@@ -112,6 +112,7 @@ MonoBehaviour:
   AOEPrefab: {fileID: 4235860010000021921, guid: 4a0d9405c86f5ce46bd466561185c745, type: 3}
   dangerSign: {fileID: 5189165830211085352}
   isDeathrattle: 1
+  isDeathExplode: 0
   deathRattle:
   - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
   isStunned: 0
@@ -328,8 +329,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3682808208575244435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.002, y: -0.342, z: 0}
-  m_LocalScale: {x: 0.5466803, y: 0.42974326, z: 0}
+  m_LocalPosition: {x: 0.002, y: -0.365, z: 0}
+  m_LocalScale: {x: 0.5466803, y: 1.0260121, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
@@ -377,7 +378,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49803922}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -500,7 +501,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 8762077471657801085, guid: 5cf241261cc02644f994b5afa02bf992, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.9411765}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.92156863}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

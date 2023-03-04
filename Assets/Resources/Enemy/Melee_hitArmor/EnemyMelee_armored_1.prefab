@@ -70,7 +70,7 @@ MonoBehaviour:
   isMelee: 1
   isAOE: 0
   isArmor: 1
-  armorTime: 2
+  armorTime: 2.5
   armorPercent: 1
   weightIncrease: 25
   canDamage: 0

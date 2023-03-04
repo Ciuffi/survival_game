@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  spread: 0.5
+  spread: 0.55
   shotgunSpread: 0
   spray: 0
   sprayThreshold: 0

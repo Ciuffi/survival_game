@@ -25,19 +25,26 @@ public class ConstantSpawner : MonoBehaviour
     private bool delayFinished;
     public float elapsedTime = 0f;
     public GameObject basicSpawner;
+    private GameObject maxEnemiesTracker;
+    private int availableEnemyAmount;
+
 
     private int currentGuilt;
     private float healthScaling, damageScaling, weightScaling, xpScaling;
     private float prevGuiltValue;
 
+
     private void Start()
     {
-        OGspawnTimer = spawnTimer;    
+        OGspawnTimer = spawnTimer;
+        maxEnemiesTracker = GameObject.Find("EnemyTracker");
+        availableEnemyAmount = maxEnemiesTracker.GetComponent<MaxEnemyTracker>().availableAmount;
     }
 
     // Update is called once per frame
     void Update () {
 
+        availableEnemyAmount = maxEnemiesTracker.GetComponent<MaxEnemyTracker>().availableAmount;
 
         // Check if guilt value has increased since last frame
         if (currentGuilt > prevGuiltValue)
@@ -74,7 +81,7 @@ public class ConstantSpawner : MonoBehaviour
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0f)
             {
-                SpawnEnemies();
+                QueueSpawn();
                 spawnTimer = OGspawnTimer;
             }
         }
@@ -112,11 +119,25 @@ public class ConstantSpawner : MonoBehaviour
             spawnRateLimit = spawnRateLimit_G5;
         }
 
-
     }
 
+
+    private void QueueSpawn()
+    {
+        if (spawnRate <= availableEnemyAmount)
+        {
+            SpawnEnemies();
+            maxEnemiesTracker.GetComponent<MaxEnemyTracker>().IncreaseCount(spawnRate);
+        }
+        else
+        {
+            maxEnemiesTracker.GetComponent<MaxEnemyTracker>().spawnerQueue.Enqueue(this);
+        }
+    }
+
+
     // Spawn enemies along the edge of the circle
-    void SpawnEnemies () {
+    public void SpawnEnemies () {
 
         // Pick a random enemy prefab from the list
         GameObject enemyPrefab = enemies[Random.Range(0, enemies.Count)];

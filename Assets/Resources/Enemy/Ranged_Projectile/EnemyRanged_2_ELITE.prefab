@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 0}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7013586690032072450}
@@ -63,7 +63,7 @@ MonoBehaviour:
   damage: 2
   health: 800
   maxHealth: 0
-  xpAmount: 200
+  xpAmount: 250
   weight: 25
   stopDistanceMin: 4.5
   stopDistanceMax: 5.2
@@ -113,6 +113,7 @@ MonoBehaviour:
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}
   isDeathrattle: 1
+  isDeathExplode: 0
   deathRattle:
   - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
   isStunned: 0
@@ -726,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2111489071066828985, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4814015035235825232, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
       propertyPath: m_RootOrder

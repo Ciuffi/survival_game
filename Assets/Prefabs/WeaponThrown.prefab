@@ -200,9 +200,9 @@ MonoBehaviour:
   disappearSpeed: 0
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
-  playerShakeTime: 0.1
-  playerShakeStrength: 0.08
-  playerShakeRotation: 0.05
+  playerShakeTime: 0.07
+  playerShakeStrength: 0.05
+  playerShakeRotation: 0.03
   damageTickDuration: 0.5
   isThrown: 1
   isHover: 0
@@ -260,10 +260,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.1
-  m_GravityScale: 0.075
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
