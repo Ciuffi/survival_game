@@ -52,7 +52,7 @@ MonoBehaviour:
   extraDefense: 0
   extraShield: 0
   extraCritChance: 0
-  extraCritDmg: 0.75
+  extraCritDmg: 0.7
   extraShotsPerAttack: 0
   extraShotsPerAttackMelee: 0
   extraMeleeComboLength: 0

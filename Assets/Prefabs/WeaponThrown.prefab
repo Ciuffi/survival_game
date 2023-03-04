@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5855609904109823780}
   - component: {fileID: 4216552522344001958}
   m_Layer: 0
-  m_Name: WeaponThrown
+  m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

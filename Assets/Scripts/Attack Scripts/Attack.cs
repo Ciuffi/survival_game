@@ -969,6 +969,7 @@ public class Attack : MonoBehaviour, Upgrade
 
             GameObject wpnToss = Instantiate(thrownWeapon, position, Quaternion.identity);
             wpnToss.GetComponent<SpriteRenderer>().sprite = thrownSprite;
+            wpnToss.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = thrownSprite;
             Rigidbody2D rb = wpnToss.GetComponent<Rigidbody2D>();
             rb.AddForce(direction * throwSpeed * -1, ForceMode2D.Impulse);
             rb.AddTorque(1200f);

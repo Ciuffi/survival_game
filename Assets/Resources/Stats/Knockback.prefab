@@ -61,7 +61,7 @@ MonoBehaviour:
   extraMulticastChance: 0
   extraCastTimeMultiplier: 0
   extraProjectileSpeedMultiplier: 0
-  extraKnockbackMultiplier: 0.42
+  extraKnockbackMultiplier: 0.45
   extraMeleeWaitTimeMultiplier: 0
   extraThrownDamageMultiplier: 0
   extraThrownSpeedMultiplier: 0
