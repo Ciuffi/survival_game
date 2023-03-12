@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class MaxEnemyTracker : MonoBehaviour
 {
-    public int enemyLimit = 200;
+    public List<int> enemyLimit;
+    public int currentLimit;
     public int enemyAmount = 0;
     public int availableAmount;
 
     public Queue<ConstantSpawner> spawnerQueue;
+    public GameObject spawner;
+    public int currentGuilt;
 
     private void Start()
     {
         spawnerQueue = new Queue<ConstantSpawner>();
-        availableAmount = enemyLimit - enemyAmount;
+        currentLimit = enemyLimit[0];
+        availableAmount = currentLimit - enemyAmount;
     }
 
     public void IncreaseCount(int amount)
@@ -21,13 +25,13 @@ public class MaxEnemyTracker : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             enemyAmount++;
-            availableAmount = enemyLimit - enemyAmount;
+            availableAmount = currentLimit - enemyAmount;
         }
     }
     public void DecreaseCount()
     {
         enemyAmount--;
-        availableAmount = enemyLimit - enemyAmount;
+        availableAmount = currentLimit - enemyAmount;
 
         if (spawnerQueue.Count > 0)
         {
@@ -48,6 +52,30 @@ public class MaxEnemyTracker : MonoBehaviour
         if (availableAmount < 0)
         {
             availableAmount = 0;
+        }
+
+        currentGuilt = spawner.GetComponent<BasicSpawner>().currentGuilt;
+
+        switch (currentGuilt)
+        {
+            case 0:
+                currentLimit = enemyLimit[0];
+                break;
+            case 1:
+                currentLimit = enemyLimit[1];
+                break;
+            case 2:
+                currentLimit = enemyLimit[2];
+                break;
+            case 3:
+                currentLimit = enemyLimit[3];
+                break;
+            case 4:
+                currentLimit = enemyLimit[4];
+                break;
+            case 5:
+                currentLimit = enemyLimit[5];
+                break;
         }
     }
 }

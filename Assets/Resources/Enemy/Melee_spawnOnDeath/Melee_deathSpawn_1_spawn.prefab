@@ -62,7 +62,7 @@ MonoBehaviour:
   xpAmount: 0
   weight: 3
   stopDistanceMin: 0
-  stopDistanceMax: 0.1
+  stopDistanceMax: 0
   moveDistanceCheck: 0
   canMove: 0
   timeCheck: 0
@@ -112,6 +112,9 @@ MonoBehaviour:
   isDeathExplode: 0
   deathRattle: []
   isSpawn: 1
+  spawnTimer: 0.5
+  isFlyby: 0
+  flybyDistance: 15
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
@@ -208,7 +211,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 1.8
+  maxSpeed: 2
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -248,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 9136689211427610630, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+  isFlyby: 0
 --- !u!61 &1818636915474768677
 BoxCollider2D:
   m_ObjectHideFlags: 0

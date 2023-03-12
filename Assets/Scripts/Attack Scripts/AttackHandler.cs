@@ -49,7 +49,7 @@ public class AttackHandler : MonoBehaviour
         float timer = 0;
         bool isFlashing = false;
         Color originalColor = colors[0];
-        float flashDuration = castTime / 4f; // Set the duration of the flash here
+        float flashDuration = castTime / 6f; // Set the duration of the flash here
 
         while (true)
         {

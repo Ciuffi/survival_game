@@ -161,15 +161,16 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: c190cf3259ce79b43bf33681c2a098c4, type: 3}
   - {fileID: 1423453834646843868, guid: 192c54fe29a9c3c4ba51991f31c521f2, type: 3}
   diameter: 16
-  initialDelay: 0
-  spawnTimer: 180
+  initialDelay: 60
+  spawnTimer: 60
   spawnRate: 1
   spawnRateLimit_G0: 1
   spawnRateLimit_G1: 1
+  spawnRateLimit_G2: 1
   spawnRateLimit_G3: 1
   spawnRateLimit_G4: 1
-  spawnRateLimit_G5: 1
-  scaleRateSeconds: 180
+  spawnRateLimit_G5: 2
+  scaleRateSeconds: 60
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 0}
@@ -223,12 +224,13 @@ MonoBehaviour:
   diameter: 15
   initialDelay: 0
   spawnTimer: 12
-  spawnRate: 6
-  spawnRateLimit_G0: 10
-  spawnRateLimit_G1: 16
-  spawnRateLimit_G3: 10
+  spawnRate: 4
+  spawnRateLimit_G0: 0
+  spawnRateLimit_G1: 10
+  spawnRateLimit_G2: 14
+  spawnRateLimit_G3: 16
   spawnRateLimit_G4: 12
-  spawnRateLimit_G5: 16
+  spawnRateLimit_G5: 0
   scaleRateSeconds: 12
   spawnRateScaling: 2
   elapsedTime: 0
@@ -511,9 +513,10 @@ MonoBehaviour:
   initialDelay: 0
   spawnTimer: 2
   spawnRate: 4
-  spawnRateLimit_G0: 8
-  spawnRateLimit_G1: 16
-  spawnRateLimit_G3: 0
+  spawnRateLimit_G0: 10
+  spawnRateLimit_G1: 12
+  spawnRateLimit_G2: 16
+  spawnRateLimit_G3: 6
   spawnRateLimit_G4: 0
   spawnRateLimit_G5: 0
   scaleRateSeconds: 20
@@ -572,6 +575,7 @@ MonoBehaviour:
   spawnRate: 8
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
+  spawnRateLimit_G2: 0
   spawnRateLimit_G3: 8
   spawnRateLimit_G4: 12
   spawnRateLimit_G5: 16
@@ -635,7 +639,8 @@ MonoBehaviour:
   spawnTimer: 5
   spawnRate: 0
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 2
+  spawnRateLimit_G1: 0
+  spawnRateLimit_G2: 2
   spawnRateLimit_G3: 6
   spawnRateLimit_G4: 8
   spawnRateLimit_G5: 12
@@ -937,14 +942,15 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: 2b60050c318efa24385bf6be1d8da3c5, type: 3}
   diameter: 18
   initialDelay: 180
-  spawnTimer: 30
-  spawnRate: 6
+  spawnTimer: 25
+  spawnRate: 4
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
+  spawnRateLimit_G2: 0
   spawnRateLimit_G3: 0
   spawnRateLimit_G4: 6
   spawnRateLimit_G5: 12
-  scaleRateSeconds: 30
+  scaleRateSeconds: 50
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 0}
@@ -996,14 +1002,15 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
   diameter: 16
   initialDelay: 33
-  spawnTimer: 15
-  spawnRate: 0
+  spawnTimer: 10
+  spawnRate: 4
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 4
+  spawnRateLimit_G1: 0
+  spawnRateLimit_G2: 4
   spawnRateLimit_G3: 6
   spawnRateLimit_G4: 10
   spawnRateLimit_G5: 12
-  scaleRateSeconds: 48
+  scaleRateSeconds: 30
   spawnRateScaling: 4
   elapsedTime: 0
   basicSpawner: {fileID: 0}
@@ -1060,7 +1067,8 @@ MonoBehaviour:
   spawnTimer: 15
   spawnRate: 1
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 1
+  spawnRateLimit_G1: 0
+  spawnRateLimit_G2: 1
   spawnRateLimit_G3: 2
   spawnRateLimit_G4: 3
   spawnRateLimit_G5: 5
@@ -1192,7 +1200,7 @@ MonoBehaviour:
   HandsSprite: {fileID: 0}
   colors:
   - {r: 0.1509434, g: 0.14093797, b: 0.08757565, a: 1}
-  flashColor: {r: 0.5762727, g: 0.60186976, b: 0.6603774, a: 0.5882353}
+  flashColor: {r: 0.8537736, g: 1, b: 0.9894039, a: 0.50980395}
 --- !u!114 &9136689211427610631
 MonoBehaviour:
   m_ObjectHideFlags: 0

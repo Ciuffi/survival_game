@@ -210,7 +210,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 3
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -229,9 +229,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 1
+  slowdownDistance: 0
   pickNextWaypointDist: 1
-  endReachedDistance: 0.2
+  endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0

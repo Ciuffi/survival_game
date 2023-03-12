@@ -49,7 +49,7 @@ MonoBehaviour:
   shotgunSpread: 0
   spray: 1
   sprayThreshold: 1
-  castTime: 1.5
+  castTime: 1.7
   attackTime: 0
   recoveryTime: 0
   range: 12

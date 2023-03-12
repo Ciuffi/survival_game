@@ -15,6 +15,7 @@ public class ConstantSpawner : MonoBehaviour
     private int spawnRateLimit;
     public int spawnRateLimit_G0 = 2;
     public int spawnRateLimit_G1 = 3;
+    public int spawnRateLimit_G2 = 3;
     public int spawnRateLimit_G3 = 4;
     public int spawnRateLimit_G4 = 5;
     public int spawnRateLimit_G5 = 6;
@@ -108,7 +109,11 @@ public class ConstantSpawner : MonoBehaviour
         } else if (currentGuilt == 1)
         {
             spawnRateLimit = spawnRateLimit_G1;
-        } else if (currentGuilt == 3)
+        } else if (currentGuilt == 2)
+        {
+            spawnRateLimit = spawnRateLimit_G2;
+        }
+        else if (currentGuilt == 3)
         {
             spawnRateLimit = spawnRateLimit_G3;
         } else if (currentGuilt == 4)

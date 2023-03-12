@@ -11,7 +11,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave1 = new EnemySpawn()
             .WithDirection(45)
             .WithDistance(1.5f)
-            .WithEnemiesPerWave(10)
+            .WithEnemiesPerWave(20)
             .WithSpawnTimer(90)
             .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.melee_flyby_1, 100}
@@ -20,7 +20,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave2 = new EnemySpawn()
             .WithDirection(135)
             .WithDistance(1.5f)
-            .WithEnemiesPerWave(10)
+            .WithEnemiesPerWave(20)
             .WithSpawnTimer(90)
             .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.melee_flyby_1, 100}
@@ -29,7 +29,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave3 = new EnemySpawn()
             .WithDirection(225)
             .WithDistance(1.5f)
-            .WithEnemiesPerWave(10)
+            .WithEnemiesPerWave(20)
             .WithSpawnTimer(90)
             .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.melee_flyby_1, 100}
@@ -38,7 +38,7 @@ public class LevelOneSpawnMap : EnemySpawnMap
         EnemySpawn wave4 = new EnemySpawn()
             .WithDirection(315)
             .WithDistance(1.5f)
-            .WithEnemiesPerWave(10)
+            .WithEnemiesPerWave(20)
             .WithSpawnTimer(90)
             .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.melee_flyby_1, 100}

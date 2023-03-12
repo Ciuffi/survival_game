@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f477e94d0ffc9f4cafb295fb84915ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 18
+  damage: 20
   spread: 0
   shotgunSpread: 75
   spray: 0
   sprayThreshold: 0
-  castTime: 1.75
+  castTime: 2.2
   attackTime: 0
   recoveryTime: 0
   range: 3.25
@@ -58,7 +58,7 @@ MonoBehaviour:
   shotsPerAttackMelee: 0
   cantMove: 1
   speed: 0.15
-  knockback: 0.5
+  knockback: 0.55
   pierce: 99
   critChance: 0.05
   critDmg: 1.5
