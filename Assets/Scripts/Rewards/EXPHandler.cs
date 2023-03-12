@@ -32,6 +32,8 @@ public class EXPHandler : MonoBehaviour
     private Vector3 capturedPos;
     private bool hasTriggered;
 
+    public int xpTier;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class EXPHandler : MonoBehaviour
 
     public void UpdateXpTier()
     {
-        int xpTier = 0;
+        xpTier = 0;
         for (int i = 0; i < xpTierThresholds.Count; i++)
         {
             if (xpAmount >= xpTierThresholds[i])
@@ -56,6 +58,7 @@ public class EXPHandler : MonoBehaviour
                 break;
             }
         }
+
         // Set the sprite based on the xpTier
         if (xpTier > 0 && xpTier <= spriteList.Count)
         {

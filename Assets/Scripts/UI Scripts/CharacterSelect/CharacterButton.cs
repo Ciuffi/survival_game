@@ -111,7 +111,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
 
             // Check each stat and add it to the string if it meets the criteria
 
-            if (stats.pickupRange != 1.5)
+            if (stats.pickupRange != 2)
             {
                 statsString += "Pickup Range +" + stats.pickupRange + "\n";
             }

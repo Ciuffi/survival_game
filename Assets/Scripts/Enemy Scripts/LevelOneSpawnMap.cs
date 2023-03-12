@@ -9,143 +9,75 @@ public class LevelOneSpawnMap : EnemySpawnMap
         enemies.LoadEnemies();
 
         EnemySpawn wave1 = new EnemySpawn()
-            .WithDirection(Random.Range(0,45))
-            .WithDistance(Random.Range(0.1f,0.3f))
-            .WithEnemiesPerWave(2)
-            .WithSpawnTimer(0)
+            .WithDirection(45)
+            .WithDistance(1.5f)
+            .WithEnemiesPerWave(10)
+            .WithSpawnTimer(90)
             .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.melee_slow_1, 100}
+                {enemies.melee_flyby_1, 100}
         });
+
         EnemySpawn wave2 = new EnemySpawn()
-           .WithDirection(Random.Range(135, 180))
-            .WithDistance(Random.Range(0.1f, 0.3f))
-           .WithEnemiesPerWave(1)
-           .WithSpawnTimer(0)
-           .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.melee_slow_1, 100}
-       });
+            .WithDirection(135)
+            .WithDistance(1.5f)
+            .WithEnemiesPerWave(10)
+            .WithSpawnTimer(90)
+            .WithEnemyMap(new Dictionary<GameObject, int>(){
+                {enemies.melee_flyby_1, 100}
+        });
 
         EnemySpawn wave3 = new EnemySpawn()
-           .WithDirection(Random.Range(185, 230))
-            .WithDistance(Random.Range(0.1f, 0.3f))
-           .WithEnemiesPerWave(1)
-           .WithSpawnTimer(0)
-           .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.melee_slow_1, 100}
-       });
+            .WithDirection(225)
+            .WithDistance(1.5f)
+            .WithEnemiesPerWave(10)
+            .WithSpawnTimer(90)
+            .WithEnemyMap(new Dictionary<GameObject, int>(){
+                {enemies.melee_flyby_1, 100}
+        });
 
         EnemySpawn wave4 = new EnemySpawn()
-           .WithDirection(Random.Range(315, 355))
-            .WithDistance(Random.Range(0.1f, 0.3f))
-           .WithEnemiesPerWave(2)
-           .WithSpawnTimer(0)
-           .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.melee_slow_1, 100}
-       });
-
-        EnemySpawn wave5 = new EnemySpawn()
-                    .WithDirection(Random.Range(0, 45))
-            .WithDistance(Random.Range(0.1f, 0.5f))
-                    .WithEnemiesPerWave(2)
-                    .WithSpawnTimer(3)
-                    .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.melee_fast_1, 100}
-
-                });
-        EnemySpawn wave6 = new EnemySpawn()
-           .WithDirection(Random.Range(135, 180))
-            .WithDistance(Random.Range(0.1f, 0.5f))
-           .WithEnemiesPerWave(2)
-           .WithSpawnTimer(3)
-           .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.melee_fast_1, 100}
-       });
-
-        EnemySpawn wave7 = new EnemySpawn()
-           .WithDirection(Random.Range(185, 230))
-            .WithDistance(Random.Range(0.1f, 0.5f))
-           .WithEnemiesPerWave(2)
-           .WithSpawnTimer(3)
-           .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.melee_fast_1, 100}
-       });
-
-        EnemySpawn wave8 = new EnemySpawn()
-           .WithDirection(Random.Range(315, 355))
-            .WithDistance(Random.Range(0.1f, 0.5f))
-           .WithEnemiesPerWave(2)
-           .WithSpawnTimer(3)
-           .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.melee_fast_1, 100}
-       });
+            .WithDirection(315)
+            .WithDistance(1.5f)
+            .WithEnemiesPerWave(10)
+            .WithSpawnTimer(90)
+            .WithEnemyMap(new Dictionary<GameObject, int>(){
+                {enemies.melee_flyby_1, 100}
+        });
 
 
-        EnemySpawn wave9 = new EnemySpawn()
-            .WithDirection(Random.Range(0, 45))
+        EnemySpawn wave10 = new EnemySpawn()
+            .WithDirection(Random.Range(0, 10))
            .WithDistance(Random.Range(-1, 0))
           .WithEnemiesPerWave(1)
-        .WithSpawnTimer(35)
+        .WithSpawnTimer(0)
         .WithEnemyMap(new Dictionary<GameObject, int>(){
                 {enemies.lootBox, 100}
           });
 
-        EnemySpawn wave10 = new EnemySpawn()
-           .WithDirection(Random.Range(315, 355))
-          .WithDistance(Random.Range(-1, 0))
-         .WithEnemiesPerWave(1)
-       .WithSpawnTimer(120)
-       .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.ranged_proj_2, 100}
-         });
 
-        EnemySpawn wave11 = new EnemySpawn()
-            .WithDirection(Random.Range(0, 45))
-            .WithDistance(Random.Range(0f, 0.5f))
-            .WithEnemiesPerWave(1)
-            .WithSpawnTimer(0)
-            .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.ranged_proj_2, 100}
-        });
+        for (int i = 0; i < 4; i++)
+        {
+            int roller = Random.Range(1, 4);
 
-        EnemySpawn wave12 = new EnemySpawn()
-           .WithDirection(Random.Range(315, 355))
-            .WithDistance(Random.Range(0f, 0.5f))
-           .WithEnemiesPerWave(1)
-           .WithSpawnTimer(0)
-           .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.ranged_proj_2, 100}
-       });
+            switch (roller)
+            {
+                case 1:
+                    spawnMaps.Add(wave1);
+                    break;
+                case 2:
+                    spawnMaps.Add(wave2);
+                    break;
+                case 3:
+                    spawnMaps.Add(wave3);
+                    break;
+                case 4:
+                    spawnMaps.Add(wave4);
+                    break;
+            }
+
+        }
 
 
-        spawnMaps.Add(wave5);
-        spawnMaps.Add(wave6);
-        spawnMaps.Add(wave7);
-        spawnMaps.Add(wave8);
 
-        spawnMaps.Add(wave1);
-        spawnMaps.Add(wave2);
-        spawnMaps.Add(wave3);
-        spawnMaps.Add(wave4);
-
-        spawnMaps.Add(wave9);
-        spawnMaps.Add(wave11);
-
-        spawnMaps.Add(wave1);
-        spawnMaps.Add(wave2);
-        spawnMaps.Add(wave3);
-        spawnMaps.Add(wave4);
-
-        spawnMaps.Add(wave5);
-        spawnMaps.Add(wave6);
-        spawnMaps.Add(wave7);
-        spawnMaps.Add(wave8);
-
-        spawnMaps.Add(wave10);
-        spawnMaps.Add(wave12);
-
-        spawnMaps.Add(wave1);
-        spawnMaps.Add(wave2);
-        spawnMaps.Add(wave3);
-        spawnMaps.Add(wave4);
     }
 }

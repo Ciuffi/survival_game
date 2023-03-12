@@ -56,7 +56,6 @@ public class Enemy : MonoBehaviour, Attacker
     public GameObject EXPdrop;
 
     public float Iframes;
-    float timer = 0f;
     public bool isInvuln;
 
     GameObject ComboManager;
@@ -121,6 +120,14 @@ public class Enemy : MonoBehaviour, Attacker
     public bool isDeathrattle;
     public bool isDeathExplode;
     public List<GameObject> deathRattle;
+    public bool isSpawn;
+    private bool spawnFinished;
+    public float spawnTimer = 0.5f;
+
+    public bool isFlyby;
+    private Vector3 startingPosition; // starting position of enemy
+    private Vector3 endPosition;
+    public float flybyDistance = 15f; // distance to move from starting position
 
     private Vector3 magnetTarget;
     private float magnetStrength;
@@ -142,6 +149,9 @@ public class Enemy : MonoBehaviour, Attacker
     Vector3 deathPos;
     Vector3 stunPos;
     private GameObject maxEnemiesTracker;
+
+    public float xpSizeScaling = 0.5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -182,6 +192,16 @@ public class Enemy : MonoBehaviour, Attacker
         animSpeed = animator.GetFloat("speed");
         rageSpeed = originalSpeed + rageSpeedMod;
 
+        if (isFlyby)
+        {
+            startingPosition = transform.position; // capture starting position
+            Vector3 directionToPlayer = (player.transform.position - startingPosition).normalized; // calculate direction to player
+            endPosition = startingPosition + directionToPlayer * flybyDistance; // calculate end position based on direction and distance
+            GetComponent<AIDestinationSetter>().target = null; // clear previous target
+            GetComponent<AIDestinationSetter>().target = new GameObject().transform; // create a new empty game object as target
+            GetComponent<AIDestinationSetter>().target.position = endPosition; // set target position to end position
+        }
+
     }
 
     public void StartMagnet(float strength, float duration, Vector3 target, bool isMelee)
@@ -218,6 +238,31 @@ public class Enemy : MonoBehaviour, Attacker
 
     void Update()
     {
+
+        if (isSpawn)
+        {
+            if (spawnTimer > 0f)
+            {
+                spawnTimer -= Time.deltaTime; // count down the timer
+            }
+            else
+            {
+                spawnFinished = true;
+            }
+        } else
+        {
+            spawnFinished = true;
+        }
+
+        if (isFlyby)
+        {
+            if (Vector3.Distance(transform.position, endPosition) < 1f)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         if (health <= 0 && !isDead)
         {
@@ -231,6 +276,11 @@ public class Enemy : MonoBehaviour, Attacker
                 GameObject xpDrop = Instantiate(EXPdrop, transform.position, Quaternion.identity);
                 xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
                 xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
+                if (xpDrop.GetComponent<EXPHandler>().xpTier > 0)
+                {
+                    xpDrop.transform.localScale *= 1 + (xpSizeScaling * xpDrop.GetComponent<EXPHandler>().xpTier);
+                }
+
             }
 
             Vector3 deathSpawnPos = new Vector3(Random.Range(transform.position.x - 0.1f, transform.position.x + 0.1f), Random.Range(transform.position.y - 0.1f, transform.position.y + 0.1f), transform.position.z);
@@ -719,7 +769,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     public void TakeDamage(float damageAmount, bool isCrit)
     {
-        if (health <= 0) return;
+        if (health <= 0 || !spawnFinished) return;
         if (canDamage == true)
         {
             animator.SetBool("IsHurt", true);

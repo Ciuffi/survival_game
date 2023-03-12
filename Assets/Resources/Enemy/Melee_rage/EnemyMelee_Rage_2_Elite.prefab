@@ -181,10 +181,10 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   isElite: 0
   damage: 2
-  health: 1000
+  health: 600
   maxHealth: 0
   xpAmount: 250
-  weight: 35
+  weight: 30
   stopDistanceMin: 0.1
   stopDistanceMax: 0.1
   moveDistanceCheck: 0
@@ -236,10 +236,15 @@ MonoBehaviour:
   isDeathExplode: 0
   deathRattle:
   - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
+  isSpawn: 0
+  spawnTimer: 0.5
+  isFlyby: 0
+  flybyDistance: 15
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 1099544346536127257}
   eliteOutline: {fileID: 3144855051228074411}
+  xpSizeScaling: 0.3
 --- !u!114 &1321576414662445604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +261,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 0.4
+  maxSpeed: 0.7
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -371,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 9136689211427610630, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+  isFlyby: 0
 --- !u!70 &4937784195389513899
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

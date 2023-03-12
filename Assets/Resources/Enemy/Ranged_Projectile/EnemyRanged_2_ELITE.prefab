@@ -61,10 +61,10 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   isElite: 0
   damage: 2
-  health: 850
+  health: 600
   maxHealth: 0
   xpAmount: 250
-  weight: 25
+  weight: 22
   stopDistanceMin: 4.5
   stopDistanceMax: 5.2
   moveDistanceCheck: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   projectilePrefab: {fileID: 6915753770271991320, guid: ba515cfd54e3a4e1b848eeb0d0d2f5d9, type: 3}
   attackRange: 5.5
-  shootChargeTime: 1.5
+  shootChargeTime: 1
   projectileSpeed: 1.75
   projectileRange: 12
   projectileDamage: 7
@@ -116,10 +116,15 @@ MonoBehaviour:
   isDeathExplode: 0
   deathRattle:
   - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
+  isSpawn: 0
+  spawnTimer: 0.5
+  isFlyby: 0
+  flybyDistance: 15
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 3682808208575244435}
   eliteOutline: {fileID: 5548297810065680627}
+  xpSizeScaling: 0.3
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -207,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+  isFlyby: 0
 --- !u!114 &221838847563530693
 MonoBehaviour:
   m_ObjectHideFlags: 0

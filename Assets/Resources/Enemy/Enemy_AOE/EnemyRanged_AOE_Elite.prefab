@@ -61,7 +61,7 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   isElite: 0
   damage: 2
-  health: 850
+  health: 550
   maxHealth: 0
   xpAmount: 250
   weight: 25
@@ -109,17 +109,22 @@ MonoBehaviour:
   projectileSpeed: 0
   projectileRange: 0
   projectileDamage: 8
-  shootRecovery: 2.5
+  shootRecovery: 2
   AOEPrefab: {fileID: 4235860010000021921, guid: ad77bd235e9814843b64406f807ba8aa, type: 3}
   dangerSign: {fileID: 5189165830211085352}
   isDeathrattle: 1
   isDeathExplode: 0
   deathRattle:
   - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
+  isSpawn: 0
+  spawnTimer: 0.5
+  isFlyby: 0
+  flybyDistance: 15
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 3682808208575244435}
   eliteOutline: {fileID: 3007568865302962041}
+  xpSizeScaling: 0.3
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -207,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+  isFlyby: 0
 --- !u!114 &221838847563530693
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -109,11 +109,14 @@ MonoBehaviour:
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
   isDeathrattle: 0
+  isDeathExplode: 0
   deathRattle: []
+  isSpawn: 1
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
   eliteOutline: {fileID: 0}
+  xpSizeScaling: 0.3
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -299,8 +302,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2331833043301358605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.006, y: -0.757, z: 0}
-  m_LocalScale: {x: 0.121531606, y: 0.37309974, z: 0}
+  m_LocalPosition: {x: 0.006, y: -0.748, z: 0}
+  m_LocalScale: {x: 0.1397978, y: 0.54183555, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
@@ -504,7 +507,7 @@ Animator:
   m_GameObject: {fileID: 6531945945894358812}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 078fa54700c777e429da78110e034073, type: 2}
+  m_Controller: {fileID: 9100000, guid: 846e46e3b99cf004aa8b74ac02fb4898, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
