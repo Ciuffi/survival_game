@@ -56,7 +56,7 @@ MonoBehaviour:
   health: 50
   speed: 0.035
   pickupRange: 2
-  damageMultiplier: 0.8
+  damageMultiplier: 0.9
   critChance: 0
   critDmg: 0
   defense: 0
@@ -64,18 +64,18 @@ MonoBehaviour:
   shotsPerAttack: 0
   shotsPerAttackMelee: 0
   meleeComboLength: 0
-  multicastChance: 0.1
+  multicastChance: 0
   shotgunSpread: 0
   spreadMultiplier: 1
-  castTimeMultiplier: 1.25
+  castTimeMultiplier: 1.2
   meleeWaitTimeMultiplier: 1.5
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
   knockbackMultiplier: 1.2
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
-  projectileSizeMultiplier: 1.5
-  meleeSizeMultiplier: 1.25
+  projectileSizeMultiplier: 1.2
+  meleeSizeMultiplier: 1.2
   shootOpposideSide: 0
   startingWeapons:
   - {fileID: 1449995561756442478, guid: 07de5ae1b3b22b7489adb46fe851c12b, type: 3}

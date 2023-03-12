@@ -56,7 +56,7 @@ MonoBehaviour:
   health: 50
   speed: 0.038
   pickupRange: 1.5
-  damageMultiplier: 1.1
+  damageMultiplier: 1
   critChance: 0
   critDmg: 0
   defense: 0
