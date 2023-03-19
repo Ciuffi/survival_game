@@ -8,7 +8,7 @@ public class StatsHandler : MonoBehaviour
     public int level;
     public float xp;
     public float nextXp;
-    public float health;
+    public float currentHealth;
     public float baseMaxHealth;
 
     public float maxHealth;
@@ -139,6 +139,7 @@ public class StatsHandler : MonoBehaviour
 
         // Assign the selected character's stats to the player's stats
         baseMaxHealth = health;
+        currentHealth = health;
         baseSpeed = speed;
         baseDamageMultiplier = damage;
         baseCritChance = critChance;
@@ -175,9 +176,9 @@ public class StatsHandler : MonoBehaviour
         canDamage = false;
             float newHealth;
 			if ((damageAmount - defense) > 0) {
-			newHealth = health - damageAmount + defense;
+			newHealth = currentHealth - damageAmount + defense;
 			} else {
-			newHealth = health;
+			newHealth = currentHealth;
 			} 
             animator.SetBool("TookDamage", true);
             afterimageAnim.SetBool("TookDamage", true);
@@ -187,9 +188,9 @@ public class StatsHandler : MonoBehaviour
             healthBar.fillRect.GetComponent<Image>().color = Color.red;
             Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
 
-            healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, health, newHealth, maxHealth, 0.5f));
-            health = newHealth;
-            if (health <= 0)
+            healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, currentHealth, newHealth, maxHealth, 0.5f));
+            currentHealth = newHealth;
+            if (currentHealth <= 0)
             {
                 GameObject.FindObjectOfType<EndgameStatTracker>().OnPlayerDeath();
                 GameObject.FindObjectOfType<GameManager>().EndGame();
@@ -280,13 +281,13 @@ public class StatsHandler : MonoBehaviour
             level = 1;
             xp = 0;
             nextXp = LevelManager.GetXpToNextLevel(level);
-            health = maxHealth;
+            currentHealth = maxHealth;
             foreach (Transform trans in StatContainer.transform)
             {
                 Destroy(trans.gameObject);
             }
             healthBarQueue.EmptyQueue();
-            healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, health, maxHealth));
+            healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, maxHealth));
             LevelManager.ResetXP();
         }
     }
@@ -314,12 +315,13 @@ public class StatsHandler : MonoBehaviour
                 StatBoost sb = stat.GetComponent<StatBoost>();
 
                 // Apply the stat's values
-                health += sb.extraHealth;
+                currentHealth += sb.extraHealth;
                 if (sb.extraHealth > 0)
                 {
                     Destroy(stat);
                 }
                 maxHealth += sb.extraMaxHealth;
+                baseMaxHealth += sb.extraMaxHealth;
                 speed += sb.extraSpeed;
                 shield += sb.extraShield;
                 damageMultipler += sb.extraDamageMultipler;
@@ -351,8 +353,8 @@ public class StatsHandler : MonoBehaviour
         }
 
         GetComponent<PlayerMovement>().SetAnimSpeed(speed, baseSpeed);
-        if (health > maxHealth) health = maxHealth;
-        healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, health, maxHealth));
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, maxHealth));
     }
 
   
@@ -419,7 +421,7 @@ public class StatsHandler : MonoBehaviour
 
     public float GetPlayerHpPercent()
     {
-        return (float)health / maxHealth;
+        return (float)currentHealth / maxHealth;
     }
 
 

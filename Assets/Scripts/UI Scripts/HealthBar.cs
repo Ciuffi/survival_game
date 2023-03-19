@@ -32,7 +32,7 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        float fillAmount = player.GetComponent<StatsHandler>().health / player.GetComponent<StatsHandler>().maxHealth;
+        float fillAmount = player.GetComponent<StatsHandler>().currentHealth / player.GetComponent<StatsHandler>().maxHealth;
         Color targetColor;
 
         if (fillAmount >= 0.7f)
