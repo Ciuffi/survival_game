@@ -62,8 +62,8 @@ MonoBehaviour:
   maxHealth: 0
   xpAmount: 30
   weight: 15
-  stopDistanceMin: 0.2
-  stopDistanceMax: 0.3
+  stopDistanceMin: 0
+  stopDistanceMax: 0
   moveDistanceCheck: 0
   canMove: 0
   timeCheck: 0
@@ -110,16 +110,22 @@ MonoBehaviour:
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 7752960022116148602, guid: 82fd66b3509f06a48956f7bec73b88df, type: 3}
   isDeathrattle: 1
+  isDeathExplode: 0
   deathRattle:
   - {fileID: 1423453834646843868, guid: cf354cdbce2bbed45bdc0bfcd6d91e80, type: 3}
   - {fileID: 1423453834646843868, guid: cf354cdbce2bbed45bdc0bfcd6d91e80, type: 3}
   - {fileID: 1423453834646843868, guid: cf354cdbce2bbed45bdc0bfcd6d91e80, type: 3}
   - {fileID: 1423453834646843868, guid: cf354cdbce2bbed45bdc0bfcd6d91e80, type: 3}
   - {fileID: 1423453834646843868, guid: cf354cdbce2bbed45bdc0bfcd6d91e80, type: 3}
+  isSpawn: 0
+  spawnTimer: 0.5
+  isFlyby: 0
+  flybyDistance: 15
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
   eliteOutline: {fileID: 0}
+  xpSizeScaling: 0.3
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -235,7 +241,7 @@ MonoBehaviour:
   endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &8280240638215219442
 MonoBehaviour:
@@ -251,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 9136689211427610630, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+  isFlyby: 0
 --- !u!61 &1818636915474768677
 BoxCollider2D:
   m_ObjectHideFlags: 0

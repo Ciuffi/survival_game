@@ -112,10 +112,15 @@ MonoBehaviour:
   isDeathExplode: 0
   deathRattle:
   - {fileID: 2213930863752409898, guid: f915d9e47bbc54a4dbd44e130a239402, type: 3}
+  isSpawn: 0
+  spawnTimer: 0.5
+  isFlyby: 0
+  flybyDistance: 15
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
   eliteOutline: {fileID: 0}
+  xpSizeScaling: 0.3
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -226,12 +231,12 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 1
+  slowdownDistance: 0
   pickNextWaypointDist: 1
-  endReachedDistance: 0.2
+  endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &8280240638215219442
 MonoBehaviour:
@@ -247,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+  isFlyby: 0
 --- !u!58 &7717872325054640947
 CircleCollider2D:
   m_ObjectHideFlags: 0

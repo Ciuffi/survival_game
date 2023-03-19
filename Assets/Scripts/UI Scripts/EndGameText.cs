@@ -47,7 +47,7 @@ public class EndGameText : MonoBehaviour
         }
 
         //total damage
-        string dmg = "TOTAL DAMAGE:" + "\n" + totalDmg;
+        string dmg = "FINAL SCORE:" + "\n" + totalDmg;
         totalDamage.text = dmg;
 
         //run stats

@@ -32,6 +32,7 @@ public class ConstantSpawner : MonoBehaviour
 
     private int currentGuilt;
     private float healthScaling, damageScaling, weightScaling, xpScaling;
+    public float stageHealthScaling, stageDamageScaling, stageWeightScaling, stageXpScaling;
     private float prevGuiltValue;
 
 
@@ -40,6 +41,12 @@ public class ConstantSpawner : MonoBehaviour
         OGspawnTimer = spawnTimer;
         maxEnemiesTracker = GameObject.Find("EnemyTracker");
         availableEnemyAmount = maxEnemiesTracker.GetComponent<MaxEnemyTracker>().availableAmount;
+
+        stageHealthScaling = basicSpawner.GetComponent<BasicSpawner>().stageHealthScaling;
+        stageDamageScaling = basicSpawner.GetComponent<BasicSpawner>().stageDamageScaling;
+        stageWeightScaling = basicSpawner.GetComponent<BasicSpawner>().stageWeightScaling;
+        stageXpScaling = basicSpawner.GetComponent<BasicSpawner>().stageXpScaling;
+
     }
 
     // Update is called once per frame
@@ -172,15 +179,14 @@ public class ConstantSpawner : MonoBehaviour
                 // Instantiate the enemy at the spawn position
                 GameObject newEnemy = Instantiate(enemyPrefab, spawnCenter + enemyPosition, Quaternion.identity);
 
-                if (currentGuilt > 0)
+                if (newEnemy != null && newEnemy.tag == "Enemy")
                 {
-                    newEnemy.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
-                    newEnemy.GetComponent<Enemy>().projectileDamage *= (damageScaling * currentGuilt);
-                    newEnemy.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
-                    newEnemy.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
-                    newEnemy.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
+                    newEnemy.GetComponent<Enemy>().health *= (1 + (healthScaling * currentGuilt)) + stageHealthScaling;
+                    newEnemy.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    newEnemy.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+                    newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
                 }
-
 
             }
         }
@@ -189,15 +195,17 @@ public class ConstantSpawner : MonoBehaviour
             // Spawn a single enemy at a random position on the edge of the circle
             Vector2 spawnPosition = Random.insideUnitCircle.normalized * diameter / 2f;
             GameObject newEnemy = Instantiate(enemyPrefab, (Vector2)transform.position + spawnPosition, Quaternion.identity);
-            if (currentGuilt > 0)
+            if (newEnemy != null && newEnemy.tag == "Enemy")
             {
-                newEnemy.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
-                newEnemy.GetComponent<Enemy>().projectileDamage *= (damageScaling * currentGuilt);
-                newEnemy.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
-                newEnemy.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
-                newEnemy.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
+                newEnemy.GetComponent<Enemy>().health *= (1 + (healthScaling * currentGuilt)) + stageHealthScaling;
+                newEnemy.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                newEnemy.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+                newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
             }
-        } else
+
+        }
+        else
         {
 
         }

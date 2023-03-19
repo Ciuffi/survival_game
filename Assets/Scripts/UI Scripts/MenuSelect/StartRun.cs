@@ -7,8 +7,14 @@ using UnityEngine.UI;
 public class StartRun : MonoBehaviour
 {
     public string chosenName;
+    public int chosenStage;
     public CharSelectController charController;
+    public StageSelectController stageController;
+    bool charSelected;
+    bool stageSelected;
     bool canStart;
+
+    public GameObject stageSelectUI;
 
     private void Start()
     {
@@ -16,14 +22,29 @@ public class StartRun : MonoBehaviour
         GetComponent<Image>().enabled = false;
         canStart = false;
 
+        stageSelectUI.SetActive(false);
+
     }
     private void Update()
     {
-        canStart = charController.GetComponent<CharSelectController>().hasSelected;
+        charSelected = charController.GetComponent<CharSelectController>().hasSelected;
+        stageSelected = stageController.GetComponent<StageSelectController>().hasSelected;
+
+        if (charSelected && stageSelected)
+        {
+            canStart = true;
+        }
+
     }
 
     public void StartGame()
     {
+        if (charSelected)
+        {
+            stageSelectUI.SetActive(true);
+        }
+
+
         if (canStart)
         {
             string gameObjectName = chosenName;
@@ -31,7 +52,13 @@ public class StartRun : MonoBehaviour
             PlayerPrefs.SetString("CharacterName", newName);
 
             // Load the next scene
-            SceneManager.LoadScene("SampleScene");
+            if (chosenStage == 1)
+            {
+                SceneManager.LoadScene("Stage1");
+            } else if (chosenStage == 2)
+            {
+                SceneManager.LoadScene("Stage2");
+            }
         }
     }
 

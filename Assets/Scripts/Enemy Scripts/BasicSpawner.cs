@@ -13,6 +13,8 @@ public class BasicSpawner : MonoBehaviour
 
     public int currentGuilt;
     public float healthScaling, damageScaling, weightScaling, xpScaling; //percentile - start with base of 1.0f
+    public float stageHealthScaling, stageDamageScaling, stageWeightScaling, stageXpScaling;
+
     //public float speedScaling; -----Doesn't work properly
     public Camera mainCamera;
     public Camera uiCamera;
@@ -67,16 +69,16 @@ public class BasicSpawner : MonoBehaviour
                     GameObject newSpawn = Instantiate(spawn, spawnPosition, Quaternion.identity);
 
                     //scaling with Guilt + rescan map for pathing
-                    if (currentGuilt > 0 && newSpawn != null && newSpawn.tag == "Enemy")
+                    if (newSpawn != null && newSpawn.tag == "Enemy")
                     {
-                            //Debug.Log(newSpawn.name.ToString());
-                            newSpawn.GetComponent<Enemy>().health *= (healthScaling * currentGuilt);
-                            newSpawn.GetComponent<Enemy>().projectileDamage *= (damageScaling * currentGuilt);
-                            newSpawn.GetComponent<Enemy>().damage *= (damageScaling * currentGuilt);
-                            newSpawn.GetComponent<Enemy>().weight *= (weightScaling * currentGuilt);
-                            newSpawn.GetComponent<Enemy>().xpAmount *= (xpScaling * currentGuilt);
-                            //newSpawn.GetComponent<Enemy>().calculateSpeed(speedScaling);
-                            comboManager.GetComponent<ComboTracker>().ColorChange(currentGuilt);
+                        //Debug.Log(newSpawn.name.ToString());
+                        newSpawn.GetComponent<Enemy>().health *= (1 + (healthScaling * currentGuilt)) + stageHealthScaling;
+                        newSpawn.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                        newSpawn.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                        newSpawn.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+                        newSpawn.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                        //newSpawn.GetComponent<Enemy>().calculateSpeed(speedScaling);
+                        comboManager.GetComponent<ComboTracker>().ColorChange(currentGuilt);
                     }
                     AstarPath.active.Scan();
                 }

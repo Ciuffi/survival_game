@@ -12,6 +12,7 @@ TagManager:
   - Weapon
   - Deathrattle
   - SelectedCharacter
+  - SelectedStage
   layers:
   - Default
   - TransparentFX

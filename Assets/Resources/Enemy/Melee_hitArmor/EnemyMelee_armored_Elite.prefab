@@ -63,8 +63,8 @@ MonoBehaviour:
   maxHealth: 0
   xpAmount: 250
   weight: 20
-  stopDistanceMin: 0.2
-  stopDistanceMax: 0.3
+  stopDistanceMin: 0
+  stopDistanceMax: 0
   moveDistanceCheck: 0
   canMove: 0
   timeCheck: 0
@@ -233,12 +233,12 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.3
+  slowdownDistance: 0
   pickNextWaypointDist: 1
-  endReachedDistance: 0.2
+  endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &8280240638215219442
 MonoBehaviour:

@@ -235,7 +235,7 @@ MonoBehaviour:
   endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &8280240638215219442
 MonoBehaviour:

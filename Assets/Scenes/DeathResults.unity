@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Total Damage: \n9999999"
+  m_text: "final score: \n9999999"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 52d38c84e469b9149a91af5359b9e041, type: 2}
   m_sharedMaterial: {fileID: 7562844569638490226, guid: 52d38c84e469b9149a91af5359b9e041, type: 2}
@@ -1257,9 +1257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1313364d393ad34a8506b8c3757667a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 1
+  waitTime: 0
   speed: 100
-  deathTime: 2.75
+  deathTime: 2.5
 --- !u!114 &1282756736
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     PlayerMovement playerMovement;
     StatsHandler playerStats;
     AttackHandler playerAttacks;
-
+    public GameObject deathTransition;
 
     public void ResetGame()
     {
@@ -24,8 +24,14 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        SceneManager.LoadScene(2);
+        deathTransition.GetComponent<DeathTransition>().StartTransition();
     }
+
+    public void playerDeathScreen()
+    {
+        SceneManager.LoadScene("DeathResults");
+    }
+
 
     void Start()
     {

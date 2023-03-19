@@ -63,8 +63,8 @@ MonoBehaviour:
   maxHealth: 0
   xpAmount: 250
   weight: 22
-  stopDistanceMin: 0.1
-  stopDistanceMax: 0.2
+  stopDistanceMin: 0
+  stopDistanceMax: 0
   moveDistanceCheck: 0
   canMove: 0
   timeCheck: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &8280240638215219442
 MonoBehaviour:

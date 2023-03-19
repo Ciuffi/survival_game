@@ -111,11 +111,17 @@ MonoBehaviour:
   AOEPrefab: {fileID: 4235860010000021921, guid: 4a0d9405c86f5ce46bd466561185c745, type: 3}
   dangerSign: {fileID: 5189165830211085352}
   isDeathrattle: 0
+  isDeathExplode: 0
   deathRattle: []
+  isSpawn: 0
+  spawnTimer: 0.5
+  isFlyby: 0
+  flybyDistance: 15
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 3682808208575244435}
   eliteOutline: {fileID: 0}
+  xpSizeScaling: 0.3
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -203,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+  isFlyby: 0
 --- !u!114 &221838847563530693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,12 +273,12 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.2
+  slowdownDistance: 0
   pickNextWaypointDist: 1
-  endReachedDistance: 0.2
+  endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!61 &8361283865411257446
 BoxCollider2D:

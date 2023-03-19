@@ -138,7 +138,7 @@ public class StatsHandler : MonoBehaviour
         float shotgunSpread = characterStats.shotgunSpread;
 
         // Assign the selected character's stats to the player's stats
-        baseMaxHealth = maxHealth;
+        baseMaxHealth = health;
         baseSpeed = speed;
         baseDamageMultiplier = damage;
         baseCritChance = critChance;
