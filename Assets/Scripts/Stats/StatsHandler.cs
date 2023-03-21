@@ -352,7 +352,7 @@ public class StatsHandler : MonoBehaviour
             }
         }
 
-        GetComponent<PlayerMovement>().SetAnimSpeed(speed, baseSpeed);
+        GetComponent<PlayerMovement>().SetAnimSpeed(speed, 0.04f); //change second value to be the default
         if (currentHealth > maxHealth) currentHealth = maxHealth;
         healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, maxHealth));
     }

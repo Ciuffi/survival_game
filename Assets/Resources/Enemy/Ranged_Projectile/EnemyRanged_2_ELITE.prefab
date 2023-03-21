@@ -59,7 +59,8 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  isElite: 0
+  isBasic: 0
+  isElite: 1
   damage: 2
   health: 650
   maxHealth: 0

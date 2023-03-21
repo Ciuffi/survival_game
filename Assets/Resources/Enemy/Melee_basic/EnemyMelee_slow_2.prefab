@@ -55,12 +55,13 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isBasic: 0
   isElite: 0
   damage: 3
-  health: 25
+  health: 55
   maxHealth: 0
-  xpAmount: 15
-  weight: 4
+  xpAmount: 22
+  weight: 6
   stopDistanceMin: 0
   stopDistanceMax: 0
   moveDistanceCheck: 0

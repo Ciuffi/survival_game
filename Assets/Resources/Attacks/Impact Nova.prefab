@@ -58,7 +58,7 @@ MonoBehaviour:
   shotsPerAttackMelee: 0
   cantMove: 0
   speed: 0
-  knockback: 0.75
+  knockback: 0.7
   pierce: 0
   critChance: 0.05
   critDmg: 1.5
@@ -75,7 +75,7 @@ MonoBehaviour:
   attackType: 2
   MeleeAttack: {fileID: 4908858350499337675, guid: dc68a2ec937697a489312f8803cfdc02, type: 3}
   comboLength: 1
-  comboWaitTime: 0.4
+  comboWaitTime: 0.7
   comboAttackBuff: 0
   meleeShotsScaleUp: 0
   meleeSpacer: 0

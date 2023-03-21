@@ -58,7 +58,8 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  isElite: 0
+  isBasic: 0
+  isElite: 1
   damage: 2
   health: 600
   maxHealth: 0
@@ -103,7 +104,7 @@ MonoBehaviour:
   flashDuration: 0.25
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   projectilePrefab: {fileID: 0}
-  attackRange: 2.5
+  attackRange: 4
   shootChargeTime: 2
   projectileSpeed: 0
   projectileRange: 0
@@ -256,7 +257,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 4
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

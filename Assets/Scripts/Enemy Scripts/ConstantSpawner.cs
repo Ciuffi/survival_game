@@ -32,7 +32,7 @@ public class ConstantSpawner : MonoBehaviour
 
     private int currentGuilt;
     private float healthScaling, damageScaling, weightScaling, xpScaling;
-    public float stageHealthScaling, stageDamageScaling, stageWeightScaling, stageXpScaling;
+    private float stageHealthScaling, stageDamageScaling, stageWeightScaling, stageXpScaling;
     private float prevGuiltValue;
 
 
@@ -64,7 +64,35 @@ public class ConstantSpawner : MonoBehaviour
         // Set the previous guilt value to the current value for the next frame
         prevGuiltValue = currentGuilt;
 
+        if (currentGuilt == 0)
+        {
+            spawnRateLimit = spawnRateLimit_G0;
+        }
+        else if (currentGuilt == 1)
+        {
+            spawnRateLimit = spawnRateLimit_G1;
+        }
+        else if (currentGuilt == 2)
+        {
+            spawnRateLimit = spawnRateLimit_G2;
+        }
+        else if (currentGuilt == 3)
+        {
+            spawnRateLimit = spawnRateLimit_G3;
+        }
+        else if (currentGuilt == 4)
+        {
+            spawnRateLimit = spawnRateLimit_G4;
+        }
+        else if (currentGuilt == 5)
+        {
+            spawnRateLimit = spawnRateLimit_G5;
+        }
 
+        if (spawnRate > spawnRateLimit) //if current rate is greater than the max
+        {
+            spawnRate = spawnRateLimit;
+        }
 
         // Increment elapsed time if initial delay is complete
         if (delayFinished)
@@ -77,14 +105,12 @@ public class ConstantSpawner : MonoBehaviour
                 if (spawnRate < spawnRateLimit) //if current rate is less than max spawnRate
                 {
                     spawnRate += spawnRateScaling; 
-                }else if (spawnRate > spawnRateLimit) //if current rate is greater than the max
-                {
-                    spawnRate = spawnRateLimit;
-                } 
+                }
 
                 elapsedTime = 0f;
             }
 
+            
             // Check if it's time to spawn enemies
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0f)
@@ -110,26 +136,6 @@ public class ConstantSpawner : MonoBehaviour
         damageScaling = basicSpawner.GetComponent<BasicSpawner>().damageScaling;
         xpScaling = basicSpawner.GetComponent<BasicSpawner>().xpScaling;
 
-        if (currentGuilt == 0)
-        {
-            spawnRateLimit = spawnRateLimit_G0;
-        } else if (currentGuilt == 1)
-        {
-            spawnRateLimit = spawnRateLimit_G1;
-        } else if (currentGuilt == 2)
-        {
-            spawnRateLimit = spawnRateLimit_G2;
-        }
-        else if (currentGuilt == 3)
-        {
-            spawnRateLimit = spawnRateLimit_G3;
-        } else if (currentGuilt == 4)
-        {
-            spawnRateLimit = spawnRateLimit_G4;
-        } else if (currentGuilt == 5)
-        {
-            spawnRateLimit = spawnRateLimit_G5;
-        }
 
     }
 
@@ -203,11 +209,6 @@ public class ConstantSpawner : MonoBehaviour
                 newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                 newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
             }
-
-        }
-        else
-        {
-
         }
 
 

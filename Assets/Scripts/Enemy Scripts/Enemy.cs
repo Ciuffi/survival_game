@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour, Attacker
     public Vector3 localScale;
     public Vector3 knockDirection;
 
+    public bool isBasic; //has a chance to not drop xp
     public bool isElite;
     private Animator eliteBorder;
     public float damage;
@@ -200,6 +201,15 @@ public class Enemy : MonoBehaviour, Attacker
             GetComponent<AIDestinationSetter>().target = null; // clear previous target
             GetComponent<AIDestinationSetter>().target = new GameObject().transform; // create a new empty game object as target
             GetComponent<AIDestinationSetter>().target.position = endPosition; // set target position to end position
+        }
+
+        if (isBasic)
+        {
+            float roll = Random.Range(0, 5);
+            if (roll == 0)
+            {
+                xpAmount = 0;
+            }
         }
 
     }

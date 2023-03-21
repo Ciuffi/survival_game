@@ -39,9 +39,10 @@ public class StartRun : MonoBehaviour
 
     public void StartGame()
     {
-        if (charSelected)
+        if (charSelected && !stageSelectUI.activeInHierarchy)
         {
             stageSelectUI.SetActive(true);
+            return;
         }
 
 

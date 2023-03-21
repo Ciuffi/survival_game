@@ -199,7 +199,7 @@ public class Attack : MonoBehaviour, Upgrade
         else if (attackType == AttackTypes.Melee)
         {
             // Add the definition for Melee attack type
-            attackTime = (comboLength - 1) * comboWaitTime + (spread * shotsPerAttackMelee * comboLength) + (multicastTimes * multicastWaitTime);
+            attackTime = (comboLength * comboWaitTime) + (spread * shotsPerAttackMelee * comboLength) + (multicastTimes * multicastWaitTime);
 
         }
         else

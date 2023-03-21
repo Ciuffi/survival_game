@@ -25,19 +25,12 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
         hasSelected = false;
     }
 
-    private void Update()
-    {
-        if (hasSelected)
-        {
-            stageSelector.GetComponent<StageSelectController>().hasSelected = true;
-        }
-    }
-
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!hasSelected)
         {
             hasSelected = true;
+            stageSelector.GetComponent<StageSelectController>().hasSelected = hasSelected;
         }
 
 
@@ -66,7 +59,14 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
     {
         selectedImage.SetActive(false);
         gameObject.tag = "Untagged";
+    }
 
+    public void Clear()
+    {
+        hasSelected = false;
+        stageSelector.GetComponent<StageSelectController>().hasSelected = hasSelected;
+        selectedImage.SetActive(false);
+        gameObject.tag = "Untagged";
     }
 
 

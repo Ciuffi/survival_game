@@ -75,7 +75,7 @@ MonoBehaviour:
   attackType: 2
   MeleeAttack: {fileID: 4908858350499337675, guid: 96f6c2955e8a2b34083be2364a1f5036, type: 3}
   comboLength: 1
-  comboWaitTime: 0.5
+  comboWaitTime: 0.8
   comboAttackBuff: 0
   meleeShotsScaleUp: -0.1
   meleeSpacer: 2

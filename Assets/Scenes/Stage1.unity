@@ -19523,6 +19523,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateScaling
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3103800210338332545, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -19567,9 +19571,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3425260914488843242, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425260914488843242, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G5
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3590323111623112659, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: m_Name
       value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943591504085994352, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943591504085994352, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943591504085994352, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateScaling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943591504085994352, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G4
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469275836928157862, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateScaling
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateScaling
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: uiCamera
@@ -19757,11 +19801,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboCount: 11
   spawner: {fileID: 1517156281}
-  guiltThreshold1: 150
-  guiltThreshold2: 400
-  guiltThreshold3: 800
-  guiltThreshold4: 1200
-  guiltThreshold5: 2000
+  guiltThreshold1: 200
+  guiltThreshold2: 500
+  guiltThreshold3: 1000
+  guiltThreshold4: 2000
+  guiltThreshold5: 3000
   guiltColor1: {r: 0.2264151, g: 0.10145959, b: 0.10145959, a: 1}
   guiltColor2: {r: 0.3490566, g: 0.04774832, b: 0.04774832, a: 1}
   guiltColor3: {r: 0.6037736, g: 0.054111768, b: 0.054111768, a: 1}

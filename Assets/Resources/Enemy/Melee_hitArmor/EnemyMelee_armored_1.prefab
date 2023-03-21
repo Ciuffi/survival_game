@@ -56,6 +56,7 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isBasic: 0
   isElite: 0
   damage: 2
   health: 35
@@ -71,7 +72,7 @@ MonoBehaviour:
   isAOE: 0
   isArmor: 1
   armorTime: 2.5
-  armorPercent: 0.9
+  armorPercent: 0.99
   weightIncrease: 25
   canDamage: 0
   DamagePopup: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}

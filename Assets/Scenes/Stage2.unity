@@ -611,7 +611,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1122,7 +1122,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1850,7 +1850,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1949,7 +1949,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8266,7 +8266,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9400,7 +9400,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10266,7 +10266,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11349,7 +11349,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11367,16 +11367,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 816418933301712799, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnTimer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateScaling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateLimit_G1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G3
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateLimit_G4
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 816418933301712799, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G5
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 816418933301712799, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: enemies.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1807947899467005882, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnTimer
@@ -11392,14 +11412,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1807947899467005882, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G2
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1807947899467005882, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G3
-      value: 8
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1807947899467005882, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G4
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807947899467005882, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateLimit_G5
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3103800210338332545, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
@@ -11450,6 +11474,10 @@ PrefabInstance:
       propertyPath: initialDelay
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 3425260914488843242, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3590323111623112659, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: m_Name
       value: Spawner_stage2
@@ -11457,6 +11485,14 @@ PrefabInstance:
     - target: {fileID: 5943591504085994352, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: initialDelay
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943591504085994352, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943591504085994352, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateScaling
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6469275836928157862, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G1
@@ -11468,15 +11504,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6469275836928157862, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G3
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6469275836928157862, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G4
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6469275836928157862, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G5
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: elapsedTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateScaling
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7181704713390127744, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G1
@@ -11489,6 +11537,34 @@ PrefabInstance:
     - target: {fileID: 7181704713390127744, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G3
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 1423453834646843868, guid: 19057dc3c55ed664d822ca9bff185af3, type: 3}
+    - target: {fileID: 8363155532757008864, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateScaling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateLimit_G2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateLimit_G4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: uiCamera
@@ -11516,7 +11592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: stageHealthScaling
-      value: -0.4
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: stageWeightScaling
@@ -11657,7 +11733,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13730,7 +13806,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -16449,7 +16525,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17417,7 +17493,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 80d0229c636ae4143a37ec88e0761a33, type: 3}
-  m_Color: {r: 0.9019608, g: 0.9332616, b: 1, a: 1}
+  m_Color: {r: 0.7877358, g: 0.8556604, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17687,7 +17763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboCount: 11
-  spawner: {fileID: 0}
+  spawner: {fileID: 1458138793}
   guiltThreshold1: 100
   guiltThreshold2: 300
   guiltThreshold3: 600

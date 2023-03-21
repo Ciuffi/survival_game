@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5569694836232097062}
   - component: {fileID: 8363155532757008864}
   m_Layer: 0
-  m_Name: ConstantSpawner_Circle_Uncommon
+  m_Name: ConstantSpawner_Circle_Basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3103800210338332545}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8363155532757008864
 MonoBehaviour:
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
+  - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
   diameter: 16
   initialDelay: 33
   spawnTimer: 10
@@ -60,6 +60,10 @@ MonoBehaviour:
   spawnRateScaling: 4
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  stageHealthScaling: 0
+  stageDamageScaling: 0
+  stageWeightScaling: 0
+  stageXpScaling: 0
 --- !u!1 &3590323111623112659
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,8 +100,8 @@ Transform:
   - {fileID: 8877715738143294110}
   - {fileID: 7225228742065929914}
   - {fileID: 5166308137017737836}
-  - {fileID: 4708802364272801579}
   - {fileID: 5569694836232097062}
+  - {fileID: 4708802364272801579}
   - {fileID: 1559126801157746373}
   - {fileID: 5105516774206070542}
   m_Father: {fileID: 0}
@@ -268,21 +272,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: 25f3ff65bfdfc9a469ce25ee755bf618, type: 3}
+  - {fileID: 1423453834646843868, guid: 558ef957fad818245b932140cf2dd553, type: 3}
   diameter: 16
   initialDelay: 105
   spawnTimer: 15
-  spawnRate: 8
+  spawnRate: 2
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
   spawnRateLimit_G2: 0
-  spawnRateLimit_G3: 8
-  spawnRateLimit_G4: 12
-  spawnRateLimit_G5: 16
-  scaleRateSeconds: 30
-  spawnRateScaling: 4
+  spawnRateLimit_G3: 0
+  spawnRateLimit_G4: 4
+  spawnRateLimit_G5: 8
+  scaleRateSeconds: 24
+  spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  stageHealthScaling: 0
+  stageDamageScaling: 0
+  stageWeightScaling: 0
+  stageXpScaling: 0
 --- !u!1 &4508033489353577495
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,12 +336,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: b989ab29394a4ef48ab375f8c355d11c, type: 3}
-  - {fileID: 1423453834646843868, guid: 0f9e167d8877c4b4b8fdf9efac587042, type: 3}
   - {fileID: 1423453834646843868, guid: 6349e5fb12c6ddf4abc375fe7b730287, type: 3}
-  - {fileID: 1423453834646843868, guid: 90802e0d6d82bfa40adbcd872a507abb, type: 3}
-  - {fileID: 1423453834646843868, guid: c190cf3259ce79b43bf33681c2a098c4, type: 3}
   - {fileID: 1423453834646843868, guid: 192c54fe29a9c3c4ba51991f31c521f2, type: 3}
+  - {fileID: 1423453834646843868, guid: 90802e0d6d82bfa40adbcd872a507abb, type: 3}
   diameter: 16
   initialDelay: 60
   spawnTimer: 60
@@ -348,6 +353,10 @@ MonoBehaviour:
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  stageHealthScaling: 0
+  stageDamageScaling: 0
+  stageWeightScaling: 0
+  stageXpScaling: 0
 --- !u!1 &6869813565750737804
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,11 +402,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: 7252c597ddc35604caad5bf2eabb00eb, type: 3}
   - {fileID: 1423453834646843868, guid: 558ef957fad818245b932140cf2dd553, type: 3}
   - {fileID: 1423453834646843868, guid: 19057dc3c55ed664d822ca9bff185af3, type: 3}
   diameter: 16
-  initialDelay: 35
+  initialDelay: 45
   spawnTimer: 15
   spawnRate: 1
   spawnRateLimit_G0: 0
@@ -407,9 +415,13 @@ MonoBehaviour:
   spawnRateLimit_G4: 3
   spawnRateLimit_G5: 5
   scaleRateSeconds: 60
-  spawnRateScaling: 2
+  spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  stageHealthScaling: 0
+  stageDamageScaling: 0
+  stageWeightScaling: 0
+  stageXpScaling: 0
 --- !u!1 &6884074055211575582
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +433,7 @@ GameObject:
   - component: {fileID: 4708802364272801579}
   - component: {fileID: 6469275836928157862}
   m_Layer: 0
-  m_Name: ConstantSpawner_Circle
+  m_Name: ConstantSpawner_Circle_Uncommon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +452,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3103800210338332545}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6469275836928157862
 MonoBehaviour:
@@ -456,21 +468,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: da9efb1b854dfe745af4c4561d7df9ed, type: 3}
-  - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
   diameter: 15
   initialDelay: 0
   spawnTimer: 12
   spawnRate: 4
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 10
-  spawnRateLimit_G2: 14
-  spawnRateLimit_G3: 16
+  spawnRateLimit_G1: 0
+  spawnRateLimit_G2: 0
+  spawnRateLimit_G3: 10
   spawnRateLimit_G4: 12
-  spawnRateLimit_G5: 0
+  spawnRateLimit_G5: 16
   scaleRateSeconds: 12
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  stageHealthScaling: 0
+  stageDamageScaling: 0
+  stageWeightScaling: 0
+  stageXpScaling: 0
 --- !u!1 &7402554872140478952
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +532,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: df38c6492d2f8e14ab33ca7a5a45db72, type: 3}
-  - {fileID: 1423453834646843868, guid: c2f52e19ec35e2146ae75fec9608576a, type: 3}
   diameter: 15
   initialDelay: 0
   spawnTimer: 2
@@ -532,6 +546,10 @@ MonoBehaviour:
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  stageHealthScaling: 0
+  stageDamageScaling: 0
+  stageWeightScaling: 0
+  stageXpScaling: 0
 --- !u!1 &7710190321212061916
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,18 +598,22 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: 2b60050c318efa24385bf6be1d8da3c5, type: 3}
   diameter: 18
   initialDelay: 180
-  spawnTimer: 25
+  spawnTimer: 20
   spawnRate: 4
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
   spawnRateLimit_G2: 0
   spawnRateLimit_G3: 0
-  spawnRateLimit_G4: 6
+  spawnRateLimit_G4: 0
   spawnRateLimit_G5: 12
-  scaleRateSeconds: 50
+  scaleRateSeconds: 20
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  stageHealthScaling: 0
+  stageDamageScaling: 0
+  stageWeightScaling: 0
+  stageXpScaling: 0
 --- !u!1 &8760006987686430828
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,23 +659,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
-  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
-  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
-  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
-  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
-  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
+  - {fileID: 1423453834646843868, guid: c2f52e19ec35e2146ae75fec9608576a, type: 3}
   diameter: 15
   initialDelay: 0
   spawnTimer: 5
-  spawnRate: 0
+  spawnRate: 2
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 0
-  spawnRateLimit_G2: 2
-  spawnRateLimit_G3: 6
-  spawnRateLimit_G4: 8
+  spawnRateLimit_G1: 4
+  spawnRateLimit_G2: 6
+  spawnRateLimit_G3: 8
+  spawnRateLimit_G4: 10
   spawnRateLimit_G5: 12
-  scaleRateSeconds: 30
+  scaleRateSeconds: 15
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  stageHealthScaling: 0
+  stageDamageScaling: 0
+  stageWeightScaling: 0
+  stageXpScaling: 0

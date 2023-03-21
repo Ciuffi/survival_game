@@ -57,7 +57,7 @@ MonoBehaviour:
   extraShotsPerAttackMelee: 0
   extraMeleeComboLength: 0
   extraSpreadMultiplier: 0
-  extraShotgunSpread: 35
+  extraShotgunSpread: 45
   extraMulticastChance: 0
   extraCastTimeMultiplier: 0
   extraProjectileSpeedMultiplier: 0
