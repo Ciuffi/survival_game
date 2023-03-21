@@ -9911,6 +9911,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1229096016663525422, guid: fa10e6670a928df49b4aeba1425f12a9, type: 3}
   m_PrefabInstance: {fileID: 2021567296}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2074843646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3287956671441075117, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+  m_PrefabInstance: {fileID: 1241507385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2079133021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10016,6 +10021,10 @@ PrefabInstance:
       propertyPath: attackContainer
       value: 
       objectReference: {fileID: 1821778121}
+    - target: {fileID: 1098140728058329844, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: LevelUp
+      value: 
+      objectReference: {fileID: 2074843646}
     - target: {fileID: 1098140728088926990, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: Player
       value: 
@@ -10040,6 +10049,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShowPauseScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1098140728487649761, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: LevelUp
+      value: 
+      objectReference: {fileID: 2074843646}
     - target: {fileID: 1098140728695198498, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10140,6 +10153,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1098140729040693068, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1731126406}
+    - target: {fileID: 1098140729040693068, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: rerollHandler
+      value: 
+      objectReference: {fileID: 2074843646}
+    - target: {fileID: 1098140729090980075, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: LevelUp
+      value: 
+      objectReference: {fileID: 2074843646}
     - target: {fileID: 1098140729213561806, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: onClickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10148,6 +10173,10 @@ PrefabInstance:
       propertyPath: onClickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReloadScene
       objectReference: {fileID: 0}
+    - target: {fileID: 1098140729369222568, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: LevelUp
+      value: 
+      objectReference: {fileID: 2074843646}
     - target: {fileID: 1098140729401278477, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10164,6 +10193,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1098140730010504896, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1731126406}
+    - target: {fileID: 1098140730010504896, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: rerollHandler
+      value: 
+      objectReference: {fileID: 2074843646}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
 --- !u!1 &2089525147 stripped

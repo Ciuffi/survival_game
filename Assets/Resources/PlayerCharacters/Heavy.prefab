@@ -68,7 +68,7 @@ MonoBehaviour:
   shotgunSpread: 0
   spreadMultiplier: 1.2
   castTimeMultiplier: 1.2
-  meleeWaitTimeMultiplier: 0
+  meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
   knockbackMultiplier: 1.5
