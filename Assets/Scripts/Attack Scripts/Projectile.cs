@@ -130,7 +130,7 @@ public class Projectile : MonoBehaviour
 
             if (!isHover) //regular projectile
             {
-                transform.position += transform.up * moveSpeed;
+                transform.position += transform.up * moveSpeed * Time.deltaTime * 60;
 
                 if (distance >= projectileRange)
                 {

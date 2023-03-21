@@ -10,8 +10,26 @@ public class GameManager : MonoBehaviour
     StatsHandler playerStats;
     AttackHandler playerAttacks;
     public GameObject deathTransition;
+    public GameObject pauseMenu;
 
-    public void ResetGame()
+
+    public void ShowPauseScreen()
+    {
+        Time.timeScale = 0;
+        GameObject.FindObjectOfType<PlayerMovement>().StopMoving();
+        GameObject.FindObjectOfType<VirtualJoystick>().enabled = false;
+        pauseMenu.SetActive(true);
+    }
+
+    public void HidePauseScreen()
+    {
+        pauseMenu.SetActive(false);
+        GameObject.FindObjectOfType<VirtualJoystick>().enabled = true;
+        GameObject.FindObjectOfType<PlayerMovement>().StartMoving();
+        Time.timeScale = 1;
+    }
+
+    public void MenuReset()
     {
         SceneManager.LoadScene(0);
 
@@ -20,6 +38,13 @@ public class GameManager : MonoBehaviour
         //playerMovement.transform.position = playerPosition;
         //playerStats.ResetStats(true);
         //playerAttacks.ResetWeapons();
+    }
+
+    public void ReloadScene()
+    {
+        Time.timeScale = 1;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
     }
 
     public void EndGame()
@@ -40,5 +65,7 @@ public class GameManager : MonoBehaviour
         playerPosition = playerMovement.transform.position;
         playerStats = playerMovement.GetComponent<StatsHandler>();
         playerAttacks = playerMovement.GetComponent<AttackHandler>();
+        pauseMenu.SetActive(false);
+
     }
 }

@@ -193,6 +193,7 @@ public class LevelUpManager : MonoBehaviour
     {
         Time.timeScale = 1;
         GameObject.FindObjectOfType<PlayerMovement>().StartMoving();
+
     }
 
     // Start is called before the first frame update
