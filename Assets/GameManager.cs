@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void MenuReset()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
 
         //new List<Enemy>(GameManager.FindObjectsOfType<Enemy>()).ForEach((e) => Destroy(e.gameObject));
