@@ -18,7 +18,7 @@ public class EndGameText : MonoBehaviour
     public int incrementValueFast = 9;
     public int incrementValueSlow = 3;
     public float displaySpeed = 0.5f;
-    public float defaultScaleDuration = 0.3f;
+    public float defaultScaleDuration = 0.22f;
 
     public float scaleDuration = 0.5f;
     public float scaleAmount = 0.15f;

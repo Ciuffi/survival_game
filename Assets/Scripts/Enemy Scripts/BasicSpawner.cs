@@ -12,7 +12,8 @@ public class BasicSpawner : MonoBehaviour
     public EnemySpawnMap spawnMap;
 
     public int currentGuilt;
-    public float healthScaling, damageScaling, weightScaling, xpScaling; //percentile - start with base of 1.0f
+    public List<float> healthScalingList;
+    public float damageScaling, weightScaling, xpScaling; //percentile - start with base of 1.0f
     public float stageHealthScaling, stageDamageScaling, stageWeightScaling, stageXpScaling;
 
     //public float speedScaling; -----Doesn't work properly
@@ -60,6 +61,7 @@ public class BasicSpawner : MonoBehaviour
 
     IEnumerator StartSpawner()
     {
+
         while (true)
         {
             foreach (EnemySpawn enemy in spawnMap.spawnMaps)
@@ -67,6 +69,13 @@ public class BasicSpawner : MonoBehaviour
                 if (!isSpawning) yield return new WaitForEndOfFrame();
                 yield return new WaitForSeconds(enemy.TimeToSpawn);
                 if (!isSpawning) yield return new WaitForEndOfFrame();
+
+                float cumulativeHealthScaling = 1.0f;
+                for (int j = 0; j < currentGuilt && j < healthScalingList.Count; j++)
+                {
+                    cumulativeHealthScaling *= healthScalingList[j];
+                }
+
                 for (int i = 0; i < enemy.EnemiesPerWave; i++)
                 {
                     int spawnIndex = MathUtilities.GetWeightedResult(enemy.EnemiesToSpawn.Values.ToArray<int>());
@@ -79,8 +88,9 @@ public class BasicSpawner : MonoBehaviour
                     if (newSpawn != null && newSpawn.tag == "Enemy")
                     {
                         //Debug.Log(newSpawn.name.ToString());
-                        newSpawn.GetComponent<Enemy>().health *= (1 + (healthScaling * currentGuilt)) + stageHealthScaling;
-                        newSpawn.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                        // Compute the cumulative health scaling factor up to the current guilt level
+
+                        newSpawn.GetComponent<Enemy>().health *= (cumulativeHealthScaling) + stageHealthScaling; 
                         newSpawn.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                         newSpawn.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                         newSpawn.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;

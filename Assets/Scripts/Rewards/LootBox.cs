@@ -22,6 +22,8 @@ public class LootBox : MonoBehaviour
     private bool hasTriggered = false;
     Animator anim;
 
+    public float bounceHeight, bounceSpeed, bounceDecay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +35,44 @@ public class LootBox : MonoBehaviour
         goldManager = GameObject.Find("GoldManager");
         finalGold = Random.Range(minGold, maxGold);
         anim = GetComponent<Animator>();
+        StartBouncing(bounceHeight, bounceSpeed, bounceDecay);
+
     }
 
+    public void StartBouncing(float startHeight, float startSpeed, float decayRate)
+    {
+        StartCoroutine(BounceCoroutine(startHeight, startSpeed, decayRate));
+    }
 
+    private IEnumerator BounceCoroutine(float startHeight, float startSpeed, float decayRate)
+    {
+        float startY = transform.position.y;
+        float bounceTimer = 0f;
+        float bounceHeight = startHeight;
+        float bounceSpeed = startSpeed;
+
+        while (bounceHeight > 0f)
+        {
+            // update the bounce timer
+            bounceTimer += Time.deltaTime * bounceSpeed;
+
+            // calculate the new position based on the timer and height
+            Vector3 newPos = transform.position;
+            newPos.y = startY + Mathf.Sin(bounceTimer) * bounceHeight;
+
+            // update the position
+            transform.position = newPos;
+
+            // reduce the bounce height over time
+            bounceHeight -= decayRate * Time.deltaTime;
+            if (bounceHeight < 0f)
+            {
+                bounceHeight = 0f;
+            }
+
+            yield return null;
+        }
+    }
 
     void OnTriggerStay2D(Collider2D col)
     {

@@ -116,7 +116,7 @@ MonoBehaviour:
   bounceHeight: 0.5
   bounceSpeed: 25
   bounceDecay: 1
-  rotationAmount: 15
+  rotationAmount: 25
   rotationDecayRate: 5
 --- !u!61 &4666552734587107983
 BoxCollider2D:

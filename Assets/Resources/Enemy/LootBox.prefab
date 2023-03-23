@@ -106,6 +106,9 @@ MonoBehaviour:
   minGold: 39
   maxGold: 279
   finalGold: 0
+  bounceHeight: 0.7
+  bounceSpeed: 25
+  bounceDecay: 2
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -140,7 +143,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002223134, y: -0.042718798}
+  m_Offset: {x: 0.001984924, y: -0.042718768}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -151,7 +154,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6071053, y: 1.4938142}
+  m_Size: {x: 1.7838433, y: 1.4938142}
   m_EdgeRadius: 0
 --- !u!61 &2711711541089570782
 BoxCollider2D:
@@ -166,7 +169,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008705378, y: 0.062790394}
+  m_Offset: {x: -0.003918767, y: 0.1553674}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -177,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.3207479, y: 3.3125067}
+  m_Size: {x: 2.4202259, y: 2.1174216}
   m_EdgeRadius: 0
 --- !u!114 &1681213196860464099
 MonoBehaviour:

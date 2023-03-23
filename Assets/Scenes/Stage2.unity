@@ -6402,6 +6402,38 @@ PrefabInstance:
       propertyPath: comboManager
       value: 
       objectReference: {fileID: 1254260645}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: healthScalingList.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: healthScalingList.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: healthScalingList.Array.data[1]
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: healthScalingList.Array.data[2]
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: healthScalingList.Array.data[3]
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: healthScalingList.Array.data[4]
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: healthScalingList.Array.data[5]
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: healthScalingList.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
 --- !u!1 &1458138793 stripped
