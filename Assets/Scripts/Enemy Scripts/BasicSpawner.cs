@@ -21,6 +21,11 @@ public class BasicSpawner : MonoBehaviour
 
     public GameObject comboManager;
 
+    public GameObject bossPrefab;
+    public int bossDirection360;
+    public int bossDistance;
+    private bool bossSpawned;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +49,8 @@ public class BasicSpawner : MonoBehaviour
     public void IncreaseGuilt()
     {
         currentGuilt += 1;
+        comboManager.GetComponent<ComboTracker>().ColorChange(currentGuilt);
+
         if (currentGuilt <= 4)
         {
             mainCamera.GetComponent<CameraController>().StartZoom();
@@ -78,7 +85,6 @@ public class BasicSpawner : MonoBehaviour
                         newSpawn.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                         newSpawn.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
                         //newSpawn.GetComponent<Enemy>().calculateSpeed(speedScaling);
-                        comboManager.GetComponent<ComboTracker>().ColorChange(currentGuilt);
                     }
                     AstarPath.active.Scan();
                 }
@@ -91,5 +97,13 @@ public class BasicSpawner : MonoBehaviour
     {
         // Follow the player
         transform.position = player.transform.position;
+
+        if (currentGuilt == 6 && !bossSpawned)
+        {
+            bossSpawned = true;
+            Vector3 spawnPosition = transform.position + MathUtilities.DegreesToVector3(bossDirection360) * (6 + bossDistance);
+            GameObject boss = Instantiate(bossPrefab, spawnPosition, Quaternion.identity);
+            AstarPath.active.Scan();
+        }
     }
 }

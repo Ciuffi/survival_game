@@ -12,9 +12,12 @@ public class GameManager : MonoBehaviour
     public GameObject deathTransition;
     public GameObject pauseMenu;
 
-
     public void ShowPauseScreen()
     {
+        if (playerStats.currentHealth <= 0)
+        {
+            return;
+        }
         Time.timeScale = 0;
         GameObject.FindObjectOfType<PlayerMovement>().StopMoving();
         GameObject.FindObjectOfType<VirtualJoystick>().enabled = false;
@@ -48,6 +51,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentScene.buildIndex);
     }
 
+    public void WinGame()
+    {
+
+    }
+
     public void EndGame()
     {
         deathTransition.GetComponent<DeathTransition>().StartTransition();
@@ -55,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void playerDeathScreen()
     {
+        GameObject.FindObjectOfType<EndgameStatTracker>().OnPlayerDeath();
         SceneManager.LoadScene("DeathResults");
     }
 

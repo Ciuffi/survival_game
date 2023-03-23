@@ -26,7 +26,7 @@ public class LevelUpManager : MonoBehaviour
 
     public GameObject TimelineManager;
     public GameObject VFX;
-
+    StatsHandler playerStats;
 
     public int GetXpToNextLevel(float level)
     {
@@ -209,6 +209,7 @@ public class LevelUpManager : MonoBehaviour
         hasRolled = false;
         xpColor = xpBar.fillRect.GetComponent<Image>().color;
         panel.SetActive(false);
+        playerStats = FindObjectOfType<StatsHandler>();
     }
 
     // Update is called once per frame
@@ -221,6 +222,11 @@ public class LevelUpManager : MonoBehaviour
         if (SwapBtn != null)
         {
             SwapBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Swap " + "(" + SwapBtn.GetComponent<RollSwapHandler>().currentSwap.ToString() + ")";
+        }
+        
+        if (playerStats.currentHealth <= 0)
+        {
+            ResumeGame();
         }
     }
 }

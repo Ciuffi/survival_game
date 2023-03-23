@@ -12,8 +12,8 @@ public class ComboTracker : MonoBehaviour
     private Color baseColor = new Color (0,0,0,255);
 
     public GameObject spawner;
-    public int guiltThreshold1, guiltThreshold2, guiltThreshold3, guiltThreshold4, guiltThreshold5;
-    private bool threshold1Reached, threshold2Reached, threshold3Reached, threshold4Reached, threshold5Reached;
+    public int guiltThreshold1, guiltThreshold2, guiltThreshold3, guiltThreshold4, guiltThreshold5, guiltThreshold6;
+    private bool threshold1Reached, threshold2Reached, threshold3Reached, threshold4Reached, threshold5Reached, threshold6Reached;
 
     public Color guiltColor1, guiltColor2, guiltColor3, guiltColor4, guiltColor5;
 
@@ -50,6 +50,9 @@ public class ComboTracker : MonoBehaviour
                 break;
 
             case 5:
+                GetComponentInChildren<TMP_Text>().color = guiltColor5;
+                break;
+            case 6:
                 GetComponentInChildren<TMP_Text>().color = guiltColor5;
                 break;
         }
@@ -100,6 +103,11 @@ public class ComboTracker : MonoBehaviour
         {
             spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
             threshold5Reached = true;
+        }
+        else if (comboCount >= guiltThreshold6 && !threshold6Reached)
+        {
+            spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
+            threshold6Reached = true;
         }
 
 

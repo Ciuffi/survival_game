@@ -34,6 +34,11 @@ public class EXPHandler : MonoBehaviour
 
     public int xpTier;
 
+    public float bounceHeight, bounceSpeed, bounceDecay;
+    public float rotationAmount = 1f; // adjust this to change the rotation amount
+    public float rotationDecayRate = 0.5f; // adjust this to change the rate at which the rotation speed decays
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +47,71 @@ public class EXPHandler : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         waitTimer = waitTime;
         hasTriggered = false;
+        StartBouncing(bounceHeight, bounceSpeed, bounceDecay);
+    }
+
+    public void StartBouncing(float startHeight, float startSpeed, float decayRate)
+    {
+        StartCoroutine(BounceCoroutine(startHeight, startSpeed, decayRate));
+        StartCoroutine(RotateCoroutine());
+    }
+
+    private IEnumerator BounceCoroutine(float startHeight, float startSpeed, float decayRate)
+    {
+        float startY = transform.position.y;
+        float bounceTimer = 0f;
+        float bounceHeight = startHeight;
+        float bounceSpeed = startSpeed;
+
+        while (bounceHeight > 0f)
+        {
+            // update the bounce timer
+            bounceTimer += Time.deltaTime * bounceSpeed;
+
+            // calculate the new position based on the timer and height
+            Vector3 newPos = transform.position;
+            newPos.y = startY + Mathf.Sin(bounceTimer) * bounceHeight;
+
+            // update the position
+            transform.position = newPos;
+
+            // reduce the bounce height over time
+            bounceHeight -= decayRate * Time.deltaTime;
+            if (bounceHeight < 0f)
+            {
+                bounceHeight = 0f;
+            }
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator RotateCoroutine()
+    {
+        float currentRotation = 0f;
+        float direction = Random.Range(0f, 1f) < 0.5f ? -1f : 1f; // Randomly choose rotation direction
+
+        while (true)
+        {
+            currentRotation += rotationAmount * Time.deltaTime * direction;
+
+            // update the rotation
+            transform.rotation = Quaternion.Euler(0f, 0f, currentRotation);
+
+            // reduce the rotation speed over time
+            rotationAmount -= rotationDecayRate * Time.deltaTime;
+            if (rotationAmount < 0f)
+            {
+                rotationAmount = 0f;
+            }
+
+            if (rotationAmount == 0f) // End the coroutine if rotation speed is zero
+            {
+                yield break;
+            }
+
+            yield return null;
+        }
     }
 
     public void UpdateXpTier()

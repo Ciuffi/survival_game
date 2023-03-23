@@ -56,14 +56,11 @@ MonoBehaviour:
   spawnRateLimit_G3: 6
   spawnRateLimit_G4: 10
   spawnRateLimit_G5: 12
-  scaleRateSeconds: 30
+  spawnRateLimit_G6: 16
+  scaleRateSeconds: 10
   spawnRateScaling: 4
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
-  stageHealthScaling: 0
-  stageDamageScaling: 0
-  stageWeightScaling: 0
-  stageXpScaling: 0
 --- !u!1 &3590323111623112659
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,17 +277,14 @@ MonoBehaviour:
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
   spawnRateLimit_G2: 0
-  spawnRateLimit_G3: 0
+  spawnRateLimit_G3: 2
   spawnRateLimit_G4: 4
-  spawnRateLimit_G5: 8
+  spawnRateLimit_G5: 10
+  spawnRateLimit_G6: 12
   scaleRateSeconds: 24
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
-  stageHealthScaling: 0
-  stageDamageScaling: 0
-  stageWeightScaling: 0
-  stageXpScaling: 0
 --- !u!1 &4508033489353577495
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,14 +343,11 @@ MonoBehaviour:
   spawnRateLimit_G3: 1
   spawnRateLimit_G4: 1
   spawnRateLimit_G5: 2
+  spawnRateLimit_G6: 0
   scaleRateSeconds: 60
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
-  stageHealthScaling: 0
-  stageDamageScaling: 0
-  stageWeightScaling: 0
-  stageXpScaling: 0
 --- !u!1 &6869813565750737804
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,14 +405,11 @@ MonoBehaviour:
   spawnRateLimit_G3: 2
   spawnRateLimit_G4: 3
   spawnRateLimit_G5: 5
-  scaleRateSeconds: 60
+  spawnRateLimit_G6: 5
+  scaleRateSeconds: 15
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
-  stageHealthScaling: 0
-  stageDamageScaling: 0
-  stageWeightScaling: 0
-  stageXpScaling: 0
 --- !u!1 &6884074055211575582
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,14 +466,11 @@ MonoBehaviour:
   spawnRateLimit_G3: 10
   spawnRateLimit_G4: 12
   spawnRateLimit_G5: 16
+  spawnRateLimit_G6: 12
   scaleRateSeconds: 12
-  spawnRateScaling: 2
+  spawnRateScaling: 4
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
-  stageHealthScaling: 0
-  stageDamageScaling: 0
-  stageWeightScaling: 0
-  stageXpScaling: 0
 --- !u!1 &7402554872140478952
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,14 +527,11 @@ MonoBehaviour:
   spawnRateLimit_G3: 6
   spawnRateLimit_G4: 0
   spawnRateLimit_G5: 0
+  spawnRateLimit_G6: 0
   scaleRateSeconds: 20
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
-  stageHealthScaling: 0
-  stageDamageScaling: 0
-  stageWeightScaling: 0
-  stageXpScaling: 0
 --- !u!1 &7710190321212061916
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,21 +581,18 @@ MonoBehaviour:
   diameter: 18
   initialDelay: 180
   spawnTimer: 20
-  spawnRate: 4
+  spawnRate: 0
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
   spawnRateLimit_G2: 0
   spawnRateLimit_G3: 0
-  spawnRateLimit_G4: 0
-  spawnRateLimit_G5: 12
+  spawnRateLimit_G4: 4
+  spawnRateLimit_G5: 10
+  spawnRateLimit_G6: 12
   scaleRateSeconds: 20
-  spawnRateScaling: 2
+  spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
-  stageHealthScaling: 0
-  stageDamageScaling: 0
-  stageWeightScaling: 0
-  stageXpScaling: 0
 --- !u!1 &8760006987686430828
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,11 +649,8 @@ MonoBehaviour:
   spawnRateLimit_G3: 8
   spawnRateLimit_G4: 10
   spawnRateLimit_G5: 12
+  spawnRateLimit_G6: 0
   scaleRateSeconds: 15
-  spawnRateScaling: 2
+  spawnRateScaling: 4
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
-  stageHealthScaling: 0
-  stageDamageScaling: 0
-  stageWeightScaling: 0
-  stageXpScaling: 0

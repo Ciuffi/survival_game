@@ -42,7 +42,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4053501027209517259}
   serializedVersion: 8
-  lengthInSec: 1.01647
+  lengthInSec: 3.88371
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -4891,7 +4891,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1602682635
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 5
   m_RenderMode: 0
   m_MeshDistribution: 0

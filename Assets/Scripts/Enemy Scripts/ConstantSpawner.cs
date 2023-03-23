@@ -19,6 +19,7 @@ public class ConstantSpawner : MonoBehaviour
     public int spawnRateLimit_G3 = 4;
     public int spawnRateLimit_G4 = 5;
     public int spawnRateLimit_G5 = 6;
+    public int spawnRateLimit_G6 = 1;
 
     public float scaleRateSeconds = 10f;
     public int spawnRateScaling = 1;
@@ -87,6 +88,10 @@ public class ConstantSpawner : MonoBehaviour
         else if (currentGuilt == 5)
         {
             spawnRateLimit = spawnRateLimit_G5;
+        }
+        else if (currentGuilt == 6)
+        {
+            spawnRateLimit = spawnRateLimit_G6;
         }
 
         if (spawnRate > spawnRateLimit) //if current rate is greater than the max

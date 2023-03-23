@@ -49,15 +49,16 @@ MonoBehaviour:
   diameter: 16
   initialDelay: 33
   spawnTimer: 10
-  spawnRate: 4
+  spawnRate: 0
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
-  spawnRateLimit_G2: 4
+  spawnRateLimit_G2: 3
   spawnRateLimit_G3: 6
-  spawnRateLimit_G4: 10
+  spawnRateLimit_G4: 8
   spawnRateLimit_G5: 12
-  scaleRateSeconds: 30
-  spawnRateScaling: 4
+  spawnRateLimit_G6: 1
+  scaleRateSeconds: 10
+  spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
 --- !u!1 &3590323111623112659
@@ -170,17 +171,20 @@ MonoBehaviour:
   isSpawning: 0
   player: {fileID: 0}
   currentGuilt: 0
-  healthScaling: 0.3
+  healthScaling: 0.35
   damageScaling: 0.002
   weightScaling: 0.002
   xpScaling: 0.5
-  stageHealthScaling: 0
+  stageHealthScaling: -0.3
   stageDamageScaling: 0
   stageWeightScaling: 0
-  stageXpScaling: 0
+  stageXpScaling: 0.1
   mainCamera: {fileID: 0}
   uiCamera: {fileID: 0}
   comboManager: {fileID: 0}
+  bossPrefab: {fileID: 0}
+  bossDirection360: 0
+  bossDistance: 0
 --- !u!61 &1552293673573798405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -270,7 +274,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 1423453834646843868, guid: 25f3ff65bfdfc9a469ce25ee755bf618, type: 3}
   diameter: 16
-  initialDelay: 105
+  initialDelay: 90
   spawnTimer: 15
   spawnRate: 8
   spawnRateLimit_G0: 0
@@ -279,7 +283,8 @@ MonoBehaviour:
   spawnRateLimit_G3: 8
   spawnRateLimit_G4: 12
   spawnRateLimit_G5: 16
-  scaleRateSeconds: 30
+  spawnRateLimit_G6: 1
+  scaleRateSeconds: 15
   spawnRateScaling: 4
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
@@ -340,6 +345,7 @@ MonoBehaviour:
   spawnRateLimit_G3: 1
   spawnRateLimit_G4: 1
   spawnRateLimit_G5: 2
+  spawnRateLimit_G6: 1
   scaleRateSeconds: 60
   spawnRateScaling: 1
   elapsedTime: 0
@@ -396,13 +402,14 @@ MonoBehaviour:
   spawnTimer: 15
   spawnRate: 1
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 0
-  spawnRateLimit_G2: 1
+  spawnRateLimit_G1: 1
+  spawnRateLimit_G2: 2
   spawnRateLimit_G3: 2
   spawnRateLimit_G4: 3
   spawnRateLimit_G5: 5
-  scaleRateSeconds: 60
-  spawnRateScaling: 2
+  spawnRateLimit_G6: 1
+  scaleRateSeconds: 15
+  spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
 --- !u!1 &6884074055211575582
@@ -456,11 +463,12 @@ MonoBehaviour:
   spawnTimer: 12
   spawnRate: 6
   spawnRateLimit_G0: 6
-  spawnRateLimit_G1: 12
-  spawnRateLimit_G2: 16
-  spawnRateLimit_G3: 10
-  spawnRateLimit_G4: 0
+  spawnRateLimit_G1: 10
+  spawnRateLimit_G2: 12
+  spawnRateLimit_G3: 6
+  spawnRateLimit_G4: 4
   spawnRateLimit_G5: 0
+  spawnRateLimit_G6: 1
   scaleRateSeconds: 12
   spawnRateScaling: 2
   elapsedTime: 0
@@ -513,14 +521,15 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
   diameter: 15
   initialDelay: 0
-  spawnTimer: 3
+  spawnTimer: 4
   spawnRate: 4
-  spawnRateLimit_G0: 10
-  spawnRateLimit_G1: 12
-  spawnRateLimit_G2: 16
-  spawnRateLimit_G3: 6
-  spawnRateLimit_G4: 8
-  spawnRateLimit_G5: 10
+  spawnRateLimit_G0: 8
+  spawnRateLimit_G1: 10
+  spawnRateLimit_G2: 12
+  spawnRateLimit_G3: 14
+  spawnRateLimit_G4: 10
+  spawnRateLimit_G5: 6
+  spawnRateLimit_G6: 1
   scaleRateSeconds: 20
   spawnRateScaling: 2
   elapsedTime: 0
@@ -572,7 +581,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 1423453834646843868, guid: 7252c597ddc35604caad5bf2eabb00eb, type: 3}
   diameter: 18
-  initialDelay: 180
+  initialDelay: 150
   spawnTimer: 25
   spawnRate: 4
   spawnRateLimit_G0: 0
@@ -581,8 +590,9 @@ MonoBehaviour:
   spawnRateLimit_G3: 0
   spawnRateLimit_G4: 6
   spawnRateLimit_G5: 12
-  scaleRateSeconds: 50
-  spawnRateScaling: 2
+  spawnRateLimit_G6: 1
+  scaleRateSeconds: 25
+  spawnRateScaling: 3
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
 --- !u!1 &8760006987686430828
@@ -631,20 +641,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: e3ac25b16635f49498eeb787e037c6d6, type: 3}
-  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
-  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
-  - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
   diameter: 15
   initialDelay: 0
-  spawnTimer: 6
+  spawnTimer: 12
   spawnRate: 0
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 0
+  spawnRateLimit_G1: 1
   spawnRateLimit_G2: 2
-  spawnRateLimit_G3: 6
-  spawnRateLimit_G4: 8
-  spawnRateLimit_G5: 12
-  scaleRateSeconds: 30
-  spawnRateScaling: 2
+  spawnRateLimit_G3: 3
+  spawnRateLimit_G4: 4
+  spawnRateLimit_G5: 5
+  spawnRateLimit_G6: 1
+  scaleRateSeconds: 12
+  spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}

@@ -27,6 +27,7 @@ public class LootBoxManager : MonoBehaviour
     private GameObject lootPopup;
     public int finalGold;
     public GameObject lootOnTap;
+    StatsHandler playerStats;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,8 @@ public class LootBoxManager : MonoBehaviour
         stats = Resources.LoadAll("Stats", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
         panel.SetActive(false);
         panelAnimated.SetActive(false);
+        playerStats = FindObjectOfType<StatsHandler>();
+
 
     }
 
@@ -203,6 +206,11 @@ public class LootBoxManager : MonoBehaviour
         if (SwapBtn != null)
         {
             SwapBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Swap " + "(" + SwapBtn.GetComponent<RollSwapHandler>().currentSwap.ToString() + ")";
+        }
+
+        if (playerStats.currentHealth <= 0)
+        {
+            ResumeGame();
         }
     }
 }

@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     public bool isBasic; //has a chance to not drop xp
     public bool isElite;
+    public bool isBoss;
     private Animator eliteBorder;
     public float damage;
     public float health;
@@ -205,7 +206,7 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (isBasic)
         {
-            float roll = Random.Range(0, 5);
+            float roll = Random.Range(0, 4);
             if (roll == 0)
             {
                 xpAmount = 0;
@@ -283,12 +284,42 @@ public class Enemy : MonoBehaviour, Attacker
 
             if (xpAmount > 0)
             {
-                GameObject xpDrop = Instantiate(EXPdrop, transform.position, Quaternion.identity);
-                xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
-                xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
-                if (xpDrop.GetComponent<EXPHandler>().xpTier > 0)
+                if (isElite)
                 {
-                    xpDrop.transform.localScale *= 1 + (xpSizeScaling * xpDrop.GetComponent<EXPHandler>().xpTier);
+                    float numXPdrops = xpAmount / 25;
+                    float remainderXP = xpAmount % 25;
+                    for (int i = 0; i < numXPdrops; i++)
+                    {
+                        Vector2 offset = Random.insideUnitCircle * 1f; // adjust 0.5f to change circle size
+                        GameObject xpDrop = Instantiate(EXPdrop, (Vector2)transform.position + offset, Quaternion.identity);
+                        xpDrop.GetComponent<EXPHandler>().xpAmount = 50;
+                        xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
+                        if (xpDrop.GetComponent<EXPHandler>().xpTier > 0)
+                        {
+                            xpDrop.transform.localScale *= 1 + (xpSizeScaling * xpDrop.GetComponent<EXPHandler>().xpTier);
+                        }
+                    }
+                    if (remainderXP > 0)
+                    {
+                        Vector2 offset = Random.insideUnitCircle * 1f; // adjust 0.5f to change circle size
+                        GameObject xpDrop = Instantiate(EXPdrop, (Vector2)transform.position + offset, Quaternion.identity);
+                        xpDrop.GetComponent<EXPHandler>().xpAmount = remainderXP;
+                        xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
+                        if (xpDrop.GetComponent<EXPHandler>().xpTier > 0)
+                        {
+                            xpDrop.transform.localScale *= 1 + (xpSizeScaling * xpDrop.GetComponent<EXPHandler>().xpTier);
+                        }
+                    }
+                }
+                else
+                {
+                    GameObject xpDrop = Instantiate(EXPdrop, transform.position, Quaternion.identity);
+                    xpDrop.GetComponent<EXPHandler>().xpAmount = xpAmount;
+                    xpDrop.GetComponent<EXPHandler>().UpdateXpTier();
+                    if (xpDrop.GetComponent<EXPHandler>().xpTier > 0)
+                    {
+                        xpDrop.transform.localScale *= 1 + (xpSizeScaling * xpDrop.GetComponent<EXPHandler>().xpTier);
+                    }
                 }
 
             }
@@ -340,7 +371,10 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (color.a <= 0)
         {
-
+            if (isBoss)
+            {
+                FindObjectOfType<GameManager>().EndGame();
+            }
             Destroy(gameObject);
         }
 
