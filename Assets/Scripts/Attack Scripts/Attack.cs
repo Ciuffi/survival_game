@@ -379,13 +379,11 @@ public class Attack : MonoBehaviour, Upgrade
                     }
                 }
 
-                // Backward bullet
-                GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
-                Projectile p2 = projectileGO2.GetComponent<Projectile>();
-                p2.attack = this;
-                p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
-
-                Quaternion backwardRotation = Quaternion.LookRotation(-transform.right, Vector3.forward);
+                float scale = currentScale.x * projectileSize;
+                Vector3 backwardDirection = -transform.right;
+                backwardDirection = backwardDirection.normalized;
+                // Flip the rotation variable 180 degrees and put it in a variable called backwardRotation
+                Quaternion backwardRotation = Quaternion.Euler(0, 0, rotation.eulerAngles.z + 180);
                 if (shotsCount >= sprayThreshold)
                 {
                     float spread = spray * (shotsCount - sprayThreshold + 1);
@@ -393,14 +391,19 @@ public class Attack : MonoBehaviour, Upgrade
                     Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
                     backwardRotation *= spreadDirection;
                 }
-                backwardRotation *= forwardRotation;
+
+                // Backward bullet
+                GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
+                Projectile p2 = projectileGO2.GetComponent<Projectile>();
+                p2.attack = this;
+                p2.transform.localScale = new Vector3(scale, scale, scale);
                 p2.transform.rotation = backwardRotation;
+                print("bullet Backward direction: " + p2.transform.rotation);
 
                 // Calculate the position of the backward bullet based on the updated direction
                 Vector3 backwardPosition = position - direction / 2;
 
                 p2.transform.position = backwardPosition;
-                p2.transform.up = Quaternion.AngleAxis(180f, Vector3.forward) * backwardRotation * spreadDirection2 * -direction;
 
                 if (multicastTimes > 0)
                 {
@@ -421,7 +424,7 @@ public class Attack : MonoBehaviour, Upgrade
                 }
             }
 
-                shotsCount += 1;
+            shotsCount += 1;
             yield return new WaitForSeconds(spread);
         }
 
@@ -909,7 +912,7 @@ public class Attack : MonoBehaviour, Upgrade
         switch (attackType)
         {
             case AttackTypes.Projectile:
-                { 
+                {
                     StartCoroutine(ShootSingleShot(multicastAlphaAmount));
                     multicastAlphaAmount += multicastAlphaFade;
 
@@ -924,7 +927,7 @@ public class Attack : MonoBehaviour, Upgrade
                 }
                 break;
             case AttackTypes.Melee:
-                { 
+                {
                     StartCoroutine(Melee(multicastAlphaAmount));
                     multicastAlphaAmount += multicastAlphaFade;
 
@@ -945,7 +948,7 @@ public class Attack : MonoBehaviour, Upgrade
         firstShot = true;
         multicastAlphaAmount = 0f;
         rollMulticast();
-        
+
         for (int i = 0; i < (multicastTimes + 1); i++)
         {
             shotsCount = 0; //reset Spray pattern
@@ -1002,12 +1005,13 @@ public class Attack : MonoBehaviour, Upgrade
         MuzzleFlash.transform.rotation = rotation;
     }
 
-public void SpawnBulletCasing()
+    public void SpawnBulletCasing()
     {
         if (bulletCasing == null)
         {
             return;
-        } else
+        }
+        else
         {
             // Calculate random position modifiers
             float xModifier = Random.Range(-0.1f, 0.1f);
