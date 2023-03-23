@@ -99,29 +99,29 @@ public class EndGameText : MonoBehaviour
 
             totalDamage.color = totalDmgColor;
 
-            if (totalDmg > 999)
+            if (totalDmg > 499999)
             {
-                incrementValueFast *= 2;
-            }
-            else if (totalDmg > 9999)
-            {
-                incrementValueFast *= 10;
-            } 
-            else if (totalDmg > 49999)
-            {
-                incrementValueFast *= 500;
+                incrementValueFast *= 15;
             }
             else if (totalDmg > 99999)
             {
-                incrementValueFast *= 1000;
+                incrementValueFast *= 10;
             }
-            else if (totalDmg > 499999)
+            else if (totalDmg > 49999)
             {
-                incrementValueFast *= 50000;
+                incrementValueFast *= 5;
+            }
+            else if (totalDmg > 9999)
+            {
+                incrementValueFast *= 3;
+            }
+            else if (totalDmg > 999)
+            {
+                incrementValueFast *= 2;
             }
             else
             {
-                incrementValueFast *= 100000;
+                incrementValueFast *= 20;
             }
 
             while (currentTotalDmg < totalDmg)
@@ -165,29 +165,29 @@ public class EndGameText : MonoBehaviour
 
             wpnDamage.color = wpnDmgColor;
 
-            if (finalDmg > 999)
+            if (finalDmg > 499999)
             {
-                incrementValueFast *= 2;
+                incrementValueFast *= 15;
             }
-            else if (finalDmg > 9999)
+            else if (finalDmg > 99999)
             {
                 incrementValueFast *= 10;
             }
             else if (finalDmg > 49999)
             {
-                incrementValueFast *= 500;
+                incrementValueFast *= 5;
             }
-            else if (finalDmg > 99999)
+            else if (finalDmg > 9999)
             {
-                incrementValueFast *= 1000;
+                incrementValueFast *= 3;
             }
-            else if (finalDmg > 499999)
+            else if (finalDmg > 999)
             {
-                incrementValueFast *= 50000;
+                incrementValueFast *= 2;
             }
             else
             {
-                incrementValueFast *= 100000;
+                incrementValueFast *= 20;
             }
 
             int currentDmg = 0;
