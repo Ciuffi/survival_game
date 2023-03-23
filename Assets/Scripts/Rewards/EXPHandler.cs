@@ -91,21 +91,23 @@ public class EXPHandler : MonoBehaviour
         float currentRotation = 0f;
         float direction = Random.Range(0f, 1f) < 0.5f ? -1f : 1f; // Randomly choose rotation direction
 
+        float randomAmount = Random.Range(0, rotationAmount);
+
         while (true)
         {
-            currentRotation += rotationAmount * Time.deltaTime * direction;
+            currentRotation += randomAmount * Time.deltaTime * direction;
 
             // update the rotation
             transform.rotation = Quaternion.Euler(0f, 0f, currentRotation);
 
             // reduce the rotation speed over time
-            rotationAmount -= rotationDecayRate * Time.deltaTime;
-            if (rotationAmount < 0f)
+            randomAmount -= rotationDecayRate * Time.deltaTime;
+            if (randomAmount < 0f)
             {
-                rotationAmount = 0f;
+                randomAmount = 0f;
             }
 
-            if (rotationAmount == 0f) // End the coroutine if rotation speed is zero
+            if (randomAmount == 0f) // End the coroutine if rotation speed is zero
             {
                 yield break;
             }
