@@ -12717,7 +12717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1238792852160032110, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: guiltThreshold1
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1238792852160032110, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: guiltThreshold2
@@ -12748,6 +12748,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G5
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G6
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807947899467005882, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRate
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807947899467005882, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807947899467005882, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G3
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807947899467005882, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G4
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807947899467005882, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807947899467005882, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G6
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012197308701122828, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G5
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3103800210338332545, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -12792,9 +12828,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3425260914488843242, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425260914488843242, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G4
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3590323111623112659, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: m_Name
       value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G3
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G5
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G6
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: uiCamera

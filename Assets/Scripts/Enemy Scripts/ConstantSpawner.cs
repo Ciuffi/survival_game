@@ -166,9 +166,9 @@ public class ConstantSpawner : MonoBehaviour
         GameObject enemyPrefab = enemies[Random.Range(0, enemies.Count)];
 
         float cumulativeHealthScaling = 1.0f;
-        for (int j = 0; j < currentGuilt && j < healthScalingList.Count; j++)
+        for (int j = 0; j < (currentGuilt + 1) && j < healthScalingList.Count; j++)
         {
-            cumulativeHealthScaling *= healthScalingList[j];
+            cumulativeHealthScaling += healthScalingList[j];
         }
 
         if (spawnRate > 1)

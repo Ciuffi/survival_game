@@ -71,9 +71,9 @@ public class BasicSpawner : MonoBehaviour
                 if (!isSpawning) yield return new WaitForEndOfFrame();
 
                 float cumulativeHealthScaling = 1.0f;
-                for (int j = 0; j < currentGuilt && j < healthScalingList.Count; j++)
+                for (int j = 0; j < (currentGuilt + 1) && j < healthScalingList.Count; j++)
                 {
-                    cumulativeHealthScaling *= healthScalingList[j];
+                    cumulativeHealthScaling += healthScalingList[j];
                 }
 
                 for (int i = 0; i < enemy.EnemiesPerWave; i++)

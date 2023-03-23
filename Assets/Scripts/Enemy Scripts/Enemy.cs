@@ -206,7 +206,7 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (isBasic)
         {
-            float roll = Random.Range(0, 4);
+            float roll = Random.Range(0, 5);
             if (roll == 0)
             {
                 xpAmount = 0;

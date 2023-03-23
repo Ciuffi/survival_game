@@ -99,6 +99,31 @@ public class EndGameText : MonoBehaviour
 
             totalDamage.color = totalDmgColor;
 
+            if (totalDmg > 999)
+            {
+                incrementValueFast *= 2;
+            }
+            else if (totalDmg > 9999)
+            {
+                incrementValueFast *= 10;
+            } 
+            else if (totalDmg > 49999)
+            {
+                incrementValueFast *= 500;
+            }
+            else if (totalDmg > 99999)
+            {
+                incrementValueFast *= 1000;
+            }
+            else if (totalDmg > 499999)
+            {
+                incrementValueFast *= 50000;
+            }
+            else
+            {
+                incrementValueFast *= 100000;
+            }
+
             while (currentTotalDmg < totalDmg)
             {
                 currentTotalDmg += incrementValueFast;
@@ -139,6 +164,31 @@ public class EndGameText : MonoBehaviour
             ScaleTextEffect(wpnDamage, scaleAmount, defaultScaleDuration);
 
             wpnDamage.color = wpnDmgColor;
+
+            if (finalDmg > 999)
+            {
+                incrementValueFast *= 2;
+            }
+            else if (finalDmg > 9999)
+            {
+                incrementValueFast *= 10;
+            }
+            else if (finalDmg > 49999)
+            {
+                incrementValueFast *= 500;
+            }
+            else if (finalDmg > 99999)
+            {
+                incrementValueFast *= 1000;
+            }
+            else if (finalDmg > 499999)
+            {
+                incrementValueFast *= 50000;
+            }
+            else
+            {
+                incrementValueFast *= 100000;
+            }
 
             int currentDmg = 0;
             while (currentDmg < finalDmg)
@@ -207,7 +257,7 @@ public class EndGameText : MonoBehaviour
     }
 
     private IEnumerator UpdateEnemiesKilled(int enemiesKilled)
-    {
+    { 
         if (enemiesKilled == 0)
         {
             ScaleTextEffect(enemiesKilledText, scaleAmount, defaultScaleDuration);
@@ -218,6 +268,15 @@ public class EndGameText : MonoBehaviour
         {
             //float countDuration = (enemiesKilled / incrementValueSlow) * 0.02f;
             ScaleTextEffect(enemiesKilledText, scaleAmount, defaultScaleDuration);
+
+            if (enemiesKilled > 199)
+            {
+                incrementValueSlow *= 2;
+            }
+            else if (enemiesKilled > 999)
+            {
+                incrementValueSlow *= 5;
+            }
 
             int currentKills = 0;
 

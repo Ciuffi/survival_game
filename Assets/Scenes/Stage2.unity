@@ -5034,6 +5034,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1229096016663525422, guid: fa10e6670a928df49b4aeba1425f12a9, type: 3}
   m_PrefabInstance: {fileID: 1170203633}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1198830869 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1098140728419907253, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+  m_PrefabInstance: {fileID: 2089525146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1212632927
 GameObject:
   m_ObjectHideFlags: 0
@@ -9961,6 +9966,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShowPauseScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1098140728419907251, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: spriteRend
+      value: 
+      objectReference: {fileID: 1198830869}
     - target: {fileID: 1098140728487649761, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: LevelUp
       value: 
