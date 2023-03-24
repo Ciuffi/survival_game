@@ -27,6 +27,7 @@ public class Projectile : MonoBehaviour
     private float meleeTime;
     public float startup;
     public float active;
+
     //public float recovery;
 
 
@@ -39,7 +40,9 @@ public class Projectile : MonoBehaviour
 
     public GameObject onHitParticle;
 
-    public float playerShakeTime, playerShakeStrength, playerShakeRotation;
+    public float playerShakeTime,
+        playerShakeStrength,
+        playerShakeRotation;
 
     public float damageTickDuration;
     private List<GameObject> hitEnemies;
@@ -92,15 +95,15 @@ public class Projectile : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
-        pierce = attack.pierce;
-        spawnPos.x = transform.position.x;  
+        pierce = attack.stats.pierce;
+        damage = attack.stats.damage;
+        knockback = attack.stats.knockback;
+        critChance = attack.stats.critChance;
+        critDmg = attack.stats.critDmg;
+        spawnPos.x = transform.position.x;
         spawnPos.y = transform.position.y;
-        damage = attack.damage * Player.GetComponent<StatsHandler>().damageMultipler;
-        knockback = attack.knockback * Player.GetComponent<StatsHandler>().knockbackMultiplier;
-        critChance = attack.critChance + Player.GetComponent<StatsHandler>().critChance;
-        critDmg = attack.critDmg + Player.GetComponent<StatsHandler>().critDmg;
-        projectileRange = attack.range;
-        moveSpeed = attack.speed * Player.GetComponent<StatsHandler>().projectileSpeedMultiplier;
+        projectileRange = attack.stats.range;
+        moveSpeed = attack.stats.speed;
         projSize = Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
         meleeSize = Player.GetComponent<StatsHandler>().meleeSizeMultiplier;
 
@@ -111,7 +114,9 @@ public class Projectile : MonoBehaviour
 
         if (isThrown)
         {
-            damage = attack.thrownDamage * Player.GetComponent<StatsHandler>().thrownDamageMultiplier;
+            damage =
+                attack.stats.thrownDamage
+                * Player.GetComponent<StatsHandler>().thrownDamageMultiplier;
             pierce = 12;
             projectileRange = 7;
             knockback = 0.3f * Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
@@ -119,11 +124,8 @@ public class Projectile : MonoBehaviour
         GetComponent<Collider2D>().enabled = true;
     }
 
-
-
     void Update()
     {
-
         if (isMelee == false)
         {
             float distance = Vector2.Distance(spawnPos, transform.position);
@@ -136,16 +138,23 @@ public class Projectile : MonoBehaviour
                 {
                     if (hasDeathrattle)
                     {
-                        GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                        GameObject rattle = Instantiate(
+                            deathSpawn,
+                            transform.position,
+                            Quaternion.identity
+                        );
                         rattle.GetComponent<deathRattleAttack>().attack = attack;
                         Vector3 currentScale = rattle.transform.localScale;
-                        rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
-
+                        rattle.transform.localScale = new Vector3(
+                            currentScale.x * projSize,
+                            currentScale.y * projSize,
+                            currentScale.z * projSize
+                        );
                     }
                     Destroy(gameObject);
                 }
-
-            } else //HOVER projectile - moves until end distance or first enemy hit, then stops
+            }
+            else //HOVER projectile - moves until end distance or first enemy hit, then stops
             {
                 float alphaSpeed;
                 Vector3 scaleUp;
@@ -156,7 +165,11 @@ public class Projectile : MonoBehaviour
                     if (hoverTime <= 0)
                     {
                         alphaSpeed = disappearSpeed * Time.deltaTime;
-                        scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
+                        scaleUp = new Vector3(
+                            scaleSpeed * Time.deltaTime,
+                            scaleSpeed * Time.deltaTime,
+                            0
+                        );
 
                         GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
                         transform.localScale -= scaleUp;
@@ -172,11 +185,18 @@ public class Projectile : MonoBehaviour
                     {
                         if (hasDeathrattle)
                         {
-                            GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                            GameObject rattle = Instantiate(
+                                deathSpawn,
+                                transform.position,
+                                Quaternion.identity
+                            );
                             rattle.GetComponent<deathRattleAttack>().attack = attack;
                             Vector3 currentScale = rattle.transform.localScale;
-                            rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
-
+                            rattle.transform.localScale = new Vector3(
+                                currentScale.x * projSize,
+                                currentScale.y * projSize,
+                                currentScale.z * projSize
+                            );
                         }
                         Destroy(gameObject);
                     }
@@ -187,7 +207,11 @@ public class Projectile : MonoBehaviour
                     if (hoverTime <= 0)
                     {
                         alphaSpeed = disappearSpeed * Time.deltaTime;
-                        scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
+                        scaleUp = new Vector3(
+                            scaleSpeed * Time.deltaTime,
+                            scaleSpeed * Time.deltaTime,
+                            0
+                        );
 
                         GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
                         transform.localScale -= scaleUp;
@@ -203,11 +227,18 @@ public class Projectile : MonoBehaviour
                     {
                         if (hasDeathrattle)
                         {
-                            GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                            GameObject rattle = Instantiate(
+                                deathSpawn,
+                                transform.position,
+                                Quaternion.identity
+                            );
                             rattle.GetComponent<deathRattleAttack>().attack = attack;
                             Vector3 currentScale = rattle.transform.localScale;
-                            rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
-
+                            rattle.transform.localScale = new Vector3(
+                                currentScale.x * projSize,
+                                currentScale.y * projSize,
+                                currentScale.z * projSize
+                            );
                         }
                         Destroy(gameObject);
                     }
@@ -216,9 +247,6 @@ public class Projectile : MonoBehaviour
                 {
                     transform.position += transform.up * moveSpeed;
                 }
-
-
-  
             }
         }
         else
@@ -256,7 +284,6 @@ public class Projectile : MonoBehaviour
                 alphaSpeed = disappearSpeed * Time.deltaTime;
                 scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
 
-
                 GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
                 transform.localScale -= scaleUp;
                 GetComponent<Collider2D>().enabled = false;
@@ -267,14 +294,21 @@ public class Projectile : MonoBehaviour
         {
             if (hasDeathrattle)
             {
-                GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                GameObject rattle = Instantiate(
+                    deathSpawn,
+                    transform.position,
+                    Quaternion.identity
+                );
                 rattle.GetComponent<deathRattleAttack>().attack = attack;
                 Vector3 currentScale = rattle.transform.localScale;
-                rattle.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
+                rattle.transform.localScale = new Vector3(
+                    currentScale.x * meleeSize,
+                    currentScale.y * meleeSize,
+                    currentScale.z * meleeSize
+                );
             }
             Destroy(gameObject);
         }
-
 
         // Check the timers for each object in the list
         if (hitEnemies.Count > 0)
@@ -292,17 +326,13 @@ public class Projectile : MonoBehaviour
                         timers.Remove(enemy);
                     }
                 }
-
                 else
                 {
                     return;
                 }
             }
         }
-
     }
-
-
 
     void OnTriggerStay2D(Collider2D col)
     {
@@ -310,7 +340,8 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
-        if (pierce < 0) return;
+        if (pierce < 0)
+            return;
         if (col.gameObject == null || attack.owner == null)
         {
             return;
@@ -329,11 +360,10 @@ public class Projectile : MonoBehaviour
                 { //CRITS
                     finalDamage = damage * critDmg;
                     isCrit = true;
-
                 }
                 else
                 {
-                    //no crit 
+                    //no crit
                     finalDamage = damage;
                     isCrit = false;
                 }
@@ -354,33 +384,45 @@ public class Projectile : MonoBehaviour
                     {
                         magnetStartPos = Player.transform.position;
                     }
-                    magnetTarget.GetComponent<Enemy>().StartMagnet(magnetStrength, magnetDuration, magnetStartPos, isMelee);
+                    magnetTarget
+                        .GetComponent<Enemy>()
+                        .StartMagnet(magnetStrength, magnetDuration, magnetStartPos, isMelee);
                 }
-    
 
                 if (isCrit == true) //deal damage
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
-                    Vector3 knockDirection =
-                        isMelee ? (col.transform.position - transform.position).normalized : transform.up;
+                    Vector3 knockDirection = isMelee
+                        ? (col.transform.position - transform.position).normalized
+                        : transform.up;
                     col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
 
                     attack.OnDamageDealt(finalDamage);
-                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
-
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        col.gameObject.transform.position,
+                        Quaternion.identity
+                    );
                 }
                 else
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
-                    Vector3 knockDirection =
-                        isMelee ? (col.transform.position - transform.position).normalized : transform.up;
+                    Vector3 knockDirection = isMelee
+                        ? (col.transform.position - transform.position).normalized
+                        : transform.up;
                     col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
                     attack.OnDamageDealt(finalDamage);
-                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        col.gameObject.transform.position,
+                        Quaternion.identity
+                    );
                 }
 
                 //apply slow effect
@@ -395,31 +437,35 @@ public class Projectile : MonoBehaviour
                     col.GetComponent<Enemy>().StartStun(stunDuration);
                 }
 
-
                 if (isMelee == false)
                 {
                     pierce -= 1;
                 }
-               
-
-            } else
+            }
+            else
             {
                 return;
             }
-      
+
             if (isMelee == false && pierce < 0)
             {
                 if (hasDeathrattle)
                 {
-                    GameObject rattle = Instantiate(deathSpawn, transform.position, Quaternion.identity);
+                    GameObject rattle = Instantiate(
+                        deathSpawn,
+                        transform.position,
+                        Quaternion.identity
+                    );
                     rattle.GetComponent<deathRattleAttack>().attack = attack;
                     Vector3 currentScale = rattle.transform.localScale;
-                    rattle.transform.localScale = new Vector3(currentScale.x * projSize, currentScale.y * projSize, currentScale.z * projSize);
+                    rattle.transform.localScale = new Vector3(
+                        currentScale.x * projSize,
+                        currentScale.y * projSize,
+                        currentScale.z * projSize
+                    );
                 }
                 Destroy(gameObject);
-            }   
+            }
         }
     }
-
-
 }

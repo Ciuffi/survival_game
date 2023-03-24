@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyAnimator : MonoBehaviour
 {
-
     public GameObject weapon;
     public Animator animator;
 
@@ -16,8 +15,8 @@ public class EnemyAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startTime = weapon.GetComponent<Attack>().recoveryTime;
-        castTime = weapon.GetComponent<Attack>().castTime;
+        startTime = weapon.GetComponent<Attack>().stats.recoveryTime;
+        castTime = weapon.GetComponent<Attack>().stats.castTime;
 
         timer = startTime;
         part2 = false;
@@ -31,9 +30,7 @@ public class EnemyAnimator : MonoBehaviour
         if (timer > 0)
         {
             timer -= Time.deltaTime;
-
         }
-
 
         if (timer <= 0 && part2 == false)
         {
@@ -46,11 +43,6 @@ public class EnemyAnimator : MonoBehaviour
             timer = startTime;
             animator.SetBool("IsAttacking", true);
             part2 = false;
-
         }
-
-
-
-
     }
 }

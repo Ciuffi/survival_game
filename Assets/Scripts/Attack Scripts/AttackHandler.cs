@@ -14,18 +14,15 @@ public class AttackHandler : MonoBehaviour
     public GameObject WeaponSprite;
     public GameObject WeaponOutline;
     public GameObject HandsSprite;
-    
+
     private Slider attackBar;
     private Image attackBarImage;
     private Slider attackBar2;
     private Image attackBarImage2;
     private GameObject defaultWeapon;
-    public Color[] colors = {
-        new Color(255, 146, 8),
-    };
+    public Color[] colors = { new Color(255, 146, 8), };
 
     public Color flashColor;
-
 
     PlayerCharacterStats characterStats;
 
@@ -121,12 +118,11 @@ public class AttackHandler : MonoBehaviour
     public void triggerWpnOff()
     {
         Attack currentAttack = attacks[attackIndex];
-        StartCoroutine(WpnSpriteOff(currentAttack.comboWaitTime/1.5f));
+        StartCoroutine(WpnSpriteOff(currentAttack.stats.comboWaitTime / 1.5f));
     }
 
     IEnumerator WpnSpriteOff(float duration)
     {
-       
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
 
         yield return new WaitForSeconds(duration);
@@ -134,21 +130,23 @@ public class AttackHandler : MonoBehaviour
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
     }
 
-
     IEnumerator Attack()
     {
         while (true)
         {
-
             attackState = AttackState.Casting;
-            if (attacks.Count == 0) yield return null;
+            if (attacks.Count == 0)
+                yield return null;
             Attack currentAttack = attacks[attackIndex];
-            WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack.GetComponent<Attack>().weaponSprite;
-            WeaponOutline.GetComponent<SpriteRenderer>().sprite = currentAttack.GetComponent<Attack>().weaponSprite;
-
+            WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack
+                .GetComponent<Attack>()
+                .weaponSprite;
+            WeaponOutline.GetComponent<SpriteRenderer>().sprite = currentAttack
+                .GetComponent<Attack>()
+                .weaponSprite;
 
             //swap animation
-            HandsSprite.GetComponent<Animator>().SetBool("IsSwap", true);          
+            HandsSprite.GetComponent<Animator>().SetBool("IsSwap", true);
             yield return new WaitForSeconds(0.3f);
             HandsSprite.GetComponent<Animator>().SetBool("IsSwap", false);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
@@ -156,36 +154,37 @@ public class AttackHandler : MonoBehaviour
             HandsSprite.GetComponent<SpriteRenderer>().enabled = false;
             WeaponSprite.GetComponent<Collider2D>().enabled = false;
 
-
             //casting
             attackBar.fillRect.gameObject.SetActive(true);
             attackBar2.fillRect.gameObject.SetActive(true);
-            if (usingAttackBar) StartCoroutine(HandleAttackSlider(currentAttack.castTime));
-            yield return new WaitForSeconds(currentAttack.castTime);
+            if (usingAttackBar)
+                StartCoroutine(HandleAttackSlider(currentAttack.stats.castTime));
+            yield return new WaitForSeconds(currentAttack.stats.castTime);
 
             //attacking
             StopCoroutine("HandleAttackSlider");
-            attackBar.fillRect.gameObject.SetActive(false); 
-            attackBar2.fillRect.gameObject.SetActive(false); 
+            attackBar.fillRect.gameObject.SetActive(false);
+            attackBar2.fillRect.gameObject.SetActive(false);
             attackState = AttackState.Attacking;
-            if (currentAttack != null) currentAttack.Shoot();
-            yield return new WaitForSeconds(currentAttack.attackTime);
+            if (currentAttack != null)
+                currentAttack.Shoot();
+            yield return new WaitForSeconds(currentAttack.stats.attackTime);
 
             //recovering
             attackState = AttackState.Recovery;
             attackIndex++;
-     
+
             if (attackIndex >= attacks.Count)
             {
                 attackIndex = 0;
             }
-            if (currentAttack.recoveryTime > 0) yield return new WaitForSeconds(currentAttack.recoveryTime);
+            if (currentAttack.stats.recoveryTime > 0)
+                yield return new WaitForSeconds(currentAttack.stats.recoveryTime);
 
             HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
             WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
             WeaponSprite.GetComponent<Collider2D>().enabled = true;
-
 
             if (currentAttack.thrownWeapon != null)
             {
@@ -195,7 +194,6 @@ public class AttackHandler : MonoBehaviour
                 currentAttack.ThrowWeapon();
                 HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);
             }
-            
         }
     }
 
@@ -220,13 +218,15 @@ public class AttackHandler : MonoBehaviour
         GameObject newWeapon = Instantiate(defaultWeapon, transform.position, Quaternion.identity);
 
         AddWeapon(newWeapon);
-        WeaponSprite.GetComponent<SpriteRenderer>().sprite = newWeapon.GetComponent<Attack>().weaponSprite;
-        WeaponOutline.GetComponent<SpriteRenderer>().sprite = newWeapon.GetComponent<Attack>().weaponSprite;
+        WeaponSprite.GetComponent<SpriteRenderer>().sprite = newWeapon
+            .GetComponent<Attack>()
+            .weaponSprite;
+        WeaponOutline.GetComponent<SpriteRenderer>().sprite = newWeapon
+            .GetComponent<Attack>()
+            .weaponSprite;
 
         StartCoroutine(Attack());
     }
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -236,27 +236,24 @@ public class AttackHandler : MonoBehaviour
         attackBarImage = attackBar.transform.GetChild(1).GetChild(0).GetComponent<Image>();
         attackBar2 = GameObject.Find("AttackBar2").GetComponent<Slider>();
         attackBarImage2 = attackBar2.transform.GetChild(1).GetChild(0).GetComponent<Image>();
-        attackContainer = new List<Transform>(GetComponentsInChildren<Transform>()).Find(t =>
-        {
-            return t.name == "Weapons";
-        }).gameObject;
+        attackContainer = new List<Transform>(GetComponentsInChildren<Transform>())
+            .Find(t =>
+            {
+                return t.name == "Weapons";
+            })
+            .gameObject;
 
-        
         MatchCharacter(); //inherit weapons
         foreach (GameObject weapon in characterStats.startingWeapons)
         {
             GameObject newWeapon = Instantiate(weapon, transform);
             AddWeapon(newWeapon.gameObject);
-
         }
-
 
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
         WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
         HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
 
         StartCoroutine(Attack());
-
     }
-
 }

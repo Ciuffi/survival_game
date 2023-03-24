@@ -2,67 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using System.Linq;
 
 public class Attack : MonoBehaviour, Upgrade
 {
-    public float damage;
-    private float damageUP;
-
-    public float spread;
-    private float spreadUP;
-
-    public float shotgunSpread;
-
-    public float spray;
-    public int sprayThreshold;
-    private int shotsCount = 0;
-
-    public float castTime;
-    private float castTimeUP;
-    public float attackTime;
-    public float recoveryTime;
-    private float recoveryTimeUp;
-
-    public float range = 5;
-    public float rangeUP;
-
-    public int shotsPerAttack;
-    private int shotsPerAttackUP;
-
-    public int shotsPerAttackMelee;
-
-    public bool cantMove;
-
-    public float speed;
-    private float speedUP;
-
-    public float knockback;
-    private float knockbackUP;
-
-    public int pierce;
-    private int pierceUP;
-
-    public float critChance; // 1 = 100% crit chance, 0 = 0% crit chance
-    public float critDmg; //1 = 100% of normal damage on a crit, 2 = 200% damage, etc.
-
-    public bool shootOpppositeSide = false;
-
-    public float projectileSize;
-    private float OGprojectileSize;
-    public float meleeSize;
-    private float OGmeleeSize;
-
-    public float multicastChance; //every 1.0f = one guarenteed multicast.
-    public float multicastWaitTime;
-    private float defaultMulticastWaitTime;
-    public int multicastTimes;
-    private int numMulticast = 0;
-    private float multicastAlphaFade = 0.15f;
-    private float multicastAlphaAmount;
-
     public GameObject projectile;
-    private Vector3 scaleUP;
-
+    public AttackStats baseStats;
+    public List<AttackStats> upgrades;
+    public AttackStats stats;
     public int rarity = 0; //0-common, 1-rare, 2-epic, 4-legendary
     public List<int> chosenNumbers = new List<int>();
 
@@ -73,19 +20,8 @@ public class Attack : MonoBehaviour, Upgrade
     GameObject Camera;
 
     public GameObject MeleeAttack;
-    public int comboLength; // # of melee attacks instantiated in a row
-    public float comboWaitTime;
-    public float comboAttackBuff; //percent buff
 
-    public float meleeShotsScaleUp; // scales up by % amount after each attack in the shotsPerattack
-    public float meleeSpacer = 0.7f; //spacer for first melee attack
-    public float meleeSpacerGap = 1f; //spacer added for subsequent shotsperattack
-    public bool swapAnimOnAttack;
     private int attackAnimState = 0;
-
-    public float shakeTime;
-    public float shakeStrength;
-    public float shakeRotation;
 
     public Sprite weaponSprite;
     public bool isAutoAim;
@@ -93,8 +29,6 @@ public class Attack : MonoBehaviour, Upgrade
 
     public GameObject thrownWeapon;
     public Sprite thrownSprite;
-    public float thrownDamage;
-    public float throwSpeed;
     private bool firstShot = true;
 
     public GameObject bulletCasing;
@@ -102,21 +36,11 @@ public class Attack : MonoBehaviour, Upgrade
     public float muzzleFlashXOffset;
     public float muzzleFlashYOffset;
     private VirtualJoystick VJ;
-
-    private float OGspread,
-        OGshotgunSpread,
-        OGmulticastChance,
-        OGcastTime,
-        OGcomboWaitTime,
-        OGrange,
-        OGthrowSpeed;
-    private int OGshotPerAttack,
-        OGshotsPerAttackMelee,
-        OGcomboLength;
-    private bool OGshootOpposite;
-
-    private Quaternion spreadDirection2;
     public float totalDamageDealt;
+
+    public float shotsCount;
+    public int numMulticast;
+    public float multicastAlphaAmount;
 
     // Start is called before the first frame update
     void Start()
@@ -125,64 +49,18 @@ public class Attack : MonoBehaviour, Upgrade
 
         if (projectile == null)
         {
-            projectile = Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
+            projectile =
+                Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
         }
         owner = transform.GetComponentInParent<Attacker>();
 
         int y = rarity;
-        GenerateRarity(y, 1, 5);
-
-
-        if (chosenNumbers.Contains(1)) //Upgrade Type 1 - Damage
-        {
-            damage = damageUP;
-        }
-
-        if (chosenNumbers.Contains(2)) //Upgrade Type 2 - spread /+ shotsPerAttack
-        {
-            spread = spreadUP;
-            shotsPerAttack = shotsPerAttackUP;
-        }
-        if (chosenNumbers.Contains(3)) //Upgrade Type 3 - castTime /+ startTime
-        {
-            castTime = castTimeUP;
-            recoveryTime = recoveryTimeUp;
-        }
-        if (chosenNumbers.Contains(4)) //Upgrade Type 4 - Range /+ speed
-        {
-            range = rangeUP;
-            speed = speedUP;
-        }
-        if (chosenNumbers.Contains(5)) //Upgrade Type 5 - Knockback
-        {
-            knockback = knockbackUP;
-        }
-        if (chosenNumbers.Contains(6)) //Upgrade Type 6 - Scale  
-        {
-            //projectile.transform.localScale = scaleUP;
-        }
 
         Camera = GameObject.FindWithTag("MainCamera");
         Player = GameObject.FindWithTag("Player");
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
-        defaultMulticastWaitTime = multicastWaitTime;
-
-        OGmulticastChance = multicastChance;
-        OGcastTime = castTime;
-        OGshotPerAttack = shotsPerAttack;
-        OGcomboLength = comboLength;
-        OGcomboWaitTime = comboWaitTime;
-        OGthrowSpeed = throwSpeed;
-        OGshootOpposite = shootOpppositeSide;
-        OGrange = range;
-        OGprojectileSize = projectileSize;
-        OGmeleeSize = meleeSize;
-        OGshotsPerAttackMelee = shotsPerAttackMelee;
-        OGspread = spread;
-        OGshotgunSpread = shotgunSpread;
 
         CalculateStats();
-
     }
 
     public void OnDamageDealt(float damage)
@@ -194,81 +72,80 @@ public class Attack : MonoBehaviour, Upgrade
     {
         if (attackType == AttackTypes.Shotgun)
         {
-            attackTime = 0 + (multicastTimes * multicastWaitTime);
+            stats.attackTime = stats.shotsPerAttack * stats.shotgunSpread;
         }
         else if (attackType == AttackTypes.Melee)
         {
+            stats.attackTime =
+                stats.comboLength * stats.comboWaitTime
+                + stats.shotsPerAttackMelee * stats.comboLength
+                + stats.multicastTimes * stats.multicastWaitTime;
             // Add the definition for Melee attack type
-            attackTime = (comboLength * comboWaitTime) + (spread * shotsPerAttackMelee * comboLength) + (multicastTimes * multicastWaitTime);
-
         }
         else
         {
-            // Add the default definition for Projectile attack type
-            attackTime = spread * shotsPerAttack + (multicastTimes * multicastWaitTime);
+            stats.attackTime =
+                stats.spread * stats.shotsPerAttack
+                + stats.multicastTimes * stats.multicastWaitTime;
         }
-
     }
+
     public void CalculateStats()
     {
-        //Debug.Log("calculatin");
-        spread = OGspread * Player.GetComponent<StatsHandler>().spreadMultiplier;
-        shotgunSpread = OGshotgunSpread + Player.GetComponent<StatsHandler>().shotgunSpread;
-
-        multicastChance = OGmulticastChance + Player.GetComponent<StatsHandler>().multicastChance;
-        castTime = OGcastTime * Player.GetComponent<StatsHandler>().castTimeMultiplier;
-        shotsPerAttack = OGshotPerAttack + Player.GetComponent<StatsHandler>().shotsPerAttack;
-        if (shotsPerAttack <= 0)
+        stats = new AttackStats().mergeInStats(new[] { baseStats }.Concat(upgrades).ToArray());
+        stats.spread *= Player.GetComponent<StatsHandler>().spreadMultiplier;
+        stats.shotgunSpread += Player.GetComponent<StatsHandler>().shotgunSpread;
+        stats.multicastChance += Player.GetComponent<StatsHandler>().multicastChance;
+        stats.castTime *= Player.GetComponent<StatsHandler>().castTimeMultiplier;
+        stats.shotsPerAttack += Player.GetComponent<StatsHandler>().shotsPerAttack;
+        if (stats.shotsPerAttack <= 0)
         {
-            shotsPerAttack = 1;
+            stats.shotsPerAttack = 1;
         }
-        shotsPerAttackMelee = OGshotsPerAttackMelee + Player.GetComponent<StatsHandler>().shotsPerAttackMelee;
-        if (shotsPerAttackMelee < 0)
+        stats.shotsPerAttackMelee += Player.GetComponent<StatsHandler>().shotsPerAttackMelee;
+        if (stats.shotsPerAttackMelee < 0)
         {
-            shotsPerAttackMelee = 0;
+            stats.shotsPerAttackMelee = 0;
         }
-        comboLength = OGcomboLength + Player.GetComponent<StatsHandler>().meleeComboLength;
-        if (comboLength <= 0)
+        stats.comboLength += Player.GetComponent<StatsHandler>().meleeComboLength;
+        if (stats.comboLength <= 0)
         {
-            comboLength = 1;
+            stats.comboLength = 1;
         }
-        comboWaitTime = OGcomboWaitTime * Player.GetComponent<StatsHandler>().meleeWaitTimeMultiplier;
-        throwSpeed = OGthrowSpeed * Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
-        range = OGrange * Player.GetComponent<StatsHandler>().rangeMultiplier;
-        if (!shootOpppositeSide)
+        stats.comboWaitTime *= Player.GetComponent<StatsHandler>().meleeWaitTimeMultiplier;
+        stats.throwSpeed *= Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
+        stats.range *= Player.GetComponent<StatsHandler>().rangeMultiplier;
+        if (!stats.shootOppositeSide)
         {
-            shootOpppositeSide = Player.GetComponent<StatsHandler>().shootOppositeSide;
+            stats.shootOppositeSide = Player.GetComponent<StatsHandler>().shootOppositeSide;
         }
-        projectileSize = Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
-        meleeSize = Player.GetComponent<StatsHandler>().meleeSizeMultiplier;
-
+        stats.projectileSize = Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
+        stats.meleeSize = Player.GetComponent<StatsHandler>().meleeSizeMultiplier;
     }
 
     private void rollMulticast()
     {
-        multicastTimes = 0; //reset
-
-
-        if (multicastChance > 0)
+        stats.multicastTimes = 0; //reset
+        if (stats.multicastChance > 0)
         {
-            if (multicastChance < 1)
+            if (stats.multicastChance < 1)
             {
                 float randomRoll = Random.Range(0f, 1f);
-                if (randomRoll <= multicastChance)
+                if (randomRoll <= stats.multicastChance)
                 {
-                    multicastTimes++;
+                    stats.multicastTimes++;
                 }
             }
             else
             {
-                multicastTimes += (int)multicastChance;
-                float leftoverChance = multicastChance - (float)multicastTimes;
+                stats.multicastTimes += (int)stats.multicastChance;
+                float leftoverChance = stats.multicastChance - (float)stats.multicastTimes;
                 if (leftoverChance > 0f)
                 {
                     float randomRoll = Random.Range(0f, 1f);
                     if (randomRoll <= leftoverChance)
                     {
-                        multicastTimes++;
+                        stats.multicastTimes++;
                     }
                 }
             }
@@ -277,8 +154,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     private IEnumerator ShootSingleShot(float multicastAlpha)
     {
-
-        if (cantMove)
+        if (stats.cantMove)
         {
             Player.GetComponent<PlayerMovement>().StopMoving();
         }
@@ -291,7 +167,7 @@ public class Attack : MonoBehaviour, Upgrade
         //  AutoAim.SetActive(false);
         // }
 
-        for (int i = 0; i < shotsPerAttack; i++)
+        for (int i = 0; i < stats.shotsPerAttack; i++)
         {
             SpawnMuzzleFlash();
             SpawnBulletCasing();
@@ -301,30 +177,39 @@ public class Attack : MonoBehaviour, Upgrade
             Vector3 position = owner.GetTransform().position;
             Vector3 direction = owner.GetDirection();
 
-            if (!shootOpppositeSide) //only shoots forward
+            if (!stats.shootOppositeSide) //only shoots forward
             {
                 // Forward bullet
-                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                GameObject projectileGO = Instantiate(
+                    projectile,
+                    (position + direction / 2),
+                    Quaternion.identity
+                );
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 Vector3 currentScale = p.transform.localScale;
-                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                p.transform.localScale = new Vector3(
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
+                );
 
                 Quaternion forwardRotation = rotation;
 
-                if (shotsCount >= sprayThreshold) // calculate spray pattern
+                if (shotsCount >= stats.sprayThreshold) // calculate spray pattern
                 {
-                    float spread = spray * (shotsCount - sprayThreshold + 1);
+                    float spread = stats.spread * (shotsCount - stats.sprayThreshold + 1);
                     float randomSpread = Random.Range(-spread, spread);
                     Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
                     forwardRotation *= spreadDirection;
                 }
-
                 p.transform.rotation = forwardRotation;
 
-                if (multicastTimes > 0)
+                if (stats.multicastTimes > 0)
                 {
-                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(
+                        true
+                    );
                     foreach (SpriteRenderer sr in spriteRenderers)
                     {
                         Color spriteColor = sr.color;
@@ -343,17 +228,25 @@ public class Attack : MonoBehaviour, Upgrade
             else //does shoot opposite side
             {
                 // Forward bullet
-                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                GameObject projectileGO = Instantiate(
+                    projectile,
+                    (position + direction / 2),
+                    Quaternion.identity
+                );
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 Vector3 currentScale = p.transform.localScale;
-                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                p.transform.localScale = new Vector3(
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
+                );
 
                 Quaternion forwardRotation = rotation;
 
-                if (shotsCount >= sprayThreshold) // calculate spray pattern
+                if (shotsCount >= stats.sprayThreshold) // calculate spray pattern
                 {
-                    float spread = spray * (shotsCount - sprayThreshold + 1);
+                    float spread = stats.spread * (shotsCount - stats.sprayThreshold + 1);
                     float randomSpread = Random.Range(-spread, spread);
                     Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
                     forwardRotation *= spreadDirection;
@@ -361,9 +254,11 @@ public class Attack : MonoBehaviour, Upgrade
 
                 p.transform.rotation = forwardRotation;
 
-                if (multicastTimes > 0)
+                if (stats.multicastTimes > 0)
                 {
-                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(
+                        true
+                    );
                     foreach (SpriteRenderer sr in spriteRenderers)
                     {
                         Color spriteColor = sr.color;
@@ -379,21 +274,25 @@ public class Attack : MonoBehaviour, Upgrade
                     }
                 }
 
-                float scale = currentScale.x * projectileSize;
+                float scale = currentScale.x * stats.projectileSize;
                 Vector3 backwardDirection = -transform.right;
                 backwardDirection = backwardDirection.normalized;
                 // Flip the rotation variable 180 degrees and put it in a variable called backwardRotation
                 Quaternion backwardRotation = Quaternion.Euler(0, 0, rotation.eulerAngles.z + 180);
-                if (shotsCount >= sprayThreshold)
+                if (shotsCount >= stats.sprayThreshold)
                 {
-                    float spread = spray * (shotsCount - sprayThreshold + 1);
+                    float spread = stats.spread * (shotsCount - stats.sprayThreshold + 1);
                     float randomSpread = Random.Range(-spread, spread);
                     Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
                     backwardRotation *= spreadDirection;
                 }
 
                 // Backward bullet
-                GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
+                GameObject projectileGO2 = Instantiate(
+                    projectile,
+                    (position - direction / 2),
+                    Quaternion.identity
+                );
                 Projectile p2 = projectileGO2.GetComponent<Projectile>();
                 p2.attack = this;
                 p2.transform.localScale = new Vector3(scale, scale, scale);
@@ -405,9 +304,11 @@ public class Attack : MonoBehaviour, Upgrade
 
                 p2.transform.position = backwardPosition;
 
-                if (multicastTimes > 0)
+                if (stats.multicastTimes > 0)
                 {
-                    SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
+                    SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(
+                        true
+                    );
                     foreach (SpriteRenderer sr in spriteRenderers)
                     {
                         Color spriteColor = sr.color;
@@ -425,10 +326,10 @@ public class Attack : MonoBehaviour, Upgrade
             }
 
             shotsCount += 1;
-            yield return new WaitForSeconds(spread);
+            yield return new WaitForSeconds(stats.spread);
         }
 
-        if (cantMove)
+        if (stats.cantMove)
         {
             Player.GetComponent<PlayerMovement>().StartMoving();
         }
@@ -438,41 +339,50 @@ public class Attack : MonoBehaviour, Upgrade
     {
         float spacer = 0;
         float angle = 0;
-        int shotsLeft = shotsPerAttack;
-        spacer = shotgunSpread / (shotsPerAttack - 1);
+        int shotsLeft = stats.shotsPerAttack;
+        spacer = stats.shotgunSpread / (stats.shotsPerAttack - 1);
         Vector3 position = owner.GetTransform().position;
         Vector3 direction = owner.GetDirection();
         Quaternion rotation = owner.GetTransform().rotation;
 
         if (numMulticast >= 1 && !firstShot)
         {
-            yield return new WaitForSeconds(multicastWaitTime);
+            yield return new WaitForSeconds(stats.multicastWaitTime);
         }
 
         firstShot = false;
 
-
-        if (shotsPerAttack % 2 != 0)
+        if (stats.shotsPerAttack % 2 != 0)
         {
             SpawnMuzzleFlash();
             SpawnBulletCasing();
-            if (cantMove)
+            if (stats.cantMove)
             {
                 Player.GetComponent<PlayerMovement>().StopMoving();
             }
 
-            if (!shootOpppositeSide) //only shoots forward
+            if (!stats.shootOppositeSide) //only shoots forward
             {
-                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                GameObject projectileGO = Instantiate(
+                    projectile,
+                    (position + direction / 2),
+                    Quaternion.identity
+                );
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = rotation;
                 Vector3 currentScale = p.transform.localScale;
-                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                p.transform.localScale = new Vector3(
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
+                );
 
-                if (multicastTimes > 0)
+                if (stats.multicastTimes > 0)
                 {
-                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(
+                        true
+                    );
                     foreach (SpriteRenderer sr in spriteRenderers)
                     {
                         Color spriteColor = sr.color;
@@ -487,21 +397,41 @@ public class Attack : MonoBehaviour, Upgrade
                         sr.color = spriteColor;
                     }
                 }
-
             }
             else //does shoot opposite side
             {
-                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                // Forward bullet
+                GameObject projectileGO = Instantiate(
+                    projectile,
+                    (position + direction / 2),
+                    Quaternion.identity
+                );
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
-                p.transform.rotation = rotation;
-                p.transform.up = direction;
                 Vector3 currentScale = p.transform.localScale;
-                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                p.transform.localScale = new Vector3(
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
+                );
 
-                if (multicastTimes > 0)
+                Quaternion forwardRotation = rotation;
+
+                if (shotsCount >= stats.sprayThreshold) // calculate spray pattern
                 {
-                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    float spread = stats.spread * (shotsCount - stats.sprayThreshold + 1);
+                    float randomSpread = Random.Range(-spread, spread);
+                    Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
+                    forwardRotation *= spreadDirection;
+                }
+
+                p.transform.rotation = forwardRotation;
+
+                if (stats.multicastTimes > 0)
+                {
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(
+                        true
+                    );
                     foreach (SpriteRenderer sr in spriteRenderers)
                     {
                         Color spriteColor = sr.color;
@@ -516,17 +446,26 @@ public class Attack : MonoBehaviour, Upgrade
                         sr.color = spriteColor;
                     }
                 }
-
-                GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
+                GameObject projectileGO2 = Instantiate(
+                    projectile,
+                    (position - direction / 2),
+                    Quaternion.identity
+                );
                 Projectile p2 = projectileGO2.GetComponent<Projectile>();
                 p2.attack = this;
                 p2.transform.rotation = Quaternion.LookRotation(-direction);
                 p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
-                p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                p2.transform.localScale = new Vector3(
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
+                );
 
-                if (multicastTimes > 0)
+                if (stats.multicastTimes > 0)
                 {
-                    SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
+                    SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(
+                        true
+                    );
                     foreach (SpriteRenderer sr in spriteRenderers)
                     {
                         Color spriteColor = sr.color;
@@ -541,17 +480,19 @@ public class Attack : MonoBehaviour, Upgrade
                         sr.color = spriteColor;
                     }
                 }
-
             }
-
         }
         else
         {
             spacer = spacer / 2;
         }
-        for (int i = 0; i < (shotsLeft % 2 == 0 ? shotsPerAttack : shotsPerAttack - 1); i++)
+        for (
+            int i = 0;
+            i < (shotsLeft % 2 == 0 ? stats.shotsPerAttack : stats.shotsPerAttack - 1);
+            i++
+        )
         {
-            if (i == 0 && shotsPerAttack % 2 == 0)
+            if (i == 0 && stats.shotsPerAttack % 2 == 0)
             {
                 angle = spacer / 2;
             }
@@ -567,19 +508,29 @@ public class Attack : MonoBehaviour, Upgrade
             SpawnBulletCasing();
             SpawnMuzzleFlash();
 
-            if (!shootOpppositeSide) //only shoots forward
+            if (!stats.shootOppositeSide) //only shoots forward
             {
-                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                GameObject projectileGO = Instantiate(
+                    projectile,
+                    (position + direction / 2),
+                    Quaternion.identity
+                );
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = rotation;
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
                 Vector3 currentScale = p.transform.localScale;
-                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                p.transform.localScale = new Vector3(
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
+                );
 
-                if (multicastTimes > 0)
+                if (stats.multicastTimes > 0)
                 {
-                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(
+                        true
+                    );
                     foreach (SpriteRenderer sr in spriteRenderers)
                     {
                         Color spriteColor = sr.color;
@@ -594,23 +545,31 @@ public class Attack : MonoBehaviour, Upgrade
                         sr.color = spriteColor;
                     }
                 }
-
-
             }
             else //does shoot opposite side
             {
-                GameObject projectileGO = Instantiate(projectile, (position + direction / 2), Quaternion.identity);
+                GameObject projectileGO = Instantiate(
+                    projectile,
+                    (position + direction / 2),
+                    Quaternion.identity
+                );
                 Projectile p = projectileGO.GetComponent<Projectile>();
                 p.attack = this;
                 p.transform.rotation = rotation;
                 p.transform.up = direction;
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
                 Vector3 currentScale = p.transform.localScale;
-                p.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                p.transform.localScale = new Vector3(
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
+                );
 
-                if (multicastTimes > 0)
+                if (stats.multicastTimes > 0)
                 {
-                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                    SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(
+                        true
+                    );
                     foreach (SpriteRenderer sr in spriteRenderers)
                     {
                         Color spriteColor = sr.color;
@@ -625,18 +584,27 @@ public class Attack : MonoBehaviour, Upgrade
                         sr.color = spriteColor;
                     }
                 }
-
-                GameObject projectileGO2 = Instantiate(projectile, (position - direction / 2), Quaternion.identity);
+                GameObject projectileGO2 = Instantiate(
+                    projectile,
+                    (position - direction / 2),
+                    Quaternion.identity
+                );
                 Projectile p2 = projectileGO2.GetComponent<Projectile>();
                 p2.attack = this;
                 p2.transform.rotation = Quaternion.LookRotation(-direction);
                 p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
                 p2.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
-                p2.transform.localScale = new Vector3(currentScale.x * projectileSize, currentScale.y * projectileSize, currentScale.z * projectileSize);
+                p2.transform.localScale = new Vector3(
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
+                );
 
-                if (multicastTimes > 0)
+                if (stats.multicastTimes > 0)
                 {
-                    SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
+                    SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(
+                        true
+                    );
                     foreach (SpriteRenderer sr in spriteRenderers)
                     {
                         Color spriteColor = sr.color;
@@ -653,68 +621,83 @@ public class Attack : MonoBehaviour, Upgrade
                 }
             }
         }
-        if (cantMove)
+        if (stats.cantMove)
         {
             Player.GetComponent<PlayerMovement>().StartMoving();
         }
-
     }
 
     private IEnumerator Melee(float multicastAlpha)
     {
-
         if (numMulticast >= 1 && !firstShot)
         {
-            yield return new WaitForSeconds(multicastWaitTime);
+            yield return new WaitForSeconds(stats.multicastWaitTime);
         }
 
         firstShot = false;
-        float localSpacer = meleeSpacer;
+        float localSpacer = stats.meleeSpacer;
 
-        if (cantMove)
+        if (stats.cantMove)
         {
             Player.GetComponent<PlayerMovement>().StopMoving();
         }
 
         Vector3 originalScale = MeleeAttack.transform.localScale;
-        Vector3 scaler = new Vector3(meleeShotsScaleUp, meleeShotsScaleUp, meleeShotsScaleUp);
+        Vector3 scaler = new Vector3(
+            stats.meleeShotsScaleUp,
+            stats.meleeShotsScaleUp,
+            stats.meleeShotsScaleUp
+        );
 
-        for (int i = 0; i < comboLength; i++)
+        for (int i = 0; i < stats.comboLength; i++)
         {
             Player.GetComponent<AttackHandler>().triggerWpnOff();
             Vector3 position = owner.GetTransform().position;
             Vector3 direction = owner.GetDirection();
             Quaternion rotation = owner.GetTransform().rotation;
 
-            float perAttackScaling = 1 + (comboAttackBuff * i);
+            float perAttackScaling = 1 + (stats.comboAttackBuff * i);
 
-            //chain spawn 
-            for (int c = 0; c < shotsPerAttackMelee + 1; c++)
+            //chain spawn
+            for (int c = 0; c < stats.shotsPerAttackMelee + 1; c++)
             {
-                Vector3 directionSpacer = Vector3.Scale(direction, new Vector3(localSpacer, localSpacer, localSpacer));
+                Vector3 directionSpacer = Vector3.Scale(
+                    direction,
+                    new Vector3(localSpacer, localSpacer, localSpacer)
+                );
 
-                if (!shootOpppositeSide) //only shoots forward
+                if (!stats.shootOppositeSide) //only shoots forward
                 {
-                    GameObject projectileGO = Instantiate(MeleeAttack, (position + directionSpacer / 2), Quaternion.identity);
+                    GameObject projectileGO = Instantiate(
+                        MeleeAttack,
+                        (position + directionSpacer / 2),
+                        Quaternion.identity
+                    );
                     Projectile p = projectileGO.GetComponent<Projectile>();
                     p.attack = this;
-                    p.attack.damage *= perAttackScaling; //scale damage per shotInAttack
+                    p.attack.stats.damage *= perAttackScaling; //scale damage per shotInAttack
                     p.transform.rotation = rotation;
                     if (c >= 1)
                     {
                         Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
+                        p.transform.localScale = new Vector3(
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
+                        );
                         p.transform.localScale += scaler * c;
-
                     }
                     else
                     {
                         Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
-
+                        p.transform.localScale = new Vector3(
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
+                        );
                     }
-                    //change animation state 
-                    if (swapAnimOnAttack)
+                    //change animation state
+                    if (stats.swapAnimOnAttack)
                     {
                         Animator attackAnimator = p.GetComponent<Animator>();
                         switch (attackAnimState)
@@ -730,9 +713,10 @@ public class Attack : MonoBehaviour, Upgrade
                                 break;
                         }
                     }
-                    if (multicastTimes > 0)
+                    if (stats.multicastTimes > 0)
                     {
-                        SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                        SpriteRenderer[] spriteRenderers =
+                            p.GetComponentsInChildren<SpriteRenderer>(true);
                         foreach (SpriteRenderer sr in spriteRenderers)
                         {
                             Color spriteColor = sr.color;
@@ -747,32 +731,41 @@ public class Attack : MonoBehaviour, Upgrade
                             sr.color = spriteColor;
                         }
                     }
-
                 }
                 else //does shoot opposite side
                 {
-                    GameObject projectileGO = Instantiate(MeleeAttack, (position + directionSpacer / 2), Quaternion.identity);
+                    GameObject projectileGO = Instantiate(
+                        MeleeAttack,
+                        (position + directionSpacer / 2),
+                        Quaternion.identity
+                    );
                     Projectile p = projectileGO.GetComponent<Projectile>();
                     p.attack = this;
-                    p.attack.damage *= perAttackScaling; //scale damage per shotInAttack
+                    p.attack.stats.damage *= perAttackScaling; //scale damage per shotInAttack
 
                     p.transform.rotation = rotation;
                     p.transform.up = direction;
                     if (c >= 1)
                     {
                         Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
+                        p.transform.localScale = new Vector3(
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
+                        );
                         p.transform.localScale += scaler * c;
-
                     }
                     else
                     {
                         Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
-
+                        p.transform.localScale = new Vector3(
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
+                        );
                     }
-                    //change animation state 
-                    if (swapAnimOnAttack)
+                    //change animation state
+                    if (stats.swapAnimOnAttack)
                     {
                         Animator attackAnimator = p.GetComponent<Animator>();
                         switch (attackAnimState)
@@ -788,9 +781,10 @@ public class Attack : MonoBehaviour, Upgrade
                                 break;
                         }
                     }
-                    if (multicastTimes > 0)
+                    if (stats.multicastTimes > 0)
                     {
-                        SpriteRenderer[] spriteRenderers = p.GetComponentsInChildren<SpriteRenderer>(true);
+                        SpriteRenderer[] spriteRenderers =
+                            p.GetComponentsInChildren<SpriteRenderer>(true);
                         foreach (SpriteRenderer sr in spriteRenderers)
                         {
                             Color spriteColor = sr.color;
@@ -806,28 +800,38 @@ public class Attack : MonoBehaviour, Upgrade
                         }
                     }
 
-                    GameObject projectileGO2 = Instantiate(MeleeAttack, (position - directionSpacer / 2), Quaternion.identity);
+                    GameObject projectileGO2 = Instantiate(
+                        MeleeAttack,
+                        (position - directionSpacer / 2),
+                        Quaternion.identity
+                    );
                     Projectile p2 = projectileGO2.GetComponent<Projectile>();
                     p2.attack = this;
-                    p.attack.damage *= perAttackScaling; //scale damage per shotInAttack
+                    p.attack.stats.damage *= perAttackScaling; //scale damage per shotInAttack
 
                     p2.transform.rotation = Quaternion.LookRotation(-directionSpacer);
                     p2.transform.up = -directionSpacer; // set the projectile's up direction to the opposite of the direction
                     if (c >= 1)
                     {
                         Vector3 currentScale = p2.transform.localScale;
-                        p2.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
+                        p2.transform.localScale = new Vector3(
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
+                        );
                         p2.transform.localScale += scaler * c;
-
                     }
                     else
                     {
                         Vector3 currentScale = p2.transform.localScale;
-                        p2.transform.localScale = new Vector3(currentScale.x * meleeSize, currentScale.y * meleeSize, currentScale.z * meleeSize);
-
+                        p2.transform.localScale = new Vector3(
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
+                        );
                     }
-                    //change animation state 
-                    if (swapAnimOnAttack)
+                    //change animation state
+                    if (stats.swapAnimOnAttack)
                     {
                         Animator attackAnimator2 = p2.GetComponent<Animator>();
                         switch (attackAnimState)
@@ -843,9 +847,10 @@ public class Attack : MonoBehaviour, Upgrade
                                 break;
                         }
                     }
-                    if (multicastTimes > 0)
+                    if (stats.multicastTimes > 0)
                     {
-                        SpriteRenderer[] spriteRenderers = p2.GetComponentsInChildren<SpriteRenderer>(true);
+                        SpriteRenderer[] spriteRenderers =
+                            p2.GetComponentsInChildren<SpriteRenderer>(true);
                         foreach (SpriteRenderer sr in spriteRenderers)
                         {
                             Color spriteColor = sr.color;
@@ -862,41 +867,40 @@ public class Attack : MonoBehaviour, Upgrade
                     }
                 }
 
-                Camera.GetComponent<ScreenShakeController>().StartShake(shakeTime, shakeStrength, shakeRotation);
-                yield return new WaitForSeconds(spread);
+                Camera
+                    .GetComponent<ScreenShakeController>()
+                    .StartShake(stats.shakeTime, stats.shakeStrength, stats.shakeRotation);
+                yield return new WaitForSeconds(stats.spread);
 
-                // after one hit in the combo, do this
-                if (meleeShotsScaleUp > 0)
+                if (stats.meleeShotsScaleUp > 0)
                 {
-                    localSpacer += meleeSpacerGap * (1 + meleeShotsScaleUp);
+                    localSpacer += stats.meleeSpacerGap * (1 + stats.meleeShotsScaleUp);
                 }
                 else
                 {
-                    localSpacer += meleeSpacerGap;
+                    localSpacer += stats.meleeSpacerGap;
                 }
+
+                //reset gap between hits
+                localSpacer = stats.meleeSpacer;
+
+                //update attack state
+                attackAnimState++;
+                if (attackAnimState == stats.comboLength)
+                {
+                    attackAnimState = 0;
+                }
+
+                //wait until next hit in combo
+                yield return new WaitForSeconds(stats.comboWaitTime);
             }
 
-            //reset gap between hits
-            localSpacer = meleeSpacer;
-
-            //update attack state 
-            attackAnimState++;
-            if (attackAnimState == comboLength)
+            if (stats.cantMove)
             {
-                attackAnimState = 0;
+                Player.GetComponent<PlayerMovement>().StartMoving();
             }
-
-            //wait until next hit in combo
-            yield return new WaitForSeconds(comboWaitTime);
         }
-
-        if (cantMove)
-        {
-            Player.GetComponent<PlayerMovement>().StartMoving();
-        }
-
     }
-
 
     // private IEnumerator Utility() //buff effect on self
     // {
@@ -906,31 +910,31 @@ public class Attack : MonoBehaviour, Upgrade
     {
         if (numMulticast > 0)
         {
-            yield return new WaitForSeconds(multicastWaitTime * numMulticast);
+            yield return new WaitForSeconds(stats.multicastWaitTime * numMulticast);
         }
 
         switch (attackType)
         {
             case AttackTypes.Projectile:
+
                 {
                     StartCoroutine(ShootSingleShot(multicastAlphaAmount));
-                    multicastAlphaAmount += multicastAlphaFade;
-
+                    multicastAlphaAmount += stats.multicastAlphaFade;
                 }
                 break;
 
             case AttackTypes.Shotgun:
+
                 {
                     StartCoroutine(ShootShotgun(multicastAlphaAmount));
-                    multicastAlphaAmount += multicastAlphaFade;
-
+                    multicastAlphaAmount += stats.multicastAlphaFade;
                 }
                 break;
             case AttackTypes.Melee:
+
                 {
                     StartCoroutine(Melee(multicastAlphaAmount));
-                    multicastAlphaAmount += multicastAlphaFade;
-
+                    multicastAlphaAmount += stats.multicastAlphaFade;
                 }
                 break;
 
@@ -940,7 +944,6 @@ public class Attack : MonoBehaviour, Upgrade
             default:
                 break;
         }
-
     }
 
     public void Shoot()
@@ -949,7 +952,7 @@ public class Attack : MonoBehaviour, Upgrade
         multicastAlphaAmount = 0f;
         rollMulticast();
 
-        for (int i = 0; i < (multicastTimes + 1); i++)
+        for (int i = 0; i < (stats.multicastTimes + 1); i++)
         {
             shotsCount = 0; //reset Spray pattern
             StartCoroutine(WaitThenShoot(numMulticast));
@@ -970,19 +973,17 @@ public class Attack : MonoBehaviour, Upgrade
             Vector3 position = owner.GetTransform().position;
             Vector3 direction = owner.GetDirection();
 
-
             GameObject wpnToss = Instantiate(thrownWeapon, position, Quaternion.identity);
             wpnToss.GetComponent<SpriteRenderer>().sprite = thrownSprite;
             wpnToss.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = thrownSprite;
             Rigidbody2D rb = wpnToss.GetComponent<Rigidbody2D>();
-            rb.AddForce(direction * throwSpeed * -1, ForceMode2D.Impulse);
+            rb.AddForce(direction * stats.throwSpeed * -1, ForceMode2D.Impulse);
             rb.AddTorque(1200f);
 
             Projectile p = wpnToss.GetComponent<Projectile>();
             p.attack = this;
             p.transform.rotation = rotation;
         }
-
     }
 
     public void SpawnMuzzleFlash()
@@ -995,9 +996,9 @@ public class Attack : MonoBehaviour, Upgrade
         // Select a random MuzzleFlashPrefab from the list
         GameObject selectedPrefab = MuzzleFlashPrefab[Random.Range(0, MuzzleFlashPrefab.Count)];
 
-
         // Instantiate the selected MuzzleFlashPrefab at the specified position
-        Vector3 spawnPosition = transform.position + new Vector3(muzzleFlashXOffset, muzzleFlashYOffset, 0f);
+        Vector3 spawnPosition =
+            transform.position + new Vector3(muzzleFlashXOffset, muzzleFlashYOffset, 0f);
 
         GameObject MuzzleFlash = Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
 
@@ -1021,12 +1022,13 @@ public class Attack : MonoBehaviour, Upgrade
             Vector3 spawnPosition = transform.position + new Vector3(xModifier, yModifier, 0f);
 
             // Instantiate the new object
-            GameObject newBulletCasing = Instantiate(bulletCasing, spawnPosition, Quaternion.identity);
-
+            GameObject newBulletCasing = Instantiate(
+                bulletCasing,
+                spawnPosition,
+                Quaternion.identity
+            );
         }
     }
-
-
 
     public List<int> GenerateRarity(int count, int minValue, int maxValue)
     {
@@ -1035,31 +1037,24 @@ public class Attack : MonoBehaviour, Upgrade
         for (int index = minValue; index <= maxValue; index++)
             possibleNumbers.Add(index);
 
-
         while (chosenNumbers.Count < count)
         {
             int position = Random.Range(0, possibleNumbers.Count);
             chosenNumbers.Add(possibleNumbers[position]);
             possibleNumbers.RemoveAt(position);
 
-            foreach (int value in chosenNumbers)
-            {
-            }
+            foreach (int value in chosenNumbers) { }
         }
         return chosenNumbers;
-
-
     }
-
-
 
     public Transform GetTransform()
     {
         return transform;
     }
+
     public UpgradeType GetUpgradeType()
     {
         return UpgradeType.Weapon;
     }
-
 }
