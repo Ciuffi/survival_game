@@ -153,7 +153,9 @@ public class Enemy : MonoBehaviour, Attacker
     private GameObject maxEnemiesTracker;
 
     public float xpSizeScaling = 0.5f;
+    public float destroyDistance = 12f;
 
+    private AstarPath astarPath;
 
     // Start is called before the first frame update
     void Start()
@@ -179,6 +181,7 @@ public class Enemy : MonoBehaviour, Attacker
         OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
         color = Sprite.GetComponent<SpriteRenderer>().color;
 
+        astarPath = FindObjectOfType<AstarPath>();
         aiPath = GetComponent<AIPath>();
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
         if (isElite)
@@ -245,10 +248,20 @@ public class Enemy : MonoBehaviour, Attacker
             return 0.5f * f * f * f + 1;
         }
     }
+    private void CheckDistanceToPlayer()
+    {
+        float distance = Vector2.Distance(transform.position, player.transform.position);
 
+        if (distance > destroyDistance)
+        {
+            Destroy(gameObject);
+            maxEnemiesTracker.GetComponent<MaxEnemyTracker>().DecreaseCount();
+        }
+    }
 
     void Update()
     {
+        CheckDistanceToPlayer();
 
         if (isSpawn)
         {
@@ -270,6 +283,7 @@ public class Enemy : MonoBehaviour, Attacker
             if (Vector3.Distance(transform.position, endPosition) < 1f)
             {
                 Destroy(gameObject);
+                maxEnemiesTracker.GetComponent<MaxEnemyTracker>().DecreaseCount();
             }
         }
 
@@ -1002,6 +1016,17 @@ public class Enemy : MonoBehaviour, Attacker
         if (col.gameObject.name == "Player" && isDead == false && player.GetComponent<StatsHandler>().canDamage == true)
         {
             col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            if (astarPath != null)
+            {
+                Debug.Log("scan");
+                astarPath.Scan();
+            }
         }
     }
 

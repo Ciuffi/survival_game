@@ -96,8 +96,9 @@ public class BasicSpawner : MonoBehaviour
                         newSpawn.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
                         //newSpawn.GetComponent<Enemy>().calculateSpeed(speedScaling);
                     }
-                    AstarPath.active.Scan();
                 }
+                AstarPath.active.Scan();
+
             }
         }
     }
