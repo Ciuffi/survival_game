@@ -5,29 +5,32 @@ using System.Collections.Generic;
 public class AttackStats
 {
     public float damage;
-    public float spread;
-    public float shotgunSpread;
-    public float spray;
-    public int sprayThreshold;
+    public bool cantMove = false;
+    public bool shootOppositeSide = false;
+    public float critChance;
+    public float critDmg;
+
     public float castTime;
     public float attackTime;
     public float recoveryTime;
-    public float range;
-    public int shotsPerAttack;
-    public int shotsPerAttackMelee;
-    public float speed;
     public float knockback;
-    public int pierce;
-    public float critChance;
-    public float critDmg;
-    public bool shootOppositeSide = false;
-    public float projectileSize;
-    public float meleeSize;
+
     public float multicastChance;
     public float multicastWaitTime;
     public int multicastTimes;
     public float multicastAlphaFade;
-    public Vector3 scaleUP;
+
+    public int shotsPerAttack;
+    public float spread;
+    public float shotgunSpread;
+    public float spray;
+    public int sprayThreshold;
+    public float speed;
+    public float range;
+    public int pierce;
+    public float projectileSize;
+
+    public int shotsPerAttackMelee;
     public int comboLength;
     public float comboWaitTime;
     public float comboAttackBuff;
@@ -35,12 +38,16 @@ public class AttackStats
     public float meleeSpacer;
     public float meleeSpacerGap;
     public bool swapAnimOnAttack = false;
+
+    public float thrownDamage;
+    public float throwSpeed;
+  
     public float shakeTime;
     public float shakeStrength;
     public float shakeRotation;
-    public float thrownDamage;
-    public float throwSpeed;
-    public bool cantMove = false;
+
+    public Vector3 scaleUP;
+    public float meleeSize;
 
     //Constructor that takes in all the values and sets them to the variables while providing meaningful defaults
     public AttackStats(
@@ -50,7 +57,6 @@ public class AttackStats
         float spray = 0,
         int sprayThreshold = 0,
         float castTime = 0,
-        float attackTime = 0,
         float recoveryTime = 0,
         float range = 0,
         int shotsPerAttack = 0,
@@ -89,7 +95,6 @@ public class AttackStats
         this.spray = spray;
         this.sprayThreshold = sprayThreshold;
         this.castTime = castTime;
-        this.attackTime = attackTime;
         this.recoveryTime = recoveryTime;
         this.range = range;
         this.shotsPerAttack = shotsPerAttack;
@@ -133,7 +138,7 @@ public class AttackStats
         return this;
     }
 
-    public AttackStats mergeInStats(AttackStats attackStats)
+    public void mergeInStats(AttackStats attackStats)
     {
         this.damage += attackStats.damage;
         this.spread += attackStats.spread;
@@ -141,7 +146,6 @@ public class AttackStats
         this.spray += attackStats.spray;
         this.sprayThreshold += attackStats.sprayThreshold;
         this.castTime += attackStats.castTime;
-        this.attackTime += attackStats.attackTime;
         this.recoveryTime += attackStats.recoveryTime;
         this.range += attackStats.range;
         this.shotsPerAttack += attackStats.shotsPerAttack;
@@ -172,7 +176,6 @@ public class AttackStats
         this.thrownDamage += attackStats.thrownDamage;
         this.throwSpeed += attackStats.throwSpeed;
         this.cantMove |= attackStats.cantMove;
-        return this;
     }
 
     public static AttackStats MergeAttackStats(List<AttackStats> attackStatsList)
@@ -189,7 +192,6 @@ public class AttackStats
             mergedAttackStats.spray += attackStats.spray;
             mergedAttackStats.sprayThreshold += attackStats.sprayThreshold;
             mergedAttackStats.castTime += attackStats.castTime;
-            mergedAttackStats.attackTime += attackStats.attackTime;
             mergedAttackStats.recoveryTime += attackStats.recoveryTime;
             mergedAttackStats.range += attackStats.range;
             mergedAttackStats.shotsPerAttack += attackStats.shotsPerAttack;

@@ -41,6 +41,18 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
+    private void LoadSelectedWeapon()
+    {
+        string selectedWeaponName = PlayerPrefs.GetString("SelectedWeapon");
+        int selectedWeaponRarity = PlayerPrefs.GetInt("SelectedWeaponRarity");
+
+        // Instantiate the weapon prefab based on the name and add it to the player
+
+        AttackBuilder weapon = AttackLibrary.GetAttackBuilder(selectedWeaponName);
+
+        AddWeapon(weapon.Build(selectedWeaponRarity));
+    }
+
     IEnumerator HandleAttackSlider(float castTime)
     {
         float timer = 0;
@@ -134,6 +146,7 @@ public class AttackHandler : MonoBehaviour
     {
         while (true)
         {
+
             attackState = AttackState.Casting;
             if (attacks.Count == 0)
                 yield return null;
@@ -168,8 +181,9 @@ public class AttackHandler : MonoBehaviour
             attackState = AttackState.Attacking;
             if (currentAttack != null)
                 currentAttack.Shoot();
-            yield return new WaitForSeconds(currentAttack.stats.attackTime);
 
+            yield return new WaitForSeconds(currentAttack.stats.attackTime);
+           
             //recovering
             attackState = AttackState.Recovery;
             attackIndex++;
@@ -194,6 +208,7 @@ public class AttackHandler : MonoBehaviour
                 currentAttack.ThrowWeapon();
                 HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);
             }
+
         }
     }
 
@@ -243,12 +258,8 @@ public class AttackHandler : MonoBehaviour
             })
             .gameObject;
 
-        MatchCharacter(); //inherit weapons
-        foreach (GameObject weapon in characterStats.startingWeapons)
-        {
-            GameObject newWeapon = Instantiate(weapon, transform);
-            AddWeapon(newWeapon.gameObject);
-        }
+        MatchCharacter(); 
+        LoadSelectedWeapon();
 
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
         WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;

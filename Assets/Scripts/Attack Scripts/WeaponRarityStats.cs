@@ -5,9 +5,9 @@ public static class WeaponRarityStats
 {
     public static AttackStats ApplyRarity(List<AttackStats> attackStatUpgrades, int rarity)
     {
-        if (rarity < 1 || rarity > 6)
+        if (rarity < 0 || rarity > 6)
         {
-            Debug.LogError("Invalid rarity value. Rarity should be between 1 and 6.");
+            Debug.LogError("Invalid rarity value. Rarity should be between 0 and 6, inclusive.");
             return null;
         }
 
@@ -29,8 +29,10 @@ public static class WeaponRarityStats
 
             // Remove the selected upgrade from the availableUpgrades list
             availableUpgrades.RemoveAt(randomIndex);
+
         }
 
+        //Debug.Log($"Rarity Upgrades: Damage: {upgradedAttackStats.damage}, CastTime: {upgradedAttackStats.castTime}, CritChance: {upgradedAttackStats.critChance}, ShotsPerAttack: {upgradedAttackStats.shotsPerAttack}, ShotgunSpread: {upgradedAttackStats.shotgunSpread}, ProjectileSize: {upgradedAttackStats.projectileSize}, Range: {upgradedAttackStats.range}, Knockback: {upgradedAttackStats.knockback}");
         return upgradedAttackStats;
     }
 }

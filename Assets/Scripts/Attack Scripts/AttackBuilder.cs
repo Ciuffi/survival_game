@@ -11,7 +11,6 @@ public class AttackBuilder
 
     private Effect effect;
     private AttackTypes attackType;
-    private GameObject meleeAttack;
 
     private Sprite weaponSprite;
     private bool isAutoAim;
@@ -57,7 +56,6 @@ public class AttackBuilder
     public AttackBuilder SetProperties(
         Effect effect = null,
         AttackTypes attackType = default,
-        GameObject meleeAttack = null,
         Sprite weaponSprite = null,
         bool isAutoAim = false,
         GameObject autoAim = null,
@@ -72,7 +70,6 @@ public class AttackBuilder
     {
         this.effect = effect;
         this.attackType = attackType;
-        this.meleeAttack = meleeAttack;
         this.weaponSprite = weaponSprite;
         this.isAutoAim = isAutoAim;
         this.autoAim = autoAim;
@@ -107,10 +104,10 @@ public class AttackBuilder
             throw new System.Exception("WeaponSprite is required and cannot be null.");
         }
 
-        if (thrownWeapon == null)
-        {
-            throw new System.Exception("ThrownWeapon is required and cannot be null.");
-        }
+        //if (thrownWeapon == null)
+        //{
+            //throw new System.Exception("ThrownWeapon is required and cannot be null.");
+        //}
 
         if (thrownSprite == null)
         {
@@ -118,9 +115,10 @@ public class AttackBuilder
         }
     }
 
-    public GameObject Build()
+    public GameObject Build(int rarity)
     {
         ValidateRequiredFields();
+
         // Create a new GameObject to attach the Attack component to
         GameObject attackObject = new GameObject(
             string.IsNullOrEmpty(attackName) ? "Attack" : attackName
@@ -131,16 +129,22 @@ public class AttackBuilder
         attack.projectile = projectile;
         attack.baseStats = baseStats;
 
-        // Use the WeaponRarityStats class to upgrade the baseStats based on the rarity
-        attack.baseStats = WeaponRarityStats.ApplyRarity(upgrades, rarity);
+        if (rarity > 0)
+        {
+            Debug.Log("rarity: " + rarity);
+            // Use the WeaponRarityStats class to upgrade the baseStats based on the rarity
+            attack.baseStats.mergeInStats(WeaponRarityStats.ApplyRarity(upgrades, rarity));
+        }
 
         attack.effect = effect;
         attack.attackType = attackType;
-        attack.MeleeAttack = meleeAttack;
         attack.weaponSprite = weaponSprite;
         attack.isAutoAim = isAutoAim;
         attack.AutoAim = autoAim;
-        attack.thrownWeapon = thrownWeapon;
+        if (thrownWeapon != null)
+        {
+            attack.thrownWeapon = thrownWeapon;
+        }
         attack.thrownSprite = thrownSprite;
         attack.bulletCasing = bulletCasing;
         attack.MuzzleFlashPrefab = muzzleFlashPrefab;
@@ -149,4 +153,10 @@ public class AttackBuilder
 
         return attackObject;
     }
+
+    public Sprite GetThrownSprite()
+    {
+        return thrownSprite;
+    }
+
 }

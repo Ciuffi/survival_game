@@ -11,7 +11,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
     private PlayerCharacterStats stats;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI infoText;
-    public TextMeshProUGUI weaponsText;
+    //public TextMeshProUGUI weaponsText;
 
     private CharSelectController characterSelector;
     public GameObject startBtn;
@@ -25,8 +25,8 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         nameText= text1.transform.Find("Name").GetComponent<TextMeshProUGUI>();
         GameObject text2 = GameObject.Find("InfoBox");
         infoText = text2.transform.Find("Info").GetComponent<TextMeshProUGUI>();
-        GameObject text3 = GameObject.Find("WeaponsName");
-        weaponsText = text3.GetComponent<TextMeshProUGUI>();
+        //GameObject text3 = GameObject.Find("WeaponsName");
+        //weaponsText = text3.GetComponent<TextMeshProUGUI>();
         hasSelected = false;
         startBtn = GameObject.Find("StartBtn");
     }
@@ -85,19 +85,6 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             string gameObjectName = gameObject.name;
             string newName = gameObjectName.EndsWith("(Clone)") ? gameObjectName.Substring(0, gameObjectName.Length - 7) : gameObjectName;
             nameText.text = newName;
-        }
-
-        // Update the text with the selected character's stats
-        if (weaponsText != null)
-        {
-            string weaponsString = "";
-
-            foreach (GameObject weapons in stats.startingWeapons)
-            {
-                weaponsString += weapons.name + "\n";
-            }
-
-            weaponsText.text = weaponsString;
         }
 
 

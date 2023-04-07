@@ -16,6 +16,8 @@ public class StartRun : MonoBehaviour
 
     public GameObject stageSelectUI;
 
+    private InventoryUIManager InvManager;
+
     private void Start()
     {
         PlayerPrefs.DeleteAll();
@@ -23,6 +25,7 @@ public class StartRun : MonoBehaviour
         canStart = false;
 
         stageSelectUI.SetActive(false);
+        InvManager = FindObjectOfType<InventoryUIManager>();
 
     }
     private void Update()
@@ -51,6 +54,9 @@ public class StartRun : MonoBehaviour
             string gameObjectName = chosenName;
             string newName = gameObjectName.EndsWith("(Clone)") ? gameObjectName.Substring(0, gameObjectName.Length - 7) : gameObjectName;
             PlayerPrefs.SetString("CharacterName", newName);
+
+            PlayerPrefs.SetString("SelectedWeapon", InvManager.GetSelectedWeapon());
+            PlayerPrefs.SetInt("SelectedWeaponRarity", InvManager.GetSelectedWeaponRarity());
 
             // Load the next scene
             if (chosenStage == 1)

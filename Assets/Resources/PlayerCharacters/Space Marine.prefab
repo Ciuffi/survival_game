@@ -55,8 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 55
   speed: 0.033
-  pickupRange: 2.5
-  damageMultiplier: 1.2
+  pickupRange: 2
+  damageMultiplier: 1
   critChance: 0
   critDmg: 0
   defense: 0
@@ -69,16 +69,14 @@ MonoBehaviour:
   spreadMultiplier: 1
   castTimeMultiplier: 1
   meleeWaitTimeMultiplier: 1
-  projectileSpeedMultiplier: 0.3
+  projectileSpeedMultiplier: 0.5
   rangeMultiplier: 0.5
-  knockbackMultiplier: 0.5
+  knockbackMultiplier: 1
   thrownDamageMultiplier: 1
-  thrownSpeedMultiplier: 3
-  projectileSizeMultiplier: 1.5
+  thrownSpeedMultiplier: 0.5
+  projectileSizeMultiplier: 1
   meleeSizeMultiplier: 1
   shootOpposideSide: 0
-  startingWeapons:
-  - {fileID: 4743095717860307335, guid: 2b5d4dd4a4ee33f45a121fde1b219500, type: 3}
 --- !u!222 &3817268471581327505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -107,7 +105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 378f99e0bf6ba2a40b55c90c5cb1e1ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cabc687c6d913d04793282f48bb81ce9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -132,7 +130,6 @@ MonoBehaviour:
   selectedImage: {fileID: 8134051254173000062}
   nameText: {fileID: 0}
   infoText: {fileID: 0}
-  weaponsText: {fileID: 0}
   startBtn: {fileID: 0}
 --- !u!1001 &8384935033218491506
 PrefabInstance:

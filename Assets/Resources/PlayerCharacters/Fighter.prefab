@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7329280640904233847}
   - component: {fileID: 2619886986464292918}
   m_Layer: 5
-  m_Name: Ninja
+  m_Name: Fighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,32 +53,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
-  speed: 0.04
+  health: 50
+  speed: 0.035
   pickupRange: 2
-  damageMultiplier: 1.2
+  damageMultiplier: 1
   critChance: 0
   critDmg: 0
   defense: 0
   shield: 0
-  shotsPerAttack: 1
-  shotsPerAttackMelee: 1
-  meleeComboLength: 0
+  shotsPerAttack: 0
+  shotsPerAttackMelee: 0
+  meleeComboLength: 1
   multicastChance: 0
-  shotgunSpread: 15
-  spreadMultiplier: 0.9
-  castTimeMultiplier: 0.9
+  shotgunSpread: 0
+  spreadMultiplier: 1
+  castTimeMultiplier: 1
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
-  rangeMultiplier: 0.8
+  rangeMultiplier: 1
   knockbackMultiplier: 1
-  thrownDamageMultiplier: 2
+  thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
-  projectileSizeMultiplier: 1.3
-  meleeSizeMultiplier: 0.8
+  projectileSizeMultiplier: 1
+  meleeSizeMultiplier: 1.5
   shootOpposideSide: 0
-  startingWeapons:
-  - {fileID: 1449995561756442478, guid: 5cd3c9de7a1fe684ca7332c1c0ab9bd2, type: 3}
 --- !u!222 &3817268471581327505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -107,7 +105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 61558427f773efa429a07f87730ec975, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f5d0dc4073c1c84cb0e291a73aa678e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -132,7 +130,6 @@ MonoBehaviour:
   selectedImage: {fileID: 8134051254173000062}
   nameText: {fileID: 0}
   infoText: {fileID: 0}
-  weaponsText: {fileID: 0}
   startBtn: {fileID: 0}
 --- !u!1001 &8384935033218491506
 PrefabInstance:

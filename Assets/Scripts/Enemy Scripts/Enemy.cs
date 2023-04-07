@@ -1024,7 +1024,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
             if (astarPath != null)
             {
-                Debug.Log("scan");
+                //Debug.Log("scan");
                 astarPath.Scan();
             }
         }

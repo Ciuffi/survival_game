@@ -8,19 +8,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6880843106958158523}
+  - component: {fileID: 2621842918715029964}
   - component: {fileID: 7044413831109656880}
-  - component: {fileID: 4206294333654784577}
-  - component: {fileID: 2893022063597476336}
-  - component: {fileID: 8037613301776779558}
+  - component: {fileID: 3817268471581327505}
+  - component: {fileID: 7329280640904233847}
+  - component: {fileID: 2619886986464292918}
   m_Layer: 5
-  m_Name: Twinheaded
+  m_Name: Aftershock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6880843106958158523
+--- !u!224 &2621842918715029964
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32,7 +32,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 138188589792740082}
+  - {fileID: 5207177187710735063}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -53,21 +53,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  speed: 0.035
-  pickupRange: 3
-  damageMultiplier: 1.2
+  health: 40
+  speed: 0.038
+  pickupRange: 2
+  damageMultiplier: 1
   critChance: 0
   critDmg: 0
-  defense: -2
+  defense: 0
   shield: 0
   shotsPerAttack: 0
-  shotsPerAttackMelee: 0
+  shotsPerAttackMelee: 1
   meleeComboLength: 0
   multicastChance: 0
   shotgunSpread: 0
   spreadMultiplier: 1
-  castTimeMultiplier: 1.2
+  castTimeMultiplier: 1
   meleeWaitTimeMultiplier: 1
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
@@ -75,11 +75,9 @@ MonoBehaviour:
   thrownDamageMultiplier: 1
   thrownSpeedMultiplier: 1
   projectileSizeMultiplier: 1
-  meleeSizeMultiplier: 1
-  shootOpposideSide: 1
-  startingWeapons:
-  - {fileID: 1449995561756442478, guid: 3c72c40422cc9b3498d50f1a0c91a0b6, type: 3}
---- !u!222 &4206294333654784577
+  meleeSizeMultiplier: 0.8
+  shootOpposideSide: 0
+--- !u!222 &3817268471581327505
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +85,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8374027959730413455}
   m_CullTransparentMesh: 1
---- !u!114 &2893022063597476336
+--- !u!114 &7329280640904233847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 536944cf65757474c8007311e8bb59e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8014b4e1fb77f1449bd310309a36ec0f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -117,7 +115,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8037613301776779558
+--- !u!114 &2619886986464292918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,17 +127,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a067344567a224488d5eb087b765ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedImage: {fileID: 4127717693787910491}
+  selectedImage: {fileID: 8134051254173000062}
   nameText: {fileID: 0}
   infoText: {fileID: 0}
-  weaponsText: {fileID: 0}
   startBtn: {fileID: 0}
---- !u!1001 &4464237277344216151
+--- !u!1001 &8384935033218491506
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6880843106958158523}
+    m_TransformParent: {fileID: 2621842918715029964}
     m_Modifications:
     - target: {fileID: 341342808285250828, guid: be8ad3b99c713b346a04c077805fb5ba, type: 3}
       propertyPath: m_Name
@@ -231,13 +228,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be8ad3b99c713b346a04c077805fb5ba, type: 3}
---- !u!224 &138188589792740082 stripped
+--- !u!224 &5207177187710735063 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4332139503435347621, guid: be8ad3b99c713b346a04c077805fb5ba, type: 3}
-  m_PrefabInstance: {fileID: 4464237277344216151}
+  m_PrefabInstance: {fileID: 8384935033218491506}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4127717693787910491 stripped
+--- !u!1 &8134051254173000062 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 341342808285250828, guid: be8ad3b99c713b346a04c077805fb5ba, type: 3}
-  m_PrefabInstance: {fileID: 4464237277344216151}
+  m_PrefabInstance: {fileID: 8384935033218491506}
   m_PrefabAsset: {fileID: 0}

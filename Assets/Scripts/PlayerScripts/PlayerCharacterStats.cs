@@ -37,7 +37,5 @@ public class PlayerCharacterStats : MonoBehaviour
 
     public bool shootOpposideSide;
 
-    public List<GameObject> startingWeapons;
-
 
 }

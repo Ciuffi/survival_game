@@ -10,7 +10,7 @@ public class Attack : MonoBehaviour, Upgrade
     public AttackStats baseStats;
     public List<AttackStats> upgrades;
     public AttackStats stats;
-    public int rarity = 0; //0-common, 1-rare, 2-epic, 4-legendary
+    public int rarity = 0; //0-common, 1-uncommon, 2-rare, 4-epic, 6-legendary
     public List<int> chosenNumbers = new List<int>();
 
     public Effect effect;
@@ -18,8 +18,6 @@ public class Attack : MonoBehaviour, Upgrade
     public Attacker owner;
     GameObject Player;
     GameObject Camera;
-
-    public GameObject MeleeAttack;
 
     private int attackAnimState = 0;
 
@@ -54,13 +52,13 @@ public class Attack : MonoBehaviour, Upgrade
         }
         owner = transform.GetComponentInParent<Attacker>();
 
-        int y = rarity;
-
         Camera = GameObject.FindWithTag("MainCamera");
         Player = GameObject.FindWithTag("Player");
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
 
         CalculateStats();
+        Debug.Log($"Upgrades: Damage: {baseStats.damage}, CastTime: {baseStats.castTime}, CritChance: {baseStats.critChance}, ShotsPerAttack: {baseStats.shotsPerAttack}, ShotgunSpread: {baseStats.shotgunSpread}, ProjectileSize: {baseStats.projectileSize}, Range: {baseStats.range}, Knockback: {baseStats.knockback}");
+
     }
 
     public void OnDamageDealt(float damage)
@@ -72,13 +70,13 @@ public class Attack : MonoBehaviour, Upgrade
     {
         if (attackType == AttackTypes.Shotgun)
         {
-            stats.attackTime = stats.shotsPerAttack * stats.shotgunSpread;
+            stats.attackTime = stats.multicastTimes * stats.multicastWaitTime;
         }
         else if (attackType == AttackTypes.Melee)
         {
             stats.attackTime =
-                stats.comboLength * stats.comboWaitTime
-                + stats.shotsPerAttackMelee * stats.comboLength
+                (stats.comboLength - 1) * stats.comboWaitTime
+                + stats.shotsPerAttackMelee * stats.spread
                 + stats.multicastTimes * stats.multicastWaitTime;
             // Add the definition for Melee attack type
         }
@@ -88,11 +86,22 @@ public class Attack : MonoBehaviour, Upgrade
                 stats.spread * stats.shotsPerAttack
                 + stats.multicastTimes * stats.multicastWaitTime;
         }
+
     }
 
     public void CalculateStats()
     {
-        stats = new AttackStats().mergeInStats(new[] { baseStats }.Concat(upgrades).ToArray());
+        if (upgrades != null)
+        {
+            Debug.Log("merge new stats");
+            stats = new AttackStats().mergeInStats(new[] { baseStats }.Concat(upgrades).ToArray());
+        }
+        else
+        {
+            stats = baseStats; 
+        }
+
+
         stats.spread *= Player.GetComponent<StatsHandler>().spreadMultiplier;
         stats.shotgunSpread += Player.GetComponent<StatsHandler>().shotgunSpread;
         stats.multicastChance += Player.GetComponent<StatsHandler>().multicastChance;
@@ -119,8 +128,8 @@ public class Attack : MonoBehaviour, Upgrade
         {
             stats.shootOppositeSide = Player.GetComponent<StatsHandler>().shootOppositeSide;
         }
-        stats.projectileSize = Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
-        stats.meleeSize = Player.GetComponent<StatsHandler>().meleeSizeMultiplier;
+        stats.projectileSize *= Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
+        stats.meleeSize *= Player.GetComponent<StatsHandler>().meleeSizeMultiplier;
     }
 
     private void rollMulticast()
@@ -642,7 +651,7 @@ public class Attack : MonoBehaviour, Upgrade
             Player.GetComponent<PlayerMovement>().StopMoving();
         }
 
-        Vector3 originalScale = MeleeAttack.transform.localScale;
+        Vector3 originalScale = projectile.transform.localScale;
         Vector3 scaler = new Vector3(
             stats.meleeShotsScaleUp,
             stats.meleeShotsScaleUp,
@@ -669,7 +678,7 @@ public class Attack : MonoBehaviour, Upgrade
                 if (!stats.shootOppositeSide) //only shoots forward
                 {
                     GameObject projectileGO = Instantiate(
-                        MeleeAttack,
+                        projectile,
                         (position + directionSpacer / 2),
                         Quaternion.identity
                     );
@@ -735,7 +744,7 @@ public class Attack : MonoBehaviour, Upgrade
                 else //does shoot opposite side
                 {
                     GameObject projectileGO = Instantiate(
-                        MeleeAttack,
+                        projectile,
                         (position + directionSpacer / 2),
                         Quaternion.identity
                     );
@@ -801,7 +810,7 @@ public class Attack : MonoBehaviour, Upgrade
                     }
 
                     GameObject projectileGO2 = Instantiate(
-                        MeleeAttack,
+                        projectile,
                         (position - directionSpacer / 2),
                         Quaternion.identity
                     );
