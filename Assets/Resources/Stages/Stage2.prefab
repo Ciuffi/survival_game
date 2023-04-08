@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageID: 2
+  isLocked: 1
   selectedImage: {fileID: 306395429010018376}
   startBtn: {fileID: 0}
 --- !u!1 &5794947391343412495

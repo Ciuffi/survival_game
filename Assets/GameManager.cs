@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject deathTransition;
     public GameObject pauseMenu;
 
+    private PlayerDataManager playerData;
+
     public void ShowPauseScreen()
     {
         if (playerStats.currentHealth <= 0)
@@ -53,7 +55,9 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-
+        deathTransition.GetComponent<DeathTransition>().StartTransition();
+        int currentStageID = SceneManager.GetActiveScene().buildIndex;
+        playerData.UnlockNextStage(currentStageID);
     }
 
     public void EndGame()
@@ -63,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void playerDeathScreen()
     {
-        GameObject.FindObjectOfType<EndgameStatTracker>().OnPlayerDeath();
+        GameObject.FindObjectOfType<EndgameStatTracker>().EndGameStats();
         SceneManager.LoadScene("DeathResults");
     }
 
@@ -75,6 +79,7 @@ public class GameManager : MonoBehaviour
         playerPosition = playerMovement.transform.position;
         playerStats = playerMovement.GetComponent<StatsHandler>();
         playerAttacks = playerMovement.GetComponent<AttackHandler>();
+        playerData = FindObjectOfType<PlayerDataManager>();
         pauseMenu.SetActive(false);
 
     }

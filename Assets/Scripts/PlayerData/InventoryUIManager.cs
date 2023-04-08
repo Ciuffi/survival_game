@@ -40,31 +40,31 @@ public class InventoryUIManager : MonoBehaviour
 
     private void PopulateInventoryUI()
     {
-        for (int i = 0; i < playerInventory.startingWeaponNames.Count; i++)
+        for (int i = 0; i < playerInventory.weaponInventory.Count; i++)
         {
             GameObject newItem = Instantiate(inventoryItemPrefab, contentPanel.transform);
             Image weaponImage = newItem.transform.Find("WeaponImage").GetComponent<Image>();
             Image outlineImage = newItem.transform.Find("WeaponOutline").GetComponent<Image>();
             TextMeshProUGUI weaponDurability = newItem.transform.Find("Durability").GetComponent<TextMeshProUGUI>();
 
-            string weaponName = playerInventory.startingWeaponNames[i];
+            string weaponName = playerInventory.weaponInventory[i].name;
 
             AttackBuilder attackBuilder = AttackLibrary.GetAttackBuilder(weaponName);
             weaponImage.sprite = attackBuilder.GetThrownSprite();
             outlineImage.sprite = attackBuilder.GetThrownSprite();
 
-
-            if (playerInventory.startingWeaponIsPerm[i]) //hide durability if permanent item
+            if (playerInventory.weaponInventory[i].isPermanent) //hide durability if permanent item
             {
                 weaponDurability.text = "";
-            } else
+            }
+            else
             {
-                weaponDurability.text = playerInventory.startingWeaponDurabilities[i].ToString(); //show durability count
+                weaponDurability.text = playerInventory.weaponInventory[i].durability.ToString(); //show durability count
             }
 
             InventoryItem inventoryItem = newItem.GetComponent<InventoryItem>();
             inventoryItem.weaponName = weaponName; //set name of item
-            inventoryItem.rarity = playerInventory.startingWeaponRarities[i]; //set rarity of item
+            inventoryItem.rarity = playerInventory.weaponInventory[i].rarity; //set rarity of item
             Button button = newItem.GetComponent<Button>();
             button.onClick.AddListener(inventoryItem.SelectItem);
 

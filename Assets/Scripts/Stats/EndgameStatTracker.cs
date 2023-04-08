@@ -13,18 +13,14 @@ public class EndgameStatTracker : MonoBehaviour
 
     public GameObject attacks; // reference to the Attacks gameobject
 
-    // Start is called before the first frame update
-    void Start()
+    public PlayerDataManager playerData;
+
+    private void Awake()
     {
-        
+        playerData = FindObjectOfType<PlayerDataManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    public void OnPlayerDeath()
+    public void EndGameStats()
     {
         weaponNames.Clear();
         weaponDamage.Clear();
@@ -48,6 +44,9 @@ public class EndgameStatTracker : MonoBehaviour
         PlayerPrefs.SetString("timeSurvived", timeSurvived);
         PlayerPrefs.SetInt("enemiesKilled", enemiesKilled);
         PlayerPrefs.SetInt("goldGained", goldGained);
+        PlayerPrefs.SetInt("incrementGold", goldGained);
+
+        playerData.IncrementGold();
 
         // Convert the weapon names and damage lists to JSON strings and save them to PlayerPrefs
         WeaponStats weaponStats = new WeaponStats();

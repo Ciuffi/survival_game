@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCharacterStats : MonoBehaviour
 {
+    public string characterName;
+    public bool isLocked;
 
     public float health,
         speed,
