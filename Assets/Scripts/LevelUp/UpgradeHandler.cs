@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Linq;
 
 public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
 {
@@ -20,22 +21,40 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
     {
         if (delayFinished)
         {
-            if (upgrade.GetUpgradeType() == UpgradeType.PlayerStats)
+            switch (upgrade.GetUpgradeType())
             {
-                playerStats.AddStat((PlayerCharacterStats)upgrade);
-                levelUpManager.SignalItemChosen();
-            }
-            else
-            {
-                if (playerAttacks.attacks.Count < 6)
-                {
-                    playerAttacks.AddWeapon((Attack)upgrade);
+                case UpgradeType.Weapon:
+                    if (playerAttacks.attacks.Count < 6)
+                    {
+                        playerAttacks.AddWeapon((Attack)upgrade);
+                        levelUpManager.SignalItemChosen();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    break;
+                case UpgradeType.PlayerStats:
+                    playerStats.AddStat((PlayerCharacterStats)upgrade);
                     levelUpManager.SignalItemChosen();
-                }
-                else
-                {
-                    return;
-                }
+                    break;
+                case UpgradeType.WeaponSetStat:
+                    var weaponSet = WeaponSetUpgradeMap.AttackStatsMap.FirstOrDefault(
+                        w => w.Value.Any(r => r.Value.Contains((AttackStats)upgrade))
+                    );
+                    playerAttacks.attacks
+                        .Where(a => a.weaponSetType == weaponSet.Key)
+                        .ToList()
+                        .ForEach(a => a.AddWeaponUpgrade((AttackStats)upgrade));
+                    levelUpManager.SignalItemChosen();
+                    break;
+                case UpgradeType.WeaponStat:
+                    playerAttacks.attacks
+                        .Where(a => a.weaponUpgrades.Contains(upgrade))
+                        .ToList()
+                        .ForEach(a => a.AddWeaponUpgrade((AttackStats)upgrade));
+                    levelUpManager.SignalItemChosen();
+                    break;
             }
         }
     }

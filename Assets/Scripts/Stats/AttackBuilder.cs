@@ -131,6 +131,10 @@ public class AttackBuilder
         {
             throw new System.Exception("Description is required and cannot be null.");
         }
+        if (weaponSetType == null)
+        {
+            throw new System.Exception("WeaponSetType is required and cannot be null.");
+        }
     }
 
     public Attack Build(Rarity rarity)
@@ -166,7 +170,7 @@ public class AttackBuilder
         attack.muzzleFlashXOffset = muzzleFlashXOffset;
         attack.muzzleFlashYOffset = muzzleFlashYOffset;
         attack.weaponUpgrades = weaponUpgrades;
-
+        attack.weaponSetType = weaponSetType;
         return attack;
     }
 

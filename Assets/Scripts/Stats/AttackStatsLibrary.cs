@@ -63,13 +63,13 @@ public static class AttackStatsLibrary
         }
     }
 
-    public static List<AttackStats> GetAllStats()
+    public static AttackStats[] GetStats()
     {
         if (!isInitialized)
         {
             InitializeLibrary();
         }
 
-        return AttackStatsLibraryMap.Values.ToList();
+        return AttackStatsLibraryMap.Values.ToArray();
     }
 }

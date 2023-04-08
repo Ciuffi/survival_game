@@ -18,7 +18,7 @@ public class LevelUpManager : MonoBehaviour
     public AttackBuilder[] weaponBuilders;
     public Upgrade[] weapons;
     public Upgrade[] stats;
-    public Upgrade[] WeaponStats;
+    public Upgrade[] weaponStats;
     public List<GameObject> upgrades;
     public bool isWeapon = false;
     private List<GameObject> previousUpgrades = new List<GameObject>();
@@ -115,6 +115,10 @@ public class LevelUpManager : MonoBehaviour
             upgrades = new List<GameObject>(
                 stats.Select(s => s.GetTransform().gameObject).ToList()
             );
+            upgrades.AddRange(GetAttackStats().Select(s => s.GetTransform().gameObject).ToList());
+            upgrades.AddRange(
+                getAttackSetStats().Select(s => s.GetTransform().gameObject).ToList()
+            );
             //isWeapon = true;
 
             //create weighting later
@@ -210,6 +214,26 @@ public class LevelUpManager : MonoBehaviour
         xpColor = xpBar.fillRect.GetComponent<Image>().color;
         panel.SetActive(false);
         playerStats = FindObjectOfType<StatsHandler>();
+    }
+
+    public AttackStats[] GetAttackStats()
+    {
+        return FindObjectOfType<AttackHandler>().attacks
+            .SelectMany(a => a.weaponUpgrades)
+            .ToArray();
+    }
+
+    public AttackStats[] getAttackSetStats()
+    {
+        return FindObjectOfType<AttackHandler>().attacks
+            .Select(a => a.weaponSetType)
+            .SelectMany(
+                t =>
+                    WeaponSetUpgradeMap.AttackStatsMap[t]
+                        .Where(k => k.Key == (Rarity)Random.Range(0, 6))
+                        .SelectMany(k => k.Value)
+            )
+            .ToArray();
     }
 
     // Update is called once per frame

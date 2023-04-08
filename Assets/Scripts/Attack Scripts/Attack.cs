@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour, Upgrade
     public GameObject projectile;
     public AttackStats baseStats;
     public List<AttackStats> weaponUpgrades;
+    public WeaponSetType weaponSetType;
     public Transform upgradeContainer;
     public AttackStats stats;
     public Rarity rarity = 0; //0-common, 1-uncommon, 2-rare, 4-epic, 6-legendary
