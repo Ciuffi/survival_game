@@ -11,6 +11,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
     private PlayerCharacterStats stats;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI infoText;
+
     //public TextMeshProUGUI weaponsText;
 
     private CharSelectController characterSelector;
@@ -22,7 +23,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         // Find the CharacterSelector component in the scene
         characterSelector = FindObjectOfType<CharSelectController>();
         GameObject text1 = GameObject.Find("CharacterName");
-        nameText= text1.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+        nameText = text1.transform.Find("Name").GetComponent<TextMeshProUGUI>();
         GameObject text2 = GameObject.Find("InfoBox");
         infoText = text2.transform.Find("Info").GetComponent<TextMeshProUGUI>();
         //GameObject text3 = GameObject.Find("WeaponsName");
@@ -41,19 +42,18 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
         if (!hasSelected)
         {
             startBtn.GetComponent<Image>().enabled = true;
             hasSelected = true;
         }
 
-
         // Deselect the previously selected character, if any
         GameObject previouslySelected = GameObject.FindGameObjectWithTag("SelectedCharacter");
         if (previouslySelected != null)
         {
-            CharacterButton previouslySelectedButton = previouslySelected.GetComponent<CharacterButton>();
+            CharacterButton previouslySelectedButton =
+                previouslySelected.GetComponent<CharacterButton>();
             if (previouslySelectedButton != null)
             {
                 previouslySelectedButton.Deselect();
@@ -75,18 +75,17 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         }
         // Update the selected character in startRun
         startBtn.GetComponent<StartRun>().chosenName = stats.name;
-        
-
 
         // Update the text with the selected character's stats
         if (nameText != null)
         {
             // Remove the "(Clone)" suffix from the game object's name and update the name text
             string gameObjectName = gameObject.name;
-            string newName = gameObjectName.EndsWith("(Clone)") ? gameObjectName.Substring(0, gameObjectName.Length - 7) : gameObjectName;
+            string newName = gameObjectName.EndsWith("(Clone)")
+                ? gameObjectName.Substring(0, gameObjectName.Length - 7)
+                : gameObjectName;
             nameText.text = newName;
         }
-
 
         // Update the text with the selected character's stats
         if (infoText != null && stats != null)
@@ -137,7 +136,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             if (stats.multicastChance != 0)
             {
                 statsString += "Multicast% +" + stats.multicastChance + "\n";
-            } 
+            }
             if (stats.shotsPerAttack != 0 && stats.shotsPerAttack > 0)
             {
                 statsString += "Projectiles +" + stats.shotsPerAttack + "\n";
@@ -158,13 +157,13 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             {
                 statsString += "Proj Size% " + stats.projectileSizeMultiplier + "\n";
             }
-            if (stats.meleeComboLength != 0 && stats.meleeComboLength > 0)
+            if (stats.comboLength != 0 && stats.comboLength > 0)
             {
-                statsString += "Melee Hits +" + stats.meleeComboLength + "\n";
+                statsString += "Melee Hits +" + stats.comboLength + "\n";
             }
-            if (stats.meleeComboLength != 0 && stats.meleeComboLength < 0)
+            if (stats.comboLength != 0 && stats.comboLength < 0)
             {
-                statsString += "Melee Hits " + stats.meleeComboLength + "\n";
+                statsString += "Melee Hits " + stats.comboLength + "\n";
             }
             if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee > 0)
             {
@@ -172,20 +171,20 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             }
             if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee < 0)
             {
-                statsString += "Aftershock " + stats.meleeComboLength + "\n";
+                statsString += "Aftershock " + stats.comboLength + "\n";
             }
-            if (stats.meleeWaitTimeMultiplier != 1)
+            if (stats.comboWaitTime != 1)
             {
-                statsString += "Melee Speed% " + stats.meleeWaitTimeMultiplier + "\n";
+                statsString += "Melee Speed% " + stats.comboWaitTime + "\n";
             }
             if (stats.meleeSizeMultiplier != 1)
             {
                 statsString += "Melee Size% " + stats.meleeSizeMultiplier + "\n";
-            }         
+            }
             if (stats.knockbackMultiplier != 1)
             {
                 statsString += "Knockback% " + stats.knockbackMultiplier + "\n";
-            }                    
+            }
             if (stats.thrownDamageMultiplier != 1)
             {
                 statsString += "Wpn Toss Dmg% " + stats.thrownDamageMultiplier + "\n";
@@ -193,7 +192,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             if (stats.thrownSpeedMultiplier != 1)
             {
                 statsString += "Wpn Toss Speed% " + stats.thrownSpeedMultiplier + "\n";
-            }           
+            }
             if (stats.shootOpposideSide != false)
             {
                 statsString += "DOUBLE TROUBLE\n";
@@ -201,8 +200,6 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
 
             infoText.text = statsString;
         }
-
-
     }
 
     public void Deselect()
@@ -220,7 +217,6 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             infoText.text = "Select a Class.";
         }
-
     }
 
     public PlayerCharacterStats GetStats()

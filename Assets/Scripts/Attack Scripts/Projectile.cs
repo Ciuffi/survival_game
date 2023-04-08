@@ -104,8 +104,8 @@ public class Projectile : MonoBehaviour
         spawnPos.y = transform.position.y;
         projectileRange = attack.stats.range;
         moveSpeed = attack.stats.speed;
-        projSize = Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
-        meleeSize = Player.GetComponent<StatsHandler>().meleeSizeMultiplier;
+        projSize = Player.GetComponent<StatsHandler>().stats.projectileSizeMultiplier;
+        meleeSize = Player.GetComponent<StatsHandler>().stats.meleeSizeMultiplier;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -116,10 +116,10 @@ public class Projectile : MonoBehaviour
         {
             damage =
                 attack.stats.thrownDamage
-                * Player.GetComponent<StatsHandler>().thrownDamageMultiplier;
+                * Player.GetComponent<StatsHandler>().stats.thrownDamageMultiplier;
             pierce = 12;
             projectileRange = 7;
-            knockback = 0.3f * Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
+            knockback = 0.3f * Player.GetComponent<StatsHandler>().stats.thrownSpeedMultiplier;
         }
         GetComponent<Collider2D>().enabled = true;
     }

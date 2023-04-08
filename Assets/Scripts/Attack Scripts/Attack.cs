@@ -8,9 +8,10 @@ public class Attack : MonoBehaviour, Upgrade
 {
     public GameObject projectile;
     public AttackStats baseStats;
-    public List<AttackStats> upgrades;
+    public List<AttackStats> weaponUpgrades;
+    public Transform upgradeContainer;
     public AttackStats stats;
-    public int rarity = 0; //0-common, 1-uncommon, 2-rare, 4-epic, 6-legendary
+    public Rarity rarity = 0; //0-common, 1-uncommon, 2-rare, 4-epic, 6-legendary
     public List<int> chosenNumbers = new List<int>();
 
     public Effect effect;
@@ -55,10 +56,11 @@ public class Attack : MonoBehaviour, Upgrade
         Camera = GameObject.FindWithTag("MainCamera");
         Player = GameObject.FindWithTag("Player");
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
-
+        upgradeContainer = Instantiate(new GameObject("attack_upgrades"), transform).transform;
         CalculateStats();
-        Debug.Log($"Upgrades: Damage: {baseStats.damage}, CastTime: {baseStats.castTime}, CritChance: {baseStats.critChance}, ShotsPerAttack: {baseStats.shotsPerAttack}, ShotgunSpread: {baseStats.shotgunSpread}, ProjectileSize: {baseStats.projectileSize}, Range: {baseStats.range}, Knockback: {baseStats.knockback}");
-
+        Debug.Log(
+            $"Upgrades: Damage: {baseStats.damage}, CastTime: {baseStats.castTime}, CritChance: {baseStats.critChance}, ShotsPerAttack: {baseStats.shotsPerAttack}, ShotgunSpread: {baseStats.shotgunSpread}, ProjectileSize: {baseStats.projectileSize}, Range: {baseStats.range}, Knockback: {baseStats.knockback}"
+        );
     }
 
     public void OnDamageDealt(float damage)
@@ -86,50 +88,22 @@ public class Attack : MonoBehaviour, Upgrade
                 stats.spread * stats.shotsPerAttack
                 + stats.multicastTimes * stats.multicastWaitTime;
         }
-
     }
 
     public void CalculateStats()
     {
+        AttackStats[] upgrades = upgradeContainer.GetComponentsInChildren<AttackStats>();
         if (upgrades != null)
         {
-            Debug.Log("merge new stats");
-            stats = new AttackStats().mergeInStats(new[] { baseStats }.Concat(upgrades).ToArray());
+            stats = new AttackStats(baseStats).mergeInStats(upgrades);
         }
         else
         {
-            stats = baseStats; 
+            stats = new AttackStats(baseStats);
         }
 
-
-        stats.spread *= Player.GetComponent<StatsHandler>().spreadMultiplier;
-        stats.shotgunSpread += Player.GetComponent<StatsHandler>().shotgunSpread;
-        stats.multicastChance += Player.GetComponent<StatsHandler>().multicastChance;
-        stats.castTime *= Player.GetComponent<StatsHandler>().castTimeMultiplier;
-        stats.shotsPerAttack += Player.GetComponent<StatsHandler>().shotsPerAttack;
-        if (stats.shotsPerAttack <= 0)
-        {
-            stats.shotsPerAttack = 1;
-        }
-        stats.shotsPerAttackMelee += Player.GetComponent<StatsHandler>().shotsPerAttackMelee;
-        if (stats.shotsPerAttackMelee < 0)
-        {
-            stats.shotsPerAttackMelee = 0;
-        }
-        stats.comboLength += Player.GetComponent<StatsHandler>().meleeComboLength;
-        if (stats.comboLength <= 0)
-        {
-            stats.comboLength = 1;
-        }
-        stats.comboWaitTime *= Player.GetComponent<StatsHandler>().meleeWaitTimeMultiplier;
-        stats.throwSpeed *= Player.GetComponent<StatsHandler>().thrownSpeedMultiplier;
-        stats.range *= Player.GetComponent<StatsHandler>().rangeMultiplier;
-        if (!stats.shootOppositeSide)
-        {
-            stats.shootOppositeSide = Player.GetComponent<StatsHandler>().shootOppositeSide;
-        }
-        stats.projectileSize *= Player.GetComponent<StatsHandler>().projectileSizeMultiplier;
-        stats.meleeSize *= Player.GetComponent<StatsHandler>().meleeSizeMultiplier;
+        //Merge in the player stats
+        stats.MergeInPlayerStats(Player.GetComponent<StatsHandler>().stats);
     }
 
     private void rollMulticast()
@@ -986,7 +960,7 @@ public class Attack : MonoBehaviour, Upgrade
             wpnToss.GetComponent<SpriteRenderer>().sprite = thrownSprite;
             wpnToss.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = thrownSprite;
             Rigidbody2D rb = wpnToss.GetComponent<Rigidbody2D>();
-            rb.AddForce(direction * stats.throwSpeed * -1, ForceMode2D.Impulse);
+            rb.AddForce(direction * stats.thrownSpeed * -1, ForceMode2D.Impulse);
             rb.AddTorque(1200f);
 
             Projectile p = wpnToss.GetComponent<Projectile>();
@@ -1065,5 +1039,31 @@ public class Attack : MonoBehaviour, Upgrade
     public UpgradeType GetUpgradeType()
     {
         return UpgradeType.Weapon;
+    }
+
+    public string GetUpgradeName()
+    {
+        return stats.name;
+    }
+
+    public Sprite GetUpgradeIcon()
+    {
+        return weaponSprite;
+    }
+
+    public string GetUpgradeDescription()
+    {
+        return stats.description;
+    }
+
+    public Rarity GetRarity()
+    {
+        return rarity;
+    }
+
+    public void AddWeaponUpgrade(AttackStats upgrade)
+    {
+        upgrade.transform.parent = upgradeContainer;
+        CalculateStats();
     }
 }

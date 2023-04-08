@@ -3,11 +3,11 @@ using UnityEngine;
 
 public static class WeaponRarityStats
 {
-    public static AttackStats ApplyRarity(List<AttackStats> attackStatUpgrades, int rarity)
+    public static AttackStats ApplyRarity(List<AttackStats> attackStatUpgrades, Rarity rarity)
     {
-        if (rarity < 0 || rarity > 6)
+        if ((int)rarity > attackStatUpgrades.Count)
         {
-            Debug.LogError("Invalid rarity value. Rarity should be between 0 and 6, inclusive.");
+            Debug.LogError("Not enough attack stat upgrades to apply rarity.");
             return null;
         }
 
@@ -18,7 +18,7 @@ public static class WeaponRarityStats
         List<AttackStats> availableUpgrades = new List<AttackStats>(attackStatUpgrades);
 
         // Iterate through each AttackStats upgrade based on the rarity
-        for (int i = 0; i < rarity; i++)
+        for (int i = 0; i < (int)rarity; i++)
         {
             // Select a random upgrade from the availableUpgrades list
             int randomIndex = Random.Range(0, availableUpgrades.Count);
@@ -29,7 +29,6 @@ public static class WeaponRarityStats
 
             // Remove the selected upgrade from the availableUpgrades list
             availableUpgrades.RemoveAt(randomIndex);
-
         }
 
         //Debug.Log($"Rarity Upgrades: Damage: {upgradedAttackStats.damage}, CastTime: {upgradedAttackStats.castTime}, CritChance: {upgradedAttackStats.critChance}, ShotsPerAttack: {upgradedAttackStats.shotsPerAttack}, ShotgunSpread: {upgradedAttackStats.shotgunSpread}, ProjectileSize: {upgradedAttackStats.projectileSize}, Range: {upgradedAttackStats.range}, Knockback: {upgradedAttackStats.knockback}");

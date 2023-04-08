@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using TMPro;
+
 public class LevelUpManager : MonoBehaviour
 {
     public float baseXP;
@@ -14,13 +15,16 @@ public class LevelUpManager : MonoBehaviour
     private CoroutineQueue xpBarQueue;
     private List<UpgradeHandler> upgradeWindows;
     private GameObject panel;
-    public GameObject[] weapons;
-    public GameObject[] stats;
+    public AttackBuilder[] weaponBuilders;
+    public Upgrade[] weapons;
+    public Upgrade[] stats;
+    public Upgrade[] WeaponStats;
     public List<GameObject> upgrades;
     public bool isWeapon = false;
     private List<GameObject> previousUpgrades = new List<GameObject>();
 
-    public GameObject RerollBtn, SwapBtn;
+    public GameObject RerollBtn,
+        SwapBtn;
     private bool hasRolled;
     public GameObject SkipBtn;
 
@@ -43,6 +47,7 @@ public class LevelUpManager : MonoBehaviour
     {
         xpBarQueue.AddToQueue(BarHelper.AddToBar(xpBar, currXp, newXp, maxXp, 0.1f));
     }
+
     public void LevelUp(float level)
     {
         xpBarQueue.AddToQueue(BarHelper.RemoveFromBarTimed(xpBar, 0.2f));
@@ -51,10 +56,10 @@ public class LevelUpManager : MonoBehaviour
 
     public void reroll() //check if weapon or stat, then swap so it swaps back for setUpgrades()
     {
-        if (isWeapon) 
+        if (isWeapon)
         {
-            isWeapon = true;         
-         
+            isWeapon = true;
+
             setUpgrades();
         }
         else
@@ -91,58 +96,61 @@ public class LevelUpManager : MonoBehaviour
             //isWeapon = false;
 
             //create weighting later
-            upgradeWindows.ForEach((u) =>
-            {
-                GameObject GO = null;
-                while (GO == null)
+            upgradeWindows.ForEach(
+                (u) =>
                 {
-                    GO = upgrades[Random.Range(0, upgrades.Count)];
-                    if (previousUpgrades.Contains(GO))
+                    GameObject GO = null;
+                    while (GO == null)
                     {
-                        GO = null;
+                        GO = upgrades[Random.Range(0, upgrades.Count)];
+                        if (previousUpgrades.Contains(GO))
+                        {
+                            GO = null;
+                        }
                     }
+
+                    previousUpgrades.Add(GO);
+                    u.upgrade = GO.GetComponent<Upgrade>();
+                    u.GetComponentInChildren<TMP_Text>().text = GO.name;
+                    u.transform.Find("Image").GetComponent<Image>().enabled = true;
+                    u.transform.Find("Image").GetComponent<Image>().sprite =
+                        GO.GetComponent<Upgrade>().GetUpgradeIcon();
+                    TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
+                    textComponents[1].text = GO.GetComponent<Attack>().attackType.ToString();
                 }
-                previousUpgrades.Add(GO);
-                u.upgrade = GO.GetComponent<Upgrade>();
-                u.GetComponentInChildren<TMP_Text>().text = GO.name;
-                u.transform.Find("Image").GetComponent<Image>().enabled = true;
-                u.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<Attack>().thrownSprite;
-                TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
-                textComponents[1].text = GO.GetComponent<Attack>().attackType.ToString();
-
-            });
-
+            );
         }
         else
-        { 
+        {
             upgrades = new List<GameObject>(stats);
             //isWeapon = true;
 
             //create weighting later
-            upgradeWindows.ForEach((u) =>
-            {
-                GameObject GO = null;
-                while (GO == null)
+            upgradeWindows.ForEach(
+                (u) =>
                 {
-                    GO = upgrades[Random.Range(0, upgrades.Count)];
-                    if (previousUpgrades.Contains(GO))
+                    GameObject GO = null;
+                    while (GO == null)
                     {
-                        GO = null;
+                        GO = upgrades[Random.Range(0, upgrades.Count)];
+                        if (previousUpgrades.Contains(GO))
+                        {
+                            GO = null;
+                        }
                     }
+                    previousUpgrades.Add(GO);
+                    u.upgrade = GO.GetComponent<Upgrade>();
+                    u.GetComponentInChildren<TMP_Text>().text = GO.name;
+                    u.transform.Find("Image").GetComponent<Image>().enabled = true;
+                    u.transform.Find("Image").GetComponent<Image>().sprite =
+                        GO.GetComponent<Upgrade>().GetUpgradeIcon();
+                    TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
+                    textComponents[1].text = "";
                 }
-                previousUpgrades.Add(GO);
-                u.upgrade = GO.GetComponent<Upgrade>();
-                u.GetComponentInChildren<TMP_Text>().text = GO.name;
-                u.transform.Find("Image").GetComponent<Image>().enabled = true;
-                u.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<StatBoost>().UiIcon;
-                TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
-                textComponents[1].text = "";
-            });
+            );
         }
-
     }
 
- 
     public void ShowLevelUpUI()
     {
         Instantiate(VFX, transform.position, Quaternion.identity, transform);
@@ -159,16 +167,18 @@ public class LevelUpManager : MonoBehaviour
         RerollBtn.GetComponent<RollSwapHandler>().setActive();
         SwapBtn.GetComponent<RollSwapHandler>().setActive();
         SkipBtn.GetComponent<SkipHandler>().setActive();
-        upgradeWindows.ForEach((u) =>
-        {
-            u.GetComponent<UpgradeHandler>().setActive();
-        });
+        upgradeWindows.ForEach(
+            (u) =>
+            {
+                u.GetComponent<UpgradeHandler>().setActive();
+            }
+        );
 
         //eventually want to move this to on-confirm-selection, and add a new button to close menu
         TimelineManager.GetComponent<TimelineUI>().addAttack();
         TimelineManager.GetComponent<TimelineUI>().spawnTimeline();
 
-        isWeapon = false; //always show upgrade 
+        isWeapon = false; //always show upgrade
         setUpgrades();
         panel.SetActive(true);
     }
@@ -182,7 +192,6 @@ public class LevelUpManager : MonoBehaviour
         ResumeGame();
     }
 
-
     public void PauseGame()
     {
         Time.timeScale = 0;
@@ -193,7 +202,6 @@ public class LevelUpManager : MonoBehaviour
     {
         Time.timeScale = 1;
         GameObject.FindObjectOfType<PlayerMovement>().StartMoving();
-
     }
 
     // Start is called before the first frame update
@@ -204,8 +212,11 @@ public class LevelUpManager : MonoBehaviour
         xpBar = GameObject.Find("xpBar").GetComponent<Slider>();
         panel = GameObject.Find("UpgradeContainer");
         upgradeWindows = new List<UpgradeHandler>(GameObject.FindObjectsOfType<UpgradeHandler>());
-        weapons = Resources.LoadAll("Attacks", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
-        stats = Resources.LoadAll("Stats", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
+        weaponBuilders = AttackLibrary.getAttackBuilders();
+        stats = Resources
+            .LoadAll("Stats", typeof(GameObject))
+            .Cast<GameObject>()
+            .ToArray<GameObject>();
         hasRolled = false;
         xpColor = xpBar.fillRect.GetComponent<Image>().color;
         panel.SetActive(false);
@@ -217,13 +228,21 @@ public class LevelUpManager : MonoBehaviour
     {
         if (RerollBtn != null)
         {
-            RerollBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll " + "(" + RerollBtn.GetComponent<RollSwapHandler>().currentReroll.ToString() + ")";
+            RerollBtn.GetComponentInChildren<TextMeshProUGUI>().text =
+                "Reroll "
+                + "("
+                + RerollBtn.GetComponent<RollSwapHandler>().currentReroll.ToString()
+                + ")";
         }
         if (SwapBtn != null)
         {
-            SwapBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Swap " + "(" + SwapBtn.GetComponent<RollSwapHandler>().currentSwap.ToString() + ")";
+            SwapBtn.GetComponentInChildren<TextMeshProUGUI>().text =
+                "Swap "
+                + "("
+                + SwapBtn.GetComponent<RollSwapHandler>().currentSwap.ToString()
+                + ")";
         }
-        
+
         if (playerStats.currentHealth <= 0)
         {
             ResumeGame();

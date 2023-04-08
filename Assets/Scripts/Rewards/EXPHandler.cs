@@ -16,7 +16,6 @@ public class EXPHandler : MonoBehaviour
     public float waitTime;
     public float maxAwayDistance;
 
-
     private bool waiting = true;
     private bool movingTowardsPlayer = false;
     private Vector3 startPosition;
@@ -34,10 +33,11 @@ public class EXPHandler : MonoBehaviour
 
     public int xpTier;
 
-    public float bounceHeight, bounceSpeed, bounceDecay;
+    public float bounceHeight,
+        bounceSpeed,
+        bounceDecay;
     public float rotationAmount = 1f; // adjust this to change the rotation amount
     public float rotationDecayRate = 0.5f; // adjust this to change the rate at which the rotation speed decays
-
 
     // Start is called before the first frame update
     void Start()
@@ -155,7 +155,11 @@ public class EXPHandler : MonoBehaviour
         while (movingAway)
         {
             currentSpeed += speedMultiplier * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -currentSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                player.transform.position,
+                -currentSpeed * Time.deltaTime
+            );
 
             float distanceFromSpot = Vector3.Distance(transform.position, capturedPos);
 
@@ -170,7 +174,11 @@ public class EXPHandler : MonoBehaviour
         while (movingTowardsPlayer)
         {
             currentSpeed += speedMultiplier * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                player.transform.position,
+                currentSpeed * Time.deltaTime
+            );
 
             if (distancefromPlayer <= consumeDistance)
             {
@@ -185,7 +193,7 @@ public class EXPHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pickupDistance = player.GetComponent<StatsHandler>().pickupRange;
+        pickupDistance = player.GetComponent<StatsHandler>().stats.pickupRange;
 
         distancefromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
@@ -194,6 +202,5 @@ public class EXPHandler : MonoBehaviour
             StartCoroutine(Move());
             hasTriggered = true;
         }
-
     }
 }

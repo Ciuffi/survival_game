@@ -25,6 +25,7 @@ public class HealthBar : MonoBehaviour
     {
         slider.fillRect.GetComponent<Image>().color = Color.red;
     }
+
     public void ResetColor()
     {
         slider.fillRect.GetComponent<Image>().color = currentColor;
@@ -32,7 +33,9 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        float fillAmount = player.GetComponent<StatsHandler>().currentHealth / player.GetComponent<StatsHandler>().maxHealth;
+        float fillAmount =
+            player.GetComponent<StatsHandler>().currentHealth
+            / player.GetComponent<StatsHandler>().stats.maxHealth;
         Color targetColor;
 
         if (fillAmount >= 0.7f)
@@ -51,9 +54,12 @@ public class HealthBar : MonoBehaviour
             targetColor = Color.Lerp(lowHPColor, fullHPColor, fillAmount / 0.3f);
         }
 
-        slider.fillRect.GetComponent<Image>().color = Color.Lerp(slider.fillRect.GetComponent<Image>().color, targetColor, Time.deltaTime);
+        slider.fillRect.GetComponent<Image>().color = Color.Lerp(
+            slider.fillRect.GetComponent<Image>().color,
+            targetColor,
+            Time.deltaTime
+        );
     }
-
 
     private void Update()
     {

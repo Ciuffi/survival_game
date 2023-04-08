@@ -50,7 +50,7 @@ public class AttackHandler : MonoBehaviour
 
         AttackBuilder weapon = AttackLibrary.GetAttackBuilder(selectedWeaponName);
 
-        AddWeapon(weapon.Build(selectedWeaponRarity));
+        AddWeapon(weapon.Build((Rarity)selectedWeaponRarity));
     }
 
     IEnumerator HandleAttackSlider(float castTime)
@@ -146,7 +146,6 @@ public class AttackHandler : MonoBehaviour
     {
         while (true)
         {
-
             attackState = AttackState.Casting;
             if (attacks.Count == 0)
                 yield return null;
@@ -183,7 +182,7 @@ public class AttackHandler : MonoBehaviour
                 currentAttack.Shoot();
 
             yield return new WaitForSeconds(currentAttack.stats.attackTime);
-           
+
             //recovering
             attackState = AttackState.Recovery;
             attackIndex++;
@@ -208,15 +207,14 @@ public class AttackHandler : MonoBehaviour
                 currentAttack.ThrowWeapon();
                 HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);
             }
-
         }
     }
 
-    public void AddWeapon(GameObject weapon)
+    public void AddWeapon(Attack weapon)
     {
-        weapon.transform.parent = attackContainer.transform;
-        attacks.Add(weapon.GetComponent<Attack>());
-        weapon.GetComponent<Attack>().owner = GetComponent<Attacker>();
+        var newWeapon = Instantiate(weapon, attackContainer.transform);
+        attacks.Add(newWeapon);
+        newWeapon.owner = GetComponent<Attacker>();
     }
 
     public void ResetWeapons()
@@ -230,13 +228,11 @@ public class AttackHandler : MonoBehaviour
         attacks.Clear();
         attackIndex = 0;
 
-        GameObject newWeapon = Instantiate(defaultWeapon, transform.position, Quaternion.identity);
-
-        AddWeapon(newWeapon);
-        WeaponSprite.GetComponent<SpriteRenderer>().sprite = newWeapon
+        AddWeapon(defaultWeapon.GetComponent<Attack>());
+        WeaponSprite.GetComponent<SpriteRenderer>().sprite = defaultWeapon
             .GetComponent<Attack>()
             .weaponSprite;
-        WeaponOutline.GetComponent<SpriteRenderer>().sprite = newWeapon
+        WeaponOutline.GetComponent<SpriteRenderer>().sprite = defaultWeapon
             .GetComponent<Attack>()
             .weaponSprite;
 
@@ -258,7 +254,7 @@ public class AttackHandler : MonoBehaviour
             })
             .gameObject;
 
-        MatchCharacter(); 
+        MatchCharacter();
         LoadSelectedWeapon();
 
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;

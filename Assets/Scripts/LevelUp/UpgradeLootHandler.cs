@@ -27,23 +27,17 @@ public class UpgradeLootHandler : MonoBehaviour, IPointerDownHandler
     {
         if (delayFinished)
         {
-            if (upgrade.GetUpgradeType() == UpgradeType.StatBoost)
+            if (upgrade.GetUpgradeType() == UpgradeType.Player)
             {
-
-                GameObject newStat = Instantiate(upgrade.GetTransform().gameObject, playerStats.transform.position, Quaternion.identity);
-                playerStats.AddStat(newStat);
+                playerStats.AddStat((PlayerCharacterStats)upgrade);
                 lootManager.SignalItemChosen();
-
-
             }
             else
             {
                 if (playerAttacks.attacks.Count < 6)
                 {
-                    GameObject newWeapon = Instantiate(upgrade.GetTransform().gameObject, playerAttacks.transform.position, Quaternion.identity);
-                    playerAttacks.AddWeapon(newWeapon);
+                    playerAttacks.AddWeapon((Attack)upgrade);
                     lootManager.SignalItemChosen();
-
                 }
                 else
                 {
@@ -73,5 +67,4 @@ public class UpgradeLootHandler : MonoBehaviour, IPointerDownHandler
         startDelay = true;
         delayFinished = false;
     }
-
 }

@@ -20,23 +20,17 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
     {
         if (delayFinished)
         {
-            if (upgrade.GetUpgradeType() == UpgradeType.StatBoost)
+            if (upgrade.GetUpgradeType() == UpgradeType.Player)
             {
-
-                GameObject newStat = Instantiate(upgrade.GetTransform().gameObject, playerStats.transform.position, Quaternion.identity);
-                playerStats.AddStat(newStat);
+                playerStats.AddStat((PlayerCharacterStats)upgrade);
                 levelUpManager.SignalItemChosen();
-
-
             }
             else
             {
                 if (playerAttacks.attacks.Count < 6)
                 {
-                    GameObject newWeapon = Instantiate(upgrade.GetTransform().gameObject, playerAttacks.transform.position, Quaternion.identity);
-                    playerAttacks.AddWeapon(newWeapon);
+                    playerAttacks.AddWeapon((Attack)upgrade);
                     levelUpManager.SignalItemChosen();
-
                 }
                 else
                 {
@@ -46,17 +40,14 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
         }
     }
 
-
-
     // Start is called before the first frame update
     void Start()
-        {
-            GameObject player = GameObject.Find("Player");
-            playerAttacks = player.GetComponent<AttackHandler>();
-            playerStats = player.GetComponent<StatsHandler>();
-            levelUpManager = GameObject.FindObjectOfType<LevelUpManager>();
-        }
-
+    {
+        GameObject player = GameObject.Find("Player");
+        playerAttacks = player.GetComponent<AttackHandler>();
+        playerStats = player.GetComponent<StatsHandler>();
+        levelUpManager = GameObject.FindObjectOfType<LevelUpManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -78,6 +69,4 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
         startDelay = true;
         delayFinished = false;
     }
-
 }
-

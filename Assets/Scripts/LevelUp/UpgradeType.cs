@@ -1,5 +1,6 @@
 public enum UpgradeType
 {
     Weapon,
-    StatBoost
+    Player,
+    WeaponSet
 }

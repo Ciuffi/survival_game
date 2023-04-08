@@ -9,60 +9,8 @@ public class StatsHandler : MonoBehaviour
     public float xp;
     public float nextXp;
     public float currentHealth;
-    public float baseMaxHealth;
-
-    public float maxHealth;
-    public float speed;
-    public float baseSpeed;
-    public float damageMultipler, baseDamageMultiplier;
-    public float critChance;
-    public float baseCritChance;
-    public float critDmg;
-    public float baseCritDmg;
-
-    public float defense; //flat damage decrease
-    public float baseDefense;
-    public float shield;
-    public float baseShield;
-    public float pickupRange,
-        basePickupRange;
-
-    public int shotsPerAttack,
-        baseShotsPerAttack,
-        shotsPerAttackMelee,
-        baseShotsPerAttackMelee,
-        meleeComboLength,
-        baseMeleeComboLength;
-
-    public float spreadMultiplier,
-        baseSpreadMultiplier,
-        shotgunSpread,
-        baseShotgunSpread,
-        multicastChance,
-        baseMulticastChance,
-        castTimeMultiplier,
-        baseCastTimeMultiplier,
-        projectileSpeedMultiplier,
-        baseProjectileSpeedMultiplier,
-        knockbackMultiplier,
-        baseKnockbackMultiplier,
-        meleeWaitTimeMultiplier,
-        baseMeleeWaitTimeMultiplier,
-        thrownDamageMultiplier,
-        baseThrownDamageMultiplier,
-        thrownSpeedMultiplier,
-        baseThrownSpeedMultiplier,
-        rangeMultiplier,
-        baseRangeMultiplier,
-        projectileSizeMultiplier,
-        baseProjectileSizeMultiplier,
-        meleeSizeMultiplier,
-        baseMeleeSizeMultiplier;
-
-    public bool shootOppositeSide,
-        baseShootOppositeSide;
-
-    public List<StatBoost> stats;
+    public PlayerCharacterStats baseStats;
+    public PlayerCharacterStats stats;
 
     public float Iframes;
     public float IFtimer;
@@ -86,11 +34,11 @@ public class StatsHandler : MonoBehaviour
     public float flashDuration;
 
     GameObject Camera;
-    public float playerShakeTime, playerShakeStrength, playerShakeRotation;
+    public float playerShakeTime,
+        playerShakeStrength,
+        playerShakeRotation;
 
     public GameObject weaponsList;
-    PlayerCharacterStats characterStats;
-
 
     private void MatchCharacter()
     {
@@ -101,71 +49,11 @@ public class StatsHandler : MonoBehaviour
         {
             if (obj.name == storedName)
             {
-                characterStats = obj.GetComponent<PlayerCharacterStats>();
+                baseStats = obj.GetComponent<PlayerCharacterStats>();
                 break;
             }
         }
     }
-
-
-    public void InhereitStats()
-    {
-
-        // Get the selected character's stats from PlayerPrefs
-        float health = characterStats.health;
-        float speed = characterStats.speed;
-        float damage = characterStats.damageMultiplier;
-        float critChance = characterStats.critChance;
-        float critDmg = characterStats.critDmg;
-        float defense = characterStats.defense;
-        float shield = characterStats.shield;
-        int shotsPerAttack = characterStats.shotsPerAttack;
-        int shotsPerAttackMelee = characterStats.shotsPerAttackMelee;
-        int comboLength = characterStats.meleeComboLength;
-        float multicast = characterStats.multicastChance;
-        float castTime = characterStats.castTimeMultiplier;
-        float projSpeed = characterStats.projectileSpeedMultiplier;
-        float knockback = characterStats.knockbackMultiplier;
-        float comboWaitTime = characterStats.meleeWaitTimeMultiplier;
-        float thrownDmg = characterStats.thrownDamageMultiplier;
-        float thrownSpd = characterStats.thrownSpeedMultiplier;
-        float range = characterStats.rangeMultiplier;
-        bool shootOpposite = characterStats.shootOpposideSide;
-        float pickupRange = characterStats.pickupRange;
-        float projSize = characterStats.projectileSizeMultiplier;
-        float meleeSize = characterStats.meleeSizeMultiplier;
-        float spread = characterStats.spreadMultiplier;
-        float shotgunSpread = characterStats.shotgunSpread;
-
-        // Assign the selected character's stats to the player's stats
-        baseMaxHealth = health;
-        currentHealth = health;
-        baseSpeed = speed;
-        baseDamageMultiplier = damage;
-        baseCritChance = critChance;
-        baseCritDmg = critDmg;
-        baseDefense = defense;
-        baseShield = shield;
-        baseShotsPerAttack = shotsPerAttack;
-        baseShotsPerAttackMelee = shotsPerAttackMelee;
-        baseMeleeComboLength = comboLength;
-        baseMulticastChance = multicast;
-        baseCastTimeMultiplier = castTime;
-        baseProjectileSpeedMultiplier = projSpeed;
-        baseKnockbackMultiplier = knockback;
-        baseMeleeWaitTimeMultiplier = comboWaitTime;
-        baseThrownDamageMultiplier = thrownDmg;
-        baseThrownSpeedMultiplier = thrownSpd;
-        baseRangeMultiplier = range;
-        baseShootOppositeSide = shootOpposite;
-        basePickupRange = pickupRange;
-        baseProjectileSizeMultiplier = projSize;
-        baseMeleeSizeMultiplier = meleeSize;
-        baseSpreadMultiplier = spread;
-        baseShotgunSpread = shotgunSpread;
-
-    }
-
 
     public void TakeDamage(float damageAmount)
     {
@@ -174,28 +62,35 @@ public class StatsHandler : MonoBehaviour
             return;
         }
         canDamage = false;
-            float newHealth;
-			if ((damageAmount - defense) > 0) {
-			newHealth = currentHealth - damageAmount + defense;
-			} else {
-			newHealth = currentHealth;
-			} 
-            animator.SetBool("TookDamage", true);
-            afterimageAnim.SetBool("TookDamage", true);
-			
-            spriteRend.material = newMaterial;
-			resetMaterial = true;
-            healthBar.fillRect.GetComponent<Image>().color = Color.red;
-            Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-
-            healthBarQueue.AddToQueue(BarHelper.RemoveFromBar(healthBar, currentHealth, newHealth, maxHealth, 0.5f));
-            currentHealth = newHealth;
-            if (currentHealth <= 0)
-            {
-                GameObject.FindObjectOfType<EndgameStatTracker>().OnPlayerDeath();
-                GameObject.FindObjectOfType<GameManager>().EndGame();
-            }
+        float newHealth;
+        if ((damageAmount - stats.defense) > 0)
+        {
+            newHealth = currentHealth - damageAmount + stats.defense;
         }
+        else
+        {
+            newHealth = currentHealth;
+        }
+        animator.SetBool("TookDamage", true);
+        afterimageAnim.SetBool("TookDamage", true);
+
+        spriteRend.material = newMaterial;
+        resetMaterial = true;
+        healthBar.fillRect.GetComponent<Image>().color = Color.red;
+        Camera
+            .GetComponent<ScreenShakeController>()
+            .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+
+        healthBarQueue.AddToQueue(
+            BarHelper.RemoveFromBar(healthBar, currentHealth, newHealth, stats.maxHealth, 0.5f)
+        );
+        currentHealth = newHealth;
+        if (currentHealth <= 0)
+        {
+            GameObject.FindObjectOfType<EndgameStatTracker>().OnPlayerDeath();
+            GameObject.FindObjectOfType<GameManager>().EndGame();
+        }
+    }
 
     void ResetMaterial()
     {
@@ -203,19 +98,17 @@ public class StatsHandler : MonoBehaviour
         spriteRend.material = OGMaterial;
     }
 
-
     void Update()
     {
-
         if (IFtimer >= Iframes)
         {
             animator.SetBool("TookDamage", false);
             afterimageAnim.SetBool("TookDamage", false);
-			if (resetMaterial)
-			{
-				ResetMaterial();
-				resetMaterial = false;
-			}
+            if (resetMaterial)
+            {
+                ResetMaterial();
+                resetMaterial = false;
+            }
             canDamage = true;
         }
 
@@ -227,7 +120,6 @@ public class StatsHandler : MonoBehaviour
         {
             IFtimer = 0f;
         }
-
     }
 
     public void GainXP(float xpAmount)
@@ -250,114 +142,49 @@ public class StatsHandler : MonoBehaviour
 
     public void ResetStats(bool fullReset)
     {
-        speed = baseSpeed;
-        maxHealth = baseMaxHealth;
-        shield = baseShield;
-        damageMultipler = baseDamageMultiplier;
-        defense = baseDefense;
-        critChance = baseCritChance;
-        critDmg = baseCritDmg;
-        multicastChance = baseMulticastChance;
-        castTimeMultiplier = baseCastTimeMultiplier;
-        shotsPerAttack = baseShotsPerAttack;
-        shotsPerAttackMelee = baseShotsPerAttackMelee;
-        projectileSpeedMultiplier = baseProjectileSpeedMultiplier;
-        knockbackMultiplier = baseKnockbackMultiplier;
-        meleeComboLength = baseMeleeComboLength;
-        meleeWaitTimeMultiplier = baseMeleeWaitTimeMultiplier;
-        thrownDamageMultiplier = baseThrownDamageMultiplier;
-        thrownSpeedMultiplier = baseThrownSpeedMultiplier;
-        rangeMultiplier = baseRangeMultiplier;
-        shootOppositeSide = baseShootOppositeSide;
-        pickupRange = basePickupRange;
-        projectileSizeMultiplier = baseProjectileSizeMultiplier;
-        meleeSizeMultiplier = baseMeleeSizeMultiplier;
-        spreadMultiplier = baseSpreadMultiplier;
-        shotgunSpread = baseShotgunSpread;
-
+        stats = new PlayerCharacterStats(baseStats);
 
         if (fullReset)
         {
             level = 1;
             xp = 0;
             nextXp = LevelManager.GetXpToNextLevel(level);
-            currentHealth = maxHealth;
+            currentHealth = stats.maxHealth;
             foreach (Transform trans in StatContainer.transform)
             {
                 Destroy(trans.gameObject);
             }
             healthBarQueue.EmptyQueue();
-            healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, maxHealth));
+            healthBarQueue.AddToQueue(
+                BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth)
+            );
             LevelManager.ResetXP();
         }
     }
 
-
-
-    public void AddStat(GameObject stat)
+    public void AddStat(PlayerCharacterStats stat)
     {
-        stat.transform.parent = StatContainer.transform;
-        this.stats.Add(stat.GetComponent<StatBoost>());
+        Instantiate(stat, StatContainer.transform);
         CalculateStats();
-        // Find and invoke the "CalculateStats()" function in the Attack scripts of the prefab
-        CalculateWeaponStats(weaponsList);
-
     }
 
     public void CalculateStats()
     {
         ResetStats(false);
 
-        foreach (var stat in stats)
+        foreach (var stat in StatContainer.GetComponentsInChildren<PlayerCharacterStats>())
         {
-            if (stat != null)
-            {
-                StatBoost sb = stat.GetComponent<StatBoost>();
-
-                // Apply the stat's values
-                currentHealth += sb.extraHealth;
-                if (sb.extraHealth > 0)
-                {
-                    Destroy(stat);
-                }
-                maxHealth += sb.extraMaxHealth;
-                baseMaxHealth += sb.extraMaxHealth;
-                speed += sb.extraSpeed;
-                shield += sb.extraShield;
-                damageMultipler += sb.extraDamageMultipler;
-                defense += sb.extraDefense;
-                critChance += sb.extraCritChance;
-                critDmg += sb.extraCritDmg;
-                multicastChance += sb.extraMulticastChance;
-                castTimeMultiplier = (float)((castTimeMultiplier + sb.extraCastTimeMultiplier) > 0.1 ? (castTimeMultiplier + sb.extraCastTimeMultiplier) : 0.1);
-                meleeComboLength += sb.extraMeleeComboLength;
-                shotsPerAttack += sb.extraShotsPerAttack;
-                shotsPerAttackMelee += sb.extraShotsPerAttackMelee;
-                projectileSpeedMultiplier += sb.extraProjectileSpeedMultiplier;
-                knockbackMultiplier += sb.extraKnockbackMultiplier;
-                meleeWaitTimeMultiplier = (float)((meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) > 0.1 ? (meleeWaitTimeMultiplier + sb.extraMeleeWaitTimeMultiplier) : 0.1);
-                thrownDamageMultiplier += sb.extraThrownDamageMultiplier;
-                thrownSpeedMultiplier += sb.extraThrownSpeedMultiplier;
-                rangeMultiplier += sb.extraRangeMultiplier;
-                if (!shootOppositeSide)
-                {
-                    shootOppositeSide = sb.shootOppositeSide;
-                }
-                pickupRange += sb.extraPickupRange;
-                projectileSizeMultiplier += sb.extraProjectileSizeMultiplier;
-                meleeSizeMultiplier += sb.extraMeleeSizeMultiplier;
-
-                spreadMultiplier = (float)((spreadMultiplier + sb.extraSpreadMultiplier) > 0.005 ? (spreadMultiplier + sb.extraSpreadMultiplier) : 0.005);
-                shotgunSpread += sb.extraShotgunSpread;
-            }
+            stats.MergeStats(stat);
         }
 
-        GetComponent<PlayerMovement>().SetAnimSpeed(speed, 0.04f); //change second value to be the default
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
-        healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, maxHealth));
+        GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed, 0.04f); //change second value to be the default
+        if (currentHealth > stats.maxHealth)
+            currentHealth = stats.maxHealth;
+        healthBarQueue.AddToQueue(
+            BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth)
+        );
+        CalculateWeaponStats(weaponsList);
     }
-
-  
 
     void Start()
     {
@@ -376,22 +203,9 @@ public class StatsHandler : MonoBehaviour
         healthColor = healthBar.fillRect.GetComponent<Image>().color;
 
         MatchCharacter();
-        InhereitStats();
-
-        //add extra stats?
-        StatContainer = new List<Transform>(GetComponentsInChildren<Transform>()).Find(t =>
-        {
-            return t.name == "Stats";
-        }).gameObject;
-        new List<StatBoost>(StatContainer.GetComponentsInChildren<StatBoost>()).ForEach(a =>
-        {
-            AddStat(a.gameObject);
-        });
-
         CalculateStats();
-        CalculateWeaponStats(weaponsList);
-
     }
+
     private void CalculateWeaponStats(GameObject prefab)
     {
         // Get all child game objects of the prefab
@@ -421,9 +235,6 @@ public class StatsHandler : MonoBehaviour
 
     public float GetPlayerHpPercent()
     {
-        return (float)currentHealth / maxHealth;
+        return (float)currentHealth / stats.maxHealth;
     }
-
-
 }
-

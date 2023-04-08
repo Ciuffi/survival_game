@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using System.Linq;
 using TMPro;
 
-
 public class LootBoxManager : MonoBehaviour
 {
     GameObject player;
@@ -16,10 +15,11 @@ public class LootBoxManager : MonoBehaviour
     public bool isWeapon = true;
     private List<GameObject> previousUpgrades = new List<GameObject>();
 
-
     private GameObject panel;
     private GameObject panelAnimated;
-    public GameObject RerollBtn, SwapBtn, TimelineManager;
+    public GameObject RerollBtn,
+        SwapBtn,
+        TimelineManager;
     public GameObject SkipBtn;
 
     public GameObject VFX;
@@ -36,19 +36,23 @@ public class LootBoxManager : MonoBehaviour
 
         panel = GameObject.Find("LootContainer");
         panelAnimated = GameObject.Find("LootPopup");
-        weapons = Resources.LoadAll("Attacks", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
-        stats = Resources.LoadAll("Stats", typeof(GameObject)).Cast<GameObject>().ToArray<GameObject>();
+        weapons = Resources
+            .LoadAll("Attacks", typeof(GameObject))
+            .Cast<GameObject>()
+            .ToArray<GameObject>();
+        stats = Resources
+            .LoadAll("Stats", typeof(GameObject))
+            .Cast<GameObject>()
+            .ToArray<GameObject>();
         panel.SetActive(false);
         panelAnimated.SetActive(false);
         playerStats = FindObjectOfType<StatsHandler>();
-
-
     }
 
     public void ShowLootUI()
     {
         Instantiate(VFX, transform.position, Quaternion.identity, transform);
-        StartCoroutine(WaitForTime(0.6f));  
+        StartCoroutine(WaitForTime(0.6f));
     }
 
     public void ShowLootReward()
@@ -65,12 +69,10 @@ public class LootBoxManager : MonoBehaviour
         isWeapon = true; //always set to weapon
         setUpgrades();
         panel.SetActive(true);
-
     }
 
     public void setUpgrades()
     {
-
         if (isWeapon)
         {
             upgrades = new List<GameObject>(weapons);
@@ -93,12 +95,12 @@ public class LootBoxManager : MonoBehaviour
                     upgradeWindow.GetComponent<UpgradeLootHandler>().upgrade = upgrade;
                     upgradeWindow.GetComponentInChildren<TMP_Text>().text = GO.name;
                     upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = true;
-                    upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<Attack>().thrownSprite;
+                    upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite =
+                        GO.GetComponent<Attack>().thrownSprite;
                     TMP_Text[] textComponents = upgradeWindow.GetComponentsInChildren<TMP_Text>();
                     textComponents[1].text = GO.GetComponent<Attack>().attackType.ToString();
                 }
             }
-
         }
         else
         {
@@ -120,13 +122,13 @@ public class LootBoxManager : MonoBehaviour
                     upgradeWindow.GetComponent<UpgradeLootHandler>().upgrade = upgrade;
                     upgradeWindow.GetComponentInChildren<TMP_Text>().text = GO.name;
                     upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = true;
-                    upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = GO.GetComponent<StatBoost>().UiIcon;
+                    upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite =
+                        GO.GetComponent<Upgrade>().GetUpgradeIcon();
                     TMP_Text[] textComponents = upgradeWindow.GetComponentsInChildren<TMP_Text>();
                     textComponents[1].text = "";
                 }
             }
         }
-
     }
 
     private IEnumerator WaitForTime(float waitTime)
@@ -141,7 +143,6 @@ public class LootBoxManager : MonoBehaviour
         panelAnimated.GetComponent<LootGoldCounter>().ResetStats();
         lootOnTap.GetComponent<LootPopupAnimator>().finalGold = finalGold;
         PauseGame();
-
     }
 
     public void reroll()
@@ -183,7 +184,6 @@ public class LootBoxManager : MonoBehaviour
         ResumeGame();
     }
 
-
     public void PauseGame()
     {
         GameObject.FindObjectOfType<PlayerMovement>().StopMoving();
@@ -201,11 +201,19 @@ public class LootBoxManager : MonoBehaviour
     {
         if (RerollBtn != null)
         {
-            RerollBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll " + "(" + RerollBtn.GetComponent<RollSwapHandler>().currentReroll.ToString() + ")";
+            RerollBtn.GetComponentInChildren<TextMeshProUGUI>().text =
+                "Reroll "
+                + "("
+                + RerollBtn.GetComponent<RollSwapHandler>().currentReroll.ToString()
+                + ")";
         }
         if (SwapBtn != null)
         {
-            SwapBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Swap " + "(" + SwapBtn.GetComponent<RollSwapHandler>().currentSwap.ToString() + ")";
+            SwapBtn.GetComponentInChildren<TextMeshProUGUI>().text =
+                "Swap "
+                + "("
+                + SwapBtn.GetComponent<RollSwapHandler>().currentSwap.ToString()
+                + ")";
         }
 
         if (playerStats.currentHealth <= 0)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
 public class SwapWpnAttack : MonoBehaviour
 {
     GameObject Player;
@@ -15,7 +14,9 @@ public class SwapWpnAttack : MonoBehaviour
     public float critDmg;
 
     public GameObject onHitParticle;
-    public float playerShakeTime, playerShakeStrength, playerShakeRotation;
+    public float playerShakeTime,
+        playerShakeStrength,
+        playerShakeRotation;
 
     public float damageTickDuration;
     private List<GameObject> hitEnemies;
@@ -29,8 +30,8 @@ public class SwapWpnAttack : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player");
         Camera = GameObject.FindWithTag("MainCamera");
-        critChance = critChance + Player.GetComponent<StatsHandler>().critChance;
-        critDmg = critDmg + Player.GetComponent<StatsHandler>().critDmg;
+        critChance = critChance + Player.GetComponent<StatsHandler>().stats.critChance;
+        critDmg = critDmg + Player.GetComponent<StatsHandler>().stats.critDmg;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -54,7 +55,6 @@ public class SwapWpnAttack : MonoBehaviour
                         timers.Remove(enemy);
                     }
                 }
-
                 else
                 {
                     return;
@@ -72,7 +72,6 @@ public class SwapWpnAttack : MonoBehaviour
 
         if (col.gameObject.tag == "Enemy")
         {
-
             GameObject enemy = col.gameObject;
 
             if (!hitEnemies.Contains(enemy)) //if enemy is not within hitDetection List
@@ -82,11 +81,10 @@ public class SwapWpnAttack : MonoBehaviour
                 { //CRITS
                     finalDamage = damage * critDmg;
                     isCrit = true;
-
                 }
                 else
                 {
-                    //no crit 
+                    //no crit
                     finalDamage = damage;
                     isCrit = false;
                 }
@@ -97,20 +95,27 @@ public class SwapWpnAttack : MonoBehaviour
                 if (isCrit == true)
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
-                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
-
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        col.gameObject.transform.position,
+                        Quaternion.identity
+                    );
                 }
                 else
                 {
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
-                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
-                }     
-
-
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        col.gameObject.transform.position,
+                        Quaternion.identity
+                    );
+                }
             }
             else
             {

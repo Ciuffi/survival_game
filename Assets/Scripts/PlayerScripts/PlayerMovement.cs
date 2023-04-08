@@ -25,8 +25,6 @@ public class PlayerMovement : MonoBehaviour, Attacker
     public Animator afterimageAnim;
     private SpriteRenderer afterimageRend;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +34,10 @@ public class PlayerMovement : MonoBehaviour, Attacker
         oldSpeed = 0;
         localSpeed = 0;
         afterimageRend = afterimage.GetComponent<SpriteRenderer>();
-
     }
 
     void Move()
     {
-
         if (VJ.InputDirection.magnitude == 0)
         {
             afterimageRend.enabled = false;
@@ -58,30 +54,31 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
         float x = Mathf.Abs(InputX) > DeadZonePercentage ? InputX / 100 : 0;
 
-        transform.position = new Vector3(TransformX + x * localSpeed, TransformY + y * localSpeed, 0);
+        transform.position = new Vector3(
+            TransformX + x * localSpeed,
+            TransformY + y * localSpeed,
+            0
+        );
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
         direction = VJ.InputDirection;
         WeaponSprite.GetComponent<WpnSpriteRotation>().InputXY(x, y);
-
-
     }
 
     // Update the move speed
     public void SetAnimSpeed(float speed, float baseSpeed)
     {
         // Calculate the animator speed based on the move speed ratio
-        float speedRatio = (speed / baseSpeed) ;
+        float speedRatio = (speed / baseSpeed);
         float scalingFactor = 0.5f; // adjust this as needed
         float animSpeed = animator.speed * (1.0f + scalingFactor * (speedRatio - 1.0f));
         animator.speed = animSpeed;
         afterimageAnim.speed = animSpeed;
     }
 
-
     // Update is called once per frame
     void Update()
     {
-        float speed = GetComponent<StatsHandler>().speed;
+        float speed = GetComponent<StatsHandler>().stats.speed;
 
         if (canMove == true)
         {
@@ -95,7 +92,6 @@ public class PlayerMovement : MonoBehaviour, Attacker
             animator.SetBool("IsMoving", isMoving);
             afterimageAnim.SetBool("IsMoving", isMoving);
         }
-
     }
 
     public void StopMoving()
@@ -106,6 +102,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
         oldSpeed = localSpeed;
         localSpeed = 0;
     }
+
     public void StartMoving()
     {
         animator.SetBool("IsMoving", isMoving);
@@ -114,12 +111,11 @@ public class PlayerMovement : MonoBehaviour, Attacker
         canMove = true;
     }
 
-
-
     public Vector3 GetDirection()
     {
         return direction;
     }
+
     public Transform GetTransform()
     {
         return transform;

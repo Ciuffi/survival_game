@@ -17,13 +17,16 @@ public class deathRattleAttack : MonoBehaviour
 
     public float startup;
     public float active;
+
     //public float recovery;
 
     public float scaleSpeed;
     public float disappearSpeed;
 
     public GameObject onHitParticle;
-    public float playerShakeTime, playerShakeStrength, playerShakeRotation;
+    public float playerShakeTime,
+        playerShakeStrength,
+        playerShakeRotation;
 
     public float damageTickDuration;
     private List<GameObject> hitEnemies;
@@ -51,7 +54,6 @@ public class deathRattleAttack : MonoBehaviour
     public float stunDuration;
 
     private float meleeTime;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -60,9 +62,9 @@ public class deathRattleAttack : MonoBehaviour
         Camera = GameObject.FindWithTag("MainCamera");
         startPos = transform.position;
 
-        damage = damage * Player.GetComponent<StatsHandler>().damageMultipler;
-        critChance = critChance + Player.GetComponent<StatsHandler>().critChance;
-        critDmg = critDmg + Player.GetComponent<StatsHandler>().critDmg;
+        damage = damage * Player.GetComponent<StatsHandler>().stats.damageMultiplier;
+        critChance = critChance + Player.GetComponent<StatsHandler>().stats.critChance;
+        critDmg = critDmg + Player.GetComponent<StatsHandler>().stats.critDmg;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -70,7 +72,6 @@ public class deathRattleAttack : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
-
     }
 
     // Update is called once per frame
@@ -91,7 +92,6 @@ public class deathRattleAttack : MonoBehaviour
                         timers.Remove(enemy);
                     }
                 }
-
                 else
                 {
                     return;
@@ -132,18 +132,15 @@ public class deathRattleAttack : MonoBehaviour
             alphaSpeed = disappearSpeed * Time.deltaTime;
             scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
 
-
             GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
             transform.localScale -= scaleUp;
             GetComponent<Collider2D>().enabled = false;
         }
-    
 
-        if (transform.localScale.x< 0)
+        if (transform.localScale.x < 0)
         {
             Destroy(gameObject);
         }
-
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -155,7 +152,6 @@ public class deathRattleAttack : MonoBehaviour
 
         if (col.gameObject.tag == "Enemy")
         {
-
             GameObject enemy = col.gameObject;
 
             if (!hitEnemies.Contains(enemy)) //if enemy is not within hitDetection List
@@ -165,11 +161,10 @@ public class deathRattleAttack : MonoBehaviour
                 { //CRITS
                     finalDamage = damage * critDmg;
                     isCrit = true;
-
                 }
                 else
                 {
-                    //no crit 
+                    //no crit
                     finalDamage = damage;
                     isCrit = false;
                 }
@@ -183,14 +178,15 @@ public class deathRattleAttack : MonoBehaviour
                     magnetTarget = col.transform; //set collider
                     magnetStartTime = Time.time;
                     magnetStartPos = transform.position; //set target
-                    magnetTarget.GetComponent<Enemy>().StartMagnet(magnetStrength, magnetDuration, magnetStartPos, false);
+                    magnetTarget
+                        .GetComponent<Enemy>()
+                        .StartMagnet(magnetStrength, magnetDuration, magnetStartPos, false);
                 }
 
                 //apply slow effect
                 if (isSlow)
                 {
                     col.GetComponent<Enemy>().StartSlow(slowPercentage, slowDuration);
-
                 }
 
                 //apply stun effect
@@ -206,10 +202,14 @@ public class deathRattleAttack : MonoBehaviour
                     col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
 
                     attack.OnDamageDealt(finalDamage);
-                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
-
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        col.gameObject.transform.position,
+                        Quaternion.identity
+                    );
                 }
                 else
                 {
@@ -218,12 +218,15 @@ public class deathRattleAttack : MonoBehaviour
                     col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
 
                     attack.OnDamageDealt(finalDamage);
-                    Camera.GetComponent<ScreenShakeController>().StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
-                    Instantiate(onHitParticle, col.gameObject.transform.position, Quaternion.identity);
-
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        col.gameObject.transform.position,
+                        Quaternion.identity
+                    );
                 }
-
-
             }
             else
             {
