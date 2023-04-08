@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class StageButton : MonoBehaviour, IPointerDownHandler
 {
     public int stageID;
+    public bool isLocked;
 
     public GameObject selectedImage;
 

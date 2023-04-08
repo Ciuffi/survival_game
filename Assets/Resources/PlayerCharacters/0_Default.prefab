@@ -53,6 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: Default
+  isLocked: 0
   health: 50
   speed: 0.038
   pickupRange: 2

@@ -87,7 +87,7 @@ public class StatsHandler : MonoBehaviour
         currentHealth = newHealth;
         if (currentHealth <= 0)
         {
-            GameObject.FindObjectOfType<EndgameStatTracker>().OnPlayerDeath();
+            GameObject.FindObjectOfType<EndgameStatTracker>().EndGameStats();
             GameObject.FindObjectOfType<GameManager>().EndGame();
         }
     }

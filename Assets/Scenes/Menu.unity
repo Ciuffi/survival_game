@@ -1261,6 +1261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755891237}
   - component: {fileID: 755891236}
+  - component: {fileID: 755891238}
   m_Layer: 0
   m_Name: PlayerInventory
   m_TagString: Untagged
@@ -1280,10 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff1c5c800c330646bcb9043f760ac22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingWeaponNames: []
-  startingWeaponRarities: 
-  startingWeaponIsPerm: 
-  startingWeaponDurabilities: 
+  selectedWeaponIndex: 0
 --- !u!4 &755891237
 Transform:
   m_ObjectHideFlags: 0
@@ -1299,6 +1297,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &755891238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755891235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7914a6e8235dc1e44989ce77fc2bd65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 0
+  unlockedCharacters: 0
+  unlockedStages: 0
 --- !u!1 &804982546
 GameObject:
   m_ObjectHideFlags: 0
