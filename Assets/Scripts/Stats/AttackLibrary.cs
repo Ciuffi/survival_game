@@ -13,6 +13,11 @@ public static class AttackLibrary
         InitializeLibrary();
     }
 
+    private static void AddAttack(AttackBuilder attack)
+    {
+        attackBuilderDictionary.Add(attack.GetAttackName(), attack);
+    }
+
     public static void InitializeLibrary()
     {
         if (isInitialized)
@@ -80,7 +85,7 @@ public static class AttackLibrary
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/hand2")
             )
             .SetRarityUpgrades(AcidPoolUpgrades);
-        attackBuilderDictionary.Add("Acid Pool", AcidPool);
+        AddAttack(AcidPool);
 
         // ClassicRifle
         List<AttackStats> ClassicRifleUpgrades = new List<AttackStats>

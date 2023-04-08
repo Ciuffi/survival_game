@@ -1048,7 +1048,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     public Sprite GetUpgradeIcon()
     {
-        return weaponSprite;
+        return thrownSprite;
     }
 
     public string GetUpgradeDescription()

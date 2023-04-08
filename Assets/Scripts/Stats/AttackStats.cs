@@ -520,7 +520,7 @@ public class AttackStats : MonoBehaviour, Upgrade
 
     public UpgradeType GetUpgradeType()
     {
-        return weaponSet ? UpgradeType.WeaponSet : UpgradeType.Weapon;
+        return weaponSet ? UpgradeType.WeaponSetStat : UpgradeType.WeaponStat;
     }
 
     public Sprite GetUpgradeIcon()

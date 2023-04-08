@@ -92,24 +92,14 @@ public class LevelUpManager : MonoBehaviour
 
         if (isWeapon)
         {
-            upgrades = new List<GameObject>(weapons);
             //isWeapon = false;
 
             //create weighting later
             upgradeWindows.ForEach(
                 (u) =>
                 {
-                    GameObject GO = null;
-                    while (GO == null)
-                    {
-                        GO = upgrades[Random.Range(0, upgrades.Count)];
-                        if (previousUpgrades.Contains(GO))
-                        {
-                            GO = null;
-                        }
-                    }
-
-                    previousUpgrades.Add(GO);
+                    AttackBuilder builder = weaponBuilders[Random.Range(0, weaponBuilders.Length)];
+                    GameObject GO = builder.Build((Rarity)Random.Range(0, 6)).gameObject;
                     u.upgrade = GO.GetComponent<Upgrade>();
                     u.GetComponentInChildren<TMP_Text>().text = GO.name;
                     u.transform.Find("Image").GetComponent<Image>().enabled = true;
@@ -122,7 +112,9 @@ public class LevelUpManager : MonoBehaviour
         }
         else
         {
-            upgrades = new List<GameObject>(stats);
+            upgrades = new List<GameObject>(
+                stats.Select(s => s.GetTransform().gameObject).ToList()
+            );
             //isWeapon = true;
 
             //create weighting later
@@ -213,10 +205,7 @@ public class LevelUpManager : MonoBehaviour
         panel = GameObject.Find("UpgradeContainer");
         upgradeWindows = new List<UpgradeHandler>(GameObject.FindObjectsOfType<UpgradeHandler>());
         weaponBuilders = AttackLibrary.getAttackBuilders();
-        stats = Resources
-            .LoadAll("Stats", typeof(GameObject))
-            .Cast<GameObject>()
-            .ToArray<GameObject>();
+        stats = PlayerStatsLibrary.getStats();
         hasRolled = false;
         xpColor = xpBar.fillRect.GetComponent<Image>().color;
         panel.SetActive(false);

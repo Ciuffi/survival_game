@@ -134,7 +134,11 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
         float projectileSizeMultiplier = 1,
         float meleeSizeMultiplier = 1,
         bool shootOpposideSide = false,
-        Rarity rarity = Rarity.Common
+        Rarity rarity = Rarity.Common,
+        string name = "Player Stats",
+        string description = "Player Stats",
+        float maxhealth = 0,
+        Sprite icon = null
     )
     {
         this.health = health;
@@ -165,11 +169,15 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
 
         this.shootOpposideSide = shootOpposideSide;
         this.rarity = rarity;
+        this.name = name;
+        this.description = description;
+        this.maxHealth = maxhealth;
+        this.icon = icon;
     }
 
     public UpgradeType GetUpgradeType()
     {
-        return UpgradeType.Player;
+        return UpgradeType.PlayerStats;
     }
 
     public Sprite GetUpgradeIcon()

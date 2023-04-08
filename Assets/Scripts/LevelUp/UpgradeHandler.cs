@@ -20,7 +20,7 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
     {
         if (delayFinished)
         {
-            if (upgrade.GetUpgradeType() == UpgradeType.Player)
+            if (upgrade.GetUpgradeType() == UpgradeType.PlayerStats)
             {
                 playerStats.AddStat((PlayerCharacterStats)upgrade);
                 levelUpManager.SignalItemChosen();
