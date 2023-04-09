@@ -44,7 +44,6 @@ public class StatsHandler : MonoBehaviour
     {
         string storedName = PlayerPrefs.GetString("CharacterName");
         GameObject[] characters = Resources.LoadAll<GameObject>("PlayerCharacters");
-
         foreach (GameObject obj in characters)
         {
             if (obj.name == storedName)
@@ -172,12 +171,15 @@ public class StatsHandler : MonoBehaviour
     {
         ResetStats(false);
 
-        foreach (var stat in StatContainer.GetComponentsInChildren<PlayerCharacterStats>())
+        if (StatContainer != null)
         {
-            stats.MergeStats(stat);
+            foreach (var stat in StatContainer.GetComponentsInChildren<PlayerCharacterStats>())
+            {
+                stats.MergeStats(stat);
+            }
         }
 
-        GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed, 0.04f); //change second value to be the default
+        GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed, 0.038f); //change second value to be the default
         if (currentHealth > stats.maxHealth)
             currentHealth = stats.maxHealth;
         healthBarQueue.AddToQueue(

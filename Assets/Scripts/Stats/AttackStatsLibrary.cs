@@ -25,22 +25,41 @@ public static class AttackStatsLibrary
             return;
         }
 
-        AttackStats DamageBuff = new AttackStats(
-            damageMultiplier: 0.1f,
-            name: "Damage Buff",
-            description: "Increases damage by 10%",
-            icon: Resources.Load<Sprite>("Sprites/Icons/Stats/DamageBuff")
-        );
-        AddStat(DamageBuff);
-        //knockback buff
+        //Value of stats - Individual Weapon -> Wpn Set -> Player 
+        //COMMON
+
         AddStat(
             new AttackStats(
-                knockbackMultiplier: 0.1f,
-                name: "Knockback Buff",
-                description: "Increases knockback by 10%",
-                icon: Resources.Load<Sprite>("Sprites/Icons/Stats/KnockbackBuff")
+                damageMultiplier: 0.1f,
+                name: "Damage%",
+                description: "Increases damage by 10%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
             )
-        );
+        ); ;
+
+        AddStat(
+             new AttackStats(
+                 critChance: 0.05f,
+                 name: "Crit Chance",
+                 description: "Increases critical hit chance by 5%",
+                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                 rarity: Rarity.Common
+             )
+         ); ;
+
+        AddStat(
+             new AttackStats(
+                 knockbackMultiplier: 0.1f,
+                 name: "Knockback",
+                 description: "Increases knockback by 10%",
+                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                 rarity: Rarity.Common
+             )
+         ); ;
+
+
+
 
         isInitialized = true;
     }

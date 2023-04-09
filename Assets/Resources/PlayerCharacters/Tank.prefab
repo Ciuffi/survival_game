@@ -53,8 +53,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  name: 
+  description: 
   characterName: Tank
   isLocked: 1
+  maxHealth: 0
   health: 60
   speed: 0.022
   pickupRange: 2
@@ -65,12 +69,12 @@ MonoBehaviour:
   shield: 0
   shotsPerAttack: 0
   shotsPerAttackMelee: 0
-  meleeComboLength: 0
+  comboLength: 0
   multicastChance: 0
   shotgunSpread: 0
   spreadMultiplier: 1
   castTimeMultiplier: 1.5
-  meleeWaitTimeMultiplier: 1
+  comboWaitTime: 1
   projectileSpeedMultiplier: 1
   rangeMultiplier: 1
   knockbackMultiplier: 1
@@ -79,6 +83,7 @@ MonoBehaviour:
   projectileSizeMultiplier: 1
   meleeSizeMultiplier: 1
   shootOpposideSide: 0
+  rarity: 0
 --- !u!222 &4206294333654784577
 CanvasRenderer:
   m_ObjectHideFlags: 0

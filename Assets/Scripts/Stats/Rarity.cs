@@ -9,9 +9,9 @@ public static class RarityExtensions
 public enum Rarity
 {
     Common = 0,
-    Uncommon = 1,
+    //Uncommon = 1,
     Rare = 2,
     Epic = 3,
-    Legendary = 4,
-    Mythic = 5,
+    Legendary = 5
+    //Mythic = 5,
 }

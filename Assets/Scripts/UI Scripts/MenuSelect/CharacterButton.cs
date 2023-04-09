@@ -15,7 +15,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
     //public TextMeshProUGUI weaponsText;
 
     private CharSelectController characterSelector;
-    public GameObject startBtn;
+    public StartRun startBtn;
     private bool hasSelected;
 
     private void Start()
@@ -29,7 +29,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         //GameObject text3 = GameObject.Find("WeaponsName");
         //weaponsText = text3.GetComponent<TextMeshProUGUI>();
         hasSelected = false;
-        startBtn = GameObject.Find("StartBtn");
+        startBtn = FindObjectOfType<StartRun>();
     }
 
     private void Update()
@@ -73,8 +73,9 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             characterSelector.selectedCharacter = stats;
         }
+
         // Update the selected character in startRun
-        startBtn.GetComponent<StartRun>().chosenName = stats.name;
+        startBtn.chosenName = stats.characterName;
 
         // Update the text with the selected character's stats
         if (nameText != null)

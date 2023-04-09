@@ -16,38 +16,200 @@ public static class WeaponSetUpgradeMap
                     Rarity.Common,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+                        AttackStatsLibrary.GetStat("Damage%")
                     }
                 },
                 {
-                    Rarity.Uncommon,
+                    Rarity.Rare,
                     new List<AttackStats>
                     {
                         new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
                     }
                 },
-                // Add more rarities for the Automatic key as needed
+                {
+                    Rarity.Epic,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Legendary,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
             }
         },
         {
             WeaponSetType.SemiAuto,
             new Dictionary<Rarity, List<AttackStats>>
             {
-                {
+                 {
                     Rarity.Common,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 20, spread: 3, speed: 150, range: 60)
+                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
                     }
                 },
                 {
-                    Rarity.Uncommon,
+                    Rarity.Rare,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 22, spread: 2, speed: 160, range: 65)
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
                     }
                 },
-                // Add more rarities for the SemiAuto key as needed
+                {
+                    Rarity.Epic,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Legendary,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+            }
+        },
+        {
+            WeaponSetType.Shotgun,
+            new Dictionary<Rarity, List<AttackStats>>
+            {
+                 {
+                    Rarity.Common,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+                    }
+                },
+                {
+                    Rarity.Rare,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Epic,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Legendary,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+            }
+        },
+        {
+            WeaponSetType.Explosive,
+            new Dictionary<Rarity, List<AttackStats>>
+            {
+                 {
+                    Rarity.Common,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+                    }
+                },
+                {
+                    Rarity.Rare,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Epic,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Legendary,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+            }
+        },
+        {
+            WeaponSetType.Nova,
+            new Dictionary<Rarity, List<AttackStats>>
+            {
+                 {
+                    Rarity.Common,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+                    }
+                },
+                {
+                    Rarity.Rare,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Epic,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Legendary,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+            }
+        },
+        {
+            WeaponSetType.Melee,
+            new Dictionary<Rarity, List<AttackStats>>
+            {
+                 {
+                    Rarity.Common,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+                    }
+                },
+                {
+                    Rarity.Rare,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Epic,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
+                {
+                    Rarity.Legendary,
+                    new List<AttackStats>
+                    {
+                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                    }
+                },
             }
         },
     }; // Add more WeaponSetType keys with their respective AttackStats list

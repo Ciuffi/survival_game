@@ -30,7 +30,7 @@ public class LevelUpManager : MonoBehaviour
 
     public GameObject TimelineManager;
     public GameObject VFX;
-    StatsHandler playerStats;
+    public StatsHandler playerStats;
 
     public int GetXpToNextLevel(float level)
     {

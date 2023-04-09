@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
     public GameObject afterimage;
     public Animator afterimageAnim;
     private SpriteRenderer afterimageRend;
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +79,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
     // Update is called once per frame
     void Update()
     {
-        float speed = GetComponent<StatsHandler>().stats.speed;
+        speed = GetComponent<StatsHandler>().stats.speed;
 
         if (canMove == true)
         {

@@ -110,6 +110,7 @@ public class AttackBuilder
 
         if (baseStats == null)
         {
+            Debug.Log(attackName);
             throw new System.Exception("BaseStats is required and cannot be null.");
         }
 

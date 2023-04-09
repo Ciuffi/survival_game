@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerCharacterStats : MonoBehaviour, Upgrade
 {
     public Sprite icon;
-    public string name;
     public string description;
     public string characterName;
     public bool isLocked;

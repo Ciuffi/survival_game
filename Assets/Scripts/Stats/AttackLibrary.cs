@@ -44,6 +44,7 @@ public static class AttackLibrary
             Resources.Load<GameObject>("WeaponVFX/MuzzleFlash_Big"),
         };
 
+
         // AcidPool
         List<AttackStats> AcidPoolUpgrades = new List<AttackStats>
         {
@@ -60,6 +61,7 @@ public static class AttackLibrary
         AttackBuilder AcidPool = new AttackBuilder()
             .SetAttackName("Acid Pool")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/AcidPool"))
+            .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     damage: 1,
@@ -88,7 +90,7 @@ public static class AttackLibrary
         AddAttack(AcidPool);
 
         // ClassicRifle
-        List<AttackStats> ClassicRifleUpgrades = new List<AttackStats>
+        List<AttackStats> ClassicRifleRarity = new List<AttackStats>
         {
             new AttackStats(damage: 5),
             new AttackStats(castTime: -0.5f),
@@ -98,6 +100,15 @@ public static class AttackLibrary
             new AttackStats(projectileSize: 0.75f, shakeStrength: 0.01f),
             new AttackStats(spray: 0.5f),
             new AttackStats(pierce: 1)
+        };
+
+        List<AttackStats> ClassicRifleUpgrades = new List<AttackStats>
+        {
+            AttackStatsLibrary.GetStat("Knockback"),
+            AttackStatsLibrary.GetStat("Damage%"),
+            AttackStatsLibrary.GetStat("Crit Chance")
+
+
         };
 
         AttackBuilder ClassicRifle = new AttackBuilder()
@@ -133,8 +144,10 @@ public static class AttackLibrary
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: AutomaticMuzzleFlash
             )
-            .SetRarityUpgrades(ClassicRifleUpgrades);
-        attackBuilderDictionary.Add("Classic Rifle", ClassicRifle);
+            .SetRarityUpgrades(ClassicRifleRarity)
+            .SetWeaponUpgrades(ClassicRifleUpgrades);
+        AddAttack(ClassicRifle);
+
 
         //double barrel
         List<AttackStats> DoubleBarrelUpgrades = new List<AttackStats>
@@ -183,7 +196,8 @@ public static class AttackLibrary
                 muzzleFlashPrefab: BigMuzzleFlash
             )
             .SetRarityUpgrades(DoubleBarrelUpgrades);
-        attackBuilderDictionary.Add("Double Barrel", DoubleBarrel);
+        AddAttack(DoubleBarrel);
+
 
         //drain scythe
         List<AttackStats> DrainScytheUpgrades = new List<AttackStats>
@@ -229,7 +243,7 @@ public static class AttackLibrary
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/Scythe_01")
             )
             .SetRarityUpgrades(DrainScytheUpgrades);
-        attackBuilderDictionary.Add("Drain Scythe", DrainScythe);
+        AddAttack(DrainScythe);
 
         //earth Shock
         List<AttackStats> EarthShockUpgrades = new List<AttackStats>
@@ -276,7 +290,7 @@ public static class AttackLibrary
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/frog_01")
             )
             .SetRarityUpgrades(EarthShockUpgrades);
-        attackBuilderDictionary.Add("Earth Shock", EarthShock);
+        AddAttack(EarthShock);
 
         //GravityGrab
         List<AttackStats> GravityGrabUpgrades = new List<AttackStats>
@@ -322,7 +336,7 @@ public static class AttackLibrary
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/GrabHand_Dark_01")
             )
             .SetRarityUpgrades(GravityGrabUpgrades);
-        attackBuilderDictionary.Add("Eldritch Grasp", GravityGrab);
+        AddAttack(GravityGrab);
 
         // GatlingGun
         List<AttackStats> GatlingGunUpgrades = new List<AttackStats>
@@ -371,7 +385,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: AutomaticMuzzleFlash
             )
             .SetRarityUpgrades(GatlingGunUpgrades);
-        attackBuilderDictionary.Add("Gatling Gun", GatlingGun);
+        AddAttack(GatlingGun);
 
         //GodHand
         List<AttackStats> GodHandUpgrades = new List<AttackStats>
@@ -417,7 +431,7 @@ public static class AttackLibrary
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/GodHand_01")
             )
             .SetRarityUpgrades(GodHandUpgrades);
-        attackBuilderDictionary.Add("God Hand", GodHand);
+        AddAttack(GodHand);
 
         // ImpactGrenade
         List<AttackStats> ImpactGrenadeUpgrades = new List<AttackStats>
@@ -465,7 +479,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(ImpactGrenadeUpgrades);
-        attackBuilderDictionary.Add("Impact Grenade", ImpactGrenade);
+        AddAttack(ImpactGrenade);
 
         // ImpactMine
         List<AttackStats> ImpactMineUpgrades = new List<AttackStats>
@@ -513,7 +527,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(ImpactMineUpgrades);
-        attackBuilderDictionary.Add("Impact Mine", ImpactMine);
+        AddAttack(ImpactMine);
 
         //ImpactNova
         List<AttackStats> ImpactNovaUpgrades = new List<AttackStats>
@@ -559,7 +573,7 @@ public static class AttackLibrary
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/Nova_01")
             )
             .SetRarityUpgrades(ImpactNovaUpgrades);
-        attackBuilderDictionary.Add("Impact Nova", ImpactNova);
+        AddAttack(ImpactNova);
 
         //LaserBeam
         List<AttackStats> LaserBeamUpgrades = new List<AttackStats>
@@ -605,7 +619,7 @@ public static class AttackLibrary
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/GunFlash5_0")
             )
             .SetRarityUpgrades(LaserBeamUpgrades);
-        attackBuilderDictionary.Add("Laser Beam", LaserBeam);
+        AddAttack(LaserBeam);
 
         // PainWheel
         List<AttackStats> PainWheelUpgrades = new List<AttackStats>
@@ -653,7 +667,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(PainWheelUpgrades);
-        attackBuilderDictionary.Add("Pain Wheel", PainWheel);
+        AddAttack(PainWheel);
 
         //PetrifyGrenade
         List<AttackStats> PetrifyGrenadeUpgrades = new List<AttackStats>
@@ -701,7 +715,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(PetrifyGrenadeUpgrades);
-        attackBuilderDictionary.Add("Petrify Grenade", PetrifyGrenade);
+        AddAttack(PetrifyGrenade);
 
         //PetrifyNova
         List<AttackStats> PetrifyNovaUpgrades = new List<AttackStats>
@@ -747,7 +761,7 @@ public static class AttackLibrary
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/Nova_03")
             )
             .SetRarityUpgrades(PetrifyNovaUpgrades);
-        attackBuilderDictionary.Add("Petrify Nova", PetrifyNova);
+        AddAttack(PetrifyNova);
 
         // Revolver
         List<AttackStats> RevolverUpgrades = new List<AttackStats>
@@ -796,7 +810,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(RevolverUpgrades);
-        attackBuilderDictionary.Add("Revolver", Revolver);
+        AddAttack(Revolver);
 
         //Shotgun
         List<AttackStats> ShotgunUpgrades = new List<AttackStats>
@@ -845,7 +859,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: BigMuzzleFlash
             )
             .SetRarityUpgrades(ShotgunUpgrades);
-        attackBuilderDictionary.Add("Shotgun", Shotgun);
+        AddAttack(Shotgun);
 
         //Shuriken
         List<AttackStats> ShurikenUpgrades = new List<AttackStats>
@@ -893,7 +907,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: BigMuzzleFlash
             )
             .SetRarityUpgrades(ShurikenUpgrades);
-        attackBuilderDictionary.Add("Shuriken", Shuriken);
+        AddAttack(Shuriken);
 
         isInitialized = true;
     }
