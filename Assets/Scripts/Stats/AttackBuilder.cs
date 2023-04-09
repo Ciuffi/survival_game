@@ -108,11 +108,11 @@ public class AttackBuilder
             throw new System.Exception("Projectile is required and cannot be null.");
         }
 
-        if (baseStats == null)
-        {
-            Debug.Log(attackName);
-            throw new System.Exception("BaseStats is required and cannot be null.");
-        }
+        //if (baseStats == null)
+        //{
+            //Debug.Log(attackName);
+            //throw new System.Exception("BaseStats is required and cannot be null.");
+        //}
 
         if (weaponSprite == null)
         {
@@ -140,13 +140,16 @@ public class AttackBuilder
 
     public Attack Build(Rarity rarity)
     {
-        ValidateRequiredFields();
+        //ValidateRequiredFields();
 
-        Attack attack = new Attack();
-        attack.name = attackName;
+        GameObject attackObject = new GameObject(attackName);
+        Attack attack = attackObject.AddComponent<Attack>();
 
         // Set the properties of the Attack component
+        attack.name = attackName;
         attack.projectile = projectile;
+
+        AttackStats baseStats = new AttackStats(attack.baseStats);
         attack.baseStats = baseStats;
 
         if (rarity > 0)

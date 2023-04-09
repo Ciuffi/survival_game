@@ -26,8 +26,9 @@ public static class AttackStatsLibrary
         }
 
         //Value of stats - Individual Weapon -> Wpn Set -> Player 
-        //COMMON
+        
 
+        //Global - All Weapons
         AddStat(
             new AttackStats(
                 damageMultiplier: 0.1f,
@@ -59,6 +60,17 @@ public static class AttackStatsLibrary
          ); ;
 
 
+        //Weapon Set - Automatic
+
+
+        //Weapon Set - Semi-Auto
+
+        //Weapon Set - Shotgun
+        //Weapon Set - Explosive
+        //Weapon Set - Nova
+        //Weapon Set - Melee
+
+        
 
 
         isInitialized = true;
