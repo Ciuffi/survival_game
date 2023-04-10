@@ -54,11 +54,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  name: 
   description: 
-  characterName: Space Marine
+  name: Space Marine
   isLocked: 1
-  maxHealth: 0
+  maxHealth: 55
   health: 55
   speed: 0.033
   pickupRange: 2

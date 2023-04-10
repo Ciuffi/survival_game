@@ -75,7 +75,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         }
 
         // Update the selected character in startRun
-        startBtn.chosenName = stats.characterName;
+        startBtn.chosenName = stats.name;
 
         // Update the text with the selected character's stats
         if (nameText != null)

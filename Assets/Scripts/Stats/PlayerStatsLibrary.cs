@@ -31,7 +31,7 @@ public static class PlayerStatsLibrary
             AddStat(
                 new PlayerCharacterStats(
                     damageMultiplier: 0.1f,
-                    name: "Damage%",
+                    name: "Damage",
                     description: "Increases damage by 10%",
                     icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                     rarity: Rarity.Common

@@ -55,9 +55,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   description: 
-  characterName: 0_Testing
+  name: 0_Testing
   isLocked: 1
-  maxHealth: 0
+  maxHealth: 100
   health: 100
   speed: 0.1
   pickupRange: 3

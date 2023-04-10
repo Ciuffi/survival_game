@@ -105,7 +105,7 @@ public static class AttackLibrary
         List<AttackStats> ClassicRifleUpgrades = new List<AttackStats>
         {
             AttackStatsLibrary.GetStat("Knockback"),
-            AttackStatsLibrary.GetStat("Damage%"),
+            AttackStatsLibrary.GetStat("Damage"),
             AttackStatsLibrary.GetStat("Crit Chance")
 
 
@@ -933,4 +933,6 @@ public static class AttackLibrary
     {
         return attackBuilderDictionary.Values.ToArray();
     }
+
+
 }

@@ -6,7 +6,7 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
 {
     public Sprite icon;
     public string description;
-    public string characterName;
+    public string name;
     public bool isLocked;
 
     // Base stats
@@ -77,6 +77,12 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
     // constructor that takes in a PlayerCharacterStats object and copies its values
     public PlayerCharacterStats(PlayerCharacterStats other)
     {
+        if (other == null)
+        {
+            Debug.LogError("PlayerCharacterStats constructor: other parameter is null");
+            return;
+        }
+
         health = other.health;
         speed = other.speed;
         pickupRange = other.pickupRange;
@@ -186,7 +192,7 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
 
     public string GetUpgradeName()
     {
-        return name;
+        return base.name;
     }
 
     public string GetUpgradeDescription()

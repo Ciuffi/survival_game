@@ -49,8 +49,12 @@ public class AttackHandler : MonoBehaviour
         // Instantiate the weapon prefab based on the name and add it to the player
 
         AttackBuilder weapon = AttackLibrary.GetAttackBuilder(selectedWeaponName);
+        AttackStats wpnBaseStats = weapon.GetBaseStats();
 
-        AddWeapon(weapon.Build((Rarity)selectedWeaponRarity));
+        Attack finalWeapon = weapon.Build((Rarity)selectedWeaponRarity);
+        finalWeapon.baseStats = wpnBaseStats;
+
+        AddWeapon(finalWeapon);
     }
 
     IEnumerator HandleAttackSlider(float castTime)
@@ -145,11 +149,13 @@ public class AttackHandler : MonoBehaviour
     IEnumerator Attack()
     {
         while (true)
-        {
-            attackState = AttackState.Casting;
+        { 
             if (attacks.Count == 0)
                 yield return null;
             Attack currentAttack = attacks[attackIndex];
+
+            attackState = AttackState.Casting;
+          
             WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack
                 .GetComponent<Attack>()
                 .weaponSprite;
@@ -213,8 +219,16 @@ public class AttackHandler : MonoBehaviour
     public void AddWeapon(Attack weapon)
     {
         var newWeapon = Instantiate(weapon, attackContainer.transform);
-        attacks.Add(newWeapon);
         newWeapon.owner = GetComponent<Attacker>();
+        newWeapon.baseStats = weapon.baseStats;
+
+        attacks.Add(newWeapon);
+
+
+        //Debug.Log(weapon.GetComponent<Attack>().baseStats.damage);
+
+        //weapon basestats - exists
+        //newWeapon baseStats - does not exist
     }
 
     public void ResetWeapons()
@@ -242,24 +256,22 @@ public class AttackHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MatchCharacter();
+
+        Transform childTransform = transform.Find("Weapons");
+        attackContainer = childTransform.gameObject;
+
+        LoadSelectedWeapon();
+
         attackIndex = 0;
         attackBar = GameObject.Find("AttackBar").GetComponent<Slider>();
         attackBarImage = attackBar.transform.GetChild(1).GetChild(0).GetComponent<Image>();
         attackBar2 = GameObject.Find("AttackBar2").GetComponent<Slider>();
         attackBarImage2 = attackBar2.transform.GetChild(1).GetChild(0).GetComponent<Image>();
-        attackContainer = new List<Transform>(GetComponentsInChildren<Transform>())
-            .Find(t =>
-            {
-                return t.name == "Weapons";
-            })
-            .gameObject;
-
-        MatchCharacter();
-        LoadSelectedWeapon();
-
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
         WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
         HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
+
 
         StartCoroutine(Attack());
     }

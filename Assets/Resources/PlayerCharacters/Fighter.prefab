@@ -54,11 +54,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  name: 
   description: 
-  characterName: Fighter
+  name: Fighter
   isLocked: 1
-  maxHealth: 0
+  maxHealth: 50
   health: 50
   speed: 0.035
   pickupRange: 2

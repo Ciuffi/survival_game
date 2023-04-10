@@ -54,11 +54,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  name: 
   description: 
-  characterName: Scout
+  name: Scout
   isLocked: 0
-  maxHealth: 0
+  maxHealth: 40
   health: 40
   speed: 0.05
   pickupRange: 3

@@ -16,7 +16,7 @@ public static class WeaponSetUpgradeMap
                     Rarity.Common,
                     new List<AttackStats>
                     {
-                        AttackStatsLibrary.GetStat("Damage%")
+                        AttackStatsLibrary.GetStat("Damage")
                     }
                 },
                 {

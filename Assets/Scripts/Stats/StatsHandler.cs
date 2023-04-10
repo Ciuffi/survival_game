@@ -148,14 +148,14 @@ public class StatsHandler : MonoBehaviour
             level = 1;
             xp = 0;
             nextXp = LevelManager.GetXpToNextLevel(level);
-            currentHealth = stats.maxHealth;
+            currentHealth = baseStats.maxHealth;
             foreach (Transform trans in StatContainer.transform)
             {
                 Destroy(trans.gameObject);
             }
             healthBarQueue.EmptyQueue();
             healthBarQueue.AddToQueue(
-                BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth)
+                BarHelper.ForceUpdateBar(healthBar, currentHealth, baseStats.maxHealth)
             );
             LevelManager.ResetXP();
         }
@@ -164,10 +164,10 @@ public class StatsHandler : MonoBehaviour
     public void AddStat(PlayerCharacterStats stat)
     {
         Instantiate(stat, StatContainer.transform);
-        CalculateStats();
+        CalculatePlayerStats();
     }
 
-    public void CalculateStats()
+    public void CalculatePlayerStats()
     {
         ResetStats(false);
 
@@ -185,11 +185,14 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue.AddToQueue(
             BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth)
         );
+
         CalculateWeaponStats(weaponsList);
     }
 
     void Start()
     {
+        MatchCharacter();
+
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
         OGMaterial = spriteRend.material;
         Camera = GameObject.FindWithTag("MainCamera");
@@ -204,8 +207,7 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue.StartQueue();
         healthColor = healthBar.fillRect.GetComponent<Image>().color;
 
-        MatchCharacter();
-        CalculateStats();
+        CalculatePlayerStats();
     }
 
     private void CalculateWeaponStats(GameObject prefab)
@@ -213,6 +215,7 @@ public class StatsHandler : MonoBehaviour
         // Get all child game objects of the prefab
         foreach (Transform child in prefab.transform)
         {
+            Debug.Log(prefab.name);
             // Check if the child game object has an attached Attack script
             Attack attackScript = child.gameObject.GetComponent<Attack>();
             if (attackScript != null)

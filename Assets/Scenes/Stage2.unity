@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1485973213}
-  killTracker: {fileID: 0}
+  killTracker: {fileID: 1500825251}
   goldTracker: {fileID: 1996377584}
   timeSurvived: 
   enemiesKilled: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   weaponNames: []
   weaponDamage: []
   attacks: {fileID: 1821778121}
+  playerData: {fileID: 0}
 --- !u!1001 &183399118
 PrefabInstance:
   m_ObjectHideFlags: 0

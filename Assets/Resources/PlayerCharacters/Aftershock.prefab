@@ -54,11 +54,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  name: Aftershock
   description: 
-  characterName: Aftershock
+  name: Aftershock
   isLocked: 1
-  maxHealth: 0
+  maxHealth: 40
   health: 40
   speed: 0.038
   pickupRange: 2

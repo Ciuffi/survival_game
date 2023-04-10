@@ -140,17 +140,17 @@ public class AttackBuilder
 
     public Attack Build(Rarity rarity)
     {
-        //ValidateRequiredFields();
+        this.baseStats = new AttackStats(baseStats);
 
+        //ValidateRequiredFields();
         GameObject attackObject = new GameObject(attackName);
+
         Attack attack = attackObject.AddComponent<Attack>();
+        attack.baseStats = baseStats;
 
         // Set the properties of the Attack component
         attack.name = attackName;
         attack.projectile = projectile;
-
-        AttackStats baseStats = new AttackStats(attack.baseStats);
-        attack.baseStats = baseStats;
 
         if (rarity > 0)
         {
@@ -175,6 +175,8 @@ public class AttackBuilder
         attack.muzzleFlashYOffset = muzzleFlashYOffset;
         attack.weaponUpgrades = weaponUpgrades;
         attack.weaponSetType = weaponSetType;
+
+        
         return attack;
     }
 
@@ -186,5 +188,10 @@ public class AttackBuilder
     public string GetAttackName()
     {
         return attackName;
+    }
+
+    public AttackStats GetBaseStats()
+    {
+        return baseStats;
     }
 }

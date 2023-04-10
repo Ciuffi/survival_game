@@ -59,9 +59,10 @@ public class Attack : MonoBehaviour, Upgrade
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
         upgradeContainer = Instantiate(new GameObject("attack_upgrades"), transform).transform;
         CalculateStats();
-        Debug.Log(
-            $"Upgrades: Damage: {baseStats.damage}, CastTime: {baseStats.castTime}, CritChance: {baseStats.critChance}, ShotsPerAttack: {baseStats.shotsPerAttack}, ShotgunSpread: {baseStats.shotgunSpread}, ProjectileSize: {baseStats.projectileSize}, Range: {baseStats.range}, Knockback: {baseStats.knockback}"
-        );
+
+        //Debug.Log(
+        //$"Upgrades: Damage: {baseStats.damage}, CastTime: {baseStats.castTime}, CritChance: {baseStats.critChance}, ShotsPerAttack: {baseStats.shotsPerAttack}, ShotgunSpread: {baseStats.shotgunSpread}, ProjectileSize: {baseStats.projectileSize}, Range: {baseStats.range}, Knockback: {baseStats.knockback}"
+        //);
     }
 
     public void OnDamageDealt(float damage)
@@ -71,38 +72,49 @@ public class Attack : MonoBehaviour, Upgrade
 
     private void Update()
     {
-        if (attackType == AttackTypes.Shotgun)
+        if (stats != null)
         {
-            stats.attackTime = stats.multicastTimes * stats.multicastWaitTime;
-        }
-        else if (attackType == AttackTypes.Melee)
-        {
-            stats.attackTime =
-                (stats.comboLength - 1) * stats.comboWaitTime
-                + stats.shotsPerAttackMelee * stats.spread
-                + stats.multicastTimes * stats.multicastWaitTime;
-            // Add the definition for Melee attack type
-        }
-        else
-        {
-            stats.attackTime =
-                stats.spread * stats.shotsPerAttack
-                + stats.multicastTimes * stats.multicastWaitTime;
+            if (attackType == AttackTypes.Shotgun)
+            {
+                stats.attackTime = stats.multicastTimes * stats.multicastWaitTime;
+            }
+            else if (attackType == AttackTypes.Melee)
+            {
+                stats.attackTime =
+                    (stats.comboLength - 1) * stats.comboWaitTime
+                    + stats.shotsPerAttackMelee * stats.spread
+                    + stats.multicastTimes * stats.multicastWaitTime;
+                // Add the definition for Melee attack type
+            }
+            else
+            {
+                stats.attackTime =
+                    stats.spread * stats.shotsPerAttack
+                    + stats.multicastTimes * stats.multicastWaitTime;
+            }
+
         }
     }
 
     public void CalculateStats()
     {
         AttackStats[] upgrades = upgradeContainer.GetComponentsInChildren<AttackStats>();
-        if (upgrades != null)
+
+        if (upgrades.Length > 0)
         {
+            Debug.Log("yes upgrades");
             stats = new AttackStats(baseStats).mergeInStats(upgrades);
         }
         else
         {
+            Debug.Log("no upgrades");
             stats = new AttackStats(baseStats);
+            Debug.Log(stats.damage);
         }
 
+        // Debug.Log(baseStats.damage);
+
+        Debug.Log("merge stats");
         //Merge in the player stats
         stats.MergeInPlayerStats(Player.GetComponent<StatsHandler>().stats);
     }
@@ -281,7 +293,6 @@ public class Attack : MonoBehaviour, Upgrade
                 p2.attack = this;
                 p2.transform.localScale = new Vector3(scale, scale, scale);
                 p2.transform.rotation = backwardRotation;
-                print("bullet Backward direction: " + p2.transform.rotation);
 
                 // Calculate the position of the backward bullet based on the updated direction
                 Vector3 backwardPosition = position - direction / 2;
