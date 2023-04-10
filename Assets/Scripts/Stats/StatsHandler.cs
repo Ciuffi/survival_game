@@ -142,6 +142,7 @@ public class StatsHandler : MonoBehaviour
     public void ResetStats(bool fullReset)
     {
         stats = new PlayerCharacterStats(baseStats);
+        currentHealth = stats.health;
 
         if (fullReset)
         {
@@ -180,10 +181,11 @@ public class StatsHandler : MonoBehaviour
         }
 
         GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed, 0.038f); //change second value to be the default
-        if (currentHealth > stats.maxHealth)
-            currentHealth = stats.maxHealth;
+
+        if (currentHealth > stats.health)
+            currentHealth = stats.health;
         healthBarQueue.AddToQueue(
-            BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth)
+            BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.health)
         );
 
         CalculateWeaponStats(weaponsList);

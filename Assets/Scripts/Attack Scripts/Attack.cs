@@ -109,14 +109,15 @@ public class Attack : MonoBehaviour, Upgrade
         {
             Debug.Log("no upgrades");
             stats = new AttackStats(baseStats);
-            Debug.Log(stats.damage);
         }
 
-        // Debug.Log(baseStats.damage);
-
         Debug.Log("merge stats");
-        //Merge in the player stats
-        stats.MergeInPlayerStats(Player.GetComponent<StatsHandler>().stats);
+
+        if (Player.GetComponent<StatsHandler>().stats != null)
+        {
+            //Merge in the player stats
+            stats.MergeInPlayerStats(Player.GetComponent<StatsHandler>().stats);
+        }
     }
 
     private void rollMulticast()

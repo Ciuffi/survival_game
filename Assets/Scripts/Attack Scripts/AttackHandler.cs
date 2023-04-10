@@ -49,10 +49,7 @@ public class AttackHandler : MonoBehaviour
         // Instantiate the weapon prefab based on the name and add it to the player
 
         AttackBuilder weapon = AttackLibrary.GetAttackBuilder(selectedWeaponName);
-        AttackStats wpnBaseStats = weapon.GetBaseStats();
-
         Attack finalWeapon = weapon.Build((Rarity)selectedWeaponRarity);
-        finalWeapon.baseStats = wpnBaseStats;
 
         AddWeapon(finalWeapon);
     }
