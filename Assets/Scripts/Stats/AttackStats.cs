@@ -15,7 +15,6 @@ public class AttackStats : MonoBehaviour, Upgrade
     public float critDmg;
 
     public float castTime;
-    public float attackTime;
     public float recoveryTime;
     public float knockback;
 

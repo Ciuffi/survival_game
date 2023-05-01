@@ -17,6 +17,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     public Effect effect;
     public AttackTypes attackType;
+    public float attackTime;
     public Attacker owner;
     GameObject Player;
     GameObject Camera;
@@ -24,8 +25,7 @@ public class Attack : MonoBehaviour, Upgrade
     private int attackAnimState = 0;
 
     public Sprite weaponSprite;
-    public bool isAutoAim;
-    public GameObject AutoAim;
+    public WpnSpriteRotation weaponContainer;
 
     public GameObject thrownWeapon;
     public Sprite thrownSprite;
@@ -58,6 +58,7 @@ public class Attack : MonoBehaviour, Upgrade
         Player = GameObject.FindWithTag("Player");
         VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
         upgradeContainer = Instantiate(new GameObject("attack_upgrades"), transform).transform;
+        weaponContainer = FindObjectOfType<WpnSpriteRotation>();
         CalculateStats();
 
         //Debug.Log(
@@ -72,28 +73,7 @@ public class Attack : MonoBehaviour, Upgrade
 
     private void Update()
     {
-        if (stats != null)
-        {
-            if (attackType == AttackTypes.Shotgun)
-            {
-                stats.attackTime = stats.multicastTimes * stats.multicastWaitTime;
-            }
-            else if (attackType == AttackTypes.Melee)
-            {
-                stats.attackTime =
-                    (stats.comboLength - 1) * stats.comboWaitTime
-                    + stats.shotsPerAttackMelee * stats.spread
-                    + stats.multicastTimes * stats.multicastWaitTime;
-                // Add the definition for Melee attack type
-            }
-            else
-            {
-                stats.attackTime =
-                    stats.spread * stats.shotsPerAttack
-                    + stats.multicastTimes * stats.multicastWaitTime;
-            }
-
-        }
+        
     }
 
     public void CalculateStats()
@@ -117,6 +97,26 @@ public class Attack : MonoBehaviour, Upgrade
         {
             //Merge in the player stats
             stats.MergeInPlayerStats(Player.GetComponent<StatsHandler>().stats);
+        }
+
+        //update attackTime
+        if (attackType == AttackTypes.Shotgun)
+        {
+            attackTime = stats.multicastTimes * stats.multicastWaitTime;
+        }
+        else if (attackType == AttackTypes.Melee)
+        {
+            attackTime =
+                (stats.comboLength - 1) * stats.comboWaitTime
+                + stats.shotsPerAttackMelee * stats.spread
+                + stats.multicastTimes * stats.multicastWaitTime;
+            // Add the definition for Melee attack type
+        }
+        else
+        {
+            attackTime =
+                stats.spread * stats.shotsPerAttack
+                + stats.multicastTimes * stats.multicastWaitTime;
         }
     }
 
@@ -170,9 +170,9 @@ public class Attack : MonoBehaviour, Upgrade
             SpawnBulletCasing();
             Player.GetComponent<AttackHandler>().triggerRecoil();
 
-            Quaternion rotation = owner.GetTransform().rotation;
-            Vector3 position = owner.GetTransform().position;
-            Vector3 direction = owner.GetDirection();
+            Quaternion rotation = weaponContainer.GetTransform().rotation;
+            Vector3 position = weaponContainer.GetTransform().position;
+            Vector3 direction = weaponContainer.GetDirection();
 
             if (!stats.shootOppositeSide) //only shoots forward
             {
@@ -337,9 +337,9 @@ public class Attack : MonoBehaviour, Upgrade
         float angle = 0;
         int shotsLeft = stats.shotsPerAttack;
         spacer = stats.shotgunSpread / (stats.shotsPerAttack - 1);
-        Vector3 position = owner.GetTransform().position;
-        Vector3 direction = owner.GetDirection();
-        Quaternion rotation = owner.GetTransform().rotation;
+        Quaternion rotation = weaponContainer.GetTransform().rotation;
+        Vector3 position = weaponContainer.GetTransform().position;
+        Vector3 direction = weaponContainer.GetDirection();
 
         if (numMulticast >= 1 && !firstShot)
         {
@@ -648,9 +648,9 @@ public class Attack : MonoBehaviour, Upgrade
         for (int i = 0; i < stats.comboLength; i++)
         {
             Player.GetComponent<AttackHandler>().triggerWpnOff();
-            Vector3 position = owner.GetTransform().position;
-            Vector3 direction = owner.GetDirection();
-            Quaternion rotation = owner.GetTransform().rotation;
+            Quaternion rotation = weaponContainer.GetTransform().rotation;
+            Vector3 position = weaponContainer.GetTransform().position;
+            Vector3 direction = weaponContainer.GetDirection();
 
             float perAttackScaling = 1 + (stats.comboAttackBuff * i);
 
@@ -994,11 +994,11 @@ public class Attack : MonoBehaviour, Upgrade
 
         // Instantiate the selected MuzzleFlashPrefab at the specified position
         Vector3 spawnPosition =
-            transform.position + new Vector3(muzzleFlashXOffset, muzzleFlashYOffset, 0f);
+            weaponContainer.GetTransform().position + new Vector3(muzzleFlashXOffset, muzzleFlashYOffset, 0f);
 
         GameObject MuzzleFlash = Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
 
-        Quaternion rotation = owner.GetTransform().rotation;
+        Quaternion rotation = weaponContainer.GetTransform().rotation;
         MuzzleFlash.transform.rotation = rotation;
     }
 
@@ -1015,7 +1015,7 @@ public class Attack : MonoBehaviour, Upgrade
             float yModifier = Random.Range(-0.5f, 0.1f);
 
             // Calculate position for the new object
-            Vector3 spawnPosition = transform.position + new Vector3(xModifier, yModifier, 0f);
+            Vector3 spawnPosition = weaponContainer.transform.position + new Vector3(xModifier, yModifier, 0f);
 
             // Instantiate the new object
             GameObject newBulletCasing = Instantiate(

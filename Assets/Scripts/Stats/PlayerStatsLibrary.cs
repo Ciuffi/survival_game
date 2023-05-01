@@ -7,15 +7,33 @@ public static class PlayerStatsLibrary
     private static Dictionary<string, PlayerCharacterStats> PlayerStatsLibraryMap =
         new Dictionary<string, PlayerCharacterStats>();
     private static bool isInitialized = false;
+    private static List<GameObject> statGameObjects = new List<GameObject>();
 
-    static PlayerStatsLibrary()
+    public static void CreateStatGameObjects()
     {
-        InitializeLibrary();
+        foreach (PlayerCharacterStats stat in getStats())
+        {
+            GameObject statObject = new GameObject(stat.name);
+            statObject.AddComponent<StatComponent>().stat = stat;
+            statGameObjects.Add(statObject);
+        }
     }
+
+    public static List<GameObject> GetStatGameObjects()
+    {
+        return statGameObjects;
+    }
+    
 
     private static void AddStat(PlayerCharacterStats stat)
     {
         PlayerStatsLibraryMap.Add(stat.name, stat);
+    }
+
+    static PlayerStatsLibrary()
+    {
+        InitializeLibrary();
+        CreateStatGameObjects();
     }
 
     public static void InitializeLibrary()
@@ -138,4 +156,10 @@ public static class PlayerStatsLibrary
     {
         return PlayerStatsLibraryMap.Values.ToArray();
     }
+
+}
+
+public class StatComponent : MonoBehaviour
+{
+    public PlayerCharacterStats stat;
 }

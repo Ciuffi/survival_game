@@ -7,10 +7,28 @@ public static class AttackStatsLibrary
     private static Dictionary<string, AttackStats> AttackStatsLibraryMap =
         new Dictionary<string, AttackStats>();
     private static bool isInitialized = false;
+    private static List<GameObject> attackStatGameObjects = new List<GameObject>();
+
+    public static void CreateStatGameObjects()
+    {
+        foreach (AttackStats stat in GetStats())
+        {
+            GameObject statObject = new GameObject(stat.name);
+            statObject.AddComponent<AttackStatComponent>().stat = stat;
+            attackStatGameObjects.Add(statObject);
+        }
+    }
+
+    public static List<GameObject> GetStatGameObjects()
+    {
+        return attackStatGameObjects;
+    }
+
 
     static AttackStatsLibrary()
     {
         InitializeLibrary();
+        CreateStatGameObjects();
     }
 
     private static void AddStat(AttackStats stat)
@@ -56,6 +74,7 @@ public static class AttackStatsLibrary
                  description: "Increases knockback by 10%",
                  icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                  rarity: Rarity.Common
+                
              )
          ); ;
 
@@ -103,4 +122,8 @@ public static class AttackStatsLibrary
 
         return AttackStatsLibraryMap.Values.ToArray();
     }
+}
+public class AttackStatComponent : MonoBehaviour
+{
+    public AttackStats stat;
 }

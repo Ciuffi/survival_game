@@ -162,8 +162,6 @@ public class AttackBuilder
         attack.effect = effect;
         attack.attackType = attackType;
         attack.weaponSprite = weaponSprite;
-        attack.isAutoAim = isAutoAim;
-        attack.AutoAim = autoAim;
         if (thrownWeapon != null)
         {
             attack.thrownWeapon = thrownWeapon;
@@ -175,8 +173,26 @@ public class AttackBuilder
         attack.muzzleFlashYOffset = muzzleFlashYOffset;
         attack.weaponUpgrades = weaponUpgrades;
         attack.weaponSetType = weaponSetType;
-
         
+        if (attackType == AttackTypes.Shotgun)
+        {
+            attack.attackTime = attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
+        }
+        else if (attackType == AttackTypes.Melee)
+        {
+            attack.attackTime =
+                (attack.baseStats.comboLength - 1) * attack.baseStats.comboWaitTime
+                + attack.baseStats.shotsPerAttackMelee * attack.baseStats.spread
+                + attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
+            // Add the definition for Melee attack type
+        }
+        else
+        {
+            attack.attackTime =
+                attack.baseStats.spread * attack.baseStats.shotsPerAttack
+                + attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
+        }
+
         return attack;
     }
 

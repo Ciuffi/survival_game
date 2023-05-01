@@ -11,7 +11,8 @@ public class AttackHandler : MonoBehaviour
     public bool usingAttackBar;
     private GameObject attackContainer;
     private int attackIndex;
-    public GameObject WeaponSprite;
+    public GameObject WeaponPrefab;
+    public SpriteRenderer WeaponSprite;
     public GameObject WeaponOutline;
     public GameObject HandsSprite;
 
@@ -125,7 +126,7 @@ public class AttackHandler : MonoBehaviour
 
     public void triggerRecoil()
     {
-        WeaponSprite.GetComponent<WpnSpriteRecoil>().Recoil();
+        WeaponPrefab.GetComponent<WpnSpriteRecoil>().Recoil();
     }
 
     public void triggerWpnOff()
@@ -156,7 +157,7 @@ public class AttackHandler : MonoBehaviour
             WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack
                 .GetComponent<Attack>()
                 .weaponSprite;
-            WeaponOutline.GetComponent<SpriteRenderer>().sprite = currentAttack
+            WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack
                 .GetComponent<Attack>()
                 .weaponSprite;
 
@@ -167,7 +168,7 @@ public class AttackHandler : MonoBehaviour
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
             WeaponOutline.GetComponent<SpriteRenderer>().enabled = true;
             HandsSprite.GetComponent<SpriteRenderer>().enabled = false;
-            WeaponSprite.GetComponent<Collider2D>().enabled = false;
+            WeaponPrefab.GetComponent<Collider2D>().enabled = false;
 
             //casting
             attackBar.fillRect.gameObject.SetActive(true);
@@ -184,7 +185,8 @@ public class AttackHandler : MonoBehaviour
             if (currentAttack != null)
                 currentAttack.Shoot();
 
-            yield return new WaitForSeconds(currentAttack.stats.attackTime);
+            yield return new WaitForSeconds(currentAttack.attackTime);
+            Debug.Log(currentAttack.attackTime);
 
             //recovering
             attackState = AttackState.Recovery;
@@ -200,7 +202,7 @@ public class AttackHandler : MonoBehaviour
             HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
             WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
-            WeaponSprite.GetComponent<Collider2D>().enabled = true;
+            WeaponPrefab.GetComponent<Collider2D>().enabled = true;
 
             if (currentAttack.thrownWeapon != null)
             {

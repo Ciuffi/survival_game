@@ -17,6 +17,7 @@ public static class WeaponSetUpgradeMap
                     new List<AttackStats>
                     {
                         AttackStatsLibrary.GetStat("Damage")
+
                     }
                 },
                 {

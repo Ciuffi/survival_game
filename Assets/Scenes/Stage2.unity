@@ -344,6 +344,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1423453834646843856, guid: e13af86631cb82041a6abdf778674844, type: 3}
   m_PrefabInstance: {fileID: 1626391780}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &221614525 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5986871745131357339, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+  m_PrefabInstance: {fileID: 1241507385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &264429786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -929,9 +934,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7313015712638807195}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: WeaponSprite
+      propertyPath: WeaponPrefab
       value: 
       objectReference: {fileID: 1481340767}
+    - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: WeaponSprite
+      value: 
+      objectReference: {fileID: 1822065884}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: WeaponOutline
       value: 
@@ -999,6 +1008,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5e6fc318430eae45b973b7e934ee310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1241507387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4022258243164444733, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+  m_PrefabInstance: {fileID: 1241507385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731126406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e7e2f4de7546d49912a751a29c0a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1272112043
@@ -1165,6 +1185,10 @@ PrefabInstance:
       propertyPath: spawnRateLimit_G6
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1241507387}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: uiCamera
       value: 
@@ -1534,6 +1558,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3287956671689121398, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
   m_PrefabInstance: {fileID: 1241507385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1822065884 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8324714041508379344, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+  m_PrefabInstance: {fileID: 7313015712638807194}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1851761000
 PrefabInstance:
@@ -2177,6 +2206,10 @@ PrefabInstance:
       propertyPath: onClickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MenuReset
       objectReference: {fileID: 0}
+    - target: {fileID: 1098140728286368306, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1098140728325287417, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2602,9 +2635,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7313015711702768634, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
-      propertyPath: weapon
+      propertyPath: player
       value: 
       objectReference: {fileID: 1731126406}
+    - target: {fileID: 7313015711702768634, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1821778121}
     - target: {fileID: 7313015711702768635, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: m_Color.b
       value: 0.9411765
@@ -2617,6 +2654,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.9411765
       objectReference: {fileID: 0}
+    - target: {fileID: 7313015712638807207, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: rangeVisualizerSprite
+      value: 
+      objectReference: {fileID: 221614525}
     - target: {fileID: 7318568193167111031, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: m_BodyType
       value: 2

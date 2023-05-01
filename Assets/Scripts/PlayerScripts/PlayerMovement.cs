@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour, Attacker
     private float animSpeed;
 
     public Animator animator;
-    public GameObject WeaponSprite;
 
     public GameObject afterimage;
     public Animator afterimageAnim;
@@ -62,7 +61,6 @@ public class PlayerMovement : MonoBehaviour, Attacker
         );
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
         direction = VJ.InputDirection;
-        WeaponSprite.GetComponent<WpnSpriteRotation>().InputXY(x, y);
     }
 
     // Update the move speed

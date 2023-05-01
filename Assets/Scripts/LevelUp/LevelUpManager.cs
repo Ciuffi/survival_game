@@ -17,8 +17,9 @@ public class LevelUpManager : MonoBehaviour
     private GameObject panel;
     public AttackBuilder[] weaponBuilders;
     public Upgrade[] weapons;
-    public Upgrade[] stats;
-    public Upgrade[] weaponStats;
+    public List<GameObject> playerStatUpgrades;
+    public List<GameObject> weaponStatUpgrades;
+    public List<GameObject> wpnSetUpgrades;
     public List<GameObject> upgrades;
     public bool isWeapon = false;
     private List<GameObject> previousUpgrades = new List<GameObject>();
@@ -112,9 +113,8 @@ public class LevelUpManager : MonoBehaviour
         }
         else
         {
-            upgrades = new List<GameObject>(
-                stats.Select(s => s.GetTransform().gameObject).ToList()
-            );
+            upgrades = new List<GameObject>(playerStatUpgrades);
+
             upgrades.AddRange(GetAttackStats().Select(s => s.GetTransform().gameObject).ToList());
             upgrades.AddRange(
                 getAttackSetStats().Select(s => s.GetTransform().gameObject).ToList()
@@ -139,7 +139,7 @@ public class LevelUpManager : MonoBehaviour
                     u.GetComponentInChildren<TMP_Text>().text = GO.name;
                     u.transform.Find("Image").GetComponent<Image>().enabled = true;
                     u.transform.Find("Image").GetComponent<Image>().sprite =
-                        GO.GetComponent<Upgrade>().GetUpgradeIcon();
+                        GO.GetComponent<PlayerCharacterStats>().icon;
                     TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
                     textComponents[1].text = "";
                 }
@@ -209,7 +209,9 @@ public class LevelUpManager : MonoBehaviour
         panel = GameObject.Find("UpgradeContainer");
         upgradeWindows = new List<UpgradeHandler>(GameObject.FindObjectsOfType<UpgradeHandler>());
         weaponBuilders = AttackLibrary.getAttackBuilders();
-        stats = PlayerStatsLibrary.getStats();
+        playerStatUpgrades = PlayerStatsLibrary.GetStatGameObjects();
+        weaponStatUpgrades = AttackStatsLibrary.GetStatGameObjects();
+
         hasRolled = false;
         xpColor = xpBar.fillRect.GetComponent<Image>().color;
         panel.SetActive(false);
