@@ -78,7 +78,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1618112087
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 906
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4487688929921643103
@@ -186,17 +186,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 4487688929921643103}
-  moveSpeed: 2.8
-  slowSpeed: 2.5
-  disappearTimer: 0.6
-  disappearSpeed: 3
+  moveSpeed: 1
+  slowSpeed: 2.8
+  disappearTimer: 0.5
+  disappearSpeed: 4.5
   textColor: {r: 1, g: 1, b: 1, a: 1}
-  scaleUpAmount: 0.25
-  scaleDownAmount: 0.15
-  baseFontSize: 50
+  scaleUpAmount: 0.3
+  scaleDownAmount: 0.2
+  baseFontSize: 60
   maxFontSize: 500
   critScaleUpPercent: 1.4
-  defaultDamageSize: 10
-  damageScaleAmount: 2
-  upScaleIncrement: 5
+  defaultDamageSize: 5
+  damageScaleAmount: 3
+  upScaleIncrement: 2
   downScaleIncrement: 2
