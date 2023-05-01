@@ -98,7 +98,7 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 10),
             new AttackStats(spread: -0.04f),
             new AttackStats(projectileSize: 0.75f, shakeStrength: 0.01f),
-            new AttackStats(spray: 0.5f),
+            new AttackStats(spray: 1f),
             new AttackStats(pierce: 1)
         };
 
@@ -114,14 +114,15 @@ public static class AttackLibrary
         AttackBuilder ClassicRifle = new AttackBuilder()
             .SetAttackName("Classic Rifle")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet"))
+            .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
                     damage: 6,
                     spread: 0.085f,
-                    spray: 1.2f,
+                    spray: 2f,
                     castTime: 2.1f,
                     range: 7f,
-                    shotsPerAttack: 20,
+                    shotsPerAttack: 15,
                     speed: 0.17f,
                     knockback: 0.55f,
                     pierce: 0,
@@ -165,6 +166,7 @@ public static class AttackLibrary
         AttackBuilder DoubleBarrel = new AttackBuilder()
             .SetAttackName("Double Barrel")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_wide"))
+                        .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
                     damage: 9,
@@ -214,6 +216,7 @@ public static class AttackLibrary
         AttackBuilder DrainScythe = new AttackBuilder()
             .SetAttackName("Drain Scythe")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/DrainScythe"))
+                                    .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     damage: 4,
@@ -260,6 +263,7 @@ public static class AttackLibrary
         AttackBuilder EarthShock = new AttackBuilder()
             .SetAttackName("Earth Shock")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Frogger"))
+                                    .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     damage: 3,
@@ -307,6 +311,7 @@ public static class AttackLibrary
         AttackBuilder GravityGrab = new AttackBuilder()
             .SetAttackName("Eldritch Grasp")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/GravityGrab"))
+                                    .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     damage: 3,
@@ -345,20 +350,21 @@ public static class AttackLibrary
             new AttackStats(castTime: -0.5f),
             new AttackStats(thrownDamage: 8, throwSpeed: 0.4f),
             new AttackStats(shotsPerAttack: 30),
-            new AttackStats(spread: -0.004f, spray: 0.02f),
+            new AttackStats(spread: -0.004f, spray: 0.15f),
             new AttackStats(projectileSize: 0.75f),
-            new AttackStats(speed: 0.15f, spray: 0.04f),
+            new AttackStats(speed: 0.15f, spray: 10f),
             new AttackStats(pierce: 1)
         };
 
         AttackBuilder GatlingGun = new AttackBuilder()
             .SetAttackName("Gatling Gun")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_Tiny"))
+                                    .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
                     damage: 3,
                     spread: 0.018f,
-                    spray: 0.18f,
+                    spray: 10f,
                     castTime: 2.5f,
                     range: 5.5f,
                     shotsPerAttack: 100,
@@ -402,6 +408,7 @@ public static class AttackLibrary
         AttackBuilder GodHand = new AttackBuilder()
             .SetAttackName("God Hand")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/MeleeFist"))
+                                    .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     damage: 12,
@@ -443,12 +450,13 @@ public static class AttackLibrary
             new AttackStats(spread: -0.03f, speed: 0.06f),
             new AttackStats(projectileSize: 0.5f, shakeStrength: 0.15f),
             new AttackStats(knockback: 0.7f, shakeRotation: 0.3f),
-            new AttackStats(range: 2f, pierce: 2)
+            new AttackStats(range: 2f, pierce: 1)
         };
 
         AttackBuilder ImpactGrenade = new AttackBuilder()
             .SetAttackName("Impact Grenade")
-            .SetProjectile(Resources.Load<GameObject>("Projectiles/grenade_impact"))
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_impact"))
+                                    .SetWeaponSetType(WeaponSetType.Explosive)
             .SetBaseStats(
                 new AttackStats(
                     damage: 2,
@@ -466,15 +474,12 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.15f,
                     shakeRotation: 0.1f,
-                    thrownDamage: 0f,
-                    throwSpeed: 0f,
                     projectileSize: 1
                 )
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
                 weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/grenade_frag"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/grenade_frag"),
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
@@ -497,6 +502,8 @@ public static class AttackLibrary
         AttackBuilder ImpactMine = new AttackBuilder()
             .SetAttackName("Impact Mine")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/mine_impact"))
+                                    .SetWeaponSetType(WeaponSetType.Explosive)
+
             .SetBaseStats(
                 new AttackStats(
                     damage: 5,
@@ -544,6 +551,7 @@ public static class AttackLibrary
         AttackBuilder ImpactNova = new AttackBuilder()
             .SetAttackName("Impact Nova")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_impact"))
+                                    .SetWeaponSetType(WeaponSetType.Nova)
             .SetBaseStats(
                 new AttackStats(
                     damage: 13,
@@ -590,6 +598,7 @@ public static class AttackLibrary
         AttackBuilder LaserBeam = new AttackBuilder()
             .SetAttackName("Laser Beam")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/DoubleBeam"))
+                                    .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     damage: 15,
@@ -615,8 +624,8 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/gunFlash1_0"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/GunFlash5_0")
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/gunFlash1_0"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/gunFlash1_0")
             )
             .SetRarityUpgrades(LaserBeamUpgrades);
         AddAttack(LaserBeam);
@@ -637,6 +646,7 @@ public static class AttackLibrary
         AttackBuilder PainWheel = new AttackBuilder()
             .SetAttackName("Pain Wheel")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken"))
+                                    .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
                     damage: 5,
@@ -663,7 +673,7 @@ public static class AttackLibrary
                 attackType: AttackTypes.Projectile,
                 weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/shuriken_02"),
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/shuriken_1_2"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/shuriken_1"),
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(PainWheelUpgrades);
@@ -684,7 +694,8 @@ public static class AttackLibrary
 
         AttackBuilder PetrifyGrenade = new AttackBuilder()
             .SetAttackName("Petrify Grenade")
-            .SetProjectile(Resources.Load<GameObject>("Projectiles/grenade_stun"))
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_stun"))
+                                    .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
                     damage: 1,
@@ -702,15 +713,12 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.05f,
                     shakeRotation: 0.05f,
-                    thrownDamage: 0,
-                    throwSpeed: 0f,
                     projectileSize: 1
                 )
             )
             .SetProperties(
                 attackType: AttackTypes.Shotgun,
                 weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/grenade_shock"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/grenade_shock"),
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
@@ -732,6 +740,7 @@ public static class AttackLibrary
         AttackBuilder PetrifyNova = new AttackBuilder()
             .SetAttackName("Petrify Nova")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_Petrify"))
+                                    .SetWeaponSetType(WeaponSetType.Nova)
             .SetBaseStats(
                 new AttackStats(
                     damage: 2,
@@ -779,6 +788,7 @@ public static class AttackLibrary
         AttackBuilder Revolver = new AttackBuilder()
             .SetAttackName("Revolver")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
+                                    .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
                     damage: 8,
@@ -828,6 +838,7 @@ public static class AttackLibrary
         AttackBuilder Shotgun = new AttackBuilder()
             .SetAttackName("Shotgun")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_wide"))
+                                    .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
                     damage: 9,
@@ -877,6 +888,7 @@ public static class AttackLibrary
         AttackBuilder Shuriken = new AttackBuilder()
             .SetAttackName("Shuriken")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken_small"))
+                                    .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
                     damage: 2,
@@ -903,11 +915,352 @@ public static class AttackLibrary
                 attackType: AttackTypes.Shotgun,
                 weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/shuriken_01"),
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/shuriken_2_2"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/shuriken_2"),
                 muzzleFlashPrefab: BigMuzzleFlash
             )
             .SetRarityUpgrades(ShurikenUpgrades);
         AddAttack(Shuriken);
+
+        // SMG
+        List<AttackStats> SMGRarity = new List<AttackStats>
+        {
+            new AttackStats(damage: 4),
+            new AttackStats(castTime: -0.5f),
+            new AttackStats(range: 1f, speed: 0.05f),
+            new AttackStats(shotsPerAttack: 10),
+            new AttackStats(spread: -0.01f),
+            new AttackStats(projectileSize: 0.75f, shakeRotation: 0.02f),
+            new AttackStats(spray: 25f),
+            new AttackStats(pierce: 1)
+        };
+
+        AttackBuilder SMG = new AttackBuilder()
+            .SetAttackName("SMG")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_SMG"))
+                                    .SetWeaponSetType(WeaponSetType.Automatic)
+            .SetBaseStats(
+                new AttackStats(
+                    damage: 2,
+                    spread: 0.04f,
+                    spray: 25f,
+                    castTime: 1.75f,
+                    range: 5f,
+                    shotsPerAttack: 30,
+                    speed: 0.15f,
+                    knockback: 0.3f,
+                    pierce: 0,
+                    critChance: 0.05f,
+                    critDmg: 1.5f,
+                    multicastWaitTime: 0.25f,
+                    shakeTime: 0.01f,
+                    shakeStrength: 0.01f,
+                    shakeRotation: 0f,
+                    thrownDamage: 6f,
+                    throwSpeed: 0.6f,
+                    projectileSize: 1
+                )
+            )
+            .SetProperties(
+                attackType: AttackTypes.Projectile,
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/smg_01"),
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/SMG_01"),
+                bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
+                muzzleFlashPrefab: AutomaticMuzzleFlash
+            )
+            .SetRarityUpgrades(SMGRarity);
+        AddAttack(SMG);
+
+
+        // Smoke Grenade
+        List<AttackStats> SmokeGrenadeUpgrades = new List<AttackStats>
+        {
+            new AttackStats(damage: 2),
+            new AttackStats(castTime: -0.6f),
+            new AttackStats(projectileSize: 0.25f),
+            new AttackStats(shotsPerAttack: 1),
+            new AttackStats(shotgunSpread: 20f),
+            new AttackStats(range: 1.25f, shakeStrength: 0.1f),
+            new AttackStats(speed: -0.25f, pierce: 5),
+            new AttackStats(knockback: 0.25f)
+        };
+
+        AttackBuilder SmokeGrenade = new AttackBuilder()
+            .SetAttackName("Smoke Grenade")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_slow"))
+                                    .SetWeaponSetType(WeaponSetType.Shotgun)    
+            .SetBaseStats(
+                new AttackStats(
+                    damage: 1,
+                    shotgunSpread: 50f,
+                    castTime: 2.2f,
+                    range: 1.75f,
+                    shotsPerAttack: 3,
+                    speed: 0.8f,
+                    knockback: 0f,
+                    pierce: 3,
+                    critChance: 0.05f,
+                    critDmg: 1.5f,
+                    multicastWaitTime: 0.25f,
+                    shakeTime: 0.05f,
+                    shakeStrength: 0.05f,
+                    shakeRotation: 0.1f,
+                    projectileSize: 1
+                )
+            )
+            .SetProperties(
+                attackType: AttackTypes.Shotgun,
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/grenade_smoke"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/grenade_smoke"),
+                muzzleFlashPrefab: PistolMuzzleFlash
+            )
+            .SetRarityUpgrades(SmokeGrenadeUpgrades);
+        AddAttack(SmokeGrenade);
+
+        // Sniper
+        List<AttackStats> SniperUpgrades = new List<AttackStats>
+        {
+            new AttackStats(damage: 15),
+            new AttackStats(castTime: -0.5f),
+            new AttackStats(critChance: 0.15f),
+            new AttackStats(shotsPerAttack: 1),
+            new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
+            new AttackStats(projectileSize: 0.5f, shakeRotation: 0.1f),
+            new AttackStats(spread: -0.25f, spray: 1.5f),
+            new AttackStats(pierce: 10, shakeTime: 0.05f)
+        };
+
+        AttackBuilder Sniper = new AttackBuilder()
+            .SetAttackName("Sniper Rifle")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_long"))
+                                    .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetBaseStats(
+                new AttackStats(
+                    damage: 25,
+                    spread: 0.6f,
+                    spray: 1f,
+                    sprayThreshold: 1,
+                    castTime: 2f,
+                    range: 8f,
+                    shotsPerAttack: 1,
+                    speed: 0.2f,
+                    knockback: 0.7f,
+                    pierce: 5,
+                    critChance: 0.05f,
+                    critDmg: 1.5f,
+                    multicastWaitTime: 0.25f,
+                    shakeTime: 0.1f,
+                    shakeStrength: 0.4f,
+                    shakeRotation: 0.1f,
+                    thrownDamage: 10f,
+                    throwSpeed: 0.5f,
+                    projectileSize: 1
+                )
+            )
+            .SetProperties(
+                attackType: AttackTypes.Projectile,
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/longshot_02"),
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/LongShotRifle_02"),
+                bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
+                muzzleFlashPrefab: PistolMuzzleFlash
+            )
+            .SetRarityUpgrades(SniperUpgrades);
+        AddAttack(Sniper);
+
+        // SuctionCannon
+        List<AttackStats> SuctionCannonUpgrades = new List<AttackStats>
+        {
+            new AttackStats(damage: 3),
+            new AttackStats(castTime: -0.6f),
+            new AttackStats(speed: -0.008f),
+            new AttackStats(shotsPerAttack: 1),
+            new AttackStats(range: 1.5f),
+            new AttackStats(projectileSize: 0.3f, shakeRotation: 0.1f),
+            new AttackStats(throwSpeed: 5f),
+            new AttackStats(pierce: 50)
+        };
+
+        AttackBuilder SuctionCannon = new AttackBuilder()
+            .SetAttackName("Suction Cannon")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/SuctionCannon_Orb"))
+                                    .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetBaseStats(
+                new AttackStats(
+                    damage: 1,
+                    spread: 1f,
+                    spray: 2f,
+                    sprayThreshold: 1,
+                    castTime: 2.75f,
+                    range: 4f,
+                    shotsPerAttack: 1,
+                    speed: 0.018f,
+                    knockback: 0f,
+                    pierce: 20,
+                    critChance: 0.05f,
+                    critDmg: 1.5f,
+                    multicastWaitTime: 0.25f,
+                    shakeTime: 0.1f,
+                    shakeStrength: 0.1f,
+                    shakeRotation: 0.05f,
+                    thrownDamage: 25f,
+                    throwSpeed: 0.12f,
+                    projectileSize: 1
+                )
+            )
+            .SetProperties(
+                attackType: AttackTypes.Projectile,
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/GravCannon_01"),
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/gravCannon_01"),
+                bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing_Energy"),
+                muzzleFlashPrefab: PistolMuzzleFlash
+            )
+            .SetRarityUpgrades(SuctionCannonUpgrades);
+        AddAttack(SuctionCannon);
+
+
+        // SuctionGrenade
+        List<AttackStats> SuctionGrenadeUpgrades = new List<AttackStats>
+        {
+            new AttackStats(damage: 5),
+            new AttackStats(castTime: -0.6f),
+            new AttackStats(speed: 0.1f, range: 1f),
+            new AttackStats(shotsPerAttack: 1),
+            new AttackStats(spread: -0.3f),
+            new AttackStats(projectileSize: 0.4f, shakeRotation: 0.1f),
+            new AttackStats(knockback: 0.5f, shakeStrength: 0.1f),
+            new AttackStats(pierce: 5)
+        };
+
+        AttackBuilder SuctionGrenade = new AttackBuilder()
+            .SetAttackName("Suction Grenade")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_suction"))
+                                    .SetWeaponSetType(WeaponSetType.Explosive)
+            .SetBaseStats(
+                new AttackStats(
+                    damage: 2,
+                    spread: 0.6f,
+                    castTime: 2.1f,
+                    range: 2f,
+                    shotsPerAttack: 1,
+                    speed: 0.1f,
+                    knockback: 0f,
+                    pierce: 0,
+                    critChance: 0.05f,
+                    critDmg: 1.5f,
+                    multicastWaitTime: 0.25f,
+                    shakeTime: 0.05f,
+                    shakeStrength: 0.05f,
+                    shakeRotation: 0.05f,
+                    projectileSize: 1
+                )
+            )
+            .SetProperties(
+                attackType: AttackTypes.Projectile,
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/grenade_magnet"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/grenade_magnet"),
+                muzzleFlashPrefab: PistolMuzzleFlash
+            )
+            .SetRarityUpgrades(SuctionGrenadeUpgrades);
+        AddAttack(SuctionGrenade);
+
+
+        //SuctionNova
+        List<AttackStats> SuctionNovaUpgrades = new List<AttackStats>
+        {
+            new AttackStats(damage: 7),
+            new AttackStats(castTime: -0.6f),
+            new AttackStats(comboLength: 1, damage: -2),
+            new AttackStats(shotsPerAttack: 1),
+            new AttackStats(meleeSize: 0.3f, shakeRotation: 0.5f),
+            new AttackStats(meleeSpacer: 2.5f),
+            new AttackStats(meleeShotsScaleUp: 0.1f, shakeTime: 0.05f),
+            new AttackStats(thrownDamage: 5, throwSpeed: -0.22f)
+        };
+        AttackBuilder SuctionNova = new AttackBuilder()
+            .SetAttackName("Suction Nova")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_gravity"))
+                                    .SetWeaponSetType(WeaponSetType.Nova)
+            .SetBaseStats(
+                new AttackStats(
+                    damage: 3,
+                    spread: 0.4f,
+                    castTime: 2.5f,
+                    knockback: 0.35f,
+                    critChance: 0.05f,
+                    critDmg: 1.5f,
+                    multicastWaitTime: 0.25f,
+                    comboLength: 1,
+                    comboWaitTime: 0.75f,
+                    meleeShotsScaleUp: 0f,
+                    meleeSpacer: 0f,
+                    meleeSpacerGap: 0f,
+                    shakeTime: 0.1f,
+                    shakeStrength: 0.5f,
+                    shakeRotation: 0.5f,
+                    thrownDamage: 13f,
+                    throwSpeed: 0.6f,
+                    meleeSize: 1
+                )
+            )
+            .SetProperties(
+                attackType: AttackTypes.Melee,
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/nova_02"),
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Nova_02")
+            )
+            .SetRarityUpgrades(SuctionNovaUpgrades);
+        AddAttack(SuctionNova);
+
+
+        //WindBlade
+        List<AttackStats> WindBladeUpgrades = new List<AttackStats>
+        {
+            new AttackStats(damage: 4),
+            new AttackStats(castTime: -0.5f),
+            new AttackStats(comboWaitTime: -0.075f),
+            new AttackStats(shotsPerAttack: 1, meleeShotsScaleUp: -0.1f),
+            new AttackStats(meleeSize: 0.4f, shakeStrength: 0.04f),
+            new AttackStats(meleeSpacer: 1.25f, meleeSpacerGap: 1.5f),
+            new AttackStats(knockback: 0.4f, shakeRotation: 0.3f),
+            new AttackStats(comboLength: -1, damage: 5, thrownDamage: 5)
+        };
+        AttackBuilder WindBlade = new AttackBuilder()
+            .SetAttackName("Wind Blade")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/KatanaSlash"))
+                                    .SetWeaponSetType(WeaponSetType.Melee)
+            .SetBaseStats(
+                new AttackStats(
+                    damage: 5,
+                    spread: 0.18f,
+                    castTime: 2f,
+                    shotsPerAttackMelee: 0,
+                    knockback: 0.4f,
+                    critChance: 0.05f,
+                    critDmg: 1.5f,
+                    multicastWaitTime: 0.25f,
+                    comboLength: 3,
+                    comboWaitTime: 0.3f,
+                    meleeShotsScaleUp: 0f,
+                    meleeSpacer: 2.5f,
+                    meleeSpacerGap: 2.75f,
+                    shakeTime: 0.08f,
+                    shakeStrength: 0.12f,
+                    shakeRotation: 0.1f,
+                    thrownDamage: 5,
+                    throwSpeed: 0.6f,
+                    meleeSize: 1f
+                )
+            )
+            .SetProperties(
+                attackType: AttackTypes.Melee,
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/katana_02"),
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/katana_02")
+            )
+            .SetRarityUpgrades(WindBladeUpgrades);
+        AddAttack(WindBlade);
 
         isInitialized = true;
     }

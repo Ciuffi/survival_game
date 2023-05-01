@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
     {
         AttackLibrary.InitializeLibrary();
         DontDestroyOnLoad(gameObject); // Make the GameObject persistent
-        LoadInventory();
+        //LoadInventory();
         if (weaponInventory.Count == 0)
         {
             StartingInventory();
@@ -27,8 +27,21 @@ public class PlayerInventory : MonoBehaviour
         AddWeapon(new Weapon("Shotgun", 4, true, 0));
         AddWeapon(new Weapon("Impact Nova", 4, true, 0));
         AddWeapon(new Weapon("Petrify Nova", 4, true, 0));
+        AddWeapon(new Weapon("Suction Nova", 4, true, 0));
         AddWeapon(new Weapon("Drain Scythe", 4, true, 0));
+        AddWeapon(new Weapon("Laser Beam", 2, true, 0));
+        AddWeapon(new Weapon("Pain Wheel", 2, true, 0));
+        AddWeapon(new Weapon("Shuriken", 2, true, 0));
+        AddWeapon(new Weapon("Petrify Grenade", 4, true, 0));
+        AddWeapon(new Weapon("Smoke Grenade", 4, true, 0));
+        AddWeapon(new Weapon("Suction Grenade", 6, true, 0));
+        AddWeapon(new Weapon("Impact Grenade", 6, true, 0));
+        AddWeapon(new Weapon("SMG", 6, true, 0));
         AddWeapon(new Weapon("Revolver", 6, true, 0));
+        AddWeapon(new Weapon("Sniper Rifle", 6, true, 0));
+        AddWeapon(new Weapon("Suction Cannon", 6, true, 0));
+        AddWeapon(new Weapon("Wind Blade", 6, true, 0));
+
     }
 
     private void OnApplicationQuit()
