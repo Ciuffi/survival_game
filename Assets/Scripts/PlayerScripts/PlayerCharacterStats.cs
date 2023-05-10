@@ -25,7 +25,8 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
         shotsPerAttackMelee,
         comboLength;
 
-    public float multicastChance,
+    public float aimRangeAdditive,
+        multicastChance,
         shotgunSpread,
         spreadMultiplier,
         castTimeMultiplier,
@@ -57,6 +58,7 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
         shotsPerAttackMelee += other.shotsPerAttackMelee;
         comboLength += other.comboLength;
 
+        aimRangeAdditive += other.aimRangeAdditive;
         multicastChance += other.multicastChance;
         shotgunSpread += other.shotgunSpread;
         spreadMultiplier += other.spreadMultiplier;
@@ -96,6 +98,7 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
         shotsPerAttackMelee = other.shotsPerAttackMelee;
         comboLength = other.comboLength;
 
+        aimRangeAdditive = other.aimRangeAdditive;
         multicastChance = other.multicastChance;
         shotgunSpread = other.shotgunSpread;
         spreadMultiplier = other.spreadMultiplier;
@@ -126,6 +129,7 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
         int shotsPerAttack = 1,
         int shotsPerAttackMelee = 1,
         int comboLength = 1,
+        float aimRangeAdditive = 1,
         float multicastChance = 0,
         float shotgunSpread = 0,
         float spreadMultiplier = 1,
@@ -159,6 +163,7 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
         this.shotsPerAttackMelee = shotsPerAttackMelee;
         this.comboLength = comboLength;
 
+        this.aimRangeAdditive = aimRangeAdditive;
         this.multicastChance = multicastChance;
         this.shotgunSpread = shotgunSpread;
         this.spreadMultiplier = spreadMultiplier;

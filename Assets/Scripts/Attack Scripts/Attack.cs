@@ -82,16 +82,16 @@ public class Attack : MonoBehaviour, Upgrade
 
         if (upgrades.Length > 0)
         {
-            Debug.Log("yes upgrades");
+            //Debug.Log("yes upgrades");
             stats = new AttackStats(baseStats).mergeInStats(upgrades);
         }
         else
         {
-            Debug.Log("no upgrades");
+            //Debug.Log("no upgrades");
             stats = new AttackStats(baseStats);
         }
 
-        Debug.Log("merge stats");
+        //Debug.Log("merge stats");
 
         if (Player.GetComponent<StatsHandler>().stats != null)
         {

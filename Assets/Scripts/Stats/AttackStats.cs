@@ -8,6 +8,7 @@ public class AttackStats : MonoBehaviour, Upgrade
     public string description;
     public Sprite icon;
 
+    public float aimRange;
     public float damage;
     public bool cantMove = false;
     public bool shootOppositeSide = false;
@@ -54,6 +55,7 @@ public class AttackStats : MonoBehaviour, Upgrade
     public Rarity rarity;
     public float effectDuration;
 
+    public float aimRangeAdditive;
     public float damageMultiplier;
 
     public float castTimeMultiplier;
@@ -86,6 +88,7 @@ public class AttackStats : MonoBehaviour, Upgrade
 
     //Constructor that takes in all the values and sets them to the variables while providing meaningful defaults
     public AttackStats(
+        float aimRange = 0,
         float damage = 0,
         float spread = 0,
         float shotgunSpread = 0,
@@ -125,6 +128,7 @@ public class AttackStats : MonoBehaviour, Upgrade
         Rarity rarity = Rarity.Common,
         float effectDuration = 0,
         float effectMultiplier = 0,
+        float aimRangeAdditive = 0,
         float damageMultiplier = 0,
         float castTimeMultiplier = 0,
         float attackTimeMultiplier = 0,
@@ -152,6 +156,7 @@ public class AttackStats : MonoBehaviour, Upgrade
         Sprite icon = null
     )
     {
+        this.aimRange = aimRange;
         this.damage = damage;
         this.spread = spread;
         this.shotgunSpread = shotgunSpread;
@@ -191,6 +196,7 @@ public class AttackStats : MonoBehaviour, Upgrade
         this.rarity = rarity;
         this.effectDuration = effectDuration;
         this.effectMultiplier = effectMultiplier;
+        this.aimRangeAdditive = aimRangeAdditive;
         this.damageMultiplier = damageMultiplier;
         this.castTimeMultiplier = castTimeMultiplier;
         this.attackTimeMultiplier = attackTimeMultiplier;
@@ -222,6 +228,7 @@ public class AttackStats : MonoBehaviour, Upgrade
     //
     private void FixUpStats()
     {
+        this.aimRange = this.aimRange < 0f ? 0f : this.aimRange;
         this.shotsPerAttack = this.shotsPerAttack < 1 ? 1 : this.shotsPerAttack;
         this.shotsPerAttackMelee = this.shotsPerAttackMelee < 0 ? 0 : this.shotsPerAttackMelee;
         this.comboLength = this.comboLength < 1 ? 1 : this.comboLength;
@@ -284,6 +291,7 @@ public class AttackStats : MonoBehaviour, Upgrade
 
     public void mergeInStats(AttackStats attackStats)
     {
+        this.aimRange += attackStats.aimRange;
         this.damage += attackStats.damage;
         this.spread += attackStats.spread;
         this.shotgunSpread += attackStats.shotgunSpread;
@@ -323,6 +331,7 @@ public class AttackStats : MonoBehaviour, Upgrade
         this.rarity = this.rarity.CompareRarity(attackStats.rarity);
         this.effectDuration += attackStats.effectDuration;
         this.effectMultiplier += attackStats.effectMultiplier;
+        this.aimRangeAdditive += attackStats.aimRangeAdditive;
         this.damageMultiplier += attackStats.damageMultiplier;
         this.castTimeMultiplier += attackStats.castTimeMultiplier;
         this.attackTimeMultiplier += attackStats.attackTimeMultiplier;
@@ -349,6 +358,7 @@ public class AttackStats : MonoBehaviour, Upgrade
 
     public AttackStats MergeInPlayerStats(PlayerCharacterStats playerStats)
     {
+        this.aimRangeAdditive += playerStats.aimRangeAdditive;
         this.shotgunSpread += playerStats.shotgunSpread;
         this.shotsPerAttack += playerStats.shotsPerAttack;
         this.shotsPerAttackMelee += playerStats.shotsPerAttackMelee;
@@ -381,6 +391,7 @@ public class AttackStats : MonoBehaviour, Upgrade
         // Iterate through each AttackStats object in the list and merge the values
         foreach (AttackStats attackStats in attackStatsList)
         {
+            mergedAttackStats.aimRange += attackStats.aimRange;
             mergedAttackStats.damage += attackStats.damage;
             mergedAttackStats.spread += attackStats.spread;
             mergedAttackStats.shotgunSpread += attackStats.shotgunSpread;
@@ -420,6 +431,7 @@ public class AttackStats : MonoBehaviour, Upgrade
             mergedAttackStats.rarity = mergedAttackStats.rarity.CompareRarity(attackStats.rarity);
             mergedAttackStats.effectDuration += attackStats.effectDuration;
             mergedAttackStats.effectMultiplier += attackStats.effectMultiplier;
+            mergedAttackStats.aimRangeAdditive += attackStats.aimRangeAdditive;
             mergedAttackStats.damageMultiplier += attackStats.damageMultiplier;
             mergedAttackStats.castTimeMultiplier += attackStats.castTimeMultiplier;
             mergedAttackStats.attackTimeMultiplier += attackStats.attackTimeMultiplier;
@@ -451,6 +463,7 @@ public class AttackStats : MonoBehaviour, Upgrade
     //Copy Constructor
     public AttackStats(AttackStats attackStats)
     {
+        this.aimRange = attackStats.aimRange;
         this.damage = attackStats.damage;
         this.spread = attackStats.spread;
         this.shotgunSpread = attackStats.shotgunSpread;
@@ -490,6 +503,7 @@ public class AttackStats : MonoBehaviour, Upgrade
         this.rarity = attackStats.rarity;
         this.effectDuration = attackStats.effectDuration;
         this.effectMultiplier = attackStats.effectMultiplier;
+        this.aimRangeAdditive = attackStats.aimRangeAdditive;
         this.damageMultiplier = attackStats.damageMultiplier;
         this.castTimeMultiplier = attackStats.castTimeMultiplier;
         this.attackTimeMultiplier = attackStats.attackTimeMultiplier;

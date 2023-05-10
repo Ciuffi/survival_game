@@ -147,6 +147,7 @@ public class AttackBuilder
 
         Attack attack = attackObject.AddComponent<Attack>();
         attack.baseStats = baseStats;
+        attack.stats = baseStats;
 
         // Set the properties of the Attack component
         attack.name = attackName;

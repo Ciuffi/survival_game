@@ -1357,6 +1357,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 837953266}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: AutoAimPrefab
+      value: 
+      objectReference: {fileID: 1481340769}
+    - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: WeaponOutline
       value: 
       objectReference: {fileID: 1056244612}
@@ -1618,6 +1622,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7313015711702768581, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
   m_PrefabInstance: {fileID: 7313015712638807194}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1481340769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7313015712638807207, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+  m_PrefabInstance: {fileID: 7313015712638807194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481340767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c2bac96a0a3ac4baf33a04da6dc89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1517156281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3590323111623112659, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}

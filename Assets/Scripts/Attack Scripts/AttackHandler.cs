@@ -26,6 +26,7 @@ public class AttackHandler : MonoBehaviour
     public Color flashColor;
 
     PlayerCharacterStats characterStats;
+    public AutoAim AutoAimPrefab;
 
     private void MatchCharacter()
     {
@@ -151,7 +152,6 @@ public class AttackHandler : MonoBehaviour
             if (attacks.Count == 0)
                 yield return null;
             Attack currentAttack = attacks[attackIndex];
-
             attackState = AttackState.Casting;
           
             WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack
@@ -163,6 +163,9 @@ public class AttackHandler : MonoBehaviour
 
             //swap animation
             HandsSprite.GetComponent<Animator>().SetBool("IsSwap", true);
+            Debug.Log(currentAttack.stats);
+            AutoAimPrefab.UpdateAimRange(currentAttack.stats.aimRange, currentAttack.stats.aimRangeAdditive);
+
             yield return new WaitForSeconds(0.3f);
             HandsSprite.GetComponent<Animator>().SetBool("IsSwap", false);
             WeaponSprite.GetComponent<SpriteRenderer>().enabled = true;
@@ -186,7 +189,7 @@ public class AttackHandler : MonoBehaviour
                 currentAttack.Shoot();
 
             yield return new WaitForSeconds(currentAttack.attackTime);
-            Debug.Log(currentAttack.attackTime);
+            //Debug.Log(currentAttack.attackTime);
 
             //recovering
             attackState = AttackState.Recovery;
@@ -220,6 +223,7 @@ public class AttackHandler : MonoBehaviour
         var newWeapon = Instantiate(weapon, attackContainer.transform);
         newWeapon.owner = GetComponent<Attacker>();
         newWeapon.baseStats = weapon.baseStats;
+        newWeapon.stats = weapon.stats;
 
         attacks.Add(newWeapon);
 
@@ -259,6 +263,7 @@ public class AttackHandler : MonoBehaviour
 
         Transform childTransform = transform.Find("Weapons");
         attackContainer = childTransform.gameObject;
+        //AutoAimPrefab = FindObjectOfType<AutoAim>();
 
         LoadSelectedWeapon();
 
@@ -272,6 +277,6 @@ public class AttackHandler : MonoBehaviour
         HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
 
 
-        StartCoroutine(Attack());
+        StartCoroutine(Attack());   
     }
 }

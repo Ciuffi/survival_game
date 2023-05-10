@@ -54,8 +54,7 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 1, meleeShotsScaleUp: -0.15f),
             new AttackStats(meleeSize: 0.6f, shakeTime: 0.05f),
             new AttackStats(meleeSpacer: 2.5f),
-            new AttackStats(comboWaitTime: -0.4f),
-            new AttackStats(spread: -0.15f)
+            new AttackStats(aimRangeAdditive: 2f)
         };
 
         AttackBuilder AcidPool = new AttackBuilder()
@@ -64,6 +63,7 @@ public static class AttackLibrary
             .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1,
                     damage: 1,
                     spread: 0.3f,
                     castTime: 2.2f,
@@ -98,7 +98,7 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 10),
             new AttackStats(spread: -0.04f),
             new AttackStats(projectileSize: 0.75f, shakeStrength: 0.01f),
-            new AttackStats(spray: 1f),
+            new AttackStats(aimRangeAdditive: 1.5f),
             new AttackStats(pierce: 1)
         };
 
@@ -117,6 +117,7 @@ public static class AttackLibrary
             .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 2.5f,
                     damage: 6,
                     spread: 0.085f,
                     spray: 2f,
@@ -160,7 +161,8 @@ public static class AttackLibrary
             new AttackStats(shotgunSpread: 40f),
             new AttackStats(projectileSize: 1f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f),
-            new AttackStats(knockback: 1f, shakeTime: 0.05f)
+            new AttackStats(knockback: 1f, shakeTime: 0.05f),
+            new AttackStats(aimRangeAdditive: 2f)
         };
 
         AttackBuilder DoubleBarrel = new AttackBuilder()
@@ -169,6 +171,7 @@ public static class AttackLibrary
                         .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.5f,
                     damage: 9,
                     shotgunSpread: 40f,
                     spray: 0,
@@ -211,7 +214,7 @@ public static class AttackLibrary
             new AttackStats(meleeSize: 0.6f, shakeRotation: 0.5f),
             new AttackStats(meleeSpacer: 2.5f),
             new AttackStats(thrownDamage: 12, throwSpeed: 0.3f),
-            new AttackStats(comboWaitTime: -0.4f, spread: -0.1f)
+            new AttackStats(aimRangeAdditive: 2f)
         };
         AttackBuilder DrainScythe = new AttackBuilder()
             .SetAttackName("Drain Scythe")
@@ -219,6 +222,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.5f,
                     damage: 4,
                     spread: 0.2f,
                     castTime: 2.2f,
@@ -258,7 +262,8 @@ public static class AttackLibrary
             new AttackStats(meleeSize: 0.6f),
             new AttackStats(meleeSpacer: 2.5f),
             new AttackStats(thrownDamage: 12, throwSpeed: 0.3f),
-            new AttackStats(meleeShotsScaleUp: 0.1f, shakeTime: 0.05f)
+            new AttackStats(meleeShotsScaleUp: 0.1f, shakeTime: 0.05f),
+            new AttackStats(aimRangeAdditive: 2f)
         };
         AttackBuilder EarthShock = new AttackBuilder()
             .SetAttackName("Earth Shock")
@@ -266,6 +271,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 2,
                     damage: 3,
                     spread: 0.22f,
                     castTime: 2.1f,
@@ -304,9 +310,10 @@ public static class AttackLibrary
             new AttackStats(comboLength: 1),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(meleeSize: 0.5f),
-            new AttackStats(meleeSpacer: 1f, meleeSpacerGap: 1f),
+            new AttackStats(meleeSpacer: 1.5f, meleeSpacerGap: 1f),
             new AttackStats(knockback: 0.6f, shakeStrength: 0.1f),
-            new AttackStats(meleeShotsScaleUp: 0.15f, shakeTime: 0.05f)
+            new AttackStats(meleeShotsScaleUp: 0.15f, shakeTime: 0.05f),
+            new AttackStats(aimRangeAdditive: 2f)
         };
         AttackBuilder GravityGrab = new AttackBuilder()
             .SetAttackName("Eldritch Grasp")
@@ -314,6 +321,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 2f,
                     damage: 3,
                     spread: 0.3f,
                     castTime: 2f,
@@ -348,12 +356,13 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 4),
             new AttackStats(castTime: -0.5f),
-            new AttackStats(thrownDamage: 8, throwSpeed: 0.4f),
+            new AttackStats(thrownDamage: 8, throwSpeed: -1f),
             new AttackStats(shotsPerAttack: 30),
             new AttackStats(spread: -0.004f, spray: 0.15f),
             new AttackStats(projectileSize: 0.75f),
-            new AttackStats(speed: 0.15f, spray: 10f),
-            new AttackStats(pierce: 1)
+            new AttackStats(speed: 0.15f, spray: 100f),
+            new AttackStats(pierce: 1),
+            new AttackStats(aimRangeAdditive: 2f)
         };
 
         AttackBuilder GatlingGun = new AttackBuilder()
@@ -362,6 +371,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.75f,
                     damage: 3,
                     spread: 0.018f,
                     spray: 10f,
@@ -403,7 +413,7 @@ public static class AttackLibrary
             new AttackStats(meleeSize: 0.5f),
             new AttackStats(meleeSpacer: 1.25f, meleeSpacerGap: 1.5f),
             new AttackStats(knockback: 0.6f, shakeTime: 0.05f, shakeRotation: 0.5f),
-            new AttackStats(meleeShotsScaleUp: 0.3f, shakeTime: 0.05f)
+            new AttackStats(aimRangeAdditive: 2f)
         };
         AttackBuilder GodHand = new AttackBuilder()
             .SetAttackName("God Hand")
@@ -411,6 +421,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.5f,
                     damage: 12,
                     spread: 0.28f,
                     castTime: 2.1f,
@@ -447,10 +458,11 @@ public static class AttackLibrary
             new AttackStats(castTime: -0.6f),
             new AttackStats(castTime: 1f, damage: 10, projectileSize: 0.2f),
             new AttackStats(shotsPerAttack: 1),
-            new AttackStats(spread: -0.03f, speed: 0.06f),
+            new AttackStats(spread: -0.03f, speed: 0.1f),
             new AttackStats(projectileSize: 0.5f, shakeStrength: 0.15f),
             new AttackStats(knockback: 0.7f, shakeRotation: 0.3f),
-            new AttackStats(range: 2f, pierce: 1)
+            new AttackStats(range: 2f, pierce: 1),
+            new AttackStats(aimRangeAdditive: 1.5f)
         };
 
         AttackBuilder ImpactGrenade = new AttackBuilder()
@@ -459,6 +471,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Explosive)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 2f,
                     damage: 2,
                     spread: 0.6f,
                     spray: 0f,
@@ -506,6 +519,7 @@ public static class AttackLibrary
 
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 0.5f,
                     damage: 5,
                     spread: 0.75f,
                     spray: 0f,
@@ -546,7 +560,8 @@ public static class AttackLibrary
             new AttackStats(meleeSize: 0.4f, shakeRotation: 0.5f),
             new AttackStats(meleeSpacer: 2.5f),
             new AttackStats(meleeShotsScaleUp: 0.12f),
-            new AttackStats(thrownDamage: 12, throwSpeed: 0.3f)
+            new AttackStats(thrownDamage: 12, throwSpeed: 0.3f),
+            new AttackStats(aimRangeAdditive: 2f, meleeSpacer: 1.5f)
         };
         AttackBuilder ImpactNova = new AttackBuilder()
             .SetAttackName("Impact Nova")
@@ -554,6 +569,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Nova)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1f,
                     damage: 13,
                     spread: 0.35f,
                     castTime: 2.2f,
@@ -593,7 +609,7 @@ public static class AttackLibrary
             new AttackStats(meleeSize: 0.4f),
             new AttackStats(meleeShotsScaleUp: 0.2f),
             new AttackStats(knockback: 0.8f, shakeTime: 0.05f, shakeRotation: 0.3f),
-            new AttackStats(comboWaitTime: -0.3f, spread: -0.1f)
+            new AttackStats(aimRangeAdditive: 2f)
         };
         AttackBuilder LaserBeam = new AttackBuilder()
             .SetAttackName("Laser Beam")
@@ -601,6 +617,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.75f,
                     damage: 15,
                     spread: 0.3f,
                     castTime: 2.5f,
@@ -639,8 +656,8 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
             new AttackStats(projectileSize: 0.5f, shakeStrength: 0.1f),
-            new AttackStats(range: 3f),
-            new AttackStats(pierce: 50, shakeTime: 0.05f)
+            new AttackStats(range: 2f, aimRangeAdditive: 2f),
+            new AttackStats(pierce: 50, shakeTime: 0.05f),
         };
 
         AttackBuilder PainWheel = new AttackBuilder()
@@ -649,6 +666,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 2f,
                     damage: 5,
                     spread: 0.4f,
                     spray: 0f,
@@ -688,7 +706,7 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotgunSpread: 40f),
             new AttackStats(projectileSize: 0.3f, shakeStrength: 0.2f),
-            new AttackStats(range: 1.5f),
+            new AttackStats(range: 1.5f, aimRangeAdditive: 1.5f),
             new AttackStats(projectileSize: 0.3f, shakeTime: 0.05f)
         };
 
@@ -698,6 +716,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1f,
                     damage: 1,
                     shotgunSpread: 65f,
                     spray: 0,
@@ -733,9 +752,10 @@ public static class AttackLibrary
             new AttackStats(comboLength: 1),
             new AttackStats(shotsPerAttack: 1, damage: -1),
             new AttackStats(meleeSize: 0.5f, shakeRotation: 0.5f),
-            new AttackStats(meleeSpacer: 2.5f),
+            new AttackStats(meleeSpacer: 2f),
             new AttackStats(meleeShotsScaleUp: 0.12f),
-            new AttackStats(thrownDamage: 12, throwSpeed: 0.3f)
+            new AttackStats(thrownDamage: 12, throwSpeed: 0.3f),
+            new AttackStats(meleeSpacer: 1.5f, aimRangeAdditive: 2f),
         };
         AttackBuilder PetrifyNova = new AttackBuilder()
             .SetAttackName("Petrify Nova")
@@ -743,6 +763,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Nova)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1f,
                     damage: 2,
                     spread: 0.5f,
                     castTime: 2.3f,
@@ -779,10 +800,12 @@ public static class AttackLibrary
             new AttackStats(castTime: -0.4f),
             new AttackStats(thrownDamage: 12, throwSpeed: 0.25f),
             new AttackStats(shotsPerAttack: 2),
-            new AttackStats(spread: -0.1f),
+            new AttackStats(shotsPerAttack: 2),
             new AttackStats(projectileSize: 0.5f, shakeStrength: 0.05f),
             new AttackStats(speed: 0.04f, spray: 0.5f, shakeRotation: 0.05f),
-            new AttackStats(pierce: 1)
+            new AttackStats(pierce: 1),
+            new AttackStats(aimRangeAdditive: 1.75f),
+
         };
 
         AttackBuilder Revolver = new AttackBuilder()
@@ -791,11 +814,12 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.75f,
                     damage: 8,
                     spread: 0.4f,
                     spray: 1.8f,
                     castTime: 2f,
-                    range: 6f,
+                    range: 5.5f,
                     shotsPerAttack: 6,
                     speed: 0.18f,
                     knockback: 0.45f,
@@ -832,7 +856,8 @@ public static class AttackLibrary
             new AttackStats(shotgunSpread: 35f),
             new AttackStats(projectileSize: 0.4f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f),
-            new AttackStats(knockback: 0.5f, shakeTime: 0.05f)
+            new AttackStats(knockback: 0.5f, shakeTime: 0.05f),
+            new AttackStats(aimRangeAdditive: 1.75f)
         };
 
         AttackBuilder Shotgun = new AttackBuilder()
@@ -841,6 +866,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.75f,
                     damage: 9,
                     shotgunSpread: 75f,
                     spray: 0,
@@ -882,7 +908,9 @@ public static class AttackLibrary
             new AttackStats(shotgunSpread: 35f),
             new AttackStats(projectileSize: 0.4f, shakeStrength: 0.2f),
             new AttackStats(range: 1.6f, speed: 0.015f),
-            new AttackStats(knockback: 0.5f, shakeTime: 0.05f)
+            new AttackStats(knockback: 0.5f, shakeTime: 0.05f),
+            new AttackStats(aimRangeAdditive: 2f)
+
         };
 
         AttackBuilder Shuriken = new AttackBuilder()
@@ -891,6 +919,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.5f,
                     damage: 2,
                     shotgunSpread: 100f,
                     spray: 0,
@@ -929,9 +958,10 @@ public static class AttackLibrary
             new AttackStats(range: 1f, speed: 0.05f),
             new AttackStats(shotsPerAttack: 10),
             new AttackStats(spread: -0.01f),
-            new AttackStats(projectileSize: 0.75f, shakeRotation: 0.02f),
-            new AttackStats(spray: 25f),
-            new AttackStats(pierce: 1)
+            new AttackStats(projectileSize: 0.5f, shakeRotation: 0.02f),
+            new AttackStats(spray: 100f),
+            new AttackStats(pierce: 1),
+            new AttackStats(aimRangeAdditive: 2f)
         };
 
         AttackBuilder SMG = new AttackBuilder()
@@ -940,6 +970,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.5f,
                     damage: 2,
                     spread: 0.04f,
                     spray: 25f,
@@ -982,7 +1013,8 @@ public static class AttackLibrary
             new AttackStats(shotgunSpread: 20f),
             new AttackStats(range: 1.25f, shakeStrength: 0.1f),
             new AttackStats(speed: -0.25f, pierce: 5),
-            new AttackStats(knockback: 0.25f)
+            new AttackStats(knockback: 0.25f),
+            new AttackStats(aimRangeAdditive: 2f)
         };
 
         AttackBuilder SmokeGrenade = new AttackBuilder()
@@ -991,6 +1023,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Shotgun)    
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1f,
                     damage: 1,
                     shotgunSpread: 50f,
                     castTime: 2.2f,
@@ -1026,7 +1059,7 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
             new AttackStats(projectileSize: 0.5f, shakeRotation: 0.1f),
-            new AttackStats(spread: -0.25f, spray: 1.5f),
+            new AttackStats(aimRangeAdditive: 2f, pierce: 10),
             new AttackStats(pierce: 10, shakeTime: 0.05f)
         };
 
@@ -1036,6 +1069,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 2.5f,
                     damage: 25,
                     spread: 0.6f,
                     spray: 1f,
@@ -1075,7 +1109,7 @@ public static class AttackLibrary
             new AttackStats(castTime: -0.6f),
             new AttackStats(speed: -0.008f),
             new AttackStats(shotsPerAttack: 1),
-            new AttackStats(range: 1.5f),
+            new AttackStats(range: 1.5f, aimRangeAdditive: 1.5f),
             new AttackStats(projectileSize: 0.3f, shakeRotation: 0.1f),
             new AttackStats(throwSpeed: 5f),
             new AttackStats(pierce: 50)
@@ -1087,6 +1121,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 2f,
                     damage: 1,
                     spread: 1f,
                     spray: 2f,
@@ -1127,7 +1162,7 @@ public static class AttackLibrary
             new AttackStats(castTime: -0.6f),
             new AttackStats(speed: 0.1f, range: 1f),
             new AttackStats(shotsPerAttack: 1),
-            new AttackStats(spread: -0.3f),
+            new AttackStats(range: 1f, aimRangeAdditive: 1.5f),
             new AttackStats(projectileSize: 0.4f, shakeRotation: 0.1f),
             new AttackStats(knockback: 0.5f, shakeStrength: 0.1f),
             new AttackStats(pierce: 5)
@@ -1139,10 +1174,11 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Explosive)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1f,
                     damage: 2,
                     spread: 0.6f,
                     castTime: 2.1f,
-                    range: 2f,
+                    range: 1.5f,
                     shotsPerAttack: 1,
                     speed: 0.1f,
                     knockback: 0f,
@@ -1174,8 +1210,8 @@ public static class AttackLibrary
             new AttackStats(comboLength: 1, damage: -2),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(meleeSize: 0.3f, shakeRotation: 0.5f),
-            new AttackStats(meleeSpacer: 2.5f),
-            new AttackStats(meleeShotsScaleUp: 0.1f, shakeTime: 0.05f),
+            new AttackStats(meleeSpacer: 2f),
+            new AttackStats(meleeSpacer: 1.5f, aimRangeAdditive: 2f),
             new AttackStats(thrownDamage: 5, throwSpeed: -0.22f)
         };
         AttackBuilder SuctionNova = new AttackBuilder()
@@ -1184,6 +1220,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Nova)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1f,
                     damage: 3,
                     spread: 0.4f,
                     castTime: 2.5f,
@@ -1224,7 +1261,8 @@ public static class AttackLibrary
             new AttackStats(meleeSize: 0.4f, shakeStrength: 0.04f),
             new AttackStats(meleeSpacer: 1.25f, meleeSpacerGap: 1.5f),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.3f),
-            new AttackStats(comboLength: -1, damage: 5, thrownDamage: 5)
+            new AttackStats(comboLength: -1, damage: 7, thrownDamage: 5),
+            new AttackStats(meleeSpacer: 1.25f, aimRangeAdditive: 2f),
         };
         AttackBuilder WindBlade = new AttackBuilder()
             .SetAttackName("Wind Blade")
@@ -1232,6 +1270,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
+                    aimRange: 1.5f,
                     damage: 5,
                     spread: 0.18f,
                     castTime: 2f,

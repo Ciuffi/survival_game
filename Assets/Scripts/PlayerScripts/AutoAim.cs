@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoAim : MonoBehaviour
 {
-    public float aimRange;
+    public float aimRange = 2.5f;
     public SpriteRenderer rangeVisualizerSprite;
     public LayerMask enemyLayer;
     public WpnSpriteRotation weaponSpriteRotation;
@@ -24,6 +24,11 @@ public class AutoAim : MonoBehaviour
         weaponSpriteRotation.SetAutoAim(targetFound, currentTarget);
     }
 
+    public void UpdateAimRange(float aimRangeBase, float aimRangeAdded)
+    {
+        aimRange = aimRangeBase + aimRangeAdded;
+        UpdateVisualizerSpriteScale();
+    }
 
     void UpdateCurrentTarget()
     {

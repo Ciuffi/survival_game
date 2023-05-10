@@ -69,6 +69,7 @@ MonoBehaviour:
   shotsPerAttack: 4
   shotsPerAttackMelee: 2
   comboLength: 0
+  aimRangeAdditive: 1
   multicastChance: 1.5
   shotgunSpread: 100
   spreadMultiplier: 2
