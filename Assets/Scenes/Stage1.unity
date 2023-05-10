@@ -3469,6 +3469,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1731126406}
     - target: {fileID: 7313015712638807207, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: isCone
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313015712638807207, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: coneAngle
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313015712638807207, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: coneMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 69eb0b8905f8a204ba81b46f742954e1, type: 2}
+    - target: {fileID: 7313015712638807207, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: rangeVisualizerSprite
       value: 
       objectReference: {fileID: 59182360}

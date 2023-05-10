@@ -46,6 +46,7 @@ public class AttackBuilder
     public AttackBuilder SetWeaponUpgrades(List<AttackStats> upgrades)
     {
         this.weaponUpgrades = upgrades;
+        //Debug.Log(upgrades);
         return this;
     }
 
@@ -148,6 +149,7 @@ public class AttackBuilder
         Attack attack = attackObject.AddComponent<Attack>();
         attack.baseStats = baseStats;
         attack.stats = baseStats;
+
 
         // Set the properties of the Attack component
         attack.name = attackName;

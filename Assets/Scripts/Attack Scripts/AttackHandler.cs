@@ -163,8 +163,8 @@ public class AttackHandler : MonoBehaviour
 
             //swap animation
             HandsSprite.GetComponent<Animator>().SetBool("IsSwap", true);
-            Debug.Log(currentAttack.stats);
-            AutoAimPrefab.UpdateAimRange(currentAttack.stats.aimRange, currentAttack.stats.aimRangeAdditive);
+            //Debug.Log(currentAttack.stats);
+            AutoAimPrefab.UpdateAimRange(currentAttack.stats.aimRange, currentAttack.stats.aimRangeAdditive, currentAttack.stats.isCone, currentAttack.stats.coneAngle);
 
             yield return new WaitForSeconds(0.3f);
             HandsSprite.GetComponent<Animator>().SetBool("IsSwap", false);

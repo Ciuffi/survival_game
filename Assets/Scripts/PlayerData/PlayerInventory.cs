@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
     {
         AttackLibrary.InitializeLibrary();
         DontDestroyOnLoad(gameObject); // Make the GameObject persistent
-        LoadInventory();
+        //LoadInventory();
         if (weaponInventory.Count == 0)
         {
             StartingInventory();

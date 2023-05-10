@@ -85,6 +85,8 @@ public class AttackStats : MonoBehaviour, Upgrade
     public float meleeSizeMultiplier;
     public float effectMultiplier;
     public bool weaponSet = false;
+    public bool isCone = false;
+    public float coneAngle;
 
     //Constructor that takes in all the values and sets them to the variables while providing meaningful defaults
     public AttackStats(
@@ -151,6 +153,8 @@ public class AttackStats : MonoBehaviour, Upgrade
         float thrownSpeedMultiplier = 0,
         float meleeSizeMultiplier = 0,
         bool weaponSet = false,
+        bool isCone = false,
+        float coneAngle = 0,
         string name = "",
         string description = "",
         Sprite icon = null
@@ -222,12 +226,15 @@ public class AttackStats : MonoBehaviour, Upgrade
         this.name = name;
         this.description = description;
         this.icon = icon;
+        this.isCone = isCone;
+        this.coneAngle = coneAngle;
     }
 
     //shotsPerAttack and comboLength must be be one or greater.
     //
     private void FixUpStats()
     {
+        this.coneAngle = this.coneAngle < 0f ? 0f : this.coneAngle;
         this.aimRange = this.aimRange < 0f ? 0f : this.aimRange;
         this.shotsPerAttack = this.shotsPerAttack < 1 ? 1 : this.shotsPerAttack;
         this.shotsPerAttackMelee = this.shotsPerAttackMelee < 0 ? 0 : this.shotsPerAttackMelee;
@@ -328,6 +335,8 @@ public class AttackStats : MonoBehaviour, Upgrade
         this.thrownDamage += attackStats.thrownDamage;
         this.thrownSpeed += attackStats.thrownSpeed;
         this.cantMove |= attackStats.cantMove;
+        this.isCone |= attackStats.isCone;
+        this.coneAngle += attackStats.coneAngle;
         this.rarity = this.rarity.CompareRarity(attackStats.rarity);
         this.effectDuration += attackStats.effectDuration;
         this.effectMultiplier += attackStats.effectMultiplier;
@@ -428,6 +437,8 @@ public class AttackStats : MonoBehaviour, Upgrade
             mergedAttackStats.thrownDamage += attackStats.thrownDamage;
             mergedAttackStats.thrownSpeed += attackStats.thrownSpeed;
             mergedAttackStats.cantMove |= attackStats.cantMove;
+            mergedAttackStats.isCone |= attackStats.isCone;
+            mergedAttackStats.coneAngle += attackStats.coneAngle;
             mergedAttackStats.rarity = mergedAttackStats.rarity.CompareRarity(attackStats.rarity);
             mergedAttackStats.effectDuration += attackStats.effectDuration;
             mergedAttackStats.effectMultiplier += attackStats.effectMultiplier;
@@ -529,6 +540,8 @@ public class AttackStats : MonoBehaviour, Upgrade
         this.name = attackStats.name;
         this.icon = attackStats.icon;
         this.weaponSet = attackStats.weaponSet;
+        this.isCone = attackStats.isCone;
+        this.coneAngle = attackStats.coneAngle;
     }
 
     public UpgradeType GetUpgradeType()

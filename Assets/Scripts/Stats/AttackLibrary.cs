@@ -53,8 +53,8 @@ public static class AttackLibrary
             new AttackStats(comboLength: 1),
             new AttackStats(shotsPerAttack: 1, meleeShotsScaleUp: -0.15f),
             new AttackStats(meleeSize: 0.6f, shakeTime: 0.05f),
-            new AttackStats(meleeSpacer: 2.5f),
-            new AttackStats(aimRangeAdditive: 2f)
+            new AttackStats(meleeSpacer: 2f, aimRangeAdditive:2f),
+            new AttackStats(meleeSpacer: 1.5f, isCone: true, coneAngle: 120, aimRangeAdditive: 1.5f)
         };
 
         AttackBuilder AcidPool = new AttackBuilder()
@@ -98,7 +98,8 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 10),
             new AttackStats(spread: -0.04f),
             new AttackStats(projectileSize: 0.75f, shakeStrength: 0.01f),
-            new AttackStats(aimRangeAdditive: 1.5f),
+            new AttackStats(aimRangeAdditive: 2f),
+            new AttackStats(coneAngle: 30),
             new AttackStats(pierce: 1)
         };
 
@@ -107,8 +108,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Knockback"),
             AttackStatsLibrary.GetStat("Damage"),
             AttackStatsLibrary.GetStat("Crit Chance")
-
-
         };
 
         AttackBuilder ClassicRifle = new AttackBuilder()
@@ -118,6 +117,8 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.5f,
+                    isCone: true,
+                    coneAngle: 45,
                     damage: 6,
                     spread: 0.085f,
                     spray: 2f,
@@ -162,7 +163,8 @@ public static class AttackLibrary
             new AttackStats(projectileSize: 1f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f),
             new AttackStats(knockback: 1f, shakeTime: 0.05f),
-            new AttackStats(aimRangeAdditive: 2f)
+            new AttackStats(aimRangeAdditive: 2f),
+            new AttackStats(aimRangeAdditive: 0.5f, coneAngle: 30f)
         };
 
         AttackBuilder DoubleBarrel = new AttackBuilder()
@@ -172,6 +174,8 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
+                    isCone: true,
+                    coneAngle: 60,
                     damage: 9,
                     shotgunSpread: 40f,
                     spray: 0,
@@ -223,6 +227,8 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
+                    isCone: true,
+                    coneAngle: 120f,
                     damage: 4,
                     spread: 0.2f,
                     castTime: 2.2f,
@@ -260,10 +266,9 @@ public static class AttackLibrary
             new AttackStats(comboLength: 1),
             new AttackStats(shotsPerAttack: 1, spread: -0.1f),
             new AttackStats(meleeSize: 0.6f),
-            new AttackStats(meleeSpacer: 2.5f),
             new AttackStats(thrownDamage: 12, throwSpeed: 0.3f),
             new AttackStats(meleeShotsScaleUp: 0.1f, shakeTime: 0.05f),
-            new AttackStats(aimRangeAdditive: 2f)
+            new AttackStats(aimRangeAdditive: 2f, coneAngle: 60),
         };
         AttackBuilder EarthShock = new AttackBuilder()
             .SetAttackName("Earth Shock")
@@ -271,7 +276,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2,
+                    aimRange: 2f,
+                    isCone: true,
+                    coneAngle: 60f,
                     damage: 3,
                     spread: 0.22f,
                     castTime: 2.1f,
@@ -313,7 +320,7 @@ public static class AttackLibrary
             new AttackStats(meleeSpacer: 1.5f, meleeSpacerGap: 1f),
             new AttackStats(knockback: 0.6f, shakeStrength: 0.1f),
             new AttackStats(meleeShotsScaleUp: 0.15f, shakeTime: 0.05f),
-            new AttackStats(aimRangeAdditive: 2f)
+            new AttackStats(aimRangeAdditive: 2f, coneAngle: 60f)
         };
         AttackBuilder GravityGrab = new AttackBuilder()
             .SetAttackName("Eldritch Grasp")
@@ -321,7 +328,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2f,
+                    aimRange: 1.75f,
+                    isCone: true,
+                    coneAngle: 120,
                     damage: 3,
                     spread: 0.3f,
                     castTime: 2f,
@@ -362,7 +371,7 @@ public static class AttackLibrary
             new AttackStats(projectileSize: 0.75f),
             new AttackStats(speed: 0.15f, spray: 100f),
             new AttackStats(pierce: 1),
-            new AttackStats(aimRangeAdditive: 2f)
+            new AttackStats(aimRangeAdditive: 2f, coneAngle: 30f)
         };
 
         AttackBuilder GatlingGun = new AttackBuilder()
@@ -371,7 +380,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.75f,
+                    aimRange: 2f,
+                    isCone: true,
+                    coneAngle: 30f,
                     damage: 3,
                     spread: 0.018f,
                     spray: 10f,
@@ -413,7 +424,7 @@ public static class AttackLibrary
             new AttackStats(meleeSize: 0.5f),
             new AttackStats(meleeSpacer: 1.25f, meleeSpacerGap: 1.5f),
             new AttackStats(knockback: 0.6f, shakeTime: 0.05f, shakeRotation: 0.5f),
-            new AttackStats(aimRangeAdditive: 2f)
+            new AttackStats(aimRangeAdditive: 2f, coneAngle: 60f)
         };
         AttackBuilder GodHand = new AttackBuilder()
             .SetAttackName("God Hand")
@@ -422,6 +433,8 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
+                    isCone: true,
+                    coneAngle: 120f,
                     damage: 12,
                     spread: 0.28f,
                     castTime: 2.1f,
@@ -461,8 +474,8 @@ public static class AttackLibrary
             new AttackStats(spread: -0.03f, speed: 0.1f),
             new AttackStats(projectileSize: 0.5f, shakeStrength: 0.15f),
             new AttackStats(knockback: 0.7f, shakeRotation: 0.3f),
-            new AttackStats(range: 2f, pierce: 1),
-            new AttackStats(aimRangeAdditive: 1.5f)
+            new AttackStats(range: 2f, aimRangeAdditive: 2f),
+            new AttackStats(isCone: true, coneAngle: 30f, pierce: 1)
         };
 
         AttackBuilder ImpactGrenade = new AttackBuilder()
@@ -471,7 +484,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Explosive)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2f,
+                    aimRange: 1f,
                     damage: 2,
                     spread: 0.6f,
                     spray: 0f,
@@ -609,7 +622,7 @@ public static class AttackLibrary
             new AttackStats(meleeSize: 0.4f),
             new AttackStats(meleeShotsScaleUp: 0.2f),
             new AttackStats(knockback: 0.8f, shakeTime: 0.05f, shakeRotation: 0.3f),
-            new AttackStats(aimRangeAdditive: 2f)
+            new AttackStats(aimRangeAdditive: 2.25f)
         };
         AttackBuilder LaserBeam = new AttackBuilder()
             .SetAttackName("Laser Beam")
@@ -618,6 +631,8 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.75f,
+                    isCone: true,
+                    coneAngle: 120f,
                     damage: 15,
                     spread: 0.3f,
                     castTime: 2.5f,
@@ -657,7 +672,7 @@ public static class AttackLibrary
             new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
             new AttackStats(projectileSize: 0.5f, shakeStrength: 0.1f),
             new AttackStats(range: 2f, aimRangeAdditive: 2f),
-            new AttackStats(pierce: 50, shakeTime: 0.05f),
+            new AttackStats(coneAngle:45f, shakeTime: 0.05f),
         };
 
         AttackBuilder PainWheel = new AttackBuilder()
@@ -667,6 +682,8 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
+                    isCone: true,
+                    coneAngle: 45,
                     damage: 5,
                     spread: 0.4f,
                     spray: 0f,
@@ -804,7 +821,7 @@ public static class AttackLibrary
             new AttackStats(projectileSize: 0.5f, shakeStrength: 0.05f),
             new AttackStats(speed: 0.04f, spray: 0.5f, shakeRotation: 0.05f),
             new AttackStats(pierce: 1),
-            new AttackStats(aimRangeAdditive: 1.75f),
+            new AttackStats(aimRangeAdditive: 1.75f, coneAngle: 30f),
 
         };
 
@@ -815,6 +832,8 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.75f,
+                    isCone: true,
+                    coneAngle: 45f,
                     damage: 8,
                     spread: 0.4f,
                     spray: 1.8f,
@@ -857,7 +876,7 @@ public static class AttackLibrary
             new AttackStats(projectileSize: 0.4f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f),
             new AttackStats(knockback: 0.5f, shakeTime: 0.05f),
-            new AttackStats(aimRangeAdditive: 1.75f)
+            new AttackStats(aimRangeAdditive: 1.75f, coneAngle: 50)
         };
 
         AttackBuilder Shotgun = new AttackBuilder()
@@ -868,6 +887,8 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1.75f,
                     damage: 9,
+                    isCone: true,
+                    coneAngle: 70f,
                     shotgunSpread: 75f,
                     spray: 0,
                     castTime: 2.4f,
@@ -959,7 +980,7 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 10),
             new AttackStats(spread: -0.01f),
             new AttackStats(projectileSize: 0.5f, shakeRotation: 0.02f),
-            new AttackStats(spray: 100f),
+            new AttackStats(spray: 100f, coneAngle: 40f),
             new AttackStats(pierce: 1),
             new AttackStats(aimRangeAdditive: 2f)
         };
@@ -971,6 +992,8 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
+                    isCone: true,
+                    coneAngle: 60f,
                     damage: 2,
                     spread: 0.04f,
                     spray: 25f,
@@ -1029,7 +1052,7 @@ public static class AttackLibrary
                     castTime: 2.2f,
                     range: 1.75f,
                     shotsPerAttack: 3,
-                    speed: 0.8f,
+                    speed: 0.08f,
                     knockback: 0f,
                     pierce: 3,
                     critChance: 0.05f,
@@ -1059,7 +1082,7 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
             new AttackStats(projectileSize: 0.5f, shakeRotation: 0.1f),
-            new AttackStats(aimRangeAdditive: 2f, pierce: 10),
+            new AttackStats(aimRangeAdditive: 2f, coneAngle: 30f),
             new AttackStats(pierce: 10, shakeTime: 0.05f)
         };
 
@@ -1069,8 +1092,10 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2.5f,
+                    aimRange: 2.75f,
                     damage: 25,
+                    isCone: true,
+                    coneAngle: 30f,
                     spread: 0.6f,
                     spray: 1f,
                     sprayThreshold: 1,
@@ -1112,7 +1137,8 @@ public static class AttackLibrary
             new AttackStats(range: 1.5f, aimRangeAdditive: 1.5f),
             new AttackStats(projectileSize: 0.3f, shakeRotation: 0.1f),
             new AttackStats(throwSpeed: 5f),
-            new AttackStats(pierce: 50)
+            new AttackStats(pierce: 50),
+            new AttackStats(coneAngle: 45f, aimRangeAdditive: 1f)
         };
 
         AttackBuilder SuctionCannon = new AttackBuilder()
@@ -1123,6 +1149,8 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 2f,
                     damage: 1,
+                    isCone: true,
+                    coneAngle: 45f,
                     spread: 1f,
                     spray: 2f,
                     sprayThreshold: 1,
@@ -1262,7 +1290,8 @@ public static class AttackLibrary
             new AttackStats(meleeSpacer: 1.25f, meleeSpacerGap: 1.5f),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.3f),
             new AttackStats(comboLength: -1, damage: 7, thrownDamage: 5),
-            new AttackStats(meleeSpacer: 1.25f, aimRangeAdditive: 2f),
+            new AttackStats(meleeSpacer: 1.5f, aimRangeAdditive: 1.5f),
+            new AttackStats(coneAngle: 60f, aimRangeAdditive: 1f)
         };
         AttackBuilder WindBlade = new AttackBuilder()
             .SetAttackName("Wind Blade")
@@ -1272,6 +1301,8 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1.5f,
                     damage: 5,
+                    isCone: true,
+                    coneAngle: 120f,
                     spread: 0.18f,
                     castTime: 2f,
                     shotsPerAttackMelee: 0,
