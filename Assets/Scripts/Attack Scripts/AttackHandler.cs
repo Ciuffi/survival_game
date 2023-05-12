@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class AttackHandler : MonoBehaviour
 {
@@ -27,6 +28,11 @@ public class AttackHandler : MonoBehaviour
 
     PlayerCharacterStats characterStats;
     public AutoAim AutoAimPrefab;
+
+    //attackbar wheel 
+    private Vector3 originalScale;
+    private Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
+    public Image attackWheel;
 
     private void MatchCharacter()
     {
@@ -109,18 +115,84 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
+    IEnumerator HandleAttackWheel(float castTime)
+    {
+        float timer = 0;
+        bool isFlashing = false;
+        Color originalColor = colors[0];
+        float flashDuration = castTime / 8f; // Set the duration of the flash here
+
+        while (true)
+        {
+            if (timer == 0)
+            {
+                attackWheel.color = originalColor;
+            }
+
+            if (castTime - timer <= flashDuration)
+            {
+                if (!isFlashing)
+                {
+                    // Start the flash
+                    StartCoroutine(FlashColor(flashColor, flashDuration));
+                    isFlashing = true;
+                }
+            }
+            else if (isFlashing)
+            {
+                // End the flash
+                StopCoroutine("FlashColor");
+                attackWheel.color = originalColor;
+                isFlashing = false;
+            }
+
+            float opacity = Mathf.Lerp(0.1f, 1f, attackWheel.fillAmount);
+            Color currentColor = attackWheel.color;
+            currentColor.a = opacity;
+            attackWheel.color = currentColor;
+
+            timer += Time.deltaTime;
+            float progress = Mathf.Clamp01(timer / castTime);
+            attackWheel.fillAmount = progress;
+
+            if (progress > 0.85f)
+            {
+                // If we're in the last 10% of the attackTime, start the scaling animation
+                attackWheel.transform.DOScale(maxScale, 0.8f).SetEase(Ease.OutElastic);
+            }
+            else
+            {
+                // Reset the wheel to its original scale
+                attackWheel.transform.DOScale(originalScale, 0.1f).SetEase(Ease.OutElastic);
+            }
+
+            yield return new WaitForEndOfFrame();
+
+            if (timer >= castTime)
+            {
+                timer = 0;
+                isFlashing = false;
+                yield break;
+            }
+        }
+    }
+
     IEnumerator FlashColor(Color flashColor, float duration)
     {
         float timer = 0;
-        Color originalColor = attackBarImage.color;
+        //Color originalColor = attackBarImage.color;
+        Color originalColor2 = attackWheel.color;
 
         while (timer < duration)
         {
             timer += Time.deltaTime;
             float t = timer / duration;
-            Color currentColor = Color.Lerp(originalColor, flashColor, t);
-            attackBarImage.color = currentColor;
-            attackBarImage2.color = currentColor;
+            //Color currentColor = Color.Lerp(originalColor, flashColor, t);
+            //attackBarImage.color = currentColor;
+            //attackBarImage2.color = currentColor;
+
+            Color currentColor2 = Color.Lerp(originalColor2, flashColor, t);
+            attackWheel.color = currentColor2;
             yield return null;
         }
     }
@@ -174,16 +246,15 @@ public class AttackHandler : MonoBehaviour
             WeaponPrefab.GetComponent<Collider2D>().enabled = false;
 
             //casting
-            attackBar.fillRect.gameObject.SetActive(true);
-            attackBar2.fillRect.gameObject.SetActive(true);
+            attackWheel.gameObject.SetActive(true);
             if (usingAttackBar)
-                StartCoroutine(HandleAttackSlider(currentAttack.stats.castTime));
+                StartCoroutine(HandleAttackWheel(currentAttack.stats.castTime));
+                //StartCoroutine(HandleAttackSlider(currentAttack.stats.castTime));
             yield return new WaitForSeconds(currentAttack.stats.castTime);
 
             //attacking
-            StopCoroutine("HandleAttackSlider");
-            attackBar.fillRect.gameObject.SetActive(false);
-            attackBar2.fillRect.gameObject.SetActive(false);
+            StopCoroutine("HandleAttackWheel");
+            attackWheel.gameObject.SetActive(false);
             attackState = AttackState.Attacking;
             if (currentAttack != null)
                 currentAttack.Shoot();
@@ -268,14 +339,15 @@ public class AttackHandler : MonoBehaviour
         LoadSelectedWeapon();
 
         attackIndex = 0;
-        attackBar = GameObject.Find("AttackBar").GetComponent<Slider>();
-        attackBarImage = attackBar.transform.GetChild(1).GetChild(0).GetComponent<Image>();
-        attackBar2 = GameObject.Find("AttackBar2").GetComponent<Slider>();
-        attackBarImage2 = attackBar2.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        //attackBar = GameObject.Find("AttackBar").GetComponent<Slider>();
+        //attackBarImage = attackBar.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        //attackBar2 = GameObject.Find("AttackBar2").GetComponent<Slider>();
+        //attackBarImage2 = attackBar2.transform.GetChild(1).GetChild(0).GetComponent<Image>();
         WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
         WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
         HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
-
+        attackWheel = GameObject.Find("Wheel").GetComponent<Image>();
+        originalScale = attackWheel.transform.localScale;
 
         StartCoroutine(Attack());   
     }

@@ -19,6 +19,8 @@ public class AutoAim : MonoBehaviour
     private GameObject coneMeshObject; // Added cone mesh object
     public Material coneMaterial; // Material for the cone mesh
 
+    public Vector2 AimDirection { get; private set; }
+
     void Start()
     {
         UpdateVisualizerSpriteScale();
