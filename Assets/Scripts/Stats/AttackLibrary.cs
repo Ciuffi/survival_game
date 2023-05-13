@@ -116,7 +116,7 @@ public static class AttackLibrary
             .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2.5f,
+                    aimRange: 2.75f,
                     isCone: true,
                     coneAngle: 45,
                     damage: 6,
@@ -380,9 +380,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2f,
+                    aimRange: 2.25f,
                     isCone: true,
-                    coneAngle: 30f,
+                    coneAngle: 45f,
                     damage: 3,
                     spread: 0.018f,
                     spray: 10f,
@@ -630,9 +630,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.75f,
+                    aimRange: 2.5f,
                     isCone: true,
-                    coneAngle: 120f,
+                    coneAngle: 60f,
                     damage: 15,
                     spread: 0.3f,
                     castTime: 2.5f,
@@ -821,7 +821,7 @@ public static class AttackLibrary
             new AttackStats(projectileSize: 0.5f, shakeStrength: 0.05f),
             new AttackStats(speed: 0.04f, spray: 0.5f, shakeRotation: 0.05f),
             new AttackStats(pierce: 1),
-            new AttackStats(aimRangeAdditive: 1.75f, coneAngle: 30f),
+            new AttackStats(aimRangeAdditive: 1.5f, coneAngle: 30f),
 
         };
 
@@ -831,9 +831,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.75f,
+                    aimRange: 2f,
                     isCone: true,
-                    coneAngle: 45f,
+                    coneAngle: 30f,
                     damage: 8,
                     spread: 0.4f,
                     spray: 1.8f,
@@ -991,9 +991,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 1.8f,
                     isCone: true,
-                    coneAngle: 60f,
+                    coneAngle: 50f,
                     damage: 2,
                     spread: 0.04f,
                     spray: 25f,
@@ -1092,7 +1092,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2.75f,
+                    aimRange: 2.8f,
                     damage: 25,
                     isCone: true,
                     coneAngle: 30f,

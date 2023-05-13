@@ -234,7 +234,7 @@ public class AttackStats : MonoBehaviour, Upgrade
     //
     private void FixUpStats()
     {
-        this.coneAngle = this.coneAngle < 0f ? 0f : this.coneAngle;
+        this.coneAngle = this.coneAngle < 10f ? 10f : this.coneAngle;
         this.aimRange = this.aimRange < 0f ? 0f : this.aimRange;
         this.shotsPerAttack = this.shotsPerAttack < 1 ? 1 : this.shotsPerAttack;
         this.shotsPerAttackMelee = this.shotsPerAttackMelee < 0 ? 0 : this.shotsPerAttackMelee;
