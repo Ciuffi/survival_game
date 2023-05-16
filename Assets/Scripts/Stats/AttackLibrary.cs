@@ -97,7 +97,7 @@ public static class AttackLibrary
             new AttackStats(thrownDamage: 8, throwSpeed: -0.3f),
             new AttackStats(shotsPerAttack: 10),
             new AttackStats(spread: -0.04f),
-            new AttackStats(projectileSize: 0.75f, shakeStrength: 0.01f),
+            new AttackStats(projectileSize: 0.5f, shakeStrength: 0.01f),
             new AttackStats(aimRangeAdditive: 2f),
             new AttackStats(coneAngle: 30),
             new AttackStats(pierce: 1)
@@ -105,10 +105,83 @@ public static class AttackLibrary
 
         List<AttackStats> ClassicRifleUpgrades = new List<AttackStats>
         {
-            AttackStatsLibrary.GetStat("Knockback"),
-            AttackStatsLibrary.GetStat("Damage"),
-            AttackStatsLibrary.GetStat("Crit Chance")
+          //common
+            AttackStatsLibrary.GetStat("Damage 1"),
+            AttackStatsLibrary.GetStat("Crit Chance 1"),
+            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Haste 1"),
+            AttackStatsLibrary.GetStat("Knockback 1"),
+
+            AttackStatsLibrary.GetStat("Glattt 1"),
+            AttackStatsLibrary.GetStat("Velocity 1"),
+            AttackStatsLibrary.GetStat("Reach 1"),
+
+            AttackStatsLibrary.GetStat("Steady 1"),
+            AttackStatsLibrary.GetStat("Overheat 1"),
+            AttackStatsLibrary.GetStat("MLG 1"),
+            AttackStatsLibrary.GetStat("Gamer 1"),
+
+
+          //rare
+            AttackStatsLibrary.GetStat("Damage 2"),
+            AttackStatsLibrary.GetStat("Crit Chance 2"),
+            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Haste 2"),
+            AttackStatsLibrary.GetStat("Knockback 2"),
+
+            AttackStatsLibrary.GetStat("Glattt 2"),
+            AttackStatsLibrary.GetStat("Velocity 2"),
+            AttackStatsLibrary.GetStat("Reach 2"),
+
+            AttackStatsLibrary.GetStat("Steady 2"),
+            AttackStatsLibrary.GetStat("Overheat 2"),
+            AttackStatsLibrary.GetStat("MLG 2"),
+            AttackStatsLibrary.GetStat("Gamer 2"),
+
+            AttackStatsLibrary.GetStat("Hacker 1"),
+            AttackStatsLibrary.GetStat("AFK 1"),
+
+            AttackStatsLibrary.GetStat("Multicast 1"),
+            AttackStatsLibrary.GetStat("Extended Clip 1"),
+            AttackStatsLibrary.GetStat("Pierce 1"),
+            AttackStatsLibrary.GetStat("Big Ammo 1"),
+
+          //epic
+            AttackStatsLibrary.GetStat("Damage 3"),
+            AttackStatsLibrary.GetStat("Crit Chance 3"),
+            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Haste 3"),
+            AttackStatsLibrary.GetStat("Knockback 3"),
+
+            AttackStatsLibrary.GetStat("Glattt 3"),
+            AttackStatsLibrary.GetStat("Velocity 3"),
+            AttackStatsLibrary.GetStat("Reach 3"),
+
+            AttackStatsLibrary.GetStat("Hacker 2"),
+            AttackStatsLibrary.GetStat("AFK 2"),
+
+            AttackStatsLibrary.GetStat("Multicast 2"),
+            AttackStatsLibrary.GetStat("Extended Clip 2"),
+            AttackStatsLibrary.GetStat("Pierce 2"),
+            AttackStatsLibrary.GetStat("Big Ammo 2"),
+
+          //legendary
+            AttackStatsLibrary.GetStat("Damage 4"),
+            AttackStatsLibrary.GetStat("Crit Chance 4"),
+            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Haste 4"),
+            AttackStatsLibrary.GetStat("Knockback 4"),
+
+            AttackStatsLibrary.GetStat("Multicast 3"),
+            AttackStatsLibrary.GetStat("Extended Clip 3"),
+            AttackStatsLibrary.GetStat("Pierce 3"),
+            AttackStatsLibrary.GetStat("Big Ammo 3"),
+
+            AttackStatsLibrary.GetStat("Double Trouble"),
+
         };
+
+        Debug.Log($"Weapon Upgrades : {string.Join(", ", ClassicRifleUpgrades.Select(x => x == null ? "null" : x.ToString()))}");
 
         AttackBuilder ClassicRifle = new AttackBuilder()
             .SetAttackName("Classic Rifle")
@@ -149,6 +222,7 @@ public static class AttackLibrary
             )
             .SetRarityUpgrades(ClassicRifleRarity)
             .SetWeaponUpgrades(ClassicRifleUpgrades);
+
         AddAttack(ClassicRifle);
 
 
@@ -184,7 +258,7 @@ public static class AttackLibrary
                     shotsPerAttack: 2,
                     speed: 0.18f,
                     knockback: 0.6f,
-                    pierce: 99,
+                    pierce: 8,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -692,7 +766,7 @@ public static class AttackLibrary
                     shotsPerAttack: 1,
                     speed: 0.15f,
                     knockback: 0f,
-                    pierce: 50,
+                    pierce: 35,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -742,7 +816,7 @@ public static class AttackLibrary
                     shotsPerAttack: 1,
                     speed: 0.1f,
                     knockback: 0f,
-                    pierce: 10,
+                    pierce: 3,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -896,7 +970,7 @@ public static class AttackLibrary
                     shotsPerAttack: 4,
                     speed: 0.15f,
                     knockback: 0.55f,
-                    pierce: 99,
+                    pierce: 10,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -949,7 +1023,7 @@ public static class AttackLibrary
                     shotsPerAttack: 4,
                     speed: 0.085f,
                     knockback: 0f,
-                    pierce: 30,
+                    pierce: 15,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -1054,7 +1128,7 @@ public static class AttackLibrary
                     shotsPerAttack: 3,
                     speed: 0.08f,
                     knockback: 0f,
-                    pierce: 3,
+                    pierce: 2,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -1104,7 +1178,7 @@ public static class AttackLibrary
                     shotsPerAttack: 1,
                     speed: 0.2f,
                     knockback: 0.7f,
-                    pierce: 5,
+                    pierce: 10,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -1159,7 +1233,7 @@ public static class AttackLibrary
                     shotsPerAttack: 1,
                     speed: 0.018f,
                     knockback: 0f,
-                    pierce: 20,
+                    pierce: 15,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,

@@ -16,29 +16,76 @@ public static class WeaponSetUpgradeMap
                     Rarity.Common,
                     new List<AttackStats>
                     {
-                        AttackStatsLibrary.GetStat("Damage")
-
+                        AttackStatsLibrary.GetStat("Mastery 1"),
+                        AttackStatsLibrary.GetStat("Marksman 1"),
+                        AttackStatsLibrary.GetStat("Brutality 1"),
+                        AttackStatsLibrary.GetStat("Quickswap 1"),
+                        AttackStatsLibrary.GetStat("RoF 1"),
+                        AttackStatsLibrary.GetStat("Propulsion 1"),
+                        AttackStatsLibrary.GetStat("Scope 1"),
+   
                     }
                 },
                 {
                     Rarity.Rare,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 2"),
+                        AttackStatsLibrary.GetStat("Marksman 2"),
+                        AttackStatsLibrary.GetStat("Brutality 2"),
+                        AttackStatsLibrary.GetStat("Quickswap 2"),
+                        AttackStatsLibrary.GetStat("RoF 2"),
+                        AttackStatsLibrary.GetStat("Propulsion 2"),
+                        AttackStatsLibrary.GetStat("Scope 2"),
+
+                        AttackStatsLibrary.GetStat("Vision 1"),
+                        AttackStatsLibrary.GetStat("Awareness 1"),
+                        AttackStatsLibrary.GetStat("Multi-cast 1"),
+                        AttackStatsLibrary.GetStat("Extended Mag 1"),
+                        AttackStatsLibrary.GetStat("Piercing Ammo 1"),
+                        AttackStatsLibrary.GetStat("High Caliber 1"),
+
+                        AttackStatsLibrary.GetStat("Auto Novice"),
                     }
                 },
                 {
                     Rarity.Epic,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 3"),
+                        AttackStatsLibrary.GetStat("Marksman 3"),
+                        AttackStatsLibrary.GetStat("Brutality 3"),
+                        AttackStatsLibrary.GetStat("Quickswap 3"),
+                        AttackStatsLibrary.GetStat("RoF 3"),
+                        AttackStatsLibrary.GetStat("Propulsion 3"),
+                        AttackStatsLibrary.GetStat("Scope 3"),
+
+                        AttackStatsLibrary.GetStat("Vision 2"),
+                        AttackStatsLibrary.GetStat("Awareness 2"),
+                        AttackStatsLibrary.GetStat("Multi-cast 2"),
+                        AttackStatsLibrary.GetStat("Extended Mag 2"),
+                        AttackStatsLibrary.GetStat("Piercing Ammo 2"),
+                        AttackStatsLibrary.GetStat("High Caliber 2"),
+
+                        AttackStatsLibrary.GetStat("Auto Pro"),
                     }
                 },
                 {
                     Rarity.Legendary,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 4"),
+                        AttackStatsLibrary.GetStat("Marksman 4"),
+                        AttackStatsLibrary.GetStat("Brutality 4"),
+                        AttackStatsLibrary.GetStat("Quickswap 4"),
+
+                        AttackStatsLibrary.GetStat("Multi-cast 3"),
+                        AttackStatsLibrary.GetStat("Extended Mag 3"),
+                        AttackStatsLibrary.GetStat("Piercing Ammo 3"),
+                        AttackStatsLibrary.GetStat("High Caliber 3"),
+
+                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("Auto God"),
                     }
                 },
             }
@@ -47,32 +94,80 @@ public static class WeaponSetUpgradeMap
             WeaponSetType.SemiAuto,
             new Dictionary<Rarity, List<AttackStats>>
             {
-                 {
+                {
                     Rarity.Common,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+                        AttackStatsLibrary.GetStat("Mastery 1"),
+                        AttackStatsLibrary.GetStat("Marksman 1"),
+                        AttackStatsLibrary.GetStat("Brutality 1"),
+                        AttackStatsLibrary.GetStat("Quickswap 1"),
+                        AttackStatsLibrary.GetStat("Impact 1"),
+                        AttackStatsLibrary.GetStat("Propulsion 1"),
+                        AttackStatsLibrary.GetStat("Scope 1"),
+
                     }
                 },
                 {
                     Rarity.Rare,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 2"),
+                        AttackStatsLibrary.GetStat("Marksman 2"),
+                        AttackStatsLibrary.GetStat("Brutality 2"),
+                        AttackStatsLibrary.GetStat("Quickswap 2"),
+                        AttackStatsLibrary.GetStat("Impact 2"),
+                        AttackStatsLibrary.GetStat("Propulsion 2"),
+                        AttackStatsLibrary.GetStat("Scope 2"),
+
+                        AttackStatsLibrary.GetStat("Vision 1"),
+                        AttackStatsLibrary.GetStat("Awareness 1"),
+                        AttackStatsLibrary.GetStat("Multi-cast 1"),
+                        AttackStatsLibrary.GetStat("Bonus Round 1"),
+                        AttackStatsLibrary.GetStat("Penetrating Ammo 1"),
+                        AttackStatsLibrary.GetStat("High Caliber 1"),
+
+                        AttackStatsLibrary.GetStat("Semi-Auto Novice"),
                     }
                 },
                 {
                     Rarity.Epic,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 3"),
+                        AttackStatsLibrary.GetStat("Marksman 3"),
+                        AttackStatsLibrary.GetStat("Brutality 3"),
+                        AttackStatsLibrary.GetStat("Quickswap 3"),
+                        AttackStatsLibrary.GetStat("Impact 3"),
+                        AttackStatsLibrary.GetStat("Propulsion 3"),
+                        AttackStatsLibrary.GetStat("Scope 3"),
+
+                        AttackStatsLibrary.GetStat("Vision 2"),
+                        AttackStatsLibrary.GetStat("Awareness 2"),
+                        AttackStatsLibrary.GetStat("Multi-cast 2"),
+                        AttackStatsLibrary.GetStat("Bonus Round 2"),
+                        AttackStatsLibrary.GetStat("Penetrating Ammo 2"),
+                        AttackStatsLibrary.GetStat("High Caliber 2"),
+
+                        AttackStatsLibrary.GetStat("Semi-Auto Pro"),
                     }
                 },
                 {
                     Rarity.Legendary,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 4"),
+                        AttackStatsLibrary.GetStat("Marksman 4"),
+                        AttackStatsLibrary.GetStat("Brutality 4"),
+                        AttackStatsLibrary.GetStat("Quickswap 4"),
+
+                        AttackStatsLibrary.GetStat("Multi-cast 3"),
+                        AttackStatsLibrary.GetStat("Bonus Round 3"),
+                        AttackStatsLibrary.GetStat("Penetrating Ammo 3"),
+                        AttackStatsLibrary.GetStat("High Caliber 3"),
+
+                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("Semi-Auto God"),
                     }
                 },
             }
@@ -85,28 +180,82 @@ public static class WeaponSetUpgradeMap
                     Rarity.Common,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+
+                        AttackStatsLibrary.GetStat("Mastery 1"),
+                        AttackStatsLibrary.GetStat("Marksman 1"),
+                        AttackStatsLibrary.GetStat("Brutality 1"),
+                        AttackStatsLibrary.GetStat("Quickswap 1"),
+                        AttackStatsLibrary.GetStat("Impact 1"),
+                        AttackStatsLibrary.GetStat("Propulsion 1"),
+                        AttackStatsLibrary.GetStat("Scope 1"),
+                        AttackStatsLibrary.GetStat("Wide Barrel 1"),
+
+
                     }
                 },
-                {
+               {
                     Rarity.Rare,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 2"),
+                        AttackStatsLibrary.GetStat("Marksman 2"),
+                        AttackStatsLibrary.GetStat("Brutality 2"),
+                        AttackStatsLibrary.GetStat("Quickswap 2"),
+                        AttackStatsLibrary.GetStat("Impact 2"),
+                        AttackStatsLibrary.GetStat("Propulsion 2"),
+                        AttackStatsLibrary.GetStat("Scope 2"),
+                        AttackStatsLibrary.GetStat("Wide Barrel 2"),
+
+                        AttackStatsLibrary.GetStat("Vision 1"),
+                        AttackStatsLibrary.GetStat("Awareness 1"),
+                        AttackStatsLibrary.GetStat("Multi-cast 1"),
+                        AttackStatsLibrary.GetStat("Bonus Round 1"),
+                        AttackStatsLibrary.GetStat("Penetrating Ammo 1"),
+                        AttackStatsLibrary.GetStat("High Caliber 1"),
+
+                        AttackStatsLibrary.GetStat("Shotgun Novice"),
                     }
                 },
                 {
                     Rarity.Epic,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 3"),
+                        AttackStatsLibrary.GetStat("Marksman 3"),
+                        AttackStatsLibrary.GetStat("Brutality 3"),
+                        AttackStatsLibrary.GetStat("Quickswap 3"),
+                        AttackStatsLibrary.GetStat("Impact 3"),
+                        AttackStatsLibrary.GetStat("Propulsion 3"),
+                        AttackStatsLibrary.GetStat("Scope 3"),
+                        AttackStatsLibrary.GetStat("Wide Barrel 3"),
+
+
+                        AttackStatsLibrary.GetStat("Vision 2"),
+                        AttackStatsLibrary.GetStat("Awareness 2"),
+                        AttackStatsLibrary.GetStat("Multi-cast 2"),
+                        AttackStatsLibrary.GetStat("Bonus Round 2"),
+                        AttackStatsLibrary.GetStat("Penetrating Ammo 2"),
+                        AttackStatsLibrary.GetStat("High Caliber 2"),
+
+                        AttackStatsLibrary.GetStat("Shotgun Pro"),
                     }
                 },
                 {
                     Rarity.Legendary,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 4"),
+                        AttackStatsLibrary.GetStat("Marksman 4"),
+                        AttackStatsLibrary.GetStat("Brutality 4"),
+                        AttackStatsLibrary.GetStat("Quickswap 4"),
+
+                        AttackStatsLibrary.GetStat("Multi-cast 3"),
+                        AttackStatsLibrary.GetStat("Bonus Round 3"),
+                        AttackStatsLibrary.GetStat("Penetrating Ammo 3"),
+                        AttackStatsLibrary.GetStat("High Caliber 3"),
+
+                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("Shotgun God"),
                     }
                 },
             }
@@ -119,28 +268,74 @@ public static class WeaponSetUpgradeMap
                     Rarity.Common,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+                        AttackStatsLibrary.GetStat("Mastery 1"),
+                        AttackStatsLibrary.GetStat("Marksman 1"),
+                        AttackStatsLibrary.GetStat("Brutality 1"),
+                        AttackStatsLibrary.GetStat("Quickswap 1"),
+                        AttackStatsLibrary.GetStat("Impact 1"),
+                        AttackStatsLibrary.GetStat("Scope 1"),
+                        AttackStatsLibrary.GetStat("RoF 1"),
+
                     }
                 },
-                {
+               {
                     Rarity.Rare,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 2"),
+                        AttackStatsLibrary.GetStat("Marksman 2"),
+                        AttackStatsLibrary.GetStat("Brutality 2"),
+                        AttackStatsLibrary.GetStat("Quickswap 2"),
+                        AttackStatsLibrary.GetStat("Impact 2"),
+                        AttackStatsLibrary.GetStat("Scope 2"),
+                        AttackStatsLibrary.GetStat("RoF 2"),
+
+
+                        AttackStatsLibrary.GetStat("Vision 1"),
+                        AttackStatsLibrary.GetStat("Awareness 1"),
+                        AttackStatsLibrary.GetStat("Multi-cast 1"),
+                        AttackStatsLibrary.GetStat("Bonus Round 1"),
+                        AttackStatsLibrary.GetStat("Size Up 1"),
+
+                        AttackStatsLibrary.GetStat("Explosive Novice"),
                     }
                 },
                 {
                     Rarity.Epic,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 3"),
+                        AttackStatsLibrary.GetStat("Marksman 3"),
+                        AttackStatsLibrary.GetStat("Brutality 3"),
+                        AttackStatsLibrary.GetStat("Quickswap 3"),
+                        AttackStatsLibrary.GetStat("Impact 3"),
+                        AttackStatsLibrary.GetStat("Scope 3"),
+                        AttackStatsLibrary.GetStat("RoF 3"),
+
+                        AttackStatsLibrary.GetStat("Vision 2"),
+                        AttackStatsLibrary.GetStat("Awareness 2"),
+                        AttackStatsLibrary.GetStat("Multi-cast 2"),
+                        AttackStatsLibrary.GetStat("Bonus Round 2"),
+                        AttackStatsLibrary.GetStat("Size Up 2"),
+
+                        AttackStatsLibrary.GetStat("Explosive Pro"),
                     }
                 },
                 {
                     Rarity.Legendary,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 4"),
+                        AttackStatsLibrary.GetStat("Marksman 4"),
+                        AttackStatsLibrary.GetStat("Brutality 4"),
+                        AttackStatsLibrary.GetStat("Quickswap 4"),
+
+                        AttackStatsLibrary.GetStat("Multi-cast 3"),
+                        AttackStatsLibrary.GetStat("Bonus Round 3"),
+                        AttackStatsLibrary.GetStat("Size Up 3"),
+
+                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("Explosive God"),
                     }
                 },
             }
@@ -153,28 +348,82 @@ public static class WeaponSetUpgradeMap
                     Rarity.Common,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+                        AttackStatsLibrary.GetStat("Mastery 1"),
+                        AttackStatsLibrary.GetStat("Marksman 1"),
+                        AttackStatsLibrary.GetStat("Brutality 1"),
+                        AttackStatsLibrary.GetStat("Quickswap 1"),
+                        AttackStatsLibrary.GetStat("Impact 1"),
+                        AttackStatsLibrary.GetStat("Dexterity 1"),
+                        AttackStatsLibrary.GetStat("Lunge 1"),
+                        AttackStatsLibrary.GetStat("Implode 1"),
+
                     }
                 },
                 {
                     Rarity.Rare,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 2"),
+                        AttackStatsLibrary.GetStat("Marksman 2"),
+                        AttackStatsLibrary.GetStat("Brutality 2"),
+                        AttackStatsLibrary.GetStat("Quickswap 2"),
+                        AttackStatsLibrary.GetStat("Impact 2"),
+                        AttackStatsLibrary.GetStat("Dexterity 2"),
+                        AttackStatsLibrary.GetStat("Lunge 2"),
+                        AttackStatsLibrary.GetStat("Implode 2"),
+
+                        AttackStatsLibrary.GetStat("Vision 1"),
+                        AttackStatsLibrary.GetStat("Awareness 1"),
+                        AttackStatsLibrary.GetStat("Multi-cast 1"),
+                        AttackStatsLibrary.GetStat("Enlarge 1"),
+                        AttackStatsLibrary.GetStat("Wave Master 1"),
+                        AttackStatsLibrary.GetStat("Ki Master 1"),
+
+                        AttackStatsLibrary.GetStat("Nova Novice"),
                     }
                 },
                 {
                     Rarity.Epic,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 3"),
+                        AttackStatsLibrary.GetStat("Marksman 3"),
+                        AttackStatsLibrary.GetStat("Brutality 3"),
+                        AttackStatsLibrary.GetStat("Quickswap 3"),
+                        AttackStatsLibrary.GetStat("Impact 3"),
+                        AttackStatsLibrary.GetStat("Dexterity 3"),
+                        AttackStatsLibrary.GetStat("Lunge 3"),
+
+                        AttackStatsLibrary.GetStat("Vision 2"),
+                        AttackStatsLibrary.GetStat("Awareness 2"),
+                        AttackStatsLibrary.GetStat("Multi-cast 2"),
+                        AttackStatsLibrary.GetStat("Enlarge 2"),
+                        AttackStatsLibrary.GetStat("Wave Master 2"),
+                        AttackStatsLibrary.GetStat("Ki Master 2"),
+
+                        AttackStatsLibrary.GetStat("After-shock 1"),
+                        AttackStatsLibrary.GetStat("Once More 1"),
+
+                        AttackStatsLibrary.GetStat("Nova Pro"),
                     }
                 },
                 {
                     Rarity.Legendary,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 4"),
+                        AttackStatsLibrary.GetStat("Marksman 4"),
+                        AttackStatsLibrary.GetStat("Brutality 4"),
+                        AttackStatsLibrary.GetStat("Quickswap 4"),
+
+                        AttackStatsLibrary.GetStat("Multi-cast 3"),
+                        AttackStatsLibrary.GetStat("Enlarge 3"),
+
+                        AttackStatsLibrary.GetStat("After-shock 2"),
+                        AttackStatsLibrary.GetStat("Once More 2"),
+
+                        AttackStatsLibrary.GetStat("Nova Pro"),
+                        AttackStatsLibrary.GetStat("Double Trouble"),
                     }
                 },
             }
@@ -187,28 +436,84 @@ public static class WeaponSetUpgradeMap
                     Rarity.Common,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 10, spread: 5, speed: 100, range: 50)
+                        AttackStatsLibrary.GetStat("Mastery 1"),
+                        AttackStatsLibrary.GetStat("Marksman 1"),
+                        AttackStatsLibrary.GetStat("Brutality 1"),
+                        AttackStatsLibrary.GetStat("Quickswap 1"),
+                        AttackStatsLibrary.GetStat("Impact 1"),
+                        AttackStatsLibrary.GetStat("Dexterity 1"),
+                        AttackStatsLibrary.GetStat("Lunge 1"),
+                        AttackStatsLibrary.GetStat("Implode 1"),
+                        AttackStatsLibrary.GetStat("RoF 1"),
                     }
                 },
                 {
                     Rarity.Rare,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 2"),
+                        AttackStatsLibrary.GetStat("Marksman 2"),
+                        AttackStatsLibrary.GetStat("Brutality 2"),
+                        AttackStatsLibrary.GetStat("Quickswap 2"),
+                        AttackStatsLibrary.GetStat("Impact 2"),
+                        AttackStatsLibrary.GetStat("Dexterity 2"),
+                        AttackStatsLibrary.GetStat("Lunge 2"),
+                        AttackStatsLibrary.GetStat("Implode 2"),
+                        AttackStatsLibrary.GetStat("RoF 2"),
+
+                        AttackStatsLibrary.GetStat("Vision 1"),
+                        AttackStatsLibrary.GetStat("Awareness 1"),
+                        AttackStatsLibrary.GetStat("Multi-cast 1"),
+                        AttackStatsLibrary.GetStat("Enlarge 1"),
+                        AttackStatsLibrary.GetStat("Wave Master 1"),
+                        AttackStatsLibrary.GetStat("Ki Master 1"),
+
+                        AttackStatsLibrary.GetStat("Melee Novice"),
                     }
                 },
                 {
                     Rarity.Epic,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 3"),
+                        AttackStatsLibrary.GetStat("Marksman 3"),
+                        AttackStatsLibrary.GetStat("Brutality 3"),
+                        AttackStatsLibrary.GetStat("Quickswap 3"),
+                        AttackStatsLibrary.GetStat("Impact 3"),
+                        AttackStatsLibrary.GetStat("Dexterity 3"),
+                        AttackStatsLibrary.GetStat("Lunge 3"),
+                        AttackStatsLibrary.GetStat("RoF 3"),
+
+                        AttackStatsLibrary.GetStat("Vision 2"),
+                        AttackStatsLibrary.GetStat("Awareness 2"),
+                        AttackStatsLibrary.GetStat("Multi-cast 2"),
+                        AttackStatsLibrary.GetStat("Enlarge 2"),
+                        AttackStatsLibrary.GetStat("Wave Master 2"),
+                        AttackStatsLibrary.GetStat("Ki Master 2"),
+
+                        AttackStatsLibrary.GetStat("After-shock 1"),
+                        AttackStatsLibrary.GetStat("Once More 1"),
+
+                        AttackStatsLibrary.GetStat("Melee Pro"),
                     }
                 },
                 {
                     Rarity.Legendary,
                     new List<AttackStats>
                     {
-                        new AttackStats(damage: 12, spread: 4, speed: 110, range: 55)
+                        AttackStatsLibrary.GetStat("Mastery 4"),
+                        AttackStatsLibrary.GetStat("Marksman 4"),
+                        AttackStatsLibrary.GetStat("Brutality 4"),
+                        AttackStatsLibrary.GetStat("Quickswap 4"),
+
+                        AttackStatsLibrary.GetStat("Multi-cast 3"),
+                        AttackStatsLibrary.GetStat("Enlarge 3"),
+
+                        AttackStatsLibrary.GetStat("After-shock 2"),
+                        AttackStatsLibrary.GetStat("Once More 2"),
+
+                        AttackStatsLibrary.GetStat("Melee Pro"),
+                        AttackStatsLibrary.GetStat("Double Trouble"),
                     }
                 },
             }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AttackBuilder
@@ -46,6 +47,7 @@ public class AttackBuilder
     public AttackBuilder SetWeaponUpgrades(List<AttackStats> upgrades)
     {
         this.weaponUpgrades = upgrades;
+        Debug.Log($"Weapon Upgrades : {string.Join(", ", this.weaponUpgrades.Select(x => x == null ? "null" : x.ToString()))}");
         //Debug.Log(upgrades);
         return this;
     }
@@ -141,6 +143,8 @@ public class AttackBuilder
 
     public Attack Build(Rarity rarity)
     {
+        Debug.Log($"Building attack with name: {attackName}, rarity: {rarity}");
+
         this.baseStats = new AttackStats(baseStats);
 
         //ValidateRequiredFields();
@@ -174,7 +178,9 @@ public class AttackBuilder
         attack.MuzzleFlashPrefab = muzzleFlashPrefab;
         attack.muzzleFlashXOffset = muzzleFlashXOffset;
         attack.muzzleFlashYOffset = muzzleFlashYOffset;
+
         attack.weaponUpgrades = weaponUpgrades;
+
         attack.weaponSetType = weaponSetType;
         
         if (attackType == AttackTypes.Shotgun)
@@ -196,6 +202,7 @@ public class AttackBuilder
                 + attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
         }
 
+        Debug.Log($"Finished building attack: {attackName}");
         return attack;
     }
 

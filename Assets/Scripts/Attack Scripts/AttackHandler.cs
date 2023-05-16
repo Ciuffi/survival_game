@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Linq;
 
 public class AttackHandler : MonoBehaviour
 {
@@ -58,7 +59,6 @@ public class AttackHandler : MonoBehaviour
 
         AttackBuilder weapon = AttackLibrary.GetAttackBuilder(selectedWeaponName);
         Attack finalWeapon = weapon.Build((Rarity)selectedWeaponRarity);
-
         AddWeapon(finalWeapon);
     }
 
