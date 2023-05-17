@@ -46,7 +46,7 @@ public static class AttackLibrary
 
 
         // AcidPool
-        List<AttackStats> AcidPoolUpgrades = new List<AttackStats>
+        List<AttackStats> AcidPoolRarity = new List<AttackStats>
         {
             new AttackStats(damage: 2),
             new AttackStats(castTime: -0.5f),
@@ -57,13 +57,87 @@ public static class AttackLibrary
             new AttackStats(meleeSpacer: 1.5f, isCone: true, coneAngle: 120, aimRangeAdditive: 1.5f)
         };
 
+        List<AttackStats> AcidPoolUpgrades = new List<AttackStats>
+        {
+          //common
+            AttackStatsLibrary.GetStat("Damage 1"),
+            AttackStatsLibrary.GetStat("Crit Chance 1"),
+            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Haste 1"),
+
+            AttackStatsLibrary.GetStat("Glattt 1"),
+            AttackStatsLibrary.GetStat("Quick Hands 1"),
+            AttackStatsLibrary.GetStat("Extend 1"),
+            AttackStatsLibrary.GetStat("Kamakazi 1"),
+
+            AttackStatsLibrary.GetStat("MLG 1"),
+            AttackStatsLibrary.GetStat("Gamer 1"),
+
+          //rare
+            AttackStatsLibrary.GetStat("Damage 2"),
+            AttackStatsLibrary.GetStat("Crit Chance 2"),
+            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Haste 2"),
+
+            AttackStatsLibrary.GetStat("Glattt 2"),
+            AttackStatsLibrary.GetStat("Quick Hands 2"),
+            AttackStatsLibrary.GetStat("Extend 2"),
+            AttackStatsLibrary.GetStat("Kamakazi 2"),
+
+            AttackStatsLibrary.GetStat("MLG 2"),
+            AttackStatsLibrary.GetStat("Gamer 2"),
+
+            AttackStatsLibrary.GetStat("Hacker 1"),
+            AttackStatsLibrary.GetStat("AFK 1"),
+
+            AttackStatsLibrary.GetStat("Multicast 1"),
+            AttackStatsLibrary.GetStat("One More 1"),
+            AttackStatsLibrary.GetStat("Big Weapon 1"),
+            AttackStatsLibrary.GetStat("Wave Surge 1"),
+            AttackStatsLibrary.GetStat("Ki Surge 1"),
+ 
+
+          //epic
+            AttackStatsLibrary.GetStat("Damage 3"),
+            AttackStatsLibrary.GetStat("Crit Chance 3"),
+            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Haste 3"),
+
+            AttackStatsLibrary.GetStat("Glattt 3"),
+            AttackStatsLibrary.GetStat("Quick Hands 3"),
+            AttackStatsLibrary.GetStat("Extend 3"),
+
+            AttackStatsLibrary.GetStat("Hacker 2"),
+            AttackStatsLibrary.GetStat("AFK 2"),
+
+            AttackStatsLibrary.GetStat("Multicast 2"),
+            AttackStatsLibrary.GetStat("One More 2"),
+            AttackStatsLibrary.GetStat("Big Weapon 2"),
+            AttackStatsLibrary.GetStat("Wave Surge 2"),
+            AttackStatsLibrary.GetStat("Ki Surge 2"),
+            AttackStatsLibrary.GetStat("Aftershock 1"),
+
+          //legendary
+            AttackStatsLibrary.GetStat("Damage 4"),
+            AttackStatsLibrary.GetStat("Crit Chance 4"),
+            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Haste 4"),
+
+            AttackStatsLibrary.GetStat("Multicast 3"),
+            AttackStatsLibrary.GetStat("Big Weapon 3"),
+            AttackStatsLibrary.GetStat("Aftershock 2"),
+
+            AttackStatsLibrary.GetStat("Double Trouble"),
+
+        };
+
         AttackBuilder AcidPool = new AttackBuilder()
             .SetAttackName("Acid Pool")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/AcidPool"))
             .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1,
+                    aimRange: 1.5f,
                     damage: 1,
                     spread: 0.3f,
                     castTime: 2.2f,
@@ -86,7 +160,10 @@ public static class AttackLibrary
                 weaponSprite: Resources.Load<Sprite>("WeaponSprites/hand2"),
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/hand2")
             )
-            .SetRarityUpgrades(AcidPoolUpgrades);
+            .SetRarityUpgrades(AcidPoolRarity)
+            .SetWeaponUpgrades(AcidPoolUpgrades);
+
+
         AddAttack(AcidPool);
 
         // ClassicRifle
@@ -237,8 +314,7 @@ public static class AttackLibrary
             new AttackStats(projectileSize: 1f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f),
             new AttackStats(knockback: 1f, shakeTime: 0.05f),
-            new AttackStats(aimRangeAdditive: 2f),
-            new AttackStats(aimRangeAdditive: 0.5f, coneAngle: 30f)
+            new AttackStats(aimRangeAdditive: 1.7f, coneAngle: 40f)
         };
 
         AttackBuilder DoubleBarrel = new AttackBuilder()
@@ -247,7 +323,7 @@ public static class AttackLibrary
                         .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 1.8f,
                     isCone: true,
                     coneAngle: 60,
                     damage: 9,
@@ -292,7 +368,7 @@ public static class AttackLibrary
             new AttackStats(meleeSize: 0.6f, shakeRotation: 0.5f),
             new AttackStats(meleeSpacer: 2.5f),
             new AttackStats(thrownDamage: 12, throwSpeed: 0.3f),
-            new AttackStats(aimRangeAdditive: 2f)
+            new AttackStats(aimRangeAdditive: 2.2f)
         };
         AttackBuilder DrainScythe = new AttackBuilder()
             .SetAttackName("Drain Scythe")
@@ -300,7 +376,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 1.8f,
                     isCone: true,
                     coneAngle: 120f,
                     damage: 4,
@@ -350,9 +426,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2f,
+                    aimRange: 2.2f,
                     isCone: true,
-                    coneAngle: 60f,
+                    coneAngle: 45f,
                     damage: 3,
                     spread: 0.22f,
                     castTime: 2.1f,
@@ -394,7 +470,7 @@ public static class AttackLibrary
             new AttackStats(meleeSpacer: 1.5f, meleeSpacerGap: 1f),
             new AttackStats(knockback: 0.6f, shakeStrength: 0.1f),
             new AttackStats(meleeShotsScaleUp: 0.15f, shakeTime: 0.05f),
-            new AttackStats(aimRangeAdditive: 2f, coneAngle: 60f)
+            new AttackStats(aimRangeAdditive: 2f, coneAngle: 45f)
         };
         AttackBuilder GravityGrab = new AttackBuilder()
             .SetAttackName("Eldritch Grasp")
@@ -402,9 +478,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.75f,
+                    aimRange: 2.5f,
                     isCone: true,
-                    coneAngle: 120,
+                    coneAngle: 75,
                     damage: 3,
                     spread: 0.3f,
                     castTime: 2f,
@@ -506,7 +582,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 1.8f,
                     isCone: true,
                     coneAngle: 120f,
                     damage: 12,
@@ -558,7 +634,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Explosive)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1f,
+                    aimRange: 1.5f,
                     damage: 2,
                     spread: 0.6f,
                     spray: 0f,
@@ -755,9 +831,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2f,
+                    aimRange: 2.5f,
                     isCone: true,
-                    coneAngle: 45,
+                    coneAngle: 40,
                     damage: 5,
                     spread: 0.4f,
                     spray: 0f,
@@ -807,7 +883,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1f,
+                    aimRange: 1.5f,
                     damage: 1,
                     shotgunSpread: 65f,
                     spray: 0,
@@ -959,7 +1035,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.75f,
+                    aimRange: 2f,
                     damage: 9,
                     isCone: true,
                     coneAngle: 70f,
@@ -1002,9 +1078,9 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotgunSpread: 35f),
             new AttackStats(projectileSize: 0.4f, shakeStrength: 0.2f),
-            new AttackStats(range: 1.6f, speed: 0.015f),
+            new AttackStats(range: 1.5f, speed: 0.015f),
             new AttackStats(knockback: 0.5f, shakeTime: 0.05f),
-            new AttackStats(aimRangeAdditive: 2f)
+            new AttackStats(aimRangeAdditive: 1.5f, coneAngle: 30f)
 
         };
 
@@ -1014,7 +1090,9 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 2f,
+                    isCone: true,
+                    coneAngle: 70f,
                     damage: 2,
                     shotgunSpread: 100f,
                     spray: 0,
@@ -1120,7 +1198,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Shotgun)    
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1f,
+                    aimRange: 1.5f,
                     damage: 1,
                     shotgunSpread: 50f,
                     castTime: 2.2f,
@@ -1221,10 +1299,10 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2f,
+                    aimRange: 2.2f,
                     damage: 1,
                     isCone: true,
-                    coneAngle: 45f,
+                    coneAngle: 40f,
                     spread: 1f,
                     spray: 2f,
                     sprayThreshold: 1,
@@ -1276,7 +1354,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Explosive)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1f,
+                    aimRange: 1.5f,
                     damage: 2,
                     spread: 0.6f,
                     castTime: 2.1f,
@@ -1373,7 +1451,7 @@ public static class AttackLibrary
                                     .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 1.8f,
                     damage: 5,
                     isCone: true,
                     coneAngle: 120f,
