@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using System.Linq;
 
 public class PlayerDataManager : MonoBehaviour
@@ -10,11 +11,12 @@ public class PlayerDataManager : MonoBehaviour
     public int unlockedStages; // This is an integer where each bit represents a stage, e.g. 00000011 means stages 1 and 2 are unlocked
 
     private PlayerInventory playerInventory;
+    public TextMeshProUGUI goldDisplay;
 
     private void Awake()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
-        LoadData();
+        //LoadData();
 
         // Check and update unlocked state of characters
         PlayerCharacterStats[] characters = FindObjectsOfType<StatComponent>()
@@ -119,5 +121,11 @@ public class PlayerDataManager : MonoBehaviour
         unlockedStages = 1;
 
         SaveData();
+    }
+
+    private void Update()
+    {
+        string goldAmount = "$" + gold.ToString();
+        goldDisplay.text = goldAmount;
     }
 }
