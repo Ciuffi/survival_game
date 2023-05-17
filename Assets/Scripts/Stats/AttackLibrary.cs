@@ -44,7 +44,6 @@ public static class AttackLibrary
             Resources.Load<GameObject>("WeaponVFX/MuzzleFlash_Big"),
         };
 
-
         // AcidPool
         List<AttackStats> AcidPoolUpgrades = new List<AttackStats>
         {
@@ -53,7 +52,7 @@ public static class AttackLibrary
             new AttackStats(comboLength: 1),
             new AttackStats(shotsPerAttack: 1, meleeShotsScaleUp: -0.15f),
             new AttackStats(meleeSize: 0.6f, shakeTime: 0.05f),
-            new AttackStats(meleeSpacer: 2f, aimRangeAdditive:2f),
+            new AttackStats(meleeSpacer: 2f, aimRangeAdditive: 2f),
             new AttackStats(meleeSpacer: 1.5f, isCone: true, coneAngle: 120, aimRangeAdditive: 1.5f)
         };
 
@@ -105,83 +104,69 @@ public static class AttackLibrary
 
         List<AttackStats> ClassicRifleUpgrades = new List<AttackStats>
         {
-          //common
+            //common
             AttackStatsLibrary.GetStat("Damage 1"),
             AttackStatsLibrary.GetStat("Crit Chance 1"),
             AttackStatsLibrary.GetStat("Crit Dmg 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
-
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Velocity 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
-
             AttackStatsLibrary.GetStat("Steady 1"),
             AttackStatsLibrary.GetStat("Overheat 1"),
             AttackStatsLibrary.GetStat("MLG 1"),
             AttackStatsLibrary.GetStat("Gamer 1"),
-
-
-          //rare
+            //rare
             AttackStatsLibrary.GetStat("Damage 2"),
             AttackStatsLibrary.GetStat("Crit Chance 2"),
             AttackStatsLibrary.GetStat("Crit Dmg 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
-
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Velocity 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
-
             AttackStatsLibrary.GetStat("Steady 2"),
             AttackStatsLibrary.GetStat("Overheat 2"),
             AttackStatsLibrary.GetStat("MLG 2"),
             AttackStatsLibrary.GetStat("Gamer 2"),
-
             AttackStatsLibrary.GetStat("Hacker 1"),
             AttackStatsLibrary.GetStat("AFK 1"),
-
             AttackStatsLibrary.GetStat("Multicast 1"),
             AttackStatsLibrary.GetStat("Extended Clip 1"),
             AttackStatsLibrary.GetStat("Pierce 1"),
             AttackStatsLibrary.GetStat("Big Ammo 1"),
-
-          //epic
+            //epic
             AttackStatsLibrary.GetStat("Damage 3"),
             AttackStatsLibrary.GetStat("Crit Chance 3"),
             AttackStatsLibrary.GetStat("Crit Dmg 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
-
             AttackStatsLibrary.GetStat("Glattt 3"),
             AttackStatsLibrary.GetStat("Velocity 3"),
             AttackStatsLibrary.GetStat("Reach 3"),
-
             AttackStatsLibrary.GetStat("Hacker 2"),
             AttackStatsLibrary.GetStat("AFK 2"),
-
             AttackStatsLibrary.GetStat("Multicast 2"),
             AttackStatsLibrary.GetStat("Extended Clip 2"),
             AttackStatsLibrary.GetStat("Pierce 2"),
             AttackStatsLibrary.GetStat("Big Ammo 2"),
-
-          //legendary
+            //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
             AttackStatsLibrary.GetStat("Crit Chance 4"),
             AttackStatsLibrary.GetStat("Crit Dmg 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Knockback 4"),
-
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extended Clip 3"),
             AttackStatsLibrary.GetStat("Pierce 3"),
             AttackStatsLibrary.GetStat("Big Ammo 3"),
-
             AttackStatsLibrary.GetStat("Double Trouble"),
-
         };
 
-        Debug.Log($"Weapon Upgrades : {string.Join(", ", ClassicRifleUpgrades.Select(x => x == null ? "null" : x.ToString()))}");
+        Debug.Log(
+            $"Weapon Upgrades : {string.Join(", ", ClassicRifleUpgrades.Select(x => x == null ? "null" : x.ToString()))}"
+        );
 
         AttackBuilder ClassicRifle = new AttackBuilder()
             .SetAttackName("Classic Rifle")
@@ -225,7 +210,6 @@ public static class AttackLibrary
 
         AddAttack(ClassicRifle);
 
-
         //double barrel
         List<AttackStats> DoubleBarrelUpgrades = new List<AttackStats>
         {
@@ -244,7 +228,7 @@ public static class AttackLibrary
         AttackBuilder DoubleBarrel = new AttackBuilder()
             .SetAttackName("Double Barrel")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_wide"))
-                        .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -281,7 +265,6 @@ public static class AttackLibrary
             .SetRarityUpgrades(DoubleBarrelUpgrades);
         AddAttack(DoubleBarrel);
 
-
         //drain scythe
         List<AttackStats> DrainScytheUpgrades = new List<AttackStats>
         {
@@ -297,7 +280,7 @@ public static class AttackLibrary
         AttackBuilder DrainScythe = new AttackBuilder()
             .SetAttackName("Drain Scythe")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/DrainScythe"))
-                                    .SetWeaponSetType(WeaponSetType.Melee)
+            .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -347,7 +330,7 @@ public static class AttackLibrary
         AttackBuilder EarthShock = new AttackBuilder()
             .SetAttackName("Earth Shock")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Frogger"))
-                                    .SetWeaponSetType(WeaponSetType.Melee)
+            .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
@@ -399,7 +382,7 @@ public static class AttackLibrary
         AttackBuilder GravityGrab = new AttackBuilder()
             .SetAttackName("Eldritch Grasp")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/GravityGrab"))
-                                    .SetWeaponSetType(WeaponSetType.Melee)
+            .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.75f,
@@ -451,7 +434,7 @@ public static class AttackLibrary
         AttackBuilder GatlingGun = new AttackBuilder()
             .SetAttackName("Gatling Gun")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_Tiny"))
-                                    .SetWeaponSetType(WeaponSetType.Automatic)
+            .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.25f,
@@ -503,7 +486,7 @@ public static class AttackLibrary
         AttackBuilder GodHand = new AttackBuilder()
             .SetAttackName("God Hand")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/MeleeFist"))
-                                    .SetWeaponSetType(WeaponSetType.Melee)
+            .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -555,7 +538,7 @@ public static class AttackLibrary
         AttackBuilder ImpactGrenade = new AttackBuilder()
             .SetAttackName("Impact Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_impact"))
-                                    .SetWeaponSetType(WeaponSetType.Explosive)
+            .SetWeaponSetType(WeaponSetType.Explosive)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
@@ -602,8 +585,7 @@ public static class AttackLibrary
         AttackBuilder ImpactMine = new AttackBuilder()
             .SetAttackName("Impact Mine")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/mine_impact"))
-                                    .SetWeaponSetType(WeaponSetType.Explosive)
-
+            .SetWeaponSetType(WeaponSetType.Explosive)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 0.5f,
@@ -653,7 +635,7 @@ public static class AttackLibrary
         AttackBuilder ImpactNova = new AttackBuilder()
             .SetAttackName("Impact Nova")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_impact"))
-                                    .SetWeaponSetType(WeaponSetType.Nova)
+            .SetWeaponSetType(WeaponSetType.Nova)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
@@ -701,7 +683,7 @@ public static class AttackLibrary
         AttackBuilder LaserBeam = new AttackBuilder()
             .SetAttackName("Laser Beam")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/DoubleBeam"))
-                                    .SetWeaponSetType(WeaponSetType.Melee)
+            .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.5f,
@@ -746,13 +728,13 @@ public static class AttackLibrary
             new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
             new AttackStats(projectileSize: 0.5f, shakeStrength: 0.1f),
             new AttackStats(range: 2f, aimRangeAdditive: 2f),
-            new AttackStats(coneAngle:45f, shakeTime: 0.05f),
+            new AttackStats(coneAngle: 45f, shakeTime: 0.05f),
         };
 
         AttackBuilder PainWheel = new AttackBuilder()
             .SetAttackName("Pain Wheel")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken"))
-                                    .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
@@ -804,7 +786,7 @@ public static class AttackLibrary
         AttackBuilder PetrifyGrenade = new AttackBuilder()
             .SetAttackName("Petrify Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_stun"))
-                                    .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
@@ -851,7 +833,7 @@ public static class AttackLibrary
         AttackBuilder PetrifyNova = new AttackBuilder()
             .SetAttackName("Petrify Nova")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_Petrify"))
-                                    .SetWeaponSetType(WeaponSetType.Nova)
+            .SetWeaponSetType(WeaponSetType.Nova)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
@@ -896,13 +878,12 @@ public static class AttackLibrary
             new AttackStats(speed: 0.04f, spray: 0.5f, shakeRotation: 0.05f),
             new AttackStats(pierce: 1),
             new AttackStats(aimRangeAdditive: 1.5f, coneAngle: 30f),
-
         };
 
         AttackBuilder Revolver = new AttackBuilder()
             .SetAttackName("Revolver")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
-                                    .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
@@ -956,7 +937,7 @@ public static class AttackLibrary
         AttackBuilder Shotgun = new AttackBuilder()
             .SetAttackName("Shotgun")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_wide"))
-                                    .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.75f,
@@ -1005,13 +986,12 @@ public static class AttackLibrary
             new AttackStats(range: 1.6f, speed: 0.015f),
             new AttackStats(knockback: 0.5f, shakeTime: 0.05f),
             new AttackStats(aimRangeAdditive: 2f)
-
         };
 
         AttackBuilder Shuriken = new AttackBuilder()
             .SetAttackName("Shuriken")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken_small"))
-                                    .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -1062,7 +1042,7 @@ public static class AttackLibrary
         AttackBuilder SMG = new AttackBuilder()
             .SetAttackName("SMG")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_SMG"))
-                                    .SetWeaponSetType(WeaponSetType.Automatic)
+            .SetWeaponSetType(WeaponSetType.Automatic)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
@@ -1099,7 +1079,6 @@ public static class AttackLibrary
             .SetRarityUpgrades(SMGRarity);
         AddAttack(SMG);
 
-
         // Smoke Grenade
         List<AttackStats> SmokeGrenadeUpgrades = new List<AttackStats>
         {
@@ -1117,7 +1096,7 @@ public static class AttackLibrary
         AttackBuilder SmokeGrenade = new AttackBuilder()
             .SetAttackName("Smoke Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_slow"))
-                                    .SetWeaponSetType(WeaponSetType.Shotgun)    
+            .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
@@ -1163,7 +1142,7 @@ public static class AttackLibrary
         AttackBuilder Sniper = new AttackBuilder()
             .SetAttackName("Sniper Rifle")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_long"))
-                                    .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.8f,
@@ -1218,7 +1197,7 @@ public static class AttackLibrary
         AttackBuilder SuctionCannon = new AttackBuilder()
             .SetAttackName("Suction Cannon")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/SuctionCannon_Orb"))
-                                    .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
@@ -1256,7 +1235,6 @@ public static class AttackLibrary
             .SetRarityUpgrades(SuctionCannonUpgrades);
         AddAttack(SuctionCannon);
 
-
         // SuctionGrenade
         List<AttackStats> SuctionGrenadeUpgrades = new List<AttackStats>
         {
@@ -1273,7 +1251,7 @@ public static class AttackLibrary
         AttackBuilder SuctionGrenade = new AttackBuilder()
             .SetAttackName("Suction Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_suction"))
-                                    .SetWeaponSetType(WeaponSetType.Explosive)
+            .SetWeaponSetType(WeaponSetType.Explosive)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
@@ -1303,7 +1281,6 @@ public static class AttackLibrary
             .SetRarityUpgrades(SuctionGrenadeUpgrades);
         AddAttack(SuctionGrenade);
 
-
         //SuctionNova
         List<AttackStats> SuctionNovaUpgrades = new List<AttackStats>
         {
@@ -1319,7 +1296,7 @@ public static class AttackLibrary
         AttackBuilder SuctionNova = new AttackBuilder()
             .SetAttackName("Suction Nova")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_gravity"))
-                                    .SetWeaponSetType(WeaponSetType.Nova)
+            .SetWeaponSetType(WeaponSetType.Nova)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
@@ -1352,7 +1329,6 @@ public static class AttackLibrary
             .SetRarityUpgrades(SuctionNovaUpgrades);
         AddAttack(SuctionNova);
 
-
         //WindBlade
         List<AttackStats> WindBladeUpgrades = new List<AttackStats>
         {
@@ -1370,7 +1346,7 @@ public static class AttackLibrary
         AttackBuilder WindBlade = new AttackBuilder()
             .SetAttackName("Wind Blade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/KatanaSlash"))
-                                    .SetWeaponSetType(WeaponSetType.Melee)
+            .SetWeaponSetType(WeaponSetType.Melee)
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -1430,6 +1406,4 @@ public static class AttackLibrary
     {
         return attackBuilderDictionary.Values.ToArray();
     }
-
-
 }

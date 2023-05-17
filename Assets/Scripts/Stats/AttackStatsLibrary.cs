@@ -5,7 +5,7 @@ using System.Linq;
 public static class AttackStatsLibrary
 {
     private static Dictionary<string, AttackStats> AttackStatsLibraryMap =
-       new Dictionary<string, AttackStats>();
+        new Dictionary<string, AttackStats>();
     private static bool isInitialized = false;
     private static List<GameObject> attackStatGameObjects = new List<GameObject>();
 
@@ -15,6 +15,7 @@ public static class AttackStatsLibrary
         {
             GameObject statObject = new GameObject(stat.name);
             statObject.AddComponent<AttackStatComponent>().stat = stat;
+            statObject.GetComponent<AttackStatComponent>().stat.setContainer(statObject);
             GameObject.DontDestroyOnLoad(statObject);
             attackStatGameObjects.Add(statObject);
         }
@@ -36,7 +37,7 @@ public static class AttackStatsLibrary
     {
         InitializeLibrary();
         CreateStatGameObjects();
-    } 
+    }
 
     public static void InitializeLibrary()
     {
@@ -48,32 +49,32 @@ public static class AttackStatsLibrary
 
         Debug.Log("Initializing AttackStatsLibrary...");
 
-        //Value of stats - Individual Weapon -> Wpn Set -> Player 
+        //Value of stats - Individual Weapon -> Wpn Set -> Player
 
-//Global - All Weapons
+        //Global - All Weapons
 
-    //common
+        //common
         AddStat(
-             new AttackStats(
-                 aimRangeAdditive: -0.75f,
-                 name: "MLG 1",
-                 description: "Decrease Aim Assist Range",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-
-             )
-         ); ;
+            new AttackStats(
+                aimRangeAdditive: -0.75f,
+                name: "MLG 1",
+                description: "Decrease Aim Assist Range",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 coneAngle: -30f,
-                 name: "Gamer 1",
-                 description: "Decrease Aim Assist Width",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-
-             )
-         ); ;
+            new AttackStats(
+                coneAngle: -30f,
+                name: "Gamer 1",
+                description: "Decrease Aim Assist Width",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -83,37 +84,41 @@ public static class AttackStatsLibrary
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critChance: 0.05f,
-                 name: "Crit Chance 1",
-                 description: "Crit Chance +5%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-             )
-         ); ;
+            new AttackStats(
+                critChance: 0.05f,
+                name: "Crit Chance 1",
+                description: "Crit Chance +5%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critDmg: 0.25f,
-                 name: "Crit Dmg 1",
-                 description: "Crit Dmg +25%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-             )
-         ); ;
+            new AttackStats(
+                critDmg: 0.25f,
+                name: "Crit Dmg 1",
+                description: "Crit Dmg +25%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 castTimeMultiplier: -0.08f,
-                 name: "Haste 1",
-                 description: "Charge time -8%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-             )
-         ); ;
+            new AttackStats(
+                castTimeMultiplier: -0.08f,
+                name: "Haste 1",
+                description: "Charge time -8%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -123,49 +128,52 @@ public static class AttackStatsLibrary
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 spreadMultiplier: -0.15f,
-                 name: "Glattt 1",
-                 description: "Rate of Fire +15%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-             )
-         ); ;
+            new AttackStats(
+                spreadMultiplier: -0.15f,
+                name: "Glattt 1",
+                description: "Rate of Fire +15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotgunSpreadMultiplier: 0.2f,
-                 name: "Saw'd Off 1",
-                 description: "Shotgun Spread +20%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-                
-             )
-         ); ;
+            new AttackStats(
+                shotgunSpreadMultiplier: 0.2f,
+                name: "Saw'd Off 1",
+                description: "Shotgun Spread +20%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 sprayMultiplier: -0.4f,
-                 name: "Steady 1",
-                 description: "Projectile Spray -40%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-             )
-         ); ;
+            new AttackStats(
+                sprayMultiplier: -0.4f,
+                name: "Steady 1",
+                description: "Projectile Spray -40%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 sprayMultiplier: 0.4f,
-                 name: "Overheat 1",
-                 description: "Projectile Spray +40%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-
-             )
-         ); ;
+            new AttackStats(
+                sprayMultiplier: 0.4f,
+                name: "Overheat 1",
+                description: "Projectile Spray +40%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -174,9 +182,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Speed +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -185,11 +193,11 @@ public static class AttackStatsLibrary
                 description: "Projectile Range +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
-
             )
-        ); ;
+        );
+        ;
 
-      //melee
+        //melee
         AddStat(
             new AttackStats(
                 comboWaitTimeMultiplier: -0.15f,
@@ -197,9 +205,9 @@ public static class AttackStatsLibrary
                 description: "Cast Speed +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -208,48 +216,45 @@ public static class AttackStatsLibrary
                 description: "Attack Range +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 meleeSpacerMultiplier: -0.25f,
-                 name: "Kamakazi 1",
-                 description: "Attack Range -25%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
+            new AttackStats(
+                meleeSpacerMultiplier: -0.25f,
+                name: "Kamakazi 1",
+                description: "Attack Range -25%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
-             )
-         ); ;
-
-
-
-
-    //rare
+        //rare
         AddStat(
-             new AttackStats(
-                 aimRangeAdditive: -3f,
-                 critChance: 0.15f,
-                 name: "MLG 2",
-                 description: "Decrease Aim Assist Range, Crit Chance +15%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+            new AttackStats(
+                aimRangeAdditive: -3f,
+                critChance: 0.15f,
+                name: "MLG 2",
+                description: "Decrease Aim Assist Range, Crit Chance +15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 coneAngle: -100f,
-                 critDmg: 0.5f,
-                 name: "Gamer 2",
-                 description: "Decrease Aim Assist Width, Crit Dmg +50%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+            new AttackStats(
+                coneAngle: -100f,
+                critDmg: 0.5f,
+                name: "Gamer 2",
+                description: "Decrease Aim Assist Width, Crit Dmg +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -259,37 +264,41 @@ public static class AttackStatsLibrary
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critChance: 0.08f,
-                 name: "Crit Chance 2",
-                 description: "Crit Chance +8%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-             )
-         ); ;
+            new AttackStats(
+                critChance: 0.08f,
+                name: "Crit Chance 2",
+                description: "Crit Chance +8%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critDmg: 0.40f,
-                 name: "Crit Dmg 2",
-                 description: "Crit Dmg +40%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-             )
-         ); ;
+            new AttackStats(
+                critDmg: 0.40f,
+                name: "Crit Dmg 2",
+                description: "Crit Dmg +40%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 castTimeMultiplier: -0.15f,
-                 name: "Haste 2",
-                 description: "Charge time -15%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-             )
-         ); ;
+            new AttackStats(
+                castTimeMultiplier: -0.15f,
+                name: "Haste 2",
+                description: "Charge time -15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -299,49 +308,52 @@ public static class AttackStatsLibrary
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 spreadMultiplier: -0.35f,
-                 name: "Glattt 2",
-                 description: "Rate of Fire +35%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-             )
-         ); ;
+            new AttackStats(
+                spreadMultiplier: -0.35f,
+                name: "Glattt 2",
+                description: "Rate of Fire +35%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotgunSpreadMultiplier: 0.5f,
-                 name: "Saw'd Off 2",
-                 description: "Shotgun Spread +50%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 sprayMultiplier: -0.8f,
-                 name: "Steady 2",
-                 description: "Projectile Spray -80%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-             )
-         ); ;
+            new AttackStats(
+                shotgunSpreadMultiplier: 0.5f,
+                name: "Saw'd Off 2",
+                description: "Shotgun Spread +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 sprayMultiplier: 0.8f,
-                 name: "Overheat 2",
-                 description: "Projectile Spray +80%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
+            new AttackStats(
+                sprayMultiplier: -0.8f,
+                name: "Steady 2",
+                description: "Projectile Spray -80%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
-             )
-         ); ;
+        AddStat(
+            new AttackStats(
+                sprayMultiplier: 0.8f,
+                name: "Overheat 2",
+                description: "Projectile Spray +80%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -350,9 +362,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Speed +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -361,9 +373,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Range +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         //melee
         AddStat(
@@ -373,9 +385,9 @@ public static class AttackStatsLibrary
                 description: "Cast Speed +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -384,87 +396,85 @@ public static class AttackStatsLibrary
                 description: "Attack Range +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 meleeSpacerMultiplier: -0.6f,
-                 name: "Kamakazi 2",
-                 description: "Attack Range -60%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-
-
+            new AttackStats(
+                meleeSpacerMultiplier: -0.6f,
+                name: "Kamakazi 2",
+                description: "Attack Range -60%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 aimRangeAdditive: 0.6f,
-                 name: "Hacker 1",
-                 description: "Increases Aim Assist Range",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+            new AttackStats(
+                aimRangeAdditive: 0.6f,
+                name: "Hacker 1",
+                description: "Increases Aim Assist Range",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
         AddStat(
-             new AttackStats(
-                 coneAngle: 25f,
-                 name: "AFK 1",
-                 description: "Increases Aim Assist Width",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 multicastChance: 0.15f,
-                 name: "Multicast 1",
-                 description: "Multicast chance +15%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+            new AttackStats(
+                coneAngle: 25f,
+                name: "AFK 1",
+                description: "Increases Aim Assist Width",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttack: 1,
-                 name: "Extra Round 1",
-                 description: "+1 Projectile",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 shotsPerAttack: 6,
-                 name: "Extended Clip 1",
-                 description: "+6 Projectiles",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+            new AttackStats(
+                multicastChance: 0.15f,
+                name: "Multicast 1",
+                description: "Multicast chance +15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 pierce: 1,
-                 name: "Pierce 1",
-                 description: "Pierce through +1 enemy",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
+            new AttackStats(
+                shotsPerAttack: 1,
+                name: "Extra Round 1",
+                description: "+1 Projectile",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
-             )
-         ); ;
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 6,
+                name: "Extended Clip 1",
+                description: "+6 Projectiles",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                pierce: 1,
+                name: "Pierce 1",
+                description: "Pierce through +1 enemy",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -473,9 +483,9 @@ public static class AttackStatsLibrary
                 description: "Pierce through +5 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -484,9 +494,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -495,9 +505,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -506,9 +516,9 @@ public static class AttackStatsLibrary
                 description: "+1 Cast",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -517,9 +527,9 @@ public static class AttackStatsLibrary
                 description: "Release an aftershock after each cast",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -528,9 +538,9 @@ public static class AttackStatsLibrary
                 description: "Attack Size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -539,9 +549,9 @@ public static class AttackStatsLibrary
                 description: "Aftershock Size +7%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -550,13 +560,11 @@ public static class AttackStatsLibrary
                 description: "Aftershock Range +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
-
-
-    //epic
+        //epic
         AddStat(
             new AttackStats(
                 damageMultiplier: 0.12f,
@@ -565,37 +573,41 @@ public static class AttackStatsLibrary
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critChance: 0.2f,
-                 name: "Crit Chance 3",
-                 description: "Crit Chance +20%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-             )
-         ); ;
+            new AttackStats(
+                critChance: 0.2f,
+                name: "Crit Chance 3",
+                description: "Crit Chance +20%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critDmg: 1f,
-                 name: "Crit Dmg 3",
-                 description: "Crit Dmg +100%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-             )
-         ); ;
+            new AttackStats(
+                critDmg: 1f,
+                name: "Crit Dmg 3",
+                description: "Crit Dmg +100%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 castTimeMultiplier: -0.35f,
-                 name: "Haste 3",
-                 description: "Charge time -35%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-             )
-         ); ;
+            new AttackStats(
+                castTimeMultiplier: -0.35f,
+                name: "Haste 3",
+                description: "Charge time -35%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -605,30 +617,32 @@ public static class AttackStatsLibrary
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 spreadMultiplier: -0.5f,
-                 shotsPerAttack: 5,
-                 name: "Glattt 3",
-                 description: "Rate of Fire +50%, +5 Projectiles",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-             )
-         ); ;
+            new AttackStats(
+                spreadMultiplier: -0.5f,
+                shotsPerAttack: 5,
+                name: "Glattt 3",
+                description: "Rate of Fire +50%, +5 Projectiles",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotgunSpreadMultiplier: 0.5f,
-                 shotsPerAttack: 1,
-                 name: "Saw'd Off 3",
-                 description: "Shotgun Spread +50%, +1 Projectile",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                shotgunSpreadMultiplier: 0.5f,
+                shotsPerAttack: 1,
+                name: "Saw'd Off 3",
+                description: "Shotgun Spread +50%, +1 Projectile",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -637,9 +651,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Speed +100%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -648,9 +662,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Range +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         //melee
         AddStat(
@@ -660,9 +674,9 @@ public static class AttackStatsLibrary
                 description: "Cast Speed +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -671,74 +685,74 @@ public static class AttackStatsLibrary
                 description: "Attack Range +100%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 aimRangeAdditive: 1.5f,
-                 name: "Hacker 2",
-                 description: "Increases Aim Assist Range",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                aimRangeAdditive: 1.5f,
+                name: "Hacker 2",
+                description: "Increases Aim Assist Range",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
         AddStat(
-             new AttackStats(
-                 coneAngle: 60f,
-                 name: "AFK 2",
-                 description: "Increases Aim Assist Width",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 multicastChance: 0.33f,
-                 name: "Multicast 2",
-                 description: "Multicast chance +33%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                coneAngle: 60f,
+                name: "AFK 2",
+                description: "Increases Aim Assist Width",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttack: 3,
-                 name: "Extra Round 2",
-                 description: "+3 Projectile",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 shotsPerAttack: 15,
-                 name: "Extended Clip 2",
-                 description: "+15 Projectiles",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                multicastChance: 0.33f,
+                name: "Multicast 2",
+                description: "Multicast chance +33%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 pierce: 3,
-                 name: "Pierce 2",
-                 description: "Pierce through +3 enemies",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
+            new AttackStats(
+                shotsPerAttack: 3,
+                name: "Extra Round 2",
+                description: "+3 Projectile",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
-             )
-         ); ;
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 15,
+                name: "Extended Clip 2",
+                description: "+15 Projectiles",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                pierce: 3,
+                name: "Pierce 2",
+                description: "Pierce through +3 enemies",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -747,9 +761,9 @@ public static class AttackStatsLibrary
                 description: "Pierce through +20 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -758,9 +772,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -769,9 +783,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -780,9 +794,9 @@ public static class AttackStatsLibrary
                 description: "+2 Cast",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -791,9 +805,9 @@ public static class AttackStatsLibrary
                 description: "Release 2 aftershocks after each cast",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -802,9 +816,9 @@ public static class AttackStatsLibrary
                 description: "Attack Size +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -813,9 +827,9 @@ public static class AttackStatsLibrary
                 description: "Aftershock Size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -824,107 +838,110 @@ public static class AttackStatsLibrary
                 description: "Aftershock Range +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
-
-
-    //legendary
-
-        AddStat(
-             new AttackStats(
-                 shootOppositeSide: true,
-                 name: "Double Trouble",
-                 description: "Also Attack Behind (Doesn't Stack)",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-
-             )
-         ); ;
+        //legendary
 
         AddStat(
-           new AttackStats(
-               damageMultiplier: 0.80f,
-               name: "Damage 4",
-               description: "Damage +80%",
-               icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-               rarity: Rarity.Legendary
-           )
-       ); ;
+            new AttackStats(
+                shootOppositeSide: true,
+                name: "Double Trouble",
+                description: "Also Attack Behind (Doesn't Stack)",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critChance: 0.5f,
-                 name: "Crit Chance 4",
-                 description: "Crit Chance +50%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-             )
-         ); ;
+            new AttackStats(
+                damageMultiplier: 0.80f,
+                name: "Damage 4",
+                description: "Damage +80%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critDmg: 3f,
-                 name: "Crit Dmg 4",
-                 description: "Crit Dmg +300%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-             )
-         ); ;
+            new AttackStats(
+                critChance: 0.5f,
+                name: "Crit Chance 4",
+                description: "Crit Chance +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 castTimeMultiplier: -0.75f,
-                 name: "Haste 4",
-                 description: "Charge time -75%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-             )
-         ); ;
+            new AttackStats(
+                critDmg: 3f,
+                name: "Crit Dmg 4",
+                description: "Crit Dmg +300%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-           new AttackStats(
-               knockbackMultiplier: 0.80f,
-               name: "Knockback 4",
-               description: "Knockback +80%",
-               icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-               rarity: Rarity.Legendary
-           )
-       ); ;
+            new AttackStats(
+                castTimeMultiplier: -0.75f,
+                name: "Haste 4",
+                description: "Charge time -75%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 multicastChance: 1f,
-                 name: "Multicast 3",
-                 description: "Multicast chance +100%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 shotsPerAttack: 5,
-                 name: "Extra Round 3",
-                 description: "+5 Projectile",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-
-             )
-         ); ;
+            new AttackStats(
+                knockbackMultiplier: 0.80f,
+                name: "Knockback 4",
+                description: "Knockback +80%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttack: 40,
-                 name: "Extended Clip 3",
-                 description: "+40 Projectiles",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
+            new AttackStats(
+                multicastChance: 1f,
+                name: "Multicast 3",
+                description: "Multicast chance +100%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
-             )
-         ); ;
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 5,
+                name: "Extra Round 3",
+                description: "+5 Projectile",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 40,
+                name: "Extended Clip 3",
+                description: "+40 Projectiles",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -933,9 +950,9 @@ public static class AttackStatsLibrary
                 description: "Pierce through +10 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -944,9 +961,9 @@ public static class AttackStatsLibrary
                 description: "Pierce through +99 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -955,9 +972,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +100%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -966,9 +983,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -977,9 +994,9 @@ public static class AttackStatsLibrary
                 description: "Release 3 aftershocks after each cast",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -988,75 +1005,79 @@ public static class AttackStatsLibrary
                 description: "Attack Size +60%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
-
-
- //Weapon Sets
+        //Weapon Sets
 
         //common
 
         AddStat(
-                    new AttackStats(
-                        damageMultiplier: 0.05f,
-                        name: "Mastery 1",
-                        description: "Damage +5%",
-                        icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                        rarity: Rarity.Common
-                    )
-                ); ;
+            new AttackStats(
+                damageMultiplier: 0.05f,
+                name: "Mastery 1",
+                description: "Damage +5%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critChance: 0.03f,
-                 name: "Marksman 1",
-                 description: "Crit Chance +3%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-             )
-         ); ;
+            new AttackStats(
+                critChance: 0.03f,
+                name: "Marksman 1",
+                description: "Crit Chance +3%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critDmg: 0.15f,
-                 name: "Brutality 1",
-                 description: "Crit Dmg +15%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-             )
-         ); ;
+            new AttackStats(
+                critDmg: 0.15f,
+                name: "Brutality 1",
+                description: "Crit Dmg +15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 castTimeMultiplier: -0.05f,
-                 name: "Quickswap 1",
-                 description: "Charge time -5%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-             )
-         ); ;
+            new AttackStats(
+                castTimeMultiplier: -0.05f,
+                name: "Quickswap 1",
+                description: "Charge time -5%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-          new AttackStats(
-              knockbackMultiplier: 0.08f,
-              name: "Impact 1",
-              description: "Knockback +8%",
-              icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-              rarity: Rarity.Common
-          )
-      ); ;
+            new AttackStats(
+                knockbackMultiplier: 0.08f,
+                name: "Impact 1",
+                description: "Knockback +8%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 spreadMultiplier: -0.11f,
-                 name: "RoF 1",
-                 description: "Rate of Fire +11%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-             )
-         ); ;
+            new AttackStats(
+                spreadMultiplier: -0.11f,
+                name: "RoF 1",
+                description: "Rate of Fire +11%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1065,9 +1086,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Speed +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1076,20 +1097,20 @@ public static class AttackStatsLibrary
                 description: "Projectile Range +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotgunSpreadMultiplier: 0.15f,
-                 name: "Wide Barrel 1",
-                 description: "Shotgun Spread +15%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-
-             )
-         ); ;
+            new AttackStats(
+                shotgunSpreadMultiplier: 0.15f,
+                name: "Wide Barrel 1",
+                description: "Shotgun Spread +15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1098,9 +1119,9 @@ public static class AttackStatsLibrary
                 description: "Cast Speed +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1109,21 +1130,20 @@ public static class AttackStatsLibrary
                 description: "Attack Range +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 meleeSpacerMultiplier: -0.25f,
-                 name: "Implode 1",
-                 description: "Attack Range -25%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Common
-
-             )
-         ); ;
-
+            new AttackStats(
+                meleeSpacerMultiplier: -0.25f,
+                name: "Implode 1",
+                description: "Attack Range -25%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         //rare
 
@@ -1135,68 +1155,74 @@ public static class AttackStatsLibrary
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critChance: 0.05f,
-                 name: "Marksman 2",
-                 description: "Crit Chance +5%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-             )
-         ); ;
+            new AttackStats(
+                critChance: 0.05f,
+                name: "Marksman 2",
+                description: "Crit Chance +5%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critDmg: 0.25f,
-                 name: "Brutality 2",
-                 description: "Crit Dmg +25%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-             )
-         ); ;
+            new AttackStats(
+                critDmg: 0.25f,
+                name: "Brutality 2",
+                description: "Crit Dmg +25%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 castTimeMultiplier: -0.10f,
-                 name: "Quickswap 2",
-                 description: "Charge time -10%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-             )
-         ); ;
+            new AttackStats(
+                castTimeMultiplier: -0.10f,
+                name: "Quickswap 2",
+                description: "Charge time -10%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-          new AttackStats(
-              knockbackMultiplier: 0.15f,
-              name: "Impact 2",
-              description: "Knockback +15%",
-              icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-              rarity: Rarity.Rare
-          )
-      ); ;
+            new AttackStats(
+                knockbackMultiplier: 0.15f,
+                name: "Impact 2",
+                description: "Knockback +15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 spreadMultiplier: -0.22f,
-                 name: "RoF 2",
-                 description: "Rate of Fire +22%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-             )
-         ); ;
+            new AttackStats(
+                spreadMultiplier: -0.22f,
+                name: "RoF 2",
+                description: "Rate of Fire +22%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotgunSpreadMultiplier: 0.3f,
-                 name: "Wide Barrel 2",
-                 description: "Shotgun Spread +30%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+            new AttackStats(
+                shotgunSpreadMultiplier: 0.3f,
+                name: "Wide Barrel 2",
+                description: "Shotgun Spread +30%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1205,9 +1231,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Speed +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1216,9 +1242,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Range +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         //melee
         AddStat(
@@ -1228,9 +1254,9 @@ public static class AttackStatsLibrary
                 description: "Cast Speed +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1239,86 +1265,85 @@ public static class AttackStatsLibrary
                 description: "Attack Range +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 meleeSpacerMultiplier: -0.4f,
-                 name: "Implode 2",
-                 description: "Attack Range -40%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-
-
-        AddStat(
-             new AttackStats(
-                 aimRangeAdditive: 0.4f,
-                 name: "Vision 1",
-                 description: "Increases Aim Assist Range",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-        AddStat(
-             new AttackStats(
-                 coneAngle: 15f,
-                 name: "Awareness 1",
-                 description: "Increases Aim Assist Width",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+            new AttackStats(
+                meleeSpacerMultiplier: -0.4f,
+                name: "Implode 2",
+                description: "Attack Range -40%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 multicastChance: 0.08f,
-                 name: "Multi-cast 1",
-                 description: "Multicast chance +8%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+            new AttackStats(
+                aimRangeAdditive: 0.4f,
+                name: "Vision 1",
+                description: "Increases Aim Assist Range",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+        AddStat(
+            new AttackStats(
+                coneAngle: 15f,
+                name: "Awareness 1",
+                description: "Increases Aim Assist Width",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttack: 1,
-                 name: "Bonus Round 1",
-                 description: "+1 Projectile",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 shotsPerAttack: 4,
-                 name: "Extended Mag 1",
-                 description: "+4 Projectiles",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+            new AttackStats(
+                multicastChance: 0.08f,
+                name: "Multi-cast 1",
+                description: "Multicast chance +8%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 pierce: 1,
-                 name: "Piercing Ammo 1",
-                 description: "Pierce through +1 enemy",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
+            new AttackStats(
+                shotsPerAttack: 1,
+                name: "Bonus Round 1",
+                description: "+1 Projectile",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
-             )
-         ); ;
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 4,
+                name: "Extended Mag 1",
+                description: "+4 Projectiles",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                pierce: 1,
+                name: "Piercing Ammo 1",
+                description: "Pierce through +1 enemy",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1327,9 +1352,9 @@ public static class AttackStatsLibrary
                 description: "Pierce through +3 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1338,9 +1363,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1349,10 +1374,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +8%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
-
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1361,9 +1385,9 @@ public static class AttackStatsLibrary
                 description: "Attack Size +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1372,9 +1396,9 @@ public static class AttackStatsLibrary
                 description: "Aftershock Size +4%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1383,81 +1407,86 @@ public static class AttackStatsLibrary
                 description: "Aftershock Range +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
-
-    //epic
+        //epic
         AddStat(
-                    new AttackStats(
-                        damageMultiplier: 0.2f,
-                        name: "Mastery 3",
-                        description: "Damage +20%",
-                        icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                        rarity: Rarity.Epic
-                    )
-                ); ;
+            new AttackStats(
+                damageMultiplier: 0.2f,
+                name: "Mastery 3",
+                description: "Damage +20%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
         AddStat(
-             new AttackStats(
-                 critChance: 0.1f,
-                 name: "Marksman 3",
-                 description: "Crit Chance +10%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 critDmg: 0.50f,
-                 name: "Brutality 3",
-                 description: "Crit Dmg +50%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-             )
-         ); ;
+            new AttackStats(
+                critChance: 0.1f,
+                name: "Marksman 3",
+                description: "Crit Chance +10%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 castTimeMultiplier: -0.15f,
-                 name: "Quickswap 3",
-                 description: "Charge time -15%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-             )
-         ); ;
+            new AttackStats(
+                critDmg: 0.50f,
+                name: "Brutality 3",
+                description: "Crit Dmg +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-          new AttackStats(
-              knockbackMultiplier: 0.3f,
-              name: "Impact 3",
-              description: "Knockback +30%",
-              icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-              rarity: Rarity.Common
-          )
-      ); ;
+            new AttackStats(
+                castTimeMultiplier: -0.15f,
+                name: "Quickswap 3",
+                description: "Charge time -15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 spreadMultiplier: -0.35f,
-                 name: "RoF 3",
-                 description: "Rate of Fire +35%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-             )
-         ); ;
+            new AttackStats(
+                knockbackMultiplier: 0.3f,
+                name: "Impact 3",
+                description: "Knockback +30%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotgunSpreadMultiplier: 0.5f,
-                 name: "Wide Barrel 3",
-                 description: "Shotgun Spread +50%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
+            new AttackStats(
+                spreadMultiplier: -0.35f,
+                name: "RoF 3",
+                description: "Rate of Fire +35%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
-             )
-         ); ;
+        AddStat(
+            new AttackStats(
+                shotgunSpreadMultiplier: 0.5f,
+                name: "Wide Barrel 3",
+                description: "Shotgun Spread +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1466,9 +1495,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Speed +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1477,9 +1506,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Range +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         //melee
         AddStat(
@@ -1489,9 +1518,9 @@ public static class AttackStatsLibrary
                 description: "Cast Speed +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1500,74 +1529,74 @@ public static class AttackStatsLibrary
                 description: "Attack Range +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 aimRangeAdditive: 0.75f,
-                 name: "Vision 2",
-                 description: "Increases Aim Assist Range",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                aimRangeAdditive: 0.75f,
+                name: "Vision 2",
+                description: "Increases Aim Assist Range",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
         AddStat(
-             new AttackStats(
-                 coneAngle: 30f,
-                 name: "Awareness 2",
-                 description: "Increases Aim Assist Width",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 multicastChance: 0.15f,
-                 name: "Multi-cast 2",
-                 description: "Multicast chance +15%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                coneAngle: 30f,
+                name: "Awareness 2",
+                description: "Increases Aim Assist Width",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttack: 2,
-                 name: "Bonus Round 2",
-                 description: "+2 Projectile",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 shotsPerAttack: 10,
-                 name: "Extended Mag 2",
-                 description: "+10 Projectiles",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                multicastChance: 0.15f,
+                name: "Multi-cast 2",
+                description: "Multicast chance +15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 pierce: 2,
-                 name: "Piercing Ammo 2",
-                 description: "Pierce through +2 enemies",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
+            new AttackStats(
+                shotsPerAttack: 2,
+                name: "Bonus Round 2",
+                description: "+2 Projectile",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
-             )
-         ); ;
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 10,
+                name: "Extended Mag 2",
+                description: "+10 Projectiles",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                pierce: 2,
+                name: "Piercing Ammo 2",
+                description: "Pierce through +2 enemies",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1576,9 +1605,9 @@ public static class AttackStatsLibrary
                 description: "Pierce through +8 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1587,9 +1616,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1598,9 +1627,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +18%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1609,9 +1638,9 @@ public static class AttackStatsLibrary
                 description: "+1 Cast",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1620,9 +1649,9 @@ public static class AttackStatsLibrary
                 description: "Release an aftershock after each cast",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1631,9 +1660,9 @@ public static class AttackStatsLibrary
                 description: "Attack Size +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1642,9 +1671,9 @@ public static class AttackStatsLibrary
                 description: "Aftershock Size +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1653,106 +1682,110 @@ public static class AttackStatsLibrary
                 description: "Aftershock Range +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
-
+        );
+        ;
 
         //legendary
 
         AddStat(
-             new AttackStats(
-                 shootOppositeSide: true,
-                 name: "Buddy System",
-                 description: "Also Attack Behind (Doesn't Stack)",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-
-             )
-         ); ;
-
-        AddStat(
-           new AttackStats(
-               damageMultiplier: 0.50f,
-               name: "Mastery 4",
-               description: "Damage +50%",
-               icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-               rarity: Rarity.Legendary
-           )
-       ); ;
+            new AttackStats(
+                shootOppositeSide: true,
+                name: "Buddy System",
+                description: "Also Attack Behind (Doesn't Stack)",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critChance: 0.3f,
-                 name: "Marksman 4",
-                 description: "Crit Chance +30%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-             )
-         ); ;
+            new AttackStats(
+                damageMultiplier: 0.50f,
+                name: "Mastery 4",
+                description: "Damage +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 critDmg: 1f,
-                 name: "Brutality 4",
-                 description: "Crit Dmg +100%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-             )
-         ); ;
+            new AttackStats(
+                critChance: 0.3f,
+                name: "Marksman 4",
+                description: "Crit Chance +30%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 castTimeMultiplier: -0.4f,
-                 name: "Quickswap 4",
-                 description: "Charge time -40%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-             )
-         ); ;
+            new AttackStats(
+                critDmg: 1f,
+                name: "Brutality 4",
+                description: "Crit Dmg +100%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-          new AttackStats(
-              knockbackMultiplier: 0.5f,
-              name: "Impact 4",
-              description: "Knockback +60%",
-              icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-              rarity: Rarity.Common
-          )
-      ); ;
+            new AttackStats(
+                castTimeMultiplier: -0.4f,
+                name: "Quickswap 4",
+                description: "Charge time -40%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 multicastChance: 0.6f,
-                 name: "Multi-cast 3",
-                 description: "Multicast chance +60%",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 shotsPerAttack: 4,
-                 name: "Bonus Round 3",
-                 description: "+4 Projectiles",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-
-             )
-         ); ;
+            new AttackStats(
+                knockbackMultiplier: 0.5f,
+                name: "Impact 4",
+                description: "Knockback +60%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttack: 25,
-                 name: "Extended Mag 3",
-                 description: "+25 Projectiles",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
+            new AttackStats(
+                multicastChance: 0.6f,
+                name: "Multi-cast 3",
+                description: "Multicast chance +60%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
-             )
-         ); ;
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 4,
+                name: "Bonus Round 3",
+                description: "+4 Projectiles",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 25,
+                name: "Extended Mag 3",
+                description: "+25 Projectiles",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1761,9 +1794,9 @@ public static class AttackStatsLibrary
                 description: "Pierce through +5 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1772,9 +1805,9 @@ public static class AttackStatsLibrary
                 description: "Pierce through +50 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1783,9 +1816,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +60%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1794,9 +1827,9 @@ public static class AttackStatsLibrary
                 description: "Projectile Size +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1805,20 +1838,20 @@ public static class AttackStatsLibrary
                 description: "Release 2 aftershocks after each cast",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-           new AttackStats(
-               comboLength: 2,
-               name: "Once More 2",
-               description: "+2 Casts",
-               icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-               rarity: Rarity.Legendary
-
-           )
-       ); ;
+            new AttackStats(
+                comboLength: 2,
+                name: "Once More 2",
+                description: "+2 Casts",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -1827,162 +1860,157 @@ public static class AttackStatsLibrary
                 description: "Attack Size +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
-
             )
-        ); ;
+        );
+        ;
 
-
-//Weapon Set - Automatic
-
-        AddStat(
-             new AttackStats(
-                 spreadMultiplier: -0.1f,
-                 speedMultiplier: 0.15f,
-                 projectileSize: 0.05f,
-                 aimRangeAdditive: 0.4f,
-                 coneAngle: 5f,
-                 name: "Auto Novice",
-                 description: "All Automatic Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
+        //Weapon Set - Automatic
 
         AddStat(
-             new AttackStats(
-                 pierce: 1,
-                 shotsPerAttack: 5,
-                 sprayMultiplier: -0.5f,
-                 speedMultiplier: 0.1f,
-                 rangeMultiplier: 0.15f,
-                 aimRangeAdditive: 0.7f,
-                 coneAngle: 10f,
-                 name: "Auto Pro",
-                 description: "All Automatic Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                spreadMultiplier: -0.1f,
+                speedMultiplier: 0.15f,
+                projectileSize: 0.05f,
+                aimRangeAdditive: 0.4f,
+                coneAngle: 5f,
+                name: "Auto Novice",
+                description: "All Automatic Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 pierce: 1,
-                 shotsPerAttack: 10,
-                 spreadMultiplier: -0.2f,
-                 sprayMultiplier: -1f,
-                 speedMultiplier: 0.2f,
-                 rangeMultiplier: 0.2f,
-                 aimRangeAdditive: 1.2f,
-                 coneAngle: 15f,
-                 name: "Auto God",
-                 description: "All Automatic Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
+            new AttackStats(
+                pierce: 1,
+                shotsPerAttack: 5,
+                sprayMultiplier: -0.5f,
+                speedMultiplier: 0.1f,
+                rangeMultiplier: 0.15f,
+                aimRangeAdditive: 0.7f,
+                coneAngle: 10f,
+                name: "Auto Pro",
+                description: "All Automatic Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
-             )
-         ); ;
-
+        AddStat(
+            new AttackStats(
+                pierce: 1,
+                shotsPerAttack: 10,
+                spreadMultiplier: -0.2f,
+                sprayMultiplier: -1f,
+                speedMultiplier: 0.2f,
+                rangeMultiplier: 0.2f,
+                aimRangeAdditive: 1.2f,
+                coneAngle: 15f,
+                name: "Auto God",
+                description: "All Automatic Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         //Weapon Set - Semi-Auto
 
         AddStat(
-             new AttackStats(
-                 castTimeMultiplier: -0.05f,
-                 projectileSize: 0.1f,
-                 aimRangeAdditive: 0.5f,
-                 coneAngle: -5f,
-                 name: "Semi-Auto Novice",
-                 description: "All Semi-Automatic Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 shotsPerAttack: 1,
-                 spreadMultiplier: -0.15f,
-                 projectileSize: 0.15f,
-                 aimRangeAdditive: 0.8f,
-                 coneAngle: -10f,
-                 name: "Semi-Auto Pro",
-                 description: "All Semi-Automatic Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                castTimeMultiplier: -0.05f,
+                projectileSize: 0.1f,
+                aimRangeAdditive: 0.5f,
+                coneAngle: -5f,
+                name: "Semi-Auto Novice",
+                description: "All Semi-Automatic Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttack: 2,
-                 pierce: 2,
-                 castTimeMultiplier: -0.2f,
-                 projectileSize: 0.4f,
-                 aimRangeAdditive: 1.5f,
-                 coneAngle: -15f,
-                 name: "Semi-Auto God",
-                 description: "All Semi-Automatic Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
+            new AttackStats(
+                shotsPerAttack: 1,
+                spreadMultiplier: -0.15f,
+                projectileSize: 0.15f,
+                aimRangeAdditive: 0.8f,
+                coneAngle: -10f,
+                name: "Semi-Auto Pro",
+                description: "All Semi-Automatic Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
-             )
-         ); ;
-
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 2,
+                pierce: 2,
+                castTimeMultiplier: -0.2f,
+                projectileSize: 0.4f,
+                aimRangeAdditive: 1.5f,
+                coneAngle: -15f,
+                name: "Semi-Auto God",
+                description: "All Semi-Automatic Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         //Weapon Set - Shotgun
 
         AddStat(
-             new AttackStats(
-                 shotgunSpreadMultiplier: 0.15f,
-                 speedMultiplier: 0.15f,
-                 aimRangeAdditive: 0.25f,
-                 coneAngle: 10f,
-                 name: "Shotgun Novice",
-                 description: "All Shotgun Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 shotsPerAttack: 1,
-                 rangeMultiplier: 0.2f,
-                 knockbackMultiplier: 0.2f,
-                 shotgunSpreadMultiplier: 0.2f,
-                 aimRangeAdditive: 0.5f,
-                 coneAngle: 20f,
-                 name: "Shotgun Pro",
-                 description: "All Shotgun Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
+            new AttackStats(
+                shotgunSpreadMultiplier: 0.15f,
+                speedMultiplier: 0.15f,
+                aimRangeAdditive: 0.25f,
+                coneAngle: 10f,
+                name: "Shotgun Novice",
+                description: "All Shotgun Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttack: 2,
-                 knockbackMultiplier: 0.5f,
-                 shotgunSpreadMultiplier: 0.3f,
-                 speedMultiplier: 0.15f,
-                 rangeMultiplier: 0.15f,
-                 aimRangeAdditive: 1f,
-                 coneAngle: 40f,
-                 name: "Shotgun God",
-                 description: "All Shotgun Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
+            new AttackStats(
+                shotsPerAttack: 1,
+                rangeMultiplier: 0.2f,
+                knockbackMultiplier: 0.2f,
+                shotgunSpreadMultiplier: 0.2f,
+                aimRangeAdditive: 0.5f,
+                coneAngle: 20f,
+                name: "Shotgun Pro",
+                description: "All Shotgun Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
-             )
-         ); ;
-
-
+        AddStat(
+            new AttackStats(
+                shotsPerAttack: 2,
+                knockbackMultiplier: 0.5f,
+                shotgunSpreadMultiplier: 0.3f,
+                speedMultiplier: 0.15f,
+                rangeMultiplier: 0.15f,
+                aimRangeAdditive: 1f,
+                coneAngle: 40f,
+                name: "Shotgun God",
+                description: "All Shotgun Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         //Weapon Set - Explosive
 
@@ -1997,9 +2025,9 @@ public static class AttackStatsLibrary
                 description: "All Explosive Weapons Enhanced",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
             new AttackStats(
@@ -2014,74 +2042,71 @@ public static class AttackStatsLibrary
                 description: "All Explosive Weapons Enhanced",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttack: 1,
-                 spreadMultiplier: -0.3f,
-                 shotgunSpreadMultiplier: 0.25f,
-                 projectileSizeMultiplier: 0.25f,
-                 castTimeMultiplier: -0.1f,
-                 rangeMultiplier: 0.25f,
-                 pierce: 5,
-                 aimRangeAdditive: 0.75f,
-                 coneAngle: 50f,
-                 name: "Explosive God",
-                 description: "All Explosive Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-
-             )
-         ); ;
-
+            new AttackStats(
+                shotsPerAttack: 1,
+                spreadMultiplier: -0.3f,
+                shotgunSpreadMultiplier: 0.25f,
+                projectileSizeMultiplier: 0.25f,
+                castTimeMultiplier: -0.1f,
+                rangeMultiplier: 0.25f,
+                pierce: 5,
+                aimRangeAdditive: 0.75f,
+                coneAngle: 50f,
+                name: "Explosive God",
+                description: "All Explosive Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         //Weapon Set - Nova
 
         AddStat(
-             new AttackStats(
-                 knockbackMultiplier: 0.12f,
-                 meleeSizeMultiplier: 0.12f,
-                 name: "AFK Novice",
-                 description: "All Nova Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Rare
-
-             )
-         ); ;
-
-        AddStat(
-             new AttackStats(
-                 comboLength: 1,
-                 comboWaitTimeMultiplier: -0.25f,
-                 knockbackMultiplier: 0.15f,
-                 meleeSizeMultiplier: 0.15f,
-                 name: "AFK Pro",
-                 description: "All Nova Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Epic
-
-             )
-         ); ;
-
+            new AttackStats(
+                knockbackMultiplier: 0.12f,
+                meleeSizeMultiplier: 0.12f,
+                name: "AFK Novice",
+                description: "All Nova Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttackMelee: 1,
-                 spreadMultiplier: -0.3f,
-                 castTimeMultiplier: -0.1f,
-                 knockbackMultiplier: 0.3f,
-                 meleeSizeMultiplier: 0.3f,
-                 name: "AFK God",
-                 description: "All Nova Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
+            new AttackStats(
+                comboLength: 1,
+                comboWaitTimeMultiplier: -0.25f,
+                knockbackMultiplier: 0.15f,
+                meleeSizeMultiplier: 0.15f,
+                name: "AFK Pro",
+                description: "All Nova Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
-             )
-         ); ;
-
+        AddStat(
+            new AttackStats(
+                shotsPerAttackMelee: 1,
+                spreadMultiplier: -0.3f,
+                castTimeMultiplier: -0.1f,
+                knockbackMultiplier: 0.3f,
+                meleeSizeMultiplier: 0.3f,
+                name: "AFK God",
+                description: "All Nova Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         //Weapon Set - Melee
 
@@ -2095,42 +2120,40 @@ public static class AttackStatsLibrary
                 description: "All Melee Weapons Enhanced",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
-
             )
-        ); ;
+        );
+        ;
 
         AddStat(
-                    new AttackStats(
-                        comboLength: 1,
-                        comboWaitTimeMultiplier: -0.15f,
-                        meleeSizeMultiplier: 0.15f,
-                        aimRangeAdditive: 0.6f,
-                        coneAngle: 35f,
-                        name: "Melee Pro",
-                        description: "All Melee Weapons Enhanced",
-                        icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                        rarity: Rarity.Epic
-
-                    )
-                ); ;
+            new AttackStats(
+                comboLength: 1,
+                comboWaitTimeMultiplier: -0.15f,
+                meleeSizeMultiplier: 0.15f,
+                aimRangeAdditive: 0.6f,
+                coneAngle: 35f,
+                name: "Melee Pro",
+                description: "All Melee Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
 
         AddStat(
-             new AttackStats(
-                 shotsPerAttackMelee: 1,
-                 knockbackMultiplier: 0.3f,
-                 meleeSizeMultiplier: 0.3f,
-                 meleeShotsScaleUpMultiplier: 0.15f,
-                 aimRangeAdditive: 1f,
-                 coneAngle: 60f,
-                 name: "Melee God",
-                 description: "All Melee Weapons Enhanced",
-                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                 rarity: Rarity.Legendary
-
-             )
-         ); ;
-
-
+            new AttackStats(
+                shotsPerAttackMelee: 1,
+                knockbackMultiplier: 0.3f,
+                meleeSizeMultiplier: 0.3f,
+                meleeShotsScaleUpMultiplier: 0.15f,
+                aimRangeAdditive: 1f,
+                coneAngle: 60f,
+                name: "Melee God",
+                description: "All Melee Weapons Enhanced",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         isInitialized = true;
 
@@ -2158,8 +2181,7 @@ public static class AttackStatsLibrary
         }
         else
         {
-            Debug.LogError("AttackStatsLibrary does not contain a stat named " + name);
-            return null;
+            throw new System.Exception("AttackStatsLibrary does not contain a stat named " + name);
         }
     }
 

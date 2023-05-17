@@ -30,7 +30,7 @@ public class AttackHandler : MonoBehaviour
     PlayerCharacterStats characterStats;
     public AutoAim AutoAimPrefab;
 
-    //attackbar wheel 
+    //attackbar wheel
     private Vector3 originalScale;
     private Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
     public Image attackWheel;
@@ -220,12 +220,12 @@ public class AttackHandler : MonoBehaviour
     IEnumerator Attack()
     {
         while (true)
-        { 
+        {
             if (attacks.Count == 0)
                 yield return null;
             Attack currentAttack = attacks[attackIndex];
             attackState = AttackState.Casting;
-          
+
             WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack
                 .GetComponent<Attack>()
                 .weaponSprite;
@@ -236,7 +236,12 @@ public class AttackHandler : MonoBehaviour
             //swap animation
             HandsSprite.GetComponent<Animator>().SetBool("IsSwap", true);
             //Debug.Log(currentAttack.stats);
-            AutoAimPrefab.UpdateAimRange(currentAttack.stats.aimRange, currentAttack.stats.aimRangeAdditive, currentAttack.stats.isCone, currentAttack.stats.coneAngle);
+            AutoAimPrefab.UpdateAimRange(
+                currentAttack.stats.aimRange,
+                currentAttack.stats.aimRangeAdditive,
+                currentAttack.stats.isCone,
+                currentAttack.stats.coneAngle
+            );
 
             yield return new WaitForSeconds(0.3f);
             HandsSprite.GetComponent<Animator>().SetBool("IsSwap", false);
@@ -249,7 +254,7 @@ public class AttackHandler : MonoBehaviour
             attackWheel.gameObject.SetActive(true);
             if (usingAttackBar)
                 StartCoroutine(HandleAttackWheel(currentAttack.stats.castTime));
-                //StartCoroutine(HandleAttackSlider(currentAttack.stats.castTime));
+            //StartCoroutine(HandleAttackSlider(currentAttack.stats.castTime));
             yield return new WaitForSeconds(currentAttack.stats.castTime);
 
             //attacking
@@ -295,9 +300,9 @@ public class AttackHandler : MonoBehaviour
         newWeapon.owner = GetComponent<Attacker>();
         newWeapon.baseStats = weapon.baseStats;
         newWeapon.stats = weapon.stats;
+        newWeapon.weaponUpgrades = weapon.weaponUpgrades;
 
         attacks.Add(newWeapon);
-
 
         //Debug.Log(weapon.GetComponent<Attack>().baseStats.damage);
 
@@ -349,6 +354,6 @@ public class AttackHandler : MonoBehaviour
         attackWheel = GameObject.Find("Wheel").GetComponent<Image>();
         originalScale = attackWheel.transform.localScale;
 
-        StartCoroutine(Attack());   
+        StartCoroutine(Attack());
     }
 }

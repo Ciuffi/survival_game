@@ -14,12 +14,13 @@ public class CharSelectController : MonoBehaviour
 
     void Start()
     {
-
         // Instantiate each prefab and add it as a child of the content object
-        foreach (GameObject prefab in characterPrefabs)
+        foreach (GameObject prefab in PlayerCharactersLibrary.getCharacters())
         {
             GameObject character = Instantiate(prefab, content.transform);
-
+            character.GetComponent<StatComponent>().stat = prefab
+                .GetComponent<StatComponent>()
+                .stat;
 
             // Find the SelectedImage child object and store a reference to it in the CharacterButton script
             GameObject selectedImage = character.transform.Find("Selected").gameObject;
@@ -28,7 +29,6 @@ public class CharSelectController : MonoBehaviour
             // Deactivate the SelectedImage object initially
             selectedImage.SetActive(false);
         }
-
     }
 
     public PlayerCharacterStats GetSelectedStats()

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2621842918715029964}
-  - component: {fileID: 7044413831109656880}
   - component: {fileID: 3817268471581327505}
   - component: {fileID: 7329280640904233847}
   - component: {fileID: 2619886986464292918}
@@ -41,49 +40,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7044413831109656880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8374027959730413455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2061a985b0d2f2243bcf3487495911c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  description: 
-  name: 0_Default
-  isLocked: 0
-  maxHealth: 50
-  health: 50
-  speed: 0.038
-  pickupRange: 2
-  damageMultiplier: 1
-  critChance: 0
-  critDmg: 0
-  defense: 0
-  shield: 0
-  shotsPerAttack: 0
-  shotsPerAttackMelee: 0
-  comboLength: 0
-  aimRangeAdditive: 1
-  multicastChance: 0
-  shotgunSpread: 0
-  spreadMultiplier: 1
-  castTimeMultiplier: 1
-  comboWaitTime: 1
-  projectileSpeedMultiplier: 1
-  rangeMultiplier: 1
-  knockbackMultiplier: 1
-  thrownDamageMultiplier: 1
-  thrownSpeedMultiplier: 1
-  projectileSizeMultiplier: 1
-  meleeSizeMultiplier: 1
-  shootOpposideSide: 0
-  rarity: 0
 --- !u!222 &3817268471581327505
 CanvasRenderer:
   m_ObjectHideFlags: 0

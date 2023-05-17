@@ -2915,7 +2915,6 @@ MonoBehaviour:
   - {fileID: 8374027959730413455, guid: e8ee95a3b19293a4f920a6f1bee8892b, type: 3}
   - {fileID: 8374027959730413455, guid: 6dd81783604207949b746f047d6cd173, type: 3}
   - {fileID: 8374027959730413455, guid: 2bd52ce1c88283744b11a584e700aa6b, type: 3}
-  selectedCharacter: {fileID: 0}
   selectedImagePrefab: {fileID: 0}
   hasSelected: 0
 --- !u!1 &1620275968

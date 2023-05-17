@@ -15,6 +15,7 @@ public static class PlayerStatsLibrary
         {
             GameObject statObject = new GameObject(stat.name);
             statObject.AddComponent<StatComponent>().stat = stat;
+            statObject.GetComponent<StatComponent>().stat.statsContainer = statObject;
             statGameObjects.Add(statObject);
         }
     }
@@ -23,7 +24,6 @@ public static class PlayerStatsLibrary
     {
         return statGameObjects;
     }
-    
 
     private static void AddStat(PlayerCharacterStats stat)
     {
@@ -43,86 +43,84 @@ public static class PlayerStatsLibrary
             return;
         }
 
-      //COMMON STATS
+        //COMMON STATS
 
-            //Healing
-            AddStat(
-                new PlayerCharacterStats(
-                    health: 15,
-                    name: "First Aid 1",
-                    description: "Recover 15 HP",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Common
-                )
-            );
+        //Healing
+        AddStat(
+            new PlayerCharacterStats(
+                health: 15,
+                name: "First Aid 1",
+                description: "Recover 15 HP",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
 
-            //max health
-            AddStat(
-                new PlayerCharacterStats(
-                    maxhealth: 10,
-                    name: "Thick Hide 1",
-                    description: "Increase Max HP by 10",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Common
-                )
-            );
+        //max health
+        AddStat(
+            new PlayerCharacterStats(
+                maxhealth: 10,
+                name: "Thick Hide 1",
+                description: "Increase Max HP by 10",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
 
         //Crit Chance
         AddStat(
-                new PlayerCharacterStats(
-                    critChance: 0.02f,
-                    name: "Eagle Eye 1",
-                    description: "All weapons: Crit Chance +2%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Common
-                )
-            );
+            new PlayerCharacterStats(
+                critChance: 0.02f,
+                name: "Eagle Eye 1",
+                description: "All weapons: Crit Chance +2%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
 
-            //Crit Dmg
-            AddStat(
-                new PlayerCharacterStats(
-                    critChance: 0.12f,
-                    name: "Scanner 1",
-                    description: "All weapons: Crit Dmg +12%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Common
-                )
-            );
-
-            //pickup range
-            AddStat(
-                new PlayerCharacterStats(
-                    pickupRange: 0.5f,
-                    name: "Magnet 1",
-                    description: "Increase pickup range",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Common
-                )
-            );
-
-            //move Speed
-            AddStat(
-                new PlayerCharacterStats(
-                    speed: 0.0025f,
-                    name: "Boost 1",
-                    description: "Increase move speed by 5%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Common
-                )
-            );
-
-
-
-    //RARE STATS
+        //Crit Dmg
         AddStat(
-                new PlayerCharacterStats(
-                    health: 25,
-                    name: "First Aid 2",
-                    description: "Recover 25 HP",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+            new PlayerCharacterStats(
+                critChance: 0.12f,
+                name: "Scanner 1",
+                description: "All weapons: Crit Dmg +12%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+
+        //pickup range
+        AddStat(
+            new PlayerCharacterStats(
+                pickupRange: 0.5f,
+                name: "Magnet 1",
+                description: "Increase pickup range",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+
+        //move Speed
+        AddStat(
+            new PlayerCharacterStats(
+                speed: 0.0025f,
+                name: "Boost 1",
+                description: "Increase move speed by 5%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Common
+            )
+        );
+
+        //RARE STATS
+        AddStat(
+            new PlayerCharacterStats(
+                health: 25,
+                name: "First Aid 2",
+                description: "Recover 25 HP",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
         //max health
         AddStat(
@@ -137,14 +135,14 @@ public static class PlayerStatsLibrary
 
         //Crit Chance
         AddStat(
-                new PlayerCharacterStats(
-                    critChance: 0.04f,
-                    name: "Eagle Eye 2",
-                    description: "All weapons: Crit Chance +4%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+            new PlayerCharacterStats(
+                critChance: 0.04f,
+                name: "Eagle Eye 2",
+                description: "All weapons: Crit Chance +4%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
         //Crit Dmg
         AddStat(
@@ -170,105 +168,104 @@ public static class PlayerStatsLibrary
 
         //defense
         AddStat(
-                new PlayerCharacterStats(
-                    defense: 1,
-                    name: "Protection 1",
-                    description: "Reduce all Damage taken by 1",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+            new PlayerCharacterStats(
+                defense: 1,
+                name: "Protection 1",
+                description: "Reduce all Damage taken by 1",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
-            //Damage%
-            AddStat(
-                new PlayerCharacterStats(
-                    damageMultiplier: 0.08f,
-                    name: "Training 1",
-                    description: "All weapons: Damage +8%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+        //Damage%
+        AddStat(
+            new PlayerCharacterStats(
+                damageMultiplier: 0.08f,
+                name: "Training 1",
+                description: "All weapons: Damage +8%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
-            //Attack Speed
-            AddStat(
-                new PlayerCharacterStats(
-                    castTimeMultiplier: -0.08f,
-                    name: "Adrenaline 1",
-                    description: "All weapons: Attack Speed +8%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+        //Attack Speed
+        AddStat(
+            new PlayerCharacterStats(
+                castTimeMultiplier: -0.08f,
+                name: "Adrenaline 1",
+                description: "All weapons: Attack Speed +8%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
-            //Knockback
-            AddStat(
-                new PlayerCharacterStats(
-                    knockbackMultiplier: 0.12f,
-                    name: "Strength 1",
-                    description: "All weapons: Knockback +12%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+        //Knockback
+        AddStat(
+            new PlayerCharacterStats(
+                knockbackMultiplier: 0.12f,
+                name: "Strength 1",
+                description: "All weapons: Knockback +12%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
-            //melee Size
-            AddStat(
-                new PlayerCharacterStats(
-                    meleeSizeMultiplier: 0.08f,
-                    name: "Melee Size 1",
-                    description: "Melee: Attack size +8%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+        //melee Size
+        AddStat(
+            new PlayerCharacterStats(
+                meleeSizeMultiplier: 0.08f,
+                name: "Melee Size 1",
+                description: "Melee: Attack size +8%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
-            //proj size
-            AddStat(
-                new PlayerCharacterStats(
-                    projectileSizeMultiplier: 0.1f,
-                    name: "Proj Size 1",
-                    description: "Ranged: Projectile size +10%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+        //proj size
+        AddStat(
+            new PlayerCharacterStats(
+                projectileSizeMultiplier: 0.1f,
+                name: "Proj Size 1",
+                description: "Ranged: Projectile size +10%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
-            //swing speed
-            AddStat(
-                new PlayerCharacterStats(
-                    comboWaitTime: -0.12f,
-                    name: "Cast Speed 1",
-                    description: "Melee: Cast Speed +12%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+        //swing speed
+        AddStat(
+            new PlayerCharacterStats(
+                comboWaitTime: -0.12f,
+                name: "Cast Speed 1",
+                description: "Melee: Cast Speed +12%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
-            //Rate of fire
-            AddStat(
-                new PlayerCharacterStats(
-                    spreadMultiplier: -0.10f,
-                    name: "Rate of Fire 1",
-                    description: "All weapons: Rate of Fire +10%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+        //Rate of fire
+        AddStat(
+            new PlayerCharacterStats(
+                spreadMultiplier: -0.10f,
+                name: "Rate of Fire 1",
+                description: "All weapons: Rate of Fire +10%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
-            //move Speed
-            AddStat(
-                new PlayerCharacterStats(
-                    speed: 0.005f,
-                    name: "Boost 2",
-                    description: "Increase move speed by 12%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Rare
-                )
-            );
+        //move Speed
+        AddStat(
+            new PlayerCharacterStats(
+                speed: 0.005f,
+                name: "Boost 2",
+                description: "Increase move speed by 12%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
 
-
-    //EPIC STATS
+        //EPIC STATS
 
         //max health
         AddStat(
@@ -283,14 +280,14 @@ public static class PlayerStatsLibrary
 
         //Crit Chance
         AddStat(
-                new PlayerCharacterStats(
-                    critChance: 0.09f,
-                    name: "Eagle Eye 3",
-                    description: "All weapons: Crit Chance +9%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Epic
-                )
-            );
+            new PlayerCharacterStats(
+                critChance: 0.09f,
+                name: "Eagle Eye 3",
+                description: "All weapons: Crit Chance +9%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
 
         //Crit Dmg
         AddStat(
@@ -305,14 +302,14 @@ public static class PlayerStatsLibrary
 
         //defense
         AddStat(
-                new PlayerCharacterStats(
-                    defense: 2,
-                    name: "Protection 2",
-                    description: "Reduce all Damage taken by 2",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Epic
-                )
-            );
+            new PlayerCharacterStats(
+                defense: 2,
+                name: "Protection 2",
+                description: "Reduce all Damage taken by 2",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
 
         //Damage%
         AddStat(
@@ -393,16 +390,16 @@ public static class PlayerStatsLibrary
 
         //melee swing
         AddStat(
-                new PlayerCharacterStats(
-                    comboLength: 2,
-                    name: "Another 2",
-                    description: "Melee: +2 Casts",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Epic
-                )
-            );
+            new PlayerCharacterStats(
+                comboLength: 2,
+                name: "Another 2",
+                description: "Melee: +2 Casts",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
 
-        //projectile 
+        //projectile
         AddStat(
             new PlayerCharacterStats(
                 shotsPerAttack: 2,
@@ -415,14 +412,14 @@ public static class PlayerStatsLibrary
 
         //aftershock
         AddStat(
-                new PlayerCharacterStats(
-                    shotsPerAttackMelee: 1,
-                    name: "Aftershocker 1",
-                    description: "Melee: +1 Aftershock",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Epic
-                )
-            );
+            new PlayerCharacterStats(
+                shotsPerAttackMelee: 1,
+                name: "Aftershocker 1",
+                description: "Melee: +1 Aftershock",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
 
         //move Speed
         AddStat(
@@ -446,20 +443,19 @@ public static class PlayerStatsLibrary
             )
         );
 
-
         //LEGENDARY STATS
 
 
         //Crit Chance
         AddStat(
-                new PlayerCharacterStats(
-                    critChance: 0.15f,
-                    name: "Eagle Eye 4",
-                    description: "All weapons: Crit Chance +15%",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Legendary
-                )
-            );
+            new PlayerCharacterStats(
+                critChance: 0.15f,
+                name: "Eagle Eye 4",
+                description: "All weapons: Crit Chance +15%",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Legendary
+            )
+        );
 
         //Crit Dmg
         AddStat(
@@ -471,7 +467,6 @@ public static class PlayerStatsLibrary
                 rarity: Rarity.Legendary
             )
         );
-
 
         //Damage%
         AddStat(
@@ -550,7 +545,7 @@ public static class PlayerStatsLibrary
             )
         );
 
-        //projectile 
+        //projectile
         AddStat(
             new PlayerCharacterStats(
                 shotsPerAttack: 4,
@@ -563,14 +558,14 @@ public static class PlayerStatsLibrary
 
         //aftershock
         AddStat(
-                new PlayerCharacterStats(
-                    shotsPerAttackMelee: 2,
-                    name: "Aftershocker 2",
-                    description: "Melee: +2 Aftershock",
-                    icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                    rarity: Rarity.Epic
-                )
-            );
+            new PlayerCharacterStats(
+                shotsPerAttackMelee: 2,
+                name: "Aftershocker 2",
+                description: "Melee: +2 Aftershock",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
 
         //move Speed
         AddStat(
@@ -594,7 +589,6 @@ public static class PlayerStatsLibrary
             )
         );
 
-
         isInitialized = true;
     }
 
@@ -607,7 +601,6 @@ public static class PlayerStatsLibrary
     {
         return PlayerStatsLibraryMap.Values.ToArray();
     }
-
 }
 
 public class StatComponent : MonoBehaviour
