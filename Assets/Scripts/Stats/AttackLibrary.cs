@@ -609,7 +609,7 @@ public static class AttackLibrary
             .SetProperties(
                 attackType: AttackTypes.Melee,
                 weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/GodHand_01"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/GodHand_01")
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Final/GodHand_01")
             )
             .SetRarityUpgrades(GodHandUpgrades);
         AddAttack(GodHand);

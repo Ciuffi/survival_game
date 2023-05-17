@@ -69,7 +69,7 @@ MonoBehaviour:
   shotsPerAttack: 1
   shotsPerAttackMelee: 0
   comboLength: 0
-  aimRangeAdditive: 1
+  aimRangeAdditive: 0
   multicastChance: 0
   shotgunSpread: 0
   spreadMultiplier: 1
