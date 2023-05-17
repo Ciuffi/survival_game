@@ -16,7 +16,7 @@ public class PlayerDataManager : MonoBehaviour
     private void Awake()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
-        LoadData();
+        //LoadData();
 
         // Check and update unlocked state of characters
         PlayerCharacterStats[] characters = FindObjectsOfType<PlayerCharacterStats>();

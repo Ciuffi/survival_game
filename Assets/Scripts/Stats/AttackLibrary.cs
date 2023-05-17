@@ -505,7 +505,7 @@ public static class AttackLibrary
             .SetProperties(
                 attackType: AttackTypes.Melee,
                 weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/GrabHand_Dark_01"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/GrabHand_Dark_01")
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Final/GrabHand_Dark_01")
             )
             .SetRarityUpgrades(GravityGrabUpgrades);
         AddAttack(GravityGrab);

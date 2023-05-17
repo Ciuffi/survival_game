@@ -162,8 +162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1250, y: 0}
-  m_SizeDelta: {x: 1200, y: 2600}
+  m_AnchoredPosition: {x: -1295, y: -26}
+  m_SizeDelta: {x: 1300, y: 2850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10275854
 MonoBehaviour:
@@ -1515,8 +1515,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1180, y: -333}
-  m_SizeDelta: {x: 1290, y: 1200}
+  m_AnchoredPosition: {x: 1130, y: -333}
+  m_SizeDelta: {x: 1150, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &683540838
 MonoBehaviour:
@@ -3053,8 +3053,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1149}
-  m_SizeDelta: {x: 1000, y: 2600}
+  m_AnchoredPosition: {x: 0, y: -1276}
+  m_SizeDelta: {x: 1100, y: 2850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1079091899
 MonoBehaviour:
@@ -4788,7 +4788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -669, y: 25}
+  m_AnchoredPosition: {x: -636, y: 25}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461001797
@@ -4804,9 +4804,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contentPanel: {fileID: 683540837}
-  transitionDuration: 0.5
-  initialXValue: 1180
-  targetXValue: 180
+  transitionDuration: 0.25
+  initialXValue: 1130
+  targetXValue: 72
   moveToLeft: 1
   transitionButton: {fileID: 1461001798}
   initialButtonSprite: {fileID: -1595262145, guid: 7bcf4e1a541c5ee40bf07686b24b75ae, type: 3}
@@ -5883,8 +5883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contentPanel: {fileID: 10275853}
-  transitionDuration: 0.5
-  initialXValue: -1250
+  transitionDuration: 0.4
+  initialXValue: -1295
   targetXValue: 0
   moveToLeft: 0
   transitionButton: {fileID: 1832050008}

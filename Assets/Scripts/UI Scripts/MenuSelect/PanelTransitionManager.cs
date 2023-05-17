@@ -43,7 +43,7 @@ public class PanelTransitionManager : MonoBehaviour
         // Start the transition
         isTransitioning = true;
         contentPanel.DOAnchorPosX(targetX, transitionDuration)
-            .SetEase(Ease.OutElastic)
+            .SetEase(Ease.OutBounce)
             .OnComplete(() => isTransitioning = false);
     }
 }
