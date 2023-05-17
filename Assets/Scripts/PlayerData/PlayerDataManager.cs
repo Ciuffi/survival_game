@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class PlayerDataManager : MonoBehaviour
 {
@@ -12,17 +13,19 @@ public class PlayerDataManager : MonoBehaviour
     private PlayerInventory playerInventory;
     public TextMeshProUGUI goldDisplay;
 
-
     private void Awake()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
         //LoadData();
 
         // Check and update unlocked state of characters
-        PlayerCharacterStats[] characters = FindObjectsOfType<PlayerCharacterStats>();
+        PlayerCharacterStats[] characters = FindObjectsOfType<StatComponent>()
+            .Select(s => s.GetComponent<PlayerCharacterStats>())
+            .ToArray();
         foreach (PlayerCharacterStats character in characters)
         {
-            bool isUnlocked = (unlockedCharacters & (1 << character.gameObject.GetInstanceID())) != 0;
+            bool isUnlocked =
+                (unlockedCharacters & (1 << character.statsContainer.GetInstanceID())) != 0;
             character.isLocked = !isUnlocked;
         }
 
@@ -66,7 +69,7 @@ public class PlayerDataManager : MonoBehaviour
     public void UnlockCharacter(PlayerCharacterStats character)
     {
         character.isLocked = false;
-        unlockedCharacters |= (1 << character.gameObject.GetInstanceID()); // Set the bit corresponding to this character to 1
+        unlockedCharacters |= (1 << character.statsContainer.GetInstanceID()); // Set the bit corresponding to this character to 1
         SaveData();
     }
 
@@ -99,7 +102,9 @@ public class PlayerDataManager : MonoBehaviour
         PlayerPrefs.DeleteKey("UnlockedCharacters");
         PlayerPrefs.DeleteKey("UnlockedStages");
 
-        PlayerCharacterStats[] characters = FindObjectsOfType<PlayerCharacterStats>();
+        PlayerCharacterStats[] characters = FindObjectsOfType<StatComponent>()
+            .Select(s => s.GetComponent<PlayerCharacterStats>())
+            .ToArray();
         foreach (PlayerCharacterStats character in characters)
         {
             character.isLocked = true;

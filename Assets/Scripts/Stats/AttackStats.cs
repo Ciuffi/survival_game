@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class AttackStats : MonoBehaviour, Upgrade
+public class AttackStats : Upgrade
 {
     public string name;
     public string description;
@@ -87,6 +87,10 @@ public class AttackStats : MonoBehaviour, Upgrade
     public bool weaponSet = false;
     public bool isCone = false;
     public float coneAngle;
+
+    public GameObject statsContainer;
+
+    private Sprite defaultIcon = Resources.Load<Sprite>("UI_Icons/DMG_up");
 
     //Constructor that takes in all the values and sets them to the variables while providing meaningful defaults
     public AttackStats(
@@ -225,7 +229,7 @@ public class AttackStats : MonoBehaviour, Upgrade
         this.weaponSet = weaponSet;
         this.name = name;
         this.description = description;
-        this.icon = icon;
+        this.icon = icon == null ? defaultIcon : icon;
         this.isCone = isCone;
         this.coneAngle = coneAngle;
     }
@@ -571,6 +575,11 @@ public class AttackStats : MonoBehaviour, Upgrade
 
     public Transform GetTransform()
     {
-        return transform;
+        return statsContainer.transform;
+    }
+
+    public void setContainer(GameObject container)
+    {
+        statsContainer = container;
     }
 }

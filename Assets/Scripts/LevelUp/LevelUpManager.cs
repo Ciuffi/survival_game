@@ -139,7 +139,7 @@ public class LevelUpManager : MonoBehaviour
                     u.GetComponentInChildren<TMP_Text>().text = GO.name;
                     u.transform.Find("Image").GetComponent<Image>().enabled = true;
                     u.transform.Find("Image").GetComponent<Image>().sprite =
-                    GO.GetComponent<Upgrade>().GetUpgradeIcon();
+                        GO.GetComponent<Upgrade>().GetUpgradeIcon();
                     TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
                     textComponents[1].text = "";
                 }
@@ -220,7 +220,7 @@ public class LevelUpManager : MonoBehaviour
 
     public AttackStats[] GetAttackStats()
     {
-        Debug.Log(FindObjectOfType<AttackHandler>().attacks);
+        List<Attack> attacks = (FindObjectOfType<AttackHandler>().attacks);
         return FindObjectOfType<AttackHandler>().attacks
             .SelectMany(a => a.weaponUpgrades)
             .ToArray();

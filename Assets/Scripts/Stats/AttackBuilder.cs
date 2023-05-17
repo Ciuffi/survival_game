@@ -9,7 +9,7 @@ public class AttackBuilder
     private AttackStats baseStats;
     private List<AttackStats> rarityUpgrades;
     private List<AttackStats> weaponUpgrades;
-    private WeaponSetType weaponSetType;
+    private WeaponSetType? weaponSetType;
     private Rarity rarity = 0;
 
     private Effect effect;
@@ -25,6 +25,7 @@ public class AttackBuilder
     private List<GameObject> muzzleFlashPrefab;
     private float muzzleFlashXOffset;
     private float muzzleFlashYOffset;
+    private string description;
 
     public AttackBuilder SetProjectile(GameObject projectile)
     {
@@ -40,14 +41,16 @@ public class AttackBuilder
 
     public AttackBuilder SetDescription(string description)
     {
-        this.baseStats.description = description;
+        this.description = description;
         return this;
     }
 
     public AttackBuilder SetWeaponUpgrades(List<AttackStats> upgrades)
     {
         this.weaponUpgrades = upgrades;
-        Debug.Log($"Weapon Upgrades : {string.Join(", ", this.weaponUpgrades.Select(x => x == null ? "null" : x.ToString()))}");
+        Debug.Log(
+            $"Weapon Upgrades : {string.Join(", ", this.weaponUpgrades.Select(x => x == null ? "null" : x.ToString()))}"
+        );
         //Debug.Log(upgrades);
         return this;
     }
@@ -108,13 +111,19 @@ public class AttackBuilder
 
         if (projectile == null)
         {
-            throw new System.Exception("Projectile is required and cannot be null.");
+            Debug.LogWarning("Projectile is required and cannot be null.");
+            projectile = Resources.Load<GameObject>("Projectiles/BasicBullet");
         }
 
+        if (baseStats.Equals(null))
+        {
+            Debug.Log(attackName);
+            throw new System.Exception("BaseStats is required and cannot be null.");
+        }
         //if (baseStats == null)
         //{
-            //Debug.Log(attackName);
-            //throw new System.Exception("BaseStats is required and cannot be null.");
+        //Debug.Log(attackName);
+        //throw new System.Exception("BaseStats is required and cannot be null.");
         //}
 
         if (weaponSprite == null)
@@ -122,16 +131,19 @@ public class AttackBuilder
             throw new System.Exception("WeaponSprite is required and cannot be null.");
         }
 
-        //if (thrownWeapon == null)
-        //{
-        //throw new System.Exception("ThrownWeapon is required and cannot be null.");
-        //}
+        if (thrownWeapon == null)
+        {
+            Debug.LogWarning("ThrownWeapon is required and cannot be null.");
+            thrownWeapon = Resources.Load<GameObject>("Projectiles/WeaponThrown");
+        }
 
         if (thrownSprite == null)
         {
-            throw new System.Exception("ThrownSprite is required and cannot be null.");
+            Debug.LogWarning("ThrownSprite is required and cannot be null.");
+            thrownSprite = Resources.Load<Sprite>("WeaponSprites/BurstRifle_02");
         }
-        if (baseStats.description == "")
+
+        if (description == "")
         {
             throw new System.Exception("Description is required and cannot be null.");
         }
@@ -143,17 +155,14 @@ public class AttackBuilder
 
     public Attack Build(Rarity rarity)
     {
-        Debug.Log($"Building attack with name: {attackName}, rarity: {rarity}");
-
+        ValidateRequiredFields();
         this.baseStats = new AttackStats(baseStats);
 
         //ValidateRequiredFields();
         GameObject attackObject = new GameObject(attackName);
-
         Attack attack = attackObject.AddComponent<Attack>();
         attack.baseStats = baseStats;
         attack.stats = baseStats;
-
 
         // Set the properties of the Attack component
         attack.name = attackName;
@@ -181,11 +190,13 @@ public class AttackBuilder
 
         attack.weaponUpgrades = weaponUpgrades;
 
-        attack.weaponSetType = weaponSetType;
-        
+        attack.weaponSetType = (WeaponSetType)weaponSetType;
+        attack.baseStats.description = description;
+
         if (attackType == AttackTypes.Shotgun)
         {
-            attack.attackTime = attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
+            attack.attackTime =
+                attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
         }
         else if (attackType == AttackTypes.Melee)
         {

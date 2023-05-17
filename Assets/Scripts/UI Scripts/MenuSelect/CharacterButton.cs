@@ -65,7 +65,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         gameObject.tag = "SelectedCharacter";
 
         // Save the character stats
-        stats = GetComponent<PlayerCharacterStats>();
+        stats = GetComponent<StatComponent>().stat;
 
         // Update the selected character in CharacterSelector
         CharSelectController characterSelector = FindObjectOfType<CharSelectController>();

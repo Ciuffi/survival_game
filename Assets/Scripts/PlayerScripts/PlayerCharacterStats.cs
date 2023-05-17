@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacterStats : MonoBehaviour, Upgrade
+public class PlayerCharacterStats : Upgrade
 {
     public Sprite icon;
     public string description;
@@ -41,6 +41,7 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
 
     public bool shootOpposideSide;
     public Rarity rarity;
+    public GameObject statsContainer;
 
     // Merges the current PlayerCharacterStats with the provided PlayerCharacterStats
     public void MergeStats(PlayerCharacterStats other)
@@ -182,7 +183,7 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
         this.name = name;
         this.description = description;
         this.maxHealth = maxhealth;
-        this.icon = icon;
+        this.icon = icon == null ? Resources.Load<Sprite>("UI_Icons/DMG_up") : icon;
     }
 
     public UpgradeType GetUpgradeType()
@@ -197,7 +198,7 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
 
     public string GetUpgradeName()
     {
-        return base.name;
+        return name;
     }
 
     public string GetUpgradeDescription()
@@ -212,6 +213,6 @@ public class PlayerCharacterStats : MonoBehaviour, Upgrade
 
     public Transform GetTransform()
     {
-        return transform;
+        return statsContainer.transform;
     }
 }

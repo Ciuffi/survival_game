@@ -23,7 +23,6 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("RoF 1"),
                         AttackStatsLibrary.GetStat("Propulsion 1"),
                         AttackStatsLibrary.GetStat("Scope 1"),
-   
                     }
                 },
                 {
@@ -37,14 +36,12 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("RoF 2"),
                         AttackStatsLibrary.GetStat("Propulsion 2"),
                         AttackStatsLibrary.GetStat("Scope 2"),
-
                         AttackStatsLibrary.GetStat("Vision 1"),
                         AttackStatsLibrary.GetStat("Awareness 1"),
                         AttackStatsLibrary.GetStat("Multi-cast 1"),
                         AttackStatsLibrary.GetStat("Extended Mag 1"),
                         AttackStatsLibrary.GetStat("Piercing Ammo 1"),
                         AttackStatsLibrary.GetStat("High Caliber 1"),
-
                         AttackStatsLibrary.GetStat("Auto Novice"),
                     }
                 },
@@ -59,14 +56,12 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("RoF 3"),
                         AttackStatsLibrary.GetStat("Propulsion 3"),
                         AttackStatsLibrary.GetStat("Scope 3"),
-
                         AttackStatsLibrary.GetStat("Vision 2"),
                         AttackStatsLibrary.GetStat("Awareness 2"),
                         AttackStatsLibrary.GetStat("Multi-cast 2"),
                         AttackStatsLibrary.GetStat("Extended Mag 2"),
                         AttackStatsLibrary.GetStat("Piercing Ammo 2"),
                         AttackStatsLibrary.GetStat("High Caliber 2"),
-
                         AttackStatsLibrary.GetStat("Auto Pro"),
                     }
                 },
@@ -78,12 +73,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Marksman 4"),
                         AttackStatsLibrary.GetStat("Brutality 4"),
                         AttackStatsLibrary.GetStat("Quickswap 4"),
-
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Extended Mag 3"),
                         AttackStatsLibrary.GetStat("Piercing Ammo 3"),
                         AttackStatsLibrary.GetStat("High Caliber 3"),
-
                         AttackStatsLibrary.GetStat("Double Trouble"),
                         AttackStatsLibrary.GetStat("Auto God"),
                     }
@@ -105,7 +98,6 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Impact 1"),
                         AttackStatsLibrary.GetStat("Propulsion 1"),
                         AttackStatsLibrary.GetStat("Scope 1"),
-
                     }
                 },
                 {
@@ -119,14 +111,12 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Impact 2"),
                         AttackStatsLibrary.GetStat("Propulsion 2"),
                         AttackStatsLibrary.GetStat("Scope 2"),
-
                         AttackStatsLibrary.GetStat("Vision 1"),
                         AttackStatsLibrary.GetStat("Awareness 1"),
                         AttackStatsLibrary.GetStat("Multi-cast 1"),
                         AttackStatsLibrary.GetStat("Bonus Round 1"),
                         AttackStatsLibrary.GetStat("Penetrating Ammo 1"),
                         AttackStatsLibrary.GetStat("High Caliber 1"),
-
                         AttackStatsLibrary.GetStat("Semi-Auto Novice"),
                     }
                 },
@@ -141,14 +131,12 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Impact 3"),
                         AttackStatsLibrary.GetStat("Propulsion 3"),
                         AttackStatsLibrary.GetStat("Scope 3"),
-
                         AttackStatsLibrary.GetStat("Vision 2"),
                         AttackStatsLibrary.GetStat("Awareness 2"),
                         AttackStatsLibrary.GetStat("Multi-cast 2"),
                         AttackStatsLibrary.GetStat("Bonus Round 2"),
                         AttackStatsLibrary.GetStat("Penetrating Ammo 2"),
                         AttackStatsLibrary.GetStat("High Caliber 2"),
-
                         AttackStatsLibrary.GetStat("Semi-Auto Pro"),
                     }
                 },
@@ -160,12 +148,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Marksman 4"),
                         AttackStatsLibrary.GetStat("Brutality 4"),
                         AttackStatsLibrary.GetStat("Quickswap 4"),
-
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Bonus Round 3"),
                         AttackStatsLibrary.GetStat("Penetrating Ammo 3"),
                         AttackStatsLibrary.GetStat("High Caliber 3"),
-
                         AttackStatsLibrary.GetStat("Double Trouble"),
                         AttackStatsLibrary.GetStat("Semi-Auto God"),
                     }
@@ -176,11 +162,10 @@ public static class WeaponSetUpgradeMap
             WeaponSetType.Shotgun,
             new Dictionary<Rarity, List<AttackStats>>
             {
-                 {
+                {
                     Rarity.Common,
                     new List<AttackStats>
                     {
-
                         AttackStatsLibrary.GetStat("Mastery 1"),
                         AttackStatsLibrary.GetStat("Marksman 1"),
                         AttackStatsLibrary.GetStat("Brutality 1"),
@@ -189,11 +174,9 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Propulsion 1"),
                         AttackStatsLibrary.GetStat("Scope 1"),
                         AttackStatsLibrary.GetStat("Wide Barrel 1"),
-
-
                     }
                 },
-               {
+                {
                     Rarity.Rare,
                     new List<AttackStats>
                     {
@@ -205,14 +188,12 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Propulsion 2"),
                         AttackStatsLibrary.GetStat("Scope 2"),
                         AttackStatsLibrary.GetStat("Wide Barrel 2"),
-
                         AttackStatsLibrary.GetStat("Vision 1"),
                         AttackStatsLibrary.GetStat("Awareness 1"),
                         AttackStatsLibrary.GetStat("Multi-cast 1"),
                         AttackStatsLibrary.GetStat("Bonus Round 1"),
                         AttackStatsLibrary.GetStat("Penetrating Ammo 1"),
                         AttackStatsLibrary.GetStat("High Caliber 1"),
-
                         AttackStatsLibrary.GetStat("Shotgun Novice"),
                     }
                 },
@@ -228,15 +209,12 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Propulsion 3"),
                         AttackStatsLibrary.GetStat("Scope 3"),
                         AttackStatsLibrary.GetStat("Wide Barrel 3"),
-
-
                         AttackStatsLibrary.GetStat("Vision 2"),
                         AttackStatsLibrary.GetStat("Awareness 2"),
                         AttackStatsLibrary.GetStat("Multi-cast 2"),
                         AttackStatsLibrary.GetStat("Bonus Round 2"),
                         AttackStatsLibrary.GetStat("Penetrating Ammo 2"),
                         AttackStatsLibrary.GetStat("High Caliber 2"),
-
                         AttackStatsLibrary.GetStat("Shotgun Pro"),
                     }
                 },
@@ -248,12 +226,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Marksman 4"),
                         AttackStatsLibrary.GetStat("Brutality 4"),
                         AttackStatsLibrary.GetStat("Quickswap 4"),
-
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Bonus Round 3"),
                         AttackStatsLibrary.GetStat("Penetrating Ammo 3"),
                         AttackStatsLibrary.GetStat("High Caliber 3"),
-
                         AttackStatsLibrary.GetStat("Double Trouble"),
                         AttackStatsLibrary.GetStat("Shotgun God"),
                     }
@@ -264,7 +240,7 @@ public static class WeaponSetUpgradeMap
             WeaponSetType.Explosive,
             new Dictionary<Rarity, List<AttackStats>>
             {
-                 {
+                {
                     Rarity.Common,
                     new List<AttackStats>
                     {
@@ -275,10 +251,9 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Impact 1"),
                         AttackStatsLibrary.GetStat("Scope 1"),
                         AttackStatsLibrary.GetStat("RoF 1"),
-
                     }
                 },
-               {
+                {
                     Rarity.Rare,
                     new List<AttackStats>
                     {
@@ -289,14 +264,11 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Impact 2"),
                         AttackStatsLibrary.GetStat("Scope 2"),
                         AttackStatsLibrary.GetStat("RoF 2"),
-
-
                         AttackStatsLibrary.GetStat("Vision 1"),
                         AttackStatsLibrary.GetStat("Awareness 1"),
                         AttackStatsLibrary.GetStat("Multi-cast 1"),
                         AttackStatsLibrary.GetStat("Bonus Round 1"),
                         AttackStatsLibrary.GetStat("Size Up 1"),
-
                         AttackStatsLibrary.GetStat("Explosive Novice"),
                     }
                 },
@@ -311,13 +283,11 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Impact 3"),
                         AttackStatsLibrary.GetStat("Scope 3"),
                         AttackStatsLibrary.GetStat("RoF 3"),
-
                         AttackStatsLibrary.GetStat("Vision 2"),
                         AttackStatsLibrary.GetStat("Awareness 2"),
                         AttackStatsLibrary.GetStat("Multi-cast 2"),
                         AttackStatsLibrary.GetStat("Bonus Round 2"),
                         AttackStatsLibrary.GetStat("Size Up 2"),
-
                         AttackStatsLibrary.GetStat("Explosive Pro"),
                     }
                 },
@@ -329,11 +299,9 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Marksman 4"),
                         AttackStatsLibrary.GetStat("Brutality 4"),
                         AttackStatsLibrary.GetStat("Quickswap 4"),
-
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Bonus Round 3"),
                         AttackStatsLibrary.GetStat("Size Up 3"),
-
                         AttackStatsLibrary.GetStat("Double Trouble"),
                         AttackStatsLibrary.GetStat("Explosive God"),
                     }
@@ -344,7 +312,7 @@ public static class WeaponSetUpgradeMap
             WeaponSetType.Nova,
             new Dictionary<Rarity, List<AttackStats>>
             {
-                 {
+                {
                     Rarity.Common,
                     new List<AttackStats>
                     {
@@ -356,7 +324,6 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Dexterity 1"),
                         AttackStatsLibrary.GetStat("Lunge 1"),
                         AttackStatsLibrary.GetStat("Implode 1"),
-
                     }
                 },
                 {
@@ -371,15 +338,13 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Dexterity 2"),
                         AttackStatsLibrary.GetStat("Lunge 2"),
                         AttackStatsLibrary.GetStat("Implode 2"),
-
                         AttackStatsLibrary.GetStat("Vision 1"),
                         AttackStatsLibrary.GetStat("Awareness 1"),
                         AttackStatsLibrary.GetStat("Multi-cast 1"),
                         AttackStatsLibrary.GetStat("Enlarge 1"),
                         AttackStatsLibrary.GetStat("Wave Master 1"),
                         AttackStatsLibrary.GetStat("Ki Master 1"),
-
-                        AttackStatsLibrary.GetStat("Nova Novice"),
+                        AttackStatsLibrary.GetStat("AFK Novice"),
                     }
                 },
                 {
@@ -393,18 +358,15 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Impact 3"),
                         AttackStatsLibrary.GetStat("Dexterity 3"),
                         AttackStatsLibrary.GetStat("Lunge 3"),
-
                         AttackStatsLibrary.GetStat("Vision 2"),
                         AttackStatsLibrary.GetStat("Awareness 2"),
                         AttackStatsLibrary.GetStat("Multi-cast 2"),
                         AttackStatsLibrary.GetStat("Enlarge 2"),
                         AttackStatsLibrary.GetStat("Wave Master 2"),
                         AttackStatsLibrary.GetStat("Ki Master 2"),
-
                         AttackStatsLibrary.GetStat("After-shock 1"),
                         AttackStatsLibrary.GetStat("Once More 1"),
-
-                        AttackStatsLibrary.GetStat("Nova Pro"),
+                        AttackStatsLibrary.GetStat("Pro"),
                     }
                 },
                 {
@@ -415,14 +377,11 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Marksman 4"),
                         AttackStatsLibrary.GetStat("Brutality 4"),
                         AttackStatsLibrary.GetStat("Quickswap 4"),
-
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Enlarge 3"),
-
                         AttackStatsLibrary.GetStat("After-shock 2"),
                         AttackStatsLibrary.GetStat("Once More 2"),
-
-                        AttackStatsLibrary.GetStat("Nova Pro"),
+                        AttackStatsLibrary.GetStat("God"),
                         AttackStatsLibrary.GetStat("Double Trouble"),
                     }
                 },
@@ -432,7 +391,7 @@ public static class WeaponSetUpgradeMap
             WeaponSetType.Melee,
             new Dictionary<Rarity, List<AttackStats>>
             {
-                 {
+                {
                     Rarity.Common,
                     new List<AttackStats>
                     {
@@ -460,14 +419,12 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Lunge 2"),
                         AttackStatsLibrary.GetStat("Implode 2"),
                         AttackStatsLibrary.GetStat("RoF 2"),
-
                         AttackStatsLibrary.GetStat("Vision 1"),
                         AttackStatsLibrary.GetStat("Awareness 1"),
                         AttackStatsLibrary.GetStat("Multi-cast 1"),
                         AttackStatsLibrary.GetStat("Enlarge 1"),
                         AttackStatsLibrary.GetStat("Wave Master 1"),
                         AttackStatsLibrary.GetStat("Ki Master 1"),
-
                         AttackStatsLibrary.GetStat("Melee Novice"),
                     }
                 },
@@ -483,17 +440,14 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Dexterity 3"),
                         AttackStatsLibrary.GetStat("Lunge 3"),
                         AttackStatsLibrary.GetStat("RoF 3"),
-
                         AttackStatsLibrary.GetStat("Vision 2"),
                         AttackStatsLibrary.GetStat("Awareness 2"),
                         AttackStatsLibrary.GetStat("Multi-cast 2"),
                         AttackStatsLibrary.GetStat("Enlarge 2"),
                         AttackStatsLibrary.GetStat("Wave Master 2"),
                         AttackStatsLibrary.GetStat("Ki Master 2"),
-
                         AttackStatsLibrary.GetStat("After-shock 1"),
                         AttackStatsLibrary.GetStat("Once More 1"),
-
                         AttackStatsLibrary.GetStat("Melee Pro"),
                     }
                 },
@@ -505,13 +459,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Marksman 4"),
                         AttackStatsLibrary.GetStat("Brutality 4"),
                         AttackStatsLibrary.GetStat("Quickswap 4"),
-
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Enlarge 3"),
-
                         AttackStatsLibrary.GetStat("After-shock 2"),
                         AttackStatsLibrary.GetStat("Once More 2"),
-
                         AttackStatsLibrary.GetStat("Melee Pro"),
                         AttackStatsLibrary.GetStat("Double Trouble"),
                     }

@@ -164,7 +164,7 @@ public class StatsHandler : MonoBehaviour
 
     public void AddStat(PlayerCharacterStats stat)
     {
-        Instantiate(stat, StatContainer.transform);
+        Instantiate(stat.statsContainer, StatContainer.transform);
         CalculatePlayerStats();
     }
 
@@ -184,9 +184,7 @@ public class StatsHandler : MonoBehaviour
 
         if (currentHealth > stats.health)
             currentHealth = stats.health;
-        healthBarQueue.AddToQueue(
-            BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.health)
-        );
+        healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.health));
 
         CalculateWeaponStats(weaponsList);
     }

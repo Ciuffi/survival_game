@@ -42,6 +42,10 @@ public class Attack : MonoBehaviour, Upgrade
     public int numMulticast;
     public float multicastAlphaAmount;
 
+    public bool isAutoAim;
+
+    public GameObject AutoAim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,14 +75,14 @@ public class Attack : MonoBehaviour, Upgrade
         totalDamageDealt += damage;
     }
 
-    private void Update()
-    {
-        
-    }
+    private void Update() { }
 
     public void CalculateStats()
     {
-        AttackStats[] upgrades = upgradeContainer.GetComponentsInChildren<AttackStats>();
+        AttackStats[] upgrades = upgradeContainer
+            .GetComponentsInChildren<AttackStatComponent>()
+            .Select(x => x.stat)
+            .ToArray();
 
         if (upgrades.Length > 0)
         {
@@ -994,7 +998,8 @@ public class Attack : MonoBehaviour, Upgrade
 
         // Instantiate the selected MuzzleFlashPrefab at the specified position
         Vector3 spawnPosition =
-            weaponContainer.GetTransform().position + new Vector3(muzzleFlashXOffset, muzzleFlashYOffset, 0f);
+            weaponContainer.GetTransform().position
+            + new Vector3(muzzleFlashXOffset, muzzleFlashYOffset, 0f);
 
         GameObject MuzzleFlash = Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
 
@@ -1015,7 +1020,8 @@ public class Attack : MonoBehaviour, Upgrade
             float yModifier = Random.Range(-0.5f, 0.1f);
 
             // Calculate position for the new object
-            Vector3 spawnPosition = weaponContainer.transform.position + new Vector3(xModifier, yModifier, 0f);
+            Vector3 spawnPosition =
+                weaponContainer.transform.position + new Vector3(xModifier, yModifier, 0f);
 
             // Instantiate the new object
             GameObject newBulletCasing = Instantiate(
@@ -1076,7 +1082,9 @@ public class Attack : MonoBehaviour, Upgrade
 
     public void AddWeaponUpgrade(AttackStats upgrade)
     {
-        upgrade.transform.parent = upgradeContainer;
+        Instantiate(upgrade.statsContainer, upgradeContainer);
         CalculateStats();
     }
+
+    //Clone all the attack member variables that are objects and not primitives
 }
