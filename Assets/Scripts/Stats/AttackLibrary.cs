@@ -389,7 +389,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: BigMuzzleFlash
             )
             .SetRarityUpgrades(DoubleBarrelRarity)
-            .SetRarityUpgrades(DoubleBarrelUpgrades);
+            .SetWeaponUpgrades(DoubleBarrelUpgrades);
         AddAttack(DoubleBarrel);
 
         //drain scythe
@@ -882,7 +882,9 @@ public static class AttackLibrary
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: AutomaticMuzzleFlash
             )
-            .SetRarityUpgrades(GatlingGunUpgrades);
+            .SetRarityUpgrades(GatlingGunRarity)
+                    .SetWeaponUpgrades(GatlingGunUpgrades);
+
         AddAttack(GatlingGun);
 
         //GodHand
@@ -1087,7 +1089,7 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1.5f,
                     damage: 2,
-                    spread: 0.6f,
+                    spread: 1.2f,
                     spray: 0f,
                     castTime: 2.5f,
                     range: 2f,
@@ -1178,17 +1180,17 @@ public static class AttackLibrary
 
         AttackBuilder ImpactMine = new AttackBuilder()
             .SetAttackName("Impact Mine")
-            .SetProjectile(Resources.Load<GameObject>("Projectiles/mine_impact"))
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/mine_impact"))
             .SetWeaponSetType(WeaponSetType.Explosive)
             .SetDescription("Lure 'em in and watch 'em fly.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 0.5f,
                     damage: 5,
-                    spread: 0.75f,
+                    spread: 1.5f,
                     spray: 0f,
                     castTime: 2.5f,
-                    range: 0f,
+                    range: 10f,
                     shotsPerAttack: 1,
                     speed: 0f,
                     knockback: 0.3f,
@@ -1541,7 +1543,7 @@ public static class AttackLibrary
                     isCone: true,
                     coneAngle: 40,
                     damage: 5,
-                    spread: 0.4f,
+                    spread: 0.8f,
                     spray: 0f,
                     castTime: 2.1f,
                     range: 3f,
@@ -2615,7 +2617,7 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1.5f,
                     damage: 2,
-                    spread: 0.75f,
+                    spread: 1.5f,
                     castTime: 2.1f,
                     range: 1.5f,
                     shotsPerAttack: 1,
@@ -2884,7 +2886,9 @@ public static class AttackLibrary
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/katana_02")
             )
-            .SetRarityUpgrades(WindBladeUpgrades);
+            .SetRarityUpgrades(WindBladeRarity)
+                    .SetWeaponUpgrades(WindBladeUpgrades);
+
         AddAttack(WindBlade);
 
         isInitialized = true;

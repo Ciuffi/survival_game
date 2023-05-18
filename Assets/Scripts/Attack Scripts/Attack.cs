@@ -35,7 +35,6 @@ public class Attack : MonoBehaviour, Upgrade
     public List<GameObject> MuzzleFlashPrefab;
     public float muzzleFlashXOffset;
     public float muzzleFlashYOffset;
-    private VirtualJoystick VJ;
     public float totalDamageDealt;
 
     public float shotsCount;
@@ -60,7 +59,6 @@ public class Attack : MonoBehaviour, Upgrade
 
         Camera = GameObject.FindWithTag("MainCamera");
         Player = GameObject.FindWithTag("Player");
-        VJ = GameObject.Find("Joystick Container").GetComponent<VirtualJoystick>();
         upgradeContainer = Instantiate(new GameObject("attack_upgrades"), transform).transform;
         weaponContainer = FindObjectOfType<WpnSpriteRotation>();
         CalculateStats();

@@ -36,7 +36,7 @@ public class GachaManager : MonoBehaviour
             int weaponRarity = rarityData.RollRarity();
 
             // Add the weapon to the player's inventory
-            Weapon weapon = new Weapon(weaponName, weaponRarity, true, 0);
+            Weapon weapon = new Weapon(weaponName, weaponRarity, false, 1);
             inventory.AddWeapon(weapon);
 
             // Add the weapon to the UI

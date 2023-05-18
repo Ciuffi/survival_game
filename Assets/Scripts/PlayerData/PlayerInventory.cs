@@ -21,7 +21,9 @@ public class PlayerInventory : MonoBehaviour
 
     private void StartingInventory()
     {
-        AddWeapon(new Weapon("Classic Rifle", 0, true, 0));
+        AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
+        AddWeapon(new Weapon("Impact Mine", 0, false, 1));
+
         //AddWeapon(new Weapon("SMG", 0, true, 0));
         //AddWeapon(new Weapon("Revolver", 0, true, 0));
         //AddWeapon(new Weapon("Sniper Rifle", 0, true, 0));
