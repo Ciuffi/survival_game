@@ -112,21 +112,22 @@ public class Attack : MonoBehaviour, Upgrade
         //update attackTime
         if (attackType == AttackTypes.Shotgun)
         {
-            attackTime = stats.multicastTimes * stats.multicastWaitTime;
+            attackTime =
+                baseStats.multicastTimes * baseStats.multicastWaitTime;
         }
         else if (attackType == AttackTypes.Melee)
         {
             attackTime =
-                (stats.comboLength - 1) * stats.comboWaitTime
-                + stats.shotsPerAttackMelee * stats.spread
-                + stats.multicastTimes * stats.multicastWaitTime;
+                (baseStats.comboLength - 1) * baseStats.comboWaitTime
+                + baseStats.shotsPerAttackMelee * baseStats.spread * baseStats.comboLength
+                + baseStats.multicastTimes * baseStats.multicastWaitTime;
             // Add the definition for Melee attack type
         }
         else
         {
             attackTime =
-                stats.spread * stats.shotsPerAttack
-                + stats.multicastTimes * stats.multicastWaitTime;
+                baseStats.spread * baseStats.shotsPerAttack
+                + baseStats.multicastTimes * baseStats.multicastWaitTime;
         }
     }
 

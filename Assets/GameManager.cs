@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
 
     private PlayerDataManager playerData;
+    private PlayerInventory playerInv;
 
     public void ShowPauseScreen()
     {
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     public void MenuReset()
     {
         Time.timeScale = 1;
+        playerInv.DecrementWeaponDurability();
         SceneManager.LoadScene(0);
 
         //new List<Enemy>(GameManager.FindObjectsOfType<Enemy>()).ForEach((e) => Destroy(e.gameObject));
@@ -55,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        playerInv.DecrementWeaponDurability();
+
         deathTransition.GetComponent<DeathTransition>().StartTransition();
         int currentStageID = SceneManager.GetActiveScene().buildIndex;
         playerData.UnlockNextStage(currentStageID);
@@ -62,6 +66,8 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        playerInv.DecrementWeaponDurability();
+
         deathTransition.GetComponent<DeathTransition>().StartTransition();
     }
 
@@ -80,6 +86,7 @@ public class GameManager : MonoBehaviour
         playerStats = playerMovement.GetComponent<StatsHandler>();
         playerAttacks = playerMovement.GetComponent<AttackHandler>();
         playerData = FindObjectOfType<PlayerDataManager>();
+        playerInv = FindObjectOfType<PlayerInventory>();
         pauseMenu.SetActive(false);
 
     }

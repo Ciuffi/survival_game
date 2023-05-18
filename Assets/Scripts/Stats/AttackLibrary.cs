@@ -653,7 +653,7 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 5),
             new AttackStats(castTime: -0.5f),
-            new AttackStats(comboLength: 1, comboWaitTime: 0.4f),
+            new AttackStats(comboLength: 1, comboWaitTime: 0.3f),
             new AttackStats(knockback: 0.6f, shakeStrength: 0.1f),
             new AttackStats(shotsPerAttackMelee: 1, damage: -2, shakeTime: 0.05f),
             new AttackStats(meleeSpacer: 2f, aimRangeAdditive: 2f, coneAngle: 45f)
@@ -1667,7 +1667,8 @@ public static class AttackLibrary
                 thrownSprite: Resources.Load<Sprite>("WeaponSprites/grenade_shock"),
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
-            .SetRarityUpgrades(PetrifyGrenadeUpgrades);
+            .SetRarityUpgrades(PetrifyGrenadeRarity)
+                    .SetWeaponUpgrades(PetrifyGrenadeUpgrades);
         AddAttack(PetrifyGrenade);
 
         //PetrifyNova

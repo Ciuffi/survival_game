@@ -538,9 +538,9 @@ public static class PlayerStatsLibrary
         //Rate of fire
         AddStat(
             new PlayerCharacterStats(
-                spreadMultiplier: -0.4f,
+                spreadMultiplier: -0.35f,
                 name: "Rate of Fire 3",
-                description: "Rate of Fire +40%",
+                description: "Rate of Fire +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )

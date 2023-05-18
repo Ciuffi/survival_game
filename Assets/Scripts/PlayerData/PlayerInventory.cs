@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
+using System.Linq;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class PlayerInventory : MonoBehaviour
     private void StartingInventory()
     {
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
-        AddWeapon(new Weapon("Impact Mine", 0, false, 1));
+        //AddWeapon(new Weapon("Impact Mine", 0, false, 1));
 
         //AddWeapon(new Weapon("SMG", 0, true, 0));
         //AddWeapon(new Weapon("Revolver", 0, true, 0));
@@ -108,19 +109,29 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void SelectNextWeapon()
-    {
-        selectedWeaponIndex = (selectedWeaponIndex + 1) % weaponInventory.Count;
-    }
 
     public void DecrementWeaponDurability()
     {
         Weapon selectedWeapon = GetSelectedWeapon();
-        if (selectedWeapon != null)
+
+        selectedWeapon.durability--;
+
+        if (selectedWeapon.durability <= 0)
         {
-            selectedWeapon.durability--;
-            SaveInventory();
+            // Find the matching weapon in the inventory and remove it
+            Weapon weaponToRemove = 
+                weaponInventory.FirstOrDefault(weapon => weapon.name == selectedWeapon.name && weapon.rarity == selectedWeapon.rarity);
+
+            if (weaponToRemove != null)
+            {
+                weaponInventory.Remove(weaponToRemove);
+            }
+            else
+            {
+                Debug.LogError("Weapon not found in inventory.");
+            }
         }
+        SaveInventory();
     }
 }
 

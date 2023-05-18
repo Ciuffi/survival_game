@@ -57,9 +57,7 @@ public class AttackBuilder
         }
 
         this.weaponUpgrades = upgrades;
-        Debug.Log(
-            $"Weapon Upgrades : {string.Join(", ", this.weaponUpgrades.Select(x => x == null ? "null" : x.ToString()))}"
-        );
+        //Debug.Log( $"Weapon Upgrades : {string.Join(", ", this.weaponUpgrades.Select(x => x == null ? "null" : x.ToString()))}");
 
         return this;
     }
