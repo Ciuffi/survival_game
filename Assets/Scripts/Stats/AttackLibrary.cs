@@ -1887,7 +1887,9 @@ public static class AttackLibrary
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
-            .SetRarityUpgrades(RevolverUpgrades);
+            .SetRarityUpgrades(RevolverRarity)
+                    .SetWeaponUpgrades(RevolverUpgrades);
+
         AddAttack(Revolver);
 
         //Shotgun
