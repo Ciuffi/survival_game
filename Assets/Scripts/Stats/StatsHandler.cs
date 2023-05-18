@@ -20,7 +20,7 @@ public class StatsHandler : MonoBehaviour
     private Slider healthBar;
     private Color healthColor;
     private CoroutineQueue healthBarQueue;
-    private GameObject StatContainer;
+    public GameObject StatContainer;
 
     public Animator animator;
     public Animator afterimageAnim;
@@ -43,12 +43,14 @@ public class StatsHandler : MonoBehaviour
     private void MatchCharacter()
     {
         string storedName = PlayerPrefs.GetString("CharacterName");
-        GameObject[] characters = Resources.LoadAll<GameObject>("PlayerCharacters");
+
+        GameObject[] characters = PlayerCharactersLibrary.getCharacters();
+
         foreach (GameObject obj in characters)
         {
             if (obj.name == storedName)
             {
-                baseStats = obj.GetComponent<PlayerCharacterStats>();
+                baseStats = obj.GetComponent<StatComponent>().stat; 
                 break;
             }
         }
@@ -164,7 +166,10 @@ public class StatsHandler : MonoBehaviour
 
     public void AddStat(PlayerCharacterStats stat)
     {
-        Instantiate(stat.statsContainer, StatContainer.transform);
+        var statsContainer = Instantiate(stat.statsContainer, StatContainer.transform);
+        var statComponent = statsContainer.GetComponent<StatComponent>();
+        statComponent.stat = stat;
+
         CalculatePlayerStats();
     }
 
@@ -174,13 +179,13 @@ public class StatsHandler : MonoBehaviour
 
         if (StatContainer != null)
         {
-            foreach (var stat in StatContainer.GetComponentsInChildren<PlayerCharacterStats>())
+            foreach (var statHolder in StatContainer.GetComponentsInChildren<StatComponent>())
             {
-                stats.MergeStats(stat);
+                stats.MergeStats(statHolder.stat);
             }
         }
 
-        GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed, 0.038f); //change second value to be the default
+        GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed * (stats.speedMultiplier + 1), 0.030f); //change second value to be the default
 
         if (currentHealth > stats.health)
             currentHealth = stats.health;

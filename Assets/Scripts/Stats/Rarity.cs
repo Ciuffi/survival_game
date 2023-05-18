@@ -11,7 +11,7 @@ public enum Rarity
     Common = 0,
     //Uncommon = 1,
     Rare = 2,
-    Epic = 3,
-    Legendary = 5
+    Epic = 4,
+    Legendary = 6
     //Mythic = 5,
 }

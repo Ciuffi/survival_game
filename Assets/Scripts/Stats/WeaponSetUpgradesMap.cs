@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public static class WeaponSetUpgradeMap
 {
@@ -77,7 +79,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Extended Mag 3"),
                         AttackStatsLibrary.GetStat("Piercing Ammo 3"),
                         AttackStatsLibrary.GetStat("High Caliber 3"),
-                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("Buddy System"),
                         AttackStatsLibrary.GetStat("Auto God"),
                     }
                 },
@@ -152,7 +154,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Bonus Round 3"),
                         AttackStatsLibrary.GetStat("Penetrating Ammo 3"),
                         AttackStatsLibrary.GetStat("High Caliber 3"),
-                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("Buddy System"),
                         AttackStatsLibrary.GetStat("Semi-Auto God"),
                     }
                 },
@@ -230,7 +232,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Bonus Round 3"),
                         AttackStatsLibrary.GetStat("Penetrating Ammo 3"),
                         AttackStatsLibrary.GetStat("High Caliber 3"),
-                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("Buddy System"),
                         AttackStatsLibrary.GetStat("Shotgun God"),
                     }
                 },
@@ -302,7 +304,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Bonus Round 3"),
                         AttackStatsLibrary.GetStat("Size Up 3"),
-                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("Buddy System"),
                         AttackStatsLibrary.GetStat("Explosive God"),
                     }
                 },
@@ -366,7 +368,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Ki Master 2"),
                         AttackStatsLibrary.GetStat("After-shock 1"),
                         AttackStatsLibrary.GetStat("Once More 1"),
-                        AttackStatsLibrary.GetStat("Pro"),
+                        AttackStatsLibrary.GetStat("AFK Pro"),
                     }
                 },
                 {
@@ -381,8 +383,8 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Enlarge 3"),
                         AttackStatsLibrary.GetStat("After-shock 2"),
                         AttackStatsLibrary.GetStat("Once More 2"),
-                        AttackStatsLibrary.GetStat("God"),
-                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("AFK God"),
+                        AttackStatsLibrary.GetStat("Buddy System"),
                     }
                 },
             }
@@ -463,8 +465,8 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Enlarge 3"),
                         AttackStatsLibrary.GetStat("After-shock 2"),
                         AttackStatsLibrary.GetStat("Once More 2"),
-                        AttackStatsLibrary.GetStat("Melee Pro"),
-                        AttackStatsLibrary.GetStat("Double Trouble"),
+                        AttackStatsLibrary.GetStat("Melee God"),
+                        AttackStatsLibrary.GetStat("Buddy System"),
                     }
                 },
             }
@@ -504,4 +506,24 @@ public static class WeaponSetUpgradeMap
             }
         }
     }
+
+    public static WeaponSetType? GetWeaponSetTypeForStat(AttackStats stat)
+    {
+        Debug.Log($"Checking for stat: {stat}");
+
+        foreach (var weaponSet in AttackStatsMap)
+        {
+            if (weaponSet.Value.Values.Any(list => list.Contains(stat)))
+            {
+                Debug.Log($"Found stat in weapon set: {weaponSet.Key}");
+                return weaponSet.Key;
+            }
+        }
+       
+        Debug.Log("Stat not found in any weapon set");
+        return null;
+    }
+
 }
+
+

@@ -134,6 +134,7 @@ public static class AttackLibrary
             .SetAttackName("Acid Pool")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/AcidPool"))
             .SetWeaponSetType(WeaponSetType.Melee)
+            .SetDescription("Create a toxic zone that persists for a short duration.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -249,6 +250,7 @@ public static class AttackLibrary
             .SetAttackName("Classic Rifle")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet"))
             .SetWeaponSetType(WeaponSetType.Automatic)
+            .SetDescription("Good ol' assult rifle.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.75f,
@@ -261,7 +263,7 @@ public static class AttackLibrary
                     range: 7f,
                     shotsPerAttack: 15,
                     speed: 0.17f,
-                    knockback: 0.55f,
+                    knockback: 0.45f,
                     pierce: 0,
                     critChance: 0.05f,
                     critDmg: 1.5f,
@@ -305,6 +307,7 @@ public static class AttackLibrary
             .SetAttackName("Double Barrel")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_wide"))
             .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetDescription("2 shots to the dome.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
@@ -317,7 +320,7 @@ public static class AttackLibrary
                     range: 2.5f,
                     shotsPerAttack: 2,
                     speed: 0.18f,
-                    knockback: 0.6f,
+                    knockback: 0.55f,
                     pierce: 8,
                     critChance: 0.05f,
                     critDmg: 1.5f,
@@ -357,6 +360,7 @@ public static class AttackLibrary
             .SetAttackName("Drain Scythe")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/DrainScythe"))
             .SetWeaponSetType(WeaponSetType.Melee)
+            .SetDescription("Slows enemies on hit.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
@@ -407,6 +411,7 @@ public static class AttackLibrary
             .SetAttackName("Earth Shock")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Frogger"))
             .SetWeaponSetType(WeaponSetType.Melee)
+            .SetDescription("Shake the earth in a straight line.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.2f,
@@ -459,6 +464,7 @@ public static class AttackLibrary
             .SetAttackName("Eldritch Grasp")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/GravityGrab"))
             .SetWeaponSetType(WeaponSetType.Melee)
+            .SetDescription("Pull enemies into close range.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.5f,
@@ -497,12 +503,12 @@ public static class AttackLibrary
         List<AttackStats> GatlingGunUpgrades = new List<AttackStats>
         {
             new AttackStats(damage: 4),
-            new AttackStats(castTime: -0.5f),
+            new AttackStats(shotsPerAttack: 20),
             new AttackStats(thrownDamage: 8, throwSpeed: -1f),
-            new AttackStats(shotsPerAttack: 30),
-            new AttackStats(spread: -0.004f, spray: 0.15f),
+            new AttackStats(shotsPerAttack: 20),
+            new AttackStats(spread: -0.004f, spray: 10f),
             new AttackStats(projectileSize: 0.75f),
-            new AttackStats(speed: 0.15f, spray: 100f),
+            new AttackStats(shotsPerAttack: 20),
             new AttackStats(pierce: 1),
             new AttackStats(aimRangeAdditive: 2f, coneAngle: 30f)
         };
@@ -511,6 +517,7 @@ public static class AttackLibrary
             .SetAttackName("Gatling Gun")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_Tiny"))
             .SetWeaponSetType(WeaponSetType.Automatic)
+            .SetDescription("Spray 'n pray.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.25f,
@@ -519,9 +526,9 @@ public static class AttackLibrary
                     damage: 3,
                     spread: 0.018f,
                     spray: 10f,
-                    castTime: 2.5f,
+                    castTime: 2.4f,
                     range: 5.5f,
-                    shotsPerAttack: 100,
+                    shotsPerAttack: 60,
                     speed: 0.2f,
                     knockback: 0.32f,
                     pierce: 0,
@@ -556,13 +563,14 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 1, meleeShotsScaleUp: -0.1f),
             new AttackStats(meleeSize: 0.5f),
             new AttackStats(meleeSpacer: 1.25f, meleeSpacerGap: 1.5f),
-            new AttackStats(knockback: 0.6f, shakeTime: 0.05f, shakeRotation: 0.5f),
+            new AttackStats(knockback: 0.5f, shakeTime: 0.05f, shakeRotation: 0.5f),
             new AttackStats(aimRangeAdditive: 2f, coneAngle: 60f)
         };
         AttackBuilder GodHand = new AttackBuilder()
             .SetAttackName("God Hand")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/MeleeFist"))
             .SetWeaponSetType(WeaponSetType.Melee)
+            .SetDescription("Violence is the answer.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
@@ -572,7 +580,7 @@ public static class AttackLibrary
                     spread: 0.28f,
                     castTime: 2.1f,
                     shotsPerAttackMelee: 0,
-                    knockback: 0.8f,
+                    knockback: 0.7f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -615,6 +623,7 @@ public static class AttackLibrary
             .SetAttackName("Impact Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_impact"))
             .SetWeaponSetType(WeaponSetType.Explosive)
+            .SetDescription("Explode on impact.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -662,6 +671,7 @@ public static class AttackLibrary
             .SetAttackName("Impact Mine")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/mine_impact"))
             .SetWeaponSetType(WeaponSetType.Explosive)
+            .SetDescription("Lure 'em in and watch 'em fly.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 0.5f,
@@ -712,13 +722,14 @@ public static class AttackLibrary
             .SetAttackName("Impact Nova")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_impact"))
             .SetWeaponSetType(WeaponSetType.Nova)
+            .SetDescription("Do I actually have to aim? No?")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
                     damage: 13,
                     spread: 0.35f,
                     castTime: 2.2f,
-                    knockback: 0.7f,
+                    knockback: 0.6f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -760,6 +771,7 @@ public static class AttackLibrary
             .SetAttackName("Laser Beam")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/DoubleBeam"))
             .SetWeaponSetType(WeaponSetType.Melee)
+            .SetDescription("Forward beam.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.5f,
@@ -769,7 +781,7 @@ public static class AttackLibrary
                     spread: 0.3f,
                     castTime: 2.5f,
                     shotsPerAttackMelee: 0,
-                    knockback: 1f,
+                    knockback: 0.8f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -811,6 +823,7 @@ public static class AttackLibrary
             .SetAttackName("Pain Wheel")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetDescription("Keeps spinnin' for a while")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.5f,
@@ -863,6 +876,7 @@ public static class AttackLibrary
             .SetAttackName("Petrify Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_stun"))
             .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetDescription("Explode and Freeze targets in place.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -910,6 +924,7 @@ public static class AttackLibrary
             .SetAttackName("Petrify Nova")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_Petrify"))
             .SetWeaponSetType(WeaponSetType.Nova)
+            .SetDescription("Freeze targets around you.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
@@ -960,6 +975,7 @@ public static class AttackLibrary
             .SetAttackName("Revolver")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetDescription("6 shots. For now.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
@@ -972,7 +988,7 @@ public static class AttackLibrary
                     range: 5.5f,
                     shotsPerAttack: 6,
                     speed: 0.18f,
-                    knockback: 0.45f,
+                    knockback: 0.5f,
                     pierce: 0,
                     critChance: 0.05f,
                     critDmg: 1.5f,
@@ -1014,6 +1030,7 @@ public static class AttackLibrary
             .SetAttackName("Shotgun")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_wide"))
             .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetDescription("Ayy Shawttyyyy.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
@@ -1068,6 +1085,7 @@ public static class AttackLibrary
             .SetAttackName("Shuriken")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken_small"))
             .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetDescription("How quickly we spin.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
@@ -1121,6 +1139,7 @@ public static class AttackLibrary
             .SetAttackName("SMG")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_SMG"))
             .SetWeaponSetType(WeaponSetType.Automatic)
+            .SetDescription("Lil' Uzi got me like-")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
@@ -1133,7 +1152,7 @@ public static class AttackLibrary
                     range: 5f,
                     shotsPerAttack: 30,
                     speed: 0.15f,
-                    knockback: 0.3f,
+                    knockback: 0.35f,
                     pierce: 0,
                     critChance: 0.05f,
                     critDmg: 1.5f,
@@ -1175,6 +1194,7 @@ public static class AttackLibrary
             .SetAttackName("Smoke Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_slow"))
             .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetDescription("Hotbox the world.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -1221,6 +1241,7 @@ public static class AttackLibrary
             .SetAttackName("Sniper Rifle")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_long"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetDescription("Cheers, mate.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.8f,
@@ -1234,7 +1255,7 @@ public static class AttackLibrary
                     range: 8f,
                     shotsPerAttack: 1,
                     speed: 0.2f,
-                    knockback: 0.7f,
+                    knockback: 0.8f,
                     pierce: 10,
                     critChance: 0.05f,
                     critDmg: 1.5f,
@@ -1276,6 +1297,7 @@ public static class AttackLibrary
             .SetAttackName("Suction Cannon")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/SuctionCannon_Orb"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetDescription("Fire a mini-black hole that sucks targets in.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.2f,
@@ -1299,7 +1321,7 @@ public static class AttackLibrary
                     shakeRotation: 0.05f,
                     thrownDamage: 25f,
                     throwSpeed: 0.12f,
-                    projectileSize: 1
+                    projectileSize: 0.8f
                 )
             )
             .SetProperties(
@@ -1330,6 +1352,7 @@ public static class AttackLibrary
             .SetAttackName("Suction Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_suction"))
             .SetWeaponSetType(WeaponSetType.Explosive)
+            .SetDescription("Explodes then sucks targets into the center.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
@@ -1375,13 +1398,14 @@ public static class AttackLibrary
             .SetAttackName("Suction Nova")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_gravity"))
             .SetWeaponSetType(WeaponSetType.Nova)
+            .SetDescription("Sucks in everything around you.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
                     damage: 3,
                     spread: 0.4f,
                     castTime: 2.5f,
-                    knockback: 0.35f,
+                    knockback: 0.30f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -1425,6 +1449,7 @@ public static class AttackLibrary
             .SetAttackName("Wind Blade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/KatanaSlash"))
             .SetWeaponSetType(WeaponSetType.Melee)
+            .SetDescription("Power of God and Anime.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
@@ -1434,7 +1459,7 @@ public static class AttackLibrary
                     spread: 0.18f,
                     castTime: 2f,
                     shotsPerAttackMelee: 0,
-                    knockback: 0.4f,
+                    knockback: 0.35f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,

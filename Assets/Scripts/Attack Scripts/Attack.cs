@@ -77,6 +77,15 @@ public class Attack : MonoBehaviour, Upgrade
 
     private void Update() { }
 
+    public void AddWeaponUpgrade(AttackStats upgrade)
+    {
+        var statsContainer = Instantiate(upgrade.statsContainer, upgradeContainer);
+        var attackStatComponent = statsContainer.GetComponent<AttackStatComponent>();
+        attackStatComponent.stat = upgrade;
+
+        CalculateStats();
+    }
+
     public void CalculateStats()
     {
         AttackStats[] upgrades = upgradeContainer
@@ -86,7 +95,6 @@ public class Attack : MonoBehaviour, Upgrade
 
         if (upgrades.Length > 0)
         {
-            //Debug.Log("yes upgrades");
             stats = new AttackStats(baseStats).mergeInStats(upgrades);
         }
         else
@@ -1078,12 +1086,6 @@ public class Attack : MonoBehaviour, Upgrade
     public Rarity GetRarity()
     {
         return rarity;
-    }
-
-    public void AddWeaponUpgrade(AttackStats upgrade)
-    {
-        Instantiate(upgrade.statsContainer, upgradeContainer);
-        CalculateStats();
     }
 
     //Clone all the attack member variables that are objects and not primitives

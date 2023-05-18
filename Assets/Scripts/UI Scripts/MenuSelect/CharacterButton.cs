@@ -174,9 +174,9 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             {
                 statsString += "Aftershock " + stats.comboLength + "\n";
             }
-            if (stats.comboWaitTime != 1)
+            if (stats.comboWaitTimeMultiplier != 1)
             {
-                statsString += "Melee Speed% " + stats.comboWaitTime + "\n";
+                statsString += "Melee Speed% " + stats.comboWaitTimeMultiplier + "\n";
             }
             if (stats.meleeSizeMultiplier != 1)
             {

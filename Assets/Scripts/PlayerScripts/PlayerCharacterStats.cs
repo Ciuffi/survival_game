@@ -8,6 +8,7 @@ public class PlayerCharacterStats : Upgrade
     public string description;
     public string name;
     public bool isLocked;
+    public float price;
 
     // Base stats
     public float maxHealth,
@@ -28,9 +29,10 @@ public class PlayerCharacterStats : Upgrade
     public float aimRangeAdditive,
         multicastChance,
         shotgunSpread,
+        speedMultiplier,
         spreadMultiplier,
         castTimeMultiplier,
-        comboWaitTime,
+        comboWaitTimeMultiplier,
         projectileSpeedMultiplier,
         rangeMultiplier,
         knockbackMultiplier,
@@ -46,6 +48,7 @@ public class PlayerCharacterStats : Upgrade
     // Merges the current PlayerCharacterStats with the provided PlayerCharacterStats
     public void MergeStats(PlayerCharacterStats other)
     {
+        maxHealth += other.maxHealth;
         health += other.health;
         speed += other.speed;
         pickupRange += other.pickupRange;
@@ -64,7 +67,7 @@ public class PlayerCharacterStats : Upgrade
         shotgunSpread += other.shotgunSpread;
         spreadMultiplier += other.spreadMultiplier;
         castTimeMultiplier += other.castTimeMultiplier;
-        comboWaitTime += other.comboWaitTime;
+        comboWaitTimeMultiplier += other.comboWaitTimeMultiplier;
         projectileSpeedMultiplier += other.projectileSpeedMultiplier;
         rangeMultiplier += other.rangeMultiplier;
         knockbackMultiplier += other.knockbackMultiplier;
@@ -72,6 +75,7 @@ public class PlayerCharacterStats : Upgrade
         thrownSpeedMultiplier += other.thrownSpeedMultiplier;
         projectileSizeMultiplier += other.projectileSizeMultiplier;
         meleeSizeMultiplier += other.meleeSizeMultiplier;
+        speedMultiplier += other.speedMultiplier;
 
         shootOpposideSide |= other.shootOpposideSide;
         this.rarity = this.rarity.CompareRarity(other.rarity);
@@ -86,6 +90,7 @@ public class PlayerCharacterStats : Upgrade
             return;
         }
 
+        maxHealth = other.maxHealth;
         health = other.health;
         speed = other.speed;
         pickupRange = other.pickupRange;
@@ -104,7 +109,7 @@ public class PlayerCharacterStats : Upgrade
         shotgunSpread = other.shotgunSpread;
         spreadMultiplier = other.spreadMultiplier;
         castTimeMultiplier = other.castTimeMultiplier;
-        comboWaitTime = other.comboWaitTime;
+        comboWaitTimeMultiplier = other.comboWaitTimeMultiplier;
         projectileSpeedMultiplier = other.projectileSpeedMultiplier;
         rangeMultiplier = other.rangeMultiplier;
         knockbackMultiplier = other.knockbackMultiplier;
@@ -112,6 +117,7 @@ public class PlayerCharacterStats : Upgrade
         thrownSpeedMultiplier = other.thrownSpeedMultiplier;
         projectileSizeMultiplier = other.projectileSizeMultiplier;
         meleeSizeMultiplier = other.meleeSizeMultiplier;
+        speedMultiplier = other.speedMultiplier;
 
         shootOpposideSide = other.shootOpposideSide;
         rarity = rarity.CompareRarity(other.rarity);
@@ -119,39 +125,43 @@ public class PlayerCharacterStats : Upgrade
 
     //Constructor with smart defaults in parameters
     public PlayerCharacterStats(
-        float health = 100,
-        float speed = 5,
-        float pickupRange = 2,
-        float damageMultiplier = 1,
+        bool isLocked = false,
+        float price = 0,
+        float maxHealth = 0,
+        float health = 0,
+        float speed = 0f,
+        float pickupRange = 0,
+        float damageMultiplier = 0,
         float critChance = 0,
-        float critDmg = 1,
+        float critDmg = 0,
         float defense = 0,
         float shield = 0,
-        int shotsPerAttack = 1,
-        int shotsPerAttackMelee = 1,
-        int comboLength = 1,
-        float aimRangeAdditive = 1,
+        int shotsPerAttack = 0,
+        int shotsPerAttackMelee = 0,
+        int comboLength = 0,
+        float aimRangeAdditive = 0,
         float multicastChance = 0,
         float shotgunSpread = 0,
-        float spreadMultiplier = 1,
-        float castTimeMultiplier = 1,
-        float comboWaitTime = 0,
-        float projectileSpeedMultiplier = 1,
-        float rangeMultiplier = 1,
-        float knockbackMultiplier = 1,
-        float thrownDamageMultiplier = 1,
-        float thrownSpeedMultiplier = 1,
-        float projectileSizeMultiplier = 1,
-        float meleeSizeMultiplier = 1,
+        float spreadMultiplier = 0,
+        float castTimeMultiplier = 0,
+        float comboWaitTimeMultiplier = 0,
+        float projectileSpeedMultiplier = 0,
+        float rangeMultiplier = 0,
+        float knockbackMultiplier = 0,
+        float thrownDamageMultiplier = 0,
+        float thrownSpeedMultiplier = 0,
+        float projectileSizeMultiplier = 0,
+        float meleeSizeMultiplier = 0,
+        float speedMultiplier = 0,
         bool shootOpposideSide = false,
         Rarity rarity = Rarity.Common,
         string name = "Player Stats",
         string description = "Player Stats",
-        float maxhealth = 0,
         Sprite icon = null
     )
     {
-        this.health = health;
+        this.maxHealth = maxHealth;
+        this.health = maxHealth;
         this.speed = speed;
         this.pickupRange = pickupRange;
         this.damageMultiplier = damageMultiplier;
@@ -169,7 +179,7 @@ public class PlayerCharacterStats : Upgrade
         this.shotgunSpread = shotgunSpread;
         this.spreadMultiplier = spreadMultiplier;
         this.castTimeMultiplier = castTimeMultiplier;
-        this.comboWaitTime = comboWaitTime;
+        this.comboWaitTimeMultiplier = comboWaitTimeMultiplier;
         this.projectileSpeedMultiplier = projectileSpeedMultiplier;
         this.rangeMultiplier = rangeMultiplier;
         this.knockbackMultiplier = knockbackMultiplier;
@@ -177,12 +187,11 @@ public class PlayerCharacterStats : Upgrade
         this.thrownSpeedMultiplier = thrownSpeedMultiplier;
         this.projectileSizeMultiplier = projectileSizeMultiplier;
         this.meleeSizeMultiplier = meleeSizeMultiplier;
-
+        this.speedMultiplier = speedMultiplier;
         this.shootOpposideSide = shootOpposideSide;
         this.rarity = rarity;
         this.name = name;
         this.description = description;
-        this.maxHealth = maxhealth;
         this.icon = icon == null ? Resources.Load<Sprite>("UI_Icons/DMG_up") : icon;
     }
 
@@ -214,5 +223,10 @@ public class PlayerCharacterStats : Upgrade
     public Transform GetTransform()
     {
         return statsContainer.transform;
+    }
+
+    public void setContainer(GameObject container)
+    {
+        statsContainer = container;
     }
 }

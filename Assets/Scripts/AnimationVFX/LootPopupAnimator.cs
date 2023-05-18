@@ -38,7 +38,7 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(finalGold);
+        //Debug.Log(finalGold);
         if (!isOpen)
         {
             animator.SetBool("IsOpen", true);
@@ -51,12 +51,12 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
             ParticleSystem Ps = coinExplosion.GetComponent<ParticleSystem>();
             var main = Ps.main;
             main.duration = OGduration + extraIncrementTime;
-            Instantiate(coinExplosion, transform.position, Quaternion.identity);
+            Instantiate(Ps, transform.position, Quaternion.identity);
 
             ParticleSystem Ps_sparkle = sparkle.GetComponent<ParticleSystem>();
             var main2 = Ps_sparkle.main;
             main2.duration = OGduration + extraIncrementTime;
-            Instantiate(sparkle, transform.position, Quaternion.identity);
+            Instantiate(Ps_sparkle, transform.position, Quaternion.identity);
 
         }
         else

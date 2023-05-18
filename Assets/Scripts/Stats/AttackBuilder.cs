@@ -47,11 +47,20 @@ public class AttackBuilder
 
     public AttackBuilder SetWeaponUpgrades(List<AttackStats> upgrades)
     {
+        // Set the attack name for each upgrade
+        foreach (var upgrade in upgrades)
+        {
+            if (upgrade is AttackStats weaponUpgrade)
+            {
+                weaponUpgrade.AttackName = this.attackName;
+            }
+        }
+
         this.weaponUpgrades = upgrades;
         Debug.Log(
             $"Weapon Upgrades : {string.Join(", ", this.weaponUpgrades.Select(x => x == null ? "null" : x.ToString()))}"
         );
-        //Debug.Log(upgrades);
+
         return this;
     }
 
@@ -202,7 +211,7 @@ public class AttackBuilder
         {
             attack.attackTime =
                 (attack.baseStats.comboLength - 1) * attack.baseStats.comboWaitTime
-                + attack.baseStats.shotsPerAttackMelee * attack.baseStats.spread
+                + attack.baseStats.shotsPerAttackMelee * attack.baseStats.spread * attack.baseStats.comboLength
                 + attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
             // Add the definition for Melee attack type
         }

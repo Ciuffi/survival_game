@@ -19,7 +19,6 @@ public class LevelUpManager : MonoBehaviour
     public Upgrade[] weapons;
     public List<GameObject> playerStatUpgrades;
     public List<GameObject> weaponStatUpgrades;
-    public List<GameObject> wpnSetUpgrades;
     public List<GameObject> upgrades;
     public bool isWeapon = false;
     private List<GameObject> previousUpgrades = new List<GameObject>();
@@ -32,6 +31,17 @@ public class LevelUpManager : MonoBehaviour
     public GameObject TimelineManager;
     public GameObject VFX;
     public StatsHandler playerStats;
+
+    public List<string> rarityNames = new List<string>()
+    {
+        "Common",
+        "Rare",
+        "Epic",
+        "Legendary"
+    };
+
+    public List<Color> rarityColors;
+    public GameObject weaponRarityPrefab;
 
     public int GetXpToNextLevel(float level)
     {
@@ -100,14 +110,27 @@ public class LevelUpManager : MonoBehaviour
                 (u) =>
                 {
                     AttackBuilder builder = weaponBuilders[Random.Range(0, weaponBuilders.Length)];
-                    GameObject GO = builder.Build((Rarity)Random.Range(0, 6)).gameObject;
+                    GameObject GO = builder.Build((Rarity)Random.Range(0, 3)).gameObject;
                     u.upgrade = GO.GetComponent<Upgrade>();
                     u.GetComponentInChildren<TMP_Text>().text = GO.name;
+
                     u.transform.Find("Image").GetComponent<Image>().enabled = true;
                     u.transform.Find("Image").GetComponent<Image>().sprite =
                         GO.GetComponent<Upgrade>().GetUpgradeIcon();
+
                     TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
-                    textComponents[1].text = GO.GetComponent<Attack>().attackType.ToString();
+
+                    string rarityText = GO.GetComponent<Upgrade>().GetRarity().ToString();
+                    textComponents[1].text = rarityText;
+
+                    int index = rarityNames.IndexOf(rarityText);
+                    textComponents[1].color = rarityColors[index];
+                    u.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
+
+                    textComponents[2].text = GO.GetComponent<Upgrade>().GetUpgradeDescription();
+
+                    textComponents[3].text = GO.GetComponent<Attack>().attackType.ToString();
+
                 }
             );
         }
@@ -135,13 +158,71 @@ public class LevelUpManager : MonoBehaviour
                         }
                     }
                     previousUpgrades.Add(GO);
-                    u.upgrade = GO.GetComponent<Upgrade>();
-                    u.GetComponentInChildren<TMP_Text>().text = GO.name;
-                    u.transform.Find("Image").GetComponent<Image>().enabled = true;
-                    u.transform.Find("Image").GetComponent<Image>().sprite =
-                        GO.GetComponent<Upgrade>().GetUpgradeIcon();
-                    TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
-                    textComponents[1].text = "";
+
+                    var statComponent = GO.GetComponent<StatComponent>();
+                    var attackStatComponent = GO.GetComponent<AttackStatComponent>();
+
+                    if (statComponent != null)
+                    {
+                        // It's a PlayerStat upgrade
+                        u.upgrade = statComponent.stat;
+                        u.GetComponentInChildren<TMP_Text>().text = GO.name;
+                        u.transform.Find("Image").GetComponent<Image>().enabled = true;
+                        u.transform.Find("Image").GetComponent<Image>().sprite = statComponent.stat.GetUpgradeIcon();
+                        TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
+
+                        string rarityText = statComponent.stat.GetRarity().ToString();
+                        textComponents[1].text = rarityText;
+
+                        int index = rarityNames.IndexOf(rarityText);
+
+                        textComponents[1].color = rarityColors[index];
+                        u.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
+
+                        textComponents[2].text = statComponent.stat.description;
+
+                        string upgradeTag = "ALL";
+                        textComponents[3].text = upgradeTag;
+
+                    }
+                    else if (attackStatComponent != null)
+                    {
+                        // It's either a WeaponStat upgrade or a WeaponSet upgrade
+                        u.upgrade = attackStatComponent.stat; 
+                        u.GetComponentInChildren<TMP_Text>().text = GO.name;
+                        u.transform.Find("Image").GetComponent<Image>().enabled = true;
+                        u.transform.Find("Image").GetComponent<Image>().sprite = attackStatComponent.stat.GetUpgradeIcon(); 
+                        TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
+
+                        string rarityText = attackStatComponent.stat.GetRarity().ToString();
+                        textComponents[1].text = rarityText;
+
+                        int index = rarityNames.IndexOf(rarityText) ; 
+
+                        textComponents[1].color = rarityColors[index];
+                        u.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
+
+                        textComponents[2].text = attackStatComponent.stat.description;
+
+                        switch (u.upgrade.GetUpgradeType())
+                        {
+                            case UpgradeType.WeaponSetStat:
+                                {
+                                    string upgradeTag =  WeaponSetUpgradeMap.GetWeaponSetTypeForStat(attackStatComponent.stat).ToString();
+                                    textComponents[3].text = upgradeTag;
+                                }
+                                break;
+
+                            case UpgradeType.WeaponStat:
+                                if (u.upgrade is AttackStats weaponUpgrade)
+                                {
+                                    string upgradeTag = weaponUpgrade.AttackName;
+                                    textComponents[3].text = upgradeTag;
+                                }
+                                break;
+                        }
+
+                    }
                 }
             );
         }
@@ -212,6 +293,8 @@ public class LevelUpManager : MonoBehaviour
         playerStatUpgrades = PlayerStatsLibrary.GetStatGameObjects();
         weaponStatUpgrades = AttackStatsLibrary.GetStatGameObjects();
 
+        rarityColors = weaponRarityPrefab.GetComponent<InventoryItem>().rarityColors;
+
         hasRolled = false;
         xpColor = xpBar.fillRect.GetComponent<Image>().color;
         panel.SetActive(false);
@@ -233,7 +316,7 @@ public class LevelUpManager : MonoBehaviour
             .SelectMany(
                 t =>
                     WeaponSetUpgradeMap.AttackStatsMap[t]
-                        .Where(k => k.Key == (Rarity)Random.Range(0, 6))
+                        //.Where(k => k.Key == (Rarity)(Random.Range(0,3)*2))
                         .SelectMany(k => k.Value)
             )
             .ToArray();

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -27,24 +28,45 @@ public class UpgradeLootHandler : MonoBehaviour, IPointerDownHandler
     {
         if (delayFinished)
         {
-            if (upgrade.GetUpgradeType() == UpgradeType.PlayerStats)
+            switch (upgrade.GetUpgradeType())
             {
-                playerStats.AddStat((PlayerCharacterStats)upgrade);
-                lootManager.SignalItemChosen();
-            }
-            else
-            {
-                if (playerAttacks.attacks.Count < 6)
-                {
-                    playerAttacks.AddWeapon((Attack)upgrade);
+                case UpgradeType.Weapon:
+                    if (playerAttacks.attacks.Count < 6)
+                    {
+                        playerAttacks.AddWeapon((Attack)upgrade);
+                        lootManager.SignalItemChosen();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    break;
+                case UpgradeType.PlayerStats:
+                    playerStats.AddStat((PlayerCharacterStats)upgrade);
                     lootManager.SignalItemChosen();
-                }
-                else
-                {
-                    return;
-                }
+                    break;
+                case UpgradeType.WeaponSetStat:
+                    var weaponSet = WeaponSetUpgradeMap.AttackStatsMap.FirstOrDefault(
+                        w => w.Value.Any(r => r.Value.Contains((AttackStats)upgrade))
+                    );
+                    playerAttacks.attacks
+                        .Where(a => a.weaponSetType == weaponSet.Key)
+                        .ToList()
+                        .ForEach(a => a.AddWeaponUpgrade((AttackStats)upgrade));
+                    lootManager.SignalItemChosen();
+                    break;
+                case UpgradeType.WeaponStat:
+                    playerAttacks.attacks
+                        .Where(a => a.weaponUpgrades.Any(upgrade =>
+                            upgrade is AttackStats weaponUpgrade &&
+                            weaponUpgrade.AttackName == a.name.Replace("(Clone)", "").Trim()))
+                        .ToList()
+                        .ForEach(a => a.AddWeaponUpgrade((AttackStats)upgrade));
+                    lootManager.SignalItemChosen();
+                    break;
             }
         }
+       
     }
 
     // Update is called once per frame

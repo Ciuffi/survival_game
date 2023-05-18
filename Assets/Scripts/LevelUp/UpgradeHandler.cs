@@ -50,7 +50,9 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
                     break;
                 case UpgradeType.WeaponStat:
                     playerAttacks.attacks
-                        .Where(a => a.weaponUpgrades.Contains(upgrade))
+                        .Where(a => a.weaponUpgrades.Any(upgrade => 
+                            upgrade is AttackStats weaponUpgrade && 
+                            weaponUpgrade.AttackName == a.name.Replace("(Clone)", "").Trim()))
                         .ToList()
                         .ForEach(a => a.AddWeaponUpgrade((AttackStats)upgrade));
                     levelUpManager.SignalItemChosen();

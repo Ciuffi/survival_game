@@ -89,6 +89,7 @@ public class AttackStats : Upgrade
     public float coneAngle;
 
     public GameObject statsContainer;
+    public string AttackName { get; set; }
 
     private Sprite defaultIcon = Resources.Load<Sprite>("UI_Icons/DMG_up");
 
@@ -294,8 +295,16 @@ public class AttackStats : Upgrade
         // loop over attackStats
         for (int i = 0; i < attackstats.Length; i++)
         {
-            // merge in each attackStats
-            this.mergeInStats(attackstats[i]);
+            // check if attackStats is not null before merging
+            if (attackstats[i] != null)
+            {
+                // merge in each attackStats
+                this.mergeInStats(attackstats[i]);
+            }
+            else
+            {
+                Debug.LogError("attackStats is null at index " + i);
+            }
         }
         return this;
     }
@@ -382,7 +391,7 @@ public class AttackStats : Upgrade
         this.shootOppositeSide |= playerStats.shootOpposideSide;
         this.comboLength += playerStats.comboLength;
         this.rangeMultiplier += playerStats.rangeMultiplier;
-        this.comboWaitTime += playerStats.comboWaitTime;
+        this.comboWaitTime += playerStats.comboWaitTimeMultiplier;
         this.damageMultiplier += playerStats.damageMultiplier;
         this.castTimeMultiplier += playerStats.castTimeMultiplier;
         this.knockbackMultiplier += playerStats.knockbackMultiplier;

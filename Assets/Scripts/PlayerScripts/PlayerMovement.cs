@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
     public Animator afterimageAnim;
     private SpriteRenderer afterimageRend;
     private float speed;
+    private float speedMultiplier;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
     public void SetAnimSpeed(float speed, float baseSpeed)
     {
         // Calculate the animator speed based on the move speed ratio
-        float speedRatio = (speed / baseSpeed);
+        float speedRatio = (speed * speedMultiplier / baseSpeed);
         float scalingFactor = 0.5f; // adjust this as needed
         float animSpeed = animator.speed * (1.0f + scalingFactor * (speedRatio - 1.0f));
         animator.speed = animSpeed;
@@ -78,10 +79,11 @@ public class PlayerMovement : MonoBehaviour, Attacker
     void Update()
     {
         speed = GetComponent<StatsHandler>().stats.speed;
+        speedMultiplier = GetComponent<StatsHandler>().stats.speedMultiplier + 1;
 
         if (canMove == true)
         {
-            localSpeed = speed;
+            localSpeed = speed * speedMultiplier;
         }
 
         Move();
