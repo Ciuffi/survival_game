@@ -1315,6 +1315,258 @@ PrefabInstance:
       propertyPath: weaponRarityPrefab
       value: 
       objectReference: {fileID: 3957629950819426908, guid: 3e591f76f118fc64f91575f67282e51a, type: 3}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: playerStatChance
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: weaponStatChance
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: weaponSetStatChance
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[0].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[1].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[2].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[3].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[4].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[5].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[6].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[0].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[1].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[2].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[3].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[4].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[5].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[6].dropRates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[0].dropRates.Array.data[0]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[0].dropRates.Array.data[1]
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[1].dropRates.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[1].dropRates.Array.data[1]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[1].dropRates.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[2].dropRates.Array.data[1]
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[2].dropRates.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[3].dropRates.Array.data[1]
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[3].dropRates.Array.data[2]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[3].dropRates.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[4].dropRates.Array.data[1]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[4].dropRates.Array.data[2]
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[4].dropRates.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[5].dropRates.Array.data[1]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[5].dropRates.Array.data[2]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[5].dropRates.Array.data[3]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[6].dropRates.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[6].dropRates.Array.data[2]
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: lootDropTables.Array.data[6].dropRates.Array.data[3]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[0].dropRates.Array.data[0]
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[0].dropRates.Array.data[1]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[0].dropRates.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[1].dropRates.Array.data[0]
+      value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[1].dropRates.Array.data[1]
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[1].dropRates.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[2].dropRates.Array.data[0]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[2].dropRates.Array.data[1]
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[2].dropRates.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[3].dropRates.Array.data[0]
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[3].dropRates.Array.data[1]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[3].dropRates.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[3].dropRates.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[4].dropRates.Array.data[0]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[4].dropRates.Array.data[1]
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[4].dropRates.Array.data[2]
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[4].dropRates.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[5].dropRates.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[5].dropRates.Array.data[1]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[5].dropRates.Array.data[2]
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[5].dropRates.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[6].dropRates.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[6].dropRates.Array.data[1]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[6].dropRates.Array.data[2]
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: guiltDropTables.Array.data[6].dropRates.Array.data[3]
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
       value: 

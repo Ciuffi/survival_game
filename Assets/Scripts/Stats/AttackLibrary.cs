@@ -1112,7 +1112,7 @@ public static class AttackLibrary
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(ImpactGrenadeRarity)
-            .SetRarityUpgrades(ImpactGrenadeUpgrades);
+            .SetWeaponUpgrades(ImpactGrenadeUpgrades);
         AddAttack(ImpactGrenade);
 
         // ImpactMine

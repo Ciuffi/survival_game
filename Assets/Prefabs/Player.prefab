@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 7893436220127190815}
   - component: {fileID: 5247325245746788677}
   - component: {fileID: 2052080985}
+  - component: {fileID: 8055189426503789870}
   m_Layer: 0
   m_Name: LevelUp
   m_TagString: Untagged
@@ -164,6 +165,8 @@ MonoBehaviour:
   baseXP: 60
   growthMultiplier: 1.3
   flashColor: {r: 0.32549024, g: 0.9117146, b: 1, a: 0.92156863}
+  playerStatUpgrades: []
+  weaponStatUpgrades: []
   upgrades: []
   isWeapon: 0
   RerollBtn: {fileID: 0}
@@ -172,6 +175,13 @@ MonoBehaviour:
   TimelineManager: {fileID: 0}
   VFX: {fileID: 4893581131471631178, guid: 8a2928f30e149394e8d7d3961bb5dc21, type: 3}
   playerStats: {fileID: 0}
+  rarityNames:
+  - Common
+  - Rare
+  - Epic
+  - Legendary
+  rarityColors: []
+  weaponRarityPrefab: {fileID: 0}
 --- !u!114 &5247325245746788677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeWindow: {fileID: 0}
-  weapons: []
+  playerStatUpgrades: []
   stats: []
   upgrades: []
   isWeapon: 1
@@ -196,6 +206,13 @@ MonoBehaviour:
   VFX: {fileID: 8139009526274993311, guid: 34697af283df79a4aa69aa59693a8e28, type: 3}
   finalGold: 0
   lootOnTap: {fileID: 0}
+  rarityNames:
+  - Common
+  - Rare
+  - Epic
+  - Legendary
+  rarityColors: []
+  weaponRarityPrefab: {fileID: 0}
 --- !u!114 &2052080985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +229,24 @@ MonoBehaviour:
   currentReroll: 0
   baseSwap: 3
   currentSwap: 0
+--- !u!114 &8055189426503789870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287956671441075117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bd6010c9fedde4fb94cbf370e6bcbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatChance: 0.25
+  weaponSetStatChance: 0.25
+  weaponStatChance: 0.5
+  existingWeaponOrSetChance: 0.75
+  newWeaponOrSetChance: 0.25
+  guiltDropTables: []
 --- !u!1 &3287956671689121398
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,12 +718,15 @@ MonoBehaviour:
   attacks: []
   attackState: 0
   usingAttackBar: 1
+  WeaponPrefab: {fileID: 0}
   WeaponSprite: {fileID: 0}
   WeaponOutline: {fileID: 0}
   HandsSprite: {fileID: 0}
   colors:
   - {r: 0.1509434, g: 0.14093797, b: 0.08757565, a: 1}
   flashColor: {r: 0.8537736, g: 1, b: 0.9894039, a: 0.50980395}
+  AutoAimPrefab: {fileID: 0}
+  attackWheel: {fileID: 0}
 --- !u!114 &9136689211427610631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,12 +763,11 @@ MonoBehaviour:
   xp: 0
   nextXp: 0
   currentHealth: 0
-  baseStats: {fileID: 0}
-  stats: {fileID: 0}
   Iframes: 0.75
   IFtimer: 0
   canDamage: 1
   LevelManager: {fileID: 7893436220127190815}
+  StatContainer: {fileID: 0}
   animator: {fileID: 861954445235611945}
   afterimageAnim: {fileID: 6260197004109689340}
   Sprite: {fileID: 6301032241555800557}

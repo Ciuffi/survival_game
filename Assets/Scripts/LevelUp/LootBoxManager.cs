@@ -31,6 +31,8 @@ public class LootBoxManager : MonoBehaviour
     public int finalGold;
     public GameObject lootOnTap;
     StatsHandler playerStats;
+    DropTableUpgrades dropTable;
+    BasicSpawner guiltTracker;
 
     public List<string> rarityNames = new List<string>()
     {
@@ -60,6 +62,8 @@ public class LootBoxManager : MonoBehaviour
         panelAnimated.SetActive(false);
         playerStats = FindObjectOfType<StatsHandler>();
         rarityColors = weaponRarityPrefab.GetComponent<InventoryItem>().rarityColors;
+        dropTable = GetComponent<DropTableUpgrades>();
+        guiltTracker = FindObjectOfType<BasicSpawner>();
     }
 
     public void ShowLootUI()
@@ -88,12 +92,33 @@ public class LootBoxManager : MonoBehaviour
     {
         if (isWeapon)
         {
+            // Determine rarity based on guiltDropTables
+            Rarity chosenRarity;
+            float rarityRoll = Random.Range(1, 100);
+            float[] rarityChances = dropTable.lootDropTables[guiltTracker.currentGuilt].dropRates;
+
+            if (rarityRoll <= rarityChances[3])
+            {
+                chosenRarity = Rarity.Legendary;
+            }
+            else if (rarityRoll <= rarityChances[2])
+            {
+                chosenRarity = Rarity.Epic;
+            }
+            else if (rarityRoll <= rarityChances[1])
+            {
+                chosenRarity = Rarity.Rare;
+            }
+            else
+            {
+                chosenRarity = Rarity.Common;
+            }
 
             GameObject GO = null;
             while (GO == null)
             {
                 AttackBuilder builder = weaponBuilders[Random.Range(0, weaponBuilders.Length)];
-                GO = builder.Build((Rarity)Random.Range(0, 3)).gameObject;
+                GO = builder.Build(chosenRarity).gameObject;
 
                 if (previousUpgrades.Contains(GO))
                 {
@@ -112,7 +137,7 @@ public class LootBoxManager : MonoBehaviour
 
                     TMP_Text[] textComponents = upgradeWindow.GetComponentsInChildren<TMP_Text>();
 
-                    string rarityText = GO.GetComponent<Upgrade>().GetRarity().ToString();
+                    string rarityText = chosenRarity.ToString();
                     textComponents[1].text = rarityText;
 
                     int index = rarityNames.IndexOf(rarityText) * 2;
@@ -128,12 +153,39 @@ public class LootBoxManager : MonoBehaviour
         }
         else
         {
-            upgrades = new List<GameObject>(playerStatUpgrades);
 
-            upgrades.AddRange(GetAttackStats().Select(s => s.GetTransform().gameObject).ToList());
-            upgrades.AddRange(
+            // Determine rarity based on guiltDropTables
+            Rarity chosenRarity;
+            float rarityRoll = Random.Range(1, 100);
+            float[] rarityChances = dropTable.lootDropTables[guiltTracker.currentGuilt].dropRates;
+
+            if (rarityRoll <= rarityChances[3])
+            {
+                chosenRarity = Rarity.Legendary;
+            }
+            else if (rarityRoll <= rarityChances[2])
+            {
+                chosenRarity = Rarity.Epic;
+            }
+            else if (rarityRoll <= rarityChances[1])
+            {
+                chosenRarity = Rarity.Rare;
+            }
+            else
+            {
+                chosenRarity = Rarity.Common;
+            }
+
+            List<GameObject> playerUpgrades = new List<GameObject>(playerStatUpgrades);
+            upgrades.AddRange(playerUpgrades.Where(u => u.GetComponent<StatComponent>().stat.GetRarity() == chosenRarity).ToList());
+
+            List<GameObject> weaponUpgrades = new List<GameObject>();
+            weaponUpgrades.AddRange(GetAttackStats().Select(s => s.GetTransform().gameObject).ToList());
+            weaponUpgrades.AddRange(
                 getAttackSetStats().Select(s => s.GetTransform().gameObject).ToList()
             );
+
+            upgrades.AddRange(weaponUpgrades.Where(u => u.GetComponent<AttackStatComponent>().stat.GetRarity() == chosenRarity).ToList());
 
             GameObject GO = null;
             while (GO == null)
@@ -162,12 +214,12 @@ public class LootBoxManager : MonoBehaviour
                 upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = true;
                 upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = statComponent.stat.GetUpgradeIcon();
 
-                string rarityText = statComponent.stat.GetRarity().ToString();
+                string rarityText = chosenRarity.ToString();
                 textComponents[1].text = rarityText;
 
-                int index = rarityNames.IndexOf(rarityText);
+                int index = rarityNames.IndexOf(rarityText) * 2;
 
-                textComponents[1].color = rarityColors[index] * 2;
+                textComponents[1].color = rarityColors[index];
                 upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 
                 textComponents[2].text = statComponent.stat.description;
@@ -188,13 +240,13 @@ public class LootBoxManager : MonoBehaviour
                 upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = true;
                 upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = attackStatComponent.stat.GetUpgradeIcon();
 
-                string rarityText = attackStatComponent.stat.GetRarity().ToString();
+                string rarityText = chosenRarity.ToString();
                 textComponents[1].text = rarityText;
 
-                int index = rarityNames.IndexOf(rarityText);
+                int index = rarityNames.IndexOf(rarityText) * 2;
 
                 textComponents[1].color = rarityColors[index];
-                upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index] * 2;
+                upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 
                 textComponents[2].text = attackStatComponent.stat.description;
 
