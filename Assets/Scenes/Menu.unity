@@ -3117,24 +3117,24 @@ MonoBehaviour:
   - rarity: 2
     cost: 5
     dropChances:
-    - 30
-    - 69
-    - 1
+    - 50
+    - 47
+    - 3
     - 0
   - rarity: 4
     cost: 10
     dropChances:
     - 0
-    - 50
-    - 49
-    - 1
+    - 65
+    - 30
+    - 5
   - rarity: 6
     cost: 20
     dropChances:
     - 0
-    - 0
-    - 80
-    - 20
+    - 10
+    - 65
+    - 25
 --- !u!1 &1085263397
 GameObject:
   m_ObjectHideFlags: 0

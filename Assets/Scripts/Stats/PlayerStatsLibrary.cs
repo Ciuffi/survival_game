@@ -238,7 +238,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 comboWaitTimeMultiplier: -0.12f,
                 name: "Cast Speed 1",
-                description: "Cast Speed +12%",
+                description: "Melee Cast Speed +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
@@ -372,7 +372,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 comboWaitTimeMultiplier: -0.25f,
                 name: "Cast Speed 2",
-                description: "Cast Speed +25%",
+                description: "Melee Cast Speed +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
@@ -529,7 +529,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 comboWaitTimeMultiplier: -0.50f,
                 name: "Cast Speed 3",
-                description: "Cast Speed +50%",
+                description: "Melee Cast Speed +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
