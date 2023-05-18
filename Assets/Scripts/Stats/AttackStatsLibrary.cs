@@ -177,9 +177,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                speedMultiplier: 0.25f,
+                speedMultiplier: 0.15f,
                 name: "Velocity 1",
-                description: "Projectile Speed +25%",
+                description: "Projectile Speed +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common
             )
@@ -357,9 +357,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                speedMultiplier: 0.5f,
+                speedMultiplier: 0.3f,
                 name: "Velocity 2",
-                description: "Projectile Speed +50%",
+                description: "Projectile Speed +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
@@ -489,7 +489,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.25f,
+                projectileSizeMultiplier: 0.25f,
                 name: "Big Ammo 1",
                 description: "Projectile Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -500,7 +500,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.12f,
+                projectileSizeMultiplier: 0.12f,
                 name: "Big Gadget 1",
                 description: "Projectile Size +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -646,9 +646,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                speedMultiplier: 1f,
+                speedMultiplier: 0.5f,
                 name: "Velocity 3",
-                description: "Projectile Speed +100%",
+                description: "Projectile Speed +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
@@ -767,7 +767,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.5f,
+                projectileSizeMultiplier: 0.5f,
                 name: "Big Ammo 2",
                 description: "Projectile Size +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -778,7 +778,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.25f,
+                projectileSizeMultiplier: 0.25f,
                 name: "Big Gadget 2",
                 description: "Projectile Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -967,7 +967,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 1f,
+                projectileSizeMultiplier: 1f,
                 name: "Big Ammo 3",
                 description: "Projectile Size +100%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -978,7 +978,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.5f,
+                projectileSizeMultiplier: 0.5f,
                 name: "Big Gadget 3",
                 description: "Projectile Size +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -1087,9 +1087,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                speedMultiplier: 0.15f,
+                speedMultiplier: 0.10f,
                 name: "Propulsion 1",
-                description: "Projectile Speed +15%",
+                description: "Projectile Speed +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1245,9 +1245,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                speedMultiplier: 0.3f,
+                speedMultiplier: 0.2f,
                 name: "Propulsion 2",
-                description: "Projectile Speed +30%",
+                description: "Projectile Speed +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1389,7 +1389,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.15f,
+                projectileSizeMultiplier: 0.15f,
                 name: "High Caliber 1",
                 description: "Projectile Size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -1401,7 +1401,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.08f,
+                projectileSizeMultiplier: 0.08f,
                 name: "Size Up 1",
                 description: "Projectile Size +8%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -1533,9 +1533,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                speedMultiplier: 0.5f,
+                speedMultiplier: 0.35f,
                 name: "Propulsion 3",
-                description: "Projectile Speed +50%",
+                description: "Projectile Speed +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -1665,7 +1665,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.25f,
+                projectileSizeMultiplier: 0.25f,
                 name: "High Caliber 2",
                 description: "Projectile Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -1677,7 +1677,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.18f,
+                projectileSizeMultiplier: 0.18f,
                 name: "Size Up 2",
                 description: "Projectile Size +18%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -1883,7 +1883,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.6f,
+                projectileSizeMultiplier: 0.6f,
                 name: "High Caliber 3",
                 description: "Projectile Size +60%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -1895,7 +1895,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSize: 0.35f,
+                projectileSizeMultiplier: 0.35f,
                 name: "Size Up 3",
                 description: "Projectile Size +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -1947,7 +1947,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.1f,
                 speedMultiplier: 0.15f,
-                projectileSize: 0.05f,
+                projectileSizeMultiplier: 0.05f,
                 aimRangeAdditive: 0.4f,
                 coneAngle: 5f,
                 name: "Auto Novice",
@@ -2001,7 +2001,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 castTimeMultiplier: -0.05f,
-                projectileSize: 0.1f,
+                projectileSizeMultiplier: 0.1f,
                 aimRangeAdditive: 0.5f,
                 coneAngle: -5f,
                 name: "Semi-Auto Novice",
@@ -2017,7 +2017,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttack: 1,
                 spreadMultiplier: -0.15f,
-                projectileSize: 0.15f,
+                projectileSizeMultiplier: 0.15f,
                 aimRangeAdditive: 0.8f,
                 coneAngle: -10f,
                 name: "Semi-Auto Pro",
@@ -2034,7 +2034,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 2,
                 pierce: 2,
                 castTimeMultiplier: -0.2f,
-                projectileSize: 0.4f,
+                projectileSizeMultiplier: 0.4f,
                 aimRangeAdditive: 1.5f,
                 coneAngle: -15f,
                 name: "Semi-Auto God",

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using TMPro;
+using System.Text.RegularExpressions;
 
 public class LootBoxManager : MonoBehaviour
 {
@@ -114,7 +115,7 @@ public class LootBoxManager : MonoBehaviour
                     string rarityText = GO.GetComponent<Upgrade>().GetRarity().ToString();
                     textComponents[1].text = rarityText;
 
-                    int index = rarityNames.IndexOf(rarityText);
+                    int index = rarityNames.IndexOf(rarityText) * 2;
                     textComponents[1].color = rarityColors[index];
                     upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 
@@ -153,7 +154,11 @@ public class LootBoxManager : MonoBehaviour
             {
                 // It's a PlayerStat upgrade
                 upgradeWindow.upgrade = statComponent.stat;
-                upgradeWindow.GetComponentInChildren<TMP_Text>().text = GO.name;
+
+                string pattern = @"\s\d$";
+                string editedName = Regex.Replace(GO.name, pattern, "");
+                upgradeWindow.GetComponentInChildren<TMP_Text>().text = editedName;
+                
                 upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = true;
                 upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = statComponent.stat.GetUpgradeIcon();
 
@@ -162,7 +167,7 @@ public class LootBoxManager : MonoBehaviour
 
                 int index = rarityNames.IndexOf(rarityText);
 
-                textComponents[1].color = rarityColors[index];
+                textComponents[1].color = rarityColors[index] * 2;
                 upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 
                 textComponents[2].text = statComponent.stat.description;
@@ -175,7 +180,11 @@ public class LootBoxManager : MonoBehaviour
             {
                 // It's either a WeaponStat upgrade or a WeaponSet upgrade
                 upgradeWindow.upgrade = attackStatComponent.stat;
-                upgradeWindow.GetComponentInChildren<TMP_Text>().text = GO.name;
+
+                string pattern = @"\s\d$";
+                string editedName = Regex.Replace(GO.name, pattern, "");
+                upgradeWindow.GetComponentInChildren<TMP_Text>().text = editedName;
+                
                 upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = true;
                 upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = attackStatComponent.stat.GetUpgradeIcon();
 
@@ -185,7 +194,7 @@ public class LootBoxManager : MonoBehaviour
                 int index = rarityNames.IndexOf(rarityText);
 
                 textComponents[1].color = rarityColors[index];
-                upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
+                upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index] * 2;
 
                 textComponents[2].text = attackStatComponent.stat.description;
 

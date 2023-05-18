@@ -112,7 +112,7 @@ public class AttackStats : Upgrade
         float critChance = 0,
         float critDmg = 0,
         bool shootOppositeSide = false,
-        float projectileSize = 0,
+        float projectileSizeMultiplier = 0,
         float meleeSize = 0,
         float multicastChance = 0,
         float multicastWaitTime = 0,
@@ -148,7 +148,6 @@ public class AttackStats : Upgrade
         float sprayMultiplier = 0,
         float speedMultiplier = 0,
         float rangeMultiplier = 0,
-        float projectileSizeMultiplier = 0,
         float comboWaitTimeMultiplier = 0,
         float comboAttackBuffMultiplier = 0,
         float meleeShotsScaleUpMultiplier = 0,
@@ -182,7 +181,7 @@ public class AttackStats : Upgrade
         this.critChance = critChance;
         this.critDmg = critDmg;
         this.shootOppositeSide = shootOppositeSide;
-        this.projectileSize = projectileSize;
+        this.projectileSize = projectileSizeMultiplier;
         this.meleeSize = meleeSize;
         this.multicastChance = multicastChance;
         this.multicastWaitTime = multicastWaitTime;
@@ -396,7 +395,6 @@ public class AttackStats : Upgrade
         this.castTimeMultiplier += playerStats.castTimeMultiplier;
         this.knockbackMultiplier += playerStats.knockbackMultiplier;
         this.spreadMultiplier += playerStats.spreadMultiplier;
-        this.rangeMultiplier += playerStats.rangeMultiplier;
         this.projectileSizeMultiplier += playerStats.projectileSizeMultiplier;
         this.thrownDamageMultiplier += playerStats.thrownDamageMultiplier;
         this.thrownSpeedMultiplier += playerStats.thrownSpeedMultiplier;

@@ -80,6 +80,9 @@ public class Projectile : MonoBehaviour
     public GameObject deathSpawn;
     public float projSize;
     public float meleeSize;
+    public float wpnProjSizeMultiplier;
+    public float wpnMeleeSizeMultiplier;
+
 
     float moveSpeed;
 
@@ -106,6 +109,8 @@ public class Projectile : MonoBehaviour
         moveSpeed = attack.stats.speed;
         projSize = Player.GetComponent<StatsHandler>().stats.projectileSizeMultiplier;
         meleeSize = Player.GetComponent<StatsHandler>().stats.meleeSizeMultiplier;
+        wpnProjSizeMultiplier = attack.stats.projectileSizeMultiplier;
+        wpnMeleeSizeMultiplier = attack.stats.meleeSizeMultiplier;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -146,9 +151,9 @@ public class Projectile : MonoBehaviour
                         rattle.GetComponent<deathRattleAttack>().attack = attack;
                         Vector3 currentScale = rattle.transform.localScale;
                         rattle.transform.localScale = new Vector3(
-                            currentScale.x * projSize,
-                            currentScale.y * projSize,
-                            currentScale.z * projSize
+                            currentScale.x * projSize * wpnProjSizeMultiplier,
+                            currentScale.y * projSize * wpnProjSizeMultiplier,
+                            currentScale.z * projSize * wpnProjSizeMultiplier
                         );
                     }
                     Destroy(gameObject);
@@ -193,9 +198,9 @@ public class Projectile : MonoBehaviour
                             rattle.GetComponent<deathRattleAttack>().attack = attack;
                             Vector3 currentScale = rattle.transform.localScale;
                             rattle.transform.localScale = new Vector3(
-                                currentScale.x * projSize,
-                                currentScale.y * projSize,
-                                currentScale.z * projSize
+                                currentScale.x * projSize * wpnProjSizeMultiplier,
+                                currentScale.y * projSize * wpnProjSizeMultiplier,
+                                currentScale.z * projSize * wpnProjSizeMultiplier
                             );
                         }
                         Destroy(gameObject);
@@ -235,9 +240,9 @@ public class Projectile : MonoBehaviour
                             rattle.GetComponent<deathRattleAttack>().attack = attack;
                             Vector3 currentScale = rattle.transform.localScale;
                             rattle.transform.localScale = new Vector3(
-                                currentScale.x * projSize,
-                                currentScale.y * projSize,
-                                currentScale.z * projSize
+                                currentScale.x * projSize * wpnProjSizeMultiplier,
+                                currentScale.y * projSize * wpnProjSizeMultiplier,
+                                currentScale.z * projSize * wpnProjSizeMultiplier
                             );
                         }
                         Destroy(gameObject);
@@ -302,9 +307,9 @@ public class Projectile : MonoBehaviour
                 rattle.GetComponent<deathRattleAttack>().attack = attack;
                 Vector3 currentScale = rattle.transform.localScale;
                 rattle.transform.localScale = new Vector3(
-                    currentScale.x * meleeSize,
-                    currentScale.y * meleeSize,
-                    currentScale.z * meleeSize
+                    currentScale.x * meleeSize * wpnMeleeSizeMultiplier,
+                    currentScale.y * meleeSize * wpnMeleeSizeMultiplier,
+                    currentScale.z * meleeSize * wpnMeleeSizeMultiplier
                 );
             }
             Destroy(gameObject);
@@ -459,9 +464,9 @@ public class Projectile : MonoBehaviour
                     rattle.GetComponent<deathRattleAttack>().attack = attack;
                     Vector3 currentScale = rattle.transform.localScale;
                     rattle.transform.localScale = new Vector3(
-                        currentScale.x * projSize,
-                        currentScale.y * projSize,
-                        currentScale.z * projSize
+                        currentScale.x * projSize * wpnMeleeSizeMultiplier,
+                        currentScale.y * projSize * wpnMeleeSizeMultiplier,
+                        currentScale.z * projSize * wpnMeleeSizeMultiplier
                     );
                 }
                 Destroy(gameObject);

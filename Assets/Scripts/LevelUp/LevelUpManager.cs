@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using TMPro;
+using System.Text.RegularExpressions;
 
 public class LevelUpManager : MonoBehaviour
 {
@@ -123,7 +124,7 @@ public class LevelUpManager : MonoBehaviour
                     string rarityText = GO.GetComponent<Upgrade>().GetRarity().ToString();
                     textComponents[1].text = rarityText;
 
-                    int index = rarityNames.IndexOf(rarityText);
+                    int index = rarityNames.IndexOf(rarityText) * 2;
                     textComponents[1].color = rarityColors[index];
                     u.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 
@@ -166,7 +167,11 @@ public class LevelUpManager : MonoBehaviour
                     {
                         // It's a PlayerStat upgrade
                         u.upgrade = statComponent.stat;
-                        u.GetComponentInChildren<TMP_Text>().text = GO.name;
+
+                        string pattern = @"\s\d$";
+                        string editedName = Regex.Replace(GO.name, pattern, "");
+                        u.GetComponentInChildren<TMP_Text>().text = editedName;
+
                         u.transform.Find("Image").GetComponent<Image>().enabled = true;
                         u.transform.Find("Image").GetComponent<Image>().sprite = statComponent.stat.GetUpgradeIcon();
                         TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
@@ -174,7 +179,7 @@ public class LevelUpManager : MonoBehaviour
                         string rarityText = statComponent.stat.GetRarity().ToString();
                         textComponents[1].text = rarityText;
 
-                        int index = rarityNames.IndexOf(rarityText);
+                        int index = rarityNames.IndexOf(rarityText) * 2;
 
                         textComponents[1].color = rarityColors[index];
                         u.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
@@ -188,8 +193,12 @@ public class LevelUpManager : MonoBehaviour
                     else if (attackStatComponent != null)
                     {
                         // It's either a WeaponStat upgrade or a WeaponSet upgrade
-                        u.upgrade = attackStatComponent.stat; 
-                        u.GetComponentInChildren<TMP_Text>().text = GO.name;
+                        u.upgrade = attackStatComponent.stat;
+
+                        string pattern = @"\s\d$";
+                        string editedName = Regex.Replace(GO.name, pattern, "");
+                        u.GetComponentInChildren<TMP_Text>().text = editedName;
+
                         u.transform.Find("Image").GetComponent<Image>().enabled = true;
                         u.transform.Find("Image").GetComponent<Image>().sprite = attackStatComponent.stat.GetUpgradeIcon(); 
                         TMP_Text[] textComponents = u.GetComponentsInChildren<TMP_Text>();
@@ -197,7 +206,7 @@ public class LevelUpManager : MonoBehaviour
                         string rarityText = attackStatComponent.stat.GetRarity().ToString();
                         textComponents[1].text = rarityText;
 
-                        int index = rarityNames.IndexOf(rarityText) ; 
+                        int index = rarityNames.IndexOf(rarityText) * 2; 
 
                         textComponents[1].color = rarityColors[index];
                         u.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];

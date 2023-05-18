@@ -151,8 +151,7 @@ public static class AttackLibrary
                     meleeSpacerGap: 4.5f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.2f,
-                    shakeRotation: 0.5f,
-                    meleeSize: 1
+                    shakeRotation: 0.5f
                 )
             )
             .SetProperties(
@@ -174,7 +173,7 @@ public static class AttackLibrary
             new AttackStats(thrownDamage: 8, throwSpeed: -0.3f),
             new AttackStats(shotsPerAttack: 10),
             new AttackStats(spread: -0.04f),
-            new AttackStats(projectileSize: 0.5f, shakeStrength: 0.01f),
+            new AttackStats(projectileSizeMultiplier: 0.5f, shakeStrength: 0.01f),
             new AttackStats(aimRangeAdditive: 2f),
             new AttackStats(coneAngle: 30),
             new AttackStats(pierce: 1)
@@ -272,8 +271,7 @@ public static class AttackLibrary
                     shakeStrength: 0.02f,
                     shakeRotation: 0.01f,
                     thrownDamage: 10f,
-                    throwSpeed: 0.6f,
-                    projectileSize: 1
+                    throwSpeed: 0.6f
                 )
             )
             .SetProperties(
@@ -297,7 +295,7 @@ public static class AttackLibrary
             new AttackStats(thrownDamage: 11, throwSpeed: -0.3f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotgunSpread: 40f),
-            new AttackStats(projectileSize: 1f, shakeStrength: 0.2f),
+            new AttackStats(projectileSizeMultiplier: 1f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f),
             new AttackStats(knockback: 1f, shakeTime: 0.05f),
             new AttackStats(aimRangeAdditive: 1.7f, coneAngle: 40f)
@@ -330,7 +328,7 @@ public static class AttackLibrary
                     shakeRotation: 0.05f,
                     thrownDamage: 7,
                     throwSpeed: 0.6f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -507,7 +505,7 @@ public static class AttackLibrary
             new AttackStats(thrownDamage: 8, throwSpeed: -1f),
             new AttackStats(shotsPerAttack: 20),
             new AttackStats(spread: -0.004f, spray: 10f),
-            new AttackStats(projectileSize: 0.75f),
+            new AttackStats(projectileSizeMultiplier: 0.75f),
             new AttackStats(shotsPerAttack: 20),
             new AttackStats(pierce: 1),
             new AttackStats(aimRangeAdditive: 2f, coneAngle: 30f)
@@ -540,7 +538,7 @@ public static class AttackLibrary
                     shakeRotation: 0.01f,
                     thrownDamage: 22f,
                     throwSpeed: 0.2f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -610,10 +608,10 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 6),
             new AttackStats(castTime: -0.6f),
-            new AttackStats(castTime: 1f, damage: 10, projectileSize: 0.2f),
+            new AttackStats(castTime: 1f, damage: 10, projectileSizeMultiplier: 0.2f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(spread: -0.03f, speed: 0.1f),
-            new AttackStats(projectileSize: 0.5f, shakeStrength: 0.15f),
+            new AttackStats(projectileSizeMultiplier: 0.5f, shakeStrength: 0.15f),
             new AttackStats(knockback: 0.7f, shakeRotation: 0.3f),
             new AttackStats(range: 2f, aimRangeAdditive: 2f),
             new AttackStats(isCone: true, coneAngle: 30f, pierce: 1)
@@ -642,7 +640,7 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.15f,
                     shakeRotation: 0.1f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -659,10 +657,10 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 5),
             new AttackStats(castTime: -0.5f),
-            new AttackStats(castTime: 1f, damage: 10, projectileSize: 0.1f),
+            new AttackStats(castTime: 1f, damage: 10, projectileSizeMultiplier: 0.1f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(spread: -0.035f),
-            new AttackStats(projectileSize: 0.4f, shakeStrength: 0.15f),
+            new AttackStats(projectileSizeMultiplier: 0.4f, shakeStrength: 0.15f),
             new AttackStats(knockback: 0.5f, shakeRotation: 0.3f),
             new AttackStats(pierce: 4)
         };
@@ -692,7 +690,7 @@ public static class AttackLibrary
                     shakeRotation: 0.1f,
                     thrownDamage: 0f,
                     throwSpeed: 0f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -814,7 +812,7 @@ public static class AttackLibrary
             new AttackStats(speed: -0.05f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
-            new AttackStats(projectileSize: 0.5f, shakeStrength: 0.1f),
+            new AttackStats(projectileSizeMultiplier: 0.5f, shakeStrength: 0.1f),
             new AttackStats(range: 2f, aimRangeAdditive: 2f),
             new AttackStats(coneAngle: 45f, shakeTime: 0.05f),
         };
@@ -846,7 +844,7 @@ public static class AttackLibrary
                     shakeRotation: 0.1f,
                     thrownDamage: 13f,
                     throwSpeed: 0.6f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -867,9 +865,9 @@ public static class AttackLibrary
             new AttackStats(pierce: 99),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotgunSpread: 40f),
-            new AttackStats(projectileSize: 0.3f, shakeStrength: 0.2f),
+            new AttackStats(projectileSizeMultiplier: 0.3f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f, aimRangeAdditive: 1.5f),
-            new AttackStats(projectileSize: 0.3f, shakeTime: 0.05f)
+            new AttackStats(projectileSizeMultiplier: 0.3f, shakeTime: 0.05f)
         };
 
         AttackBuilder PetrifyGrenade = new AttackBuilder()
@@ -895,7 +893,7 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.05f,
                     shakeRotation: 0.05f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -965,7 +963,7 @@ public static class AttackLibrary
             new AttackStats(thrownDamage: 12, throwSpeed: 0.25f),
             new AttackStats(shotsPerAttack: 2),
             new AttackStats(shotsPerAttack: 2),
-            new AttackStats(projectileSize: 0.5f, shakeStrength: 0.05f),
+            new AttackStats(projectileSizeMultiplier: 0.5f, shakeStrength: 0.05f),
             new AttackStats(speed: 0.04f, spray: 0.5f, shakeRotation: 0.05f),
             new AttackStats(pierce: 1),
             new AttackStats(aimRangeAdditive: 1.5f, coneAngle: 30f),
@@ -998,7 +996,7 @@ public static class AttackLibrary
                     shakeRotation: 0.05f,
                     thrownDamage: 6f,
                     throwSpeed: 0.5f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -1020,7 +1018,7 @@ public static class AttackLibrary
             new AttackStats(thrownDamage: 12, throwSpeed: -0.25f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotgunSpread: 35f),
-            new AttackStats(projectileSize: 0.4f, shakeStrength: 0.2f),
+            new AttackStats(projectileSizeMultiplier: 0.4f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f),
             new AttackStats(knockback: 0.5f, shakeTime: 0.05f),
             new AttackStats(aimRangeAdditive: 1.75f, coneAngle: 50)
@@ -1053,7 +1051,7 @@ public static class AttackLibrary
                     shakeRotation: 0.05f,
                     thrownDamage: 8,
                     throwSpeed: 0.5f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -1075,7 +1073,7 @@ public static class AttackLibrary
             new AttackStats(thrownDamage: 8, throwSpeed: -0.2f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotgunSpread: 35f),
-            new AttackStats(projectileSize: 0.4f, shakeStrength: 0.2f),
+            new AttackStats(projectileSizeMultiplier: 0.4f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f, speed: 0.015f),
             new AttackStats(knockback: 0.5f, shakeTime: 0.05f),
             new AttackStats(aimRangeAdditive: 2f)
@@ -1108,7 +1106,7 @@ public static class AttackLibrary
                     shakeRotation: 0.01f,
                     thrownDamage: 7,
                     throwSpeed: 0.5f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -1129,7 +1127,7 @@ public static class AttackLibrary
             new AttackStats(range: 1f, speed: 0.05f),
             new AttackStats(shotsPerAttack: 10),
             new AttackStats(spread: -0.01f),
-            new AttackStats(projectileSize: 0.5f, shakeRotation: 0.02f),
+            new AttackStats(projectileSizeMultiplier: 0.5f, shakeRotation: 0.02f),
             new AttackStats(spray: 100f, coneAngle: 40f),
             new AttackStats(pierce: 1),
             new AttackStats(aimRangeAdditive: 2f)
@@ -1162,7 +1160,7 @@ public static class AttackLibrary
                     shakeRotation: 0f,
                     thrownDamage: 6f,
                     throwSpeed: 0.6f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -1181,7 +1179,7 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 2),
             new AttackStats(castTime: -0.6f),
-            new AttackStats(projectileSize: 0.25f),
+            new AttackStats(projectileSizeMultiplier: 0.25f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotgunSpread: 20f),
             new AttackStats(range: 1.25f, shakeStrength: 0.1f),
@@ -1212,7 +1210,7 @@ public static class AttackLibrary
                     shakeTime: 0.05f,
                     shakeStrength: 0.05f,
                     shakeRotation: 0.1f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -1232,7 +1230,7 @@ public static class AttackLibrary
             new AttackStats(critChance: 0.15f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
-            new AttackStats(projectileSize: 0.5f, shakeRotation: 0.1f),
+            new AttackStats(projectileSizeMultiplier: 0.5f, shakeRotation: 0.1f),
             new AttackStats(aimRangeAdditive: 2f, coneAngle: 30f),
             new AttackStats(pierce: 10, shakeTime: 0.05f)
         };
@@ -1265,7 +1263,7 @@ public static class AttackLibrary
                     shakeRotation: 0.1f,
                     thrownDamage: 10f,
                     throwSpeed: 0.5f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
@@ -1287,7 +1285,7 @@ public static class AttackLibrary
             new AttackStats(speed: -0.008f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(range: 1.5f, aimRangeAdditive: 1.5f),
-            new AttackStats(projectileSize: 0.3f, shakeRotation: 0.1f),
+            new AttackStats(projectileSizeMultiplier: 0.3f, shakeRotation: 0.1f),
             new AttackStats(throwSpeed: 5f),
             new AttackStats(pierce: 50),
             new AttackStats(coneAngle: 45f, aimRangeAdditive: 1f)
@@ -1321,7 +1319,7 @@ public static class AttackLibrary
                     shakeRotation: 0.05f,
                     thrownDamage: 25f,
                     throwSpeed: 0.12f,
-                    projectileSize: 0.8f
+                    projectileSizeMultiplier: 0.8f
                 )
             )
             .SetProperties(
@@ -1343,7 +1341,7 @@ public static class AttackLibrary
             new AttackStats(speed: 0.1f, range: 1f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(range: 1f, aimRangeAdditive: 1.5f),
-            new AttackStats(projectileSize: 0.4f, shakeRotation: 0.1f),
+            new AttackStats(projectileSizeMultiplier: 0.4f, shakeRotation: 0.1f),
             new AttackStats(knockback: 0.5f, shakeStrength: 0.1f),
             new AttackStats(pierce: 5)
         };
@@ -1370,7 +1368,7 @@ public static class AttackLibrary
                     shakeTime: 0.05f,
                     shakeStrength: 0.05f,
                     shakeRotation: 0.05f,
-                    projectileSize: 1
+                    projectileSizeMultiplier: 1
                 )
             )
             .SetProperties(
