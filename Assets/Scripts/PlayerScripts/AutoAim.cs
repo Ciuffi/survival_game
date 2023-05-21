@@ -42,6 +42,8 @@ public class AutoAim : MonoBehaviour
     public void UpdateAimRange(float aimRangeBase, float aimRangeAdded, bool wpnIsCone, float aimConeAngle)
     {
         aimRange = aimRangeBase + aimRangeAdded;
+        aimRange = aimRange < 0.1f ? 0.1f : aimRange;
+
         isCone = wpnIsCone;
         coneAngle = aimConeAngle;
 

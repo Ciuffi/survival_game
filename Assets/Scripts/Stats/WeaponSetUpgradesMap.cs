@@ -74,6 +74,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Mastery 4"),
                         AttackStatsLibrary.GetStat("Marksman 4"),
                         AttackStatsLibrary.GetStat("Brutality 4"),
+                        AttackStatsLibrary.GetStat("Impact 4"),
                         AttackStatsLibrary.GetStat("Quickswap 4"),
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Extended Mag 3"),
@@ -300,6 +301,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Mastery 4"),
                         AttackStatsLibrary.GetStat("Marksman 4"),
                         AttackStatsLibrary.GetStat("Brutality 4"),
+                        AttackStatsLibrary.GetStat("Impact 4"),
                         AttackStatsLibrary.GetStat("Quickswap 4"),
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Bonus Round 3"),
@@ -460,6 +462,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Mastery 4"),
                         AttackStatsLibrary.GetStat("Marksman 4"),
                         AttackStatsLibrary.GetStat("Brutality 4"),
+                        AttackStatsLibrary.GetStat("Impact 4"),
                         AttackStatsLibrary.GetStat("Quickswap 4"),
                         AttackStatsLibrary.GetStat("Multi-cast 3"),
                         AttackStatsLibrary.GetStat("Enlarge 3"),
@@ -510,7 +513,7 @@ public static class WeaponSetUpgradeMap
     public static WeaponSetType? GetWeaponSetTypeForStat(AttackStats stat)
     {
        // Debug.Log($"Checking for stat: {stat} ");
-        Debug.Log(stat.name);
+        //Debug.Log(stat.name);
 
         foreach (var weaponSet in AttackStatsMap)
         {
@@ -521,8 +524,30 @@ public static class WeaponSetUpgradeMap
             }
         }
        
-        //Debug.Log("Stat not found in any weapon set");
+        Debug.Log("Stat not found in any weapon set");
+        Debug.Log(stat.name);
         return null;
+    }
+
+    public static List<WeaponSetType> GetWeaponSetTypesForStat(AttackStats stat)
+    {
+        var weaponSets = new List<WeaponSetType>();
+
+        foreach (var weaponSet in AttackStatsMap)
+        {
+            if (weaponSet.Value.Values.Any(list => list.Contains(stat)))
+            {
+                weaponSets.Add(weaponSet.Key);
+            }
+        }
+
+        if (weaponSets.Count == 0)
+        {
+            Debug.Log("Stat not found in any weapon set");
+            Debug.Log(stat.name);
+        }
+
+        return weaponSets;
     }
 
 }

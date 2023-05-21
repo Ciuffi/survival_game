@@ -66,6 +66,7 @@ public class LootBoxManager : MonoBehaviour
         rarityColors = weaponRarityPrefab.GetComponent<InventoryItem>().rarityColors;
         dropTable = GetComponent<DropTableUpgrades>();
         guiltTracker = FindObjectOfType<BasicSpawner>();
+        weaponSetUpgrades = getSetUpgrades().ToList();
     }
 
     public void ShowLootUI()
@@ -200,14 +201,12 @@ public class LootBoxManager : MonoBehaviour
 
                 if (upgradeRoll < dropTable.existingWeaponOrSetChance)
                 {
-
                     var attackHandler = FindObjectOfType<AttackHandler>();
                     // Get the unique weapon set types in the current attacks
                     var currentWeaponSetTypes = attackHandler.attacks.Select(a => a.weaponSetType).Distinct();
-
                     // Filter upgrades that correspond to any of the current weapon set types
                     upgrades = upgrades
-                        .Where(u => currentWeaponSetTypes.Any(wst => wst == WeaponSetUpgradeMap.GetWeaponSetTypeForStat(u.GetComponent<AttackStatComponent>().stat)))
+                        .Where(u => currentWeaponSetTypes.Contains(u.GetComponent<AttackStatComponent>().stat.weaponSetType))
                         .ToList();
                 }
 
@@ -389,25 +388,34 @@ public class LootBoxManager : MonoBehaviour
         return weaponSetStats;
     }
 
-    public GameObject[] GetWeaponSetUpgrades()
+    public GameObject[] getSetUpgrades()
     {
         GameObject statObject = new GameObject();
+        List<GameObject> weaponSetStats = new List<GameObject>();
 
-        // Get all weapon set stats
-        AttackStats[] weaponSetStats = getAttackSetStats();
-
-        // Convert the weapon set stats into game objects
-        foreach (AttackStats stats in weaponSetStats)
+        // Fetch all stats from the weapon set upgrade map
+        foreach (var entry in WeaponSetUpgradeMap.AttackStatsMap)
         {
-            GameObject upgradeGameObject = Instantiate(statObject);
-            upgradeGameObject.AddComponent<AttackStatComponent>().stat = stats;
-            upgradeGameObject.name = upgradeGameObject.GetComponent<AttackStatComponent>().stat.name;
-            upgradeGameObject.GetComponent<AttackStatComponent>().stat.statsContainer = upgradeGameObject;
+            WeaponSetType weaponSetType = entry.Key;
+            Dictionary<Rarity, List<AttackStats>> rarityStats = entry.Value;
 
-            weaponSetUpgrades.Add(upgradeGameObject);
+            foreach (var rarityEntry in rarityStats)
+            {
+                List<AttackStats> statsList = rarityEntry.Value;
+
+                foreach (AttackStats stat in statsList)
+                {
+                    GameObject upgradeGameObject = Instantiate(statObject);
+                    upgradeGameObject.AddComponent<AttackStatComponent>().stat = stat;
+                    upgradeGameObject.name = upgradeGameObject.GetComponent<AttackStatComponent>().stat.name;
+                    upgradeGameObject.GetComponent<AttackStatComponent>().stat.statsContainer = upgradeGameObject;
+                    upgradeGameObject.GetComponent<AttackStatComponent>().stat.weaponSetType = weaponSetType;
+                    weaponSetStats.Add(upgradeGameObject);
+                }
+            }
         }
 
-        return weaponSetUpgrades.ToArray();
+        return weaponSetStats.ToArray();
     }
 
     private IEnumerator WaitForTime(float waitTime)

@@ -194,7 +194,7 @@ public class AttackBuilder
             attack.thrownWeapon = thrownWeapon;
         }
         attack.thrownWeapon.GetComponent<Projectile>().damage = attack.stats.thrownDamage;
-        Debug.Log(attack.stats.thrownDamage);
+        //Debug.Log(attack.stats.thrownDamage);
 
         attack.thrownSprite = thrownSprite;
         attack.bulletCasing = bulletCasing;

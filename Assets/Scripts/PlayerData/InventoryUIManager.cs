@@ -10,6 +10,8 @@ public class InventoryUIManager : MonoBehaviour
     public GameObject contentPanel;
     public GameObject inventoryItemPrefab;
 
+    public bool wpnSelected;
+
     public string selectedWeapon;
     public int selectedWeaponRarity;
 
@@ -24,6 +26,7 @@ public class InventoryUIManager : MonoBehaviour
     {
         selectedWeapon = weaponName;
         selectedWeaponRarity = weaponRarity;
+        wpnSelected = true;
     }
 
     public void DeselectAllItems()
@@ -36,6 +39,7 @@ public class InventoryUIManager : MonoBehaviour
                 item.DeselectItem();
             }
         }
+        wpnSelected = false;
     }
 
 

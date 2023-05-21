@@ -18,7 +18,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
     public StartRun startBtn;
     private bool hasSelected;
 
-    private void Start()
+    private void Awake()
     {
         // Find the CharacterSelector component in the scene
         characterSelector = FindObjectOfType<CharSelectController>();
@@ -40,11 +40,10 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void SelectThisCharacter()
     {
         if (!hasSelected)
         {
-            startBtn.GetComponent<Image>().enabled = true;
             hasSelected = true;
         }
 
@@ -91,119 +90,181 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         // Update the text with the selected character's stats
         if (infoText != null && stats != null)
         {
-            string statsString = "";
-
-            statsString += "Health " + stats.health + "\n";
-            statsString += "Speed " + stats.speed + "\n";
-
-            // Check each stat and add it to the string if it meets the criteria
-
-            if (stats.pickupRange != 2)
-            {
-                statsString += "Pickup Range +" + stats.pickupRange + "\n";
-            }
-            if (stats.defense != 0)
-            {
-                statsString += "Defense " + stats.defense + "\n";
-            }
-            if (stats.shield != 0)
-            {
-                statsString += "Shield " + stats.shield + "\n";
-            }
-            if (stats.damageMultiplier != 0)
-            {
-                statsString += "DmgMultiplier% " + stats.damageMultiplier + "\n";
-            }
-            if (stats.critChance != 0)
-            {
-                statsString += "Crit% +" + stats.critChance + "\n";
-            }
-            if (stats.critDmg != 0)
-            {
-                statsString += "Crit DMG% +" + stats.critDmg + "\n";
-            }
-            if (stats.castTimeMultiplier != 0)
-            {
-                statsString += "Cast Time% " + stats.castTimeMultiplier + "\n";
-            }
-            if (stats.spreadMultiplier != 0)
-            {
-                statsString += "Rate of Fire% " + stats.spreadMultiplier + "\n";
-            }
-            if (stats.shotgunSpread > 0)
-            {
-                statsString += "Shotgun Spread +" + stats.shotgunSpread + "\n";
-            }
-            if (stats.multicastChance != 0)
-            {
-                statsString += "Multicast% +" + stats.multicastChance + "\n";
-            }
-            if (stats.shotsPerAttack != 0 && stats.shotsPerAttack > 0)
-            {
-                statsString += "Projectiles +" + stats.shotsPerAttack + "\n";
-            }
-            if (stats.shotsPerAttack != 0 && stats.shotsPerAttack < 0)
-            {
-                statsString += "Projectiles " + stats.shotsPerAttack + "\n";
-            }
-            if (stats.projectileSpeedMultiplier != 0)
-            {
-                statsString += "Proj Spd% " + stats.projectileSpeedMultiplier + "\n";
-            }
-            if (stats.rangeMultiplier != 0)
-            {
-                statsString += "Proj Range% " + stats.rangeMultiplier + "\n";
-            }
-            if (stats.projectileSizeMultiplier != 0)
-            {
-                statsString += "Proj Size% " + stats.projectileSizeMultiplier + "\n";
-            }
-            if (stats.comboLength != 0 && stats.comboLength > 0)
-            {
-                statsString += "Melee Hits +" + stats.comboLength + "\n";
-            }
-            if (stats.comboLength != 0 && stats.comboLength < 0)
-            {
-                statsString += "Melee Hits " + stats.comboLength + "\n";
-            }
-            if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee > 0)
-            {
-                statsString += "Aftershock +" + stats.shotsPerAttackMelee + "\n";
-            }
-            if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee < 0)
-            {
-                statsString += "Aftershock " + stats.comboLength + "\n";
-            }
-            if (stats.comboWaitTimeMultiplier != 0)
-            {
-                statsString += "Melee Speed% " + stats.comboWaitTimeMultiplier + "\n";
-            }
-            if (stats.meleeSizeMultiplier != 0)
-            {
-                statsString += "Melee Size% " + stats.meleeSizeMultiplier + "\n";
-            }
-            if (stats.knockbackMultiplier != 0)
-            {
-                statsString += "Knockback% " + stats.knockbackMultiplier + "\n";
-            }
-            if (stats.thrownDamageMultiplier != 0)
-            {
-                statsString += "Wpn Toss Dmg% " + stats.thrownDamageMultiplier + "\n";
-            }
-            if (stats.thrownSpeedMultiplier != 0)
-            {
-                statsString += "Wpn Toss Speed% " + stats.thrownSpeedMultiplier + "\n";
-            }
-            if (stats.shootOpposideSide != false)
-            {
-                statsString += "DOUBLE TROUBLE\n";
-            }
-
-            infoText.text = statsString;
+            infoText.text = GenerateStatsString(stats);
         }
     }
 
-    public void Deselect()
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (!hasSelected)
+        {
+            hasSelected = true;
+        }
+
+        // Deselect the previously selected character, if any
+        GameObject previouslySelected = GameObject.FindGameObjectWithTag("SelectedCharacter");
+        if (previouslySelected != null)
+        {
+            CharacterButton previouslySelectedButton =
+                previouslySelected.GetComponent<CharacterButton>();
+            if (previouslySelectedButton != null)
+            {
+                previouslySelectedButton.Deselect();
+            }
+        }
+
+        // Select this character
+        selectedImage.SetActive(true);
+        gameObject.tag = "SelectedCharacter";
+
+        // Save the character stats
+        stats = GetComponent<StatComponent>().stat;
+
+        // Update the selected character in CharacterSelector
+        CharSelectController characterSelector = FindObjectOfType<CharSelectController>();
+        if (characterSelector != null)
+        {
+            characterSelector.selectedCharacter = stats;
+        }
+
+        // Update the selected character in startRun
+        startBtn.chosenName = stats.name;
+
+        // Update the text with the selected character's stats
+        if (nameText != null)
+        {
+            // Remove the "(Clone)" suffix from the game object's name and update the name text
+            string gameObjectName = gameObject.name;
+            string newName = gameObjectName.EndsWith("(Clone)")
+                ? gameObjectName.Substring(0, gameObjectName.Length - 7)
+                : gameObjectName;
+            nameText.text = newName;
+        }
+
+        // Update the text with the selected character's stats
+        if (infoText != null && stats != null)
+        {
+            infoText.text = GenerateStatsString(stats);
+        }
+    }
+
+    private string GenerateStatsString(PlayerCharacterStats stats)
+    {
+        string statsString = "";
+
+        statsString += "Health " + stats.health + "\n";
+        statsString += "Speed " + stats.speed + "\n";
+
+        // Check each stat and add it to the string if it meets the criteria
+
+        if (stats.pickupRange != 2)
+        {
+            statsString += "Pickup Range +" + stats.pickupRange + "\n";
+        }
+        if (stats.defense != 0)
+        {
+            statsString += "Defense " + stats.defense + "\n";
+        }
+        if (stats.shield != 0)
+        {
+            statsString += "Shield " + stats.shield + "\n";
+        }
+        if (stats.damageMultiplier != 0)
+        {
+            statsString += "DmgMultiplier% " + stats.damageMultiplier + "\n";
+        }
+        if (stats.critChance != 0)
+        {
+            statsString += "Crit% +" + stats.critChance + "\n";
+        }
+        if (stats.critDmg != 0)
+        {
+            statsString += "Crit DMG% +" + stats.critDmg + "\n";
+        }
+        if (stats.castTimeMultiplier != 0)
+        {
+            statsString += "Cast Time% " + stats.castTimeMultiplier + "\n";
+        }
+        if (stats.spreadMultiplier != 0)
+        {
+            statsString += "Rate of Fire% " + stats.spreadMultiplier + "\n";
+        }
+        if (stats.shotgunSpread > 0)
+        {
+            statsString += "Shotgun Spread +" + stats.shotgunSpread + "\n";
+        }
+        if (stats.multicastChance != 0)
+        {
+            statsString += "Multicast% +" + stats.multicastChance + "\n";
+        }
+        if (stats.shotsPerAttack != 0 && stats.shotsPerAttack > 0)
+        {
+            statsString += "Projectiles +" + stats.shotsPerAttack + "\n";
+        }
+        if (stats.shotsPerAttack != 0 && stats.shotsPerAttack < 0)
+        {
+            statsString += "Projectiles " + stats.shotsPerAttack + "\n";
+        }
+        if (stats.projectileSpeedMultiplier != 0)
+        {
+            statsString += "Proj Spd% " + stats.projectileSpeedMultiplier + "\n";
+        }
+        if (stats.rangeMultiplier != 0)
+        {
+            statsString += "Proj Range% " + stats.rangeMultiplier + "\n";
+        }
+        if (stats.projectileSizeMultiplier != 0)
+        {
+            statsString += "Proj Size% " + stats.projectileSizeMultiplier + "\n";
+        }
+        if (stats.comboLength != 0 && stats.comboLength > 0)
+        {
+            statsString += "Melee Hits +" + stats.comboLength + "\n";
+        }
+        if (stats.comboLength != 0 && stats.comboLength < 0)
+        {
+            statsString += "Melee Hits " + stats.comboLength + "\n";
+        }
+        if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee > 0)
+        {
+            statsString += "Aftershock +" + stats.shotsPerAttackMelee + "\n";
+        }
+        if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee < 0)
+        {
+            statsString += "Aftershock " + stats.comboLength + "\n";
+        }
+        if (stats.comboWaitTimeMultiplier != 0)
+        {
+            statsString += "Melee Speed% " + stats.comboWaitTimeMultiplier + "\n";
+        }
+        if (stats.meleeSizeMultiplier != 0)
+        {
+            statsString += "Melee Size% " + stats.meleeSizeMultiplier + "\n";
+        }
+        if (stats.knockbackMultiplier != 0)
+        {
+            statsString += "Knockback% " + stats.knockbackMultiplier + "\n";
+        }
+        if (stats.thrownDamageMultiplier != 0)
+        {
+            statsString += "Wpn Toss Dmg% " + stats.thrownDamageMultiplier + "\n";
+        }
+        if (stats.thrownSpeedMultiplier != 0)
+        {
+            statsString += "Wpn Toss Speed% " + stats.thrownSpeedMultiplier + "\n";
+        }
+        if (stats.shootOpposideSide != false)
+        {
+            statsString += "DOUBLE TROUBLE\n";
+        }
+
+        return statsString;
+
+    }
+
+
+        public void Deselect()
     {
         selectedImage.SetActive(false);
         gameObject.tag = "Untagged";

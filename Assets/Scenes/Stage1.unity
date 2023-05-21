@@ -1290,6 +1290,26 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1465128669}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: playerStatChance
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: weaponStatChance
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: weaponSetStatChance
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: newWeaponOrSetChance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: existingWeaponOrSetChance
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
       value: 

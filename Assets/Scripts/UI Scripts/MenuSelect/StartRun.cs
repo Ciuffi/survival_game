@@ -10,8 +10,10 @@ public class StartRun : MonoBehaviour
     public int chosenStage;
     public CharSelectController charController;
     public StageSelectController stageController;
-    bool charSelected;
-    bool stageSelected;
+    public InventoryUIManager inventoryController;
+    public bool charSelected;
+    public bool wpnSelected;
+    public bool stageSelected;
     bool canStart;
 
     public GameObject stageSelectUI;
@@ -26,14 +28,21 @@ public class StartRun : MonoBehaviour
 
         stageSelectUI.SetActive(false);
         InvManager = FindObjectOfType<InventoryUIManager>();
+        inventoryController = FindObjectOfType<InventoryUIManager>();
 
     }
     private void Update()
     {
+        wpnSelected = inventoryController.wpnSelected;
         charSelected = charController.GetComponent<CharSelectController>().hasSelected;
         stageSelected = stageController.GetComponent<StageSelectController>().hasSelected;
 
-        if (charSelected && stageSelected)
+        if (wpnSelected && charSelected)
+        {
+            GetComponent<Image>().enabled = true;
+        }
+
+        if (charSelected && wpnSelected && stageSelected)
         {
             canStart = true;
         }
@@ -42,7 +51,7 @@ public class StartRun : MonoBehaviour
 
     public void StartGame()
     {
-        if (charSelected && !stageSelectUI.activeInHierarchy)
+        if (charSelected && wpnSelected && !stageSelectUI.activeInHierarchy)
         {
             stageSelectUI.SetActive(true);
             return;

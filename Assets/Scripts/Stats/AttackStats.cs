@@ -90,6 +90,7 @@ public class AttackStats : Upgrade
 
     public GameObject statsContainer;
     public string AttackName { get; set; }
+    public WeaponSetType weaponSetType { get; set; }
 
     private Sprite defaultIcon = Resources.Load<Sprite>("UI_Icons/DMG_up");
 
