@@ -340,6 +340,7 @@ public class AttackHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        attacks.Clear();
         MatchCharacter();
 
         Transform childTransform = transform.Find("Weapons");

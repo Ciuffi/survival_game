@@ -56,17 +56,17 @@ public static class PlayerCharactersLibrary
  
             critChance: 0f,
             critDmg: 0f,
-            damageMultiplier: 1f,
-            spreadMultiplier: 1,
-            castTimeMultiplier: 1,
-            comboWaitTimeMultiplier: 1,
-            projectileSpeedMultiplier: 1,
-            rangeMultiplier: 1,
-            knockbackMultiplier: 1,
-            thrownDamageMultiplier: 1,
-            thrownSpeedMultiplier: 1,
-            projectileSizeMultiplier: 1,
-            meleeSizeMultiplier: 1,
+            damageMultiplier: 0,
+            spreadMultiplier: 0,
+            castTimeMultiplier: 0,
+            comboWaitTimeMultiplier: 0,
+            projectileSpeedMultiplier: 0,
+            rangeMultiplier: 0,
+            knockbackMultiplier: 0,
+            thrownDamageMultiplier: 0,
+            thrownSpeedMultiplier: 0,
+            projectileSizeMultiplier: 0,
+            meleeSizeMultiplier: 0,
 
             shootOpposideSide: false
         );

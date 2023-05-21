@@ -162,12 +162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e6fc318430eae45b973b7e934ee310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseXP: 60
-  growthMultiplier: 1.3
+  baseXP: 40
+  growthMultiplier: 1.35
   flashColor: {r: 0.32549024, g: 0.9117146, b: 1, a: 0.92156863}
   playerStatUpgrades: []
-  weaponStatUpgrades: []
   upgrades: []
+  potentialUpgrades: []
+  weaponSetUpgrades: []
   isWeapon: 0
   RerollBtn: {fileID: 0}
   SwapBtn: {fileID: 0}
@@ -181,7 +182,9 @@ MonoBehaviour:
   - Epic
   - Legendary
   rarityColors: []
-  weaponRarityPrefab: {fileID: 0}
+  weaponRarityPrefab: {fileID: 3957629950819426908, guid: 3e591f76f118fc64f91575f67282e51a, type: 3}
+  dropTable: {fileID: 0}
+  guiltTracker: {fileID: 0}
 --- !u!114 &5247325245746788677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +200,8 @@ MonoBehaviour:
   upgradeWindow: {fileID: 0}
   playerStatUpgrades: []
   stats: []
+  potentialUpgrades: []
+  weaponSetUpgrades: []
   upgrades: []
   isWeapon: 1
   RerollBtn: {fileID: 0}
@@ -212,7 +217,7 @@ MonoBehaviour:
   - Epic
   - Legendary
   rarityColors: []
-  weaponRarityPrefab: {fileID: 0}
+  weaponRarityPrefab: {fileID: 3957629950819426908, guid: 3e591f76f118fc64f91575f67282e51a, type: 3}
 --- !u!114 &2052080985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,12 +246,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd6010c9fedde4fb94cbf370e6bcbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatChance: 0.25
+  playerStatChance: 0.1
   weaponSetStatChance: 0.25
-  weaponStatChance: 0.5
-  existingWeaponOrSetChance: 0.75
-  newWeaponOrSetChance: 0.25
-  guiltDropTables: []
+  weaponStatChance: 0.65
+  existingWeaponOrSetChance: 0.85
+  newWeaponOrSetChance: 0.15
+  guiltDropTables:
+  - dropRates:
+    - 65
+    - 35
+    - 0
+    - 0
+  - dropRates:
+    - 45
+    - 53
+    - 2
+    - 0
+  - dropRates:
+    - 30
+    - 65
+    - 5
+    - 0
+  - dropRates:
+    - 19
+    - 65
+    - 15
+    - 1
+  - dropRates:
+    - 5
+    - 65
+    - 27
+    - 3
+  - dropRates:
+    - 5
+    - 60
+    - 30
+    - 5
+  - dropRates:
+    - 0
+    - 50
+    - 35
+    - 15
+  lootDropTables:
+  - dropRates:
+    - 25
+    - 75
+    - 0
+    - 0
+  - dropRates:
+    - 0
+    - 100
+    - 0
+    - 0
+  - dropRates:
+    - 0
+    - 90
+    - 10
+    - 0
+  - dropRates:
+    - 0
+    - 74
+    - 25
+    - 1
+  - dropRates:
+    - 0
+    - 60
+    - 37
+    - 3
+  - dropRates:
+    - 0
+    - 30
+    - 60
+    - 10
+  - dropRates:
+    - 0
+    - 0
+    - 75
+    - 25
 --- !u!1 &3287956671689121398
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,8 +799,8 @@ MonoBehaviour:
   WeaponOutline: {fileID: 0}
   HandsSprite: {fileID: 0}
   colors:
-  - {r: 0.1509434, g: 0.14093797, b: 0.08757565, a: 1}
-  flashColor: {r: 0.8537736, g: 1, b: 0.9894039, a: 0.50980395}
+  - {r: 0.3063813, g: 0.764151, b: 0.3178256, a: 0.5882353}
+  flashColor: {r: 0.83892757, g: 0.9433962, b: 0.81434673, a: 0.8235294}
   AutoAimPrefab: {fileID: 0}
   attackWheel: {fileID: 0}
 --- !u!114 &9136689211427610631
@@ -767,7 +843,7 @@ MonoBehaviour:
   IFtimer: 0
   canDamage: 1
   LevelManager: {fileID: 7893436220127190815}
-  StatContainer: {fileID: 0}
+  StatContainer: {fileID: 503785878}
   animator: {fileID: 861954445235611945}
   afterimageAnim: {fileID: 6260197004109689340}
   Sprite: {fileID: 6301032241555800557}

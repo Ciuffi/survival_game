@@ -181,7 +181,7 @@ public static class PlayerStatsLibrary
         //Damage%
         AddStat(
             new PlayerCharacterStats(
-                damageMultiplier: 0.08f,
+                damageMultiplier: 1.08f,
                 name: "Training 1",
                 description: "Damage +8%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -192,9 +192,9 @@ public static class PlayerStatsLibrary
         //Attack Speed
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: -0.08f,
+                castTimeMultiplier: 0.92f,
                 name: "Adrenaline 1",
-                description: "Attack Speed +8%",
+                description: "Cooldowns -8%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
@@ -203,7 +203,7 @@ public static class PlayerStatsLibrary
         //Knockback
         AddStat(
             new PlayerCharacterStats(
-                knockbackMultiplier: 0.12f,
+                knockbackMultiplier: 1.12f,
                 name: "Strength 1",
                 description: "Knockback +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -214,9 +214,9 @@ public static class PlayerStatsLibrary
         //melee Size
         AddStat(
             new PlayerCharacterStats(
-                meleeSizeMultiplier: 0.08f,
-                name: "Melee Size 1",
-                description: "Attack size +8%",
+                meleeSizeMultiplier: 1.08f,
+                name: "Mass 1",
+                description: "Melee, Nova size +8%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
@@ -225,9 +225,9 @@ public static class PlayerStatsLibrary
         //proj size
         AddStat(
             new PlayerCharacterStats(
-                projectileSizeMultiplier: 0.1f,
-                name: "Proj Size 1",
-                description: "Projectile size +10%",
+                projectileSizeMultiplier: 1.1f,
+                name: "Size 1",
+                description: "Auto, SemiAuto, Shotgun, Explosive size +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
@@ -236,9 +236,9 @@ public static class PlayerStatsLibrary
         //swing speed
         AddStat(
             new PlayerCharacterStats(
-                comboWaitTimeMultiplier: -0.12f,
-                name: "Cast Speed 1",
-                description: "Melee Cast Speed +12%",
+                comboWaitTimeMultiplier: 0.88f,
+                name: "Casting 1",
+                description: "Melee, Nova Attack Speed +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
@@ -247,7 +247,7 @@ public static class PlayerStatsLibrary
         //Rate of fire
         AddStat(
             new PlayerCharacterStats(
-                spreadMultiplier: -0.10f,
+                spreadMultiplier: 1.10f,
                 name: "Rate of Fire 1",
                 description: "Rate of Fire +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -266,7 +266,40 @@ public static class PlayerStatsLibrary
             )
         );
 
+        //melee swing
+        AddStat(
+            new PlayerCharacterStats(
+                comboLength: 2,
+                name: "Another 1",
+                description: "Melee, Nova +1 Casts",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+
+        //projectile
+        AddStat(
+            new PlayerCharacterStats(
+                shotsPerAttack: 2,
+                name: "Last Shot 1",
+                description: "+1 Projectile",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Rare
+            )
+        );
+
         //EPIC STATS
+
+        //Healing
+        AddStat(
+            new PlayerCharacterStats(
+                health: 50,
+                name: "First Aid 3",
+                description: "Recover 50 HP",
+                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                rarity: Rarity.Epic
+            )
+        );
 
         //max health
         AddStat(
@@ -315,7 +348,7 @@ public static class PlayerStatsLibrary
         //Damage%
         AddStat(
             new PlayerCharacterStats(
-                damageMultiplier: 0.15f,
+                damageMultiplier: 1.15f,
                 name: "Training 2",
                 description: "Damage +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -326,9 +359,9 @@ public static class PlayerStatsLibrary
         //Attack Speed
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: -0.15f,
+                castTimeMultiplier: 0.85f,
                 name: "Adrenaline 2",
-                description: "Attack Speed +15%",
+                description: "Cooldowns -15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
@@ -337,7 +370,7 @@ public static class PlayerStatsLibrary
         //Knockback
         AddStat(
             new PlayerCharacterStats(
-                knockbackMultiplier: 0.25f,
+                knockbackMultiplier: 1.25f,
                 name: "Strength 2",
                 description: "Knockback +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -348,9 +381,9 @@ public static class PlayerStatsLibrary
         //melee Size
         AddStat(
             new PlayerCharacterStats(
-                meleeSizeMultiplier: 0.15f,
-                name: "Melee Size 2",
-                description: "Attack size +15%",
+                meleeSizeMultiplier: 1.15f,
+                name: "Mass 2",
+                description: "Melee, Nova size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
@@ -359,9 +392,9 @@ public static class PlayerStatsLibrary
         //proj size
         AddStat(
             new PlayerCharacterStats(
-                projectileSizeMultiplier: 0.2f,
-                name: "Proj Size 2",
-                description: "Projectile size +20%",
+                projectileSizeMultiplier: 1.2f,
+                name: "Size 2",
+                description: "Auto, SemiAuto, Shotgun, Explosive size +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
@@ -370,9 +403,9 @@ public static class PlayerStatsLibrary
         //swing speed
         AddStat(
             new PlayerCharacterStats(
-                comboWaitTimeMultiplier: -0.25f,
-                name: "Cast Speed 2",
-                description: "Melee Cast Speed +25%",
+                comboWaitTimeMultiplier: 0.75f,
+                name: "Casting 2",
+                description: "Melee, Nova Attack Speed +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
@@ -381,7 +414,7 @@ public static class PlayerStatsLibrary
         //Rate of fire
         AddStat(
             new PlayerCharacterStats(
-                spreadMultiplier: -0.20f,
+                spreadMultiplier: 0.80f,
                 name: "Rate of Fire 2",
                 description: "Rate of Fire +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -394,7 +427,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 comboLength: 2,
                 name: "Another 2",
-                description: "+2 Casts",
+                description: "Melee, Nova +2 Casts",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
@@ -405,7 +438,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 shotsPerAttack: 2,
                 name: "Last Shot 2",
-                description: "+2 Projectile",
+                description: "+2 Projectiles",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
@@ -472,7 +505,7 @@ public static class PlayerStatsLibrary
         //Damage%
         AddStat(
             new PlayerCharacterStats(
-                damageMultiplier: 0.3f,
+                damageMultiplier: 1.3f,
                 name: "Training 3",
                 description: "Damage +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -483,9 +516,9 @@ public static class PlayerStatsLibrary
         //Attack Speed
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: -0.25f,
+                castTimeMultiplier: 0.75f,
                 name: "Adrenaline 3",
-                description: "Attack Speed +25%",
+                description: "Cooldowns -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
             )
@@ -494,7 +527,7 @@ public static class PlayerStatsLibrary
         //Knockback
         AddStat(
             new PlayerCharacterStats(
-                knockbackMultiplier: 0.4f,
+                knockbackMultiplier: 1.4f,
                 name: "Strength 3",
                 description: "Knockback +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
@@ -505,44 +538,44 @@ public static class PlayerStatsLibrary
         //melee Size
         AddStat(
             new PlayerCharacterStats(
-                meleeSizeMultiplier: 0.25f,
-                name: "Melee Size 3",
-                description: "Attack size +25%",
+                meleeSizeMultiplier: 1.25f,
+                name: "Mass 3",
+                description: "Melee, Nova size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                rarity: Rarity.Epic
+                rarity: Rarity.Legendary
             )
         );
 
         //proj size
         AddStat(
             new PlayerCharacterStats(
-                projectileSizeMultiplier: 0.35f,
-                name: "Proj Size 3",
-                description: "Projectile size +35%",
+                projectileSizeMultiplier: 1.35f,
+                name: "Size 3",
+                description: "Auto, SemiAuto, Shotgun, Explosive size +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                rarity: Rarity.Epic
+                rarity: Rarity.Legendary
             )
         );
 
         //swing speed
         AddStat(
             new PlayerCharacterStats(
-                comboWaitTimeMultiplier: -0.50f,
-                name: "Cast Speed 3",
-                description: "Melee Cast Speed +50%",
+                comboWaitTimeMultiplier: 0.50f,
+                name: "Casting 3",
+                description: "Melee, Nova Attack Speed +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                rarity: Rarity.Epic
+                rarity: Rarity.Legendary
             )
         );
 
         //Rate of fire
         AddStat(
             new PlayerCharacterStats(
-                spreadMultiplier: -0.35f,
+                spreadMultiplier: 0.65f,
                 name: "Rate of Fire 3",
                 description: "Rate of Fire +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                rarity: Rarity.Epic
+                rarity: Rarity.Legendary
             )
         );
 
@@ -564,7 +597,7 @@ public static class PlayerStatsLibrary
                 name: "Aftershocker 2",
                 description: "+2 Aftershock",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                rarity: Rarity.Epic
+                rarity: Rarity.Legendary
             )
         );
 
@@ -575,7 +608,7 @@ public static class PlayerStatsLibrary
                 name: "Boost 4",
                 description: "Increase move speed by 50%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
-                rarity: Rarity.Epic
+                rarity: Rarity.Legendary
             )
         );
 

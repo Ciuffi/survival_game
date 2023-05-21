@@ -119,7 +119,7 @@ public class Attack : MonoBehaviour, Upgrade
         {
             attackTime =
                 (baseStats.comboLength - 1) * baseStats.comboWaitTime
-                + baseStats.shotsPerAttackMelee * baseStats.spread * baseStats.comboLength
+                + (baseStats.shotsPerAttackMelee - 1) * baseStats.spread * baseStats.comboLength
                 + baseStats.multicastTimes * baseStats.multicastWaitTime;
             // Add the definition for Melee attack type
         }
@@ -162,12 +162,14 @@ public class Attack : MonoBehaviour, Upgrade
 
     private IEnumerator ShootSingleShot(float multicastAlpha)
     {
-        //Debug.Log("Proj Size" + stats.projectileSize + " and multiplier: " + stats.projectileSizeMultiplier);
-        //Debug.Log("Melee size" + stats.meleeSize + " and multiplier: " + stats.meleeSizeMultiplier);
+        //Debug.Log("Proj Size multiplier: " + stats.projectileSizeMultiplier);
+        //Debug.Log("Melee size  multiplier: " + stats.meleeSizeMultiplier);
         //Debug.Log("shotgun" + stats.shotgunSpread + " and multiplier: " + stats.shotgunSpreadMultiplier);
         //Debug.Log("range and spread" + stats.rangeMultiplier + " and: " + stats.spreadMultiplier);
         //Debug.Log("castTime and Knockback" + stats.castTimeMultiplier + " and: " + stats.knockbackMultiplier);
         //Debug.Log("speed and spray" + stats.speedMultiplier + " and: " + stats.sprayMultiplier);
+        //Debug.Log("throw damage: " + stats.thrownDamage + "multiplier: " + stats.thrownDamageMultiplier);
+        //Debug.Log(thrownWeapon.GetComponent<Projectile>().damage);
 
         if (stats.cantMove)
         {
@@ -650,7 +652,7 @@ public class Attack : MonoBehaviour, Upgrade
         }
 
         firstShot = false;
-        float localSpacer = stats.meleeSpacer;
+        float localSpacer = stats.meleeSpacer * stats.meleeSpacerMultiplier;
 
         if (stats.cantMove)
         {
@@ -885,19 +887,10 @@ public class Attack : MonoBehaviour, Upgrade
                 Camera
                     .GetComponent<ScreenShakeController>()
                     .StartShake(stats.shakeTime, stats.shakeStrength, stats.shakeRotation);
+
                 yield return new WaitForSeconds(stats.spread);
 
-                if (stats.meleeShotsScaleUp > 0)
-                {
-                    localSpacer += stats.meleeSpacerGap * (1 + stats.meleeShotsScaleUp);
-                }
-                else
-                {
-                    localSpacer += stats.meleeSpacerGap;
-                }
-
-                //reset gap between hits
-                localSpacer = stats.meleeSpacer;
+                localSpacer += stats.meleeSpacerGap * stats.meleeSpacerGapMultiplier;
 
                 //update attack state
                 attackAnimState++;
@@ -906,16 +899,23 @@ public class Attack : MonoBehaviour, Upgrade
                     attackAnimState = 0;
                 }
 
-                //wait until next hit in combo
-                yield return new WaitForSeconds(stats.comboWaitTime);
             }
 
-            if (stats.cantMove)
+            //wait until next hit in combo
+            if (i < stats.comboLength - 1)
             {
-                Player.GetComponent<PlayerMovement>().StartMoving();
+                yield return new WaitForSeconds(stats.comboWaitTime);
             }
+            localSpacer = stats.meleeSpacer;
+
+        }
+
+        if (stats.cantMove)
+        {
+            Player.GetComponent<PlayerMovement>().StartMoving();
         }
     }
+
 
     // private IEnumerator Utility() //buff effect on self
     // {

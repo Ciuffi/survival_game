@@ -45,22 +45,6 @@ public class AttackBuilder
         return this;
     }
 
-    public AttackBuilder SetWeaponUpgrades(List<AttackStats> upgrades)
-    {
-        // Set the attack name for each upgrade
-        foreach (var upgrade in upgrades)
-        {
-            if (upgrade is AttackStats weaponUpgrade)
-            {
-                weaponUpgrade.AttackName = this.attackName;
-            }
-        }
-
-        this.weaponUpgrades = upgrades;
-        //Debug.Log( $"Weapon Upgrades : {string.Join(", ", this.weaponUpgrades.Select(x => x == null ? "null" : x.ToString()))}");
-
-        return this;
-    }
 
     public AttackBuilder SetWeaponSetType(WeaponSetType weaponSetType)
     {
@@ -77,6 +61,26 @@ public class AttackBuilder
     public AttackBuilder SetAttackName(string attackName)
     {
         this.attackName = attackName;
+        //Debug.Log($"SetAttackName: attackName is now {this.attackName}");
+        return this;
+    }
+
+    public AttackBuilder SetWeaponUpgrades(List<AttackStats> upgrades)
+    {
+        this.weaponUpgrades = new List<AttackStats>();
+
+        foreach (var upgrade in upgrades)
+        {
+            AttackStats newUpgrade = new AttackStats(upgrade);
+            newUpgrade.AttackName = this.attackName;
+            // Create a GameObject for the upgrade and add it to a list:
+            GameObject upgradeObject = AttackStatsLibrary.CreateStatGameObject(newUpgrade);
+            this.weaponUpgrades.Add(newUpgrade);
+        }
+
+        //Debug.Log($"SetWeaponUpgrades: AttackName of weapon upgrades is {this.weaponUpgrades[0].AttackName}");
+        //Debug.Log( $"Weapon Upgrades : {string.Join(", ", this.weaponUpgrades.Select(x => x == null ? "null" : x.ToString()))}");
+
         return this;
     }
 
@@ -146,8 +150,8 @@ public class AttackBuilder
 
         if (thrownSprite == null)
         {
-            Debug.LogWarning("ThrownSprite is required and cannot be null.");
-            thrownSprite = Resources.Load<Sprite>("WeaponSprites/BurstRifle_02");
+            Debug.LogWarning("ThrownSprite is null.");
+            //thrownSprite = Resources.Load<Sprite>("WeaponSprites/BurstRifle_02");
         }
 
         if (description == "")
@@ -189,6 +193,9 @@ public class AttackBuilder
         {
             attack.thrownWeapon = thrownWeapon;
         }
+        attack.thrownWeapon.GetComponent<Projectile>().damage = attack.stats.thrownDamage;
+        Debug.Log(attack.stats.thrownDamage);
+
         attack.thrownSprite = thrownSprite;
         attack.bulletCasing = bulletCasing;
         attack.MuzzleFlashPrefab = muzzleFlashPrefab;
@@ -209,7 +216,7 @@ public class AttackBuilder
         {
             attack.attackTime =
                 (attack.baseStats.comboLength - 1) * attack.baseStats.comboWaitTime
-                + attack.baseStats.shotsPerAttackMelee * attack.baseStats.spread * attack.baseStats.comboLength
+                + (attack.baseStats.shotsPerAttackMelee - 1) * attack.baseStats.spread * attack.baseStats.comboLength
                 + attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
             // Add the definition for Melee attack type
         }

@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
     private SpriteRenderer afterimageRend;
     private float speed;
     private float speedMultiplier;
+    public Vector2 lastInputDirection { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +43,12 @@ public class PlayerMovement : MonoBehaviour, Attacker
         if (VJ.InputDirection.magnitude == 0)
         {
             afterimageRend.enabled = false;
+            lastInputDirection = Vector2.zero; // Joystick is not being used
             return;
         }
 
         afterimageRend.enabled = true;
+        lastInputDirection = new Vector2(VJ.InputDirection.x, VJ.InputDirection.y);
 
         float InputY = VJ.InputDirection.y * 100;
         float InputX = VJ.InputDirection.x * 100;

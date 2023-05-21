@@ -19,10 +19,13 @@ public class LevelUpManager : MonoBehaviour
     public AttackBuilder[] weaponBuilders;
     public Upgrade[] weapons;
     public List<GameObject> playerStatUpgrades;
-    public List<GameObject> weaponStatUpgrades;
     public List<GameObject> upgrades;
+    public List<GameObject> potentialUpgrades;
+    public List<GameObject> weaponSetUpgrades;
+
+
     public bool isWeapon = false;
-    private List<GameObject> previousUpgrades = new List<GameObject>();
+    List<string> previousUpgrades = new List<string>();
 
     public GameObject RerollBtn,
         SwapBtn;
@@ -139,12 +142,12 @@ public class LevelUpManager : MonoBehaviour
                     {
                         AttackBuilder builder = weaponBuilders[Random.Range(0, weaponBuilders.Length)];
                         GO = builder.Build(chosenRarity).gameObject;
-                        if (previousUpgrades.Contains(GO))
+                        if (previousUpgrades.Contains(GO.name))
                         {
                             GO = null;
                         }
                     }
-                    previousUpgrades.Add(GO);
+                    previousUpgrades.Add(GO.name);
 
                     u.upgrade = GO.GetComponent<Upgrade>();
                     u.GetComponentInChildren<TMP_Text>().text = GO.name;
@@ -212,16 +215,19 @@ public class LevelUpManager : MonoBehaviour
                     Debug.Log(typeRoll + "weapon set");
 
                     // Weapon Set upgrade
-                    upgrades = getAttackSetStats().Select(s => s.GetTransform().gameObject).ToList();
+                    upgrades = weaponSetUpgrades;
 
                     if (upgradeRoll < dropTable.existingWeaponOrSetChance)
                     {
+                        Debug.Log(upgradeRoll + "+ chance:" + dropTable.existingWeaponOrSetChance);
+
                         var attackHandler = FindObjectOfType<AttackHandler>();
+                        // Get the unique weapon set types in the current attacks
+                        var currentWeaponSetTypes = attackHandler.attacks.Select(a => a.weaponSetType).Distinct();
+
+                        // Filter upgrades that correspond to any of the current weapon set types
                         upgrades = upgrades
-                            .Where(u =>
-                                attackHandler.attacks.Any(a =>
-                                    a.weaponSetType == WeaponSetUpgradeMap.GetWeaponSetTypeForStat(u.GetComponent<AttackStatComponent>().stat))
-                            )
+                            .Where(u => currentWeaponSetTypes.Any(wst => wst == WeaponSetUpgradeMap.GetWeaponSetTypeForStat(u.GetComponent<AttackStatComponent>().stat)))
                             .ToList();
                     }
 
@@ -232,17 +238,25 @@ public class LevelUpManager : MonoBehaviour
                 {
                     Debug.Log(typeRoll + "weapon stat");
 
-                    // Weapon Stat upgrade
-                    upgrades = GetAttackStats().Select(s => s.GetTransform().gameObject).ToList();
-                    if (upgradeRoll < dropTable.existingWeaponOrSetChance)
+                    //specific weapon stat
+
+                    if (upgradeRoll < dropTable.existingWeaponOrSetChance) //owned weapon stat
                     {
-                        var attackHandler = FindObjectOfType<AttackHandler>();
-                        upgrades = upgrades
-                            .Where(u => attackHandler.attacks
-                                .Any(a => a.weaponUpgrades
-                                    .Any(wu => wu.AttackName == u.GetComponent<AttackStatComponent>().stat.AttackName)))
-                            .ToList();
+                        Debug.Log("existing weapon stat");
+                        Debug.Log(upgradeRoll + "+ chance:" + dropTable.existingWeaponOrSetChance);
+
+                        upgrades = GetAttackStatsGameObjects().ToList();
+
                     }
+                    else //new weapon stat
+                    {
+                        Debug.Log("new weapon stat");
+                        Debug.Log(upgradeRoll + "+ chance:" + dropTable.existingWeaponOrSetChance);
+
+                        upgrades = GetPotentialUpgrades(weaponBuilders).ToList();
+                        //dont filter
+                    }
+
                     upgrades = upgrades.Where(u => u.GetComponent<AttackStatComponent>().stat.GetRarity() == chosenRarity).ToList();
                 }
 
@@ -253,12 +267,12 @@ public class LevelUpManager : MonoBehaviour
                 while (GO == null)
                 {
                     GO = upgrades[Random.Range(0, upgrades.Count)];
-                    if (previousUpgrades.Contains(GO))
+                    if (previousUpgrades.Contains(GO.name))
                     {
                         GO = null;
                     }
                 }
-                previousUpgrades.Add(GO);
+                previousUpgrades.Add(GO.name);
 
                 var statComponent = GO.GetComponent<StatComponent>();
                 var attackStatComponent = GO.GetComponent<AttackStatComponent>();
@@ -336,6 +350,15 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
+    void DestroyPotentialUpgradeObjects()
+    {
+        foreach (var upgrade in potentialUpgrades)
+        {
+            Destroy(upgrade);
+        }
+        potentialUpgrades.Clear();
+    }
+
     public void ShowLevelUpUI()
     {
         Instantiate(VFX, transform.position, Quaternion.identity, transform);
@@ -370,6 +393,7 @@ public class LevelUpManager : MonoBehaviour
 
     public void SignalItemChosen()
     {
+        DestroyPotentialUpgradeObjects();
         panel.SetActive(false);
         TimelineManager.GetComponent<TimelineUI>().despawnTimeline();
         GameObject.FindObjectOfType<CanvasClickHandler>().EnableJoystick();
@@ -399,7 +423,6 @@ public class LevelUpManager : MonoBehaviour
         upgradeWindows = new List<UpgradeHandler>(GameObject.FindObjectsOfType<UpgradeHandler>());
         weaponBuilders = AttackLibrary.getAttackBuilders();
         playerStatUpgrades = PlayerStatsLibrary.GetStatGameObjects();
-        weaponStatUpgrades = AttackStatsLibrary.GetStatGameObjects();
 
         rarityColors = weaponRarityPrefab.GetComponent<InventoryItem>().rarityColors;
         dropTable = GetComponent<DropTableUpgrades>();
@@ -409,27 +432,84 @@ public class LevelUpManager : MonoBehaviour
         xpColor = xpBar.fillRect.GetComponent<Image>().color;
         panel.SetActive(false);
         playerStats = FindObjectOfType<StatsHandler>();
+        GetWeaponSetUpgrades();
     }
 
-    public AttackStats[] GetAttackStats()
+    public GameObject[] GetAttackStatsGameObjects()
     {
-        List<Attack> attacks = (FindObjectOfType<AttackHandler>().attacks);
-        return FindObjectOfType<AttackHandler>().attacks
-            .SelectMany(a => a.weaponUpgrades)
-            .ToArray();
+        var attackHandler = FindObjectOfType<AttackHandler>();
+        GameObject statObject = new GameObject();
+
+        foreach (Attack attack in attackHandler.attacks)
+        {
+            foreach (AttackStats stats in attack.weaponUpgrades)
+            {
+                GameObject upgradeGameObject = Instantiate(statObject);
+                upgradeGameObject.AddComponent<AttackStatComponent>().stat = stats;
+                upgradeGameObject.GetComponent<AttackStatComponent>().stat.statsContainer = upgradeGameObject;
+                upgradeGameObject.name = upgradeGameObject.GetComponent<AttackStatComponent>().stat.name;
+                potentialUpgrades.Add(upgradeGameObject);
+            }
+        }
+
+        return potentialUpgrades.ToArray();
+    }
+
+    public GameObject[] GetPotentialUpgrades(AttackBuilder[] weaponBuilders)
+    {
+        GameObject statObject = new GameObject();
+
+        // randomly select a weapon builder
+        int randIndex = Random.Range(0, weaponBuilders.Length);
+        AttackBuilder selectedBuilder = weaponBuilders[randIndex];
+
+        // build the weapon at base rarity
+        Attack weapon = selectedBuilder.Build(Rarity.Common);
+
+        // convert the weapon upgrades into game objects
+        foreach (AttackStats stats in weapon.weaponUpgrades)
+        {
+            GameObject upgradeGameObject = Instantiate(statObject);
+            upgradeGameObject.AddComponent<AttackStatComponent>().stat = stats;
+            upgradeGameObject.name = upgradeGameObject.GetComponent<AttackStatComponent>().stat.name;
+            upgradeGameObject.GetComponent<AttackStatComponent>().stat.statsContainer = upgradeGameObject;
+
+            potentialUpgrades.Add(upgradeGameObject);
+        }
+
+        return potentialUpgrades.ToArray();
     }
 
     public AttackStats[] getAttackSetStats()
     {
-        return FindObjectOfType<AttackHandler>().attacks
-            .Select(a => a.weaponSetType)
-            .SelectMany(
-                t =>
-                    WeaponSetUpgradeMap.AttackStatsMap[t]
-                        //.Where(k => k.Key == (Rarity)(Random.Range(0,3)*2))
-                        .SelectMany(k => k.Value)
-            )
-            .ToArray();
+        // Fetch all stats from the library
+        var allStats = AttackStatsLibrary.GetStats();
+
+        // Filter the stats where weaponSet = true
+        var weaponSetStats = allStats.Where(stat => stat.weaponSet).ToArray();
+
+        return weaponSetStats;
+    }
+
+    public GameObject[] GetWeaponSetUpgrades()
+    {
+        GameObject statObject = new GameObject();
+
+        // Get all weapon set stats
+        AttackStats[] weaponSetStats = getAttackSetStats();
+
+        // Convert the weapon set stats into game objects
+        foreach (AttackStats stats in weaponSetStats)
+        {
+            GameObject upgradeGameObject = Instantiate(statObject);
+            upgradeGameObject.AddComponent<AttackStatComponent>().stat = stats;
+            upgradeGameObject.name = upgradeGameObject.GetComponent<AttackStatComponent>().stat.name;
+            upgradeGameObject.GetComponent<AttackStatComponent>().stat.statsContainer = upgradeGameObject;
+
+            weaponSetUpgrades.Add(upgradeGameObject);
+        }
+
+        return weaponSetUpgrades.ToArray();
     }
 
     // Update is called once per frame

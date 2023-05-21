@@ -509,18 +509,19 @@ public static class WeaponSetUpgradeMap
 
     public static WeaponSetType? GetWeaponSetTypeForStat(AttackStats stat)
     {
-        Debug.Log($"Checking for stat: {stat}");
+       // Debug.Log($"Checking for stat: {stat} ");
+        Debug.Log(stat.name);
 
         foreach (var weaponSet in AttackStatsMap)
         {
             if (weaponSet.Value.Values.Any(list => list.Contains(stat)))
             {
-                Debug.Log($"Found stat in weapon set: {weaponSet.Key}");
+                //Debug.Log($"Found stat in weapon set: {weaponSet.Key}");
                 return weaponSet.Key;
             }
         }
        
-        Debug.Log("Stat not found in any weapon set");
+        //Debug.Log("Stat not found in any weapon set");
         return null;
     }
 

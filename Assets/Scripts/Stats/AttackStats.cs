@@ -239,7 +239,7 @@ public class AttackStats : Upgrade
     private void FixUpStats()
     {
         this.coneAngle = this.coneAngle < 10f ? 10f : this.coneAngle;
-        this.aimRange = this.aimRange < 0f ? 0f : this.aimRange;
+        this.aimRange = this.aimRange < 0.2f ? 0.2f : this.aimRange;
         this.shotsPerAttack = this.shotsPerAttack < 1 ? 1 : this.shotsPerAttack;
         this.shotsPerAttackMelee = this.shotsPerAttackMelee < 0 ? 0 : this.shotsPerAttackMelee;
         this.comboLength = this.comboLength < 1 ? 1 : this.comboLength;
@@ -351,29 +351,29 @@ public class AttackStats : Upgrade
         this.coneAngle += attackStats.coneAngle;
         this.rarity = this.rarity.CompareRarity(attackStats.rarity);
         this.effectDuration += attackStats.effectDuration;
-        this.effectMultiplier += attackStats.effectMultiplier;
+        this.effectMultiplier *= attackStats.effectMultiplier;
         this.aimRangeAdditive += attackStats.aimRangeAdditive;
-        this.damageMultiplier += attackStats.damageMultiplier;
-        this.castTimeMultiplier += attackStats.castTimeMultiplier;
-        this.attackTimeMultiplier += attackStats.attackTimeMultiplier;
-        this.recoveryTimeMultiplier += attackStats.recoveryTimeMultiplier;
-        this.knockbackMultiplier += attackStats.knockbackMultiplier;
-        this.multicastChanceMultiplier += attackStats.multicastChanceMultiplier;
-        this.multicastWaitTimeMultiplier += attackStats.multicastWaitTimeMultiplier;
-        this.spreadMultiplier += attackStats.spreadMultiplier;
-        this.shotgunSpreadMultiplier += attackStats.shotgunSpreadMultiplier;
-        this.sprayMultiplier += attackStats.sprayMultiplier;
-        this.speedMultiplier += attackStats.speedMultiplier;
-        this.rangeMultiplier += attackStats.rangeMultiplier;
-        this.projectileSizeMultiplier += attackStats.projectileSizeMultiplier;
-        this.comboWaitTimeMultiplier += attackStats.comboWaitTimeMultiplier;
-        this.comboAttackBuffMultiplier += attackStats.comboAttackBuffMultiplier;
-        this.meleeShotsScaleUpMultiplier += attackStats.meleeShotsScaleUpMultiplier;
-        this.meleeSpacerMultiplier += attackStats.meleeSpacerMultiplier;
-        this.meleeSpacerGapMultiplier += attackStats.meleeSpacerGapMultiplier;
-        this.thrownDamageMultiplier += attackStats.thrownDamageMultiplier;
-        this.thrownSpeedMultiplier += attackStats.thrownSpeedMultiplier;
-        this.meleeSizeMultiplier += attackStats.meleeSizeMultiplier;
+        this.damageMultiplier *= attackStats.damageMultiplier;
+        this.castTimeMultiplier *= attackStats.castTimeMultiplier;
+        this.attackTimeMultiplier *= attackStats.attackTimeMultiplier;
+        this.recoveryTimeMultiplier *= attackStats.recoveryTimeMultiplier;
+        this.knockbackMultiplier *= attackStats.knockbackMultiplier;
+        this.multicastChanceMultiplier *= attackStats.multicastChanceMultiplier;
+        this.multicastWaitTimeMultiplier *= attackStats.multicastWaitTimeMultiplier;
+        this.spreadMultiplier *= attackStats.spreadMultiplier;
+        this.shotgunSpreadMultiplier *= attackStats.shotgunSpreadMultiplier;
+        this.sprayMultiplier *= attackStats.sprayMultiplier;
+        this.speedMultiplier *= attackStats.speedMultiplier;
+        this.rangeMultiplier *= attackStats.rangeMultiplier;
+        this.projectileSizeMultiplier *= attackStats.projectileSizeMultiplier;
+        this.comboWaitTimeMultiplier *= attackStats.comboWaitTimeMultiplier;
+        this.comboAttackBuffMultiplier *= attackStats.comboAttackBuffMultiplier;
+        this.meleeShotsScaleUpMultiplier *= attackStats.meleeShotsScaleUpMultiplier;
+        this.meleeSpacerMultiplier *= attackStats.meleeSpacerMultiplier;
+        this.meleeSpacerGapMultiplier *= attackStats.meleeSpacerGapMultiplier;
+        this.thrownDamageMultiplier *= attackStats.thrownDamageMultiplier;
+        this.thrownSpeedMultiplier *= attackStats.thrownSpeedMultiplier;
+        this.meleeSizeMultiplier *= attackStats.meleeSizeMultiplier;
         FixUpStats();
     }
 
@@ -386,19 +386,21 @@ public class AttackStats : Upgrade
         this.critChance += playerStats.critChance;
         this.critDmg += playerStats.critDmg;
         this.multicastChance += playerStats.multicastChance;
-        this.damageMultiplier += playerStats.damageMultiplier;
         this.shootOppositeSide |= playerStats.shootOpposideSide;
         this.comboLength += playerStats.comboLength;
-        this.rangeMultiplier += playerStats.rangeMultiplier;
-        this.comboWaitTime += playerStats.comboWaitTimeMultiplier;
-        this.damageMultiplier += playerStats.damageMultiplier;
-        this.castTimeMultiplier += playerStats.castTimeMultiplier;
-        this.knockbackMultiplier += playerStats.knockbackMultiplier;
-        this.spreadMultiplier += playerStats.spreadMultiplier;
-        this.projectileSizeMultiplier += playerStats.projectileSizeMultiplier;
-        this.thrownDamageMultiplier += playerStats.thrownDamageMultiplier;
-        this.thrownSpeedMultiplier += playerStats.thrownSpeedMultiplier;
-        this.meleeSizeMultiplier += playerStats.meleeSizeMultiplier;
+
+        this.damageMultiplier *= playerStats.damageMultiplier;
+        this.rangeMultiplier *= playerStats.rangeMultiplier;
+        this.comboWaitTime *= playerStats.comboWaitTimeMultiplier;
+        this.damageMultiplier *= playerStats.damageMultiplier;
+        this.castTimeMultiplier *= playerStats.castTimeMultiplier;
+        this.knockbackMultiplier *= playerStats.knockbackMultiplier;
+        this.spreadMultiplier *= playerStats.spreadMultiplier;
+        this.projectileSizeMultiplier *= playerStats.projectileSizeMultiplier;
+        this.thrownDamageMultiplier *= playerStats.thrownDamageMultiplier;
+        this.thrownSpeedMultiplier *= playerStats.thrownSpeedMultiplier;
+        this.meleeSizeMultiplier *= playerStats.meleeSizeMultiplier;
+
         FixUpStats();
         return this;
     }
@@ -452,31 +454,31 @@ public class AttackStats : Upgrade
             mergedAttackStats.coneAngle += attackStats.coneAngle;
             mergedAttackStats.rarity = mergedAttackStats.rarity.CompareRarity(attackStats.rarity);
             mergedAttackStats.effectDuration += attackStats.effectDuration;
-            mergedAttackStats.effectMultiplier += attackStats.effectMultiplier;
+            mergedAttackStats.effectMultiplier *= attackStats.effectMultiplier;
             mergedAttackStats.aimRangeAdditive += attackStats.aimRangeAdditive;
-            mergedAttackStats.damageMultiplier += attackStats.damageMultiplier;
-            mergedAttackStats.castTimeMultiplier += attackStats.castTimeMultiplier;
-            mergedAttackStats.attackTimeMultiplier += attackStats.attackTimeMultiplier;
-            mergedAttackStats.recoveryTimeMultiplier += attackStats.recoveryTimeMultiplier;
-            mergedAttackStats.knockbackMultiplier += attackStats.knockbackMultiplier;
-            mergedAttackStats.multicastChanceMultiplier += attackStats.multicastChanceMultiplier;
-            mergedAttackStats.multicastWaitTimeMultiplier +=
+            mergedAttackStats.damageMultiplier *= attackStats.damageMultiplier;
+            mergedAttackStats.castTimeMultiplier *= attackStats.castTimeMultiplier;
+            mergedAttackStats.attackTimeMultiplier *= attackStats.attackTimeMultiplier;
+            mergedAttackStats.recoveryTimeMultiplier *= attackStats.recoveryTimeMultiplier;
+            mergedAttackStats.knockbackMultiplier *= attackStats.knockbackMultiplier;
+            mergedAttackStats.multicastChanceMultiplier *= attackStats.multicastChanceMultiplier;
+            mergedAttackStats.multicastWaitTimeMultiplier *=
                 attackStats.multicastWaitTimeMultiplier;
-            mergedAttackStats.spreadMultiplier += attackStats.spreadMultiplier;
-            mergedAttackStats.shotgunSpreadMultiplier += attackStats.shotgunSpreadMultiplier;
-            mergedAttackStats.sprayMultiplier += attackStats.sprayMultiplier;
-            mergedAttackStats.speedMultiplier += attackStats.speedMultiplier;
-            mergedAttackStats.rangeMultiplier += attackStats.rangeMultiplier;
-            mergedAttackStats.projectileSizeMultiplier += attackStats.projectileSizeMultiplier;
-            mergedAttackStats.comboWaitTimeMultiplier += attackStats.comboWaitTimeMultiplier;
-            mergedAttackStats.comboAttackBuffMultiplier += attackStats.comboAttackBuffMultiplier;
-            mergedAttackStats.meleeShotsScaleUpMultiplier +=
+            mergedAttackStats.spreadMultiplier *= attackStats.spreadMultiplier;
+            mergedAttackStats.shotgunSpreadMultiplier *= attackStats.shotgunSpreadMultiplier;
+            mergedAttackStats.sprayMultiplier *= attackStats.sprayMultiplier;
+            mergedAttackStats.speedMultiplier *= attackStats.speedMultiplier;
+            mergedAttackStats.rangeMultiplier *= attackStats.rangeMultiplier;
+            mergedAttackStats.projectileSizeMultiplier *= attackStats.projectileSizeMultiplier;
+            mergedAttackStats.comboWaitTimeMultiplier *= attackStats.comboWaitTimeMultiplier;
+            mergedAttackStats.comboAttackBuffMultiplier *= attackStats.comboAttackBuffMultiplier;
+            mergedAttackStats.meleeShotsScaleUpMultiplier *=
                 attackStats.meleeShotsScaleUpMultiplier;
-            mergedAttackStats.meleeSpacerMultiplier += attackStats.meleeSpacerMultiplier;
-            mergedAttackStats.meleeSpacerGapMultiplier += attackStats.meleeSpacerGapMultiplier;
-            mergedAttackStats.thrownDamageMultiplier += attackStats.thrownDamageMultiplier;
-            mergedAttackStats.thrownSpeedMultiplier += attackStats.thrownSpeedMultiplier;
-            mergedAttackStats.meleeSizeMultiplier += attackStats.meleeSizeMultiplier;
+            mergedAttackStats.meleeSpacerMultiplier *= attackStats.meleeSpacerMultiplier;
+            mergedAttackStats.meleeSpacerGapMultiplier *= attackStats.meleeSpacerGapMultiplier;
+            mergedAttackStats.thrownDamageMultiplier *= attackStats.thrownDamageMultiplier;
+            mergedAttackStats.thrownSpeedMultiplier *= attackStats.thrownSpeedMultiplier;
+            mergedAttackStats.meleeSizeMultiplier *= attackStats.meleeSizeMultiplier;
             mergedAttackStats.FixUpStats();
         }
         return mergedAttackStats;

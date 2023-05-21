@@ -2240,7 +2240,7 @@ MonoBehaviour:
   weapon: {fileID: 748918466}
   nameText: {fileID: 1192763464}
   rarityText: {fileID: 1633647140}
-  displayDuration: 1.5
+  displayDuration: 1.4
   weaponPrefab: {fileID: 3957629950819426908, guid: 3e591f76f118fc64f91575f67282e51a, type: 3}
   outlineColors: []
 --- !u!114 &848280425
@@ -3117,24 +3117,24 @@ MonoBehaviour:
   - rarity: 2
     cost: 5
     dropChances:
-    - 50
-    - 47
-    - 3
+    - 60
+    - 38
+    - 2
     - 0
   - rarity: 4
     cost: 20
     dropChances:
     - 0
-    - 65
+    - 68
     - 30
-    - 5
+    - 3
   - rarity: 6
     cost: 50
     dropChances:
     - 0
-    - 10
+    - 20
     - 65
-    - 25
+    - 15
 --- !u!1 &1085263397
 GameObject:
   m_ObjectHideFlags: 0

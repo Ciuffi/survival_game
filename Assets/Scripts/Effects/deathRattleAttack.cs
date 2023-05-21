@@ -62,9 +62,15 @@ public class deathRattleAttack : MonoBehaviour
         Camera = GameObject.FindWithTag("MainCamera");
         startPos = transform.position;
 
-        damage = damage * Player.GetComponent<StatsHandler>().stats.damageMultiplier;
-        critChance = critChance + Player.GetComponent<StatsHandler>().stats.critChance;
-        critDmg = critDmg + Player.GetComponent<StatsHandler>().stats.critDmg;
+        damage *= attack.stats.damageMultiplier;
+        critChance = attack.stats.critChance;
+        critDmg = attack.stats.critDmg;
+
+        magnetStrength *= attack.stats.effectMultiplier;
+        slowPercentage *= attack.stats.effectMultiplier;
+        magnetDuration += attack.stats.effectDuration;
+        slowDuration += attack.stats.effectDuration;
+        stunDuration += attack.stats.effectDuration;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();

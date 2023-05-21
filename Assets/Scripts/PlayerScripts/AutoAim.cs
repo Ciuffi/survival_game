@@ -20,9 +20,11 @@ public class AutoAim : MonoBehaviour
     public Material coneMaterial; // Material for the cone mesh
 
     public Vector2 AimDirection { get; private set; }
+    PlayerMovement joystick;
 
     void Start()
     {
+        joystick = FindObjectOfType<PlayerMovement>();
         UpdateVisualizerSpriteScale();
         weaponSpriteRotation = FindObjectOfType<WpnSpriteRotation>();
         if (isCone)
@@ -74,7 +76,9 @@ public class AutoAim : MonoBehaviour
                 }
                 else
                 {
-                    if (distance < closestDistance)
+                    // added check for direction based on last input direction
+                    float dotProduct = Vector2.Dot(joystick.lastInputDirection.normalized, targetDirection);
+                    if (distance < closestDistance && dotProduct > 0)
                     {
                         closestDistance = distance;
                         closestEnemy = col.gameObject;
@@ -92,14 +96,20 @@ public class AutoAim : MonoBehaviour
         if (!isCone && rangeVisualizerSprite != null)
         {
             rangeVisualizerSprite.transform.localScale = new Vector3(aimRange * 1.5f, aimRange * 1.5f, 1);
-        } else
+        }
+        else
         {
-            rangeVisualizerSprite.transform.localScale = new Vector3(0,0,0);
+            rangeVisualizerSprite.transform.localScale = new Vector3(0, 0, 0);
         }
 
         if (isCone && coneMeshObject != null)
         {
+            coneMeshObject.SetActive(true); // Enable cone mesh object
             UpdateConeMesh(coneMeshObject, aimRange, coneAngle);
+        }
+        else if (coneMeshObject != null)
+        {
+            coneMeshObject.SetActive(false); // Disable cone mesh object
         }
     }
 

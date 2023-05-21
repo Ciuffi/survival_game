@@ -48,9 +48,9 @@ public static class AttackLibrary
         List<AttackStats> AcidPoolRarity = new List<AttackStats>
         {
             new AttackStats(damage: 2),
-            new AttackStats(comboLength: 1, comboWaitTime: 0.25f),
-            new AttackStats(shotsPerAttack: 1, meleeShotsScaleUp: -0.15f),
-            new AttackStats(meleeSizeMultiplier: 0.3f, shakeTime: 0.05f),
+            new AttackStats(comboLength: 1, comboWaitTime: 1f),
+            new AttackStats(shotsPerAttack: 1, meleeSizeMultiplier: -0.5f),
+            new AttackStats(meleeSizeMultiplier: 1.3f, shakeTime: 0.05f),
             new AttackStats(meleeSpacer: 2f, aimRangeAdditive: 2f),
             new AttackStats(meleeSpacer: 1.5f, isCone: true, coneAngle: 120, aimRangeAdditive: 1.5f)
         };
@@ -137,19 +137,20 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1.5f,
                     damage: 1,
-                    spread: 0.3f,
+                    spread: 0.8f,
                     castTime: 2.2f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 0.6f,
+                    comboWaitTime: 3f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 1.5f,
                     meleeSpacerGap: 4.5f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.2f,
-                    shakeRotation: 0.5f
+                    shakeRotation: 0.5f,
+                    cantMove: true
                 )
             )
             .SetProperties(
@@ -169,8 +170,8 @@ public static class AttackLibrary
             new AttackStats(damage: 5),
             new AttackStats(shotsPerAttack: 7),
             new AttackStats(shotsPerAttack: 7),
-            new AttackStats(spread: -0.04f, speedMultiplier: 0.2f),
-            new AttackStats(projectileSizeMultiplier: 0.4f, shakeStrength: 0.01f),
+            new AttackStats(spread: -0.04f, speedMultiplier: 1.2f),
+            new AttackStats(projectileSizeMultiplier: 1.4f, shakeStrength: 0.01f),
             new AttackStats(aimRangeAdditive: 2f, coneAngle: 30),
         };
 
@@ -185,8 +186,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Velocity 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
-            AttackStatsLibrary.GetStat("Steady 1"),
-            AttackStatsLibrary.GetStat("Overheat 1"),
             AttackStatsLibrary.GetStat("MLG 1"),
             AttackStatsLibrary.GetStat("Gamer 1"),
             //rare
@@ -198,8 +197,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Velocity 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
-            AttackStatsLibrary.GetStat("Steady 2"),
-            AttackStatsLibrary.GetStat("Overheat 2"),
             AttackStatsLibrary.GetStat("MLG 2"),
             AttackStatsLibrary.GetStat("Gamer 2"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -236,9 +233,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Double Trouble"),
         };
 
-        Debug.Log(
-            $"Weapon Upgrades : {string.Join(", ", ClassicRifleUpgrades.Select(x => x == null ? "null" : x.ToString()))}"
-        );
 
         AttackBuilder ClassicRifle = new AttackBuilder()
             .SetAttackName("Classic Rifle")
@@ -258,7 +252,7 @@ public static class AttackLibrary
                     shotsPerAttack: 14,
                     speed: 0.17f,
                     knockback: 0.45f,
-                    pierce: 0,
+                    pierce: 1,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -288,7 +282,7 @@ public static class AttackLibrary
             new AttackStats(damage: 9),
             new AttackStats(castTime: -0.3f, multicastWaitTime: -0.1f),
             new AttackStats(shotsPerAttack: 1),
-            new AttackStats(projectileSizeMultiplier: 0.3f, shakeStrength: 0.2f),
+            new AttackStats(projectileSizeMultiplier: 1.3f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f, aimRangeAdditive: 1.5f),
             new AttackStats(aimRangeAdditive: 1.7f, coneAngle: 40f, shotgunSpread: 15)
         };
@@ -396,8 +390,8 @@ public static class AttackLibrary
         List<AttackStats> DrainScytheRarity = new List<AttackStats>
         {
             new AttackStats(damage: 5),
-            new AttackStats(comboLength: 1, comboWaitTime: 0.4f),
-            new AttackStats(shotsPerAttack: 1, meleeSizeMultiplier: -0.25f),
+            new AttackStats(comboLength: 1, comboWaitTime: 1f),
+            new AttackStats(shotsPerAttack: 1, meleeSizeMultiplier: 0.75f),
             new AttackStats(meleeSpacer: 2.5f, aimRangeAdditive: 2f),
             new AttackStats(thrownDamage: 12, throwSpeed: 0.3f),
             new AttackStats(coneAngle: 90f)
@@ -492,14 +486,14 @@ public static class AttackLibrary
                     isCone: true,
                     coneAngle: 120f,
                     damage: 4,
-                    spread: 0.2f,
+                    spread: 0.6f,
                     castTime: 2.2f,
                     knockback: 0.3f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 0.8f,
+                    comboWaitTime: 2.25f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 2f,
                     meleeSpacerGap: 3.5f,
@@ -525,10 +519,10 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 3),
             new AttackStats(castTime: -0.5f),
-            new AttackStats(comboLength: 1, comboWaitTime: 0.5f),
+            new AttackStats(comboLength: 1, comboWaitTime: 1f),
             new AttackStats(shotsPerAttack: 1, spread: -0.1f),
             new AttackStats(meleeShotsScaleUp: 0.1f, shakeTime: 0.05f),
-            new AttackStats(meleeSpacerMultiplier: 0.5f, aimRangeAdditive: 2f, coneAngle: 30),
+            new AttackStats(meleeSpacerMultiplier: 1.5f, aimRangeAdditive: 2f, coneAngle: 30),
         };
 
         List<AttackStats> EarthShockUpgrades = new List<AttackStats>
@@ -619,7 +613,7 @@ public static class AttackLibrary
                     isCone: true,
                     coneAngle: 45f,
                     damage: 3,
-                    spread: 0.22f,
+                    spread: 0.3f,
                     castTime: 2.1f,
                     shotsPerAttackMelee: 2,
                     knockback: 0.35f,
@@ -627,7 +621,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 0.3f,
+                    comboWaitTime: 2.5f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 1.5f,
                     meleeSpacerGap: 3f,
@@ -635,7 +629,8 @@ public static class AttackLibrary
                     shakeStrength: 0.2f,
                     shakeRotation: 1f,
                     thrownDamage: 7f,
-                    throwSpeed: 0.5f
+                    throwSpeed: 0.5f,
+                    meleeSizeMultiplier: 0.75f
                 )
             )
             .SetProperties(
@@ -653,7 +648,7 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 5),
             new AttackStats(castTime: -0.5f),
-            new AttackStats(comboLength: 1, comboWaitTime: 0.3f),
+            new AttackStats(comboLength: 1, comboWaitTime: 1f),
             new AttackStats(knockback: 0.6f, shakeStrength: 0.1f),
             new AttackStats(shotsPerAttackMelee: 1, damage: -2, shakeTime: 0.05f),
             new AttackStats(meleeSpacer: 2f, aimRangeAdditive: 2f, coneAngle: 45f)
@@ -744,7 +739,7 @@ public static class AttackLibrary
                     isCone: true,
                     coneAngle: 75,
                     damage: 3,
-                    spread: 0.3f,
+                    spread: 0.4f,
                     castTime: 2f,
                     shotsPerAttackMelee: 0,
                     knockback: 0f,
@@ -752,7 +747,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 0.6f,
+                    comboWaitTime: 2.5f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 0.5f,
                     meleeSpacerGap: 2.5f,
@@ -760,7 +755,8 @@ public static class AttackLibrary
                     shakeStrength: 0.3f,
                     shakeRotation: 1f,
                     thrownDamage: 0,
-                    throwSpeed: 0f
+                    throwSpeed: 0f,
+                    meleeSizeMultiplier: 0.9f
                 )
             )
             .SetProperties(
@@ -779,9 +775,9 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 20),
             new AttackStats(shotsPerAttack: 20),
             new AttackStats(spread: -0.004f, spray: 10f),
-            new AttackStats(projectileSizeMultiplier: 0.25f, knockbackMultiplier: 0.25f),
+            new AttackStats(projectileSizeMultiplier: 1.25f, knockbackMultiplier: 1.25f),
             new AttackStats(shotsPerAttack: 20),
-            new AttackStats(rangeMultiplier: 0.2f, aimRangeAdditive: 2f, coneAngle: 30f)
+            new AttackStats(rangeMultiplier: 1.2f, aimRangeAdditive: 2f, coneAngle: 30f)
         };
 
         List<AttackStats> GatlingGunUpgrades = new List<AttackStats>
@@ -795,7 +791,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Velocity 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
-            AttackStatsLibrary.GetStat("Overheat 1"),
             AttackStatsLibrary.GetStat("MLG 1"),
             AttackStatsLibrary.GetStat("Gamer 1"),
 
@@ -808,7 +803,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Velocity 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
-            AttackStatsLibrary.GetStat("Overheat 2"),
             AttackStatsLibrary.GetStat("MLG 2"),
             AttackStatsLibrary.GetStat("Gamer 2"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -895,7 +889,7 @@ public static class AttackLibrary
             new AttackStats(comboLength: 1),
             new AttackStats(shotsPerAttack: 1, meleeShotsScaleUp: -0.1f),
             new AttackStats(meleeSpacer: 1.25f, meleeSpacerGap: 1.5f, aimRangeAdditive: 2f),
-            new AttackStats(meleeSizeMultiplier: 0.3f, knockback: 0.3f, shakeTime: 0.05f, shakeRotation: 0.5f),
+            new AttackStats(meleeSizeMultiplier: 1.3f, knockback: 0.3f, shakeTime: 0.05f, shakeRotation: 0.5f),
         };
 
         List<AttackStats> GodHandUpgrades = new List<AttackStats>
@@ -986,7 +980,7 @@ public static class AttackLibrary
                     isCone: true,
                     coneAngle: 120f,
                     damage: 12,
-                    spread: 0.28f,
+                    spread: 0.6f,
                     castTime: 2.1f,
                     shotsPerAttackMelee: 0,
                     knockback: 0.7f,
@@ -994,7 +988,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 0.5f,
+                    comboWaitTime: 2f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 2f,
                     meleeSpacerGap: 2f,
@@ -1018,9 +1012,9 @@ public static class AttackLibrary
         // ImpactGrenade
         List<AttackStats> ImpactGrenadeRarity = new List<AttackStats>
         {
-            new AttackStats(castTime: 1f, damage: 10, projectileSizeMultiplier: 0.2f),
+            new AttackStats(castTime: 1f, damage: 10, projectileSizeMultiplier: 1.2f),
             new AttackStats(shotsPerAttack: 1),
-            new AttackStats(projectileSizeMultiplier: 0.3f, shakeStrength: 0.15f),
+            new AttackStats(projectileSizeMultiplier: 1.3f, shakeStrength: 0.15f),
             new AttackStats(knockback: 0.7f, shakeRotation: 0.3f),
             new AttackStats(range: 2f, aimRangeAdditive: 2f),
             new AttackStats(isCone: true, coneAngle: 30f, pierce: 1)
@@ -1120,7 +1114,7 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 5),
             new AttackStats(castTime: -0.5f),
-            new AttackStats(castTime: 1f, damage: 10, projectileSizeMultiplier: 0.2f),
+            new AttackStats(castTime: 1f, damage: 10, projectileSizeMultiplier: 1.2f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(knockback: 0.5f, shakeRotation: 0.3f),
             new AttackStats(pierce: 5, spread: 0.3f)
@@ -1222,7 +1216,7 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 9),
             new AttackStats(comboLength: 1, damage: -4),
-            new AttackStats(meleeSizeMultiplier: 0.4f, shakeRotation: 0.5f),
+            new AttackStats(meleeSizeMultiplier: 1.4f, shakeRotation: 0.5f),
             new AttackStats(meleeSpacer: 2.5f, aimRangeAdditive: 2f, isCone: true, coneAngle: 45),
             new AttackStats(meleeShotsScaleUp: 0.12f),
             new AttackStats(aimRangeAdditive: 1.5f, meleeSpacer: 1.5f)
@@ -1304,14 +1298,14 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1f,
                     damage: 13,
-                    spread: 0.35f,
+                    spread: 0.4f,
                     castTime: 2.2f,
                     knockback: 0.6f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 0.75f,
+                    comboWaitTime: 3f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 0f,
                     meleeSpacerGap: 0f,
@@ -1336,9 +1330,9 @@ public static class AttackLibrary
         List<AttackStats> LaserBeamRarity = new List<AttackStats>
         {
             new AttackStats(damage: 5),
-            new AttackStats(meleeSpacerGapMultiplier: 0.4f, meleeSpacerMultiplier: 0.4f, aimRangeAdditive: 1.5f),
+            new AttackStats(meleeSpacerGapMultiplier: 1.4f, meleeSpacerMultiplier: 1.4f, aimRangeAdditive: 1.5f),
             new AttackStats(shotsPerAttack: 1, spread: -0.1f),
-            new AttackStats(castTime: 0.3f, meleeSizeMultiplier: 0.3f, damage: 10),
+            new AttackStats(castTime: 0.3f, meleeSizeMultiplier: 1.3f, damage: 10),
             new AttackStats(knockback: 0.8f, shakeTime: 0.05f, shakeRotation: 0.3f),
             new AttackStats(meleeShotsScaleUp: 0.15f, coneAngle: 45f)
         };
@@ -1431,7 +1425,7 @@ public static class AttackLibrary
                     isCone: true,
                     coneAngle: 45f,
                     damage: 15,
-                    spread: 0.3f,
+                    spread: 0.4f,
                     castTime: 2.5f,
                     shotsPerAttackMelee: 0,
                     knockback: 0.8f,
@@ -1439,7 +1433,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 0.6f,
+                    comboWaitTime: 2.5f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 3f,
                     meleeSpacerGap: 3.8f,
@@ -1467,7 +1461,7 @@ public static class AttackLibrary
             new AttackStats(speed: -0.05f, coneAngle: 45f),
             new AttackStats(shotsPerAttack: 1, spread: 0.4f),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
-            new AttackStats(projectileSizeMultiplier: 0.35f, shakeStrength: 0.1f),
+            new AttackStats(projectileSizeMultiplier: 1.35f, shakeStrength: 0.1f),
             new AttackStats(range: 2f, aimRangeAdditive: 2f),
         };
 
@@ -1580,9 +1574,9 @@ public static class AttackLibrary
             new AttackStats(castTime: -0.4f),
             new AttackStats(shotsPerAttack: 1, shotgunSpread: 25f),
             new AttackStats(damage: 3),
-            new AttackStats(projectileSizeMultiplier: 0.3f, shakeStrength: 0.2f),
-            new AttackStats(range: 1.5f, aimRangeAdditive: 1.5f, pierce: 5),
-            new AttackStats(projectileSizeMultiplier: 0.3f, shakeTime: 0.05f)
+            new AttackStats(projectileSizeMultiplier: 1.3f, shakeStrength: 0.2f),
+            new AttackStats(rangeMultiplier: 1.5f, aimRangeAdditive: 1.5f, pierce: 5),
+            new AttackStats(projectileSizeMultiplier: 1.3f, shakeTime: 0.05f)
         };
 
         List<AttackStats> PetrifyGrenadeUpgrades = new List<AttackStats>
@@ -1675,9 +1669,9 @@ public static class AttackLibrary
         List<AttackStats> PetrifyNovaRarity = new List<AttackStats>
         {
             new AttackStats(damage: 5),
-            new AttackStats(comboLength: 1, comboWaitTime: 0.3f),
+            new AttackStats(comboLength: 1, comboWaitTime: 1f),
             new AttackStats(shotsPerAttack: 1, damage: -2),
-            new AttackStats(meleeSizeMultiplier: 0.3f, shakeRotation: 0.5f),
+            new AttackStats(meleeSizeMultiplier: 1.3f, shakeRotation: 0.5f),
             new AttackStats(meleeSpacer: 2f, aimRangeAdditive: 2f),
             new AttackStats(meleeSpacer: 1.5f, aimRangeAdditive: 1.5f),
         };
@@ -1751,14 +1745,14 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1f,
                     damage: 2,
-                    spread: 0.5f,
+                    spread: 0.4f,
                     castTime: 2.3f,
                     knockback: 0f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1f,
+                    comboWaitTime: 2.5f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 0f,
                     meleeSpacerGap: 0f,
@@ -1786,7 +1780,7 @@ public static class AttackLibrary
             new AttackStats(damage: 9),
             new AttackStats(shotsPerAttack: 2),
             new AttackStats(shotsPerAttack: 2),
-            new AttackStats(projectileSizeMultiplier: 0.5f, shakeStrength: 0.05f),
+            new AttackStats(projectileSizeMultiplier: 1.5f, shakeStrength: 0.05f),
             new AttackStats(pierce: 1, speed: 0.05f),
             new AttackStats(range: 1f, aimRangeAdditive: 1.5f, coneAngle: 30f),
         };
@@ -1802,8 +1796,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Velocity 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
-            AttackStatsLibrary.GetStat("Steady 1"),
-            AttackStatsLibrary.GetStat("Overheat 1"),
             AttackStatsLibrary.GetStat("MLG 1"),
             AttackStatsLibrary.GetStat("Gamer 1"),
             //rare
@@ -1815,8 +1807,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Velocity 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
-            AttackStatsLibrary.GetStat("Steady 2"),
-            AttackStatsLibrary.GetStat("Overheat 2"),
             AttackStatsLibrary.GetStat("MLG 2"),
             AttackStatsLibrary.GetStat("Gamer 2"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -1871,7 +1861,7 @@ public static class AttackLibrary
                     shotsPerAttack: 6,
                     speed: 0.18f,
                     knockback: 0.5f,
-                    pierce: 0,
+                    pierce: 1,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -1900,8 +1890,8 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 8),
             new AttackStats(damage: 8),
-            new AttackStats(shotsPerAttack: 1, shotgunSpreadMultiplier: 0.2f),
-            new AttackStats(projectileSizeMultiplier: 0.4f, shakeStrength: 0.2f),
+            new AttackStats(shotsPerAttack: 1, shotgunSpreadMultiplier: 1.2f),
+            new AttackStats(projectileSizeMultiplier: 1.4f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f, aimRangeAdditive: 1.75f, coneAngle: 40),
             new AttackStats(knockback: 0.5f, shakeTime: 0.05f),
         };
@@ -2013,7 +2003,7 @@ public static class AttackLibrary
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotgunSpread: 35f, aimRangeAdditive: 1, coneAngle: 25),
-            new AttackStats(projectileSizeMultiplier: 0.4f, shakeStrength: 0.2f),
+            new AttackStats(projectileSizeMultiplier: 1.4f, shakeStrength: 0.2f),
             new AttackStats(range: 1.5f, speed: 0.015f),
         };
 
@@ -2120,7 +2110,7 @@ public static class AttackLibrary
             new AttackStats(range: 1f, speed: 0.05f),
             new AttackStats(shotsPerAttack: 10),
             new AttackStats(spread: -0.01f),
-            new AttackStats(projectileSizeMultiplier: 0.5f, shakeRotation: 0.02f),
+            new AttackStats(projectileSizeMultiplier: 1.5f, shakeRotation: 0.02f),
             new AttackStats(aimRangeAdditive: 2f, coneAngle: 30)
         };
 
@@ -2135,8 +2125,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Velocity 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
-            AttackStatsLibrary.GetStat("Steady 1"),
-            AttackStatsLibrary.GetStat("Overheat 1"),
             AttackStatsLibrary.GetStat("MLG 1"),
             AttackStatsLibrary.GetStat("Gamer 1"),
             //rare
@@ -2148,8 +2136,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Velocity 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
-            AttackStatsLibrary.GetStat("Steady 2"),
-            AttackStatsLibrary.GetStat("Overheat 2"),
             AttackStatsLibrary.GetStat("MLG 2"),
             AttackStatsLibrary.GetStat("Gamer 2"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -2196,7 +2182,7 @@ public static class AttackLibrary
                     aimRange: 1.8f,
                     isCone: true,
                     coneAngle: 50f,
-                    damage: 2,
+                    damage: 4,
                     spread: 0.04f,
                     spray: 25f,
                     castTime: 1.75f,
@@ -2231,11 +2217,11 @@ public static class AttackLibrary
         List<AttackStats> SmokeGrenadeRarity = new List<AttackStats>
         {
             new AttackStats(damage: 2),
-            new AttackStats(projectileSizeMultiplier: 0.25f),
+            new AttackStats(projectileSizeMultiplier: 1.25f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(shotsPerAttack: 1),
-            new AttackStats(speed: -0.25f, pierce: 5),
-            new AttackStats(range: 1.25f, aimRangeAdditive: 2f)
+            new AttackStats(speedMultiplier: 1.75f, pierce: 5),
+            new AttackStats(rangeMultiplier: 1.25f, aimRangeAdditive: 2f)
         };
 
         List<AttackStats> SmokeGrenadeUpgrades = new List<AttackStats>
@@ -2331,7 +2317,7 @@ public static class AttackLibrary
             new AttackStats(castTime: -0.2f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.4f),
-            new AttackStats(projectileSizeMultiplier: 0.3f, shakeRotation: 0.1f),
+            new AttackStats(projectileSizeMultiplier: 1.3f, shakeRotation: 0.1f),
             new AttackStats(aimRangeAdditive: 2f, coneAngle: 30f),
             new AttackStats(shotsPerAttack: 1)
         };
@@ -2444,7 +2430,7 @@ public static class AttackLibrary
             new AttackStats(speed: -0.008f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(range: 1.5f, aimRangeAdditive: 1.5f),
-            new AttackStats(projectileSizeMultiplier: 0.25f, shakeRotation: 0.1f),
+            new AttackStats(projectileSizeMultiplier: 1.25f, shakeRotation: 0.1f),
             new AttackStats(throwSpeed: 5f),
             new AttackStats(coneAngle: 45f, aimRangeAdditive: 1f)
         };
@@ -2518,7 +2504,7 @@ public static class AttackLibrary
                     shotsPerAttack: 1,
                     speed: 0.018f,
                     knockback: 0f,
-                    pierce: 15,
+                    pierce: 30,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -2550,7 +2536,7 @@ public static class AttackLibrary
             new AttackStats(speed: 0.1f, range: 1f, aimRangeAdditive: 1f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(range: 1f, aimRangeAdditive: 1f, pierce: 5),
-            new AttackStats(projectileSizeMultiplier: 0.3f, shakeRotation: 0.1f),
+            new AttackStats(projectileSizeMultiplier: 1.3f, shakeRotation: 0.1f),
             new AttackStats(knockback: 0.5f, shakeStrength: 0.1f),
         };
 
@@ -2630,8 +2616,7 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     shakeTime: 0.05f,
                     shakeStrength: 0.05f,
-                    shakeRotation: 0.05f,
-                    projectileSizeMultiplier: 1
+                    shakeRotation: 0.05f
                 )
             )
             .SetProperties(
@@ -2649,10 +2634,10 @@ public static class AttackLibrary
         {
             new AttackStats(damage: 7),
             new AttackStats(comboLength: 1, damage: -2),
-            new AttackStats(meleeSizeMultiplier: 0.25f, shakeRotation: 0.5f),
+            new AttackStats(meleeSizeMultiplier: 1.25f, shakeRotation: 0.5f),
             new AttackStats(meleeSpacer: 2f, aimRangeAdditive: 2f),
             new AttackStats(meleeSpacer: 1.5f, aimRangeAdditive: 1.5f),
-            new AttackStats(knockbackMultiplier: 0.25f)
+            new AttackStats(knockbackMultiplier: 1.25f)
         };
 
         List<AttackStats> SuctionNovaUpgrades = new List<AttackStats>
@@ -2731,14 +2716,14 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1f,
                     damage: 3,
-                    spread: 0.4f,
+                    spread: 0.35f,
                     castTime: 2.5f,
                     knockback: 0.30f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 0.75f,
+                    comboWaitTime: 2.5f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 0f,
                     meleeSpacerGap: 0f,
@@ -2763,8 +2748,8 @@ public static class AttackLibrary
         List<AttackStats> WindBladeRarity = new List<AttackStats>
         {
             new AttackStats(damage: 4),
-            new AttackStats(comboWaitTime: -0.05f, castTime: -0.3f),
-            new AttackStats(meleeSizeMultiplier: 0.3f, shakeStrength: 0.04f),
+            new AttackStats(comboWaitTime: -0.5f),
+            new AttackStats(meleeSizeMultiplier: 1.3f, shakeStrength: 0.04f),
             new AttackStats(knockback: 0.4f, shakeRotation: 0.3f),
             new AttackStats(comboLength: -1, damage: 7),
             new AttackStats(meleeSpacer: 1.5f, coneAngle: 30f, aimRangeAdditive: 1f)
@@ -2862,7 +2847,7 @@ public static class AttackLibrary
                     damage: 5,
                     isCone: true,
                     coneAngle: 120f,
-                    spread: 0.18f,
+                    spread: 0.3f,
                     castTime: 2f,
                     shotsPerAttackMelee: 0,
                     knockback: 0.35f,
@@ -2870,7 +2855,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 3,
-                    comboWaitTime: 0.3f,
+                    comboWaitTime: 1.5f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 2.5f,
                     meleeSpacerGap: 2.75f,
@@ -2878,7 +2863,8 @@ public static class AttackLibrary
                     shakeStrength: 0.12f,
                     shakeRotation: 0.1f,
                     thrownDamage: 5,
-                    throwSpeed: 0.6f
+                    throwSpeed: 0.6f,
+                    swapAnimOnAttack: true
                 )
             )
             .SetProperties(
