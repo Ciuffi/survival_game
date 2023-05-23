@@ -485,9 +485,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSizeMultiplier: 1.2f,
+                projectileSizeMultiplier: 1.25f,
                 name: "Big Ammo 1",
-                description: "Projectile Size +20%",
+                description: "Projectile Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
@@ -496,9 +496,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSizeMultiplier: 1.12f,
+                projectileSizeMultiplier: 1.15f,
                 name: "Big Gadget 1",
-                description: "Projectile Size +12%",
+                description: "Projectile Size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare
             )
@@ -772,9 +772,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSizeMultiplier: 1.25f,
+                projectileSizeMultiplier: 1.3f,
                 name: "Big Gadget 2",
-                description: "Projectile Size +25%",
+                description: "Projectile Size +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic
             )
@@ -972,9 +972,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSizeMultiplier: 1.5f,
+                projectileSizeMultiplier: 1.55f,
                 name: "Big Gadget 3",
-                description: "Projectile Size +50%",
+                description: "Projectile Size +55%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary
             )
@@ -1383,9 +1383,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSizeMultiplier: 1.15f,
+                projectileSizeMultiplier: 1.20f,
                 name: "High Caliber 1",
-                description: "Projectile Size +15%",
+                description: "Projectile Size +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1395,9 +1395,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSizeMultiplier: 1.08f,
+                projectileSizeMultiplier: 1.1f,
                 name: "Size Up 1",
-                description: "Projectile Size +8%",
+                description: "Projectile Size +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1659,9 +1659,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSizeMultiplier: 1.25f,
+                projectileSizeMultiplier: 1.30f,
                 name: "High Caliber 2",
-                description: "Projectile Size +25%",
+                description: "Projectile Size +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -1671,9 +1671,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSizeMultiplier: 1.18f,
+                projectileSizeMultiplier: 1.20f,
                 name: "Size Up 2",
-                description: "Projectile Size +18%",
+                description: "Projectile Size +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -1889,9 +1889,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                projectileSizeMultiplier: 1.35f,
+                projectileSizeMultiplier: 1.40f,
                 name: "Size Up 3",
-                description: "Projectile Size +35%",
+                description: "Projectile Size +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
                 rarity: Rarity.Legendary,
                 weaponSet: true

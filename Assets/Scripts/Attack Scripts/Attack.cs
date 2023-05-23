@@ -119,7 +119,7 @@ public class Attack : MonoBehaviour, Upgrade
         {
             attackTime =
                 (baseStats.comboLength - 1) * baseStats.comboWaitTime
-                + (baseStats.shotsPerAttackMelee - 1) * baseStats.spread * baseStats.comboLength
+                + (baseStats.shotsPerAttackMelee - 1) * baseStats.spread
                 + baseStats.multicastTimes * baseStats.multicastWaitTime;
             // Add the definition for Melee attack type
         }
@@ -888,7 +888,10 @@ public class Attack : MonoBehaviour, Upgrade
                     .GetComponent<ScreenShakeController>()
                     .StartShake(stats.shakeTime, stats.shakeStrength, stats.shakeRotation);
 
-                yield return new WaitForSeconds(stats.spread);
+                if (i < stats.shotsPerAttackMelee)
+                {
+                    yield return new WaitForSeconds(stats.spread);
+                }
 
                 localSpacer += stats.meleeSpacerGap * stats.meleeSpacerGapMultiplier;
 

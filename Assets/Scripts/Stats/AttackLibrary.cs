@@ -1959,7 +1959,7 @@ public static class AttackLibrary
             .SetAttackName("Shotgun")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_wide"))
             .SetWeaponSetType(WeaponSetType.Shotgun)
-            .SetDescription("Ayy Shawttyyyy.")
+            .SetDescription("Ayy Shawttyyyy!")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
@@ -2532,7 +2532,7 @@ public static class AttackLibrary
         // SuctionGrenade
         List<AttackStats> SuctionGrenadeRarity = new List<AttackStats>
         {
-            new AttackStats(damage: 5),
+            new AttackStats(damage: 2),
             new AttackStats(speed: 0.1f, range: 1f, aimRangeAdditive: 1f),
             new AttackStats(shotsPerAttack: 1),
             new AttackStats(range: 1f, aimRangeAdditive: 1f, pierce: 5),

@@ -558,7 +558,102 @@ public class AttackStats : Upgrade
         this.coneAngle = attackStats.coneAngle;
     }
 
-    public UpgradeType GetUpgradeType()
+    public AttackStats Clone()
+    {
+
+        return new AttackStats
+        {
+            name = this.name,
+            description = this.description,
+            icon = this.icon,
+
+            aimRange = this.aimRange,
+            damage = this.damage,
+            cantMove = this.cantMove,
+            shootOppositeSide = this.shootOppositeSide,
+            critChance = this.critChance,
+            critDmg = this.critDmg,
+
+            castTime = this.castTime,
+            recoveryTime = this.recoveryTime,
+            knockback = this.knockback,
+
+            multicastChance = this.multicastChance,
+            multicastWaitTime = this.multicastWaitTime,
+            multicastTimes = this.multicastTimes,
+            multicastAlphaFade = this.multicastAlphaFade,
+
+            shotsPerAttack = this.shotsPerAttack,
+            spread = this.spread,
+            shotgunSpread = this.shotgunSpread,
+            spray = this.spray,
+            sprayThreshold = this.sprayThreshold,
+            speed = this.speed,
+            range = this.range,
+            pierce = this.pierce,
+            projectileSize = this.projectileSize,
+
+            shotsPerAttackMelee = this.shotsPerAttackMelee,
+            comboLength = this.comboLength,
+            comboWaitTime = this.comboWaitTime,
+            comboAttackBuff = this.comboAttackBuff,
+            meleeShotsScaleUp = this.meleeShotsScaleUp,
+            meleeSpacer = this.meleeSpacer,
+            meleeSpacerGap = this.meleeSpacerGap,
+            swapAnimOnAttack = this.swapAnimOnAttack,
+
+            thrownDamage = this.thrownDamage,
+            thrownSpeed = this.thrownSpeed,
+
+            shakeTime = this.shakeTime,
+            shakeStrength = this.shakeStrength,
+            shakeRotation = this.shakeRotation,
+
+            scaleUP = this.scaleUP,
+            meleeSize = this.meleeSize,
+            rarity = this.rarity,
+            effectDuration = this.effectDuration,
+
+            aimRangeAdditive = this.aimRangeAdditive,
+            damageMultiplier = this.damageMultiplier,
+
+            castTimeMultiplier = this.castTimeMultiplier,
+            attackTimeMultiplier = this.attackTimeMultiplier,
+            recoveryTimeMultiplier = this.recoveryTimeMultiplier,
+            knockbackMultiplier = this.knockbackMultiplier,
+
+            multicastChanceMultiplier = this.multicastChanceMultiplier,
+            multicastWaitTimeMultiplier = this.multicastWaitTimeMultiplier,
+
+            spreadMultiplier = this.spreadMultiplier,
+            shotgunSpreadMultiplier = this.shotgunSpreadMultiplier,
+            sprayMultiplier = this.sprayMultiplier,
+            speedMultiplier = this.speedMultiplier,
+            rangeMultiplier = this.rangeMultiplier,
+            projectileSizeMultiplier = this.projectileSizeMultiplier,
+
+            comboWaitTimeMultiplier = this.comboWaitTimeMultiplier,
+            comboAttackBuffMultiplier = this.comboAttackBuffMultiplier,
+            meleeShotsScaleUpMultiplier = this.meleeShotsScaleUpMultiplier,
+            meleeSpacerMultiplier = this.meleeSpacerMultiplier,
+            meleeSpacerGapMultiplier = this.meleeSpacerGapMultiplier,
+
+            thrownDamageMultiplier = this.thrownDamageMultiplier,
+            thrownSpeedMultiplier = this.thrownSpeedMultiplier,
+
+            meleeSizeMultiplier = this.meleeSizeMultiplier,
+            effectMultiplier = this.effectMultiplier,
+            weaponSet = this.weaponSet,
+            isCone = this.isCone,
+            coneAngle = this.coneAngle,
+
+            statsContainer = this.statsContainer,
+            AttackName = this.AttackName,
+            weaponSetType = this.weaponSetType
+        };
+    }
+
+        public UpgradeType GetUpgradeType()
     {
         return weaponSet ? UpgradeType.WeaponSetStat : UpgradeType.WeaponStat;
     }

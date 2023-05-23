@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using System.Linq;
 using TMPro;
 using System.Text.RegularExpressions;
+using System;
+using Random = UnityEngine.Random;
 
 public class LevelUpManager : MonoBehaviour
 {
@@ -167,7 +169,7 @@ public class LevelUpManager : MonoBehaviour
 
                     textComponents[2].text = GO.GetComponent<Upgrade>().GetUpgradeDescription();
 
-                    textComponents[3].text = GO.GetComponent<Attack>().attackType.ToString();
+                    textComponents[3].text = GO.GetComponent<Attack>().weaponSetType.ToString();
 
                 }
             );
@@ -216,6 +218,9 @@ public class LevelUpManager : MonoBehaviour
 
                     // Weapon Set upgrade
                     upgrades = weaponSetUpgrades;
+                    //foreach (WeaponSetType weaponSetType in Enum.GetValues(typeof(WeaponSetType)))
+                    //{int count = weaponSetUpgrades.Count(u => u.GetComponent<AttackStatComponent>().stat.weaponSetType == weaponSetType);
+                        //Debug.Log($"Count of {weaponSetType}: {count}");}
 
                     if (upgradeRoll < dropTable.existingWeaponOrSetChance)
                     {
@@ -224,14 +229,15 @@ public class LevelUpManager : MonoBehaviour
                         var attackHandler = FindObjectOfType<AttackHandler>();
                         // Get the unique weapon set types in the current attacks
                         var currentWeaponSetTypes = attackHandler.attacks.Select(a => a.weaponSetType).Distinct();
-                        Debug.Log($"Current WeaponSetTypes: {string.Join(", ", currentWeaponSetTypes)}");
+                        //Debug.Log($"Current WeaponSetTypes: {string.Join(", ", currentWeaponSetTypes)}");
+
                         // Filter upgrades that correspond to any of the current weapon set types
                         upgrades = upgrades
                             .Where(u => currentWeaponSetTypes.Contains(u.GetComponent<AttackStatComponent>().stat.weaponSetType))
                             .ToList();
                     }
-
                     upgrades = upgrades.Where(u => u.GetComponent<AttackStatComponent>().stat.GetRarity() == chosenRarity).ToList();
+                    //Debug.Log(upgrades.Count);
 
                 }
                 else
@@ -262,17 +268,16 @@ public class LevelUpManager : MonoBehaviour
 
                 // ... continue from here as before, but using potentialUpgrades list
                 // Remember to check if potentialUpgrades is not empty before proceeding
-
-                GameObject GO = null;
-                while (GO == null)
-                {
-                    GO = upgrades[Random.Range(0, upgrades.Count)];
-                    if (previousUpgrades.Contains(GO.name))
+                GameObject GO = null;  
+                    while (GO == null)
                     {
-                        GO = null;
+                        GO = upgrades[Random.Range(0, upgrades.Count)];
+                        if (previousUpgrades.Contains(GO.name))
+                        {
+                            GO = null;
+                        }
                     }
-                }
-                previousUpgrades.Add(GO.name);
+                    previousUpgrades.Add(GO.name);
 
                 var statComponent = GO.GetComponent<StatComponent>();
                 var attackStatComponent = GO.GetComponent<AttackStatComponent>();
@@ -482,7 +487,6 @@ public class LevelUpManager : MonoBehaviour
 
     public GameObject[] getSetUpgrades()
     {
-        GameObject statObject = new GameObject();
         List<GameObject> weaponSetStats = new List<GameObject>();
 
         // Fetch all stats from the weapon set upgrade map
@@ -495,16 +499,24 @@ public class LevelUpManager : MonoBehaviour
             {
                 List<AttackStats> statsList = rarityEntry.Value;
 
-                foreach (AttackStats stat in statsList)
+                foreach (AttackStats upgrade in statsList)
                 {
-                    GameObject upgradeGameObject = Instantiate(statObject);
-                    upgradeGameObject.AddComponent<AttackStatComponent>().stat = stat;
+                    AttackStats clonedUpgrade = upgrade.Clone();
+
+                    GameObject upgradeGameObject = new GameObject();
+                    upgradeGameObject.AddComponent<AttackStatComponent>().stat = clonedUpgrade;
                     upgradeGameObject.name = upgradeGameObject.GetComponent<AttackStatComponent>().stat.name;
                     upgradeGameObject.GetComponent<AttackStatComponent>().stat.statsContainer = upgradeGameObject;
                     upgradeGameObject.GetComponent<AttackStatComponent>().stat.weaponSetType = weaponSetType;
                     weaponSetStats.Add(upgradeGameObject);
                 }
             }
+        }
+
+        foreach (WeaponSetType weaponSetType in Enum.GetValues(typeof(WeaponSetType)))
+        {
+            int count = weaponSetStats.Count(u => u.GetComponent<AttackStatComponent>().stat.weaponSetType == weaponSetType);
+            Debug.Log($"Count of {weaponSetType}: {count}");
         }
 
         return weaponSetStats.ToArray();

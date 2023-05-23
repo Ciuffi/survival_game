@@ -149,7 +149,7 @@ public class LootBoxManager : MonoBehaviour
 
                     textComponents[2].text = GO.GetComponent<Upgrade>().GetUpgradeDescription();
 
-                    textComponents[3].text = GO.GetComponent<Attack>().attackType.ToString();
+                    textComponents[3].text = GO.GetComponent<Attack>().weaponSetType.ToString();
 
                 }
             }
@@ -390,7 +390,6 @@ public class LootBoxManager : MonoBehaviour
 
     public GameObject[] getSetUpgrades()
     {
-        GameObject statObject = new GameObject();
         List<GameObject> weaponSetStats = new List<GameObject>();
 
         // Fetch all stats from the weapon set upgrade map
@@ -403,10 +402,12 @@ public class LootBoxManager : MonoBehaviour
             {
                 List<AttackStats> statsList = rarityEntry.Value;
 
-                foreach (AttackStats stat in statsList)
+                foreach (AttackStats upgrade in statsList)
                 {
-                    GameObject upgradeGameObject = Instantiate(statObject);
-                    upgradeGameObject.AddComponent<AttackStatComponent>().stat = stat;
+                    AttackStats clonedUpgrade = upgrade.Clone();
+
+                    GameObject upgradeGameObject = new GameObject();
+                    upgradeGameObject.AddComponent<AttackStatComponent>().stat = clonedUpgrade;
                     upgradeGameObject.name = upgradeGameObject.GetComponent<AttackStatComponent>().stat.name;
                     upgradeGameObject.GetComponent<AttackStatComponent>().stat.statsContainer = upgradeGameObject;
                     upgradeGameObject.GetComponent<AttackStatComponent>().stat.weaponSetType = weaponSetType;

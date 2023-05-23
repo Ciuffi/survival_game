@@ -144,8 +144,8 @@ public class AttackBuilder
 
         if (thrownWeapon == null)
         {
-            Debug.LogWarning("ThrownWeapon is required and cannot be null.");
-            thrownWeapon = Resources.Load<GameObject>("Projectiles/WeaponThrown");
+            Debug.LogWarning("ThrownWeapon is null.");
+            //thrownWeapon = Resources.Load<GameObject>("Projectiles/WeaponThrown");
         }
 
         if (thrownSprite == null)
@@ -192,8 +192,8 @@ public class AttackBuilder
         if (thrownWeapon != null)
         {
             attack.thrownWeapon = thrownWeapon;
+            attack.thrownWeapon.GetComponent<Projectile>().damage = attack.stats.thrownDamage;
         }
-        attack.thrownWeapon.GetComponent<Projectile>().damage = attack.stats.thrownDamage;
         //Debug.Log(attack.stats.thrownDamage);
 
         attack.thrownSprite = thrownSprite;
@@ -216,7 +216,7 @@ public class AttackBuilder
         {
             attack.attackTime =
                 (attack.baseStats.comboLength - 1) * attack.baseStats.comboWaitTime
-                + (attack.baseStats.shotsPerAttackMelee - 1) * attack.baseStats.spread * attack.baseStats.comboLength
+                + (attack.baseStats.shotsPerAttackMelee - 1) * attack.baseStats.spread
                 + attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
             // Add the definition for Melee attack type
         }
