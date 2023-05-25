@@ -198,6 +198,7 @@ public class StatsHandler : MonoBehaviour
     {
         MatchCharacter();
 
+        weaponsList = transform.Find("Weapons").gameObject;
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
         OGMaterial = spriteRend.material;
         Camera = GameObject.FindWithTag("MainCamera");
@@ -220,7 +221,6 @@ public class StatsHandler : MonoBehaviour
         // Get all child game objects of the prefab
         foreach (Transform child in prefab.transform)
         {
-            Debug.Log(prefab.name);
             // Check if the child game object has an attached Attack script
             Attack attackScript = child.gameObject.GetComponent<Attack>();
             if (attackScript != null)

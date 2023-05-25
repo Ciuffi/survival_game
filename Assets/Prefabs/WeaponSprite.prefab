@@ -430,6 +430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimRange: 3
+  coneAngle: 75
+  isCone: 1
   rangeVisualizerSprite: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -437,3 +439,4 @@ MonoBehaviour:
   weaponSpriteRotation: {fileID: 7313015711702768634}
   currentTarget: {fileID: 0}
   targetFound: 0
+  coneMaterial: {fileID: 2100000, guid: 69eb0b8905f8a204ba81b46f742954e1, type: 2}

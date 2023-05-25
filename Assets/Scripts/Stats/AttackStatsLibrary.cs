@@ -55,7 +55,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: -1f,
                 name: "MLG 1",
                 description: "Decrease Aim Range",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Common
             )
         );
@@ -66,7 +66,7 @@ public static class AttackStatsLibrary
                 coneAngle: -30f,
                 name: "Gamer 1",
                 description: "Decrease Aim Assist Width",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Common
             )
         );
@@ -74,10 +74,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                damageMultiplier: 1.06f,
+                damageMultiplier: 1.15f,
                 name: "Damage 1",
-                description: "Damage +6%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Damage +15%",
+                icon: Resources.Load<Sprite>("UI_Icons/Damage"),
                 rarity: Rarity.Common
             )
         );
@@ -88,7 +88,7 @@ public static class AttackStatsLibrary
                 critChance: 0.05f,
                 name: "Crit Chance 1",
                 description: "Crit Chance +5%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Common
             )
         );
@@ -99,7 +99,7 @@ public static class AttackStatsLibrary
                 critDmg: 0.25f,
                 name: "Crit Dmg 1",
                 description: "Crit Dmg +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Common
             )
         );
@@ -110,7 +110,7 @@ public static class AttackStatsLibrary
                 castTimeMultiplier: 0.92f,
                 name: "Haste 1",
                 description: "Cooldown -8%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Common
             )
         );
@@ -121,7 +121,7 @@ public static class AttackStatsLibrary
                 knockbackMultiplier: 1.10f,
                 name: "Knockback 1",
                 description: "Knockback +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Knockback"),
                 rarity: Rarity.Common
             )
         );
@@ -132,7 +132,7 @@ public static class AttackStatsLibrary
                 spreadMultiplier: 0.88f,
                 name: "Glattt 1",
                 description: "Rate of Fire +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Glattt"),
                 rarity: Rarity.Common
             )
         );
@@ -143,7 +143,7 @@ public static class AttackStatsLibrary
                 shotgunSpreadMultiplier: 1.15f,
                 name: "Saw'd Off 1",
                 description: "Shotgun Spread +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Saw'dOff"),
                 rarity: Rarity.Common
             )
         );
@@ -151,10 +151,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                sprayMultiplier: 0.6f,
+                sprayMultiplier: 0.3f,
                 name: "Steady 1",
-                description: "Projectile Spray -40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Projectile Spray -30%",
+                icon: Resources.Load<Sprite>("UI_Icons/Steady"),
                 rarity: Rarity.Common
             )
         );
@@ -162,10 +162,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                sprayMultiplier: 1.4f,
+                sprayMultiplier: 1.3f,
                 name: "Overheat 1",
-                description: "Projectile Spray +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Projectile Spray +30%",
+                icon: Resources.Load<Sprite>("UI_Icons/Overheat"),
                 rarity: Rarity.Common
             )
         );
@@ -176,7 +176,7 @@ public static class AttackStatsLibrary
                 speedMultiplier: 1.12f,
                 name: "Velocity 1",
                 description: "Projectile Speed +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Velocity"),
                 rarity: Rarity.Common
             )
         );
@@ -187,7 +187,7 @@ public static class AttackStatsLibrary
                 rangeMultiplier: 1.12f,
                 name: "Reach 1",
                 description: "Range +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Reach"),
                 rarity: Rarity.Common
             )
         );
@@ -199,7 +199,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: 0.88f,
                 name: "Quick Hands 1",
                 description: "Attack Speed +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/QuickHands"),
                 rarity: Rarity.Common
             )
         );
@@ -210,7 +210,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 1.2f,
                 name: "Extend 1",
                 description: "Range +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Extend"),
                 rarity: Rarity.Common
             )
         );
@@ -221,7 +221,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.75f,
                 name: "Kamakazi 1",
                 description: "Range -25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Kamakazi"),
                 rarity: Rarity.Common
             )
         );
@@ -234,7 +234,7 @@ public static class AttackStatsLibrary
                 critChance: 0.10f,
                 name: "MLG 2",
                 description: "Decrease Aim Range, Crit Chance +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Rare
             )
         );
@@ -246,7 +246,7 @@ public static class AttackStatsLibrary
                 critDmg: 0.3f,
                 name: "Gamer 2",
                 description: "Decrease Aim Width, Crit Dmg +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Rare
             )
         );
@@ -254,10 +254,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                damageMultiplier: 1.12f,
+                damageMultiplier: 1.3f,
                 name: "Damage 2",
-                description: "Damage +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Damage +30%",
+                icon: Resources.Load<Sprite>("UI_Icons/Damage"),
                 rarity: Rarity.Rare
             )
         );
@@ -268,7 +268,7 @@ public static class AttackStatsLibrary
                 critChance: 0.08f,
                 name: "Crit Chance 2",
                 description: "Crit Chance +8%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Rare
             )
         );
@@ -279,7 +279,7 @@ public static class AttackStatsLibrary
                 critDmg: 0.40f,
                 name: "Crit Dmg 2",
                 description: "Crit Dmg +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Rare
             )
         );
@@ -290,7 +290,7 @@ public static class AttackStatsLibrary
                 castTimeMultiplier: 0.85f,
                 name: "Haste 2",
                 description: "Cooldown -15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Rare
             )
         );
@@ -301,7 +301,7 @@ public static class AttackStatsLibrary
                 knockbackMultiplier: 1.20f,
                 name: "Knockback 2",
                 description: "Knockback +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Knockback"),
                 rarity: Rarity.Rare
             )
         );
@@ -312,7 +312,7 @@ public static class AttackStatsLibrary
                 spreadMultiplier: 0.75f,
                 name: "Glattt 2",
                 description: "Rate of Fire +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Glattt"),
                 rarity: Rarity.Rare
             )
         );
@@ -323,7 +323,7 @@ public static class AttackStatsLibrary
                 shotgunSpreadMultiplier: 1.3f,
                 name: "Saw'd Off 2",
                 description: "Shotgun Spread +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Saw'dOff"),
                 rarity: Rarity.Rare
             )
         );
@@ -331,10 +331,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                sprayMultiplier: 0.2f,
+                sprayMultiplier: 0.6f,
                 name: "Steady 2",
-                description: "Projectile Spray -80%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Projectile Spray -60%",
+                icon: Resources.Load<Sprite>("UI_Icons/Steady"),
                 rarity: Rarity.Rare
             )
         );
@@ -342,10 +342,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                sprayMultiplier: 1.8f,
+                sprayMultiplier: 1.6f,
                 name: "Overheat 2",
-                description: "Projectile Spray +80%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Projectile Spray +60%",
+                icon: Resources.Load<Sprite>("UI_Icons/Overheat"),
                 rarity: Rarity.Rare
             )
         );
@@ -356,7 +356,7 @@ public static class AttackStatsLibrary
                 speedMultiplier: 1.25f,
                 name: "Velocity 2",
                 description: "Projectile Speed +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Velocity"),
                 rarity: Rarity.Rare
             )
         );
@@ -367,7 +367,7 @@ public static class AttackStatsLibrary
                 rangeMultiplier: 1.25f,
                 name: "Reach 2",
                 description: "Range +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Reach"),
                 rarity: Rarity.Rare
             )
         );
@@ -379,7 +379,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: 0.65f,
                 name: "Quick Hands 2",
                 description: "Attack Speed +35%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/QuickHands"),
                 rarity: Rarity.Rare
             )
         );
@@ -390,7 +390,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 1.4f,
                 name: "Extend 2",
                 description: "Range +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Extend"),
                 rarity: Rarity.Rare
             )
         );
@@ -401,7 +401,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.4f,
                 name: "Kamakazi 2",
                 description: "Range -60%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Kamakazi"),
                 rarity: Rarity.Rare
             )
         );
@@ -412,7 +412,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: 1f,
                 name: "Hacker 1",
                 description: "Increases Aim Range",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
                 rarity: Rarity.Rare
             )
         );
@@ -422,7 +422,7 @@ public static class AttackStatsLibrary
                 coneAngle: 40f,
                 name: "AFK 1",
                 description: "Increases Aim Width",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/AFK"),
                 rarity: Rarity.Rare
             )
         );
@@ -433,7 +433,7 @@ public static class AttackStatsLibrary
                 multicastChance: 0.15f,
                 name: "Multicast 1",
                 description: "Multicast chance +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Rare
             )
         );
@@ -444,7 +444,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 1,
                 name: "Extra Round 1",
                 description: "+1 Projectile",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/ExtraRound"),
                 rarity: Rarity.Rare
             )
         );
@@ -455,7 +455,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 6,
                 name: "Extended Clip 1",
                 description: "+6 Projectiles",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/ExtendedClip"),
                 rarity: Rarity.Rare
             )
         );
@@ -466,7 +466,7 @@ public static class AttackStatsLibrary
                 pierce: 1,
                 name: "Pierce 1",
                 description: "Pierce through +1 enemy",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Pierce"),
                 rarity: Rarity.Rare
             )
         );
@@ -477,7 +477,7 @@ public static class AttackStatsLibrary
                 pierce: 5,
                 name: "Puncture 1",
                 description: "Pierce through +5 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Puncture"),
                 rarity: Rarity.Rare
             )
         );
@@ -488,7 +488,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.25f,
                 name: "Big Ammo 1",
                 description: "Projectile Size +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BigAmmo"),
                 rarity: Rarity.Rare
             )
         );
@@ -499,7 +499,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.15f,
                 name: "Big Gadget 1",
                 description: "Projectile Size +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BigGadget"),
                 rarity: Rarity.Rare
             )
         );
@@ -510,7 +510,7 @@ public static class AttackStatsLibrary
                 comboLength: 1,
                 name: "One More 1",
                 description: "+1 Cast",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/OneMore"),
                 rarity: Rarity.Rare
             )
         );
@@ -521,7 +521,7 @@ public static class AttackStatsLibrary
                 shotsPerAttackMelee: 1,
                 name: "Aftershock 1",
                 description: "Release an aftershock after each cast",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Aftershock"),
                 rarity: Rarity.Rare
             )
         );
@@ -532,7 +532,7 @@ public static class AttackStatsLibrary
                 meleeSizeMultiplier: 1.15f,
                 name: "Big Weapon 1",
                 description: "Attack Size +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BigWeapon"),
                 rarity: Rarity.Rare
             )
         );
@@ -543,7 +543,7 @@ public static class AttackStatsLibrary
                 meleeShotsScaleUpMultiplier: 1.07f,
                 name: "Wave Surge 1",
                 description: "Aftershock Size +7%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
                 rarity: Rarity.Rare
             )
         );
@@ -554,19 +554,64 @@ public static class AttackStatsLibrary
                 meleeSpacerGapMultiplier: 1.2f,
                 name: "Ki Surge 1",
                 description: "Aftershock Range +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/KiSurge"),
                 rarity: Rarity.Rare
             )
         );
         ;
 
+        AddStat(
+            new AttackStats(
+                activeMultiplier: 1.25f,
+                name: "Persistence 1",
+                description: "Attack duration +25%",
+                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                activeDuration: 0.5f,
+                name: "Persistence+ 1",
+                description: "Attack duration +0.5s",
+                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                effectDuration: 0.5f,
+                name: "Hourglass 1",
+                description: "Debuff duration +0.5s",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                effectMultiplier: 1.25f,
+                name: "Saboteur 1",
+                description: "Debuff Power +25%",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+
         //epic
         AddStat(
             new AttackStats(
-                damageMultiplier: 1.12f,
+                damageMultiplier: 1.5f,
                 name: "Damage 3",
-                description: "Damage +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Damage +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/Damage"),
                 rarity: Rarity.Epic
             )
         );
@@ -577,7 +622,7 @@ public static class AttackStatsLibrary
                 critChance: 0.2f,
                 name: "Crit Chance 3",
                 description: "Crit Chance +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Epic
             )
         );
@@ -588,7 +633,7 @@ public static class AttackStatsLibrary
                 critDmg: 1f,
                 name: "Crit Dmg 3",
                 description: "Crit Dmg +100%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Epic
             )
         );
@@ -599,7 +644,7 @@ public static class AttackStatsLibrary
                 castTimeMultiplier: 0.65f,
                 name: "Haste 3",
                 description: "Cooldown -35%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Epic
             )
         );
@@ -610,7 +655,7 @@ public static class AttackStatsLibrary
                 knockbackMultiplier: 1.40f,
                 name: "Knockback 3",
                 description: "Knockback +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Knockback"),
                 rarity: Rarity.Epic
             )
         );
@@ -621,7 +666,7 @@ public static class AttackStatsLibrary
                 spreadMultiplier: 0.6f,
                 name: "Glattt 3",
                 description: "Rate of Fire +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Glattt"),
                 rarity: Rarity.Epic
             )
         );
@@ -632,7 +677,7 @@ public static class AttackStatsLibrary
                 shotgunSpreadMultiplier: 1.5f,
                 name: "Saw'd Off 3",
                 description: "Shotgun Spread +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Saw'dOff"),
                 rarity: Rarity.Epic
             )
         );
@@ -643,7 +688,7 @@ public static class AttackStatsLibrary
                 speedMultiplier: 1.4f,
                 name: "Velocity 3",
                 description: "Projectile Speed +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Velocity"),
                 rarity: Rarity.Epic
             )
         );
@@ -654,7 +699,7 @@ public static class AttackStatsLibrary
                 rangeMultiplier: 1.4f,
                 name: "Reach 3",
                 description: "Projectile Range +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Reach"),
                 rarity: Rarity.Epic
             )
         );
@@ -666,7 +711,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: 0.5f,
                 name: "Quick Hands 3",
                 description: "Attack Speed +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/QuickHands"),
                 rarity: Rarity.Epic
             )
         );
@@ -677,7 +722,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 2f,
                 name: "Extend 3",
                 description: "Range +100%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Extend"),
                 rarity: Rarity.Epic
             )
         );
@@ -688,7 +733,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: 2f,
                 name: "Hacker 2",
                 description: "Increases Aim Range",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
                 rarity: Rarity.Epic
             )
         );
@@ -698,7 +743,7 @@ public static class AttackStatsLibrary
                 coneAngle: 60f,
                 name: "AFK 2",
                 description: "Increases Aim Width",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/AFK"),
                 rarity: Rarity.Epic
             )
         );
@@ -709,7 +754,7 @@ public static class AttackStatsLibrary
                 multicastChance: 0.33f,
                 name: "Multicast 2",
                 description: "Multicast chance +33%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Epic
             )
         );
@@ -720,7 +765,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 3,
                 name: "Extra Round 2",
                 description: "+3 Projectile",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/ExtraRound"),
                 rarity: Rarity.Epic
             )
         );
@@ -731,7 +776,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 15,
                 name: "Extended Clip 2",
                 description: "+15 Projectiles",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/ExtendedClip"),
                 rarity: Rarity.Epic
             )
         );
@@ -742,7 +787,7 @@ public static class AttackStatsLibrary
                 pierce: 3,
                 name: "Pierce 2",
                 description: "Pierce through +3 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Pierce"),
                 rarity: Rarity.Epic
             )
         );
@@ -753,7 +798,7 @@ public static class AttackStatsLibrary
                 pierce: 20,
                 name: "Puncture 2",
                 description: "Pierce through +20 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Puncture"),
                 rarity: Rarity.Epic
             )
         );
@@ -764,7 +809,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.4f,
                 name: "Big Ammo 2",
                 description: "Projectile Size +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BigAmmo"),
                 rarity: Rarity.Epic
             )
         );
@@ -775,7 +820,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.3f,
                 name: "Big Gadget 2",
                 description: "Projectile Size +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BigGadget"),
                 rarity: Rarity.Epic
             )
         );
@@ -786,7 +831,7 @@ public static class AttackStatsLibrary
                 comboLength: 2,
                 name: "One More 2",
                 description: "+2 Cast",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/OneMore"),
                 rarity: Rarity.Epic
             )
         );
@@ -797,7 +842,7 @@ public static class AttackStatsLibrary
                 shotsPerAttackMelee: 2,
                 name: "Aftershock 2",
                 description: "Release 2 aftershocks after each cast",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Aftershock"),
                 rarity: Rarity.Epic
             )
         );
@@ -808,7 +853,7 @@ public static class AttackStatsLibrary
                 meleeSizeMultiplier: 1.3f,
                 name: "Big Weapon 2",
                 description: "Attack Size +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BigWeapon"),
                 rarity: Rarity.Epic
             )
         );
@@ -819,7 +864,7 @@ public static class AttackStatsLibrary
                 meleeShotsScaleUpMultiplier: 1.15f,
                 name: "Wave Surge 2",
                 description: "Aftershock Size +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
                 rarity: Rarity.Epic
             )
         );
@@ -830,7 +875,51 @@ public static class AttackStatsLibrary
                 meleeSpacerGapMultiplier: 1.5f,
                 name: "Ki Surge 2",
                 description: "Aftershock Range +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/KiSurge"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+           new AttackStats(
+               activeMultiplier: 1.5f,
+               name: "Persistence 2",
+               description: "Attack duration +50%",
+               icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
+        AddStat(
+            new AttackStats(
+                activeDuration: 1f,
+                name: "Persistence+ 2",
+                description: "Attack duration +1s",
+                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                effectDuration: 1f,
+                name: "Hourglass 2",
+                description: "Debuff duration +1s",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                effectMultiplier: 1.5f,
+                name: "Saboteur 2",
+                description: "Debuff Power +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Epic
             )
         );
@@ -843,7 +932,7 @@ public static class AttackStatsLibrary
                 shootOppositeSide: true,
                 name: "Double Trouble",
                 description: "Also Attack Behind (Doesn't Stack)",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/DoubleTrouble"),
                 rarity: Rarity.Legendary
             )
         );
@@ -854,7 +943,7 @@ public static class AttackStatsLibrary
                 damageMultiplier: 1.80f,
                 name: "Damage 4",
                 description: "Damage +80%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Damage"),
                 rarity: Rarity.Legendary
             )
         );
@@ -865,7 +954,7 @@ public static class AttackStatsLibrary
                 critChance: 0.5f,
                 name: "Crit Chance 4",
                 description: "Crit Chance +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Legendary
             )
         );
@@ -876,7 +965,7 @@ public static class AttackStatsLibrary
                 critDmg: 3f,
                 name: "Crit Dmg 4",
                 description: "Crit Dmg +300%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Legendary
             )
         );
@@ -887,7 +976,7 @@ public static class AttackStatsLibrary
                 castTimeMultiplier: 0.25f,
                 name: "Haste 4",
                 description: "Cooldown -75%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Legendary
             )
         );
@@ -898,7 +987,7 @@ public static class AttackStatsLibrary
                 knockbackMultiplier: 1.80f,
                 name: "Knockback 4",
                 description: "Knockback +80%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Knockback"),
                 rarity: Rarity.Legendary
             )
         );
@@ -909,7 +998,7 @@ public static class AttackStatsLibrary
                 multicastChance: 1f,
                 name: "Multicast 3",
                 description: "Multicast chance +100%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Legendary
             )
         );
@@ -920,7 +1009,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 5,
                 name: "Extra Round 3",
                 description: "+5 Projectile",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/ExtraRound"),
                 rarity: Rarity.Legendary
             )
         );
@@ -931,7 +1020,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 40,
                 name: "Extended Clip 3",
                 description: "+40 Projectiles",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/ExtendedClip"),
                 rarity: Rarity.Legendary
             )
         );
@@ -942,7 +1031,7 @@ public static class AttackStatsLibrary
                 pierce: 50,
                 name: "Pierce 3",
                 description: "Pierce through +10 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Pierce"),
                 rarity: Rarity.Legendary
             )
         );
@@ -953,7 +1042,7 @@ public static class AttackStatsLibrary
                 pierce: 99,
                 name: "Puncture 3",
                 description: "Pierce through +99 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Puncture"),
                 rarity: Rarity.Legendary
             )
         );
@@ -964,7 +1053,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.8f,
                 name: "Big Ammo 3",
                 description: "Projectile Size +80%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BigAmmo"),
                 rarity: Rarity.Legendary
             )
         );
@@ -975,7 +1064,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.55f,
                 name: "Big Gadget 3",
                 description: "Projectile Size +55%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BigGadget"),
                 rarity: Rarity.Legendary
             )
         );
@@ -986,7 +1075,7 @@ public static class AttackStatsLibrary
                 shotsPerAttackMelee: 3,
                 name: "Aftershock 3",
                 description: "Release 3 aftershocks after each cast",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Aftershock"),
                 rarity: Rarity.Legendary
             )
         );
@@ -997,7 +1086,51 @@ public static class AttackStatsLibrary
                 meleeSizeMultiplier: 1.6f,
                 name: "Big Weapon 3",
                 description: "Attack Size +60%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BigWeapon"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+           new AttackStats(
+               activeMultiplier: 2f,
+               name: "Persistence 3",
+               description: "Attack duration +100%",
+               icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
+               rarity: Rarity.Legendary
+           )
+       );
+        ;
+
+        AddStat(
+            new AttackStats(
+                activeDuration: 2f,
+                name: "Persistence+ 3",
+                description: "Attack duration +2s",
+                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                effectDuration: 2f,
+                name: "Hourglass 3",
+                description: "Debuff duration +2s",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                effectMultiplier: 2f,
+                name: "Saboteur 3",
+                description: "Debuff Power +100%",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1009,10 +1142,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                damageMultiplier: 1.05f,
+                damageMultiplier: 1.1f,
                 name: "Mastery 1",
-                description: "Damage +5%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Damage +10%",
+                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1024,7 +1157,7 @@ public static class AttackStatsLibrary
                 critChance: 0.03f,
                 name: "Marksman 1",
                 description: "Crit Chance +3%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Marksman"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1036,7 +1169,7 @@ public static class AttackStatsLibrary
                 critDmg: 0.15f,
                 name: "Brutality 1",
                 description: "Crit Dmg +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Brutality"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1048,7 +1181,7 @@ public static class AttackStatsLibrary
                 castTimeMultiplier: 0.95f,
                 name: "Quickswap 1",
                 description: "Cooldowns -5%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1060,7 +1193,7 @@ public static class AttackStatsLibrary
                 knockbackMultiplier: 1.08f,
                 name: "Impact 1",
                 description: "Knockback +8%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Impact"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1072,7 +1205,7 @@ public static class AttackStatsLibrary
                 spreadMultiplier: 0.89f,
                 name: "RoF 1",
                 description: "Rate of Fire +11%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/RoF"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1084,7 +1217,7 @@ public static class AttackStatsLibrary
                 speedMultiplier: 1.10f,
                 name: "Propulsion 1",
                 description: "Projectile Speed +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Propulsion"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1096,7 +1229,7 @@ public static class AttackStatsLibrary
                 rangeMultiplier: 1.10f,
                 name: "Scope 1",
                 description: "Range +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Scope"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1108,7 +1241,7 @@ public static class AttackStatsLibrary
                 shotgunSpreadMultiplier: 1.15f,
                 name: "Wide Barrel 1",
                 description: "Shotgun Spread +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/WideBarrel"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1120,7 +1253,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: 0.88f,
                 name: "Dexterity 1",
                 description: "Attack Speed +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Dexterity"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1132,7 +1265,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 1.15f,
                 name: "Lunge 1",
                 description: "Range +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Lunge"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1144,7 +1277,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.75f,
                 name: "Implode 1",
                 description: "Range -25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Implode"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1155,10 +1288,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                damageMultiplier: 1.1f,
+                damageMultiplier: 1.2f,
                 name: "Mastery 2",
-                description: "Damage +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Damage +20%",
+                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1170,7 +1303,7 @@ public static class AttackStatsLibrary
                 critChance: 0.05f,
                 name: "Marksman 2",
                 description: "Crit Chance +5%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Marksman"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1182,7 +1315,7 @@ public static class AttackStatsLibrary
                 critDmg: 0.25f,
                 name: "Brutality 2",
                 description: "Crit Dmg +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Brutality"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1194,7 +1327,7 @@ public static class AttackStatsLibrary
                 castTimeMultiplier: 0.90f,
                 name: "Quickswap 2",
                 description: "Cooldowns -10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1206,7 +1339,7 @@ public static class AttackStatsLibrary
                 knockbackMultiplier: 1.15f,
                 name: "Impact 2",
                 description: "Knockback +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Impact"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1218,7 +1351,7 @@ public static class AttackStatsLibrary
                 spreadMultiplier: 0.88f,
                 name: "RoF 2",
                 description: "Rate of Fire +22%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/RoF"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1230,7 +1363,7 @@ public static class AttackStatsLibrary
                 shotgunSpreadMultiplier: 1.3f,
                 name: "Wide Barrel 2",
                 description: "Shotgun Spread +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/WideBarrel"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1242,7 +1375,7 @@ public static class AttackStatsLibrary
                 speedMultiplier: 1.2f,
                 name: "Propulsion 2",
                 description: "Projectile Speed +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Propulsion"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1254,7 +1387,7 @@ public static class AttackStatsLibrary
                 rangeMultiplier: 1.2f,
                 name: "Scope 2",
                 description: "Range +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Scope"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1267,7 +1400,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: 0.80f,
                 name: "Dexterity 2",
                 description: "Attack Speed +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Dexterity"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1279,7 +1412,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 1.25f,
                 name: "Lunge 2",
                 description: "Range +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Lunge"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1291,7 +1424,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.6f,
                 name: "Implode 2",
                 description: "Range -40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Implode"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1303,7 +1436,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: 0.6f,
                 name: "Vision 1",
                 description: "Increases Aim Range",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Vision"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1314,7 +1447,7 @@ public static class AttackStatsLibrary
                 coneAngle: 20f,
                 name: "Awareness 1",
                 description: "Increases Aim Width",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Awareness"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1326,7 +1459,7 @@ public static class AttackStatsLibrary
                 multicastChance: 0.08f,
                 name: "Multi-cast 1",
                 description: "Multicast chance +8%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1338,7 +1471,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 1,
                 name: "Bonus Round 1",
                 description: "+1 Projectile",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BonusRound"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1350,7 +1483,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 4,
                 name: "Extended Mag 1",
                 description: "+4 Projectiles",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/ExtendedMag"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1362,7 +1495,7 @@ public static class AttackStatsLibrary
                 pierce: 1,
                 name: "Piercing Ammo 1",
                 description: "Pierce through +1 enemy",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/PiercingAmmo"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1374,7 +1507,7 @@ public static class AttackStatsLibrary
                 pierce: 3,
                 name: "Penetrating Ammo 1",
                 description: "Pierce through +3 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/PenetratingAmmo"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1386,7 +1519,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.20f,
                 name: "High Caliber 1",
                 description: "Projectile Size +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/HighCaliber"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1398,7 +1531,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.1f,
                 name: "Size Up 1",
                 description: "Projectile Size +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/SizeUp"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1410,7 +1543,7 @@ public static class AttackStatsLibrary
                 meleeSizeMultiplier: 1.10f,
                 name: "Enlarge 1",
                 description: "Attack Size +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Enlarge"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1422,7 +1555,7 @@ public static class AttackStatsLibrary
                 meleeShotsScaleUpMultiplier: 1.04f,
                 name: "Wave Master 1",
                 description: "Aftershock Size +4%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/WaveMaster"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1434,7 +1567,7 @@ public static class AttackStatsLibrary
                 meleeSpacerGapMultiplier: 1.12f,
                 name: "Ki Master 1",
                 description: "Aftershock Range +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/KiMaster"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1444,10 +1577,10 @@ public static class AttackStatsLibrary
         //epic
         AddStat(
             new AttackStats(
-                damageMultiplier: 1.2f,
+                damageMultiplier: 1.3f,
                 name: "Mastery 3",
-                description: "Damage +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Damage +30%",
+                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1458,7 +1591,7 @@ public static class AttackStatsLibrary
                 critChance: 0.1f,
                 name: "Marksman 3",
                 description: "Crit Chance +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Marksman"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1470,7 +1603,7 @@ public static class AttackStatsLibrary
                 critDmg: 0.50f,
                 name: "Brutality 3",
                 description: "Crit Dmg +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Brutality"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1482,7 +1615,7 @@ public static class AttackStatsLibrary
                 castTimeMultiplier: 0.85f,
                 name: "Quickswap 3",
                 description: "Cooldowns -15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1494,7 +1627,7 @@ public static class AttackStatsLibrary
                 knockbackMultiplier: 1.3f,
                 name: "Impact 3",
                 description: "Knockback +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Impact"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1506,7 +1639,7 @@ public static class AttackStatsLibrary
                 spreadMultiplier: 0.65f,
                 name: "RoF 3",
                 description: "Rate of Fire +35%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/RoF"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1518,7 +1651,7 @@ public static class AttackStatsLibrary
                 shotgunSpreadMultiplier: 1.4f,
                 name: "Wide Barrel 3",
                 description: "Shotgun Spread +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/WideBarrel"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1530,7 +1663,7 @@ public static class AttackStatsLibrary
                 speedMultiplier: 1.35f,
                 name: "Propulsion 3",
                 description: "Projectile Speed +35%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Propulsion"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1542,7 +1675,7 @@ public static class AttackStatsLibrary
                 rangeMultiplier: 1.35f,
                 name: "Scope 3",
                 description: "Range +35%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Scope"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1555,7 +1688,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: 0.70f,
                 name: "Dexterity 3",
                 description: "Attack Speed +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Dexterity"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1567,7 +1700,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 1.4f,
                 name: "Lunge 3",
                 description: "Range +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Lunge"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1579,7 +1712,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: 1.25f,
                 name: "Vision 2",
                 description: "Increases Aim Range",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Vision"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1590,7 +1723,7 @@ public static class AttackStatsLibrary
                 coneAngle: 50f,
                 name: "Awareness 2",
                 description: "Increases Aim Width",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Awareness"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1602,7 +1735,7 @@ public static class AttackStatsLibrary
                 multicastChance: 0.15f,
                 name: "Multi-cast 2",
                 description: "Multicast chance +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1614,7 +1747,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 2,
                 name: "Bonus Round 2",
                 description: "+2 Projectile",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BonusRound"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1626,7 +1759,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 10,
                 name: "Extended Mag 2",
                 description: "+10 Projectiles",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/ExtendedMag"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1638,7 +1771,7 @@ public static class AttackStatsLibrary
                 pierce: 2,
                 name: "Piercing Ammo 2",
                 description: "Pierce through +2 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/PiercingAmmo"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1650,7 +1783,7 @@ public static class AttackStatsLibrary
                 pierce: 8,
                 name: "Penetrating Ammo 2",
                 description: "Pierce through +8 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/PenetratingAmmo"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1662,7 +1795,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.30f,
                 name: "High Caliber 2",
                 description: "Projectile Size +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/HighCaliber"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1674,7 +1807,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.20f,
                 name: "Size Up 2",
                 description: "Projectile Size +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/SizeUp"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1686,7 +1819,7 @@ public static class AttackStatsLibrary
                 comboLength: 1,
                 name: "Once More 1",
                 description: "+1 Cast",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/OnceMore"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1698,7 +1831,7 @@ public static class AttackStatsLibrary
                 shotsPerAttackMelee: 1,
                 name: "After-shock 1",
                 description: "Release an aftershock after each cast",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/After-shock"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1710,7 +1843,7 @@ public static class AttackStatsLibrary
                 meleeSizeMultiplier: 1.20f,
                 name: "Enlarge 2",
                 description: "Attack Size +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Enlarge"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1722,7 +1855,7 @@ public static class AttackStatsLibrary
                 meleeShotsScaleUpMultiplier: 1.10f,
                 name: "Wave Master 2",
                 description: "Aftershock Size +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/WaveMaster"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1734,7 +1867,7 @@ public static class AttackStatsLibrary
                 meleeSpacerGapMultiplier: 1.25f,
                 name: "Ki Master 2",
                 description: "Aftershock Range +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/KiMaster"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1748,7 +1881,7 @@ public static class AttackStatsLibrary
                 shootOppositeSide: true,
                 name: "Buddy System",
                 description: "Also Attack Behind (Doesn't Stack)",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BuddySystem"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1757,10 +1890,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                damageMultiplier: 1.50f,
+                damageMultiplier: 1.60f,
                 name: "Mastery 4",
-                description: "Damage +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                description: "Damage +60%",
+                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1772,7 +1905,7 @@ public static class AttackStatsLibrary
                 critChance: 0.3f,
                 name: "Marksman 4",
                 description: "Crit Chance +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Marksman"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1784,7 +1917,7 @@ public static class AttackStatsLibrary
                 critDmg: 1f,
                 name: "Brutality 4",
                 description: "Crit Dmg +100%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Brutality"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1796,7 +1929,7 @@ public static class AttackStatsLibrary
                 castTimeMultiplier: 0.6f,
                 name: "Quickswap 4",
                 description: "Cooldowns -40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1808,7 +1941,7 @@ public static class AttackStatsLibrary
                 knockbackMultiplier: 1.5f,
                 name: "Impact 4",
                 description: "Knockback +60%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Impact"),
                 rarity: Rarity.Common,
                 weaponSet: true
             )
@@ -1820,7 +1953,7 @@ public static class AttackStatsLibrary
                 multicastChance: 0.6f,
                 name: "Multi-cast 3",
                 description: "Multicast chance +60%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1832,7 +1965,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 4,
                 name: "Bonus Round 3",
                 description: "+4 Projectiles",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/BonusRound"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1844,7 +1977,7 @@ public static class AttackStatsLibrary
                 shotsPerAttack: 25,
                 name: "Extended Mag 3",
                 description: "+25 Projectiles",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/ExtendedMag"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1856,7 +1989,7 @@ public static class AttackStatsLibrary
                 pierce: 10,
                 name: "Piercing Ammo 3",
                 description: "Pierce through +5 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/PiercingAmmo"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1868,7 +2001,7 @@ public static class AttackStatsLibrary
                 pierce: 50,
                 name: "Penetrating Ammo 3",
                 description: "Pierce through +50 enemies",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/PenetratingAmmo"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1880,7 +2013,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.6f,
                 name: "High Caliber 3",
                 description: "Projectile Size +60%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/HighCaliber"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1892,7 +2025,7 @@ public static class AttackStatsLibrary
                 projectileSizeMultiplier: 1.40f,
                 name: "Size Up 3",
                 description: "Projectile Size +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/SizeUp"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1904,7 +2037,7 @@ public static class AttackStatsLibrary
                 shotsPerAttackMelee: 2,
                 name: "After-shock 2",
                 description: "Release 2 aftershocks after each cast",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/After-shock"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1916,7 +2049,7 @@ public static class AttackStatsLibrary
                 comboLength: 2,
                 name: "Once More 2",
                 description: "+2 Casts",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/OnceMore"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1928,7 +2061,7 @@ public static class AttackStatsLibrary
                 meleeSizeMultiplier: 1.40f,
                 name: "Enlarge 3",
                 description: "Attack Size +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Enlarge"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1945,7 +2078,7 @@ public static class AttackStatsLibrary
                 coneAngle: 5f,
                 name: "Auto Novice",
                 description: "All Automatic Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Automatic"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -1961,7 +2094,7 @@ public static class AttackStatsLibrary
                 coneAngle: 10f,
                 name: "Auto Pro",
                 description: "All Automatic Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Automatic"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -1978,7 +2111,7 @@ public static class AttackStatsLibrary
                 coneAngle: 15f,
                 name: "Auto God",
                 description: "All Automatic Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Automatic"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -1995,7 +2128,7 @@ public static class AttackStatsLibrary
                 coneAngle: -5f,
                 name: "Semi-Auto Novice",
                 description: "All Semi-Automatic Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Semi-Auto"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -2011,7 +2144,7 @@ public static class AttackStatsLibrary
                 coneAngle: -10f,
                 name: "Semi-Auto Pro",
                 description: "All Semi-Automatic Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Semi-Auto"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -2028,7 +2161,7 @@ public static class AttackStatsLibrary
                 coneAngle: -15f,
                 name: "Semi-Auto God",
                 description: "All Semi-Automatic Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Semi-Auto"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -2045,7 +2178,7 @@ public static class AttackStatsLibrary
                 coneAngle: 10f,
                 name: "Shotgun Novice",
                 description: "All Shotgun Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Shotgun"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -2062,7 +2195,7 @@ public static class AttackStatsLibrary
                 coneAngle: 15f,
                 name: "Shotgun Pro",
                 description: "All Shotgun Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Shotgun"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -2079,7 +2212,7 @@ public static class AttackStatsLibrary
                 coneAngle: 30f,
                 name: "Shotgun God",
                 description: "All Shotgun Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Shotgun"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -2096,7 +2229,7 @@ public static class AttackStatsLibrary
                 coneAngle: 15f,
                 name: "Explosive Novice",
                 description: "All Explosive Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Explosive"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -2113,7 +2246,7 @@ public static class AttackStatsLibrary
                 coneAngle: 30f,
                 name: "Explosive Pro",
                 description: "All Explosive Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Explosive"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -2131,7 +2264,7 @@ public static class AttackStatsLibrary
                 coneAngle: 50f,
                 name: "Explosive God",
                 description: "All Explosive Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Explosive"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -2146,7 +2279,7 @@ public static class AttackStatsLibrary
                 meleeSizeMultiplier: 1.10f,
                 name: "AFK Novice",
                 description: "All Nova Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Nova"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -2160,7 +2293,7 @@ public static class AttackStatsLibrary
                 knockbackMultiplier: 1.10f,
                 name: "AFK Pro",
                 description: "All Nova Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Nova"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -2173,7 +2306,7 @@ public static class AttackStatsLibrary
                 meleeSizeMultiplier: 1.2f,
                 name: "AFK God",
                 description: "All Nova Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Nova"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )
@@ -2190,7 +2323,7 @@ public static class AttackStatsLibrary
                 coneAngle: 20f,
                 name: "Melee Novice",
                 description: "All Melee Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Melee"),
                 rarity: Rarity.Rare,
                 weaponSet: true
             )
@@ -2205,7 +2338,7 @@ public static class AttackStatsLibrary
                 coneAngle: 35f,
                 name: "Melee Pro",
                 description: "All Melee Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Melee"),
                 rarity: Rarity.Epic,
                 weaponSet: true
             )
@@ -2222,7 +2355,7 @@ public static class AttackStatsLibrary
                 coneAngle: 50f,
                 name: "Melee God",
                 description: "All Melee Weapons Enhanced",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Melee"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
             )

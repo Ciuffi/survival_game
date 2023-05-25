@@ -246,22 +246,22 @@ public class LevelUpManager : MonoBehaviour
 
                     //specific weapon stat
 
-                    if (upgradeRoll < dropTable.existingWeaponOrSetChance) //owned weapon stat
-                    {
+                    //if (upgradeRoll < dropTable.existingWeaponOrSetChance) //owned weapon stat
+                    //{
                         //Debug.Log("existing weapon stat");
                         //Debug.Log(upgradeRoll + "+ chance:" + dropTable.existingWeaponOrSetChance);
 
                         upgrades = GetAttackStatsGameObjects().ToList();
 
-                    }
-                    else //new weapon stat
-                    {
+                    //}
+                    //else //new weapon stat
+                    //{
                         //Debug.Log("new weapon stat");
                         //Debug.Log(upgradeRoll + "+ chance:" + dropTable.existingWeaponOrSetChance);
 
-                        upgrades = GetPotentialUpgrades(weaponBuilders).ToList();
+                        //upgrades = GetPotentialUpgrades(weaponBuilders).ToList();
                         //dont filter
-                    }
+                    //}
 
                     upgrades = upgrades.Where(u => u.GetComponent<AttackStatComponent>().stat.GetRarity() == chosenRarity).ToList();
                 }

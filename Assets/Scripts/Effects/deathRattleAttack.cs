@@ -68,9 +68,12 @@ public class deathRattleAttack : MonoBehaviour
 
         magnetStrength *= attack.stats.effectMultiplier;
         slowPercentage *= attack.stats.effectMultiplier;
+
         magnetDuration += attack.stats.effectDuration;
         slowDuration += attack.stats.effectDuration;
         stunDuration += attack.stats.effectDuration;
+
+        active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();

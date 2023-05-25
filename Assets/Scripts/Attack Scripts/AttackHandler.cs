@@ -35,6 +35,39 @@ public class AttackHandler : MonoBehaviour
     private Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
     public Image attackWheel;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        attacks.Clear();
+        MatchCharacter();
+
+        Transform childTransform = transform.Find("Weapons");
+        attackContainer = childTransform.gameObject;
+        //AutoAimPrefab = GetComponent<AutoAim>();
+
+        attackIndex = 0;
+        //attackBar = GameObject.Find("AttackBar").GetComponent<Slider>();
+        //attackBarImage = attackBar.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        //attackBar2 = GameObject.Find("AttackBar2").GetComponent<Slider>();
+        //attackBarImage2 = attackBar2.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
+        WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
+        HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
+        attackWheel = GameObject.Find("Wheel").GetComponent<Image>();
+        originalScale = attackWheel.transform.localScale;
+
+        StartCoroutine(LoadWeaponAndStartAttack());
+    }
+    IEnumerator LoadWeaponAndStartAttack()
+    {
+        // Wait until the next frame to ensure all Start methods have been called
+        yield return null;
+
+        LoadSelectedWeapon();
+
+        StartCoroutine(Attack());
+    }
+
     private void MatchCharacter()
     {
         string storedName = PlayerPrefs.GetString("CharacterName");
@@ -337,29 +370,4 @@ public class AttackHandler : MonoBehaviour
         StartCoroutine(Attack());
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        attacks.Clear();
-        MatchCharacter();
-
-        Transform childTransform = transform.Find("Weapons");
-        attackContainer = childTransform.gameObject;
-        //AutoAimPrefab = FindObjectOfType<AutoAim>();
-
-        LoadSelectedWeapon();
-
-        attackIndex = 0;
-        //attackBar = GameObject.Find("AttackBar").GetComponent<Slider>();
-        //attackBarImage = attackBar.transform.GetChild(1).GetChild(0).GetComponent<Image>();
-        //attackBar2 = GameObject.Find("AttackBar2").GetComponent<Slider>();
-        //attackBarImage2 = attackBar2.transform.GetChild(1).GetChild(0).GetComponent<Image>();
-        WeaponSprite.GetComponent<SpriteRenderer>().enabled = false;
-        WeaponOutline.GetComponent<SpriteRenderer>().enabled = false;
-        HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
-        attackWheel = GameObject.Find("Wheel").GetComponent<Image>();
-        originalScale = attackWheel.transform.localScale;
-
-        StartCoroutine(Attack());
-    }
 }

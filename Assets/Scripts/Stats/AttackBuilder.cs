@@ -210,21 +210,21 @@ public class AttackBuilder
         if (attackType == AttackTypes.Shotgun)
         {
             attack.attackTime =
-                attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
+                 Mathf.RoundToInt(attack.baseStats.multicastChance) * attack.baseStats.multicastWaitTime;
         }
         else if (attackType == AttackTypes.Melee)
         {
             attack.attackTime =
                 (attack.baseStats.comboLength - 1) * attack.baseStats.comboWaitTime
-                + (attack.baseStats.shotsPerAttackMelee - 1) * attack.baseStats.spread
-                + attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
+                + (attack.baseStats.shotsPerAttackMelee) * attack.baseStats.spread
+                + Mathf.RoundToInt(attack.baseStats.multicastChance) * attack.baseStats.multicastWaitTime;
             // Add the definition for Melee attack type
         }
         else
         {
             attack.attackTime =
                 attack.baseStats.spread * attack.baseStats.shotsPerAttack
-                + attack.baseStats.multicastTimes * attack.baseStats.multicastWaitTime;
+                + Mathf.RoundToInt(attack.baseStats.multicastChance) * attack.baseStats.multicastWaitTime;
         }
 
         Debug.Log($"Finished building attack: {attackName}");

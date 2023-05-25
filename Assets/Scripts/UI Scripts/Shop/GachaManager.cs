@@ -13,7 +13,7 @@ public class GachaManager : MonoBehaviour
 
     public void Start()
     {
-        playerDataManager = FindObjectOfType<PlayerDataManager>();
+        playerDataManager = PlayerDataManager.Instance;
         inventory = FindObjectOfType<PlayerInventory>();
         overlay = FindObjectOfType<GachaOverlayManager>();
         overlay.gameObject.SetActive(false);
@@ -53,6 +53,8 @@ public class GachaManager : MonoBehaviour
             // TODO: Notify the player that they don't have enough currency
             Debug.Log("NOT ENOUGH MONEY!!");
         }
+
+        playerDataManager.SaveData();
     }
 
 

@@ -8,7 +8,7 @@ public class PlayerCharacterStats : Upgrade
     public string description;
     public string name;
     public bool isLocked;
-    public float price;
+    public int price;
 
     // Base stats
     public float maxHealth,
@@ -39,7 +39,11 @@ public class PlayerCharacterStats : Upgrade
         thrownDamageMultiplier,
         thrownSpeedMultiplier,
         projectileSizeMultiplier,
-        meleeSizeMultiplier;
+        meleeSizeMultiplier,
+        effectMultiplier,
+        effectDuration,
+        activeDuration,
+        activeMultiplier;
 
     public bool shootOpposideSide;
     public Rarity rarity;
@@ -76,6 +80,11 @@ public class PlayerCharacterStats : Upgrade
         projectileSizeMultiplier += other.projectileSizeMultiplier;
         meleeSizeMultiplier += other.meleeSizeMultiplier;
         speedMultiplier += other.speedMultiplier;
+
+        activeDuration += other.activeDuration;
+        effectDuration += other.effectDuration;
+        effectMultiplier += other.effectMultiplier;
+        activeMultiplier += other.activeMultiplier;
 
         shootOpposideSide |= other.shootOpposideSide;
         this.rarity = this.rarity.CompareRarity(other.rarity);
@@ -119,6 +128,11 @@ public class PlayerCharacterStats : Upgrade
         meleeSizeMultiplier = other.meleeSizeMultiplier;
         speedMultiplier = other.speedMultiplier;
 
+        activeDuration = other.activeDuration;
+        effectMultiplier = other.effectMultiplier;
+        effectDuration = other.effectDuration;
+        activeMultiplier = other.activeMultiplier;
+
         shootOpposideSide = other.shootOpposideSide;
         rarity = rarity.CompareRarity(other.rarity);
     }
@@ -126,7 +140,7 @@ public class PlayerCharacterStats : Upgrade
     //Constructor with smart defaults in parameters
     public PlayerCharacterStats(
         bool isLocked = false,
-        float price = 0,
+        int price = 0,
         float maxHealth = 0,
         float health = 0,
         float speed = 0f,
@@ -152,6 +166,10 @@ public class PlayerCharacterStats : Upgrade
         float thrownSpeedMultiplier = 0,
         float projectileSizeMultiplier = 0,
         float meleeSizeMultiplier = 0,
+        float activeDuration = 0,
+        float effectDuration = 0,
+        float effectMultiplier = 0,
+        float activeMultiplier = 0,
         float speedMultiplier = 0,
         bool shootOpposideSide = false,
         Rarity rarity = Rarity.Common,
@@ -188,10 +206,17 @@ public class PlayerCharacterStats : Upgrade
         this.projectileSizeMultiplier = projectileSizeMultiplier;
         this.meleeSizeMultiplier = meleeSizeMultiplier;
         this.speedMultiplier = speedMultiplier;
+        this.activeDuration = activeDuration;
+        this.effectDuration = effectDuration;
+        this.effectMultiplier = effectMultiplier;
+        this.activeMultiplier = activeMultiplier;
+
         this.shootOpposideSide = shootOpposideSide;
         this.rarity = rarity;
         this.name = name;
         this.description = description;
+        this.price = price;
+        this.isLocked = isLocked;
         this.icon = icon == null ? Resources.Load<Sprite>("UI_Icons/DMG_up") : icon;
     }
 

@@ -131,8 +131,8 @@ MonoBehaviour:
   isSlow: 0
   slowPercentage: 0
   slowDuration: 0
-  isStun: 0
-  stunDuration: 0.05
+  isStun: 1
+  stunDuration: 0.02
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
   wpnProjSizeMultiplier: 0

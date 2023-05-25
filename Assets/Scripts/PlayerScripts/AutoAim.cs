@@ -99,7 +99,7 @@ public class AutoAim : MonoBehaviour
         {
             rangeVisualizerSprite.transform.localScale = new Vector3(aimRange * 1.5f, aimRange * 1.5f, 1);
         }
-        else
+        else 
         {
             rangeVisualizerSprite.transform.localScale = new Vector3(0, 0, 0);
         }
@@ -109,7 +109,7 @@ public class AutoAim : MonoBehaviour
             coneMeshObject.SetActive(true); // Enable cone mesh object
             UpdateConeMesh(coneMeshObject, aimRange, coneAngle);
         }
-        else if (coneMeshObject != null)
+        else if (!isCone && coneMeshObject != null)
         {
             coneMeshObject.SetActive(false); // Disable cone mesh object
         }
@@ -117,9 +117,6 @@ public class AutoAim : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, aimRange);
-
         if (isCone)
         {
             // Draw cone visualization
@@ -132,6 +129,10 @@ public class AutoAim : MonoBehaviour
             Vector3 rightDirection = coneRight * transform.up;
             Gizmos.DrawLine(transform.position, transform.position + leftDirection * coneRange);
             Gizmos.DrawLine(transform.position, transform.position + rightDirection * coneRange);
+        } else
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, aimRange);
         }
     }
 

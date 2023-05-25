@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class CharacterButton : MonoBehaviour, IPointerDownHandler
 {
     public GameObject selectedImage;
-    private PlayerCharacterStats stats;
+    public PlayerCharacterStats stats;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI infoText;
 
@@ -18,10 +18,22 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
     public StartRun startBtn;
     private bool hasSelected;
 
+    public Image buttonImage; // Image component on the character button.
+    public Color lockedColor; // Color when the character is locked.
+    public Color defaultColor; // Color when the character is unlocked.
+
+    public Button purchaseButton; // The button to purchase/unlock the character.
+    private PlayerDataManager playerDataManager; // Reference to the PlayerDataManager in the scene.
+    private TextMeshProUGUI priceText;
+
+
     private void Awake()
     {
         // Find the CharacterSelector component in the scene
         characterSelector = FindObjectOfType<CharSelectController>();
+        playerDataManager = PlayerDataManager.Instance;
+        purchaseButton = GameObject.Find("BuyCharacter").GetComponent<Button>();
+        priceText = purchaseButton.GetComponentInChildren<TextMeshProUGUI>();
         GameObject text1 = GameObject.Find("CharacterName");
         nameText = text1.transform.Find("Name").GetComponent<TextMeshProUGUI>();
         GameObject text2 = GameObject.Find("InfoBox");
@@ -30,14 +42,38 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         //weaponsText = text3.GetComponent<TextMeshProUGUI>();
         hasSelected = false;
         startBtn = FindObjectOfType<StartRun>();
+        buttonImage = GetComponent<Image>();
+        defaultColor = GetComponent<Image>().color;
+
     }
 
     private void Update()
     {
         if (hasSelected)
         {
-            characterSelector.GetComponent<CharSelectController>().hasSelected = true;
+            characterSelector.hasSelected = true;
         }
+
+        if (stats != null && stats.isLocked)
+        {
+            buttonImage.color = lockedColor;
+        }
+        else
+        {
+            buttonImage.color = defaultColor;
+        }
+    }
+
+    private void UpdatePurchaseButton()
+    {
+        purchaseButton.gameObject.SetActive(stats.isLocked);
+       
+    }
+
+    private void UpdatePriceText()
+    {
+        string price = "$" + stats.price.ToString();
+        priceText.text = price;
     }
 
     public void SelectThisCharacter()
@@ -63,15 +99,8 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         selectedImage.SetActive(true);
         gameObject.tag = "SelectedCharacter";
 
-        // Save the character stats
-        stats = GetComponent<StatComponent>().stat;
-
         // Update the selected character in CharacterSelector
-        CharSelectController characterSelector = FindObjectOfType<CharSelectController>();
-        if (characterSelector != null)
-        {
-            characterSelector.selectedCharacter = stats;
-        }
+        characterSelector.selectedCharacter = stats;
 
         // Update the selected character in startRun
         startBtn.chosenName = stats.name;
@@ -92,8 +121,13 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             infoText.text = GenerateStatsString(stats);
         }
-    }
 
+        purchaseButton.onClick.RemoveAllListeners();
+        purchaseButton.onClick.AddListener(OnPurchaseButtonClicked);
+
+        UpdatePriceText();
+        UpdatePurchaseButton();
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -118,15 +152,9 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         selectedImage.SetActive(true);
         gameObject.tag = "SelectedCharacter";
 
-        // Save the character stats
-        stats = GetComponent<StatComponent>().stat;
 
         // Update the selected character in CharacterSelector
-        CharSelectController characterSelector = FindObjectOfType<CharSelectController>();
-        if (characterSelector != null)
-        {
-            characterSelector.selectedCharacter = stats;
-        }
+        characterSelector.selectedCharacter = stats;
 
         // Update the selected character in startRun
         startBtn.chosenName = stats.name;
@@ -147,6 +175,29 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             infoText.text = GenerateStatsString(stats);
         }
+
+        purchaseButton.onClick.RemoveAllListeners();
+        purchaseButton.onClick.AddListener(OnPurchaseButtonClicked);
+        UpdatePriceText();
+        UpdatePurchaseButton();
+    }
+
+    // New method to handle purchase button click event.
+    public void OnPurchaseButtonClicked()
+    {
+        // Check if the player has enough gold
+        if (playerDataManager != null && stats != null && stats.isLocked && playerDataManager.gold >= stats.price)
+        {
+            // Deduct the price from player's gold
+            playerDataManager.gold -= stats.price;
+            stats.isLocked = false;
+
+            // Unlock the character in PlayerDataManager
+            playerDataManager.UnlockCharacter(gameObject);
+
+            UpdatePriceText();
+            UpdatePurchaseButton();
+        }
     }
 
     private string GenerateStatsString(PlayerCharacterStats stats)
@@ -154,13 +205,13 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         string statsString = "";
 
         statsString += "Health " + stats.health + "\n";
-        statsString += "Speed " + stats.speed + "\n";
+        statsString += "Speed " + (stats.speed * 100) + "\n";
 
         // Check each stat and add it to the string if it meets the criteria
 
         if (stats.pickupRange != 2)
         {
-            statsString += "Pickup Range +" + stats.pickupRange + "\n";
+            statsString += "Pickup Range +" + (stats.pickupRange - 2) + "\n";
         }
         if (stats.defense != 0)
         {
@@ -246,9 +297,21 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             statsString += "Knockback% " + stats.knockbackMultiplier + "\n";
         }
-        if (stats.thrownDamageMultiplier != 0)
+        if (stats.activeMultiplier != 0)
         {
-            statsString += "Wpn Toss Dmg% " + stats.thrownDamageMultiplier + "\n";
+            statsString += "Attack Duration% " + stats.activeMultiplier + "\n";
+        }
+        if (stats.activeDuration != 0)
+        {
+            statsString += "Attack Duration +" + stats.activeDuration + "s" + "\n";
+        }
+        if (stats.effectMultiplier != 0)
+        {
+            statsString += "Debuff Power% " + stats.effectMultiplier + "\n";
+        }
+        if (stats.effectDuration != 0)
+        {
+            statsString += "Debuff Duration +" + stats.effectDuration + "s" + "\n";
         }
         if (stats.thrownSpeedMultiplier != 0)
         {
@@ -264,21 +327,11 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
     }
 
 
-        public void Deselect()
+    public void Deselect()
     {
         selectedImage.SetActive(false);
         gameObject.tag = "Untagged";
-        stats = null;
-
-        if (nameText != null)
-        {
-            nameText.text = "";
-        }
-
-        if (infoText != null)
-        {
-            infoText.text = "Select a Class.";
-        }
+        characterSelector.selectedCharacter = null;
     }
 
     public PlayerCharacterStats GetStats()

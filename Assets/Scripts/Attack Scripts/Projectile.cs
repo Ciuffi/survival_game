@@ -111,10 +111,13 @@ public class Projectile : MonoBehaviour
 
         magnetStrength *= attack.stats.effectMultiplier;
         slowPercentage *= attack.stats.effectMultiplier;
+
+        stunDuration += attack.stats.effectDuration;
         magnetDuration += attack.stats.effectDuration;
         slowDuration += attack.stats.effectDuration;
-        stunDuration += attack.stats.effectDuration;
-        hoverTimer += attack.stats.effectDuration;
+
+        active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
+        hoverTimer = hoverTimer * attack.stats.activeMultiplier + attack.stats.activeDuration;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -127,7 +130,7 @@ public class Projectile : MonoBehaviour
                 attack.stats.thrownDamage;
             pierce = 5 + attack.stats.pierce;
             projectileRange = 6 * attack.stats.rangeMultiplier;
-            knockback = 0.3f * attack.stats.knockbackMultiplier;
+            knockback = 0.35f * attack.stats.knockbackMultiplier;
         }
         GetComponent<Collider2D>().enabled = true;
     }
@@ -179,6 +182,7 @@ public class Projectile : MonoBehaviour
                             0
                         );
 
+                        GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
                         GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
                         transform.localScale -= scaleUp;
                         GetComponent<Collider2D>().enabled = false;

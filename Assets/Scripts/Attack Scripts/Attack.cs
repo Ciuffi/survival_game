@@ -45,7 +45,14 @@ public class Attack : MonoBehaviour, Upgrade
 
     public GameObject AutoAim;
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        Player = GameObject.FindWithTag("Player");
+        Camera = GameObject.FindWithTag("MainCamera");
+        upgradeContainer = Instantiate(new GameObject("attack_upgrades"), transform).transform;
+
+    }
+
     void Start()
     {
         totalDamageDealt = 0;
@@ -57,9 +64,6 @@ public class Attack : MonoBehaviour, Upgrade
         }
         owner = transform.GetComponentInParent<Attacker>();
 
-        Camera = GameObject.FindWithTag("MainCamera");
-        Player = GameObject.FindWithTag("Player");
-        upgradeContainer = Instantiate(new GameObject("attack_upgrades"), transform).transform;
         weaponContainer = FindObjectOfType<WpnSpriteRotation>();
         CalculateStats();
 
@@ -113,21 +117,20 @@ public class Attack : MonoBehaviour, Upgrade
         if (attackType == AttackTypes.Shotgun)
         {
             attackTime =
-                baseStats.multicastTimes * baseStats.multicastWaitTime;
+                Mathf.RoundToInt(stats.multicastChance) * stats.multicastWaitTime;
         }
         else if (attackType == AttackTypes.Melee)
         {
             attackTime =
-                (baseStats.comboLength - 1) * baseStats.comboWaitTime
-                + (baseStats.shotsPerAttackMelee - 1) * baseStats.spread
-                + baseStats.multicastTimes * baseStats.multicastWaitTime;
-            // Add the definition for Melee attack type
+                (stats.comboLength - 1) * stats.comboWaitTime 
+                + stats.shotsPerAttackMelee * stats.spread
+                + Mathf.RoundToInt(stats.multicastChance) * stats.multicastWaitTime;
         }
         else
         {
             attackTime =
-                baseStats.spread * baseStats.shotsPerAttack
-                + baseStats.multicastTimes * baseStats.multicastWaitTime;
+                stats.spread * stats.shotsPerAttack
+                + Mathf.RoundToInt(stats.multicastChance) * stats.multicastWaitTime;
         }
     }
 
@@ -216,7 +219,7 @@ public class Attack : MonoBehaviour, Upgrade
 
                 if (shotsCount >= stats.sprayThreshold) // calculate spray pattern
                 {
-                    float spread = stats.spread * (shotsCount - stats.sprayThreshold + 1);
+                    float spread = stats.spray * (shotsCount - stats.sprayThreshold);
                     float randomSpread = Random.Range(-spread, spread);
                     Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
                     forwardRotation *= spreadDirection;
@@ -264,7 +267,7 @@ public class Attack : MonoBehaviour, Upgrade
 
                 if (shotsCount >= stats.sprayThreshold) // calculate spray pattern
                 {
-                    float spread = stats.spread * (shotsCount - stats.sprayThreshold + 1);
+                    float spread = stats.spray * (shotsCount - stats.sprayThreshold);
                     float randomSpread = Random.Range(-spread, spread);
                     Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
                     forwardRotation *= spreadDirection;
@@ -299,7 +302,7 @@ public class Attack : MonoBehaviour, Upgrade
                 Quaternion backwardRotation = Quaternion.Euler(0, 0, rotation.eulerAngles.z + 180);
                 if (shotsCount >= stats.sprayThreshold)
                 {
-                    float spread = stats.spread * (shotsCount - stats.sprayThreshold + 1);
+                    float spread = stats.spray * (shotsCount - stats.sprayThreshold);
                     float randomSpread = Random.Range(-spread, spread);
                     Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
                     backwardRotation *= spreadDirection;
@@ -343,7 +346,10 @@ public class Attack : MonoBehaviour, Upgrade
             }
 
             shotsCount += 1;
-            yield return new WaitForSeconds(stats.spread);
+            if (i < stats.shotsPerAttack - 1)
+            {
+                yield return new WaitForSeconds(stats.spread);
+            }
         }
 
         if (stats.cantMove)
@@ -430,19 +436,7 @@ public class Attack : MonoBehaviour, Upgrade
                     currentScale.x * stats.projectileSizeMultiplier,
                     currentScale.y * stats.projectileSizeMultiplier,
                     currentScale.z * stats.projectileSizeMultiplier
-                );
-
-                Quaternion forwardRotation = rotation;
-
-                if (shotsCount >= stats.sprayThreshold) // calculate spray pattern
-                {
-                    float spread = stats.spread * (shotsCount - stats.sprayThreshold + 1);
-                    float randomSpread = Random.Range(-spread, spread);
-                    Quaternion spreadDirection = Quaternion.Euler(0, 0, randomSpread);
-                    forwardRotation *= spreadDirection;
-                }
-
-                p.transform.rotation = forwardRotation;
+                );  
 
                 if (stats.multicastTimes > 0)
                 {
@@ -646,6 +640,9 @@ public class Attack : MonoBehaviour, Upgrade
 
     private IEnumerator Melee(float multicastAlpha)
     {
+        Debug.Log("Casttime: " + stats.castTime);
+        Debug.Log("AttackTime: " + attackTime);
+
         if (numMulticast >= 1 && !firstShot)
         {
             yield return new WaitForSeconds(stats.multicastWaitTime);
@@ -888,7 +885,7 @@ public class Attack : MonoBehaviour, Upgrade
                     .GetComponent<ScreenShakeController>()
                     .StartShake(stats.shakeTime, stats.shakeStrength, stats.shakeRotation);
 
-                if (i < stats.shotsPerAttackMelee)
+                if (c < stats.shotsPerAttackMelee)
                 {
                     yield return new WaitForSeconds(stats.spread);
                 }

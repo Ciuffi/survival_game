@@ -54,6 +54,7 @@ public class AttackStats : Upgrade
     public float meleeSize;
     public Rarity rarity;
     public float effectDuration;
+    public float activeDuration;
 
     public float aimRangeAdditive;
     public float damageMultiplier;
@@ -84,6 +85,7 @@ public class AttackStats : Upgrade
 
     public float meleeSizeMultiplier;
     public float effectMultiplier;
+    public float activeMultiplier;
     public bool weaponSet = false;
     public bool isCone = false;
     public float coneAngle;
@@ -134,8 +136,10 @@ public class AttackStats : Upgrade
         float throwSpeed = 0,
         bool cantMove = false,
         Rarity rarity = Rarity.Common,
+        float activeDuration = 0,
         float effectDuration = 0,
         float effectMultiplier = 0,
+        float activeMultiplier = 0,
         float aimRangeAdditive = 0,
         float damageMultiplier = 0,
         float castTimeMultiplier = 0,
@@ -203,8 +207,10 @@ public class AttackStats : Upgrade
         this.thrownSpeed = throwSpeed;
         this.cantMove = cantMove;
         this.rarity = rarity;
+        this.activeDuration = activeDuration;
         this.effectDuration = effectDuration;
         this.effectMultiplier = effectMultiplier;
+        this.activeMultiplier = activeMultiplier;
         this.aimRangeAdditive = aimRangeAdditive;
         this.damageMultiplier = damageMultiplier;
         this.castTimeMultiplier = castTimeMultiplier;
@@ -245,6 +251,7 @@ public class AttackStats : Upgrade
         this.shotsPerAttackMelee = this.shotsPerAttackMelee < 0 ? 0 : this.shotsPerAttackMelee;
         this.comboLength = this.comboLength < 1 ? 1 : this.comboLength;
         effectMultiplier = effectMultiplier == 0 ? 1 : effectMultiplier;
+        activeMultiplier = activeMultiplier == 0 ? 1 : activeMultiplier;
         damageMultiplier = damageMultiplier == 0 ? 1 : damageMultiplier;
         castTimeMultiplier = castTimeMultiplier == 0 ? 1 : castTimeMultiplier;
         attackTimeMultiplier = attackTimeMultiplier == 0 ? 1 : attackTimeMultiplier;
@@ -351,8 +358,10 @@ public class AttackStats : Upgrade
         this.isCone |= attackStats.isCone;
         this.coneAngle += attackStats.coneAngle;
         this.rarity = this.rarity.CompareRarity(attackStats.rarity);
+        this.activeDuration += attackStats.activeDuration;
         this.effectDuration += attackStats.effectDuration;
         this.effectMultiplier *= attackStats.effectMultiplier;
+        this.activeMultiplier *= attackStats.activeMultiplier;
         this.aimRangeAdditive += attackStats.aimRangeAdditive;
         this.damageMultiplier *= attackStats.damageMultiplier;
         this.castTimeMultiplier *= attackStats.castTimeMultiplier;
@@ -401,6 +410,11 @@ public class AttackStats : Upgrade
         this.thrownDamageMultiplier *= playerStats.thrownDamageMultiplier;
         this.thrownSpeedMultiplier *= playerStats.thrownSpeedMultiplier;
         this.meleeSizeMultiplier *= playerStats.meleeSizeMultiplier;
+
+        this.activeDuration += playerStats.activeDuration;
+        this.effectDuration += playerStats.effectDuration;
+        this.effectMultiplier *= playerStats.effectMultiplier;
+        this.activeMultiplier *= playerStats.activeMultiplier;
 
         FixUpStats();
         return this;
@@ -454,8 +468,10 @@ public class AttackStats : Upgrade
             mergedAttackStats.isCone |= attackStats.isCone;
             mergedAttackStats.coneAngle += attackStats.coneAngle;
             mergedAttackStats.rarity = mergedAttackStats.rarity.CompareRarity(attackStats.rarity);
+            mergedAttackStats.activeDuration += attackStats.activeDuration;
             mergedAttackStats.effectDuration += attackStats.effectDuration;
             mergedAttackStats.effectMultiplier *= attackStats.effectMultiplier;
+            mergedAttackStats.activeMultiplier *= attackStats.activeMultiplier;
             mergedAttackStats.aimRangeAdditive += attackStats.aimRangeAdditive;
             mergedAttackStats.damageMultiplier *= attackStats.damageMultiplier;
             mergedAttackStats.castTimeMultiplier *= attackStats.castTimeMultiplier;
@@ -526,8 +542,10 @@ public class AttackStats : Upgrade
         this.thrownSpeed = attackStats.thrownSpeed;
         this.cantMove = attackStats.cantMove;
         this.rarity = attackStats.rarity;
+        this.activeDuration = attackStats.activeDuration;
         this.effectDuration = attackStats.effectDuration;
         this.effectMultiplier = attackStats.effectMultiplier;
+        this.activeMultiplier = attackStats.activeMultiplier;
         this.aimRangeAdditive = attackStats.aimRangeAdditive;
         this.damageMultiplier = attackStats.damageMultiplier;
         this.castTimeMultiplier = attackStats.castTimeMultiplier;
@@ -613,6 +631,7 @@ public class AttackStats : Upgrade
             meleeSize = this.meleeSize,
             rarity = this.rarity,
             effectDuration = this.effectDuration,
+            activeDuration = this.activeDuration,
 
             aimRangeAdditive = this.aimRangeAdditive,
             damageMultiplier = this.damageMultiplier,
@@ -643,6 +662,7 @@ public class AttackStats : Upgrade
 
             meleeSizeMultiplier = this.meleeSizeMultiplier,
             effectMultiplier = this.effectMultiplier,
+            activeMultiplier = this.activeMultiplier,
             weaponSet = this.weaponSet,
             isCone = this.isCone,
             coneAngle = this.coneAngle,

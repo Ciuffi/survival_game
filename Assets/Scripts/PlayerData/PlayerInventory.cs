@@ -67,8 +67,7 @@ public class PlayerInventory : MonoBehaviour
             StartingInventory();
         }
 
-        // Load selected weapon index, default to 0
-        selectedWeaponIndex = PlayerPrefs.GetInt("SelectedWeaponIndex", 0);
+
     }
 
     private void SaveInventory()
@@ -76,8 +75,7 @@ public class PlayerInventory : MonoBehaviour
         string weaponsJson = JsonConvert.SerializeObject(weaponInventory);
         PlayerPrefs.SetString("Weapons", weaponsJson);
 
-        // Save selected weapon index
-        PlayerPrefs.SetInt("SelectedWeaponIndex", selectedWeaponIndex);
+
     }
 
     public void AddWeapon(Weapon weapon)
@@ -94,6 +92,21 @@ public class PlayerInventory : MonoBehaviour
         {
             selectedWeaponIndex = 0;
         }
+    }
+
+    public void SetSelectedWeaponIndex(string weaponName, int weaponRarity)
+    {
+        for (int i = 0; i < weaponInventory.Count; i++)
+        {
+            Weapon weapon = weaponInventory[i];
+            if (weapon.name == weaponName && weapon.rarity == weaponRarity)
+            {
+                selectedWeaponIndex = i;
+                return;
+            }
+        }
+
+        Debug.LogError($"Weapon {weaponName} with rarity {weaponRarity} not found in inventory.");
     }
 
     public Weapon GetSelectedWeapon()

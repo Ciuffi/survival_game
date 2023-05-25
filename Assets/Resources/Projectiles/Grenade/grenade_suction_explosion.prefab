@@ -162,21 +162,21 @@ MonoBehaviour:
   critChance: 0.05
   critDmg: 1.5
   knockback: 0
-  startup: 0.4
-  active: 1
+  startup: 0.5
+  active: 0.5
   scaleSpeed: 0.01
   disappearSpeed: 0.5
   onHitParticle: {fileID: 4053501027209517259, guid: 9834c3ac85854944980a1a437400746b, type: 3}
   playerShakeTime: 0.1
   playerShakeStrength: 0.1
   playerShakeRotation: 0.05
-  damageTickDuration: 2
+  damageTickDuration: 1.5
   isAnimated: 1
   isMagnet: 1
   magnetStrength: 7
-  magnetDuration: 2
+  magnetDuration: 1.5
   isSlow: 1
-  slowPercentage: 0.5
+  slowPercentage: 0.25
   slowDuration: 2
   isStun: 0
   stunDuration: 0.5

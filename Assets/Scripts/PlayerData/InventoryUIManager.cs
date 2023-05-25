@@ -27,6 +27,8 @@ public class InventoryUIManager : MonoBehaviour
         selectedWeapon = weaponName;
         selectedWeaponRarity = weaponRarity;
         wpnSelected = true;
+
+        playerInventory.SetSelectedWeaponIndex(weaponName, weaponRarity);
     }
 
     public void DeselectAllItems()

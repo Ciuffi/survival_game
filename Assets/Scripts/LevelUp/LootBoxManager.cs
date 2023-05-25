@@ -219,19 +219,17 @@ public class LootBoxManager : MonoBehaviour
 
                 //specific weapon stat
 
-                if (upgradeRoll < dropTable.existingWeaponOrSetChance) //owned weapon stat
-                {
-                    Debug.Log("existing weapon stat");
+                //if (upgradeRoll < dropTable.existingWeaponOrSetChance) //owned weapon stat
+                //{
+                    //Debug.Log("existing weapon stat");
 
                     upgrades = GetAttackStatsGameObjects().ToList();
-                }
-                else //new weapon stat
-                {
-                    Debug.Log("new weapon stat");
-
-                    upgrades = GetPotentialUpgrades(weaponBuilders).ToList();
+                //}
+                //else //new weapon stat
+                //{
+                    //upgrades = GetPotentialUpgrades(weaponBuilders).ToList();
                     //dont filter
-                }
+                //}
 
                 upgrades = upgrades.Where(u => u.GetComponent<AttackStatComponent>().stat.GetRarity() == chosenRarity).ToList();
             }
@@ -305,7 +303,7 @@ public class LootBoxManager : MonoBehaviour
                 {
                     case UpgradeType.WeaponSetStat:
                         {
-                            string upgradeTag = WeaponSetUpgradeMap.GetWeaponSetTypeForStat(attackStatComponent.stat).ToString();
+                            string upgradeTag = attackStatComponent.stat.weaponSetType.ToString();
                             textComponents[3].text = upgradeTag;
                         }
                         break;

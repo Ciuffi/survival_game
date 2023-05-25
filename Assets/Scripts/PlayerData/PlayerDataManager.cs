@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class PlayerDataManager : MonoBehaviour
 {
@@ -11,21 +12,59 @@ public class PlayerDataManager : MonoBehaviour
     public int unlockedStages; // This is an integer where each bit represents a stage, e.g. 00000011 means stages 1 and 2 are unlocked
 
     private PlayerInventory playerInventory;
-    public TextMeshProUGUI goldDisplay;
+    public List<TextMeshProUGUI> goldDisplay;
+    CharSelectController charSelectController;
+
+    public static PlayerDataManager Instance { get; private set; }
 
     private void Awake()
     {
-        playerInventory = FindObjectOfType<PlayerInventory>();
-        //LoadData();
-
-        // Check and update unlocked state of characters
-        PlayerCharacterStats[] characters = FindObjectsOfType<StatComponent>()
-            .Select(s => s.GetComponent<PlayerCharacterStats>())
-            .ToArray();
-        foreach (PlayerCharacterStats character in characters)
+        if (Instance == null)
         {
-            bool isUnlocked =
-                (unlockedCharacters & (1 << character.statsContainer.GetInstanceID())) != 0;
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // This line prevents the object from being destroyed between scenes
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        playerInventory = FindObjectOfType<PlayerInventory>();
+        goldDisplay.Add(GameObject.Find("playerGold").GetComponentInChildren<TextMeshProUGUI>());
+        goldDisplay.Add(GameObject.Find("playerGold2").GetComponentInChildren<TextMeshProUGUI>());
+        charSelectController = FindObjectOfType<CharSelectController>();
+
+        LoadData();
+    }
+
+    public void LoadUnlocks()
+    {
+        for (int i = 0; i < charSelectController.characterPrefabs.Count; i++)
+        {
+            GameObject characterObject = charSelectController.characterPrefabs[i];
+            if (characterObject == null)
+            {
+                Debug.LogError("CharacterObject at index " + i + " is null");
+                continue;
+            }
+
+            StatComponent statComponent = characterObject.GetComponent<StatComponent>();
+
+            if (statComponent == null)
+            {
+                Debug.LogError("StatComponent for CharacterObject at index " + i + " is null");
+                continue;
+            }
+
+            PlayerCharacterStats character = statComponent.stat;
+
+            if (character == null)
+            {
+                Debug.LogError("Stat for CharacterObject at index " + i + " is null");
+                continue;
+            }
+
+            bool isUnlocked = (unlockedCharacters & (1 << i)) != 0;
             character.isLocked = !isUnlocked;
         }
 
@@ -43,7 +82,7 @@ public class PlayerDataManager : MonoBehaviour
         SaveData();
     }
 
-    private void SaveData()
+    public void SaveData()
     {
         PlayerPrefs.SetInt("Gold", gold);
         PlayerPrefs.SetInt("UnlockedCharacters", unlockedCharacters);
@@ -66,10 +105,21 @@ public class PlayerDataManager : MonoBehaviour
         SaveData();
     }
 
-    public void UnlockCharacter(PlayerCharacterStats character)
+    public void AddGold(int amount)
     {
+        gold += amount;
+        SaveData();
+    }
+
+    public void UnlockCharacter(GameObject characterObject)
+    {
+        PlayerCharacterStats character = characterObject.GetComponent<CharacterButton>().stats;
+
         character.isLocked = false;
-        unlockedCharacters |= (1 << character.statsContainer.GetInstanceID()); // Set the bit corresponding to this character to 1
+
+        int characterIndex = charSelectController.characterPrefabs.IndexOf(characterObject);
+        unlockedCharacters |= (1 << characterIndex); // Set the bit corresponding to this character to 1
+
         SaveData();
     }
 
@@ -102,11 +152,11 @@ public class PlayerDataManager : MonoBehaviour
         PlayerPrefs.DeleteKey("UnlockedCharacters");
         PlayerPrefs.DeleteKey("UnlockedStages");
 
-        PlayerCharacterStats[] characters = FindObjectsOfType<StatComponent>()
-            .Select(s => s.GetComponent<PlayerCharacterStats>())
-            .ToArray();
-        foreach (PlayerCharacterStats character in characters)
+        StatComponent[] characters = FindObjectsOfType<StatComponent>();
+
+        foreach (StatComponent statComponent in characters)
         {
+            PlayerCharacterStats character = statComponent.stat;
             character.isLocked = true;
         }
 
@@ -126,6 +176,25 @@ public class PlayerDataManager : MonoBehaviour
     private void Update()
     {
         string goldAmount = "$" + gold.ToString();
-        goldDisplay.text = goldAmount;
+        for (int i = 0; i < goldDisplay.Count; i++)
+        {
+            goldDisplay[i].text = goldAmount;
+        }
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        goldDisplay.Add(GameObject.Find("playerGold").GetComponentInChildren<TextMeshProUGUI>());
+        goldDisplay.Add(GameObject.Find("playerGold2").GetComponentInChildren<TextMeshProUGUI>());
     }
 }
