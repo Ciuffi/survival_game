@@ -257,9 +257,9 @@ public static class PlayerStatsLibrary
 
         AddStat(
             new PlayerCharacterStats(
-                effectDuration: 0.3f,
+                effectDuration: 0.5f,
                 name: "Hourglass 1",
-                description: "All Debuff duration +0.3s",
+                description: "All Debuff duration +0.5s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Rare
             )
@@ -423,6 +423,28 @@ public static class PlayerStatsLibrary
             )
         );
 
+        AddStat(
+            new PlayerCharacterStats(
+                effectDuration: 1f,
+                name: "Hourglass 2",
+                description: "All Debuff duration +1s",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new PlayerCharacterStats(
+                effectMultiplier: 1.25f,
+                name: "Saboteur 2",
+                description: "All Debuff Power +25%",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
         //LEGENDARY STATS
 
 
@@ -526,6 +548,28 @@ public static class PlayerStatsLibrary
                 rarity: Rarity.Legendary
             )
         );
+
+        AddStat(
+            new PlayerCharacterStats(
+                effectDuration: 2f,
+                name: "Hourglass 3",
+                description: "All Debuff duration +2s",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+            new PlayerCharacterStats(
+                effectMultiplier: 1.5f,
+                name: "Saboteur 3",
+                description: "All Debuff Power +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
         isInitialized = true;
     }

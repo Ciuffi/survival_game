@@ -119,7 +119,7 @@ MonoBehaviour:
   playerShakeTime: 0.05
   playerShakeStrength: 0.05
   playerShakeRotation: 0.02
-  damageTickDuration: 1
+  damageTickDuration: 0.35
   isThrown: 0
   isHover: 0
   stopOnHit: 0
@@ -130,14 +130,14 @@ MonoBehaviour:
   magnetStrength: 0
   magnetDuration: 0
   isSlow: 1
-  slowPercentage: 0.4
-  slowDuration: 4
+  slowPercentage: 0.5
+  slowDuration: 2
   isStun: 0
   stunDuration: 0
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
-  projSize: 0
-  meleeSize: 0
+  wpnProjSizeMultiplier: 0
+  wpnMeleeSizeMultiplier: 0
 --- !u!50 &7860753979652903893
 Rigidbody2D:
   serializedVersion: 4

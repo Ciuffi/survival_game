@@ -35,6 +35,13 @@ public class AttackHandler : MonoBehaviour
     private Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
     public Image attackWheel;
 
+    public List<TimelineUI> timelines = new List<TimelineUI>();
+
+    private void Awake()
+    {
+        timelines = new List<TimelineUI>(FindObjectsOfType<TimelineUI>());
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +62,7 @@ public class AttackHandler : MonoBehaviour
         HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
         attackWheel = GameObject.Find("Wheel").GetComponent<Image>();
         originalScale = attackWheel.transform.localScale;
-
+        
         StartCoroutine(LoadWeaponAndStartAttack());
     }
     IEnumerator LoadWeaponAndStartAttack()
@@ -98,6 +105,12 @@ public class AttackHandler : MonoBehaviour
         AttackBuilder weapon = AttackLibrary.GetAttackBuilder(selectedWeaponName);
         Attack finalWeapon = weapon.Build((Rarity)selectedWeaponRarity);
         AddWeapon(finalWeapon);
+    }
+
+    public void ResetAttackCycle()
+    {
+        StopCoroutine(Attack()); // Stop the current attack cycle coroutine
+        StartCoroutine(Attack()); // Start a new attack cycle coroutine
     }
 
     IEnumerator HandleAttackSlider(float castTime)
@@ -346,6 +359,26 @@ public class AttackHandler : MonoBehaviour
 
         //weapon basestats - exists
         //newWeapon baseStats - does not exist
+    }
+
+    public void RemoveAttack(Attack attackToRemove)
+    {
+        if (attacks.Contains(attackToRemove))
+        {
+            Debug.Log("Contains the attack");
+            Destroy(attackToRemove.gameObject);
+            attacks.Remove(attackToRemove);
+        }
+
+        // Refresh all timelines:
+        foreach (var timeline in timelines)
+        {
+            if (timeline.gameObject.activeInHierarchy)
+            {
+                timeline.despawnTimeline();
+                timeline.spawnTimeline();
+            }
+        }
     }
 
     public void ResetWeapons()

@@ -4,19 +4,16 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class TimelineIcon : MonoBehaviour, IPointerDownHandler
+public class TimelineIcon : MonoBehaviour
 {
-    public GameObject attackHandler;
+    public Attack AssociatedAttack { get; set; }
+    public AttackHandler attackHandler; // add this line
 
-    public void OnPointerDown(PointerEventData eventData)
+    // Start is called before the first frame update
+    void Start()
     {
-        //attacks.Remove(attack);
-
-    }
-        // Start is called before the first frame update
-        void Start()
-    {
-        
+        attackHandler = GameObject.FindObjectOfType<AttackHandler>(); // Find the AttackHandler in the scene
+        Debug.Log("AttackHandler instance: " + attackHandler);
     }
 
     // Update is called once per frame

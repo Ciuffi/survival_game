@@ -7,20 +7,30 @@ public class PlayerInventory : MonoBehaviour
 {
     public List<Weapon> weaponInventory = new List<Weapon>();
     public int selectedWeaponIndex; // index of the currently selected weapon
+    InventoryUIManager inventoryUI;
+
+    public static PlayerInventory Instance { get; private set; }
 
     private void Awake()
     {
-        AttackLibrary.InitializeLibrary();
-        DontDestroyOnLoad(gameObject); // Make the GameObject persistent
-        //LoadInventory();
-        if (weaponInventory.Count == 0)
+        if (Instance == null)
         {
-            StartingInventory();
-            SaveInventory();
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        //AttackLibrary.InitializeLibrary();
+        LoadInventory();
+
+        inventoryUI = FindObjectOfType<InventoryUIManager>();
     }
 
-    private void StartingInventory()
+    public void StartingInventory()
     {
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
         //AddWeapon(new Weapon("Impact Mine", 0, false, 1));
@@ -54,6 +64,16 @@ public class PlayerInventory : MonoBehaviour
         SaveInventory();
     }
 
+    public void ResetInventory()
+    {
+        PlayerPrefs.DeleteKey("Weapons");
+        weaponInventory.Clear();
+        StartingInventory();
+        SaveInventory();
+
+        inventoryUI.ResetUI();
+    }
+
     private void LoadInventory()
     {
         string weaponsJson = PlayerPrefs.GetString("Weapons");
@@ -74,7 +94,6 @@ public class PlayerInventory : MonoBehaviour
     {
         string weaponsJson = JsonConvert.SerializeObject(weaponInventory);
         PlayerPrefs.SetString("Weapons", weaponsJson);
-
 
     }
 
@@ -122,6 +141,10 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public bool WeaponExists(string weaponName, int weaponRarity)
+    {
+        return weaponInventory.Exists(w => w.name == weaponName && w.rarity == weaponRarity);
+    }
 
     public void DecrementWeaponDurability()
     {

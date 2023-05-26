@@ -29,6 +29,20 @@ public class ShopLootBox : MonoBehaviour
         possibleWeapons = GetAttackNames();
     }
 
+    public bool AllWeaponsOwned(PlayerInventory inventory)
+    {
+        // Check if there's any weapon that the player doesn't own
+        foreach (string weaponName in possibleWeapons)
+        {
+            if (!inventory.WeaponExists(weaponName, rarity))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private List<string> GetAttackNames()
     {
         var attackBuilders = AttackLibrary.getAttackBuilders();

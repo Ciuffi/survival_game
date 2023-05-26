@@ -225,7 +225,7 @@ MonoBehaviour:
   playerShakeTime: 0.05
   playerShakeStrength: 0.05
   playerShakeRotation: 0.05
-  damageTickDuration: 0.5
+  damageTickDuration: 0.55
   isThrown: 0
   isHover: 0
   stopOnHit: 0
@@ -242,8 +242,8 @@ MonoBehaviour:
   stunDuration: 0
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
-  projSize: 0
-  meleeSize: 0
+  wpnProjSizeMultiplier: 0
+  wpnMeleeSizeMultiplier: 0
 --- !u!95 &5205817159011200887
 Animator:
   serializedVersion: 4

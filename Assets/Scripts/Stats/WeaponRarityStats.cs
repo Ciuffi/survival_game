@@ -5,11 +5,7 @@ public static class WeaponRarityStats
 {
     public static AttackStats ApplyRarity(List<AttackStats> attackStatUpgrades, Rarity rarity)
     {
-        if ((int)rarity > attackStatUpgrades.Count)
-        {
-            Debug.LogError("Not enough attack stat upgrades to apply rarity.");
-            return null;
-        }
+        Debug.Log("Rarity: " + (int)rarity);
 
         // Create a new AttackStats object to store the upgraded values
         AttackStats upgradedAttackStats = new AttackStats();
@@ -17,21 +13,35 @@ public static class WeaponRarityStats
         // Create a copy of the attackStatUpgrades list to keep track of available upgrades
         List<AttackStats> availableUpgrades = new List<AttackStats>(attackStatUpgrades);
 
-        // Iterate through each AttackStats upgrade based on the rarity
-        for (int i = 0; i < (int)rarity; i++)
+        for (Rarity r = Rarity.Rare; r <= rarity; r++)
         {
-            // Select a random upgrade from the availableUpgrades list
-            int randomIndex = Random.Range(0, availableUpgrades.Count);
-            AttackStats upgrade = availableUpgrades[randomIndex];
+            // Filter the availableUpgrades list based on rarity
+            List<AttackStats> filteredUpgrades = availableUpgrades.FindAll(a => a.rarity == r);
 
-            // Merge the selected upgrade into the upgradedAttackStats
-            upgradedAttackStats.mergeInStats(upgrade);
+            // Iterate through each AttackStats upgrade based on the rarity
+            for (int i = 0; i < 2; i++)
+            {
+                // If there are no available upgrades of the current rarity, break the loop
+                if (filteredUpgrades.Count == 0) break;
 
-            // Remove the selected upgrade from the availableUpgrades list
-            availableUpgrades.RemoveAt(randomIndex);
+                // Select a random upgrade from the filteredUpgrades list
+                int randomIndex = Random.Range(0, filteredUpgrades.Count);
+                AttackStats upgrade = filteredUpgrades[randomIndex];
+
+                // Merge the selected upgrade into the upgradedAttackStats
+                upgradedAttackStats.mergeInStats(upgrade);
+
+                // Remove the selected upgrade from the availableUpgrades list
+                availableUpgrades.Remove(upgrade);
+
+                // Also remove the upgrade from the filteredUpgrades list to avoid duplicates (unless it's the only upgrade)
+                if (filteredUpgrades.Count > 1)
+                {
+                    filteredUpgrades.RemoveAt(randomIndex);
+                }
+            }
         }
 
-        //Debug.Log($"Rarity Upgrades: Damage: {upgradedAttackStats.damage}, CastTime: {upgradedAttackStats.castTime}, CritChance: {upgradedAttackStats.critChance}, ShotsPerAttack: {upgradedAttackStats.shotsPerAttack}, ShotgunSpread: {upgradedAttackStats.shotgunSpread}, ProjectileSize: {upgradedAttackStats.projectileSize}, Range: {upgradedAttackStats.range}, Knockback: {upgradedAttackStats.knockback}");
         return upgradedAttackStats;
     }
 }

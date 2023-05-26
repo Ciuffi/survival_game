@@ -15,10 +15,13 @@ public class InventoryUIManager : MonoBehaviour
     public string selectedWeapon;
     public int selectedWeaponRarity;
 
-    void Start()
+    private void Awake()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
+    }
 
+    void Start()
+    {
         PopulateInventoryUI();
     }
 
@@ -50,6 +53,22 @@ public class InventoryUIManager : MonoBehaviour
         for (int i = 0; i < playerInventory.weaponInventory.Count; i++)
         {
             AddWeaponToUI(playerInventory.weaponInventory[i]);
+        }
+    }
+
+    public void ResetUI()
+    {
+        if (contentPanel != null)
+        {
+            foreach (Transform child in contentPanel.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            for (int i = 0; i < playerInventory.weaponInventory.Count; i++)
+            {
+                AddWeaponToUI(playerInventory.weaponInventory[i]);
+            }
         }
     }
 

@@ -246,21 +246,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd6010c9fedde4fb94cbf370e6bcbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatChance: 0.1
-  weaponSetStatChance: 0.25
-  weaponStatChance: 0.65
-  existingWeaponOrSetChance: 0.85
-  newWeaponOrSetChance: 0.15
+  playerStatChance: 0.2
+  weaponSetStatChance: 0.2
+  weaponStatChance: 0.6
+  existingWeaponOrSetChance: 0.9
+  newWeaponOrSetChance: 0.1
   guiltDropTables:
   - dropRates:
-    - 65
-    - 35
+    - 60
+    - 40
     - 0
-    - 0
-  - dropRates:
-    - 45
-    - 53
-    - 2
     - 0
   - dropRates:
     - 30
@@ -268,25 +263,30 @@ MonoBehaviour:
     - 5
     - 0
   - dropRates:
-    - 19
-    - 65
-    - 15
-    - 1
-  - dropRates:
-    - 5
-    - 65
-    - 27
-    - 3
+    - 10
+    - 70
+    - 20
+    - 0
   - dropRates:
     - 5
     - 60
-    - 30
-    - 5
+    - 33
+    - 2
   - dropRates:
     - 0
     - 50
-    - 35
-    - 15
+    - 45
+    - 5
+  - dropRates:
+    - 5
+    - 40
+    - 50
+    - 10
+  - dropRates:
+    - 0
+    - 30
+    - 40
+    - 30
   lootDropTables:
   - dropRates:
     - 25
@@ -803,6 +803,7 @@ MonoBehaviour:
   flashColor: {r: 0.83892757, g: 0.9433962, b: 0.81434673, a: 0.8235294}
   AutoAimPrefab: {fileID: 0}
   attackWheel: {fileID: 0}
+  timelines: []
 --- !u!114 &9136689211427610631
 MonoBehaviour:
   m_ObjectHideFlags: 0

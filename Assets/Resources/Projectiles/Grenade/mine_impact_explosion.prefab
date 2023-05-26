@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1822861191
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -156114637, guid: 1020ce25022b50944a8b4aeae27e0967, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.8235294}
@@ -170,7 +170,7 @@ MonoBehaviour:
   playerShakeTime: 0.12
   playerShakeStrength: 0.2
   playerShakeRotation: 0.1
-  damageTickDuration: 1
+  damageTickDuration: 0.55
   isAnimated: 1
   isMagnet: 0
   magnetStrength: 0

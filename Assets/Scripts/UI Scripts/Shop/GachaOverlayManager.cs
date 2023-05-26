@@ -69,9 +69,9 @@ public class GachaOverlayManager : MonoBehaviour
         // Scale up the child elements one at a time
         Sequence sequence = DOTween.Sequence();
         sequence.Append(outline.transform.DOScale(1, 0.5f).SetEase(Ease.OutElastic));
-        sequence.Append(this.weapon.transform.DOScale(1, 0.5f).SetEase(Ease.OutElastic));
+        sequence.Append(this.weapon.transform.DOScale(1, 0.4f).SetEase(Ease.OutElastic));
         sequence.Append(nameText.transform.DOScale(1, 0.3f).SetEase(Ease.OutElastic));
-        sequence.Append(rarityText.transform.DOScale(1, 0.3f).SetEase(Ease.OutElastic));
+        sequence.Append(rarityText.transform.DOScale(1, 0.2f).SetEase(Ease.OutElastic));
 
         StartCoroutine(StartCloseTimer());
     }

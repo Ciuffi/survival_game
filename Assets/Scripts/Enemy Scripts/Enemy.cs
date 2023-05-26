@@ -251,11 +251,23 @@ public class Enemy : MonoBehaviour, Attacker
     private void CheckDistanceToPlayer()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
+        Vector3 toPlayer = player.transform.position - transform.position;
 
         if (distance > destroyDistance)
         {
-            Destroy(gameObject);
-            maxEnemiesTracker.GetComponent<MaxEnemyTracker>().DecreaseCount();
+            if (!isElite && !isBoss)
+            {
+                Destroy(gameObject);
+                maxEnemiesTracker.GetComponent<MaxEnemyTracker>().DecreaseCount();
+            } else
+            {
+                // Calculate the position that's 1/3rd of the max distance in the opposite direction from the player
+                Vector2 newPosition = player.transform.position + toPlayer.normalized * (destroyDistance / 3);
+
+                // Move the enemy to the new position
+                transform.position = newPosition;
+            }
+  
         }
     }
 

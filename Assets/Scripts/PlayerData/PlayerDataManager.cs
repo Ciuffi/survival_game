@@ -29,7 +29,7 @@ public class PlayerDataManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        playerInventory = FindObjectOfType<PlayerInventory>();
+        playerInventory = PlayerInventory.Instance;
         goldDisplay.Add(GameObject.Find("playerGold").GetComponentInChildren<TextMeshProUGUI>());
         goldDisplay.Add(GameObject.Find("playerGold2").GetComponentInChildren<TextMeshProUGUI>());
         charSelectController = FindObjectOfType<CharSelectController>();
@@ -152,12 +152,20 @@ public class PlayerDataManager : MonoBehaviour
         PlayerPrefs.DeleteKey("UnlockedCharacters");
         PlayerPrefs.DeleteKey("UnlockedStages");
 
-        StatComponent[] characters = FindObjectsOfType<StatComponent>();
+        CharacterButton[] characters = FindObjectsOfType<CharacterButton>();
 
-        foreach (StatComponent statComponent in characters)
+        foreach (CharacterButton c in characters)
         {
-            PlayerCharacterStats character = statComponent.stat;
-            character.isLocked = true;
+            if (c.stats != null)
+            {
+                PlayerCharacterStats character = c.stats;
+                character.isLocked = true;
+                string defaultName = "Default(Clone)";
+                if (c.name.ToString() == defaultName)
+                {
+                    c.stats.isLocked = false;
+                }
+            }
         }
 
         StageButton[] stages = FindObjectsOfType<StageButton>();
@@ -166,7 +174,7 @@ public class PlayerDataManager : MonoBehaviour
             stage.isLocked = true;
         }
 
-        gold = 0;
+        gold = 300;
         unlockedCharacters = 1;
         unlockedStages = 1;
 

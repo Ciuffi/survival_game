@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         playerStats = playerMovement.GetComponent<StatsHandler>();
         playerAttacks = playerMovement.GetComponent<AttackHandler>();
         playerData = PlayerDataManager.Instance;
-        playerInv = FindObjectOfType<PlayerInventory>();
+        playerInv = PlayerInventory.Instance;
         pauseMenu.SetActive(false);
 
     }

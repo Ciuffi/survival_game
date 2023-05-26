@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class TimelineUI : MonoBehaviour
 {
@@ -15,22 +16,23 @@ public class TimelineUI : MonoBehaviour
     public float offsetAmount;
     private float currentOffset;
 
+    public GameObject colorPrefab;
+    public List<Color> rarityColors;
+
+    void Awake()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        playerAttacks = Player.GetComponent<AttackHandler>();
+        rarityColors = colorPrefab.GetComponent<InventoryItem>().rarityColors;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
-        playerAttacks = Player.GetComponent<AttackHandler>();
-
         foreach (Transform child in attackContainer.transform)
         {
             attacks.Add(child.gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void addAttack()
@@ -39,7 +41,7 @@ public class TimelineUI : MonoBehaviour
         {
             if (child.gameObject.tag == "Attack")
             {
-               attacks.Add(child.gameObject);
+                attacks.Add(child.gameObject);
             }
         }
 
@@ -47,17 +49,29 @@ public class TimelineUI : MonoBehaviour
 
     public void spawnTimeline()
     {
-       
-
         currentOffset = 0;
         icons = new List<GameObject>();
-        foreach (GameObject attack in attacks)
+        foreach (Attack attack in playerAttacks.attacks)
         {
             GameObject Icon = Instantiate(IconPrefab, transform);
-            Icon.transform.position += Vector3.left * currentOffset;
+            TimelineIcon t = Icon.GetComponent<TimelineIcon>();
+            t.AssociatedAttack = attack;
+
+            Icon.GetComponentInChildren<TextMeshProUGUI>().text = attack.weaponSetType.ToString();
+
+            Icon.GetComponent<Image>().color = rarityColors[(int)attack.rarity];
+            Icon.transform.Find("WpnImage").gameObject.GetComponent<Image>().sprite = attack.thrownSprite;
+
+            Icon.transform.localPosition += Vector3.right * currentOffset;
             currentOffset += offsetAmount;
-            Icon.transform.GetChild(0).GetComponent<TMP_Text>().text = attack.name;
             icons.Add(Icon);
+
+            // New code: Adjust visibility of delete button based on attack count
+            var deleteButton = Icon.GetComponentInChildren<DeleteAttackButton>(); // get the DeleteAttackButton component
+            if (deleteButton != null) // if it exists
+            {
+                deleteButton.gameObject.SetActive(playerAttacks.attacks.Count > 1); // set active only if there is more than one attack
+            }
         }
     }
 
@@ -68,6 +82,5 @@ public class TimelineUI : MonoBehaviour
             Destroy(Icon);
         }
         icons.Clear();
-        attacks.Clear();
     }
 }

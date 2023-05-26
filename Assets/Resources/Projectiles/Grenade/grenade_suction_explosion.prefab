@@ -170,7 +170,7 @@ MonoBehaviour:
   playerShakeTime: 0.1
   playerShakeStrength: 0.1
   playerShakeRotation: 0.05
-  damageTickDuration: 1.5
+  damageTickDuration: 0.55
   isAnimated: 1
   isMagnet: 1
   magnetStrength: 7

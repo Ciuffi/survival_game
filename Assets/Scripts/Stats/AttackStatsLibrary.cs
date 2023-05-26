@@ -53,8 +53,9 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 aimRangeAdditive: -1f,
+                critChance: 0.02f,
                 name: "MLG 1",
-                description: "Decrease Aim Range",
+                description: "Decrease Aim Range, Crit Chance +2%",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Common
             )
@@ -64,8 +65,9 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 coneAngle: -30f,
+                critDmg: 0.1f,
                 name: "Gamer 1",
-                description: "Decrease Aim Assist Width",
+                description: "Decrease Aim Width, Crit Damage +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Common
             )
@@ -183,6 +185,17 @@ public static class AttackStatsLibrary
         ;
 
         AddStat(
+           new AttackStats(
+               speedMultiplier: 0.88f,
+               name: "Gravity 1",
+               description: "Projectile Speed -12%",
+               icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
+               rarity: Rarity.Common
+           )
+       );
+        ;
+
+        AddStat(
             new AttackStats(
                 rangeMultiplier: 1.12f,
                 name: "Reach 1",
@@ -230,10 +243,10 @@ public static class AttackStatsLibrary
         //rare
         AddStat(
             new AttackStats(
-                aimRangeAdditive: -3f,
-                critChance: 0.10f,
+                aimRangeAdditive: -2f,
+                critChance: 0.5f,
                 name: "MLG 2",
-                description: "Decrease Aim Range, Crit Chance +10%",
+                description: "Decrease Aim Range, Crit Chance +5%",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Rare
             )
@@ -242,10 +255,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                coneAngle: -100f,
-                critDmg: 0.3f,
+                coneAngle: -60f,
+                critDmg: 0.25f,
                 name: "Gamer 2",
-                description: "Decrease Aim Width, Crit Dmg +30%",
+                description: "Decrease Aim Width, Crit Dmg +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Rare
             )
@@ -360,6 +373,17 @@ public static class AttackStatsLibrary
                 rarity: Rarity.Rare
             )
         );
+
+        ;
+        AddStat(
+           new AttackStats(
+               speedMultiplier: 0.80f,
+               name: "Gravity 2",
+               description: "Projectile Speed -20%",
+               icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
+               rarity: Rarity.Rare
+           )
+       );
         ;
 
         AddStat(
@@ -413,17 +437,17 @@ public static class AttackStatsLibrary
                 name: "Hacker 1",
                 description: "Increases Aim Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
-                rarity: Rarity.Rare
+                rarity: Rarity.Common
             )
         );
         ;
         AddStat(
             new AttackStats(
-                coneAngle: 40f,
+                coneAngle: 60f,
                 name: "AFK 1",
                 description: "Increases Aim Width",
                 icon: Resources.Load<Sprite>("UI_Icons/AFK"),
-                rarity: Rarity.Rare
+                rarity: Rarity.Common
             )
         );
         ;
@@ -604,8 +628,53 @@ public static class AttackStatsLibrary
         );
         ;
 
+        AddStat(
+           new AttackStats(
+               aimRangeAdditive: 2f,
+               name: "Hacker 2",
+               description: "Increases Aim Range",
+               icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
+               rarity: Rarity.Rare
+           )
+       );
+        ;
+        AddStat(
+            new AttackStats(
+                coneAngle: 120f,
+                name: "AFK 2",
+                description: "Increases Aim Width",
+                icon: Resources.Load<Sprite>("UI_Icons/AFK"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
 
         //epic
+        AddStat(
+            new AttackStats(
+                aimRangeAdditive: -4f,
+                critChance: 0.10f,
+                name: "MLG 3",
+                description: "Decrease Aim Range, Crit Chance +10%",
+                icon: Resources.Load<Sprite>("UI_Icons/MLG"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                coneAngle: -120f,
+                critDmg: 0.50f,
+                name: "Gamer 3",
+                description: "Decrease Aim Width, Crit Dmg +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
         AddStat(
             new AttackStats(
                 damageMultiplier: 1.5f,
@@ -695,6 +764,17 @@ public static class AttackStatsLibrary
         ;
 
         AddStat(
+           new AttackStats(
+               speedMultiplier: 0.65f,
+               name: "Gravity 3",
+               description: "Projectile Speed -35%",
+               icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
+               rarity: Rarity.Rare
+           )
+       );
+        ;
+
+        AddStat(
             new AttackStats(
                 rangeMultiplier: 1.4f,
                 name: "Reach 3",
@@ -730,9 +810,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                aimRangeAdditive: 2f,
-                name: "Hacker 2",
-                description: "Increases Aim Range",
+                aimRangeAdditive: 4f,
+                name: "Hacker 3",
+                description: "Massively increase Aim Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
                 rarity: Rarity.Epic
             )
@@ -740,9 +820,9 @@ public static class AttackStatsLibrary
         ;
         AddStat(
             new AttackStats(
-                coneAngle: 60f,
-                name: "AFK 2",
-                description: "Increases Aim Width",
+                isCone: false,
+                name: "AFK 3",
+                description: "360 Aim Vision",
                 icon: Resources.Load<Sprite>("UI_Icons/AFK"),
                 rarity: Rarity.Epic
             )
@@ -1225,6 +1305,18 @@ public static class AttackStatsLibrary
         ;
 
         AddStat(
+           new AttackStats(
+               speedMultiplier: 0.9f,
+               name: "Gravitation 1",
+               description: "Projectile Speed -10%",
+               icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
+               rarity: Rarity.Common,
+               weaponSet: true
+           )
+       );
+        ;
+
+        AddStat(
             new AttackStats(
                 rangeMultiplier: 1.10f,
                 name: "Scope 1",
@@ -1380,6 +1472,18 @@ public static class AttackStatsLibrary
                 weaponSet: true
             )
         );
+        ;
+
+        AddStat(
+           new AttackStats(
+               speedMultiplier: 0.82f,
+               name: "Gravitation 2",
+               description: "Projectile Speed -18%",
+               icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
+               rarity: Rarity.Rare,
+               weaponSet: true
+           )
+       );
         ;
 
         AddStat(
@@ -1668,6 +1772,18 @@ public static class AttackStatsLibrary
                 weaponSet: true
             )
         );
+        ;
+
+        AddStat(
+           new AttackStats(
+               speedMultiplier: 0.7f,
+               name: "Gravitation 3",
+               description: "Projectile Speed -30%",
+               icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
+               rarity: Rarity.Epic,
+               weaponSet: true
+           )
+       );
         ;
 
         AddStat(
