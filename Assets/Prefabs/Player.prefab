@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseReroll: 5
   currentReroll: 0
-  baseSwap: 3
+  baseSwap: 2
   currentSwap: 0
 --- !u!114 &8055189426503789870
 MonoBehaviour:

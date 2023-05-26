@@ -640,8 +640,8 @@ public class Attack : MonoBehaviour, Upgrade
 
     private IEnumerator Melee(float multicastAlpha)
     {
-        Debug.Log("Casttime: " + stats.castTime);
-        Debug.Log("AttackTime: " + attackTime);
+        //Debug.Log("Casttime: " + stats.castTime);
+        //Debug.Log("AttackTime: " + attackTime);
 
         if (numMulticast >= 1 && !firstShot)
         {

@@ -104,6 +104,7 @@ public class AttackHandler : MonoBehaviour
 
         AttackBuilder weapon = AttackLibrary.GetAttackBuilder(selectedWeaponName);
         Attack finalWeapon = weapon.Build((Rarity)selectedWeaponRarity);
+
         AddWeapon(finalWeapon);
     }
 
@@ -311,6 +312,7 @@ public class AttackHandler : MonoBehaviour
             //attacking
             StopCoroutine("HandleAttackWheel");
             attackWheel.gameObject.SetActive(false);
+
             attackState = AttackState.Attacking;
             if (currentAttack != null)
                 currentAttack.Shoot();
@@ -345,6 +347,7 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
+
     public void AddWeapon(Attack weapon)
     {
         var newWeapon = Instantiate(weapon, attackContainer.transform);
@@ -352,10 +355,7 @@ public class AttackHandler : MonoBehaviour
         newWeapon.baseStats = weapon.baseStats;
         newWeapon.stats = weapon.stats;
         newWeapon.weaponUpgrades = weapon.weaponUpgrades;
-
         attacks.Add(newWeapon);
-
-        //Debug.Log(weapon.GetComponent<Attack>().baseStats.damage);
 
         //weapon basestats - exists
         //newWeapon baseStats - does not exist

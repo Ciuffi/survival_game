@@ -54,7 +54,7 @@ public class PlayerInventory : MonoBehaviour
         //AddWeapon(new Weapon("Smoke Grenade", 0, true, 0));
         //AddWeapon(new Weapon("Petrify Grenade", 0, true, 0));
         //AddWeapon(new Weapon("Suction Grenade", 0, true, 0));
-        //AddWeapon(new Weapon("Wind Blade", 6, true, 0));
+        AddWeapon(new Weapon("Wind Blade", 0, false, 1));
 
 
     }

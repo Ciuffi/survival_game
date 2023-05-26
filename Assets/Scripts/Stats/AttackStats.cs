@@ -401,7 +401,7 @@ public class AttackStats : Upgrade
 
         this.damageMultiplier *= playerStats.damageMultiplier;
         this.rangeMultiplier *= playerStats.rangeMultiplier;
-        this.comboWaitTime *= playerStats.comboWaitTimeMultiplier;
+        this.comboWaitTimeMultiplier *= playerStats.comboWaitTimeMultiplier;
         this.damageMultiplier *= playerStats.damageMultiplier;
         this.castTimeMultiplier *= playerStats.castTimeMultiplier;
         this.knockbackMultiplier *= playerStats.knockbackMultiplier;
