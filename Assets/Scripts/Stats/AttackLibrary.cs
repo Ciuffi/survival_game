@@ -145,6 +145,7 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.2f,
                     shakeRotation: 0.5f,
+                    thrownDamage: 1,
                     cantMove: true
                 )
             )
@@ -776,7 +777,7 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.3f,
                     shakeRotation: 1f,
-                    thrownDamage: 0,
+                    thrownDamage: 1,
                     throwSpeed: 0f,
                     meleeSizeMultiplier: 0.9f
                 )
@@ -894,7 +895,7 @@ public static class AttackLibrary
                     shakeTime: 0.01f,
                     shakeStrength: 0.01f,
                     shakeRotation: 0.01f,
-                    thrownDamage: 22f,
+                    thrownDamage: 20f,
                     throwSpeed: 0.2f
                 )
             )
@@ -1023,7 +1024,7 @@ public static class AttackLibrary
                     shakeTime: 0.15f,
                     shakeStrength: 0.7f,
                     shakeRotation: 0.5f,
-                    thrownDamage: 0,
+                    thrownDamage: 1,
                     throwSpeed: 0f
                 )
             )
@@ -1124,7 +1125,8 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.15f,
-                    shakeRotation: 0.1f
+                    shakeRotation: 0.1f,
+                    thrownDamage: 1
                 )
             )
             .SetProperties(
@@ -1216,7 +1218,7 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.15f,
                     shakeRotation: 0.1f,
-                    thrownDamage: 0f,
+                    thrownDamage: 1f,
                     throwSpeed: 0f
                 )
             )
@@ -1469,7 +1471,7 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
                     shakeRotation: 0.5f,
-                    thrownDamage: 0,
+                    thrownDamage: 1,
                     throwSpeed: 0f
                 )
             )
@@ -1694,7 +1696,8 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.05f,
-                    shakeRotation: 0.05f
+                    shakeRotation: 0.05f,
+                    thrownDamage: 1
                 )
             )
             .SetProperties(
@@ -2381,7 +2384,8 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     shakeTime: 0.05f,
                     shakeStrength: 0.05f,
-                    shakeRotation: 0.1f
+                    shakeRotation: 0.1f,
+                    thrownDamage: 1
                 )
             )
             .SetProperties(
@@ -2709,7 +2713,8 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     shakeTime: 0.05f,
                     shakeStrength: 0.05f,
-                    shakeRotation: 0.05f
+                    shakeRotation: 0.05f,
+                    thrownDamage: 1
                 )
             )
             .SetProperties(
