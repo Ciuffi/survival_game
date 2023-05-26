@@ -617,7 +617,7 @@ public static class AttackLibrary
 
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Persistence 3"),
-   
+
         };
 
         AttackBuilder EarthShock = new AttackBuilder()
@@ -666,7 +666,7 @@ public static class AttackLibrary
         {
             new AttackStats(rarity: Rarity.Rare, knockback: 0.7f, shakeStrength: 0.05f),
             new AttackStats(rarity: Rarity.Rare, effectMultiplier: 1.8f),
-            
+
             new AttackStats(rarity: Rarity.Epic, damage: 7),
             new AttackStats(rarity: Rarity.Epic, meleeSpacer: 2.5f, aimRangeAdditive: 2f, coneAngle: 45f),
 
@@ -1046,7 +1046,7 @@ public static class AttackLibrary
 
             new AttackStats(rarity: Rarity.Epic, castTimeMultiplier: 1.5f, damageMultiplier: 1.5f, projectileSizeMultiplier: 1.5f),
             new AttackStats(rarity: Rarity.Epic, range: 2f, pierce: 5, aimRangeAdditive: 2f),
-            
+
             new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1),
             new AttackStats(rarity: Rarity.Legendary, activeDuration: 0.8f),
         };
@@ -2949,7 +2949,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
-                    damage: 6,
+                    damage: 8,
                     isCone: true,
                     coneAngle: 100f,
                     spread: 0.3f,

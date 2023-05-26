@@ -68,28 +68,6 @@ public static class PlayerStatsLibrary
             )
         );
 
-        //Crit Chance
-        AddStat(
-            new PlayerCharacterStats(
-                critChance: 0.02f,
-                name: "Eagle Eye 1",
-                description: "All Crit Chance +2%",
-                icon: Resources.Load<Sprite>("UI_Icons/EagleEye"),
-                rarity: Rarity.Common
-            )
-        );
-
-        //Crit Dmg
-        AddStat(
-            new PlayerCharacterStats(
-                critDmg: 12f,
-                name: "Scanner 1",
-                description: "All Crit Dmg +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/Scanner"),
-                rarity: Rarity.Common
-            )
-        );
-
         //pickup range
         AddStat(
             new PlayerCharacterStats(
@@ -134,28 +112,6 @@ public static class PlayerStatsLibrary
             )
         );
 
-        //Crit Chance
-        AddStat(
-            new PlayerCharacterStats(
-                critChance: 0.04f,
-                name: "Eagle Eye 2",
-                description: "All Crit Chance +4%",
-                icon: Resources.Load<Sprite>("UI_Icons/EagleEye"),
-                rarity: Rarity.Rare
-            )
-        );
-
-        //Crit Dmg
-        AddStat(
-            new PlayerCharacterStats(
-                critDmg: 0.25f,
-                name: "Scanner 2",
-                description: "All Crit Dmg +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/Scanner"),
-                rarity: Rarity.Rare
-            )
-        );
-
         //pickup range
         AddStat(
             new PlayerCharacterStats(
@@ -181,9 +137,9 @@ public static class PlayerStatsLibrary
         //Damage%
         AddStat(
             new PlayerCharacterStats(
-                damageMultiplier: 1.1f,
+                damageMultiplier: 1.20f,
                 name: "Training 1",
-                description: "All Damage +10%",
+                description: "All Damage +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Training"),
                 rarity: Rarity.Rare
             )
@@ -348,9 +304,9 @@ public static class PlayerStatsLibrary
         //Damage%
         AddStat(
             new PlayerCharacterStats(
-                damageMultiplier: 1.2f,
+                damageMultiplier: 1.4f,
                 name: "Training 2",
-                description: "All Damage +20%",
+                description: "All Damage +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/Training"),
                 rarity: Rarity.Epic
             )
@@ -473,9 +429,9 @@ public static class PlayerStatsLibrary
         //Damage%
         AddStat(
             new PlayerCharacterStats(
-                damageMultiplier: 1.4f,
+                damageMultiplier: 1.8f,
                 name: "Training 3",
-                description: "All Damage +40%",
+                description: "All Damage +80%",
                 icon: Resources.Load<Sprite>("UI_Icons/Training"),
                 rarity: Rarity.Legendary
             )
