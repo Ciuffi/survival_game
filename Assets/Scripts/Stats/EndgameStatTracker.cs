@@ -17,7 +17,7 @@ public class EndgameStatTracker : MonoBehaviour
 
     private void Awake()
     {
-        playerData = PlayerDataManager.Instance;
+        playerData = FindObjectOfType<PlayerDataManager>();
     }
 
     public void EndGameStats()

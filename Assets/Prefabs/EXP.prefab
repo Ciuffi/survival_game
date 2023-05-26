@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9040451915024097044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.08, z: 0.15}
+  m_LocalScale: {x: 0.1, y: 0.085, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5724624670826375811}
@@ -107,16 +107,16 @@ MonoBehaviour:
   waitTime: 0.5
   maxAwayDistance: 1
   spriteList:
-  - {fileID: 21300000, guid: a58b6c23976fcc84dbad758e4d6fc55c, type: 3}
   - {fileID: 21300000, guid: 6fda33c7748f1ff4e830a507acacd516, type: 3}
   - {fileID: 21300000, guid: 6b11b9655a5af6345ad0fd8fac369aee, type: 3}
+  - {fileID: 21300000, guid: a58b6c23976fcc84dbad758e4d6fc55c, type: 3}
   xpTierThresholds: 00000000320000007d000000
   xpAmount: 0
   xpTier: 0
   bounceHeight: 0.5
   bounceSpeed: 25
   bounceDecay: 1
-  rotationAmount: 25
+  rotationAmount: 10
   rotationDecayRate: 5
 --- !u!61 &4666552734587107983
 BoxCollider2D:
