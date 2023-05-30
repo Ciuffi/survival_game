@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 36fcd6d37bfe6e446b9f492f5e8e0388, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8627451}
+  m_Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0.8627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 4235860010000021921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 0.4, y: 0.62, z: 0}
+  m_LocalScale: {x: 0.65, y: 0.8, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2046734351210729163}
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.29803923, g: 1, b: 0.23529412, a: 1}
+  m_Color: {r: 0.6415094, g: 0.11348656, b: 0.06294053, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -220,8 +220,8 @@ MonoBehaviour:
   stunDuration: 0
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
-  projSize: 0
-  meleeSize: 0
+  wpnProjSizeMultiplier: 0
+  wpnMeleeSizeMultiplier: 0
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4
@@ -256,7 +256,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00026085973, y: 0.007641062}
+  m_Offset: {x: -0.0013295412, y: 0.007641077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -267,5 +267,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46017087, y: 0.9318632}
+  m_Size: {x: 0.5587753, y: 0.9318632}
   m_EdgeRadius: 0

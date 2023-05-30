@@ -59,8 +59,9 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   isBasic: 0
   isElite: 1
+  isBoss: 0
   damage: 2
-  health: 300
+  health: 250
   maxHealth: 0
   xpAmount: 250
   weight: 20
@@ -124,6 +125,7 @@ MonoBehaviour:
   shadow: {fileID: 2331833043301358605}
   eliteOutline: {fileID: 1450570267614955896}
   xpSizeScaling: 0.3
+  destroyDistance: 30
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4

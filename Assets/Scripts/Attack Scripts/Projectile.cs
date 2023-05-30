@@ -106,8 +106,8 @@ public class Projectile : MonoBehaviour
         spawnPos.y = transform.position.y;
         projectileRange = attack.stats.range;
         moveSpeed = attack.stats.speed;
-        wpnProjSizeMultiplier = attack.stats.projectileSizeMultiplier;
-        wpnMeleeSizeMultiplier = attack.stats.meleeSizeMultiplier;
+        wpnProjSizeMultiplier = attack.stats.projectileSize;
+        wpnMeleeSizeMultiplier = attack.stats.meleeSize;
 
         magnetStrength *= attack.stats.effectMultiplier;
         slowPercentage *= attack.stats.effectMultiplier;
@@ -129,8 +129,8 @@ public class Projectile : MonoBehaviour
             damage =
                 attack.stats.thrownDamage;
             pierce = 5 + attack.stats.pierce;
-            projectileRange = 6 * attack.stats.rangeMultiplier;
-            knockback = 0.35f * attack.stats.knockbackMultiplier;
+            projectileRange = 6 + (attack.stats.range / 2);
+            knockback = 0.35f + (attack.stats.knockback / 2);
         }
         GetComponent<Collider2D>().enabled = true;
     }

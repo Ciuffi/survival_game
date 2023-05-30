@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.2901961}
@@ -181,8 +181,9 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   isBasic: 0
   isElite: 1
+  isBoss: 0
   damage: 2
-  health: 700
+  health: 600
   maxHealth: 0
   xpAmount: 250
   weight: 30
@@ -214,7 +215,7 @@ MonoBehaviour:
   slowColor: {r: 0.5254902, g: 0.5568628, b: 0.30980393, a: 1}
   isRage: 1
   rageTriggerPercent: 0.2
-  rageSpeedMod: 2.5
+  rageSpeedMod: 2.2
   rageDmgMod: 2
   isDash: 0
   chargeTime: 1
@@ -246,6 +247,7 @@ MonoBehaviour:
   shadow: {fileID: 1099544346536127257}
   eliteOutline: {fileID: 3144855051228074411}
   xpSizeScaling: 0.3
+  destroyDistance: 30
 --- !u!114 &1321576414662445604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +264,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 0.7
+  maxSpeed: 0.65
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -493,7 +495,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: -3776421584276329722, guid: 9bec6757e40546546a9a86cd95f10b11, type: 3}
   m_Color: {r: 0.6117647, g: 0, b: 0.7254902, a: 1}
@@ -613,7 +615,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_Sprite: {fileID: -3776421584276329722, guid: 9bec6757e40546546a9a86cd95f10b11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

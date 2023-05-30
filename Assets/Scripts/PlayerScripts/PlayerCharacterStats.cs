@@ -179,7 +179,7 @@ public class PlayerCharacterStats : Upgrade
     )
     {
         this.maxHealth = maxHealth;
-        this.health = maxHealth;
+        this.health = health;
         this.speed = speed;
         this.pickupRange = pickupRange;
         this.damageMultiplier = damageMultiplier;

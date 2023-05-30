@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseXP: 40
-  growthMultiplier: 1.35
+  growthMultiplier: 1.32
   flashColor: {r: 0.32549024, g: 0.9117146, b: 1, a: 0.92156863}
   playerStatUpgrades: []
   upgrades: []
@@ -253,46 +253,41 @@ MonoBehaviour:
   newWeaponOrSetChance: 0.1
   guiltDropTables:
   - dropRates:
-    - 60
-    - 40
-    - 0
-    - 0
-  - dropRates:
-    - 30
-    - 65
-    - 5
-    - 0
-  - dropRates:
-    - 10
-    - 70
-    - 20
-    - 0
-  - dropRates:
-    - 5
-    - 60
-    - 33
-    - 2
-  - dropRates:
-    - 0
     - 50
     - 45
     - 5
+    - 0
+  - dropRates:
+    - 25
+    - 60
+    - 15
+    - 0
+  - dropRates:
+    - 10
+    - 65
+    - 25
+    - 0
   - dropRates:
     - 5
-    - 40
     - 50
+    - 40
+    - 5
+  - dropRates:
+    - 0
+    - 45
+    - 45
     - 10
   - dropRates:
     - 0
     - 30
-    - 40
-    - 30
-  lootDropTables:
+    - 50
+    - 20
   - dropRates:
-    - 25
-    - 75
     - 0
-    - 0
+    - 20
+    - 40
+    - 40
+  lootDropTables:
   - dropRates:
     - 0
     - 100
@@ -305,24 +300,29 @@ MonoBehaviour:
     - 0
   - dropRates:
     - 0
-    - 74
-    - 25
+    - 75
+    - 24
     - 1
   - dropRates:
     - 0
-    - 60
-    - 37
-    - 3
-  - dropRates:
-    - 0
-    - 30
-    - 60
-    - 10
+    - 50
+    - 45
+    - 5
   - dropRates:
     - 0
     - 0
-    - 75
-    - 25
+    - 80
+    - 20
+  - dropRates:
+    - 0
+    - 0
+    - 50
+    - 50
+  - dropRates:
+    - 0
+    - 0
+    - 0
+    - 100
 --- !u!1 &3287956671689121398
 GameObject:
   m_ObjectHideFlags: 0

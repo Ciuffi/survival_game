@@ -262,7 +262,7 @@ public class Enemy : MonoBehaviour, Attacker
             } else
             {
                 // Calculate the position that's 1/3rd of the max distance in the opposite direction from the player
-                Vector2 newPosition = player.transform.position + toPlayer.normalized * (destroyDistance / 3);
+                Vector2 newPosition = player.transform.position + toPlayer.normalized * (destroyDistance / 2);
 
                 // Move the enemy to the new position
                 transform.position = newPosition;

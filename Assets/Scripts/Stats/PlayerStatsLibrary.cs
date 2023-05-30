@@ -60,9 +60,10 @@ public static class PlayerStatsLibrary
         //max health
         AddStat(
             new PlayerCharacterStats(
-                maxHealth: 10,
+                maxHealth: 5,
+                health: 5,
                 name: "Thick Hide 1",
-                description: "Increase Max HP by 10",
+                description: "Increase Max HP by 5",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Common
             )
@@ -104,9 +105,10 @@ public static class PlayerStatsLibrary
         //max health
         AddStat(
             new PlayerCharacterStats(
-                maxHealth: 15,
+                maxHealth: 10,
+                health: 10,
                 name: "Thick Hide 2",
-                description: "Increase Max HP by 15",
+                description: "Increase Max HP by 10",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Rare
             )
@@ -137,7 +139,7 @@ public static class PlayerStatsLibrary
         //Damage%
         AddStat(
             new PlayerCharacterStats(
-                damageMultiplier: 1.20f,
+                damageMultiplier: 0.20f,
                 name: "Training 1",
                 description: "All Damage +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Training"),
@@ -148,7 +150,7 @@ public static class PlayerStatsLibrary
         //Attack Speed
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: 0.92f,
+                castTimeMultiplier: -0.08f,
                 name: "Adrenaline 1",
                 description: "All Cooldowns -8%",
                 icon: Resources.Load<Sprite>("UI_Icons/Adrenaline"),
@@ -159,7 +161,7 @@ public static class PlayerStatsLibrary
         //Knockback
         AddStat(
             new PlayerCharacterStats(
-                knockbackMultiplier: 1.12f,
+                knockbackMultiplier: 0.12f,
                 name: "Strength 1",
                 description: "All Knockback +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/Strength"),
@@ -170,7 +172,7 @@ public static class PlayerStatsLibrary
         //melee Size
         AddStat(
             new PlayerCharacterStats(
-                meleeSizeMultiplier: 1.08f,
+                meleeSizeMultiplier: 0.08f,
                 name: "Mass 1",
                 description: "Melee, Nova size +8%",
                 icon: Resources.Load<Sprite>("UI_Icons/Mass"),
@@ -181,7 +183,7 @@ public static class PlayerStatsLibrary
         //proj size
         AddStat(
             new PlayerCharacterStats(
-                projectileSizeMultiplier: 1.1f,
+                projectileSizeMultiplier: 0.1f,
                 name: "Size 1",
                 description: "Auto, SemiAuto, Shotgun, Explosive size +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Size"),
@@ -202,7 +204,7 @@ public static class PlayerStatsLibrary
 
         AddStat(
            new PlayerCharacterStats(
-               activeMultiplier: 1.15f,
+               activeMultiplier: 0.15f,
                name: "Persistence 1",
                description: "All Attack duration +15%",
                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
@@ -213,9 +215,9 @@ public static class PlayerStatsLibrary
 
         AddStat(
             new PlayerCharacterStats(
-                effectDuration: 0.5f,
+                effectDuration: 1f,
                 name: "Hourglass 1",
-                description: "All Debuff duration +0.5s",
+                description: "All Debuff duration +1s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Rare
             )
@@ -224,7 +226,7 @@ public static class PlayerStatsLibrary
 
         AddStat(
             new PlayerCharacterStats(
-                effectMultiplier: 1.15f,
+                effectMultiplier: 0.15f,
                 name: "Saboteur 1",
                 description: "All Debuff Power +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
@@ -260,9 +262,10 @@ public static class PlayerStatsLibrary
         //max health
         AddStat(
             new PlayerCharacterStats(
-                maxHealth: 30,
+                maxHealth: 15,
+                health: 15,
                 name: "Thick Hide 3",
-                description: "Increase Max HP by 30",
+                description: "Increase Max HP by 15",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Epic
             )
@@ -304,7 +307,7 @@ public static class PlayerStatsLibrary
         //Damage%
         AddStat(
             new PlayerCharacterStats(
-                damageMultiplier: 1.4f,
+                damageMultiplier: 0.4f,
                 name: "Training 2",
                 description: "All Damage +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/Training"),
@@ -315,7 +318,7 @@ public static class PlayerStatsLibrary
         //Attack Speed
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: 0.85f,
+                castTimeMultiplier: -0.15f,
                 name: "Adrenaline 2",
                 description: "All Cooldowns -15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Adrenaline"),
@@ -326,7 +329,7 @@ public static class PlayerStatsLibrary
         //Knockback
         AddStat(
             new PlayerCharacterStats(
-                knockbackMultiplier: 1.25f,
+                knockbackMultiplier: 0.25f,
                 name: "Strength 2",
                 description: "All Knockback +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Strength"),
@@ -337,7 +340,7 @@ public static class PlayerStatsLibrary
         //melee Size
         AddStat(
             new PlayerCharacterStats(
-                meleeSizeMultiplier: 1.15f,
+                meleeSizeMultiplier: 0.15f,
                 name: "Mass 2",
                 description: "Melee, Nova size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Mass"),
@@ -348,7 +351,7 @@ public static class PlayerStatsLibrary
         //proj size
         AddStat(
             new PlayerCharacterStats(
-                projectileSizeMultiplier: 1.2f,
+                projectileSizeMultiplier: 0.2f,
                 name: "Size 2",
                 description: "Auto, SemiAuto, Shotgun, Explosive size +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Size"),
@@ -381,9 +384,9 @@ public static class PlayerStatsLibrary
 
         AddStat(
             new PlayerCharacterStats(
-                effectDuration: 1f,
+                effectDuration: 2f,
                 name: "Hourglass 2",
-                description: "All Debuff duration +1s",
+                description: "All Debuff duration +2s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Epic
             )
@@ -392,7 +395,7 @@ public static class PlayerStatsLibrary
 
         AddStat(
             new PlayerCharacterStats(
-                effectMultiplier: 1.25f,
+                effectMultiplier: 0.25f,
                 name: "Saboteur 2",
                 description: "All Debuff Power +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
@@ -429,9 +432,9 @@ public static class PlayerStatsLibrary
         //Damage%
         AddStat(
             new PlayerCharacterStats(
-                damageMultiplier: 1.8f,
+                damageMultiplier: 0.60f,
                 name: "Training 3",
-                description: "All Damage +80%",
+                description: "All Damage +60%",
                 icon: Resources.Load<Sprite>("UI_Icons/Training"),
                 rarity: Rarity.Legendary
             )
@@ -440,7 +443,7 @@ public static class PlayerStatsLibrary
         //Attack Speed
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: 0.75f,
+                castTimeMultiplier: -0.25f,
                 name: "Adrenaline 3",
                 description: "All Cooldowns -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Adrenaline"),
@@ -451,7 +454,7 @@ public static class PlayerStatsLibrary
         //Knockback
         AddStat(
             new PlayerCharacterStats(
-                knockbackMultiplier: 1.4f,
+                knockbackMultiplier: 0.4f,
                 name: "Strength 3",
                 description: "All Knockback +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/Strength"),
@@ -462,7 +465,7 @@ public static class PlayerStatsLibrary
         //melee Size
         AddStat(
             new PlayerCharacterStats(
-                meleeSizeMultiplier: 1.25f,
+                meleeSizeMultiplier: 0.25f,
                 name: "Mass 3",
                 description: "Melee, Nova size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Mass"),
@@ -473,7 +476,7 @@ public static class PlayerStatsLibrary
         //proj size
         AddStat(
             new PlayerCharacterStats(
-                projectileSizeMultiplier: 1.35f,
+                projectileSizeMultiplier: 0.35f,
                 name: "Size 3",
                 description: "Auto, SemiAuto, Shotgun, Explosive size +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/Size"),
@@ -507,9 +510,9 @@ public static class PlayerStatsLibrary
 
         AddStat(
             new PlayerCharacterStats(
-                effectDuration: 2f,
+                effectDuration: 3f,
                 name: "Hourglass 3",
-                description: "All Debuff duration +2s",
+                description: "All Debuff duration +3s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Legendary
             )
@@ -518,7 +521,7 @@ public static class PlayerStatsLibrary
 
         AddStat(
             new PlayerCharacterStats(
-                effectMultiplier: 1.5f,
+                effectMultiplier: 0.5f,
                 name: "Saboteur 3",
                 description: "All Debuff Power +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),

@@ -43,6 +43,7 @@ public static class PlayerCharactersLibrary
             price: 0,
             isLocked: false,
             maxHealth: 40,
+            health: 40,
             defense: 0,
             speed: 0.025f,
             pickupRange: 2f,
@@ -89,6 +90,7 @@ public static class PlayerCharactersLibrary
            price: 450,
            isLocked: true,
            maxHealth: 30,
+           health: 30,
            defense: 0,
            speed: 0.038f,
            pickupRange: 3f,
@@ -108,6 +110,7 @@ public static class PlayerCharactersLibrary
             price: 450,
             isLocked: true,
             maxHealth: 50,
+            health: 50,
             defense: 0,
             speed: 0.02f,
             pickupRange: 2.5f,
@@ -129,6 +132,7 @@ public static class PlayerCharactersLibrary
            price: 800,
            isLocked: true,
            maxHealth: 40,
+           health: 40,
            defense: 0,
            speed: 0.025f,
            pickupRange: 2.5f,
@@ -151,6 +155,7 @@ public static class PlayerCharactersLibrary
             price: 800,
             isLocked: true,
             maxHealth: 45,
+            health: 45,
             defense: 0,
             speed: 0.028f,
             pickupRange: 2f,
@@ -173,12 +178,14 @@ public static class PlayerCharactersLibrary
             price: 800,
             isLocked: true,
             maxHealth: 35,
+            health: 35,
             defense: 0,
             speed: 0.03f,
             pickupRange: 3f,
 
            effectDuration: 0.5f,
-           effectMultiplier: 1.5f
+           effectMultiplier: 1.5f,
+           activeMultiplier: 1.5f
 
         );
         Alchemist.name = AlchemistStats.name;
@@ -195,6 +202,7 @@ public static class PlayerCharactersLibrary
             price: 800,
             isLocked: true,
             maxHealth: 45,
+            health: 45,
             defense: 0,
             speed: 0.025f,
             pickupRange: 2f,
@@ -218,6 +226,7 @@ public static class PlayerCharactersLibrary
             price: 1200,
             isLocked: true,
             maxHealth: 42,
+            health: 42,
             defense: 0,
             speed: 0.03f,
             pickupRange: 2f,
@@ -240,11 +249,12 @@ public static class PlayerCharactersLibrary
             price: 1200,
             isLocked: false,
             maxHealth: 30,
+            health: 30,
             defense: 0,
             speed: 0.03f,
             pickupRange: 2f,
 
-            multicastChance: 0.25f
+            multicastChance: 0.5f
         );
         Fractured.name = FracturedStats.name;
 
@@ -261,6 +271,7 @@ public static class PlayerCharactersLibrary
             price: 2500,
             isLocked: true,
             maxHealth: 40,
+            health: 40,
             defense: 0,
             speed: 0.025f,
             pickupRange: 2f,

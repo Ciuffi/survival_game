@@ -48,10 +48,12 @@ public static class AttackLibrary
         List<AttackStats> AcidPoolRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 1),
-            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: 0.9f),
-            new AttackStats(rarity: Rarity.Epic, comboLength: 1, comboWaitTimeMultiplier: 1.25f),
+            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: -0.1f),
+
+            new AttackStats(rarity: Rarity.Epic, comboLength: 1),
             new AttackStats(rarity: Rarity.Epic, activeDuration: 0.5f),
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, meleeSizeMultiplier: 0.6f),
+
+            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, meleeSizeMultiplier: -0.4f),
             new AttackStats(rarity: Rarity.Legendary, activeDuration: 1),
         };
 
@@ -132,13 +134,13 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1.5f,
                     damage: 2,
-                    spread: 0.8f,
+                    spread: 0.7f,
                     castTime: 2.2f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1.6f,
+                    comboWaitTime: 1.25f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 0f,
                     meleeSpacerGap: 4.5f,
@@ -163,14 +165,14 @@ public static class AttackLibrary
         // ClassicRifle
         List<AttackStats> ClassicRifleRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, damage: 2),
-            new AttackStats(rarity: Rarity.Rare, spreadMultiplier: 0.9f, speedMultiplier: 1.2f),
+            new AttackStats(rarity: Rarity.Rare, damage: 3),
+            new AttackStats(rarity: Rarity.Rare, spreadMultiplier: -0.1f, speedMultiplier: 0.1f),
 
             new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 7),
-            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 1.5f, speedMultiplier: 1.3f, shakeStrength: 0.01f),
+            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.25f, speedMultiplier: 0.1f, shakeStrength: 0.01f),
 
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 13),
-            new AttackStats(rarity: Rarity.Legendary, spreadMultiplier: 0.8f, aimRangeAdditive: 2f, coneAngle: 30),
+            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 13, damage: 3),
+            new AttackStats(rarity: Rarity.Legendary, spreadMultiplier: -0.2f, aimRangeAdditive: 2f, coneAngle: 30),
         };
 
         List<AttackStats> ClassicRifleUpgrades = new List<AttackStats>
@@ -249,9 +251,9 @@ public static class AttackLibrary
                     aimRange: 2.75f,
                     isCone: true,
                     coneAngle: 45,
-                    damage: 6,
+                    damage: 8,
                     spread: 0.085f,
-                    spray: 1.6f,
+                    spray: 1.35f,
                     castTime: 2.1f,
                     range: 7f,
                     shotsPerAttack: 15,
@@ -285,12 +287,12 @@ public static class AttackLibrary
         List<AttackStats> DoubleBarrelRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1),
-            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: 0.9f),
+            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: -0.1f),
 
             new AttackStats(rarity: Rarity.Epic, damage: 10),
-            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 1.5f, shakeStrength: 0.2f),
+            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.5f, shakeStrength: 0.2f),
 
-            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 1.5f, aimRangeAdditive: 1.5f, coneAngle: 30f),
+            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 0.5f, aimRangeAdditive: 1.5f, coneAngle: 30f),
             new AttackStats(rarity: Rarity.Legendary, multicastChance: 1f, multicastWaitTime: -0.05f),
         };
 
@@ -402,12 +404,12 @@ public static class AttackLibrary
         List<AttackStats> DrainScytheRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 3),
-            new AttackStats(rarity: Rarity.Rare, meleeSpacerMultiplier: 2f, aimRangeAdditive: 2f, coneAngle: 30),
+            new AttackStats(rarity: Rarity.Rare, meleeSpacerMultiplier: 0.5f, aimRangeAdditive: 2f, coneAngle: 30),
 
-            new AttackStats(rarity: Rarity.Epic, comboLength: 1, comboWaitTimeMultiplier: 1.25f),
-            new AttackStats(rarity: Rarity.Epic, effectMultiplier: 1.5f),
+            new AttackStats(rarity: Rarity.Epic, comboLength: 1),
+            new AttackStats(rarity: Rarity.Epic, effectMultiplier: 0.5f),
 
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, meleeSizeMultiplier: 0.8f),
+            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, meleeSizeMultiplier: -0.2f),
             new AttackStats(rarity: Rarity.Legendary, effectDuration: 2f)
         };
 
@@ -502,14 +504,14 @@ public static class AttackLibrary
                     isCone: true,
                     coneAngle: 100f,
                     damage: 5,
-                    spread: 0.6f,
+                    spread: 0.55f,
                     castTime: 2.2f,
                     knockback: 0.3f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1.4f,
+                    comboWaitTime: 1f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 2f,
                     meleeSpacerGap: 3.5f,
@@ -534,13 +536,13 @@ public static class AttackLibrary
         List<AttackStats> EarthShockRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 2),
-            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: 0.8f),
+            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: -0.2f),
 
-            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1, spreadMultiplier: 0.85f),
-            new AttackStats(rarity: Rarity.Rare, meleeSpacerGapMultiplier: 1.5f, aimRangeAdditive: 2f, coneAngle: 30),
+            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1, spreadMultiplier: -0.15f),
+            new AttackStats(rarity: Rarity.Rare, meleeSpacerGapMultiplier: 0.25f, aimRangeAdditive: 2f, coneAngle: 30),
 
-            new AttackStats(rarity: Rarity.Rare, activeMultiplier: 1.5f),
-            new AttackStats(rarity: Rarity.Rare, comboLength: 1, comboWaitTimeMultiplier: 1.3f),
+            new AttackStats(rarity: Rarity.Rare, activeMultiplier: 0.3f),
+            new AttackStats(rarity: Rarity.Rare, comboLength: 1),
 
         };
 
@@ -639,7 +641,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1.5f,
+                    comboWaitTime: 1.3f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 1.5f,
                     meleeSpacerGap: 3f,
@@ -647,8 +649,7 @@ public static class AttackLibrary
                     shakeStrength: 0.2f,
                     shakeRotation: 1f,
                     thrownDamage: 7f,
-                    throwSpeed: 0.5f,
-                    meleeSizeMultiplier: 0.75f
+                    throwSpeed: 0.5f
                 )
             )
             .SetProperties(
@@ -665,7 +666,7 @@ public static class AttackLibrary
         List<AttackStats> GravityGrabRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, knockback: 0.7f, shakeStrength: 0.05f),
-            new AttackStats(rarity: Rarity.Rare, effectMultiplier: 1.8f),
+            new AttackStats(rarity: Rarity.Rare, effectMultiplier: 0.75f),
 
             new AttackStats(rarity: Rarity.Epic, damage: 7),
             new AttackStats(rarity: Rarity.Epic, meleeSpacer: 2.5f, aimRangeAdditive: 2f, coneAngle: 45f),
@@ -770,7 +771,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1.2f,
+                    comboWaitTime: 1.1f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 0.5f,
                     meleeSpacerGap: 2.5f,
@@ -778,8 +779,7 @@ public static class AttackLibrary
                     shakeStrength: 0.3f,
                     shakeRotation: 1f,
                     thrownDamage: 1,
-                    throwSpeed: 0f,
-                    meleeSizeMultiplier: 0.9f
+                    throwSpeed: 0f
                 )
             )
             .SetProperties(
@@ -796,12 +796,12 @@ public static class AttackLibrary
         List<AttackStats> GatlingGunRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 20),
-            new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 1.25f, speedMultiplier: 1.25f),
+            new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 0.2f, speedMultiplier: 0.12f),
 
             new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 20),
-            new AttackStats(rarity: Rarity.Epic, rangeMultiplier: 1.5f, aimRangeAdditive: 2f, coneAngle: 65f),
+            new AttackStats(rarity: Rarity.Epic, rangeMultiplier: 0.3f, aimRangeAdditive: 2f, coneAngle: 65f),
 
-            new AttackStats(rarity: Rarity.Legendary, spreadMultiplier: 0.75f, sprayMultiplier: 1.25f),
+            new AttackStats(rarity: Rarity.Legendary, spreadMultiplier: -0.25f, sprayMultiplier: 0.2f),
             new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 30),
         };
 
@@ -881,7 +881,7 @@ public static class AttackLibrary
                     isCone: true,
                     coneAngle: 45f,
                     damage: 3,
-                    spread: 0.018f,
+                    spread: 0.016f,
                     spray: 0.3f,
                     castTime: 2.4f,
                     range: 5.5f,
@@ -918,11 +918,11 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Rare, damage: 5),
             new AttackStats(rarity: Rarity.Rare, meleeSpacer: 2f, meleeSpacerGap: 1.5f, aimRangeAdditive: 2f),
 
-            new AttackStats(rarity: Rarity.Epic, castTimeMultiplier: 0.75f),
-            new AttackStats(rarity: Rarity.Epic, comboLength: 1, comboWaitTimeMultiplier: 1.4f),
+            new AttackStats(rarity: Rarity.Epic, castTimeMultiplier: -0.25f),
+            new AttackStats(rarity: Rarity.Epic, comboLength: 1),
 
             new AttackStats(rarity: Rarity.Legendary, damage: 10),
-            new AttackStats(rarity: Rarity.Legendary, meleeSizeMultiplier: 1.5f, knockbackMultiplier: 1.3f, shakeTime: 0.05f, shakeRotation: 0.5f),
+            new AttackStats(rarity: Rarity.Legendary, meleeSizeMultiplier: 0.5f, knockbackMultiplier: 0.3f, shakeTime: 0.05f, shakeRotation: 0.5f),
         };
 
         List<AttackStats> GodHandUpgrades = new List<AttackStats>
@@ -1017,7 +1017,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1.1f,
+                    comboWaitTime: 1f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 2f,
                     meleeSpacerGap: 2f,
@@ -1041,10 +1041,10 @@ public static class AttackLibrary
         // ImpactGrenade
         List<AttackStats> ImpactGrenadeRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, damageMultiplier: 1.2f),
+            new AttackStats(rarity: Rarity.Rare, damageMultiplier: 0.2f),
             new AttackStats(rarity: Rarity.Rare, knockback: 0.6f, shakeRotation: 0.3f),
 
-            new AttackStats(rarity: Rarity.Epic, castTimeMultiplier: 1.5f, damageMultiplier: 1.5f, projectileSizeMultiplier: 1.5f),
+            new AttackStats(rarity: Rarity.Epic, castTimeMultiplier: 0.5f, damageMultiplier: 0.4f, projectileSizeMultiplier: 0.5f),
             new AttackStats(rarity: Rarity.Epic, range: 2f, pierce: 5, aimRangeAdditive: 2f),
 
             new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1),
@@ -1111,7 +1111,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
-                    damage: 2,
+                    damage: 12,
                     spread: 1.2f,
                     spray: 0f,
                     castTime: 2.5f,
@@ -1146,10 +1146,10 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Rare, knockback: 0.5f, shakeRotation: 0.3f),
 
             new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1),
-            new AttackStats(rarity: Rarity.Epic, spreadMultiplier: 0.75f),
+            new AttackStats(rarity: Rarity.Epic, spreadMultiplier: -0.25f),
 
-            new AttackStats(rarity: Rarity.Legendary, castTimeMultiplier: 1.3f, damageMultiplier: 1.5f),
-            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 1.5f),
+            new AttackStats(rarity: Rarity.Legendary, castTimeMultiplier: 0.3f, damageMultiplier: 0.5f),
+            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 0.5f),
         };
 
         List<AttackStats> ImpactMineUpgrades = new List<AttackStats>
@@ -1203,7 +1203,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 0.5f,
-                    damage: 5,
+                    damage: 16,
                     spread: 2f,
                     spray: 0f,
                     castTime: 2.5f,
@@ -1243,8 +1243,8 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Epic, comboLength: 1),
             new AttackStats(rarity: Rarity.Epic, meleeSpacer: 3f, aimRangeAdditive: 2f),
 
-            new AttackStats(rarity: Rarity.Legendary, meleeSizeMultiplier: 1.5f, shakeRotation: 0.5f),
-            new AttackStats(rarity: Rarity.Legendary, damageMultiplier: 1.3f),
+            new AttackStats(rarity: Rarity.Legendary, meleeSizeMultiplier: 0.4f, shakeRotation: 0.5f),
+            new AttackStats(rarity: Rarity.Legendary, damageMultiplier: 0.4f),
         };
 
         List<AttackStats> ImpactNovaUpgrades = new List<AttackStats>
@@ -1330,7 +1330,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1.6f,
+                    comboWaitTime: 1.5f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 0f,
                     meleeSpacerGap: 0f,
@@ -1355,13 +1355,13 @@ public static class AttackLibrary
         List<AttackStats> LaserBeamRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 5),
-            new AttackStats(rarity: Rarity.Rare, meleeSpacerGapMultiplier: 1.4f, meleeSpacerMultiplier: 1.4f, aimRangeAdditive: 1.5f),
+            new AttackStats(rarity: Rarity.Rare, meleeSpacerGapMultiplier: 0.25f, meleeSpacerMultiplier: 0.4f, aimRangeAdditive: 1.5f),
 
-            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1, spreadMultiplier: 0.8f),
+            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1, spreadMultiplier: -0.2f),
             new AttackStats(rarity: Rarity.Rare, meleeShotsScaleUp: 0.15f, coneAngle: 60f),
 
-            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: 1.25f, meleeSizeMultiplier: 1.5f, damageMultiplier: 1.25f),
-            new AttackStats(rarity: Rarity.Rare, knockbackMultiplier: 1.5f, shakeTime: 0.05f, shakeRotation: 0.3f),
+            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: 0.25f, meleeSizeMultiplier: 0.5f, damageMultiplier: 0.25f),
+            new AttackStats(rarity: Rarity.Rare, knockbackMultiplier: 0.5f, shakeTime: 0.05f, shakeRotation: 0.3f),
         };
 
         List<AttackStats> LaserBeamUpgrades = new List<AttackStats>
@@ -1464,7 +1464,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1.3f,
+                    comboWaitTime: 1f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 3f,
                     meleeSpacerGap: 3.8f,
@@ -1491,11 +1491,11 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Rare, damage: 3),
             new AttackStats(rarity: Rarity.Rare, activeDuration: 1),
 
-            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1),
+            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1, speedMultiplier: -0.15f),
             new AttackStats(rarity: Rarity.Rare, knockback: 0.5f, shakeRotation: 0.4f),
 
-            new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 1.5f, shakeStrength: 0.05f),
-            new AttackStats(rarity: Rarity.Rare, speedMultiplier: 0.85f, range: 1.255f, aimRangeAdditive: 1.5f, coneAngle: 45f),
+            new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 0.5f, shakeStrength: 0.05f),
+            new AttackStats(rarity: Rarity.Rare, speedMultiplier: -0.25f, rangeMultiplier: 0.2f, aimRangeAdditive: 1.5f, coneAngle: 45f),
         };
 
         List<AttackStats> PainWheelUpgrades = new List<AttackStats>
@@ -1606,12 +1606,12 @@ public static class AttackLibrary
         List<AttackStats> PetrifyGrenadeRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 3),
-            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: 0.8f),
+            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: -0.2f),
 
             new AttackStats(rarity: Rarity.Epic, effectDuration: 1f),
-            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 1.4f, shakeStrength: 0.2f),
+            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.4f, shakeStrength: 0.2f),
 
-            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 1.5f, aimRangeAdditive: 1.5f, pierce: 5),
+            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 0.5f, aimRangeAdditive: 1.5f, pierce: 5),
             new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, shotgunSpread: 25f),
 
         };
@@ -1682,7 +1682,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
-                    damage: 1,
+                    damage: 3,
                     shotgunSpread: 65f,
                     spray: 0,
                     castTime: 1.9f,
@@ -1716,10 +1716,10 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Rare, damage: 2),
             new AttackStats(rarity: Rarity.Rare, activeDuration: 0.5f),
 
-            new AttackStats(rarity: Rarity.Epic, comboLength: 1, comboWaitTimeMultiplier: 1.2f),
+            new AttackStats(rarity: Rarity.Epic, comboLength: 1, comboWaitTimeMultiplier: 0.2f),
             new AttackStats(rarity: Rarity.Epic, meleeSpacer: 2.5f, aimRangeAdditive: 2f),
 
-            new AttackStats(rarity: Rarity.Legendary, meleeSizeMultiplier: 1.4f, shakeRotation: 0.5f),
+            new AttackStats(rarity: Rarity.Legendary, meleeSizeMultiplier: 0.4f, shakeRotation: 0.5f),
             new AttackStats(rarity: Rarity.Legendary, effectDuration: 1.5f),
         };
 
@@ -1803,7 +1803,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1.5f,
+                    comboWaitTime: 1.2f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 0f,
                     meleeSpacerGap: 0f,
@@ -1829,13 +1829,13 @@ public static class AttackLibrary
         List<AttackStats> RevolverRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 6),
-            new AttackStats(rarity: Rarity.Rare, pierce: 3, speedMultiplier: 1.2f),
+            new AttackStats(rarity: Rarity.Rare, pierce: 2, speedMultiplier: 0.2f),
 
-            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 3),
-            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 1.5f, shakeStrength: 0.05f),
+            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 3, pierce: 3),
+            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.5f, shakeStrength: 0.05f),
 
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 3, pierce: 3, spreadMultiplier: 0.9f),
-            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 1.3f, aimRangeAdditive: 1.5f, coneAngle: 60f),
+            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 3, pierce: 3, spreadMultiplier: -0.15f),
+            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier:0.3f, aimRangeAdditive: 1.5f, coneAngle: 60f),
         };
 
         List<AttackStats> RevolverUpgrades = new List<AttackStats>
@@ -1949,13 +1949,13 @@ public static class AttackLibrary
         List<AttackStats> ShotgunRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 6),
-            new AttackStats(rarity: Rarity.Rare, knockbackMultiplier: 1.5f, shakeTime: 0.05f),
+            new AttackStats(rarity: Rarity.Rare, knockbackMultiplier: 0.3f, shotgunSpreadMultiplier: 0.15f, shakeTime: 0.05f),
 
             new AttackStats(rarity: Rarity.Epic, damage: 6),
-            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1, shotgunSpreadMultiplier: 1.2f),
+            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1, shotgunSpreadMultiplier: 0.25f),
 
-            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 1.5f, shakeStrength: 0.1f),
-            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 1.5f, aimRangeAdditive: 2f, coneAngle: 50),
+            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 0.5f, multicastChance: 0.5f, shakeStrength: 0.1f),
+            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 0.25f, aimRangeAdditive: 2f, coneAngle: 50),
         };
 
         List<AttackStats> ShotgunUpgrades = new List<AttackStats>
@@ -2066,11 +2066,11 @@ public static class AttackLibrary
         List<AttackStats> ShurikenRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 2),
-            new AttackStats(shotsPerAttack: 1),
-            new AttackStats(activeDuration: 1),
-            new AttackStats(shotgunSpread: 35f, aimRangeAdditive: 1, coneAngle: 25),
-            new AttackStats(projectileSizeMultiplier: 1.5f, shakeStrength: 0.2f),
-            new AttackStats(rangeMultiplier: 1.5f, speedMultiplier: 1.25f),
+            new AttackStats(rarity: Rarity.Rare, shotgunSpread: 35f, aimRangeAdditive: 1, coneAngle: 25),
+            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1),
+            new AttackStats(rarity: Rarity.Epic, activeDuration: 1, pierce: 10),
+            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 0.5f, pierce: 10, shakeStrength: 0.2f),
+            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 0.5f, speedMultiplier: 0.25f, damage: 3),
         };
 
         List<AttackStats> ShurikenUpgrades = new List<AttackStats>
@@ -2178,14 +2178,14 @@ public static class AttackLibrary
         // SMG
         List<AttackStats> SMGRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, damage: 3),
-            new AttackStats(rarity: Rarity.Rare, rangeMultiplier: 1.25f, aimRangeAdditive: 1.2f, coneAngle: 50),
+            new AttackStats(rarity: Rarity.Rare, damage: 3, shotsPerAttack: 5),
+            new AttackStats(rarity: Rarity.Rare, rangeMultiplier: 0.25f, aimRangeAdditive: 1.2f, coneAngle: 50),
 
-            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 10),
-            new AttackStats(rarity: Rarity.Epic, spreadMultiplier: 0.85f),
+            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 15),
+            new AttackStats(rarity: Rarity.Epic, spreadMultiplier: -0.1f, sprayMultiplier: 0.25f),
 
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 20),
-            new AttackStats(rarity: Rarity.Legendary, damage: 2f, knockbackMultiplier: 1.5f, shakeRotation: 0.01f),
+            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 20, spreadMultiplier: -0.15f),
+            new AttackStats(rarity: Rarity.Legendary, damage: 2f, knockbackMultiplier: 0.5f, shakeRotation: 0.01f),
         };
 
         List<AttackStats> SMGUpgrades = new List<AttackStats>
@@ -2263,7 +2263,7 @@ public static class AttackLibrary
                     coneAngle: 50f,
                     damage: 4,
                     spread: 0.04f,
-                    spray: 1.5f,
+                    spray: 1.4f,
                     castTime: 1.75f,
                     range: 5f,
                     shotsPerAttack: 30,
@@ -2295,14 +2295,14 @@ public static class AttackLibrary
         // Smoke Grenade
         List<AttackStats> SmokeGrenadeRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, damage: 2),
-            new AttackStats(rarity: Rarity.Rare, effectMultiplier: 1.5f),
+            new AttackStats(rarity: Rarity.Rare, activeDuration: 1),
+            new AttackStats(rarity: Rarity.Rare, effectMultiplier: 0.5f, damage: 1),
 
-            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 1.4f),
-            new AttackStats(rarity: Rarity.Epic, activeDuration: 1),
+            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.5f),
+            new AttackStats(rarity: Rarity.Epic, damage: 2),
 
-            new AttackStats(rarity: Rarity.Legendary, effectDuration: 2f),
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, shotgunSpread: 30),
+            new AttackStats(rarity: Rarity.Legendary, effectDuration: 2f, activeDuration: 1),
+            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, shotgunSpread: 40),
         };
 
         List<AttackStats> SmokeGrenadeUpgrades = new List<AttackStats>
@@ -2403,13 +2403,13 @@ public static class AttackLibrary
         List<AttackStats> SniperRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1),
-            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: 0.9f),
+            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: -0.1f),
 
             new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1),
             new AttackStats(rarity: Rarity.Rare, aimRangeAdditive: 2f, coneAngle: 30f),
 
-            new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 1.8f, pierce: 5, shakeRotation: 0.1f),
-            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1, spreadMultiplier: 0.85f)
+            new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 0.5f, pierce: 5, shakeRotation: 0.1f),
+            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1, spreadMultiplier: -0.15f)
         };
 
         List<AttackStats> SniperUpgrades = new List<AttackStats>
@@ -2518,12 +2518,12 @@ public static class AttackLibrary
         List<AttackStats> SuctionCannonRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 2),
-            new AttackStats(rarity: Rarity.Rare, rangeMultiplier: 1.2f, aimRangeAdditive: 1.5f, coneAngle: 40f),
+            new AttackStats(rarity: Rarity.Rare, rangeMultiplier: 0.12f, aimRangeAdditive: 1.5f, coneAngle: 40f),
 
-            new AttackStats(rarity: Rarity.Epic, speedMultiplier: 0.85f),
-            new AttackStats(rarity: Rarity.Epic, effectMultiplier: 1.3f),
+            new AttackStats(rarity: Rarity.Epic, speedMultiplier: -0.15f),
+            new AttackStats(rarity: Rarity.Epic, effectMultiplier: 0.3f),
 
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, projectileSizeMultiplier: 0.7f),
+            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, projectileSizeMultiplier: -0.3f),
             new AttackStats(rarity: Rarity.Legendary, effectDuration: 1f),
         };
 
@@ -2607,8 +2607,7 @@ public static class AttackLibrary
                     shakeStrength: 0.1f,
                     shakeRotation: 0.05f,
                     thrownDamage: 25f,
-                    throwSpeed: 0.12f,
-                    projectileSizeMultiplier: 0.8f
+                    throwSpeed: 0.12f
                 )
             )
             .SetProperties(
@@ -2630,11 +2629,11 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Rare, damage: 2),
             new AttackStats(rarity: Rarity.Rare, knockback: 0.55f, shakeStrength: 0.1f),
 
-            new AttackStats(rarity: Rarity.Epic, speedMultiplier: 1.5f, rangeMultiplier: 1.25f, pierce: 5, aimRangeAdditive: 1.5f),
-            new AttackStats(rarity: Rarity.Epic, activeDuration: 0.5f, effectMultiplier: 1.25f),
+            new AttackStats(rarity: Rarity.Epic, speedMultiplier: 0.5f, rangeMultiplier: 0.25f, pierce: 10, aimRangeAdditive: 1.5f),
+            new AttackStats(rarity: Rarity.Epic, activeDuration: 0.5f, effectMultiplier: 0.25f),
 
             new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1),
-            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 1.4f, shakeRotation: 0.1f),
+            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 0.4f, shakeRotation: 0.1f),
         };
 
         List<AttackStats> SuctionGrenadeUpgrades = new List<AttackStats>
@@ -2700,7 +2699,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
-                    damage: 3,
+                    damage: 5,
                     spread: 1.5f,
                     castTime: 2.1f,
                     range: 1.5f,
@@ -2731,12 +2730,12 @@ public static class AttackLibrary
         List<AttackStats> SuctionNovaRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 3),
-            new AttackStats(rarity: Rarity.Rare, knockbackMultiplier: 1.25f, effectMultiplier: 1.25f),
+            new AttackStats(rarity: Rarity.Rare, knockbackMultiplier: 0.25f, effectMultiplier: 0.25f),
 
-            new AttackStats(rarity: Rarity.Epic, meleeSizeMultiplier: 1.3f, shakeRotation: 0.5f),
+            new AttackStats(rarity: Rarity.Epic, meleeSizeMultiplier: 0.3f, shakeRotation: 0.5f),
             new AttackStats(rarity: Rarity.Epic, meleeSpacer: 2.5f, aimRangeAdditive: 2f),
 
-            new AttackStats(rarity: Rarity.Legendary, comboLength: 1, comboWaitTimeMultiplier: 1.25f),
+            new AttackStats(rarity: Rarity.Legendary, comboLength: 1),
             new AttackStats(rarity: Rarity.Legendary, effectDuration: 1f),
         };
 
@@ -2825,7 +2824,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
-                    comboWaitTime: 1.5f,
+                    comboWaitTime: 1.2f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 0f,
                     meleeSpacerGap: 0f,
@@ -2849,14 +2848,14 @@ public static class AttackLibrary
         //WindBlade
         List<AttackStats> WindBladeRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, comboLength: -1, damage: 7),
-            new AttackStats(rarity: Rarity.Rare, knockbackMultiplier: 1.4f, shakeRotation: 0.3f),
+            new AttackStats(rarity: Rarity.Rare, comboLength: -1, damage: 7, meleeSizeMultiplier: 0.3f),
+            new AttackStats(rarity: Rarity.Rare, knockbackMultiplier: 0.2f, shakeRotation: 0.3f),
 
             new AttackStats(rarity: Rarity.Epic, meleeSpacer: 1.5f, coneAngle: 40f, aimRangeAdditive: 1f),
-            new AttackStats(rarity: Rarity.Epic, comboWaitTimeMultiplier: 0.6f),
+            new AttackStats(rarity: Rarity.Epic, comboWaitTimeMultiplier: -0.5f),
 
             new AttackStats(rarity: Rarity.Legendary, shotsPerAttackMelee: 1),
-            new AttackStats(rarity: Rarity.Legendary, meleeSizeMultiplier: 1.4f, shakeStrength: 0.04f),
+            new AttackStats(rarity: Rarity.Legendary, meleeSizeMultiplier: 0.4f, shakeStrength: 0.04f),
 
         };
 
@@ -2960,7 +2959,7 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 3,
-                    comboWaitTime: 0.92f,
+                    comboWaitTime: 0.9f,
                     meleeSpacer: 2f,
                     meleeSpacerGap: 2.5f,
                     shakeTime: 0.08f,

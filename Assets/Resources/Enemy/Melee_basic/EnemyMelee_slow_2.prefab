@@ -58,7 +58,7 @@ MonoBehaviour:
   isBasic: 0
   isElite: 0
   isBoss: 0
-  damage: 3
+  damage: 1
   health: 30
   maxHealth: 0
   xpAmount: 22
@@ -214,7 +214,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 0.6
+  maxSpeed: 0.38
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

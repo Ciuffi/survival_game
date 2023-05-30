@@ -54,8 +54,10 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isBasic: 0
   isElite: 0
-  damage: 1
+  isBoss: 0
+  damage: 0.5
   health: 5
   maxHealth: 5
   xpAmount: 0
@@ -119,6 +121,7 @@ MonoBehaviour:
   shadow: {fileID: 0}
   eliteOutline: {fileID: 0}
   xpSizeScaling: 0.3
+  destroyDistance: 30
 --- !u!61 &485550041066969456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,7 +213,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 2.5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

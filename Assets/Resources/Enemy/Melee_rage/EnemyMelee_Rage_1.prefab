@@ -55,8 +55,10 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isBasic: 0
   isElite: 0
-  damage: 2
+  isBoss: 0
+  damage: 1
   health: 70
   maxHealth: 0
   xpAmount: 28
@@ -90,7 +92,7 @@ MonoBehaviour:
   isRage: 1
   rageTriggerPercent: 0.25
   rageSpeedMod: 2
-  rageDmgMod: 1.5
+  rageDmgMod: 2
   isDash: 0
   chargeTime: 1
   dashSpeed: 20
@@ -120,6 +122,7 @@ MonoBehaviour:
   shadow: {fileID: 0}
   eliteOutline: {fileID: 0}
   xpSizeScaling: 0.3
+  destroyDistance: 30
 --- !u!114 &1321576414662445604
 MonoBehaviour:
   m_ObjectHideFlags: 0

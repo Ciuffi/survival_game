@@ -56,7 +56,9 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isBasic: 0
   isElite: 0
+  isBoss: 0
   damage: 1
   health: 110
   maxHealth: 0
@@ -105,7 +107,7 @@ MonoBehaviour:
   shootChargeTime: 1.5
   projectileSpeed: 0
   projectileRange: 0
-  projectileDamage: 6
+  projectileDamage: 3
   shootRecovery: 4.5
   AOEPrefab: {fileID: 4235860010000021921, guid: 4a0d9405c86f5ce46bd466561185c745, type: 3}
   dangerSign: {fileID: 5189165830211085352}
@@ -121,6 +123,7 @@ MonoBehaviour:
   shadow: {fileID: 3682808208575244435}
   eliteOutline: {fileID: 0}
   xpSizeScaling: 0.3
+  destroyDistance: 30
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
