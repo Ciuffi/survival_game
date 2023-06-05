@@ -48,7 +48,10 @@ public class PlayerMovement : MonoBehaviour, Attacker
         }
 
         afterimageRend.enabled = true;
-        lastInputDirection = new Vector2(VJ.InputDirection.x, VJ.InputDirection.y);
+        if (VJ.InputDirection.magnitude != 0)
+        {
+            lastInputDirection = new Vector2(VJ.InputDirection.x, VJ.InputDirection.y);
+        }
 
         float InputY = VJ.InputDirection.y * 100;
         float InputX = VJ.InputDirection.x * 100;

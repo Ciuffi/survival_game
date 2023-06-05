@@ -90,7 +90,8 @@ public class WpnSpriteRotation : MonoBehaviour
         }
         else
         {
-            Vector2 inputDirection = VJ.InputDirection;
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            Vector2 inputDirection = playerMovement.lastInputDirection;
             return Quaternion.Euler(0, 0, 0) * new Vector3(inputDirection.x, inputDirection.y, 0).normalized;
         }
     }

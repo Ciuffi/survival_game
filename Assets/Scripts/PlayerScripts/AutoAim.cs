@@ -57,6 +57,9 @@ public class AutoAim : MonoBehaviour
         GameObject closestEnemy = null;
         Vector2 aimDirection = transform.up;
 
+        // Calculate the player's movement direction
+        Vector2 playerMovementDirection = joystick.lastInputDirection.normalized;
+
         foreach (Collider2D col in colliders)
         {
             Enemy enemy = col.GetComponent<Enemy>();
@@ -70,16 +73,28 @@ public class AutoAim : MonoBehaviour
                 {
                     float angle = Vector2.Angle(aimDirection, targetDirection);
 
+                    // Calculate the dot product between player movement direction and target direction
+                    float dotProduct = Vector2.Dot(playerMovementDirection, targetDirection);
+
                     if (distance < closestDistance && angle <= coneAngle * 0.5f)
                     {
-                        closestDistance = distance;
-                        closestEnemy = col.gameObject;
+                        // Check if the dot product is positive (moving towards the target) or negative (moving away from the target)
+                        if (dotProduct > 0)
+                        {
+                            closestDistance = distance;
+                            closestEnemy = col.gameObject;
+                        }
+                        else
+                        {
+                            // Unlock the target if moving away from it
+                            closestEnemy = null;
+                        }
                     }
                 }
                 else
                 {
                     // added check for direction based on last input direction
-                    float dotProduct = Vector2.Dot(joystick.lastInputDirection.normalized, targetDirection);
+                    float dotProduct = Vector2.Dot(playerMovementDirection, targetDirection);
                     if (distance < closestDistance && dotProduct > 0)
                     {
                         closestDistance = distance;
@@ -92,6 +107,7 @@ public class AutoAim : MonoBehaviour
         currentTarget = closestEnemy;
         targetFound = currentTarget != null;
     }
+
 
     void UpdateVisualizerSpriteScale()
     {

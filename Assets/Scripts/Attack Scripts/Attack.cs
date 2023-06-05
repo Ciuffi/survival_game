@@ -169,7 +169,7 @@ public class Attack : MonoBehaviour, Upgrade
         //Debug.Log("Melee size  multiplier: " + stats.meleeSizeMultiplier);
         //Debug.Log("shotgun" + stats.shotgunSpread + " and multiplier: " + stats.shotgunSpreadMultiplier);
         //Debug.Log("range and spread" + stats.rangeMultiplier + " and: " + stats.spreadMultiplier);
-        //Debug.Log("castTime and Knockback" + stats.castTimeMultiplier + " and: " + stats.knockbackMultiplier);
+        Debug.Log("spread" + stats.spread + " and: " + stats.spreadMultiplier);
         Debug.Log("speed and multiplier" + stats.speed + " and: " + stats.speedMultiplier);
         //Debug.Log("throw damage: " + stats.thrownDamage + "multiplier: " + stats.thrownDamageMultiplier);
         //Debug.Log(thrownWeapon.GetComponent<Projectile>().damage);
