@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,7 +54,9 @@ public class PlayerCharacterStats : Upgrade
     public void MergeStats(PlayerCharacterStats other)
     {
         maxHealth += other.maxHealth;
+        other.maxHealth = 0;
         health += other.health;
+        other.health = 0;
         speed += other.speed;
         pickupRange += other.pickupRange;
         damageMultiplier += other.damageMultiplier;

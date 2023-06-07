@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c3e01a24127f34dba946be2de14484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorTint: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
+  colorTint: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   backgroundSprites:
   - {fileID: 21300000, guid: 13cc2b4524fad36428b8407fae9711bf, type: 3}
   - {fileID: 21300000, guid: cbb55ef9b28848c40864d694627d8a39, type: 3}

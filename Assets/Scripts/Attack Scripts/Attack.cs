@@ -165,8 +165,8 @@ public class Attack : MonoBehaviour, Upgrade
 
     private IEnumerator ShootSingleShot(float multicastAlpha)
     {
-        Debug.Log("Proj Size and multiplier: " + stats.projectileSize + stats.projectileSizeMultiplier);
-        //Debug.Log("Melee size  multiplier: " + stats.meleeSizeMultiplier);
+        Debug.Log("Proj Size: " + stats.projectileSize + "Multiplier: " + stats.projectileSizeMultiplier);
+        //Debug.Log("Melee Size: " + stats.meleeSize + "Multiplier: " + stats.meleeSizeMultiplier);
         //Debug.Log("shotgun" + stats.shotgunSpread + " and multiplier: " + stats.shotgunSpreadMultiplier);
         //Debug.Log("range and spread" + stats.rangeMultiplier + " and: " + stats.spreadMultiplier);
         Debug.Log("spread" + stats.spread + " and: " + stats.spreadMultiplier);
@@ -203,7 +203,7 @@ public class Attack : MonoBehaviour, Upgrade
                 // Forward bullet
                 GameObject projectileGO = Instantiate(
                     projectile,
-                    (position + direction / 2),
+                    (position + direction / 4),
                     Quaternion.identity
                 );
                 Projectile p = projectileGO.GetComponent<Projectile>();
@@ -251,7 +251,7 @@ public class Attack : MonoBehaviour, Upgrade
                 // Forward bullet
                 GameObject projectileGO = Instantiate(
                     projectile,
-                    (position + direction / 2),
+                    (position + direction / 4),
                     Quaternion.identity
                 );
                 Projectile p = projectileGO.GetComponent<Projectile>();
@@ -388,7 +388,7 @@ public class Attack : MonoBehaviour, Upgrade
             {
                 GameObject projectileGO = Instantiate(
                     projectile,
-                    (position + direction / 2),
+                    (position + direction / 4),
                     Quaternion.identity
                 );
                 Projectile p = projectileGO.GetComponent<Projectile>();
@@ -426,7 +426,7 @@ public class Attack : MonoBehaviour, Upgrade
                 // Forward bullet
                 GameObject projectileGO = Instantiate(
                     projectile,
-                    (position + direction / 2),
+                    (position + direction / 4),
                     Quaternion.identity
                 );
                 Projectile p = projectileGO.GetComponent<Projectile>();
@@ -523,7 +523,7 @@ public class Attack : MonoBehaviour, Upgrade
             {
                 GameObject projectileGO = Instantiate(
                     projectile,
-                    (position + direction / 2),
+                    (position + direction / 4),
                     Quaternion.identity
                 );
                 Projectile p = projectileGO.GetComponent<Projectile>();
@@ -561,7 +561,7 @@ public class Attack : MonoBehaviour, Upgrade
             {
                 GameObject projectileGO = Instantiate(
                     projectile,
-                    (position + direction / 2),
+                    (position + direction / 4),
                     Quaternion.identity
                 );
                 Projectile p = projectileGO.GetComponent<Projectile>();
@@ -684,7 +684,7 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     GameObject projectileGO = Instantiate(
                         projectile,
-                        (position + directionSpacer / 2),
+                        (position + directionSpacer / 4),
                         Quaternion.identity
                     );
                     Projectile p = projectileGO.GetComponent<Projectile>();
@@ -750,7 +750,7 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     GameObject projectileGO = Instantiate(
                         projectile,
-                        (position + directionSpacer / 2),
+                        (position + directionSpacer / 4),
                         Quaternion.identity
                     );
                     Projectile p = projectileGO.GetComponent<Projectile>();

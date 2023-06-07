@@ -278,6 +278,11 @@ public class AttackStats : Upgrade
         thrownDamageMultiplier = thrownDamageMultiplier == 0 ? 1 : thrownDamageMultiplier;
         thrownSpeedMultiplier = thrownSpeedMultiplier == 0 ? 1 : thrownSpeedMultiplier;
         meleeSizeMultiplier = meleeSizeMultiplier == 0 ? 1 : meleeSizeMultiplier;
+       
+    }
+
+    private void ApplyMultiplier()
+    {
         damage *= damageMultiplier;
         castTime *= castTimeMultiplier;
         recoveryTime *= recoveryTimeMultiplier;
@@ -289,7 +294,7 @@ public class AttackStats : Upgrade
         spray *= sprayMultiplier;
         speed *= speedMultiplier;
         range *= rangeMultiplier;
-        projectileSize *= projectileSizeMultiplier;
+
         comboWaitTime *= comboWaitTimeMultiplier;
         comboAttackBuff *= comboAttackBuffMultiplier;
         meleeShotsScaleUp *= meleeShotsScaleUpMultiplier;
@@ -297,7 +302,9 @@ public class AttackStats : Upgrade
         meleeSpacerGap *= meleeSpacerGapMultiplier;
         thrownDamage *= thrownDamageMultiplier;
         thrownSpeed *= thrownSpeedMultiplier;
+
         meleeSize *= meleeSizeMultiplier;
+        projectileSize *= projectileSizeMultiplier;
     }
 
     public AttackStats mergeInStats(AttackStats[] attackstats)
@@ -321,6 +328,8 @@ public class AttackStats : Upgrade
 
     public void mergeInStats(AttackStats attackStats)
     {
+        FixUpStats();
+
         this.aimRange += attackStats.aimRange;
         this.damage += attackStats.damage;
         this.spread += attackStats.spread;
@@ -387,11 +396,13 @@ public class AttackStats : Upgrade
         this.thrownDamageMultiplier += attackStats.thrownDamageMultiplier;
         this.thrownSpeedMultiplier += attackStats.thrownSpeedMultiplier;
         this.meleeSizeMultiplier += attackStats.meleeSizeMultiplier;
-        FixUpStats();
+        ApplyMultiplier();
     }
 
     public AttackStats MergeInPlayerStats(PlayerCharacterStats playerStats)
     {
+        FixUpStats();
+
         this.aimRangeAdditive += playerStats.aimRangeAdditive;
         this.shotgunSpread += playerStats.shotgunSpread;
         this.shotsPerAttack += playerStats.shotsPerAttack;
@@ -419,7 +430,7 @@ public class AttackStats : Upgrade
         this.effectMultiplier += playerStats.effectMultiplier;
         this.activeMultiplier += playerStats.activeMultiplier;
 
-        FixUpStats();
+        ApplyMultiplier();
         return this;
     }
 
@@ -431,6 +442,7 @@ public class AttackStats : Upgrade
         // Iterate through each AttackStats object in the list and merge the values
         foreach (AttackStats attackStats in attackStatsList)
         {
+            mergedAttackStats.FixUpStats();
             mergedAttackStats.aimRange += attackStats.aimRange;
             mergedAttackStats.damage += attackStats.damage;
             mergedAttackStats.spread += attackStats.spread;
@@ -499,7 +511,7 @@ public class AttackStats : Upgrade
             mergedAttackStats.thrownDamageMultiplier += attackStats.thrownDamageMultiplier;
             mergedAttackStats.thrownSpeedMultiplier += attackStats.thrownSpeedMultiplier;
             mergedAttackStats.meleeSizeMultiplier += attackStats.meleeSizeMultiplier;
-            mergedAttackStats.FixUpStats();
+            mergedAttackStats.ApplyMultiplier();
         }
         return mergedAttackStats;
     }

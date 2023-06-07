@@ -487,9 +487,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                pierce: 3,
+                pierce: 2,
                 name: "Pierce 1",
-                description: "Pierce through +3 enemies",
+                description: "Pierce through +2 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/Pierce"),
                 rarity: Rarity.Rare
             )
@@ -864,9 +864,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                pierce: 10,
+                pierce: 5,
                 name: "Pierce 2",
-                description: "Pierce through +10 enemies",
+                description: "Pierce through +5 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/Pierce"),
                 rarity: Rarity.Epic
             )
@@ -875,9 +875,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                pierce: 25,
+                pierce: 20,
                 name: "Puncture 2",
-                description: "Pierce through +25 enemies",
+                description: "Pierce through +20 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/Puncture"),
                 rarity: Rarity.Epic
             )
@@ -1108,9 +1108,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                pierce: 20,
+                pierce: 15,
                 name: "Pierce 3",
-                description: "Pierce through +20 enemies",
+                description: "Pierce through +15 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/Pierce"),
                 rarity: Rarity.Legendary
             )
@@ -1119,9 +1119,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                pierce: 50,
+                pierce: 40,
                 name: "Puncture 3",
-                description: "Pierce through +50 enemies",
+                description: "Pierce through +40 enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/Puncture"),
                 rarity: Rarity.Legendary
             )

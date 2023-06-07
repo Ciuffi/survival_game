@@ -9,7 +9,8 @@ public class StatsHandler : MonoBehaviour
     public float xp;
     public float nextXp;
     public float currentHealth;
-    public PlayerCharacterStats baseStats;
+
+    //public PlayerCharacterStats baseStats;
     public PlayerCharacterStats stats;
 
     public float Iframes;
@@ -50,7 +51,8 @@ public class StatsHandler : MonoBehaviour
         {
             if (obj.name == storedName)
             {
-                baseStats = obj.GetComponent<StatComponent>().stat; 
+                stats = obj.GetComponent<StatComponent>().stat;
+                currentHealth = stats.health;
                 break;
             }
         }
@@ -143,22 +145,21 @@ public class StatsHandler : MonoBehaviour
 
     public void ResetStats(bool fullReset)
     {
-        stats = new PlayerCharacterStats(baseStats);
-        currentHealth = stats.health;
+        stats = new PlayerCharacterStats(stats);
 
         if (fullReset)
         {
             level = 1;
             xp = 0;
             nextXp = LevelManager.GetXpToNextLevel(level);
-            currentHealth = baseStats.maxHealth;
+            currentHealth = stats.maxHealth;
             foreach (Transform trans in StatContainer.transform)
             {
                 Destroy(trans.gameObject);
             }
             healthBarQueue.EmptyQueue();
             healthBarQueue.AddToQueue(
-                BarHelper.ForceUpdateBar(healthBar, currentHealth, baseStats.maxHealth)
+                BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth)
             );
             LevelManager.ResetXP();
         }
@@ -169,6 +170,8 @@ public class StatsHandler : MonoBehaviour
         var statsContainer = Instantiate(stat.statsContainer, StatContainer.transform);
         var statComponent = statsContainer.GetComponent<StatComponent>();
         statComponent.stat = stat;
+
+        currentHealth += stat.health; // Add the health stat as a one-time heal
 
         CalculatePlayerStats();
     }
@@ -187,9 +190,9 @@ public class StatsHandler : MonoBehaviour
 
         GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed * (stats.speedMultiplier + 1), 0.030f); //change second value to be the default
 
-        if (currentHealth > stats.health)
-            currentHealth = stats.health;
-        healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.health));
+        if (currentHealth > stats.maxHealth)
+            currentHealth = stats.maxHealth;
+        healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth));
 
         CalculateWeaponStats(weaponsList);
     }
