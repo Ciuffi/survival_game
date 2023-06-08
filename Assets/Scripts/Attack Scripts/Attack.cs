@@ -103,6 +103,7 @@ public class Attack : MonoBehaviour, Upgrade
         {
             //Debug.Log("no upgrades");
             stats = new AttackStats(baseStats);
+            stats.FixUpStats();
         }
 
         //Debug.Log("merge stats");
@@ -112,6 +113,8 @@ public class Attack : MonoBehaviour, Upgrade
             //Merge in the player stats
             stats.MergeInPlayerStats(Player.GetComponent<StatsHandler>().stats);
         }
+
+        stats.ApplyMultiplier();
 
         //update attackTime
         if (attackType == AttackTypes.Shotgun)

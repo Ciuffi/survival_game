@@ -136,17 +136,6 @@ public static class PlayerStatsLibrary
             )
         );
 
-        //Damage%
-        AddStat(
-            new PlayerCharacterStats(
-                damageMultiplier: 0.20f,
-                name: "Training 1",
-                description: "All Damage +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/Training"),
-                rarity: Rarity.Rare
-            )
-        );
-
         //Attack Speed
         AddStat(
             new PlayerCharacterStats(
@@ -304,17 +293,6 @@ public static class PlayerStatsLibrary
             )
         );
 
-        //Damage%
-        AddStat(
-            new PlayerCharacterStats(
-                damageMultiplier: 0.4f,
-                name: "Training 2",
-                description: "All Damage +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/Training"),
-                rarity: Rarity.Epic
-            )
-        );
-
         //Attack Speed
         AddStat(
             new PlayerCharacterStats(
@@ -425,17 +403,6 @@ public static class PlayerStatsLibrary
                 name: "Scanner 4",
                 description: "All Crit Dmg +80%",
                 icon: Resources.Load<Sprite>("UI_Icons/Scanner"),
-                rarity: Rarity.Legendary
-            )
-        );
-
-        //Damage%
-        AddStat(
-            new PlayerCharacterStats(
-                damageMultiplier: 0.60f,
-                name: "Training 3",
-                description: "All Damage +60%",
-                icon: Resources.Load<Sprite>("UI_Icons/Training"),
                 rarity: Rarity.Legendary
             )
         );
