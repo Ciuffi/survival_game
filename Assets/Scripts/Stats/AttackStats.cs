@@ -278,7 +278,7 @@ public class AttackStats : Upgrade
         this.thrownDamageMultiplier = this.thrownDamageMultiplier == 0 ? 1 : this.thrownDamageMultiplier;
         this.thrownSpeedMultiplier = this.thrownSpeedMultiplier == 0 ? 1 : this.thrownSpeedMultiplier;
         this.meleeSizeMultiplier = this.meleeSizeMultiplier == 0 ? 1 : this.meleeSizeMultiplier;
-       
+
     }
 
     public void ApplyMultiplier()
@@ -328,8 +328,6 @@ public class AttackStats : Upgrade
 
     public void mergeInStats(AttackStats attackStats)
     {
-        FixUpStats();
-
         this.aimRange += attackStats.aimRange;
         this.damage += attackStats.damage;
         this.spread += attackStats.spread;
@@ -602,7 +600,7 @@ public class AttackStats : Upgrade
         };
     }
 
-        public UpgradeType GetUpgradeType()
+    public UpgradeType GetUpgradeType()
     {
         return weaponSet ? UpgradeType.WeaponSetStat : UpgradeType.WeaponStat;
     }

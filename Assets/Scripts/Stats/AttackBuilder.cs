@@ -36,6 +36,7 @@ public class AttackBuilder
     public AttackBuilder SetBaseStats(AttackStats baseStats)
     {
         this.baseStats = baseStats;
+        this.baseStats.FixUpStats();
         return this;
     }
 

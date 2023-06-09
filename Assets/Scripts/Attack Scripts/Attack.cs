@@ -125,7 +125,7 @@ public class Attack : MonoBehaviour, Upgrade
         else if (attackType == AttackTypes.Melee)
         {
             attackTime =
-                (stats.comboLength - 1) * stats.comboWaitTime 
+                (stats.comboLength - 1) * stats.comboWaitTime
                 + stats.shotsPerAttackMelee * stats.spread
                 + Mathf.RoundToInt(stats.multicastChance) * stats.multicastWaitTime;
         }
@@ -439,7 +439,7 @@ public class Attack : MonoBehaviour, Upgrade
                     currentScale.x * stats.projectileSizeMultiplier,
                     currentScale.y * stats.projectileSizeMultiplier,
                     currentScale.z * stats.projectileSizeMultiplier
-                );  
+                );
 
                 if (stats.multicastTimes > 0)
                 {
