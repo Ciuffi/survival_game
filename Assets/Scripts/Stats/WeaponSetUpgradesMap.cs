@@ -24,7 +24,8 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Quickswap 1"),
                         AttackStatsLibrary.GetStat("Propulsion 1"),
                         AttackStatsLibrary.GetStat("Gravitation 1"),
-                        
+                        AttackStatsLibrary.GetStat("Scope 1"),
+
                     }
                 },
                 {
@@ -41,6 +42,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Extended Mag 1"),
                         AttackStatsLibrary.GetStat("Piercing Ammo 1"),
                         AttackStatsLibrary.GetStat("High Caliber 1"),
+                        AttackStatsLibrary.GetStat("Scope 2"),
                         AttackStatsLibrary.GetStat("Auto Novice"),
                     }
                 },
@@ -58,6 +60,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Extended Mag 2"),
                         AttackStatsLibrary.GetStat("Piercing Ammo 2"),
                         AttackStatsLibrary.GetStat("High Caliber 2"),
+                        AttackStatsLibrary.GetStat("Scope 3"),
                         AttackStatsLibrary.GetStat("Auto Pro"),
                     }
                 },

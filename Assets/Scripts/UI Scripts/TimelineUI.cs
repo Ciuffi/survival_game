@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TimelineUI : MonoBehaviour
 {
@@ -51,6 +52,10 @@ public class TimelineUI : MonoBehaviour
     {
         currentOffset = 0;
         icons = new List<GameObject>();
+
+        // Store the final positions and scales of the icons
+        List<Vector3> finalPositions = new List<Vector3>();
+
         foreach (Attack attack in playerAttacks.attacks)
         {
             GameObject Icon = Instantiate(IconPrefab, transform);
@@ -58,20 +63,38 @@ public class TimelineUI : MonoBehaviour
             t.AssociatedAttack = attack;
 
             Icon.GetComponentInChildren<TextMeshProUGUI>().text = attack.weaponSetType.ToString();
-
             Icon.GetComponent<Image>().color = rarityColors[(int)attack.rarity];
             Icon.transform.Find("WpnImage").gameObject.GetComponent<Image>().sprite = attack.thrownSprite;
 
-            Icon.transform.localPosition += Vector3.right * currentOffset;
+            finalPositions.Add(Icon.transform.localPosition + Vector3.right * currentOffset);
+
+            // Move the icon offscreen and scale it down
+            Icon.transform.localPosition += Vector3.right * 2000;
+
             currentOffset += offsetAmount;
             icons.Add(Icon);
 
-            // New code: Adjust visibility of delete button based on attack count
-            var deleteButton = Icon.GetComponentInChildren<DeleteAttackButton>(); // get the DeleteAttackButton component
-            if (deleteButton != null) // if it exists
+            // Adjust visibility of delete button based on attack count
+            var deleteButton = Icon.GetComponentInChildren<DeleteAttackButton>();
+            if (deleteButton != null)
             {
-                deleteButton.gameObject.SetActive(playerAttacks.attacks.Count > 1); // set active only if there is more than one attack
+                deleteButton.gameObject.SetActive(playerAttacks.attacks.Count > 1);
             }
+        }
+
+        // Animate the icons into place
+        float delay = 0.5f;
+        for (int i = 0; i < icons.Count; i++)
+        {
+            // Create a sequence for each icon
+            Sequence sequence = DOTween.Sequence();
+            // Append a move and scale tween to the sequence
+            sequence.Join(icons[i].transform.DOLocalMove(finalPositions[i], 0.5f).SetEase(Ease.OutExpo));
+            sequence.SetUpdate(true);
+            // Start the sequence after a delay
+            sequence.Play().SetDelay(delay);
+
+            delay += 0.075f;
         }
     }
 

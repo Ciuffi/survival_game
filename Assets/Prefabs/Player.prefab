@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e6fc318430eae45b973b7e934ee310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseXP: 40
-  growthMultiplier: 1.32
+  baseXP: 50
+  growthMultiplier: 1.2
   flashColor: {r: 0.32549024, g: 0.9117146, b: 1, a: 0.92156863}
   playerStatUpgrades: []
   upgrades: []
@@ -247,46 +247,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatChance: 0.2
-  weaponSetStatChance: 0.2
-  weaponStatChance: 0.6
-  existingWeaponOrSetChance: 0.9
-  newWeaponOrSetChance: 0.1
+  weaponSetStatChance: 0.3
+  weaponStatChance: 0.5
+  existingWeaponOrSetChance: 0.85
+  newWeaponOrSetChance: 0.15
   guiltDropTables:
   - dropRates:
-    - 50
+    - 54
     - 45
-    - 5
+    - 1
     - 0
   - dropRates:
-    - 25
+    - 30
     - 60
+    - 10
+    - 0
+  - dropRates:
+    - 15
+    - 70
     - 15
     - 0
   - dropRates:
-    - 10
-    - 65
-    - 25
-    - 0
-  - dropRates:
     - 5
-    - 50
-    - 40
-    - 5
-  - dropRates:
-    - 0
-    - 45
-    - 45
-    - 10
-  - dropRates:
-    - 0
+    - 60
     - 30
+    - 5
+  - dropRates:
+    - 0
+    - 55
+    - 40
+    - 5
+  - dropRates:
+    - 0
+    - 40
     - 50
-    - 20
+    - 10
   - dropRates:
     - 0
     - 20
-    - 40
-    - 40
+    - 60
+    - 20
   lootDropTables:
   - dropRates:
     - 0

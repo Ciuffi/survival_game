@@ -156,6 +156,7 @@ public class Enemy : MonoBehaviour, Attacker
     public float destroyDistance = 12f;
 
     private AstarPath astarPath;
+    private bool isScanning = false; // To avoid scanning when a scan is already underway
 
     // Start is called before the first frame update
     void Start()
@@ -1030,17 +1031,7 @@ public class Enemy : MonoBehaviour, Attacker
             col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Wall"))
-        {
-            if (astarPath != null)
-            {
-                //Debug.Log("scan");
-                astarPath.Scan();
-            }
-        }
-    }
+
 
     public void ApplyKnockback(float knockback, Vector3 direction)
     {

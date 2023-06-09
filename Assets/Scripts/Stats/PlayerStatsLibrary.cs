@@ -49,25 +49,14 @@ public static class PlayerStatsLibrary
         //Healing
         AddStat(
             new PlayerCharacterStats(
-                health: 15,
+                health: 10,
                 name: "First Aid 1",
-                description: "Recover 15 HP",
+                description: "Recover 10 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/FirstAid"),
                 rarity: Rarity.Common
             )
         );
 
-        //max health
-        AddStat(
-            new PlayerCharacterStats(
-                maxHealth: 5,
-                health: 5,
-                name: "Thick Hide 1",
-                description: "Increase Max HP by 5",
-                icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
-                rarity: Rarity.Common
-            )
-        );
 
         //pickup range
         AddStat(
@@ -94,9 +83,9 @@ public static class PlayerStatsLibrary
         //RARE STATS
         AddStat(
             new PlayerCharacterStats(
-                health: 25,
+                health: 15,
                 name: "First Aid 2",
-                description: "Recover 25 HP",
+                description: "Recover 15 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/FirstAid"),
                 rarity: Rarity.Rare
             )
@@ -105,10 +94,10 @@ public static class PlayerStatsLibrary
         //max health
         AddStat(
             new PlayerCharacterStats(
-                maxHealth: 10,
-                health: 10,
-                name: "Thick Hide 2",
-                description: "Increase Max HP by 10",
+                maxHealth: 5,
+                health: 5,
+                name: "Thick Hide 1",
+                description: "Increase Max HP by 5",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Rare
             )
@@ -128,9 +117,9 @@ public static class PlayerStatsLibrary
         //defense
         AddStat(
             new PlayerCharacterStats(
-                defense: 1,
+                defense: 0.5f,
                 name: "Protection 1",
-                description: "Reduce damage taken by 1",
+                description: "Reduce damage taken",
                 icon: Resources.Load<Sprite>("UI_Icons/Protection"),
                 rarity: Rarity.Rare
             )
@@ -143,17 +132,6 @@ public static class PlayerStatsLibrary
                 name: "Adrenaline 1",
                 description: "All Cooldowns -8%",
                 icon: Resources.Load<Sprite>("UI_Icons/Adrenaline"),
-                rarity: Rarity.Rare
-            )
-        );
-
-        //Knockback
-        AddStat(
-            new PlayerCharacterStats(
-                knockbackMultiplier: 0.12f,
-                name: "Strength 1",
-                description: "All Knockback +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/Strength"),
                 rarity: Rarity.Rare
             )
         );
@@ -227,11 +205,11 @@ public static class PlayerStatsLibrary
         //multicast
         AddStat(
             new PlayerCharacterStats(
-                multicastChance: 0.15f,
+                multicastChance: 0.10f,
                 name: "Multicast 1",
-                description: "All Multicast chance +15%",
+                description: "All Multicast chance +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Multicast"),
-                rarity: Rarity.Epic
+                rarity: Rarity.Rare
             )
         );
 
@@ -240,9 +218,9 @@ public static class PlayerStatsLibrary
         //Healing
         AddStat(
             new PlayerCharacterStats(
-                health: 50,
+                health: 30,
                 name: "First Aid 3",
-                description: "Recover 50 HP",
+                description: "Recover 30 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/FirstAid"),
                 rarity: Rarity.Epic
             )
@@ -251,33 +229,11 @@ public static class PlayerStatsLibrary
         //max health
         AddStat(
             new PlayerCharacterStats(
-                maxHealth: 15,
-                health: 15,
-                name: "Thick Hide 3",
-                description: "Increase Max HP by 15",
+                maxHealth: 10,
+                health: 10,
+                name: "Thick Hide 2",
+                description: "Increase Max HP by 10",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
-                rarity: Rarity.Epic
-            )
-        );
-
-        //Crit Chance
-        AddStat(
-            new PlayerCharacterStats(
-                critChance: 0.09f,
-                name: "Eagle Eye 3",
-                description: "All Crit Chance +9%",
-                icon: Resources.Load<Sprite>("UI_Icons/EagleEye"),
-                rarity: Rarity.Epic
-            )
-        );
-
-        //Crit Dmg
-        AddStat(
-            new PlayerCharacterStats(
-                critDmg: 0.40f,
-                name: "Scanner 3",
-                description: "All Crit Dmg +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/Scanner"),
                 rarity: Rarity.Epic
             )
         );
@@ -285,9 +241,9 @@ public static class PlayerStatsLibrary
         //defense
         AddStat(
             new PlayerCharacterStats(
-                defense: 2,
+                defense: 1,
                 name: "Protection 2",
-                description: "Reduce Damage taken by 2",
+                description: "Reduce Damage taken",
                 icon: Resources.Load<Sprite>("UI_Icons/Protection"),
                 rarity: Rarity.Epic
             )
@@ -300,17 +256,6 @@ public static class PlayerStatsLibrary
                 name: "Adrenaline 2",
                 description: "All Cooldowns -15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Adrenaline"),
-                rarity: Rarity.Epic
-            )
-        );
-
-        //Knockback
-        AddStat(
-            new PlayerCharacterStats(
-                knockbackMultiplier: 0.25f,
-                name: "Strength 2",
-                description: "All Knockback +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/Strength"),
                 rarity: Rarity.Epic
             )
         );
@@ -352,9 +297,9 @@ public static class PlayerStatsLibrary
         //multicast
         AddStat(
             new PlayerCharacterStats(
-                multicastChance: 0.25f,
+                multicastChance: 0.20f,
                 name: "Multicast 2",
-                description: "All Multicast chance +25%",
+                description: "All Multicast chance +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Multicast"),
                 rarity: Rarity.Epic
             )
@@ -382,8 +327,30 @@ public static class PlayerStatsLibrary
         );
         ;
 
+        AddStat(
+           new PlayerCharacterStats(
+               activeMultiplier: 0.30f,
+               name: "Persistence 2",
+               description: "All Attack duration +30%",
+               icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
+
         //LEGENDARY STATS
 
+        //RARE STATS
+        AddStat(
+            new PlayerCharacterStats(
+                health: 50,
+                name: "First Aid 4",
+                description: "Recover 50 HP",
+                icon: Resources.Load<Sprite>("UI_Icons/FirstAid"),
+                rarity: Rarity.Legendary
+            )
+        );
 
         //Crit Chance
         AddStat(
@@ -399,9 +366,9 @@ public static class PlayerStatsLibrary
         //Crit Dmg
         AddStat(
             new PlayerCharacterStats(
-                critDmg: 0.8f,
+                critDmg: 0.75f,
                 name: "Scanner 4",
-                description: "All Crit Dmg +80%",
+                description: "All Crit Dmg +75%",
                 icon: Resources.Load<Sprite>("UI_Icons/Scanner"),
                 rarity: Rarity.Legendary
             )
@@ -414,17 +381,6 @@ public static class PlayerStatsLibrary
                 name: "Adrenaline 3",
                 description: "All Cooldowns -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Adrenaline"),
-                rarity: Rarity.Legendary
-            )
-        );
-
-        //Knockback
-        AddStat(
-            new PlayerCharacterStats(
-                knockbackMultiplier: 0.4f,
-                name: "Strength 3",
-                description: "All Knockback +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/Strength"),
                 rarity: Rarity.Legendary
             )
         );
@@ -495,6 +451,17 @@ public static class PlayerStatsLibrary
                 rarity: Rarity.Legendary
             )
         );
+        ;
+
+        AddStat(
+           new PlayerCharacterStats(
+               activeMultiplier: 0.5f,
+               name: "Persistence 3",
+               description: "All Attack duration +50%",
+               icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
+               rarity: Rarity.Legendary
+           )
+       );
         ;
 
         isInitialized = true;

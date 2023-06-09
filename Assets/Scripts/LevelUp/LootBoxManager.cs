@@ -62,7 +62,7 @@ public class LootBoxManager : MonoBehaviour
 
         panel.SetActive(false);
         panelAnimated.SetActive(false);
-        playerStats = FindObjectOfType<StatsHandler>();
+        playerStats = player.GetComponent<StatsHandler>();
         rarityColors = weaponRarityPrefab.GetComponent<InventoryItem>().rarityColors;
         dropTable = GetComponent<DropTableUpgrades>();
         guiltTracker = FindObjectOfType<BasicSpawner>();

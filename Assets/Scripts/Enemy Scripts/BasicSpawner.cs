@@ -26,10 +26,13 @@ public class BasicSpawner : MonoBehaviour
     public int bossDirection360;
     public int bossDistance;
     private bool bossSpawned;
+    private bool isScanning = false; // To avoid scanning when a scan is already underway
+    private AstarPath astarPath;
 
     // Start is called before the first frame update
     void Start()
     {
+        astarPath = FindObjectOfType<AstarPath>();
         currentGuilt = 0;
         player = GameObject.Find("Player").GetComponent<StatsHandler>();
         isSpawning = true;
@@ -57,6 +60,14 @@ public class BasicSpawner : MonoBehaviour
             mainCamera.GetComponent<CameraController>().StartZoom();
             uiCamera.GetComponent<CameraController>().StartZoom();
         }
+    }
+
+    IEnumerator ScanWithDelay(float delay)
+    {
+        isScanning = true; // A scan is underway
+        astarPath.Scan();
+        yield return new WaitForSeconds(delay); // Wait for delay seconds
+        isScanning = false; // Scan completed
     }
 
     IEnumerator StartSpawner()
@@ -97,8 +108,6 @@ public class BasicSpawner : MonoBehaviour
                         //newSpawn.GetComponent<Enemy>().calculateSpeed(speedScaling);
                     }
                 }
-                AstarPath.active.Scan();
-
             }
         }
     }
@@ -108,6 +117,11 @@ public class BasicSpawner : MonoBehaviour
     {
         // Follow the player
         transform.position = player.transform.position;
+
+        //if (!isScanning) // Start scanning only if game is not paused and not currently scanning
+        //{
+            //StartCoroutine(ScanWithDelay(5.0f));
+        //}
 
         if (currentGuilt == 6 && !bossSpawned)
         {

@@ -33,6 +33,10 @@ public class PlayerInventory : MonoBehaviour
     public void StartingInventory()
     {
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
+        AddWeapon(new Weapon("Classic Rifle", 2, false, 1));
+        AddWeapon(new Weapon("Classic Rifle", 4, false, 1));
+        AddWeapon(new Weapon("Classic Rifle", 6, false, 1));
+
         //AddWeapon(new Weapon("Impact Mine", 0, false, 1));
 
         //AddWeapon(new Weapon("SMG", 0, true, 0));
@@ -55,6 +59,10 @@ public class PlayerInventory : MonoBehaviour
         //AddWeapon(new Weapon("Petrify Grenade", 0, true, 0));
         //AddWeapon(new Weapon("Suction Grenade", 0, true, 0));
         AddWeapon(new Weapon("Wind Blade", 0, false, 1));
+        AddWeapon(new Weapon("Wind Blade", 2, false, 1));
+        AddWeapon(new Weapon("Wind Blade", 4, false, 1));
+        AddWeapon(new Weapon("Wind Blade", 6, false, 1));
+
 
 
     }

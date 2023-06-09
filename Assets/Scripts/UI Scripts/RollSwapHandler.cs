@@ -14,13 +14,16 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
     public int currentReroll;
     public int currentSwap;
 
-    public float uiDelay;
+    private float uiDelay = 1f;
     public bool startDelay;
     public bool delayFinished;
     private float timer; // make timer a class member variable
+    float pressTimer;
 
-    void start()
+    void Start()
     {
+        startDelay = true;
+        delayFinished = false;
         currentReroll = LevelUp.GetComponent<RerollHandler>().currentReroll;
         currentSwap = LevelUp.GetComponent<RerollHandler>().currentSwap;
     }
@@ -29,6 +32,9 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
     {
         if (delayFinished)
         {
+            startDelay = true;
+            delayFinished = false;
+
             if (isRoll)
             {
                 if (!isLoot)

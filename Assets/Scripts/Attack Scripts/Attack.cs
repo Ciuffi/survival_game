@@ -213,9 +213,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSize,
-                    currentScale.y * stats.projectileSize,
-                    currentScale.z * stats.projectileSize
+                    currentScale.x * stats.projectileSizeMultiplier,
+                    currentScale.y * stats.projectileSizeMultiplier,
+                    currentScale.z * stats.projectileSizeMultiplier
                 );
 
                 Quaternion forwardRotation = rotation;
@@ -261,9 +261,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSize,
-                    currentScale.y * stats.projectileSize,
-                    currentScale.z * stats.projectileSize
+                    currentScale.x * stats.projectileSizeMultiplier,
+                    currentScale.y * stats.projectileSizeMultiplier,
+                    currentScale.z * stats.projectileSizeMultiplier
                 );
 
                 Quaternion forwardRotation = rotation;
@@ -298,7 +298,7 @@ public class Attack : MonoBehaviour, Upgrade
                     }
                 }
 
-                float scale = currentScale.x * stats.projectileSize;
+                float scale = currentScale.x * stats.projectileSizeMultiplier;
                 Vector3 backwardDirection = -transform.right;
                 backwardDirection = backwardDirection.normalized;
                 // Flip the rotation variable 180 degrees and put it in a variable called backwardRotation
@@ -399,9 +399,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.rotation = rotation;
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSize,
-                    currentScale.y * stats.projectileSize,
-                    currentScale.z * stats.projectileSize
+                    currentScale.x * stats.projectileSizeMultiplier,
+                    currentScale.y * stats.projectileSizeMultiplier,
+                    currentScale.z * stats.projectileSizeMultiplier
                 );
 
                 if (stats.multicastTimes > 0)
@@ -436,9 +436,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSize,
-                    currentScale.y * stats.projectileSize,
-                    currentScale.z * stats.projectileSize
+                    currentScale.x * stats.projectileSizeMultiplier,
+                    currentScale.y * stats.projectileSizeMultiplier,
+                    currentScale.z * stats.projectileSizeMultiplier
                 );  
 
                 if (stats.multicastTimes > 0)
@@ -470,9 +470,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p2.transform.rotation = Quaternion.LookRotation(-direction);
                 p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
                 p2.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSize,
-                    currentScale.y * stats.projectileSize,
-                    currentScale.z * stats.projectileSize
+                    currentScale.x * stats.projectileSizeMultiplier,
+                    currentScale.y * stats.projectileSizeMultiplier,
+                    currentScale.z * stats.projectileSizeMultiplier
                 );
 
                 if (stats.multicastTimes > 0)
@@ -535,9 +535,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSize,
-                    currentScale.y * stats.projectileSize,
-                    currentScale.z * stats.projectileSize
+                    currentScale.x * stats.projectileSizeMultiplier,
+                    currentScale.y * stats.projectileSizeMultiplier,
+                    currentScale.z * stats.projectileSizeMultiplier
                 );
 
                 if (stats.multicastTimes > 0)
@@ -574,9 +574,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSize,
-                    currentScale.y * stats.projectileSize,
-                    currentScale.z * stats.projectileSize
+                    currentScale.x * stats.projectileSizeMultiplier,
+                    currentScale.y * stats.projectileSizeMultiplier,
+                    currentScale.z * stats.projectileSizeMultiplier
                 );
 
                 if (stats.multicastTimes > 0)
@@ -609,9 +609,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
                 p2.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
                 p2.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSize,
-                    currentScale.y * stats.projectileSize,
-                    currentScale.z * stats.projectileSize
+                    currentScale.x * stats.projectileSizeMultiplier,
+                    currentScale.y * stats.projectileSizeMultiplier,
+                    currentScale.z * stats.projectileSizeMultiplier
                 );
 
                 if (stats.multicastTimes > 0)
@@ -687,7 +687,7 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     GameObject projectileGO = Instantiate(
                         projectile,
-                        (position + directionSpacer / 4),
+                        (position + directionSpacer / 2),
                         Quaternion.identity
                     );
                     Projectile p = projectileGO.GetComponent<Projectile>();
@@ -698,9 +698,9 @@ public class Attack : MonoBehaviour, Upgrade
                     {
                         Vector3 currentScale = p.transform.localScale;
                         p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
+                            currentScale.x * stats.meleeSizeMultiplier,
+                            currentScale.y * stats.meleeSizeMultiplier,
+                            currentScale.z * stats.meleeSizeMultiplier
                         );
                         p.transform.localScale += scaler * c;
                     }
@@ -708,9 +708,9 @@ public class Attack : MonoBehaviour, Upgrade
                     {
                         Vector3 currentScale = p.transform.localScale;
                         p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
+                            currentScale.x * stats.meleeSizeMultiplier,
+                            currentScale.y * stats.meleeSizeMultiplier,
+                            currentScale.z * stats.meleeSizeMultiplier
                         );
                     }
                     //change animation state
@@ -753,7 +753,7 @@ public class Attack : MonoBehaviour, Upgrade
                 {
                     GameObject projectileGO = Instantiate(
                         projectile,
-                        (position + directionSpacer / 4),
+                        (position + directionSpacer / 2),
                         Quaternion.identity
                     );
                     Projectile p = projectileGO.GetComponent<Projectile>();
@@ -766,9 +766,9 @@ public class Attack : MonoBehaviour, Upgrade
                     {
                         Vector3 currentScale = p.transform.localScale;
                         p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
+                            currentScale.x * stats.meleeSizeMultiplier,
+                            currentScale.y * stats.meleeSizeMultiplier,
+                            currentScale.z * stats.meleeSizeMultiplier
                         );
                         p.transform.localScale += scaler * c;
                     }
@@ -832,9 +832,9 @@ public class Attack : MonoBehaviour, Upgrade
                     {
                         Vector3 currentScale = p2.transform.localScale;
                         p2.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
+                            currentScale.x * stats.meleeSizeMultiplier,
+                            currentScale.y * stats.meleeSizeMultiplier,
+                            currentScale.z * stats.meleeSizeMultiplier
                         );
                         p2.transform.localScale += scaler * c;
                     }
@@ -842,9 +842,9 @@ public class Attack : MonoBehaviour, Upgrade
                     {
                         Vector3 currentScale = p2.transform.localScale;
                         p2.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
+                            currentScale.x * stats.meleeSizeMultiplier,
+                            currentScale.y * stats.meleeSizeMultiplier,
+                            currentScale.z * stats.meleeSizeMultiplier
                         );
                     }
                     //change animation state

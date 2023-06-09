@@ -7,6 +7,7 @@ using TMPro;
 using System.Text.RegularExpressions;
 using System;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class LevelUpManager : MonoBehaviour
 {
@@ -75,18 +76,8 @@ public class LevelUpManager : MonoBehaviour
 
     public void reroll() //check if weapon or stat, then swap so it swaps back for setUpgrades()
     {
-        if (isWeapon)
-        {
-            isWeapon = true;
-
-            setUpgrades();
-        }
-        else
-        {
-            isWeapon = false;
-
-            setUpgrades();
-        }
+        setUpgrades();
+        StartCoroutine(animateUpgrades()); 
     }
 
     public void swap()
@@ -94,14 +85,50 @@ public class LevelUpManager : MonoBehaviour
         if (isWeapon)
         {
             isWeapon = false;
-
-            setUpgrades();
         }
         else
         {
             isWeapon = true;
+        }
+        setUpgrades();
+        StartCoroutine(animateUpgrades());
+    }
 
-            setUpgrades();
+    private IEnumerator animateUpgrades()
+    {
+        // Store the final scale of the upgrade windows
+        List<Vector3> finalScales = new List<Vector3>();
+        
+        upgradeWindows.ForEach((u) =>
+        {
+            finalScales.Add(u.transform.localScale);
+        });
+
+        // Kill any ongoing animations and scale down the upgrade windows
+        upgradeWindows.ForEach((u) =>
+        {
+            u.transform.DOKill();
+            u.transform.localScale = new Vector3(0f, 0f, 1f);
+        });
+
+        // Wait for the end of frame to allow DOTween to reset the tweened properties
+        yield return new WaitForEndOfFrame();
+
+        // Animate the upgrade windows into place
+        float delay = 0f;
+        for (int i = 0; i < upgradeWindows.Count; i++)
+        {
+            // Create a sequence for each upgrade window
+            Sequence sequence = DOTween.Sequence();
+
+            // Append a scale tween to the sequence
+            sequence.Join(upgradeWindows[i].transform.DOScale(finalScales[i], 0.5f).SetEase(Ease.OutExpo));
+            sequence.SetUpdate(true);
+
+            // Start the sequence after a delay
+            sequence.Play().SetDelay(delay);
+
+            delay += 0.1f; // Increase the delay for the next sequence
         }
     }
 
@@ -371,31 +398,91 @@ public class LevelUpManager : MonoBehaviour
 
         StartCoroutine(WaitForTime(0.4f));
     }
-
     private IEnumerator WaitForTime(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         PauseGame();
         GameObject.FindObjectOfType<CanvasClickHandler>().DisableJoystick();
+
         RerollBtn.GetComponent<RollSwapHandler>().setActive();
         SwapBtn.GetComponent<RollSwapHandler>().setActive();
         SkipBtn.GetComponent<SkipHandler>().setActive();
-        upgradeWindows.ForEach(
-            (u) =>
-            {
-                u.GetComponent<UpgradeHandler>().setActive();
-            }
-        );
 
-        //eventually want to move this to on-confirm-selection, and add a new button to close menu
-        TimelineManager.GetComponent<TimelineUI>().addAttack();
-        TimelineManager.GetComponent<TimelineUI>().spawnTimeline();
+        foreach (var u in upgradeWindows)
+            u.GetComponent<UpgradeHandler>().setActive();
 
         isWeapon = false; //always show upgrade
         setUpgrades();
+
         panel.SetActive(true);
+
+        AnimateTitle();
+
+        AnimateUpgradeWindows();
+
+        AnimateButtons();
+
+        //timeline stuff
+        TimelineManager.GetComponent<TimelineUI>().addAttack();
+        TimelineManager.GetComponent<TimelineUI>().spawnTimeline();
     }
 
+    private void AnimateTitle()
+    {
+        GameObject title = panel.transform.GetChild(0).gameObject;
+        Vector3 titlePosition = title.transform.localPosition;
+        title.transform.localPosition += new Vector3(0, -2000, 0);
+
+        Sequence titleSequence = DOTween.Sequence();
+        titleSequence.SetUpdate(true);
+        titleSequence.Append(title.transform.DOLocalMove(titlePosition, 0.5f).SetEase(Ease.OutExpo));
+        titleSequence.Play();
+    }
+
+    private void AnimateUpgradeWindows()
+    {
+        List<Vector3> finalPositions = new List<Vector3>();
+        List<Vector3> finalScales = new List<Vector3>();
+
+        foreach (var u in upgradeWindows)
+        {
+            finalPositions.Add(u.transform.localPosition);
+            finalScales.Add(u.transform.localScale);
+            u.transform.localPosition += new Vector3(0, -2000, 0);
+            u.transform.localScale = new Vector3(0f, 0f, 1f);
+        }
+
+        float delay = 0.1f;
+        for (int i = 0; i < upgradeWindows.Count; i++)
+        {
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(upgradeWindows[i].transform.DOLocalMove(finalPositions[i], 0.5f).SetEase(Ease.OutExpo));
+            sequence.Join(upgradeWindows[i].transform.DOScale(finalScales[i], 1f).SetEase(Ease.OutExpo));
+            sequence.SetUpdate(true);
+            sequence.Play().SetDelay(delay);
+            delay += 0.1f;
+        }
+    }
+
+    private void AnimateButtons()
+    {
+        List<Vector3> finalBtnPositions = new List<Vector3>() {
+        RerollBtn.transform.localPosition,
+        SwapBtn.transform.localPosition,
+        SkipBtn.transform.localPosition
+    };
+
+        RerollBtn.transform.localPosition += new Vector3(0, -500, 0);
+        SwapBtn.transform.localPosition += new Vector3(0, -500, 0);
+        SkipBtn.transform.localPosition += new Vector3(0, -500, 0);
+
+        Sequence buttonSequence = DOTween.Sequence();
+        buttonSequence.SetUpdate(true);
+        buttonSequence.Append(RerollBtn.transform.DOLocalMove(finalBtnPositions[0], 0.5f).SetEase(Ease.OutExpo));
+        buttonSequence.Join(SwapBtn.transform.DOLocalMove(finalBtnPositions[1], 0.5f).SetEase(Ease.OutExpo));
+        buttonSequence.Join(SkipBtn.transform.DOLocalMove(finalBtnPositions[2], 0.5f).SetEase(Ease.OutExpo));
+        buttonSequence.Play().SetDelay(0.1f * upgradeWindows.Count);
+    }
     public void SignalItemChosen()
     {
         DestroyPotentialUpgradeObjects();

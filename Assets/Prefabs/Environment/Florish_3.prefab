@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8995778151179090165}
   - component: {fileID: 302567646948873232}
   - component: {fileID: 5394404309746979689}
+  - component: {fileID: 1868003812089499002}
   m_Layer: 0
   m_Name: Florish_3
   m_TagString: Wall
@@ -154,3 +155,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1868003812089499002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995778151179090166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ea026108c3f7c4f96a415295443641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
