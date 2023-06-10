@@ -262,7 +262,7 @@ public class Enemy : MonoBehaviour, Attacker
 
             if (isElite || isBoss)
             {
-                currentDoTAnimation.transform.localScale *= 2f;
+                currentDoTAnimation.transform.localScale *= 1.4f;
             }
         }
 

@@ -105,8 +105,6 @@ public class AttackHandler : MonoBehaviour
         AttackBuilder weapon = AttackLibrary.GetAttackBuilder(selectedWeaponName);
         Attack finalWeapon = weapon.Build((Rarity)selectedWeaponRarity);
 
-        Debug.Log("attack " + finalWeapon.stats.damage + "Multiplier " + finalWeapon.stats.damageMultiplier);
-
         AddWeapon(finalWeapon);
     }
 
