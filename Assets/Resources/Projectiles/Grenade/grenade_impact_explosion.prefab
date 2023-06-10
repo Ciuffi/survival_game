@@ -177,6 +177,10 @@ MonoBehaviour:
   magnetDuration: 0
   isSlow: 1
   slowPercentage: 0.5
-  slowDuration: 1
+  slowDuration: 0.5
   isStun: 0
   stunDuration: 0.5
+  isDoT: 0
+  dotDuration: 0
+  dotDamage: 0
+  dotTickRate: 0

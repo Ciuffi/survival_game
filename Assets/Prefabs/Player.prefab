@@ -316,13 +316,13 @@ MonoBehaviour:
   - dropRates:
     - 0
     - 0
-    - 50
-    - 50
+    - 60
+    - 40
   - dropRates:
     - 0
     - 0
-    - 0
-    - 100
+    - 20
+    - 80
 --- !u!1 &3287956671689121398
 GameObject:
   m_ObjectHideFlags: 0

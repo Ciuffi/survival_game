@@ -39,7 +39,7 @@ public class DamagePopupText : MonoBehaviour
         textMesh = gameObject.GetComponent<TextMeshPro>();
         int damageRounded = Mathf.CeilToInt(damageAmount);
         textMesh.SetText(damageRounded.ToString());
-        moveVector = new Vector3(0.5f, 1) * moveSpeed;
+        moveVector = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(0.5f, 1f)) * moveSpeed;
 
         textMesh.fontSize = baseFontSize;
         textColor = new Color32(255, 255, 255, 255);

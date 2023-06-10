@@ -65,6 +65,7 @@ public class Projectile : MonoBehaviour
     public bool isMagnet;
     public float magnetStrength;
     public float magnetDuration;
+
     private Transform magnetTarget;
     private float magnetStartTime;
     private Vector3 magnetStartPos;
@@ -75,6 +76,23 @@ public class Projectile : MonoBehaviour
 
     public bool isStun;
     public float stunDuration;
+
+    public bool isHoming;
+
+    public bool isDoT;
+    public float dotDuration;
+    public float dotDamage;
+    public float dotTickRate;
+
+    public bool isSplit;
+    public int splitAmount;
+    public float splitStatPercentage;
+
+    public bool isChain;
+    public int chainTimes;
+
+    public bool isSplitProjectile; //to be turned on after splitting to acquire scaled stats
+    public bool isChainProjectile; //doesnt need to scale down but has to adjust movement after first contact to chain to next closest in range
 
     public bool hasDeathrattle;
     public GameObject deathSpawn;
@@ -96,28 +114,60 @@ public class Projectile : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
-
-        pierce = attack.stats.pierce;
-        damage = attack.stats.damage;
-        knockback = attack.stats.knockback;
-        critChance = attack.stats.critChance;
-        critDmg = attack.stats.critDmg;
         spawnPos.x = transform.position.x;
         spawnPos.y = transform.position.y;
-        projectileRange = attack.stats.range;
-        moveSpeed = attack.stats.speed;
-        wpnProjSizeMultiplier = attack.stats.projectileSize;
-        wpnMeleeSizeMultiplier = attack.stats.meleeSize;
+        critChance = attack.stats.critChance;
+        critDmg = attack.stats.critDmg;
 
-        magnetStrength *= attack.stats.effectMultiplier;
-        slowPercentage *= attack.stats.effectMultiplier;
+        if (isSplitProjectile) // scale down stats if it's a split projectile
+        {
+            pierce = Mathf.RoundToInt(attack.stats.pierce * splitStatPercentage);
+            damage = attack.stats.damage * splitStatPercentage ;
+            knockback = attack.stats.knockback * splitStatPercentage;
+            projectileRange = attack.stats.range * splitStatPercentage;
+            moveSpeed = attack.stats.speed * splitStatPercentage;
+            wpnProjSizeMultiplier = attack.stats.projectileSize * splitStatPercentage;
+            wpnMeleeSizeMultiplier = attack.stats.meleeSize * splitStatPercentage;
+            active = (active * attack.stats.activeMultiplier + attack.stats.activeDuration) * splitStatPercentage;
+            hoverTimer = (hoverTimer * attack.stats.activeMultiplier + attack.stats.activeDuration) * splitStatPercentage;
+        } else
+        {
+            pierce = attack.stats.pierce;
+            damage = attack.stats.damage;
+            knockback = attack.stats.knockback;
+            projectileRange = attack.stats.range;
+            moveSpeed = attack.stats.speed;
+            wpnProjSizeMultiplier = attack.stats.projectileSize;
+            wpnMeleeSizeMultiplier = attack.stats.meleeSize;
+            active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
+            hoverTimer = hoverTimer * attack.stats.activeMultiplier + attack.stats.activeDuration;
+        }
 
-        stunDuration += attack.stats.effectDuration;
-        magnetDuration += attack.stats.effectDuration;
-        slowDuration += attack.stats.effectDuration;
 
-        active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
-        hoverTimer = hoverTimer * attack.stats.activeMultiplier + attack.stats.activeDuration;
+        isMagnet = attack.stats.isMagnet;
+        magnetStrength = attack.stats.magnetStrength;
+        magnetDuration = attack.stats.magnetDuration + attack.stats.effectDuration;
+
+        isSlow = attack.stats.isSlow;
+        slowPercentage = attack.stats.slowPercentage;
+        slowDuration = attack.stats.slowDuration + attack.stats.effectDuration;
+
+        isStun = attack.stats.isStun;
+        stunDuration = attack.stats.stunDuration + attack.stats.effectDuration;
+
+        isDoT = attack.stats.isDoT;
+        dotDuration = attack.stats.dotDuration += attack.stats.effectDuration;
+        dotDamage = attack.stats.dotDamage;
+        dotTickRate = attack.stats.dotTickRate;
+
+        isHoming = attack.stats.isHoming;
+
+        isSplit = attack.stats.isSplit;
+        splitAmount = attack.stats.splitAmount;
+        splitStatPercentage = attack.stats.splitStatPercentage;
+
+        isChain = attack.stats.isChain;
+        chainTimes = attack.stats.chainTimes;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -362,7 +412,7 @@ public class Projectile : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             hitFirstEnemy = true;
-
+            float finalDotDamage;
             GameObject enemy = col.gameObject;
 
             if (!hitEnemies.Contains(enemy)) //if enemy is not within hitDetection List
@@ -371,17 +421,24 @@ public class Projectile : MonoBehaviour
                 if (critChance >= critRoll)
                 { //CRITS
                     finalDamage = damage * critDmg;
+                    finalDotDamage = dotDamage * critDmg;
                     isCrit = true;
                 }
                 else
                 {
                     //no crit
                     finalDamage = damage;
+                    finalDotDamage = dotDamage;
                     isCrit = false;
                 }
 
                 hitEnemies.Add(enemy); //add enemy to hitList
                 timers[enemy] = damageTickDuration;
+
+                if (isDoT)
+                {
+                    col.gameObject.GetComponent<Enemy>().StartDoT(finalDotDamage, dotTickRate, dotDuration, isCrit);
+                }
 
                 //apply magnetizing effect
                 if (isMagnet)
@@ -403,6 +460,7 @@ public class Projectile : MonoBehaviour
 
                 if (isCrit == true) //deal damage
                 {
+
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
                     Vector3 knockDirection = isMelee
                         ? (col.transform.position - transform.position).normalized
@@ -421,6 +479,7 @@ public class Projectile : MonoBehaviour
                 }
                 else
                 {
+
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
                     Vector3 knockDirection = isMelee
                         ? (col.transform.position - transform.position).normalized

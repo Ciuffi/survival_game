@@ -131,9 +131,21 @@ MonoBehaviour:
   magnetDuration: 1
   isSlow: 1
   slowPercentage: 0.5
-  slowDuration: 1.5
+  slowDuration: 1
   isStun: 0
   stunDuration: 0
+  isHoming: 0
+  isDoT: 0
+  dotDuration: 0
+  dotDamage: 0
+  dotTickRate: 0
+  isSplit: 0
+  splitAmount: 0
+  splitStatPercentage: 0
+  isChain: 0
+  chainTimes: 0
+  isSplitProjectile: 0
+  isChainProjectile: 0
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
   wpnProjSizeMultiplier: 0

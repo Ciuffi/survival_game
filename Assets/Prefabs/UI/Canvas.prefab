@@ -440,7 +440,6 @@ MonoBehaviour:
   isSwap: 1
   currentReroll: 0
   currentSwap: 0
-  uiDelay: 0.7
   startDelay: 0
   delayFinished: 0
 --- !u!1 &1098140728088926989
@@ -1815,7 +1814,6 @@ MonoBehaviour:
   isSwap: 0
   currentReroll: 0
   currentSwap: 0
-  uiDelay: 0.7
   startDelay: 0
   delayFinished: 0
 --- !u!1 &1098140728500325439
@@ -2594,7 +2592,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1098140728898083403}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3157,8 +3155,8 @@ RectTransform:
   m_LocalScale: {x: 1.2109499, y: 1.9099814, z: 1.053}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3998506637036315816}
   - {fileID: 1098140728739658099}
+  - {fileID: 3998506637036315816}
   - {fileID: 3618078052701621840}
   - {fileID: 1098140729654696880}
   - {fileID: 1098140730010504927}
@@ -4019,7 +4017,6 @@ MonoBehaviour:
   isSwap: 1
   currentReroll: 0
   currentSwap: 0
-  uiDelay: 0.7
   startDelay: 0
   delayFinished: 0
 --- !u!1 &1098140729213561802
@@ -4377,7 +4374,6 @@ MonoBehaviour:
   isSwap: 0
   currentReroll: 0
   currentSwap: 0
-  uiDelay: 0.7
   startDelay: 0
   delayFinished: 0
 --- !u!1 &1098140729401278476
@@ -7239,7 +7235,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4053501027209517256, guid: 36999f93e5e5fc646b8e0bd744034b8e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053501027209517256, guid: 36999f93e5e5fc646b8e0bd744034b8e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4053501027209517256, guid: 36999f93e5e5fc646b8e0bd744034b8e, type: 3}
       propertyPath: m_LocalPosition.x

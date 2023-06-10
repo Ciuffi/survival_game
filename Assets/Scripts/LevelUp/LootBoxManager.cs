@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using TMPro;
 using System.Text.RegularExpressions;
+using DG.Tweening;
 
 public class LootBoxManager : MonoBehaviour
 {
@@ -82,13 +83,71 @@ public class LootBoxManager : MonoBehaviour
         SkipBtn.GetComponent<SkipHandler>().setActive();
         upgradeWindow.GetComponent<UpgradeLootHandler>().setActive();
 
+        isWeapon = true; //always set to weapon
+        setUpgrades();
+        panel.SetActive(true);
+
+        AnimateTitle();
+
+        AnimateUpgradeWindows();
+
+        AnimateButtons();
+
         //eventually want to move this to on-confirm-selection, and add a new button to close menu
         TimelineManager.GetComponent<TimelineUI>().addAttack();
         TimelineManager.GetComponent<TimelineUI>().spawnTimeline();
 
-        isWeapon = true; //always set to weapon
-        setUpgrades();
-        panel.SetActive(true);
+    }
+
+    private void AnimateTitle()
+    {
+        GameObject title = panel.transform.GetChild(0).gameObject;
+        Vector3 titlePosition = title.transform.localPosition;
+        title.transform.localPosition += new Vector3(0, -2000, 0);
+
+        Sequence titleSequence = DOTween.Sequence();
+        titleSequence.SetUpdate(true);
+        titleSequence.Append(title.transform.DOLocalMove(titlePosition, 0.5f).SetEase(Ease.OutExpo));
+        titleSequence.Play();
+    }
+
+    private void AnimateUpgradeWindows()
+    {
+        Vector3 finalPosition = upgradeWindow.transform.localPosition; 
+        Vector3 finalScale = upgradeWindow.transform.localScale; 
+
+        upgradeWindow.transform.localPosition += new Vector3(0, -2000, 0);
+        upgradeWindow.transform.localScale = new Vector3(0f, 0f, 1f);
+        
+
+        float delay = 0.1f;
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(upgradeWindow.transform.DOLocalMove(finalPosition, 0.5f).SetEase(Ease.OutExpo));
+            sequence.Join(upgradeWindow.transform.DOScale(finalScale, 1f).SetEase(Ease.OutExpo));
+            sequence.SetUpdate(true);
+            sequence.Play().SetDelay(delay);
+            delay += 0.1f;
+       
+    }
+
+    private void AnimateButtons()
+    {
+        List<Vector3> finalBtnPositions = new List<Vector3>() {
+        RerollBtn.transform.localPosition,
+        SwapBtn.transform.localPosition,
+        SkipBtn.transform.localPosition
+    };
+
+        RerollBtn.transform.localPosition += new Vector3(0, -500, 0);
+        SwapBtn.transform.localPosition += new Vector3(0, -500, 0);
+        SkipBtn.transform.localPosition += new Vector3(0, -500, 0);
+
+        Sequence buttonSequence = DOTween.Sequence();
+        buttonSequence.SetUpdate(true);
+        buttonSequence.Append(RerollBtn.transform.DOLocalMove(finalBtnPositions[0], 0.5f).SetEase(Ease.OutExpo));
+        buttonSequence.Join(SwapBtn.transform.DOLocalMove(finalBtnPositions[1], 0.5f).SetEase(Ease.OutExpo));
+        buttonSequence.Join(SkipBtn.transform.DOLocalMove(finalBtnPositions[2], 0.5f).SetEase(Ease.OutExpo));
+        buttonSequence.Play().SetDelay(0.1f);
     }
 
     public void setUpgrades()
@@ -97,22 +156,27 @@ public class LootBoxManager : MonoBehaviour
         {
             // Determine rarity based on guiltDropTables
             Rarity chosenRarity;
-            float rarityRoll = Random.Range(1, 100);
+            float rarityRoll = Random.Range(1, 101);  // adjust to 101 so that 100 can be included
             float[] rarityChances = dropTable.lootDropTables[guiltTracker.currentGuilt].dropRates;
 
-            if (rarityRoll <= rarityChances[3])
+            float legendaryStart = rarityChances[3];
+            float epicStart = legendaryStart + rarityChances[2];
+            float rareStart = epicStart + rarityChances[1];
+            float commonStart = rareStart + rarityChances[0];
+
+            if (rarityRoll <= legendaryStart)
             {
                 chosenRarity = Rarity.Legendary;
             }
-            else if (rarityRoll <= rarityChances[2])
+            else if (rarityRoll <= epicStart)
             {
                 chosenRarity = Rarity.Epic;
             }
-            else if (rarityRoll <= rarityChances[1])
+            else if (rarityRoll <= rareStart)
             {
                 chosenRarity = Rarity.Rare;
             }
-            else
+            else  // this will catch anything that is not less than or equal to rareStart
             {
                 chosenRarity = Rarity.Common;
             }
@@ -159,22 +223,27 @@ public class LootBoxManager : MonoBehaviour
 
             // Determine rarity based on guiltDropTables
             Rarity chosenRarity;
-            float rarityRoll = Random.Range(1, 100);
+            float rarityRoll = Random.Range(1, 101);  // adjust to 101 so that 100 can be included
             float[] rarityChances = dropTable.lootDropTables[guiltTracker.currentGuilt].dropRates;
 
-            if (rarityRoll <= rarityChances[3])
+            float legendaryStart = rarityChances[3];
+            float epicStart = legendaryStart + rarityChances[2];
+            float rareStart = epicStart + rarityChances[1];
+            float commonStart = rareStart + rarityChances[0];
+
+            if (rarityRoll <= legendaryStart)
             {
                 chosenRarity = Rarity.Legendary;
             }
-            else if (rarityRoll <= rarityChances[2])
+            else if (rarityRoll <= epicStart)
             {
                 chosenRarity = Rarity.Epic;
             }
-            else if (rarityRoll <= rarityChances[1])
+            else if (rarityRoll <= rareStart)
             {
                 chosenRarity = Rarity.Rare;
             }
-            else
+            else  // this will catch anything that is not less than or equal to rareStart
             {
                 chosenRarity = Rarity.Common;
             }
@@ -429,22 +498,14 @@ public class LootBoxManager : MonoBehaviour
         panelAnimated.GetComponent<LootGoldCounter>().ResetStats();
         lootOnTap.GetComponent<LootPopupAnimator>().finalGold = finalGold;
         PauseGame();
+
+
     }
 
-    public void reroll()
+    public void reroll() //check if weapon or stat, then swap so it swaps back for setUpgrades()
     {
-        if (isWeapon)
-        {
-            isWeapon = true;
-
-            setUpgrades();
-        }
-        else
-        {
-            isWeapon = false;
-
-            setUpgrades();
-        }
+        setUpgrades();
+        StartCoroutine(animateUpgrades());
     }
 
     public void swap()
@@ -452,13 +513,36 @@ public class LootBoxManager : MonoBehaviour
         if (isWeapon)
         {
             isWeapon = false;
-            setUpgrades();
         }
         else
         {
             isWeapon = true;
-            setUpgrades();
         }
+        setUpgrades();
+        StartCoroutine(animateUpgrades());
+    }
+
+    private IEnumerator animateUpgrades()
+    {
+        // Store the final scale of the upgrade windows
+        Vector3 finalScale = upgradeWindow.transform.localScale;
+
+        // Kill any ongoing animations and scale down the upgrade windows
+        upgradeWindow.transform.DOKill();
+        upgradeWindow.transform.localScale = new Vector3(0f, 0f, 1f);
+
+        // Wait for the end of frame to allow DOTween to reset the tweened properties
+        yield return new WaitForEndOfFrame();
+
+        // Animate the upgrade windows into place
+        float delay = 0f;
+            // Create a sequence for each upgrade window
+            Sequence sequence = DOTween.Sequence();
+            // Append a scale tween to the sequence
+            sequence.Join(upgradeWindow.transform.DOScale(finalScale, 0.5f).SetEase(Ease.OutExpo));
+            sequence.SetUpdate(true);
+            // Start the sequence after a delay
+            sequence.Play().SetDelay(delay);
     }
 
     public void SignalItemChosen()

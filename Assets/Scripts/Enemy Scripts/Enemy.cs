@@ -157,6 +157,11 @@ public class Enemy : MonoBehaviour, Attacker
 
     private AstarPath astarPath;
     private bool isScanning = false; // To avoid scanning when a scan is already underway
+    private Coroutine currentDoTCoroutine = null;
+    private bool isDotCrit;
+    public GameObject dotVFX;
+    private Animator dotAnimator;
+    private GameObject currentDoTAnimation;
 
     // Start is called before the first frame update
     void Start()
@@ -237,6 +242,55 @@ public class Enemy : MonoBehaviour, Attacker
         stunPos = transform.position;
     }
 
+    public void StartDoT(float damage, float tickRate, float time, bool isCrit)
+    {
+        if (currentDoTCoroutine != null)
+        {
+            StopCoroutine(currentDoTCoroutine);
+        }
+
+        // Instantiate DoT animation and get its Animator
+        if (currentDoTAnimation == null)
+        {
+            currentDoTAnimation = Instantiate(dotVFX, transform.position, Quaternion.identity, transform);
+            dotAnimator = currentDoTAnimation.GetComponent<Animator>();
+
+            if (!isBasic)
+            {
+                currentDoTAnimation.transform.localScale *= 4f;
+            }
+
+            if (isElite || isBoss)
+            {
+                currentDoTAnimation.transform.localScale *= 2f;
+            }
+        }
+
+        isDotCrit = isCrit;
+        currentDoTCoroutine = StartCoroutine(DoT(damage, tickRate, time));
+    }
+
+    private IEnumerator DoT(float dotDamage, float dotTickRate, float dotTime)
+    {
+        float startTime = Time.time;
+        while (Time.time - startTime <= dotTime)
+        {
+            TakeDamage(dotDamage, isDotCrit);  // Assume DoT damage is not critical
+            yield return new WaitForSeconds(dotTickRate);
+        }
+
+        dotAnimator.SetBool("finishedDoT", true); // Trigger end animation
+        // Wait for a bit and then destroy the animation
+        yield return new WaitForSeconds(0.5f);
+        if (currentDoTAnimation != null)
+        {
+            Destroy(currentDoTAnimation);
+            currentDoTAnimation = null;
+        }
+
+        currentDoTCoroutine = null;  // Reset when DoT finishes
+    }
+
     private float EaseInOutCubic(float t)
     {
         if (t < 0.5f)
@@ -308,6 +362,12 @@ public class Enemy : MonoBehaviour, Attacker
             canMove = false;
             deathPos = transform.position;
             maxEnemiesTracker.GetComponent<MaxEnemyTracker>().DecreaseCount();
+
+            if (currentDoTAnimation != null)
+            {
+                dotAnimator.SetBool("finishedDoT", true); // Trigger end animation
+            }
+
 
             if (xpAmount > 0)
             {
@@ -840,6 +900,7 @@ public class Enemy : MonoBehaviour, Attacker
 
     public void TakeDamage(float damageAmount, bool isCrit)
     {
+
         if (health <= 0 || !spawnFinished) return;
         if (canDamage == true)
         {

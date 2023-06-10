@@ -105,6 +105,8 @@ public class AttackHandler : MonoBehaviour
         AttackBuilder weapon = AttackLibrary.GetAttackBuilder(selectedWeaponName);
         Attack finalWeapon = weapon.Build((Rarity)selectedWeaponRarity);
 
+        Debug.Log("attack " + finalWeapon.stats.damage + "Multiplier " + finalWeapon.stats.damageMultiplier);
+
         AddWeapon(finalWeapon);
     }
 
@@ -291,7 +293,7 @@ public class AttackHandler : MonoBehaviour
             AutoAimPrefab.UpdateAimRange(
                 currentAttack.stats.aimRange,
                 currentAttack.stats.aimRangeAdditive,
-                currentAttack.stats.isCone,
+                currentAttack.stats.is360,
                 currentAttack.stats.coneAngle
             );
 

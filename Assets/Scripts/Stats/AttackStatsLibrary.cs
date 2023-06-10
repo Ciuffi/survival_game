@@ -433,7 +433,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                aimRangeAdditive: 1f,
+                aimRangeAdditive: 0.5f,
                 name: "Hacker 1",
                 description: "Increases Aim Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
@@ -443,7 +443,7 @@ public static class AttackStatsLibrary
         ;
         AddStat(
             new AttackStats(
-                coneAngle: 25f,
+                coneAngle: 20f,
                 name: "AFK 1",
                 description: "Increases Aim Width",
                 icon: Resources.Load<Sprite>("UI_Icons/AFK"),
@@ -630,7 +630,7 @@ public static class AttackStatsLibrary
 
         AddStat(
            new AttackStats(
-               aimRangeAdditive: 2f,
+               aimRangeAdditive: 1f,
                name: "Hacker 2",
                description: "Increases Aim Range",
                icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
@@ -640,7 +640,7 @@ public static class AttackStatsLibrary
         ;
         AddStat(
             new AttackStats(
-                coneAngle: 45f,
+                coneAngle: 30f,
                 name: "AFK 2",
                 description: "Increases Aim Width",
                 icon: Resources.Load<Sprite>("UI_Icons/AFK"),
@@ -710,9 +710,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.5f,
+                castTimeMultiplier: -0.35f,
                 name: "Haste 3",
-                description: "Cooldown -50%",
+                description: "Cooldown -35%",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Epic
             )
@@ -810,7 +810,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                aimRangeAdditive: 4f,
+                aimRangeAdditive: 1.5f,
                 name: "Hacker 3",
                 description: "Massively increase Aim Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
@@ -818,9 +818,10 @@ public static class AttackStatsLibrary
             )
         );
         ;
+
         AddStat(
             new AttackStats(
-                isCone: false,
+                is360: true,
                 name: "AFK 3",
                 description: "360 Aim Vision",
                 icon: Resources.Load<Sprite>("UI_Icons/AFK"),
@@ -1053,9 +1054,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.6f,
+                castTimeMultiplier: -0.5f,
                 name: "Haste 4",
-                description: "Cooldown -60%",
+                description: "Cooldown -50%",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Legendary
             )
@@ -1716,9 +1717,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.40f,
+                castTimeMultiplier: -0.30f,
                 name: "Quickswap 3",
-                description: "Cooldowns -40%",
+                description: "Cooldowns -30%",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -1732,7 +1733,7 @@ public static class AttackStatsLibrary
                 name: "Impact 3",
                 description: "Knockback +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/Impact"),
-                rarity: Rarity.Common,
+                rarity: Rarity.Epic,
                 weaponSet: true
             )
         );
@@ -2042,9 +2043,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.7f,
+                castTimeMultiplier: -0.4f,
                 name: "Quickswap 4",
-                description: "Cooldowns -70%",
+                description: "Cooldowns -40%",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2054,9 +2055,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                knockbackMultiplier: 0.4f,
+                knockbackMultiplier: 0.5f,
                 name: "Impact 4",
-                description: "Knockback +40%",
+                description: "Knockback +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/Impact"),
                 rarity: Rarity.Legendary,
                 weaponSet: true

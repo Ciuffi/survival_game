@@ -123,6 +123,7 @@ MonoBehaviour:
   eliteOutline: {fileID: 0}
   xpSizeScaling: 0.3
   destroyDistance: 30
+  dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -309,8 +310,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2331833043301358605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.005, y: -0.888, z: -0.0059312293}
-  m_LocalScale: {x: 0.24697703, y: 1.2154348, z: 0}
+  m_LocalPosition: {x: -0, y: -0.96, z: -0.0059312293}
+  m_LocalScale: {x: 0.28402358, y: 1.2154348, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}

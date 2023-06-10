@@ -53,6 +53,11 @@ public class deathRattleAttack : MonoBehaviour
     public bool isStun;
     public float stunDuration;
 
+    public bool isDoT;
+    public float dotDuration;
+    public float dotDamage;
+    public float dotTickRate;
+
     private float meleeTime;
 
     // Start is called before the first frame update
@@ -72,9 +77,16 @@ public class deathRattleAttack : MonoBehaviour
 
         magnetDuration += attack.stats.effectDuration;
         slowDuration += attack.stats.effectDuration;
+
         stunDuration += attack.stats.effectDuration;
 
         active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
+
+        isDoT = attack.stats.isDoT;
+        dotDuration = attack.stats.dotDuration += attack.stats.effectDuration;
+        dotDamage = attack.stats.dotDamage *= attack.stats.effectMultiplier;
+        dotTickRate = attack.stats.dotTickRate;
+
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();

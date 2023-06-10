@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 1321576414662445604}
   - component: {fileID: 8280240638215219442}
   - component: {fileID: 1818636915474768677}
-  - component: {fileID: 190519749629455227}
   m_Layer: 7
   m_Name: EnemyMelee_armored_Elite
   m_TagString: Enemy
@@ -33,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7, y: -1.7, z: 0}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1514911375676208822}
@@ -126,6 +125,7 @@ MonoBehaviour:
   eliteOutline: {fileID: 1450570267614955896}
   xpSizeScaling: 0.3
   destroyDistance: 30
+  dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -160,7 +160,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0046678483, y: 0.2892407}
+  m_Offset: {x: 0.0046678483, y: -0.25639972}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -171,7 +171,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8411538, y: 0.69818646}
+  m_Size: {x: 1.1948793, y: 0.848708}
   m_EdgeRadius: 0
 --- !u!114 &7904818385536196546
 MonoBehaviour:
@@ -271,7 +271,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0058204234, y: 0.21526688}
+  m_Offset: {x: -0.005468726, y: -0.1478661}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -282,33 +282,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2627318, y: 1.0345582}
-  m_EdgeRadius: 0
---- !u!61 &190519749629455227
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423453834646843868}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.15090483, y: -0.34652224}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6422998, y: 0.4466824}
+  m_Size: {x: 1.5637748, y: 1.2189469}
   m_EdgeRadius: 0
 --- !u!1 &1450570267614955896
 GameObject:
@@ -337,8 +311,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450570267614955896}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.077, z: 0}
-  m_LocalScale: {x: -1.15, y: -1.1061, z: 0}
+  m_LocalPosition: {x: 0, y: 0.025, z: 0}
+  m_LocalScale: {x: 1.15, y: 1.1061, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
@@ -428,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2537bfb36ae2b4ca0154e441dc661a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingLeft: 0
+  facingLeft: 1
   player: {fileID: 0}
 --- !u!1 &2331833043301358605
 GameObject:
@@ -457,8 +431,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2331833043301358605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.717, z: 0}
-  m_LocalScale: {x: 0.2738659, y: 0.39075986, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.79, z: 0}
+  m_LocalScale: {x: 0.30552754, y: -0.6113732, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
@@ -580,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 6531945945894358812}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: -1, y: -1, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: -0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
@@ -670,5 +644,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2537bfb36ae2b4ca0154e441dc661a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingLeft: 0
+  facingLeft: 1
   player: {fileID: 0}

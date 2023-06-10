@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 1321576414662445604}
   - component: {fileID: 8280240638215219442}
   - component: {fileID: 1818636915474768677}
-  - component: {fileID: 4497870502150445864}
   m_Layer: 7
   m_Name: EnemyMelee_armored_1
   m_TagString: Enemy
@@ -33,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1514911375676208822}
@@ -58,6 +57,7 @@ MonoBehaviour:
   knockDirection: {x: 0, y: 0, z: 0}
   isBasic: 0
   isElite: 0
+  isBoss: 0
   damage: 2
   health: 35
   maxHealth: 0
@@ -122,6 +122,8 @@ MonoBehaviour:
   shadow: {fileID: 2331833043301358605}
   eliteOutline: {fileID: 0}
   xpSizeScaling: 0.3
+  destroyDistance: 12
+  dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -156,7 +158,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006245248, y: 0.16027056}
+  m_Offset: {x: -0.010877669, y: -0.13393304}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,7 +169,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.36474407, y: 0.37430438}
+  m_Size: {x: 0.80994105, y: 0.5330809}
   m_EdgeRadius: 0
 --- !u!114 &7904818385536196546
 MonoBehaviour:
@@ -267,7 +269,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008221269, y: 0.14505428}
+  m_Offset: {x: -0.01979816, y: -0.09155387}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -278,33 +280,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8980397, y: 0.71970975}
-  m_EdgeRadius: 0
---- !u!61 &4497870502150445864
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423453834646843868}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.10607557, y: -0.22839706}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.43999735, y: 0.23358002}
+  m_Size: {x: 0.9914377, y: 0.80065465}
   m_EdgeRadius: 0
 --- !u!1 &2331833043301358605
 GameObject:
@@ -333,8 +309,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2331833043301358605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.021, y: 0.511, z: 0}
-  m_LocalScale: {x: 0.18102033, y: 0.2582851, z: 0}
+  m_LocalPosition: {x: 0.018, y: -0.504, z: 0}
+  m_LocalScale: {x: 0.2016866, y: -0.5211186, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
@@ -456,7 +432,7 @@ Transform:
   m_GameObject: {fileID: 6531945945894358812}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: -0.7, y: -0.7, z: -0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: -0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
@@ -546,5 +522,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2537bfb36ae2b4ca0154e441dc661a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingLeft: 0
+  facingLeft: 1
   player: {fileID: 0}

@@ -178,5 +178,9 @@ MonoBehaviour:
   isSlow: 0
   slowPercentage: 0.5
   slowDuration: 2
-  isStun: 1
+  isStun: 0
   stunDuration: 1
+  isDoT: 0
+  dotDuration: 0
+  dotDamage: 0
+  dotTickRate: 0

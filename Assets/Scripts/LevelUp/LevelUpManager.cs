@@ -146,22 +146,27 @@ public class LevelUpManager : MonoBehaviour
                 {
                     // Determine rarity based on guiltDropTables
                     Rarity chosenRarity;
-                    float rarityRoll = Random.Range(1,100);
+                    float rarityRoll = Random.Range(1, 101);  // adjust to 101 so that 100 can be included
                     float[] rarityChances = dropTable.guiltDropTables[guiltTracker.currentGuilt].dropRates;
 
-                    if (rarityRoll <= rarityChances[3])
+                    float legendaryStart = rarityChances[3];
+                    float epicStart = legendaryStart + rarityChances[2];
+                    float rareStart = epicStart + rarityChances[1];
+                    float commonStart = rareStart + rarityChances[0];
+
+                    if (rarityRoll <= legendaryStart)
                     {
                         chosenRarity = Rarity.Legendary;
                     }
-                    else if (rarityRoll <= rarityChances[2])
+                    else if (rarityRoll <= epicStart)
                     {
                         chosenRarity = Rarity.Epic;
                     }
-                    else if (rarityRoll <= rarityChances[1])
+                    else if (rarityRoll <= rareStart)
                     {
                         chosenRarity = Rarity.Rare;
                     }
-                    else 
+                    else  // this will catch anything that is not less than or equal to rareStart
                     {
                         chosenRarity = Rarity.Common;
                     }
@@ -208,22 +213,27 @@ public class LevelUpManager : MonoBehaviour
 
                 // Determine rarity based on guiltDropTables
                 Rarity chosenRarity;
-                float rarityRoll = Random.Range(1, 100);
+                float rarityRoll = Random.Range(1, 101);  // adjust to 101 so that 100 can be included
                 float[] rarityChances = dropTable.guiltDropTables[guiltTracker.currentGuilt].dropRates;
 
-                if (rarityRoll <= rarityChances[3])
+                float legendaryStart = rarityChances[3];
+                float epicStart = legendaryStart + rarityChances[2];
+                float rareStart = epicStart + rarityChances[1];
+                float commonStart = rareStart + rarityChances[0];
+
+                if (rarityRoll <= legendaryStart)
                 {
                     chosenRarity = Rarity.Legendary;
                 }
-                else if (rarityRoll <= rarityChances[2])
+                else if (rarityRoll <= epicStart)
                 {
                     chosenRarity = Rarity.Epic;
                 }
-                else if (rarityRoll <= rarityChances[1])
+                else if (rarityRoll <= rareStart)
                 {
                     chosenRarity = Rarity.Rare;
                 }
-                else
+                else  // this will catch anything that is not less than or equal to rareStart
                 {
                     chosenRarity = Rarity.Common;
                 }
@@ -299,12 +309,14 @@ public class LevelUpManager : MonoBehaviour
                     while (GO == null)
                     {
                         GO = upgrades[Random.Range(0, upgrades.Count)];
-                        if (previousUpgrades.Contains(GO.name))
+                        string baseName = Regex.Replace(GO.name, @"\s\d$", "");
+                        if (previousUpgrades.Contains(baseName))
                         {
                             GO = null;
                         }
                     }
-                    previousUpgrades.Add(GO.name);
+                    string baseName2 = Regex.Replace(GO.name, @"\s\d$", "");
+                    previousUpgrades.Add(baseName2);
 
                 var statComponent = GO.GetComponent<StatComponent>();
                 var attackStatComponent = GO.GetComponent<AttackStatComponent>();
@@ -483,6 +495,7 @@ public class LevelUpManager : MonoBehaviour
         buttonSequence.Join(SkipBtn.transform.DOLocalMove(finalBtnPositions[2], 0.5f).SetEase(Ease.OutExpo));
         buttonSequence.Play().SetDelay(0.1f * upgradeWindows.Count);
     }
+
     public void SignalItemChosen()
     {
         DestroyPotentialUpgradeObjects();

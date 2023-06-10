@@ -7,7 +7,7 @@ public class AutoAim : MonoBehaviour
     public float aimRange = 2.5f;
 
     public float coneAngle = 60f; // Added cone angle
-    public bool isCone = false; // Added bool to decide which implementation to use
+    public bool is360 = false; // Added bool to decide which implementation to use
 
     public SpriteRenderer rangeVisualizerSprite;
     public LayerMask enemyLayer;
@@ -25,12 +25,15 @@ public class AutoAim : MonoBehaviour
     void Start()
     {
         joystick = FindObjectOfType<PlayerMovement>();
-        UpdateVisualizerSpriteScale();
         weaponSpriteRotation = FindObjectOfType<WpnSpriteRotation>();
-        if (isCone)
+        CreateConeMeshObject(); // Moved out of the if block
+
+        if (is360 && coneMeshObject != null)
         {
-            CreateConeMeshObject(); // Added cone mesh object creation
+            coneMeshObject.SetActive(false); // Disable cone mesh object if is360 is false
         }
+
+        UpdateVisualizerSpriteScale();
     }
 
     void Update()
@@ -39,12 +42,12 @@ public class AutoAim : MonoBehaviour
         weaponSpriteRotation.SetAutoAim(targetFound, currentTarget);
     }
 
-    public void UpdateAimRange(float aimRangeBase, float aimRangeAdded, bool wpnIsCone, float aimConeAngle)
+    public void UpdateAimRange(float aimRangeBase, float aimRangeAdded, bool wpnis360, float aimConeAngle)
     {
         aimRange = aimRangeBase + aimRangeAdded;
         aimRange = aimRange < 0.1f ? 0.1f : aimRange;
 
-        isCone = wpnIsCone;
+        is360 = wpnis360;
         coneAngle = aimConeAngle;
 
         UpdateVisualizerSpriteScale();
@@ -69,7 +72,15 @@ public class AutoAim : MonoBehaviour
                 float distance = Vector2.Distance(transform.position, col.transform.position);
                 Vector2 targetDirection = (col.transform.position - transform.position).normalized;
 
-                if (isCone)
+                if (is360)
+                {
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestEnemy = col.gameObject;
+                    }
+                }
+                else
                 {
                     float angle = Vector2.Angle(aimDirection, targetDirection);
 
@@ -78,27 +89,17 @@ public class AutoAim : MonoBehaviour
 
                     if (distance < closestDistance && angle <= coneAngle * 0.5f)
                     {
-                        // Check if the dot product is positive (moving towards the target) or negative (moving away from the target)
-                        if (dotProduct > 0)
+                        // Check if the dot product is positive (moving towards the target) or zero (player stopped moving)
+                        if (dotProduct >= 0)
                         {
                             closestDistance = distance;
                             closestEnemy = col.gameObject;
                         }
-                        else
-                        {
-                            // Unlock the target if moving away from it
-                            closestEnemy = null;
-                        }
                     }
-                }
-                else
-                {
-                    // added check for direction based on last input direction
-                    float dotProduct = Vector2.Dot(playerMovementDirection, targetDirection);
-                    if (distance < closestDistance && dotProduct > 0)
+                    // Unlock the target if moving away from it or the current target is out of range
+                    else if (dotProduct < 0 || (currentTarget == col.gameObject && distance > aimRange))
                     {
-                        closestDistance = distance;
-                        closestEnemy = col.gameObject;
+                        closestEnemy = null;
                     }
                 }
             }
@@ -111,7 +112,7 @@ public class AutoAim : MonoBehaviour
 
     void UpdateVisualizerSpriteScale()
     {
-        if (!isCone && rangeVisualizerSprite != null)
+        if (is360 && rangeVisualizerSprite != null)
         {
             rangeVisualizerSprite.transform.localScale = new Vector3(aimRange * 1.5f, aimRange * 1.5f, 1);
         }
@@ -120,12 +121,12 @@ public class AutoAim : MonoBehaviour
             rangeVisualizerSprite.transform.localScale = new Vector3(0, 0, 0);
         }
 
-        if (isCone && coneMeshObject != null)
+        if (!is360 && coneMeshObject != null)
         {
             coneMeshObject.SetActive(true); // Enable cone mesh object
             UpdateConeMesh(coneMeshObject, aimRange, coneAngle);
         }
-        else if (!isCone && coneMeshObject != null)
+        else if (is360 && coneMeshObject != null)
         {
             coneMeshObject.SetActive(false); // Disable cone mesh object
         }
@@ -133,7 +134,7 @@ public class AutoAim : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (isCone)
+        if (!is360)
         {
             // Draw cone visualization
             Gizmos.color = Color.yellow;

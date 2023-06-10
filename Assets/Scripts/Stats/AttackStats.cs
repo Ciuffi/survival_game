@@ -87,8 +87,33 @@ public class AttackStats : Upgrade
     public float effectMultiplier;
     public float activeMultiplier;
     public bool weaponSet = false;
-    public bool isCone = false;
+    public bool is360 = false;
     public float coneAngle;
+
+    public bool isMagnet;
+    public float magnetStrength;
+    public float magnetDuration;
+
+    public bool isSlow;
+    public float slowPercentage;
+    public float slowDuration;
+
+    public bool isStun;
+    public float stunDuration;
+
+    public bool isHoming;
+
+    public bool isDoT;
+    public float dotDuration;
+    public float dotDamage;
+    public float dotTickRate;
+
+    public bool isSplit;
+    public int splitAmount;
+    public float splitStatPercentage;
+
+    public bool isChain;
+    public int chainTimes;
 
     public GameObject statsContainer;
     public string AttackName { get; set; }
@@ -134,7 +159,7 @@ public class AttackStats : Upgrade
         float shakeStrength = 0,
         float shakeRotation = 0,
         float thrownDamage = 0,
-        float throwSpeed = 0,
+        float thrownSpeed = 0,
         bool cantMove = false,
         Rarity rarity = Rarity.Common,
         float activeDuration = 0,
@@ -163,8 +188,28 @@ public class AttackStats : Upgrade
         float thrownSpeedMultiplier = 0,
         float meleeSizeMultiplier = 0,
         bool weaponSet = false,
-        bool isCone = false,
+        bool is360 = false,
         float coneAngle = 0,
+
+        bool isMagnet = false,
+        float magnetStrength = 0,
+        float magnetDuration = 0,
+        bool isSlow = false,
+        float slowPercentage = 0,
+        float slowDuration = 0,
+        bool isStun = false,
+        float stunDuration = 0,
+        bool isHoming = false,
+        bool isDoT = false,
+        float dotDuration = 0,
+        float dotDamage = 0,
+        float dotTickRate = 0,
+        bool isSplit = false,
+        int splitAmount = 0,
+        float splitStatPercentage = 0,
+        bool isChain = false,
+        int chainTimes = 0,
+
         string name = "",
         string description = "",
         Sprite icon = null
@@ -205,7 +250,7 @@ public class AttackStats : Upgrade
         this.shakeStrength = shakeStrength;
         this.shakeRotation = shakeRotation;
         this.thrownDamage = thrownDamage;
-        this.thrownSpeed = throwSpeed;
+        this.thrownSpeed = thrownSpeed;
         this.cantMove = cantMove;
         this.rarity = rarity;
         this.activeDuration = activeDuration;
@@ -238,8 +283,29 @@ public class AttackStats : Upgrade
         this.name = name;
         this.description = description;
         this.icon = icon == null ? defaultIcon : icon;
-        this.isCone = isCone;
+        this.is360 = is360;
         this.coneAngle = coneAngle;
+
+        this.isMagnet = isMagnet;
+        this.magnetStrength = magnetStrength;
+        this.magnetDuration = magnetDuration;
+        this.isSlow = isSlow;
+        this.slowDuration = slowDuration;
+        this.slowPercentage = slowPercentage;
+        this.isStun = isStun;
+        this.stunDuration = stunDuration;
+
+        this.isHoming = isHoming;
+        this.isDoT = isDoT;
+        this.dotDamage = dotDamage;
+        this.dotDuration = dotDuration;
+        this.dotTickRate = dotTickRate;
+        this.isSplit = isSplit;
+        this.splitAmount = splitAmount;
+        this.splitStatPercentage = splitStatPercentage;
+        this.isChain = isChain;
+        this.chainTimes = chainTimes;
+
     }
 
     //shotsPerAttack and comboLength must be be one or greater.
@@ -305,6 +371,11 @@ public class AttackStats : Upgrade
 
         meleeSize *= meleeSizeMultiplier;
         projectileSize *= projectileSizeMultiplier;
+
+        magnetStrength *= effectMultiplier;
+        slowPercentage *= effectMultiplier;
+        dotDamage *= effectMultiplier;
+        
     }
 
     public AttackStats mergeInStats(AttackStats[] attackstats)
@@ -365,7 +436,7 @@ public class AttackStats : Upgrade
         this.thrownDamage += attackStats.thrownDamage;
         this.thrownSpeed += attackStats.thrownSpeed;
         this.cantMove |= attackStats.cantMove;
-        this.isCone |= attackStats.isCone;
+        this.is360 |= attackStats.is360;
         this.coneAngle += attackStats.coneAngle;
         this.rarity = this.rarity.CompareRarity(attackStats.rarity);
         this.activeDuration += attackStats.activeDuration;
@@ -394,6 +465,31 @@ public class AttackStats : Upgrade
         this.thrownDamageMultiplier += attackStats.thrownDamageMultiplier;
         this.thrownSpeedMultiplier += attackStats.thrownSpeedMultiplier;
         this.meleeSizeMultiplier += attackStats.meleeSizeMultiplier;
+
+        this.isMagnet |= attackStats.isMagnet;
+        this.magnetStrength = Mathf.Max(this.magnetStrength, attackStats.magnetStrength);
+        this.magnetDuration = Mathf.Max(this.magnetDuration, attackStats.magnetDuration);
+
+        this.isSlow |= attackStats.isSlow;
+        this.slowDuration = Mathf.Max(this.slowDuration, attackStats.slowDuration);
+        this.slowPercentage = Mathf.Max(this.slowPercentage, attackStats.slowPercentage);
+
+        this.isStun |= attackStats.isStun;
+        this.stunDuration = Mathf.Max(this.stunDuration, attackStats.stunDuration);
+
+        this.isHoming |= attackStats.isHoming;
+
+        this.isDoT |= attackStats.isDoT;
+        this.dotDamage = Mathf.Max(this.dotDamage, attackStats.dotDamage);
+        this.dotDuration = Mathf.Max(this.dotDuration, attackStats.dotDuration);
+        this.dotTickRate = Mathf.Min(this.dotTickRate, attackStats.dotTickRate);
+
+        this.isSplit |= attackStats.isSplit;
+        this.splitAmount = Mathf.Max(this.splitAmount, attackStats.splitAmount);
+        this.splitStatPercentage = Mathf.Max(this.splitStatPercentage, attackStats.splitStatPercentage);
+
+        this.isChain |= attackStats.isChain;
+        this.chainTimes += attackStats.chainTimes;
     }
 
     public AttackStats MergeInPlayerStats(PlayerCharacterStats playerStats)
@@ -499,8 +595,28 @@ public class AttackStats : Upgrade
         this.name = attackStats.name;
         this.icon = attackStats.icon;
         this.weaponSet = attackStats.weaponSet;
-        this.isCone = attackStats.isCone;
+        this.is360 = attackStats.is360;
         this.coneAngle = attackStats.coneAngle;
+
+        this.isMagnet = attackStats.isMagnet;
+        this.magnetStrength = attackStats.magnetStrength;
+        this.magnetDuration = attackStats.magnetDuration;
+        this.isSlow = attackStats.isSlow;
+        this.slowDuration = attackStats.slowDuration;
+        this.slowPercentage = attackStats.slowPercentage;
+        this.isStun = attackStats.isStun;
+        this.stunDuration = attackStats.stunDuration;
+
+        this.isHoming = attackStats.isHoming;
+        this.isDoT = attackStats.isDoT;
+        this.dotDamage = attackStats.dotDamage;
+        this.dotDuration = attackStats.dotDuration;
+        this.dotTickRate = attackStats.dotTickRate;
+        this.isSplit = attackStats.isSplit;
+        this.splitAmount = attackStats.splitAmount;
+        this.splitStatPercentage = attackStats.splitStatPercentage;
+        this.isChain = attackStats.isChain;
+        this.chainTimes = attackStats.chainTimes;
     }
 
     public AttackStats Clone()
@@ -591,12 +707,32 @@ public class AttackStats : Upgrade
             effectMultiplier = this.effectMultiplier,
             activeMultiplier = this.activeMultiplier,
             weaponSet = this.weaponSet,
-            isCone = this.isCone,
+            is360 = this.is360,
             coneAngle = this.coneAngle,
 
             statsContainer = this.statsContainer,
             AttackName = this.AttackName,
-            weaponSetType = this.weaponSetType
+            weaponSetType = this.weaponSetType,
+
+            isMagnet = this.isMagnet,
+            magnetStrength = this.magnetStrength,
+            magnetDuration = this.magnetDuration,
+            isSlow = this.isSlow,
+            slowDuration = this.slowDuration,
+            slowPercentage = this.slowPercentage,
+            isStun = this.isStun,
+            stunDuration = this.stunDuration,
+
+            isHoming = this.isHoming,
+            isDoT = this.isDoT,
+            dotDamage = this.dotDamage,
+            dotDuration = this.dotDuration,
+            dotTickRate = this.dotTickRate,
+            isSplit = this.isSplit,
+            splitAmount = this.splitAmount,
+            splitStatPercentage = this.splitStatPercentage,
+            isChain = this.isChain,
+            chainTimes = this.chainTimes
         };
     }
 

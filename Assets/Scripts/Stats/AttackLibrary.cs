@@ -130,6 +130,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
+                    is360: true,
                     damage: 2,
                     spread: 0.7f,
                     castTime: 2.2f,
@@ -145,7 +146,9 @@ public static class AttackLibrary
                     shakeStrength: 0.2f,
                     shakeRotation: 0.5f,
                     thrownDamage: 1,
-                    cantMove: true
+                    cantMove: true,
+                    isStun: true,
+                    stunDuration: 0.025f
                 )
             )
             .SetProperties(
@@ -197,6 +200,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Steady 2"),
             AttackStatsLibrary.GetStat("Hacker 1"),
             AttackStatsLibrary.GetStat("AFK 1"),
+
             AttackStatsLibrary.GetStat("Multicast 1"),
             AttackStatsLibrary.GetStat("Extended Clip 1"),
             AttackStatsLibrary.GetStat("Pierce 1"),
@@ -239,7 +243,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.75f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 45,
                     damage: 8,
                     spread: 0.085f,
@@ -257,7 +261,11 @@ public static class AttackLibrary
                     shakeStrength: 0.02f,
                     shakeRotation: 0.01f,
                     thrownDamage: 10f,
-                    throwSpeed: 0.6f
+                    thrownSpeed: 0.6f,
+                    isDoT: true,
+                    dotDamage: 1f,
+                    dotDuration: 10f,
+                    dotTickRate: 1f
                 )
             )
             .SetProperties(
@@ -350,7 +358,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 60,
                     damage: 10,
                     shotgunSpread: 45f,
@@ -368,7 +376,7 @@ public static class AttackLibrary
                     shakeStrength: 0.4f,
                     shakeRotation: 0.05f,
                     thrownDamage: 7,
-                    throwSpeed: 0.6f
+                    thrownSpeed: 0.6f
                 )
             )
             .SetProperties(
@@ -480,7 +488,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 100f,
                     damage: 5,
                     spread: 0.55f,
@@ -498,7 +506,10 @@ public static class AttackLibrary
                     shakeStrength: 0.5f,
                     shakeRotation: 0.1f,
                     thrownDamage: 9f,
-                    throwSpeed: 0.4f
+                    thrownSpeed: 0.4f,
+                    isSlow: true,
+                    slowPercentage: 0.5f,
+                    slowDuration: 2f
                 )
             )
             .SetProperties(
@@ -608,7 +619,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.2f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 45f,
                     damage: 4,
                     spread: 0.3f,
@@ -627,7 +638,7 @@ public static class AttackLibrary
                     shakeStrength: 0.2f,
                     shakeRotation: 1f,
                     thrownDamage: 7f,
-                    throwSpeed: 0.5f
+                    thrownSpeed: 0.5f
                 )
             )
             .SetProperties(
@@ -738,7 +749,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.5f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 75,
                     damage: 4,
                     spread: 0.4f,
@@ -757,7 +768,13 @@ public static class AttackLibrary
                     shakeStrength: 0.3f,
                     shakeRotation: 1f,
                     thrownDamage: 1,
-                    throwSpeed: 0f
+                    thrownSpeed: 0f,
+                    isMagnet: true,
+                    magnetStrength: 8f,
+                    magnetDuration: 0.5f,
+                    isSlow: true,
+                    slowPercentage: 0.25f,
+                    slowDuration: 1.5f
                 )
             )
             .SetProperties(
@@ -853,7 +870,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.25f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 45f,
                     damage: 3,
                     spread: 0.016f,
@@ -871,7 +888,7 @@ public static class AttackLibrary
                     shakeStrength: 0.01f,
                     shakeRotation: 0.01f,
                     thrownDamage: 20f,
-                    throwSpeed: 0.2f
+                    thrownSpeed: 0.2f
                 )
             )
             .SetProperties(
@@ -979,7 +996,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 120f,
                     damage: 12,
                     spread: 0.6f,
@@ -998,7 +1015,7 @@ public static class AttackLibrary
                     shakeStrength: 0.7f,
                     shakeRotation: 0.5f,
                     thrownDamage: 1,
-                    throwSpeed: 0f
+                    thrownSpeed: 0f
                 )
             )
             .SetProperties(
@@ -1082,6 +1099,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
+                    is360: true,
                     damage: 12,
                     spread: 1f,
                     spray: 0f,
@@ -1097,7 +1115,10 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.15f,
                     shakeRotation: 0.1f,
-                    thrownDamage: 1
+                    thrownDamage: 1,
+                    isSlow: true,
+                    slowPercentage: 0.5f,
+                    slowDuration: 0.5f
                 )
             )
             .SetProperties(
@@ -1174,6 +1195,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 0.5f,
+                    is360: true,
                     damage: 14,
                     spread: 1.6f,
                     spray: 0f,
@@ -1190,7 +1212,7 @@ public static class AttackLibrary
                     shakeStrength: 0.15f,
                     shakeRotation: 0.1f,
                     thrownDamage: 1f,
-                    throwSpeed: 0f
+                    thrownSpeed: 0f
                 )
             )
             .SetProperties(
@@ -1291,6 +1313,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
+                    is360: true,
                     damage: 10,
                     spread: 0.4f,
                     castTime: 2.2f,
@@ -1307,7 +1330,7 @@ public static class AttackLibrary
                     shakeStrength: 0.5f,
                     shakeRotation: 0.1f,
                     thrownDamage: 9f,
-                    throwSpeed: 0.5f
+                    thrownSpeed: 0.5f
                 )
             )
             .SetProperties(
@@ -1412,7 +1435,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.5f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 45f,
                     damage: 11,
                     spread: 0.35f,
@@ -1431,7 +1454,7 @@ public static class AttackLibrary
                     shakeStrength: 0.5f,
                     shakeRotation: 0.5f,
                     thrownDamage: 1,
-                    throwSpeed: 0f
+                    thrownSpeed: 0f
                 )
             )
             .SetProperties(
@@ -1524,11 +1547,11 @@ public static class AttackLibrary
             .SetAttackName("Pain Wheel")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
-            .SetDescription("Keep on spinnin', stay winnin'")
+            .SetDescription("Keep on spinnin'")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.5f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 45,
                     damage: 6,
                     spread: 0.85f,
@@ -1546,7 +1569,7 @@ public static class AttackLibrary
                     shakeStrength: 0.1f,
                     shakeRotation: 0.1f,
                     thrownDamage: 13f,
-                    throwSpeed: 0.6f
+                    thrownSpeed: 0.6f
                 )
             )
             .SetProperties(
@@ -1637,10 +1660,11 @@ public static class AttackLibrary
             .SetAttackName("Petrify Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_stun"))
             .SetWeaponSetType(WeaponSetType.Explosive)
-            .SetDescription("Explode and Freeze targets in place.")
+            .SetDescription("Freeze targets in place.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
+                    is360: true,
                     damage: 3,
                     shotgunSpread: 65f,
                     spray: 0,
@@ -1656,7 +1680,9 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.05f,
                     shakeRotation: 0.05f,
-                    thrownDamage: 1
+                    thrownDamage: 1,
+                    isStun: true,
+                    stunDuration: 5f
                 )
             )
             .SetProperties(
@@ -1752,6 +1778,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
+                    is360: true,
                     damage: 3,
                     spread: 0.4f,
                     castTime: 2.3f,
@@ -1768,7 +1795,9 @@ public static class AttackLibrary
                     shakeStrength: 0.5f,
                     shakeRotation: 0.4f,
                     thrownDamage: 11f,
-                    throwSpeed: 0.5f
+                    thrownSpeed: 0.5f,
+                    isStun: true,
+                    stunDuration: 4f
                 )
             )
             .SetProperties(
@@ -1863,10 +1892,10 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 30f,
-                    damage: 8,
-                    spread: 0.4f,
+                    damage: 10,
+                    spread: 0.425f,
                     spray: 1.8f,
                     castTime: 1.65f,
                     range: 5f,
@@ -1881,7 +1910,7 @@ public static class AttackLibrary
                     shakeStrength: 0.1f,
                     shakeRotation: 0.05f,
                     thrownDamage: 6f,
-                    throwSpeed: 0.5f
+                    thrownSpeed: 0.5f
                 )
             )
             .SetProperties(
@@ -1976,7 +2005,7 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 2f,
                     damage: 10,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 70f,
                     shotgunSpread: 75f,
                     spray: 0,
@@ -1993,7 +2022,7 @@ public static class AttackLibrary
                     shakeStrength: 0.35f,
                     shakeRotation: 0.05f,
                     thrownDamage: 8,
-                    throwSpeed: 0.5f
+                    thrownSpeed: 0.5f
                 )
             )
             .SetProperties(
@@ -2083,11 +2112,11 @@ public static class AttackLibrary
             .SetAttackName("Shuriken")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken_small"))
             .SetWeaponSetType(WeaponSetType.Shotgun)
-            .SetDescription("How quickly we spin.")
+            .SetDescription("Dattebayo!")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 70f,
                     damage: 3,
                     shotgunSpread: 100f,
@@ -2105,7 +2134,7 @@ public static class AttackLibrary
                     shakeStrength: 0.01f,
                     shakeRotation: 0.01f,
                     thrownDamage: 7,
-                    throwSpeed: 0.5f
+                    thrownSpeed: 0.5f
                 )
             )
             .SetProperties(
@@ -2193,11 +2222,11 @@ public static class AttackLibrary
             .SetAttackName("SMG")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_SMG"))
             .SetWeaponSetType(WeaponSetType.Automatic)
-            .SetDescription("Lil' Uzi got me like!")
+            .SetDescription("Lil' Uzi!")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.8f,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 50f,
                     damage: 4,
                     spread: 0.04f,
@@ -2215,7 +2244,7 @@ public static class AttackLibrary
                     shakeStrength: 0.01f,
                     shakeRotation: 0f,
                     thrownDamage: 6f,
-                    throwSpeed: 0.6f
+                    thrownSpeed: 0.6f
                 )
             )
             .SetProperties(
@@ -2309,6 +2338,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
+                    is360: true,
                     damage: 2,
                     shotgunSpread: 50f,
                     castTime: 2.1f,
@@ -2323,7 +2353,10 @@ public static class AttackLibrary
                     shakeTime: 0.05f,
                     shakeStrength: 0.05f,
                     shakeRotation: 0.1f,
-                    thrownDamage: 1
+                    thrownDamage: 1,
+                    isSlow: true,
+                    slowPercentage: 0.25f,
+                    slowDuration: 2f
                 )
             )
             .SetProperties(
@@ -2412,7 +2445,7 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 2.8f,
                     damage: 25,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 30f,
                     spread: 0.65f,
                     spray: 1.5f,
@@ -2430,7 +2463,7 @@ public static class AttackLibrary
                     shakeStrength: 0.4f,
                     shakeRotation: 0.1f,
                     thrownDamage: 10f,
-                    throwSpeed: 0.5f
+                    thrownSpeed: 0.5f
                 )
             )
             .SetProperties(
@@ -2522,7 +2555,7 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 2.2f,
                     damage: 2,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 40f,
                     spread: 1f,
                     spray: 0f,
@@ -2538,8 +2571,11 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.1f,
                     shakeRotation: 0.05f,
-                    thrownDamage: 25f,
-                    throwSpeed: 0.12f
+                    thrownDamage: 21f,
+                    thrownSpeed: 0.12f,
+                    isMagnet: true,
+                    magnetStrength: 5,
+                    magnetDuration: 1.15f
                 )
             )
             .SetProperties(
@@ -2631,6 +2667,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
+                    is360: true,
                     damage: 5,
                     spread: 1.5f,
                     castTime: 2.1f,
@@ -2645,7 +2682,10 @@ public static class AttackLibrary
                     shakeTime: 0.05f,
                     shakeStrength: 0.05f,
                     shakeRotation: 0.05f,
-                    thrownDamage: 1
+                    thrownDamage: 1,
+                    isMagnet: true,
+                    magnetStrength: 7,
+                    magnetDuration: 1.5f
                 )
             )
             .SetProperties(
@@ -2744,6 +2784,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1f,
+                    is360: true,
                     damage: 4,
                     spread: 0.35f,
                     castTime: 2.1f,
@@ -2760,7 +2801,13 @@ public static class AttackLibrary
                     shakeStrength: 0.5f,
                     shakeRotation: 0.5f,
                     thrownDamage: 13f,
-                    throwSpeed: 0.6f
+                    thrownSpeed: 0.6f,
+                    isMagnet: true,
+                    magnetStrength: 4,
+                    magnetDuration: 1,
+                    isSlow: true,
+                    slowPercentage: 0.5f,
+                    slowDuration: 1f
                 )
             )
             .SetProperties(
@@ -2872,7 +2919,7 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1.8f,
                     damage: 8,
-                    isCone: true,
+                    is360: false,
                     coneAngle: 100f,
                     spread: 0.3f,
                     castTime: 1.85f,
@@ -2889,7 +2936,7 @@ public static class AttackLibrary
                     shakeStrength: 0.12f,
                     shakeRotation: 0.1f,
                     thrownDamage: 5,
-                    throwSpeed: 0.6f,
+                    thrownSpeed: 0.6f,
                     swapAnimOnAttack: true
                 )
             )

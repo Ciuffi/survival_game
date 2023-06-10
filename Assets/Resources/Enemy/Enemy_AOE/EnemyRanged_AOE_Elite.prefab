@@ -128,6 +128,7 @@ MonoBehaviour:
   eliteOutline: {fileID: 3007568865302962041}
   xpSizeScaling: 0.3
   destroyDistance: 12
+  dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
