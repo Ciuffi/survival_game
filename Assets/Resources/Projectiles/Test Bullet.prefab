@@ -196,8 +196,8 @@ MonoBehaviour:
   isMelee: 0
   startup: 0
   active: 0
-  scaleSpeed: 0
-  disappearSpeed: 0
+  scaleSpeed: 10
+  disappearSpeed: 10
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: b5556bba7def32443a4bea0f9f94e44a, type: 3}
   playerShakeTime: 0.1
@@ -206,6 +206,7 @@ MonoBehaviour:
   damageTickDuration: 1
   isThrown: 0
   isHover: 0
+  stopOnHit: 0
   hoverTimer: 0
   hitFirstEnemy: 0
   isAnimated: 0
@@ -217,10 +218,22 @@ MonoBehaviour:
   slowDuration: 2
   isStun: 0
   stunDuration: 5
+  isHoming: 0
+  isDoT: 0
+  dotDuration: 0
+  dotDamage: 0
+  dotTickRate: 0
+  isSplit: 0
+  splitAmount: 0
+  splitStatPercentage: 0
+  isChain: 0
+  chainTimes: 0
+  isSplitProjectile: 0
+  isChainProjectile: 0
   hasDeathrattle: 1
   deathSpawn: {fileID: 4908858350499337675, guid: 9874714d374cf67458b2889bf556b3b2, type: 3}
-  projSize: 0
-  meleeSize: 0
+  wpnProjSizeMultiplier: 0
+  wpnMeleeSizeMultiplier: 0
 --- !u!50 &1882446872741620868
 Rigidbody2D:
   serializedVersion: 4

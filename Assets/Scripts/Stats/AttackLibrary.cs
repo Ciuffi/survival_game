@@ -651,6 +651,118 @@ public static class AttackLibrary
             .SetWeaponUpgrades(EarthShockUpgrades);
         AddAttack(EarthShock);
 
+
+
+        //fire starter
+        List<AttackStats> FireStarterRarity = new List<AttackStats>
+        {
+            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1),
+            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: -0.1f),
+
+            new AttackStats(rarity: Rarity.Epic, damage: 6),
+            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.3f, shotgunSpreadMultiplier: 0.2f, shakeStrength: 0.2f),
+
+            new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 0.4f, aimRangeAdditive: 1.5f, coneAngle: 30f),
+            new AttackStats(rarity: Rarity.Legendary, effectMultiplier: 1f),
+        };
+
+        List<AttackStats> FireStarterUpgrades = new List<AttackStats>
+        {
+            //common
+            AttackStatsLibrary.GetStat("Damage 1"),
+            AttackStatsLibrary.GetStat("Crit Chance 1"),
+            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Saw'd Off 1"),
+            AttackStatsLibrary.GetStat("Reach 1"),
+            AttackStatsLibrary.GetStat("Gravity 1"),
+
+            //rare
+            AttackStatsLibrary.GetStat("Damage 2"),
+            AttackStatsLibrary.GetStat("Crit Chance 2"),
+            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Saw'd Off 2"),
+            AttackStatsLibrary.GetStat("Reach 2"),
+            AttackStatsLibrary.GetStat("Hacker 1"),
+            AttackStatsLibrary.GetStat("AFK 1"),
+            AttackStatsLibrary.GetStat("Multicast 1"),
+            AttackStatsLibrary.GetStat("Extra Round 1"),
+            AttackStatsLibrary.GetStat("Big Ammo 1"),
+
+            //epic
+            AttackStatsLibrary.GetStat("Damage 3"),
+            AttackStatsLibrary.GetStat("Crit Chance 3"),
+            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Saw'd Off 3"),
+            AttackStatsLibrary.GetStat("Reach 3"),
+            AttackStatsLibrary.GetStat("Hacker 2"),
+            AttackStatsLibrary.GetStat("AFK 2"),
+            AttackStatsLibrary.GetStat("Multicast 2"),
+            AttackStatsLibrary.GetStat("Extra Round 2"),
+            AttackStatsLibrary.GetStat("Big Ammo 2"),
+            AttackStatsLibrary.GetStat("MLG 3"),
+            AttackStatsLibrary.GetStat("Gamer 3"),
+            AttackStatsLibrary.GetStat("Hacker 3"),
+            AttackStatsLibrary.GetStat("AFK 3"),
+
+            //legendary
+            AttackStatsLibrary.GetStat("Damage 4"),
+            AttackStatsLibrary.GetStat("Crit Chance 4"),
+            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Multicast 3"),
+            AttackStatsLibrary.GetStat("Extra Round 3"),
+            AttackStatsLibrary.GetStat("Big Ammo 3"),
+            AttackStatsLibrary.GetStat("Double Trouble"),
+        };
+
+        AttackBuilder FireStarter = new AttackBuilder()
+            .SetAttackName("Fire Starter")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/FireStarterBullet"))
+            .SetWeaponSetType(WeaponSetType.Shotgun)
+            .SetDescription("Does as advertised.")
+            .SetBaseStats(
+                new AttackStats(
+                    aimRange: 2f,
+                    is360: false,
+                    coneAngle: 50,
+                    damage: 4,
+                    shotgunSpread: 50f,
+                    spray: 0,
+                    castTime: 1.8f,
+                    range: 1.5f,
+                    shotsPerAttack: 2,
+                    speed: 0.03f,
+                    knockback: 0f,
+                    pierce: 999,
+                    critChance: 0.05f,
+                    critDmg: 1.5f,
+                    multicastWaitTime: 0.25f,
+                    shakeTime: 0.1f,
+                    shakeStrength: 0.4f,
+                    shakeRotation: 0.05f,
+                    thrownDamage: 7,
+                    thrownSpeed: 0.6f,
+                    isDoT: true,
+                    dotDamage: 2,
+                    dotDuration: 5f,
+                    dotTickRate: 1f
+                )
+            )
+            .SetProperties(
+                attackType: AttackTypes.Shotgun,
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/fireStarter_01"),
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/fireStarter_01"),
+                bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing_Energy"),
+                muzzleFlashPrefab: BigMuzzleFlash
+            )
+            .SetRarityUpgrades(FireStarterRarity)
+            .SetWeaponUpgrades(FireStarterUpgrades);
+        AddAttack(FireStarter);
+
+
+
+
+
         //GravityGrab
         List<AttackStats> GravityGrabRarity = new List<AttackStats>
         {

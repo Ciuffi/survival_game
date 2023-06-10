@@ -99,7 +99,7 @@ public class Projectile : MonoBehaviour
 
     public float wpnProjSizeMultiplier;
     public float wpnMeleeSizeMultiplier;
-
+    private List<SpriteRenderer> spriteRenderers;
 
     float moveSpeed;
 
@@ -183,6 +183,18 @@ public class Projectile : MonoBehaviour
             knockback = 0.35f + (attack.stats.knockback / 2);
         }
         GetComponent<Collider2D>().enabled = true;
+
+
+        // Instantiate your list
+        spriteRenderers = new List<SpriteRenderer>();
+
+        // Get SpriteRenderer from this gameObject, if exists
+        SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
+        if (sr != null) spriteRenderers.Add(sr);
+
+        // Get SpriteRenderers from all child objects
+        SpriteRenderer[] childSR = this.GetComponentsInChildren<SpriteRenderer>();
+        spriteRenderers.AddRange(childSR);
     }
 
     void Update()
@@ -194,9 +206,28 @@ public class Projectile : MonoBehaviour
             if (!isHover) //regular projectile
             {
                 transform.position += transform.up * moveSpeed * Time.deltaTime * 60;
+                float alphaSpeed;
+                Vector3 scaleUp;
 
                 if (distance >= projectileRange)
                 {
+                    alphaSpeed = disappearSpeed * Time.deltaTime;
+                    scaleUp = new Vector3(
+                        scaleSpeed * Time.deltaTime,
+                        scaleSpeed * Time.deltaTime,
+                        0
+                    );
+
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                    {
+                        Color c = sr.color;
+                        c.a -= alphaSpeed;
+                        sr.color = c;
+                    }
+
+                    transform.localScale -= scaleUp;
+                    GetComponent<Collider2D>().enabled = false;
+
                     if (hasDeathrattle)
                     {
                         GameObject rattle = Instantiate(
@@ -212,6 +243,11 @@ public class Projectile : MonoBehaviour
                             currentScale.z * wpnProjSizeMultiplier
                         );
                     }
+
+                }
+
+                if (transform.localScale.x < 0 || GetComponent<SpriteRenderer>().color.a <= 0)
+                {
                     Destroy(gameObject);
                 }
             }
@@ -232,8 +268,13 @@ public class Projectile : MonoBehaviour
                             0
                         );
 
-                        GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
-                        GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
+                        foreach (SpriteRenderer sr in spriteRenderers)
+                        {
+                            Color c = sr.color;
+                            c.a -= alphaSpeed;
+                            sr.color = c;
+                        }
+
                         transform.localScale -= scaleUp;
                         GetComponent<Collider2D>().enabled = false;
 
@@ -275,7 +316,13 @@ public class Projectile : MonoBehaviour
                             0
                         );
 
-                        GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
+                        foreach (SpriteRenderer sr in spriteRenderers)
+                        {
+                            Color c = sr.color;
+                            c.a -= alphaSpeed;
+                            sr.color = c;
+                        }
+
                         transform.localScale -= scaleUp;
                         GetComponent<Collider2D>().enabled = false;
 
@@ -311,7 +358,7 @@ public class Projectile : MonoBehaviour
                 }
             }
         }
-        else
+        else //isMelee
         {
             meleeTime += Time.deltaTime;
             float alphaSpeed;
@@ -346,7 +393,13 @@ public class Projectile : MonoBehaviour
                 alphaSpeed = disappearSpeed * Time.deltaTime;
                 scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
 
-                GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
+                foreach (SpriteRenderer sr in spriteRenderers)
+                {
+                    Color c = sr.color;
+                    c.a -= alphaSpeed;
+                    sr.color = c;
+                }
+
                 transform.localScale -= scaleUp;
                 GetComponent<Collider2D>().enabled = false;
             }

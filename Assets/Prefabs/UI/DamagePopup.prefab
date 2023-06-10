@@ -199,4 +199,4 @@ MonoBehaviour:
   defaultDamageSize: 10
   damageScaleAmount: 4
   upScaleIncrement: 5
-  downScaleIncrement: 2
+  downScaleIncrement: 3

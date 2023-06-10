@@ -162,6 +162,7 @@ public class Enemy : MonoBehaviour, Attacker
     public GameObject dotVFX;
     private Animator dotAnimator;
     private GameObject currentDoTAnimation;
+    public bool isGamePaused = false; // Set this to true when you pause the game and false when you resume
 
     // Start is called before the first frame update
     void Start()
@@ -254,7 +255,6 @@ public class Enemy : MonoBehaviour, Attacker
         {
             currentDoTAnimation = Instantiate(dotVFX, transform.position, Quaternion.identity, transform);
             dotAnimator = currentDoTAnimation.GetComponent<Animator>();
-
             if (!isBasic)
             {
                 currentDoTAnimation.transform.localScale *= 4f;
@@ -272,15 +272,22 @@ public class Enemy : MonoBehaviour, Attacker
 
     private IEnumerator DoT(float dotDamage, float dotTickRate, float dotTime)
     {
+        dotAnimator.SetBool("finishedDoT", false); // reset animation
+
         float startTime = Time.time;
         while (Time.time - startTime <= dotTime)
         {
+            while (isGamePaused) // This loop will make coroutine wait while game is paused
+            {
+                yield return null;
+            }
+
             TakeDamage(dotDamage, isDotCrit);  // Assume DoT damage is not critical
             yield return new WaitForSeconds(dotTickRate);
         }
 
         dotAnimator.SetBool("finishedDoT", true); // Trigger end animation
-        // Wait for a bit and then destroy the animation
+                                                  // Wait for a bit and then destroy the animation
         yield return new WaitForSeconds(0.5f);
         if (currentDoTAnimation != null)
         {

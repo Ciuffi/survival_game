@@ -32,6 +32,8 @@ public class PlayerInventory : MonoBehaviour
 
     public void StartingInventory()
     {
+        AddWeapon(new Weapon("Fire Starter", 0, false, 1));
+
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
         AddWeapon(new Weapon("Classic Rifle", 2, false, 1));
         AddWeapon(new Weapon("Classic Rifle", 4, false, 1));

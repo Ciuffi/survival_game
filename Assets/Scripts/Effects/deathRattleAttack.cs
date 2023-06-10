@@ -60,6 +60,8 @@ public class deathRattleAttack : MonoBehaviour
 
     private float meleeTime;
 
+    private List<SpriteRenderer> spriteRenderers;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,20 +74,23 @@ public class deathRattleAttack : MonoBehaviour
         critChance = attack.stats.critChance;
         critDmg = attack.stats.critDmg;
 
-        magnetStrength *= attack.stats.effectMultiplier;
-        slowPercentage *= attack.stats.effectMultiplier;
+        isMagnet = attack.stats.isMagnet;
+        magnetStrength = attack.stats.magnetStrength;
+        magnetDuration = attack.stats.magnetDuration + attack.stats.effectDuration;
 
-        magnetDuration += attack.stats.effectDuration;
-        slowDuration += attack.stats.effectDuration;
+        isSlow = attack.stats.isSlow;
+        slowPercentage = attack.stats.slowPercentage;
+        slowDuration = attack.stats.slowDuration + attack.stats.effectDuration;
 
-        stunDuration += attack.stats.effectDuration;
-
-        active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
+        isStun = attack.stats.isStun;
+        stunDuration = attack.stats.stunDuration + attack.stats.effectDuration;
 
         isDoT = attack.stats.isDoT;
         dotDuration = attack.stats.dotDuration += attack.stats.effectDuration;
-        dotDamage = attack.stats.dotDamage *= attack.stats.effectMultiplier;
+        dotDamage = attack.stats.dotDamage;
         dotTickRate = attack.stats.dotTickRate;
+
+        active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
 
 
         hitEnemies = new List<GameObject>();
@@ -94,6 +99,17 @@ public class deathRattleAttack : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+
+        // Instantiate your list
+        spriteRenderers = new List<SpriteRenderer>();
+
+        // Get SpriteRenderer from this gameObject, if exists
+        SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
+        if (sr != null) spriteRenderers.Add(sr);
+
+        // Get SpriteRenderers from all child objects
+        SpriteRenderer[] childSR = this.GetComponentsInChildren<SpriteRenderer>();
+        spriteRenderers.AddRange(childSR);
     }
 
     // Update is called once per frame
@@ -154,7 +170,13 @@ public class deathRattleAttack : MonoBehaviour
             alphaSpeed = disappearSpeed * Time.deltaTime;
             scaleUp = new Vector3(scaleSpeed * Time.deltaTime, scaleSpeed * Time.deltaTime, 0);
 
-            GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, alphaSpeed);
+            foreach (SpriteRenderer sr in spriteRenderers)
+            {
+                Color c = sr.color;
+                c.a -= alphaSpeed;
+                sr.color = c;
+            }
+
             transform.localScale -= scaleUp;
             GetComponent<Collider2D>().enabled = false;
         }
