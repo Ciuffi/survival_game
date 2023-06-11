@@ -53,9 +53,9 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 aimRangeAdditive: -1f,
-                critChance: 0.02f,
+                critChance: 0.05f,
                 name: "MLG 1",
-                description: "Decrease Aim Range, Crit Chance +2%",
+                description: "Decrease Aim Range, Crit Chance +5%",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Common
             )
@@ -65,9 +65,9 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 coneAngle: -30f,
-                critDmg: 0.1f,
+                critDmg: 0.25f,
                 name: "Gamer 1",
-                description: "Decrease Aim Width, Crit Damage +10%",
+                description: "Decrease Aim Width, Crit Damage +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Common
             )
@@ -240,13 +240,34 @@ public static class AttackStatsLibrary
         );
         ;
 
+        AddStat(
+           new AttackStats(
+               aimRangeAdditive: 0.75f,
+               name: "Hacker 1",
+               description: "Increases Aim Range",
+               icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
+               rarity: Rarity.Common
+           )
+       );
+        ;
+        AddStat(
+            new AttackStats(
+                coneAngle: 40f,
+                name: "AFK 1",
+                description: "Increases Aim Width",
+                icon: Resources.Load<Sprite>("UI_Icons/AFK"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
+
         //rare
         AddStat(
             new AttackStats(
                 aimRangeAdditive: -2f,
-                critChance: 0.6f,
+                critChance: 0.1f,
                 name: "MLG 2",
-                description: "Decrease Aim Range, Crit Chance +6%",
+                description: "Decrease Aim Range, Crit Chance +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Rare
             )
@@ -256,9 +277,9 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 coneAngle: -60f,
-                critDmg: 0.25f,
+                critDmg: 0.45f,
                 name: "Gamer 2",
-                description: "Decrease Aim Width, Crit Dmg +25%",
+                description: "Decrease Aim Width, Crit Dmg +45%",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Rare
             )
@@ -431,26 +452,7 @@ public static class AttackStatsLibrary
         );
         ;
 
-        AddStat(
-            new AttackStats(
-                aimRangeAdditive: 0.5f,
-                name: "Hacker 1",
-                description: "Increases Aim Range",
-                icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
-                rarity: Rarity.Common
-            )
-        );
-        ;
-        AddStat(
-            new AttackStats(
-                coneAngle: 20f,
-                name: "AFK 1",
-                description: "Increases Aim Width",
-                icon: Resources.Load<Sprite>("UI_Icons/AFK"),
-                rarity: Rarity.Common
-            )
-        );
-        ;
+       
 
         AddStat(
             new AttackStats(
@@ -630,7 +632,7 @@ public static class AttackStatsLibrary
 
         AddStat(
            new AttackStats(
-               aimRangeAdditive: 1f,
+               aimRangeAdditive: 1.2f,
                name: "Hacker 2",
                description: "Increases Aim Range",
                icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
@@ -640,7 +642,7 @@ public static class AttackStatsLibrary
         ;
         AddStat(
             new AttackStats(
-                coneAngle: 30f,
+                coneAngle: 60f,
                 name: "AFK 2",
                 description: "Increases Aim Width",
                 icon: Resources.Load<Sprite>("UI_Icons/AFK"),
@@ -649,14 +651,41 @@ public static class AttackStatsLibrary
         );
         ;
 
+        AddStat(
+           new AttackStats(
+               isDoT: true,
+               dotDamage: 1,
+               dotDuration: 5,
+               dotTickRate: 1,
+               name: "Ignite 1",
+               description: "Ignite targets for 5 seconds",
+               icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
+               rarity: Rarity.Rare
+           )
+       );
+        ; 
+
+        AddStat(
+            new AttackStats(
+                isDoT: true,
+                dotDamage: 1,
+                dotDuration: 3,
+                dotTickRate: 1,
+                name: "Cindershot 1",
+                description: "Ignite targets for 3 seconds",
+                icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
 
         //epic
         AddStat(
             new AttackStats(
                 aimRangeAdditive: -4f,
-                critChance: 0.10f,
+                critChance: 0.15f,
                 name: "MLG 3",
-                description: "Decrease Aim Range, Crit Chance +10%",
+                description: "Decrease Aim Range, Crit Chance +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Epic
             )
@@ -665,10 +694,10 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                coneAngle: -120f,
-                critDmg: 0.50f,
+                coneAngle: -150f,
+                critDmg: 0.70f,
                 name: "Gamer 3",
-                description: "Decrease Aim Width, Crit Dmg +50%",
+                description: "Decrease Aim Width, Crit Dmg +70%",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Epic
             )
@@ -810,7 +839,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                aimRangeAdditive: 1.5f,
+                aimRangeAdditive: 2f,
                 name: "Hacker 3",
                 description: "Massively increase Aim Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
@@ -1001,6 +1030,57 @@ public static class AttackStatsLibrary
                 name: "Saboteur 2",
                 description: "Debuff Power +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isHoming: true,
+                name: "Homing 1",
+                description: "Projectiles track nearby enemies",
+                icon: Resources.Load<Sprite>("UI_Icons/Homing"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+          new AttackStats(
+              isDoT: true,
+              dotDamage: 1,
+              dotDuration: 8,
+              dotTickRate: 0.8f,
+              name: "Ignite 2",
+              description: "Ignite targets for 8 seconds",
+              icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
+              rarity: Rarity.Epic
+          )
+      );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isDoT: true,
+                dotDamage: 1,
+                dotDuration: 5,
+                dotTickRate: 0.8f,
+                name: "Cindershot 2",
+                description: "Ignite targets for 5 seconds",
+                icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                dotDuration: 10,
+                dotTickRate: 0.8f,
+                name: "Cindershot+ 2",
+                description: "Longer, quicker burn. (Doesn't stack)",
+                icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Epic
             )
         );
@@ -1217,8 +1297,57 @@ public static class AttackStatsLibrary
         );
         ;
 
-        //Weapon Sets
+        AddStat(
+            new AttackStats(
+                isHoming: true,
+                name: "Homing 2",
+                description: "Projectiles track nearby enemies",
+                icon: Resources.Load<Sprite>("UI_Icons/Homing"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
 
+        AddStat(
+          new AttackStats(
+              isDoT: true,
+              dotDamage: 2,
+              dotDuration: 8,
+              dotTickRate: 0.8f,
+              name: "Ignite 3",
+              description: "Heavily ignite targets for 8 seconds",
+              icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
+              rarity: Rarity.Legendary
+          )
+      );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isDoT: true,
+                dotDamage: 2,
+                dotDuration: 5,
+                dotTickRate: 0.8f,
+                name: "Cindershot 3",
+                description: "Heavily ignite targets for 5 seconds",
+                icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                dotDamage: 5,
+                name: "Cindershot+ 3",
+                description: "Burns like hell. (Doesn't stack)",
+                icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        //Weapon Sets
         //common
 
         AddStat(

@@ -183,7 +183,7 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 effectDuration: 1f,
-                name: "Hourglass 1",
+                name: "Stopwatch 1",
                 description: "All Debuff duration +1s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Rare
@@ -308,7 +308,7 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 effectDuration: 2f,
-                name: "Hourglass 2",
+                name: "Stopwatch 2",
                 description: "All Debuff duration +2s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Epic
@@ -434,7 +434,7 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 effectDuration: 3f,
-                name: "Hourglass 3",
+                name: "Stopwatch 3",
                 description: "All Debuff duration +3s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Legendary

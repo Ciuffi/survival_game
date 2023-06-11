@@ -53,11 +53,11 @@ TagManager:
   - name: EnemySmall
     uniqueID: 336606855
     locked: 0
-  - name: EnvironmentFlorish
-    uniqueID: 4199073801
-    locked: 0
   - name: EnemyBig
     uniqueID: 136704945
+    locked: 0
+  - name: EnvironmentFlorish
+    uniqueID: 4199073801
     locked: 0
   - name: VFX
     uniqueID: 1822861191

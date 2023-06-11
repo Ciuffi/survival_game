@@ -78,6 +78,7 @@ public class Projectile : MonoBehaviour
     public float stunDuration;
 
     public bool isHoming;
+    public float rotateSpeed;
 
     public bool isDoT;
     public float dotDuration;
@@ -86,10 +87,11 @@ public class Projectile : MonoBehaviour
 
     public bool isSplit;
     public int splitAmount;
-    public float splitStatPercentage;
+    public float splitStatPercentage; //determines percent of stats carried over into split projectiles
 
     public bool isChain;
     public int chainTimes;
+    public float chainStatDecayPercent; //determines percent of stats removed after each chain
 
     public bool isSplitProjectile; //to be turned on after splitting to acquire scaled stats
     public bool isChainProjectile; //doesnt need to scale down but has to adjust movement after first contact to chain to next closest in range
@@ -102,6 +104,7 @@ public class Projectile : MonoBehaviour
     private List<SpriteRenderer> spriteRenderers;
 
     float moveSpeed;
+    private Vector2 targetDirection = Vector2.zero;
 
     void Start()
     {
@@ -168,6 +171,7 @@ public class Projectile : MonoBehaviour
 
         isChain = attack.stats.isChain;
         chainTimes = attack.stats.chainTimes;
+        chainStatDecayPercent = attack.stats.chainStatDecayPercent;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
@@ -205,7 +209,31 @@ public class Projectile : MonoBehaviour
 
             if (!isHover) //regular projectile
             {
+                if (isHoming)
+                {
+                    // If we don't have a target direction or the target has been hit, find a new target
+                    if (targetDirection == Vector2.zero || Vector2.Dot(transform.up, targetDirection) > 0.999f)
+                    {
+                        GameObject target = FindNearestEnemy();
+                        if (target != null)
+                        {
+                            Vector2 dirToTarget = (target.transform.position - transform.position).normalized;
+                            targetDirection = dirToTarget;
+                        }
+                    }
+
+                    // If we have a target direction, rotate towards it and move
+                    if (targetDirection != Vector2.zero)
+                    {
+                        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, targetDirection);
+                        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+                    }
+                }
+
+                // Always move regardless of whether it's homing or if there's a target
                 transform.position += transform.up * moveSpeed * Time.deltaTime * 60;
+
+
                 float alphaSpeed;
                 Vector3 scaleUp;
 
@@ -354,7 +382,28 @@ public class Projectile : MonoBehaviour
                 }
                 else // if neither condition is true, keep moving the projectile
                 {
-                    transform.position += transform.up * moveSpeed;
+                    if (isHoming)
+                    {
+                        // If we don't have a target direction or the target has been hit, find a new target
+                        if (targetDirection == Vector2.zero || Vector2.Dot(transform.up, targetDirection) > 0.999f)
+                        {
+                            GameObject target = FindNearestEnemy();
+                            if (target != null)
+                            {
+                                Vector2 dirToTarget = (target.transform.position - transform.position).normalized;
+                                targetDirection = dirToTarget;
+                            }
+                        }
+
+                        // If we have a target direction, rotate towards it and move
+                        if (targetDirection != Vector2.zero)
+                        {
+                            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, targetDirection);
+                            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+                        }
+                    }
+
+                    transform.position += transform.up * moveSpeed * Time.deltaTime * 60;
                 }
             }
         }
@@ -448,6 +497,34 @@ public class Projectile : MonoBehaviour
             }
         }
     }
+    GameObject FindNearestEnemy()
+    {
+        Collider2D[] results = new Collider2D[100];
+        int numResults = Physics2D.OverlapCircleNonAlloc(transform.position, projectileRange, results);
+
+        GameObject closestEnemy = null;
+        float closestDistanceSqr = Mathf.Infinity;
+
+        for (int i = 0; i < numResults; i++)
+        {
+            GameObject potentialTarget = results[i].gameObject;
+
+            if (potentialTarget.tag == "Enemy")
+            {
+                float distanceSqr = (potentialTarget.transform.position - transform.position).sqrMagnitude;
+
+                if (distanceSqr < closestDistanceSqr)
+                {
+                    closestDistanceSqr = distanceSqr;
+                    closestEnemy = potentialTarget;
+                }
+            }
+        }
+
+        return closestEnemy;
+
+    }
+
 
     void OnTriggerStay2D(Collider2D col)
     {

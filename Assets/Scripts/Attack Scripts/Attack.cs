@@ -168,13 +168,13 @@ public class Attack : MonoBehaviour, Upgrade
 
     private IEnumerator ShootSingleShot(float multicastAlpha)
     {
-        Debug.Log("attack " + stats.damage + "Multiplier " + stats.damageMultiplier);
-        Debug.Log("Proj Size: " + stats.projectileSize + "Multiplier: " + stats.projectileSizeMultiplier);
+        //Debug.Log("attack " + stats.damage + "Multiplier " + stats.damageMultiplier);
+        //Debug.Log("Proj Size: " + stats.projectileSize + "Multiplier: " + stats.projectileSizeMultiplier);
         //Debug.Log("Melee Size: " + stats.meleeSize + "Multiplier: " + stats.meleeSizeMultiplier);
         //Debug.Log("shotgun" + stats.shotgunSpread + " and multiplier: " + stats.shotgunSpreadMultiplier);
         //Debug.Log("range and spread" + stats.rangeMultiplier + " and: " + stats.spreadMultiplier);
-        Debug.Log("spread" + stats.spread + " and: " + stats.spreadMultiplier);
-        Debug.Log("speed and multiplier" + stats.speed + " and: " + stats.speedMultiplier);
+        //Debug.Log("spread" + stats.spread + " and: " + stats.spreadMultiplier);
+        //Debug.Log("speed and multiplier" + stats.speed + " and: " + stats.speedMultiplier);
         //Debug.Log("throw damage: " + stats.thrownDamage + "multiplier: " + stats.thrownDamageMultiplier);
         //Debug.Log(thrownWeapon.GetComponent<Projectile>().damage);
 

@@ -274,21 +274,21 @@ public class Enemy : MonoBehaviour, Attacker
     {
         dotAnimator.SetBool("finishedDoT", false); // reset animation
 
-        float startTime = Time.time;
-        while (Time.time - startTime <= dotTime)
+        float startTime = GameTime.instance.GetTime();
+        while (GameTime.instance.GetTime() - startTime <= dotTime)
         {
-            while (isGamePaused) // This loop will make coroutine wait while game is paused
+            while (Time.timeScale == 0f) // This loop will make coroutine wait while game is paused
             {
                 yield return null;
             }
 
             TakeDamage(dotDamage, isDotCrit);  // Assume DoT damage is not critical
-            yield return new WaitForSeconds(dotTickRate);
+            yield return new WaitForSecondsRealtime(dotTickRate);
         }
 
         dotAnimator.SetBool("finishedDoT", true); // Trigger end animation
                                                   // Wait for a bit and then destroy the animation
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         if (currentDoTAnimation != null)
         {
             Destroy(currentDoTAnimation);

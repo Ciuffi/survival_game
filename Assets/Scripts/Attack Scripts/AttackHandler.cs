@@ -78,16 +78,16 @@ public class AttackHandler : MonoBehaviour
     private void MatchCharacter()
     {
         string storedName = PlayerPrefs.GetString("CharacterName");
-        Debug.Log(storedName);
+        //Debug.Log(storedName);
 
         GameObject[] characters = PlayerCharactersLibrary.getCharacters();
-        Debug.Log(characters[0].name);
+        //Debug.Log(characters[0].name);
 
         foreach (GameObject obj in characters)
         {
             if (obj.name == storedName)
             {
-                Debug.Log("match");
+                //Debug.Log("match");
 
                 characterStats = obj.GetComponent<StatComponent>().stat;
                 break;

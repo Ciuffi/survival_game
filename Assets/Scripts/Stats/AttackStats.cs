@@ -114,6 +114,7 @@ public class AttackStats : Upgrade
 
     public bool isChain;
     public int chainTimes;
+    public float chainStatDecayPercent;
 
     public GameObject statsContainer;
     public string AttackName { get; set; }
@@ -209,6 +210,7 @@ public class AttackStats : Upgrade
         float splitStatPercentage = 0,
         bool isChain = false,
         int chainTimes = 0,
+        float chainStatDecayPercent = 0,
 
         string name = "",
         string description = "",
@@ -305,7 +307,7 @@ public class AttackStats : Upgrade
         this.splitStatPercentage = splitStatPercentage;
         this.isChain = isChain;
         this.chainTimes = chainTimes;
-
+        this.chainStatDecayPercent = chainStatDecayPercent;
     }
 
     //shotsPerAttack and comboLength must be be one or greater.
@@ -490,6 +492,7 @@ public class AttackStats : Upgrade
 
         this.isChain |= attackStats.isChain;
         this.chainTimes += attackStats.chainTimes;
+        this.chainStatDecayPercent = Mathf.Max(this.chainStatDecayPercent, attackStats.chainStatDecayPercent);
     }
 
     public AttackStats MergeInPlayerStats(PlayerCharacterStats playerStats)
@@ -617,6 +620,7 @@ public class AttackStats : Upgrade
         this.splitStatPercentage = attackStats.splitStatPercentage;
         this.isChain = attackStats.isChain;
         this.chainTimes = attackStats.chainTimes;
+        this.chainStatDecayPercent = attackStats.chainStatDecayPercent;
     }
 
     public AttackStats Clone()
@@ -732,7 +736,8 @@ public class AttackStats : Upgrade
             splitAmount = this.splitAmount,
             splitStatPercentage = this.splitStatPercentage,
             isChain = this.isChain,
-            chainTimes = this.chainTimes
+            chainTimes = this.chainTimes,
+            chainStatDecayPercent = this.chainStatDecayPercent
         };
     }
 

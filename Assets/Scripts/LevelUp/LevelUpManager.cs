@@ -251,7 +251,6 @@ public class LevelUpManager : MonoBehaviour
                 }
                 else if (typeRoll < dropTable.playerStatChance + dropTable.weaponSetStatChance)
                 {
-                    Debug.Log(typeRoll + "weapon set");
 
                     // Weapon Set upgrade
                     upgrades = weaponSetUpgrades;
@@ -279,7 +278,6 @@ public class LevelUpManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log(typeRoll + "weapon stat");
 
                     //specific weapon stat
 
@@ -508,12 +506,14 @@ public class LevelUpManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0;
         GameObject.FindObjectOfType<PlayerMovement>().StopMoving();
+        GameTime.instance.Pause();
+        Time.timeScale = 0;
     }
 
     public void ResumeGame()
     {
+        GameTime.instance.Unpause();
         Time.timeScale = 1;
         GameObject.FindObjectOfType<PlayerMovement>().StartMoving();
     }

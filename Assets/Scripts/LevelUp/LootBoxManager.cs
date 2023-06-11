@@ -558,11 +558,13 @@ public class LootBoxManager : MonoBehaviour
     public void PauseGame()
     {
         GameObject.FindObjectOfType<PlayerMovement>().StopMoving();
+        GameTime.instance.Pause();
         Time.timeScale = 0;
     }
 
     public void ResumeGame()
     {
+        GameTime.instance.Unpause();
         Time.timeScale = 1;
         GameObject.FindObjectOfType<PlayerMovement>().StartMoving();
     }

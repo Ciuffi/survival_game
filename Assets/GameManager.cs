@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        GameTime.instance.Pause();
         Time.timeScale = 0;
         GameObject.FindObjectOfType<PlayerMovement>().StopMoving();
         GameObject.FindObjectOfType<VirtualJoystick>().enabled = false;
@@ -32,11 +33,14 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
         GameObject.FindObjectOfType<VirtualJoystick>().enabled = true;
         GameObject.FindObjectOfType<PlayerMovement>().StartMoving();
+        GameTime.instance.Unpause();
         Time.timeScale = 1;
     }
 
     public void MenuReset()
     {
+        GameTime.instance.resetTime();
+        GameTime.instance.Unpause();
         Time.timeScale = 1;
         playerInv.DecrementWeaponDurability();
         SceneManager.LoadScene(0);
@@ -50,6 +54,9 @@ public class GameManager : MonoBehaviour
 
     public void ReloadScene()
     {
+        GameTime.instance.resetTime();
+        GameTime.instance.Unpause();
+
         Time.timeScale = 1;
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);

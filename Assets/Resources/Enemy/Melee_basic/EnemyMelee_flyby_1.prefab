@@ -54,7 +54,7 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  isBasic: 0
+  isBasic: 1
   isElite: 0
   isBoss: 0
   damage: 0.5
@@ -123,6 +123,7 @@ MonoBehaviour:
   xpSizeScaling: 0.3
   destroyDistance: 30
   dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
+  isGamePaused: 0
 --- !u!61 &485550041066969456
 BoxCollider2D:
   m_ObjectHideFlags: 0

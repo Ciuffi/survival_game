@@ -32,38 +32,32 @@ public class PlayerInventory : MonoBehaviour
 
     public void StartingInventory()
     {
-        AddWeapon(new Weapon("Fire Starter", 0, false, 1));
 
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
-        AddWeapon(new Weapon("Classic Rifle", 2, false, 1));
-        AddWeapon(new Weapon("Classic Rifle", 4, false, 1));
-        AddWeapon(new Weapon("Classic Rifle", 6, false, 1));
+
+        AddWeapon(new Weapon("Fire Starter", 0, false, 1));
 
         //AddWeapon(new Weapon("Impact Mine", 0, false, 1));
 
-        //AddWeapon(new Weapon("SMG", 0, true, 0));
-        //AddWeapon(new Weapon("Revolver", 0, true, 0));
-        //AddWeapon(new Weapon("Sniper Rifle", 0, true, 0));
-        //AddWeapon(new Weapon("Gatling Gun", 0, true, 0));
-        //AddWeapon(new Weapon("Suction Cannon", 0, true, 0));
-        //AddWeapon(new Weapon("Double Barrel", 0, true, 0));
-        //AddWeapon(new Weapon("Shotgun", 0, true, 0));
-        //AddWeapon(new Weapon("Impact Nova", 0, true, 0));
-        //AddWeapon(new Weapon("Petrify Nova", 0, true, 0));
-        //AddWeapon(new Weapon("Suction Nova", 0, true, 0));
-        //AddWeapon(new Weapon("Wind Blade", 0, true, 0));
-        //AddWeapon(new Weapon("Drain Scythe", 0, true, 0));
-        //AddWeapon(new Weapon("Laser Beam", 0, true, 0));
-        //AddWeapon(new Weapon("Shuriken", 0, true, 0));
-        //AddWeapon(new Weapon("Pain Wheel", 0, true, 0));
-        //AddWeapon(new Weapon("Impact Grenade", 0, true, 0));
-        //AddWeapon(new Weapon("Smoke Grenade", 0, true, 0));
-        //AddWeapon(new Weapon("Petrify Grenade", 0, true, 0));
-        //AddWeapon(new Weapon("Suction Grenade", 0, true, 0));
+        //AddWeapon(new Weapon("SMG", 0, false, 1));
+        //AddWeapon(new Weapon("Revolver", 0, false, 1));
+        //AddWeapon(new Weapon("Sniper Rifle", 0, false, 1));
+        //AddWeapon(new Weapon("Gatling Gun", 0, false, 1));
+        //AddWeapon(new Weapon("Suction Cannon", 0, false, 1));
+        //AddWeapon(new Weapon("Double Barrel", 0, false, 1));
+        //AddWeapon(new Weapon("Shotgun", 0, false, 1));
+        //AddWeapon(new Weapon("Impact Nova", 0, false, 1));
+        //AddWeapon(new Weapon("Petrify Nova", 0, false, 1));
+        //AddWeapon(new Weapon("Suction Nova", 0, false, 1));
+        //AddWeapon(new Weapon("Drain Scythe", 0, false, 1));
+        //AddWeapon(new Weapon("Laser Beam", 0, false, 1));
+        //AddWeapon(new Weapon("Shuriken", 0, false, 1));
+        //AddWeapon(new Weapon("Pain Wheel", 0, false, 1));
+        //AddWeapon(new Weapon("Impact Grenade", 0, false, 1));
+        //AddWeapon(new Weapon("Smoke Grenade", 0, false, 1));
+        //AddWeapon(new Weapon("Petrify Grenade", 0, false, 1));
+        //AddWeapon(new Weapon("Suction Grenade", 0, false, 1));
         AddWeapon(new Weapon("Wind Blade", 0, false, 1));
-        AddWeapon(new Weapon("Wind Blade", 2, false, 1));
-        AddWeapon(new Weapon("Wind Blade", 4, false, 1));
-        AddWeapon(new Weapon("Wind Blade", 6, false, 1));
 
 
 

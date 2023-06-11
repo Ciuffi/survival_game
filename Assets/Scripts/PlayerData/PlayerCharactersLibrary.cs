@@ -115,8 +115,8 @@ public static class PlayerCharactersLibrary
             speed: 0.02f,
             pickupRange: 2.5f,
 
-           damageMultiplier: 1.5f,
-           castTimeMultiplier: 1.2f
+           damageMultiplier: 0.5f,
+           castTimeMultiplier: 0.25f
 
         );
         Tank.name = TankStats.name;
@@ -183,10 +183,8 @@ public static class PlayerCharactersLibrary
             speed: 0.03f,
             pickupRange: 3f,
 
-           effectDuration: 0.5f,
-           effectMultiplier: 1.5f,
-           activeMultiplier: 1.5f
-
+           effectDuration: 1f,
+           effectMultiplier: 0.5f
         );
         Alchemist.name = AlchemistStats.name;
 
@@ -207,9 +205,9 @@ public static class PlayerCharactersLibrary
             speed: 0.025f,
             pickupRange: 2f,
 
-           projectileSpeedMultiplier: 0.25f,
-           rangeMultiplier: 0.5f,
-           activeMultiplier: 1.5f
+           projectileSpeedMultiplier: -0.5f,
+           rangeMultiplier: -0.5f,
+           activeMultiplier: 0.5f
         );
         SpaceMarine.name = SpaceMarineStats.name;
 
