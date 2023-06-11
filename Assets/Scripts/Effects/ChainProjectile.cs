@@ -28,6 +28,15 @@ public class ChainProjectile : MonoBehaviour
         Chain();
     }
 
+    private void Update()
+    {
+        if (currentTarget == null)
+        {
+            Destroy(gameObject);
+
+        }
+    }
+
     private void Chain()
     {
         // Find next target

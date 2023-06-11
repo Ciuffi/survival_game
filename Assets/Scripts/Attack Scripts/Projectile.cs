@@ -666,7 +666,7 @@ public class Projectile : MonoBehaviour
 
                         // Pass the necessary variables to the new projectile
                         newProjectileScript.isSplitProjectile = true;
-                        if (splitStatPercentage < 40)
+                        if (splitStatPercentage < 0.4)
                         {
                             newProjectile.transform.localScale *= 0.4f;
                         }
