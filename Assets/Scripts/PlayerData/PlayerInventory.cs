@@ -35,7 +35,7 @@ public class PlayerInventory : MonoBehaviour
 
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
 
-        AddWeapon(new Weapon("Fire Starter", 0, false, 1));
+        //AddWeapon(new Weapon("Fire Starter", 0, false, 1));
 
         //AddWeapon(new Weapon("Impact Mine", 0, false, 1));
 

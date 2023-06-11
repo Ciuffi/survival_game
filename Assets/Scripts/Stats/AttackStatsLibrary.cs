@@ -679,6 +679,63 @@ public static class AttackStatsLibrary
         );
         ;
 
+        AddStat(
+            new AttackStats(
+                isChain: true,
+                chainTimes: 2,
+                chainStatDecayPercent: 0.4f,
+                chainRange: 3,
+                chainSpeed: 0.5f,
+                name: "Chain 1",
+                description: "Damage jumps to 2 more targets",
+                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isChain: true,
+                chainTimes: 3,
+                chainStatDecayPercent: 0.2f,
+                chainRange: 3,
+                chainSpeed: 0.25f,
+                name: "Chain+ 1",
+                description: "Damage jumps to 3 more targets",
+                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isSplit: true,
+                splitAmount: 1,
+                splitStatPercentage: 0.33f,
+                name: "Split 1",
+                description: "On hit, create 1 lesser attack",
+                icon: Resources.Load<Sprite>("UI_Icons/Split"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isSplit: true,
+                splitAmount: 2,
+                splitStatPercentage: 0.2f,
+                name: "Split+ 1",
+                description: "On hit, create 2 lesser attacks",
+                icon: Resources.Load<Sprite>("UI_Icons/Split"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+
         //epic
         AddStat(
             new AttackStats(
@@ -1086,6 +1143,62 @@ public static class AttackStatsLibrary
         );
         ;
 
+        AddStat(
+           new AttackStats(
+               isChain: true,
+               chainTimes: 3,
+               chainStatDecayPercent: 0.25f,
+               chainRange: 3,
+               chainSpeed: 0.6f,
+               name: "Chain 2",
+               description: "Damage jumps to 3 more targets",
+               icon: Resources.Load<Sprite>("UI_Icons/Chain"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isChain: true,
+                chainTimes: 5,
+                chainStatDecayPercent: 0.1f,
+                chainRange: 3.2f,
+                chainSpeed: 0.35f,
+                name: "Chain+ 2",
+                description: "Damage jumps to 5 more targets",
+                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isSplit: true,
+                splitAmount: 2,
+                splitStatPercentage: 0.33f,
+                name: "Split 2",
+                description: "On hit, create 2 lesser attacks",
+                icon: Resources.Load<Sprite>("UI_Icons/Split"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isSplit: true,
+                splitAmount: 3,
+                splitStatPercentage: 0.25f,
+                name: "Split+ 2",
+                description: "On hit, create 3 lesser attacks",
+                icon: Resources.Load<Sprite>("UI_Icons/Split"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
         //legendary
 
         AddStat(
@@ -1342,6 +1455,62 @@ public static class AttackStatsLibrary
                 name: "Cindershot+ 3",
                 description: "Burns like hell. (Doesn't stack)",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+           new AttackStats(
+               isChain: true,
+               chainTimes: 5,
+               chainStatDecayPercent: 0.2f,
+               chainRange: 3.2f,
+               chainSpeed: 1f,
+               name: "Chain 3",
+               description: "Damage jumps to 5 more targets",
+               icon: Resources.Load<Sprite>("UI_Icons/Chain"),
+               rarity: Rarity.Legendary
+           )
+       );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isChain: true,
+                chainTimes: 10,
+                chainStatDecayPercent: 0.08f,
+                chainRange: 3.5f,
+                chainSpeed: 0.55f,
+                name: "Chain+ 3",
+                description: "Damage jumps to 10 more targets",
+                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isSplit: true,
+                splitAmount: 3,
+                splitStatPercentage: 0.4f,
+                name: "Split 3",
+                description: "On hit, create 3 lesser attacks",
+                icon: Resources.Load<Sprite>("UI_Icons/Split"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isSplit: true,
+                splitAmount: 4,
+                splitStatPercentage: 0.3f,
+                name: "Split+ 3",
+                description: "On hit, create 4 lesser attacks",
+                icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Legendary
             )
         );

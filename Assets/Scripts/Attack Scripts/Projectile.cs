@@ -92,9 +92,10 @@ public class Projectile : MonoBehaviour
     public bool isChain;
     public int chainTimes;
     public float chainStatDecayPercent; //determines percent of stats removed after each chain
+    public float chainRange;
+    public float chainSpeed;
 
     public bool isSplitProjectile; //to be turned on after splitting to acquire scaled stats
-    public bool isChainProjectile; //doesnt need to scale down but has to adjust movement after first contact to chain to next closest in range
 
     public bool hasDeathrattle;
     public GameObject deathSpawn;
@@ -105,6 +106,8 @@ public class Projectile : MonoBehaviour
 
     float moveSpeed;
     private Vector2 targetDirection = Vector2.zero;
+
+    private GameObject chainPrefab;
 
     void Start()
     {
@@ -131,8 +134,8 @@ public class Projectile : MonoBehaviour
             moveSpeed = attack.stats.speed * splitStatPercentage;
             wpnProjSizeMultiplier = attack.stats.projectileSize * splitStatPercentage;
             wpnMeleeSizeMultiplier = attack.stats.meleeSize * splitStatPercentage;
-            active = (active * attack.stats.activeMultiplier + attack.stats.activeDuration) * splitStatPercentage;
-            hoverTimer = (hoverTimer * attack.stats.activeMultiplier + attack.stats.activeDuration) * splitStatPercentage;
+            active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
+            hoverTimer = hoverTimer * attack.stats.activeMultiplier + attack.stats.activeDuration;
         } else
         {
             pierce = attack.stats.pierce;
@@ -172,7 +175,10 @@ public class Projectile : MonoBehaviour
         isChain = attack.stats.isChain;
         chainTimes = attack.stats.chainTimes;
         chainStatDecayPercent = attack.stats.chainStatDecayPercent;
-
+        chainRange = attack.stats.chainRange;
+        chainSpeed = attack.stats.chainSpeed;
+        if (isChain) { chainPrefab = Resources.Load<GameObject>("Projectiles/ChainProjectile"); }
+      
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
         hitFirstEnemy = false;
@@ -214,7 +220,7 @@ public class Projectile : MonoBehaviour
                     // If we don't have a target direction or the target has been hit, find a new target
                     if (targetDirection == Vector2.zero || Vector2.Dot(transform.up, targetDirection) > 0.999f)
                     {
-                        GameObject target = FindNearestEnemy();
+                        GameObject target = FindNearestEnemy(transform.position, projectileRange);
                         if (target != null)
                         {
                             Vector2 dirToTarget = (target.transform.position - transform.position).normalized;
@@ -387,7 +393,7 @@ public class Projectile : MonoBehaviour
                         // If we don't have a target direction or the target has been hit, find a new target
                         if (targetDirection == Vector2.zero || Vector2.Dot(transform.up, targetDirection) > 0.999f)
                         {
-                            GameObject target = FindNearestEnemy();
+                            GameObject target = FindNearestEnemy(transform.position, projectileRange);
                             if (target != null)
                             {
                                 Vector2 dirToTarget = (target.transform.position - transform.position).normalized;
@@ -497,10 +503,11 @@ public class Projectile : MonoBehaviour
             }
         }
     }
-    GameObject FindNearestEnemy()
+
+    private GameObject FindNearestEnemy(Vector3 center, float range, GameObject exclude = null)
     {
         Collider2D[] results = new Collider2D[100];
-        int numResults = Physics2D.OverlapCircleNonAlloc(transform.position, projectileRange, results);
+        int numResults = Physics2D.OverlapCircleNonAlloc(center, range, results);
 
         GameObject closestEnemy = null;
         float closestDistanceSqr = Mathf.Infinity;
@@ -509,9 +516,13 @@ public class Projectile : MonoBehaviour
         {
             GameObject potentialTarget = results[i].gameObject;
 
+            // Skip if the potential target is the excluded GameObject
+            if (potentialTarget == exclude)
+                continue;
+
             if (potentialTarget.tag == "Enemy")
             {
-                float distanceSqr = (potentialTarget.transform.position - transform.position).sqrMagnitude;
+                float distanceSqr = (potentialTarget.transform.position - center).sqrMagnitude;
 
                 if (distanceSqr < closestDistanceSqr)
                 {
@@ -522,7 +533,6 @@ public class Projectile : MonoBehaviour
         }
 
         return closestEnemy;
-
     }
 
 
@@ -642,13 +652,63 @@ public class Projectile : MonoBehaviour
                 {
                     pierce -= 1;
                 }
+
+                if (isSplit && !isSplitProjectile) // we only split on the first collision with an enemy
+                {
+                    for (int i = 0; i < splitAmount; i++)
+                    {
+                        float angle = i * 360f / splitAmount * Mathf.Deg2Rad;
+                        Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+                        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
+
+                        GameObject newProjectile = Instantiate(gameObject, transform.position, rotation);
+                        Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
+
+                        // Pass the necessary variables to the new projectile
+                        newProjectileScript.isSplitProjectile = true;
+                        if (splitStatPercentage < 40)
+                        {
+                            newProjectile.transform.localScale *= 0.4f;
+                        }
+                        else {
+                            newProjectile.transform.localScale *= splitStatPercentage;
+                        }
+
+                        // If it's a melee attack, move the object
+                        if (isMelee)
+                        {
+                            newProjectile.transform.position += direction * attack.stats.meleeSpacerGap;
+                        }
+                    }
+
+                    // Make sure we don't split again
+                    isSplit = false;
+                }
+
+
+                if (isChain)
+                {
+                    GameObject chainTarget = FindNearestEnemy(transform.position, chainRange, col.gameObject);
+
+                    GameObject chainProjectileGO = Instantiate(chainPrefab, transform.position, Quaternion.identity);
+                    ChainProjectile chainProjectile = chainProjectileGO.GetComponent<ChainProjectile>();
+
+                    chainProjectile.Initialize(chainTimes, chainStatDecayPercent, chainRange, chainTarget, damage, chainSpeed);
+
+                    if (isMelee)
+                    {
+                        chainProjectileGO.transform.localScale *= 5f;
+                    }
+
+                    isChain = false;
+                }
             }
             else
             {
                 return;
             }
 
-            if (isMelee == false && pierce < 0)
+            if (!isMelee && pierce < 0)
             {
                 if (hasDeathrattle)
                 {

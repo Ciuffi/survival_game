@@ -115,6 +115,8 @@ public class AttackStats : Upgrade
     public bool isChain;
     public int chainTimes;
     public float chainStatDecayPercent;
+    public float chainRange;
+    public float chainSpeed;
 
     public GameObject statsContainer;
     public string AttackName { get; set; }
@@ -211,6 +213,8 @@ public class AttackStats : Upgrade
         bool isChain = false,
         int chainTimes = 0,
         float chainStatDecayPercent = 0,
+        float chainRange = 0,
+        float chainSpeed = 0,
 
         string name = "",
         string description = "",
@@ -308,6 +312,8 @@ public class AttackStats : Upgrade
         this.isChain = isChain;
         this.chainTimes = chainTimes;
         this.chainStatDecayPercent = chainStatDecayPercent;
+        this.chainRange = chainRange;
+        this.chainSpeed = chainSpeed;
     }
 
     //shotsPerAttack and comboLength must be be one or greater.
@@ -491,8 +497,11 @@ public class AttackStats : Upgrade
         this.splitStatPercentage = Mathf.Max(this.splitStatPercentage, attackStats.splitStatPercentage);
 
         this.isChain |= attackStats.isChain;
-        this.chainTimes += attackStats.chainTimes;
+        this.chainTimes = Mathf.Max(this.chainTimes, attackStats.chainTimes);
         this.chainStatDecayPercent = Mathf.Max(this.chainStatDecayPercent, attackStats.chainStatDecayPercent);
+        this.chainRange = Mathf.Max(this.chainRange, attackStats.chainRange);
+        this.chainSpeed = Mathf.Max(this.chainSpeed, attackStats.chainSpeed);
+
     }
 
     public AttackStats MergeInPlayerStats(PlayerCharacterStats playerStats)
@@ -621,6 +630,9 @@ public class AttackStats : Upgrade
         this.isChain = attackStats.isChain;
         this.chainTimes = attackStats.chainTimes;
         this.chainStatDecayPercent = attackStats.chainStatDecayPercent;
+        this.chainRange = attackStats.chainRange;
+        this.chainSpeed = attackStats.chainSpeed;
+
     }
 
     public AttackStats Clone()
@@ -737,8 +749,10 @@ public class AttackStats : Upgrade
             splitStatPercentage = this.splitStatPercentage,
             isChain = this.isChain,
             chainTimes = this.chainTimes,
-            chainStatDecayPercent = this.chainStatDecayPercent
-        };
+            chainStatDecayPercent = this.chainStatDecayPercent,
+            chainRange = this.chainRange,
+            chainSpeed = this.chainSpeed
+    };
     }
 
     public UpgradeType GetUpgradeType()
