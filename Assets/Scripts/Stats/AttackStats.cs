@@ -475,29 +475,29 @@ public class AttackStats : Upgrade
         this.meleeSizeMultiplier += attackStats.meleeSizeMultiplier;
 
         this.isMagnet |= attackStats.isMagnet;
-        this.magnetStrength = Mathf.Max(this.magnetStrength, attackStats.magnetStrength);
+        this.magnetStrength += attackStats.magnetStrength;
         this.magnetDuration = Mathf.Max(this.magnetDuration, attackStats.magnetDuration);
 
         this.isSlow |= attackStats.isSlow;
         this.slowDuration = Mathf.Max(this.slowDuration, attackStats.slowDuration);
-        this.slowPercentage = Mathf.Max(this.slowPercentage, attackStats.slowPercentage);
+        this.slowPercentage += attackStats.slowPercentage;
 
         this.isStun |= attackStats.isStun;
-        this.stunDuration = Mathf.Max(this.stunDuration, attackStats.stunDuration);
+        this.stunDuration += attackStats.stunDuration;
 
         this.isHoming |= attackStats.isHoming;
 
         this.isDoT |= attackStats.isDoT;
-        this.dotDamage = Mathf.Max(this.dotDamage, attackStats.dotDamage);
+        this.dotDamage += attackStats.dotDamage;
         this.dotDuration = Mathf.Max(this.dotDuration, attackStats.dotDuration);
         this.dotTickRate = Mathf.Min(this.dotTickRate, attackStats.dotTickRate);
 
         this.isSplit |= attackStats.isSplit;
-        this.splitAmount = Mathf.Max(this.splitAmount, attackStats.splitAmount);
+        this.splitAmount += attackStats.splitAmount;
         this.splitStatPercentage = Mathf.Max(this.splitStatPercentage, attackStats.splitStatPercentage);
 
         this.isChain |= attackStats.isChain;
-        this.chainTimes = Mathf.Max(this.chainTimes, attackStats.chainTimes);
+        this.chainTimes += attackStats.chainTimes;
         this.chainStatDecayPercent = Mathf.Max(this.chainStatDecayPercent, attackStats.chainStatDecayPercent);
         this.chainRange = Mathf.Max(this.chainRange, attackStats.chainRange);
         this.chainSpeed = Mathf.Max(this.chainSpeed, attackStats.chainSpeed);

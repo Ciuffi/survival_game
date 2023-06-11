@@ -682,12 +682,12 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isChain: true,
-                chainTimes: 2,
+                chainTimes: 1,
                 chainStatDecayPercent: 0.4f,
                 chainRange: 3f,
                 chainSpeed: 8f,
                 name: "Chain 1",
-                description: "Damage jumps to 2 more targets",
+                description: "Damage jumps to 1 more target",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Rare
             )
@@ -697,12 +697,12 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isChain: true,
-                chainTimes: 3,
+                chainTimes: 2,
                 chainStatDecayPercent: 0.2f,
                 chainRange: 3,
                 chainSpeed: 5f,
                 name: "Chain+ 1",
-                description: "Damage jumps to 3 more targets",
+                description: "Damage jumps to 2 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Rare
             )
@@ -713,7 +713,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isSplit: true,
                 splitAmount: 1,
-                splitStatPercentage: 0.33f,
+                splitStatPercentage: 0.20f,
                 name: "Split 1",
                 description: "On hit, create 1 lesser attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
@@ -725,12 +725,12 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isSplit: true,
-                splitAmount: 2,
-                splitStatPercentage: 0.2f,
+                splitAmount: 1,
+                splitStatPercentage: 0.3f,
                 name: "Split+ 1",
-                description: "On hit, create 2 lesser attacks",
+                description: "On hit, create a lesser attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
-                rarity: Rarity.Rare
+                rarity: Rarity.Epic
             )
         );
         ;
@@ -1134,7 +1134,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 dotDuration: 10,
-                dotTickRate: 0.8f,
+                dotTickRate: 0.75f,
                 name: "Cindershot+ 2",
                 description: "Longer, quicker burn. (Doesn't stack)",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
@@ -1146,12 +1146,12 @@ public static class AttackStatsLibrary
         AddStat(
            new AttackStats(
                isChain: true,
-               chainTimes: 3,
+               chainTimes: 2,
                chainStatDecayPercent: 0.25f,
                chainRange: 3.25f,
                chainSpeed: 11f,
                name: "Chain 2",
-               description: "Damage jumps to 3 more targets",
+               description: "Damage jumps to 2 more targets",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                rarity: Rarity.Epic
            )
@@ -1161,12 +1161,12 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isChain: true,
-                chainTimes: 5,
+                chainTimes: 3,
                 chainStatDecayPercent: 0.1f,
                 chainRange: 3.5f,
                 chainSpeed: 6.5f,
                 name: "Chain+ 2",
-                description: "Damage jumps to 5 more targets",
+                description: "Damage jumps to 3 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Epic
             )
@@ -1176,10 +1176,10 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isSplit: true,
-                splitAmount: 2,
+                splitAmount: 1,
                 splitStatPercentage: 0.33f,
                 name: "Split 2",
-                description: "On hit, create 2 lesser attacks",
+                description: "On hit, create a lesser attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Epic
             )
@@ -1189,10 +1189,10 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isSplit: true,
-                splitAmount: 3,
-                splitStatPercentage: 0.25f,
+                splitAmount: 1,
+                splitStatPercentage: 0.5f,
                 name: "Split+ 2",
-                description: "On hit, create 3 lesser attacks",
+                description: "On hit, create a lesser attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Epic
             )
@@ -1424,11 +1424,11 @@ public static class AttackStatsLibrary
         AddStat(
           new AttackStats(
               isDoT: true,
-              dotDamage: 2,
-              dotDuration: 8,
-              dotTickRate: 0.8f,
+              dotDamage: 1,
+              dotDuration: 10,
+              dotTickRate: 0.75f,
               name: "Ignite 3",
-              description: "Heavily ignite targets for 8 seconds",
+              description: "Heavily ignite targets for 10 seconds",
               icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
               rarity: Rarity.Legendary
           )
@@ -1438,11 +1438,11 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isDoT: true,
-                dotDamage: 2,
-                dotDuration: 5,
-                dotTickRate: 0.8f,
+                dotDamage: 1,
+                dotDuration: 6,
+                dotTickRate: 0.7f,
                 name: "Cindershot 3",
-                description: "Heavily ignite targets for 5 seconds",
+                description: "Heavily ignite targets for 6 seconds",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Legendary
             )
@@ -1451,9 +1451,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                dotDamage: 5,
+                dotDamage: 4,
                 name: "Cindershot+ 3",
-                description: "Burns like hell. (Doesn't stack)",
+                description: "Burns like hell.",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Legendary
             )
@@ -1463,12 +1463,12 @@ public static class AttackStatsLibrary
         AddStat(
            new AttackStats(
                isChain: true,
-               chainTimes: 5,
+               chainTimes: 3,
                chainStatDecayPercent: 0.2f,
                chainRange: 3.5f,
                chainSpeed: 15f,
                name: "Chain 3",
-               description: "Damage jumps to 5 more targets",
+               description: "Damage jumps to 3 more targets",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                rarity: Rarity.Legendary
            )
@@ -1478,12 +1478,12 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isChain: true,
-                chainTimes: 10,
+                chainTimes: 5,
                 chainStatDecayPercent: 0.08f,
                 chainRange: 4f,
                 chainSpeed: 9f,
                 name: "Chain+ 3",
-                description: "Damage jumps to 10 more targets",
+                description: "Damage jumps to 5 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Legendary
             )
@@ -1493,10 +1493,10 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isSplit: true,
-                splitAmount: 3,
-                splitStatPercentage: 0.4f,
+                splitAmount: 1,
+                splitStatPercentage: 0.50f,
                 name: "Split 3",
-                description: "On hit, create 3 lesser attacks",
+                description: "On hit, create another attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Legendary
             )
@@ -1506,10 +1506,10 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isSplit: true,
-                splitAmount: 4,
-                splitStatPercentage: 0.3f,
+                splitAmount: 1,
+                splitStatPercentage: 0.60f,
                 name: "Split+ 3",
-                description: "On hit, create 4 lesser attacks",
+                description: "On hit, create another attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Legendary
             )

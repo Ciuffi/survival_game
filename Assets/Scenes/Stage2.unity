@@ -1247,7 +1247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: weightScaling
-      value: 0.02
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: stageHealthScaling

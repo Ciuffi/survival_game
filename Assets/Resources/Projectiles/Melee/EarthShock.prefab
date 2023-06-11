@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 5928492518038914266}
   - component: {fileID: 7297495058217971513}
   - component: {fileID: 1441713891751434987}
+  - component: {fileID: 5205817159011200887}
   - component: {fileID: -7148203571477760851}
-  - component: {fileID: 4361009125059391236}
+  - component: {fileID: 3051322395614309619}
   m_Layer: 0
-  m_Name: AcidPool
+  m_Name: EarthShock
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4908858350499337675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.59, y: 0.65, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 11cf923349f07644e94667c2b4197f3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,15 +74,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1822861191
+  m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.6746705, g: 0.94509804, b: 0, a: 0.1764706}
+  m_Sprite: {fileID: -386517425, guid: 75cfd1c93b6bb3843a97cb921624e188, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10.8, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,31 +110,32 @@ MonoBehaviour:
   bounceRange: 0
   bounceTimes: 0
   isMelee: 1
-  startup: 0
-  active: 4
-  scaleSpeed: 1
-  disappearSpeed: 5
+  startup: 0.05
+  active: 0.35
+  scaleSpeed: 0
+  disappearSpeed: 1
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: b5556bba7def32443a4bea0f9f94e44a, type: 3}
-  playerShakeTime: 0.01
-  playerShakeStrength: 0.01
-  playerShakeRotation: 0.01
-  damageTickDuration: 1
+  playerShakeTime: 0.05
+  playerShakeStrength: 0.1
+  playerShakeRotation: 0.06
+  damageTickDuration: 0.4
   isThrown: 0
   isHover: 0
   stopOnHit: 0
   hoverTimer: 0
   hitFirstEnemy: 0
-  isAnimated: 0
+  isAnimated: 1
   isMagnet: 0
   magnetStrength: 0
   magnetDuration: 0
   isSlow: 0
   slowPercentage: 0
   slowDuration: 0
-  isStun: 1
-  stunDuration: 0.025
+  isStun: 0
+  stunDuration: 0
   isHoming: 0
+  rotateSpeed: 0
   isDoT: 0
   dotDuration: 0
   dotDamage: 0
@@ -143,12 +145,34 @@ MonoBehaviour:
   splitStatPercentage: 0
   isChain: 0
   chainTimes: 0
+  chainStatDecayPercent: 0
+  chainRange: 0
+  chainSpeed: 0
   isSplitProjectile: 0
-  isChainProjectile: 0
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
   wpnProjSizeMultiplier: 0
   wpnMeleeSizeMultiplier: 0
+--- !u!95 &5205817159011200887
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908858350499337675}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e65deccba45a814eb62de6f0231023d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &-7148203571477760851
 Rigidbody2D:
   serializedVersion: 4
@@ -170,7 +194,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4361009125059391236
+--- !u!58 &3051322395614309619
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,6 +207,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.00000014901161}
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Radius: 1.135912

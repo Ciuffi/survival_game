@@ -44,8 +44,8 @@ public static class AttackLibrary
             Resources.Load<GameObject>("WeaponVFX/MuzzleFlash_Big"),
         };
 
-        // AcidPool
-        List<AttackStats> AcidPoolRarity = new List<AttackStats>
+        // Consecrate
+        List<AttackStats> ConsecrateRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 1),
             new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: -0.1f, activeDuration: 0.5f),
@@ -57,7 +57,7 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Legendary, activeDuration: 1, damage: 1),
         };
 
-        List<AttackStats> AcidPoolUpgrades = new List<AttackStats>
+        List<AttackStats> ConsecrateUpgrades = new List<AttackStats>
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
@@ -119,30 +119,31 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 3"),
         };
 
-        AttackBuilder AcidPool = new AttackBuilder()
-            .SetAttackName("Acid Pool")
-            .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/AcidPool"))
-            .SetWeaponSetType(WeaponSetType.Melee)
-            .SetDescription("GIT OUT MAH SWAMP!")
+        AttackBuilder Consecrate = new AttackBuilder()
+            .SetAttackName("Consecrate")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Consecrate"))
+            .SetWeaponSetType(WeaponSetType.Nova)
+            .SetDescription("The light shall burn you.")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 1.5f,
                     is360: true,
                     damage: 2,
                     spread: 0.7f,
-                    castTime: 2.2f,
+                    castTime: 2.5f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
                     comboWaitTime: 1.25f,
                     meleeShotsScaleUp: -0.1f,
-                    meleeSpacer: 0f,
-                    meleeSpacerGap: 3f,
+                    meleeSpacer: 1.25f,
+                    meleeSpacerGap: 2.75f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.2f,
                     shakeRotation: 0.5f,
-                    thrownDamage: 1,
+                    thrownDamage: 5,
+                    thrownSpeed: 0.65f,
                     cantMove: true,
                     isStun: true,
                     stunDuration: 0.025f
@@ -150,14 +151,14 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/hand2"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/hand2")
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/nova_04"),
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Nova_04")
             )
-            .SetRarityUpgrades(AcidPoolRarity)
-            .SetWeaponUpgrades(AcidPoolUpgrades);
+            .SetRarityUpgrades(ConsecrateRarity)
+            .SetWeaponUpgrades(ConsecrateUpgrades);
 
-
-        AddAttack(AcidPool);
+        AddAttack(Consecrate);
 
         // ClassicRifle
         List<AttackStats> ClassicRifleRarity = new List<AttackStats>
@@ -626,7 +627,7 @@ public static class AttackLibrary
 
         AttackBuilder EarthShock = new AttackBuilder()
             .SetAttackName("Earth Shock")
-            .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Frogger"))
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/EarthShock"))
             .SetWeaponSetType(WeaponSetType.Melee)
             .SetDescription("Shake the earth in a straight line.")
             .SetBaseStats(
@@ -645,7 +646,7 @@ public static class AttackLibrary
                     comboLength: 1,
                     comboWaitTime: 1.3f,
                     meleeShotsScaleUp: 0f,
-                    meleeSpacer: 1.5f,
+                    meleeSpacer: 2.2f,
                     meleeSpacerGap: 2.2f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.2f,
@@ -656,9 +657,8 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/frog_gun_01"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/frog_01")
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/MeleeSlam_01"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Final/MeleeSlam_01")
             )
             .SetRarityUpgrades(EarthShockRarity)
             .SetWeaponUpgrades(EarthShockUpgrades);
@@ -959,6 +959,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Steady 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
             AttackStatsLibrary.GetStat("AFK 1"),
+
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
             AttackStatsLibrary.GetStat("Crit Chance 2"),
@@ -975,6 +976,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Pierce 1"),
             AttackStatsLibrary.GetStat("Big Ammo 1"),
             AttackStatsLibrary.GetStat("Chain 1"),
+            AttackStatsLibrary.GetStat("Split 1"),
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
@@ -992,6 +994,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Pierce 2"),
             AttackStatsLibrary.GetStat("Big Ammo 2"),
             AttackStatsLibrary.GetStat("Chain+ 2"),
+            AttackStatsLibrary.GetStat("Split 2"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1005,6 +1008,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Homing 2"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
+            AttackStatsLibrary.GetStat("Split 3"),
         };
 
         AttackBuilder GatlingGun = new AttackBuilder()
