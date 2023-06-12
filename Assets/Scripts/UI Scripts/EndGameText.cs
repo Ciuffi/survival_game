@@ -100,15 +100,15 @@ public class EndGameText : MonoBehaviour
         }
         else if (totalDmg > 49999)
         {
-            incrementValueFast *= 5;
+            incrementValueFast *= 8;
         }
         else if (totalDmg > 9999)
         {
-            incrementValueFast *= 3;
+            incrementValueFast *= 5;
         }
         else if (totalDmg > 999)
         {
-            incrementValueFast *= 2;
+            incrementValueFast *= 3;
         }
         else
         {
@@ -165,15 +165,15 @@ public class EndGameText : MonoBehaviour
             }
             else if (finalDmg > 49999)
             {
-                incrementValueFast *= 5;
+                incrementValueFast *= 8;
             }
             else if (finalDmg > 9999)
             {
-                incrementValueFast *= 3;
+                incrementValueFast *= 5;
             }
             else if (finalDmg > 999)
             {
-                incrementValueFast *= 2;
+                incrementValueFast *= 3;
             }
             else
             {

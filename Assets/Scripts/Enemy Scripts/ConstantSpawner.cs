@@ -6,6 +6,8 @@ public class ConstantSpawner : MonoBehaviour
 {
     // Public variables that can be adjusted in the inspector
     public List<GameObject> enemies;
+
+    public bool isCircleSpawn;
     public float diameter = 10f;
     public float initialDelay;
     public float spawnTimer = 0f;
@@ -171,58 +173,87 @@ public class ConstantSpawner : MonoBehaviour
             cumulativeHealthScaling += healthScalingList[j];
         }
 
-        if (spawnRate > 1)
+        if (isCircleSpawn)
         {
-            // Pick a random point along the edge of the circle
-            Vector2 spawnCenter = (Vector2)transform.position;
-            Vector2 spawnDirection = Random.insideUnitCircle.normalized;
-            Vector2 spawnPosition = spawnCenter + (spawnDirection * diameter / 2f);
-
-            // Calculate the angle between each enemy
-            float angleBetween = 360f / spawnRate;
-
-            // Calculate the range of angles to randomize within
-            float angleRange = angleBetween * 0.25f;
-
-            // Spawn enemies evenly around the edge of the circle
-            for (int i = 0; i < spawnRate; i++)
+            if (spawnRate > 1)
             {
-                // Randomly adjust the angle within the range
-                float angleOffset = Random.Range(-angleRange, angleRange);
+                // Pick a random point along the edge of the circle
+                Vector2 spawnCenter = (Vector2)transform.position;
+                Vector2 spawnDirection = Random.insideUnitCircle.normalized;
+                Vector2 spawnPosition = spawnCenter + (spawnDirection * diameter / 2f);
 
-                // Calculate the position of the enemy based on the angle
-                Vector2 enemyPosition = Quaternion.Euler(0f, 0f, i * angleBetween + angleOffset) * spawnDirection * diameter / 2f;
+                // Calculate the angle between each enemy
+                float angleBetween = 360f / spawnRate;
 
-                // Instantiate the enemy at the spawn position
-                GameObject newEnemy = Instantiate(enemyPrefab, spawnCenter + enemyPosition, Quaternion.identity);
+                // Calculate the range of angles to randomize within
+                float angleRange = angleBetween * 0.25f;
 
+                // Spawn enemies evenly around the edge of the circle
+                for (int i = 0; i < spawnRate; i++)
+                {
+                    // Randomly adjust the angle within the range
+                    float angleOffset = Random.Range(-angleRange, angleRange);
+
+                    // Calculate the position of the enemy based on the angle
+                    Vector2 enemyPosition = Quaternion.Euler(0f, 0f, i * angleBetween + angleOffset) * spawnDirection * diameter / 2f;
+
+                    // Instantiate the enemy at the spawn position
+                    GameObject newEnemy = Instantiate(enemyPrefab, spawnCenter + enemyPosition, Quaternion.identity);
+
+                    if (newEnemy != null && newEnemy.tag == "Enemy")
+                    {
+
+                        newEnemy.GetComponent<Enemy>().health *= (cumulativeHealthScaling) + stageHealthScaling;
+                        newEnemy.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                        newEnemy.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                        newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+                        newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                    }
+
+                }
+            }
+            else if (spawnRate == 1)
+            {
+                // Spawn a single enemy at a random position on the edge of the circle
+                Vector2 spawnPosition = Random.insideUnitCircle.normalized * diameter / 2f;
+                GameObject newEnemy = Instantiate(enemyPrefab, (Vector2)transform.position + spawnPosition, Quaternion.identity);
                 if (newEnemy != null && newEnemy.tag == "Enemy")
                 {
-
                     newEnemy.GetComponent<Enemy>().health *= (cumulativeHealthScaling) + stageHealthScaling;
                     newEnemy.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     newEnemy.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                     newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
                 }
-
             }
-        }
-        else if (spawnRate == 1)
+        } else
         {
-            // Spawn a single enemy at a random position on the edge of the circle
-            Vector2 spawnPosition = Random.insideUnitCircle.normalized * diameter / 2f;
-            GameObject newEnemy = Instantiate(enemyPrefab, (Vector2)transform.position + spawnPosition, Quaternion.identity);
-            if (newEnemy != null && newEnemy.tag == "Enemy")
+            for (int i = 0; i < spawnRate; i++)
             {
-                newEnemy.GetComponent<Enemy>().health *= (cumulativeHealthScaling) + stageHealthScaling;
-                newEnemy.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
-                newEnemy.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
-                newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
-                newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
-            }
-        }
+                // Calculate a random angle for enemy placement
+                float randomAngle = Random.Range(0f, 360f);
 
+                // Convert the angle to radians
+                float angleInRadians = randomAngle * Mathf.Deg2Rad;
+
+                // Calculate the position of the enemy based on the random angle
+                Vector2 spawnPosition = (Vector2)transform.position +
+                    new Vector2(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians)) * diameter / 2f;
+
+                // Instantiate the enemy at the spawn position
+                GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+                if (newEnemy != null && newEnemy.tag == "Enemy")
+                {
+                    newEnemy.GetComponent<Enemy>().health *= (cumulativeHealthScaling) + stageHealthScaling;
+                    newEnemy.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    newEnemy.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+                    newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                }
+            }
+
+        }
 
     }
 

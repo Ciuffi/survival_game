@@ -277,7 +277,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isMagnet: true,
-                magnetStrength: 1f,
+                magnetStrength: 0.5f,
                 magnetDuration: 0.5f,
                 name: "Magnetize 1",
                 description: "On hit, pull target(s) in",
@@ -710,7 +710,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isChain: true,
                 chainTimes: 1,
-                chainStatDecayPercent: 0.33f,
+                chainStatDecayPercent: 0.5f,
                 chainRange: 3f,
                 chainSpeed: 10f,
                 name: "Chain 1",
@@ -725,7 +725,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isChain: true,
                 chainTimes: 2,
-                chainStatDecayPercent: 0.2f,
+                chainStatDecayPercent: 0.3f,
                 chainRange: 3.5f,
                 chainSpeed: 5f,
                 name: "Chain+ 1",
@@ -778,7 +778,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isMagnet: true,
-                magnetStrength: 2f,
+                magnetStrength: 1f,
                 magnetDuration: 0.75f,
                 name: "Magnetize 2",
                 description: "On hit, pull target(s) in",
@@ -1202,7 +1202,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                isChain: true,
                chainTimes: 2,
-               chainStatDecayPercent: 0.25f,
+               chainStatDecayPercent: 0.33f,
                chainRange: 3.5f,
                chainSpeed: 14f,
                name: "Chain 2",
@@ -1217,7 +1217,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isChain: true,
                 chainTimes: 3,
-                chainStatDecayPercent: 0.1f,
+                chainStatDecayPercent: 0.2f,
                 chainRange: 4f,
                 chainSpeed: 7f,
                 name: "Chain+ 2",
@@ -1270,7 +1270,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isMagnet: true,
-                magnetStrength: 3f,
+                magnetStrength: 2f,
                 magnetDuration: 1f,
                 name: "Magnetize 3",
                 description: "On hit, pull target(s) in",
@@ -1558,7 +1558,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                isChain: true,
                chainTimes: 3,
-               chainStatDecayPercent: 0.15f,
+               chainStatDecayPercent: 0.2f,
                chainRange: 4f,
                chainSpeed: 18f,
                name: "Chain 3",
@@ -1573,7 +1573,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isChain: true,
                 chainTimes: 5,
-                chainStatDecayPercent: 0.08f,
+                chainStatDecayPercent: 0.10f,
                 chainRange: 5f,
                 chainSpeed: 10f,
                 name: "Chain+ 3",

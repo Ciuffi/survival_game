@@ -202,7 +202,7 @@ public class Enemy : MonoBehaviour, Attacker
         speed = aiPath.maxSpeed;
         originalSpeed = speed;
         animSpeed = animator.GetFloat("speed");
-        rageSpeed = originalSpeed + rageSpeedMod;
+        rageSpeed = originalSpeed;
 
         if (isFlyby)
         {
@@ -267,13 +267,14 @@ public class Enemy : MonoBehaviour, Attacker
         }
 
         isDotCrit = isCrit;
+
         currentDoTCoroutine = StartCoroutine(DoT(damage, tickRate, time));
     }
 
     private IEnumerator DoT(float dotDamage, float dotTickRate, float dotTime)
     {
         dotAnimator.SetBool("finishedDoT", false); // reset animation
-
+        
         float startTime = GameTime.instance.GetTime();
         while (GameTime.instance.GetTime() - startTime <= dotTime)
         {
@@ -526,21 +527,10 @@ public class Enemy : MonoBehaviour, Attacker
         {
             if (health / maxHealth <= rageTriggerPercent && !rageTriggered)
             {
-                aiPath.maxSpeed += rageSpeedMod;
-                animator.speed *= 1.5f;
-                damage *= rageDmgMod;
-                animator.SetBool("IsRage", true);
-
-                if (isElite)
-                {
-                    eliteBorder.speed *= 1.5f;
-                    eliteBorder.SetBool("IsRage", true);
-                }
-
-                rageTriggered = true;
+                StartRage();
             }
 
-            if (rageTriggered && !isStunned && isDead == false) //back to red
+            if (rageTriggered && !isStunned && !isSlowing && !isDead) //back to red
             {
                 spriteRend.color = new Color(rageColor.r, rageColor.g, rageColor.b);
             }
@@ -1010,10 +1000,7 @@ public class Enemy : MonoBehaviour, Attacker
                 StopCoroutine(slowCoroutine);
             }
             slowCoroutine = StartCoroutine(SlowCoroutine(slowPercentage, slowDuration));
-            if (isStunned == false)
-            {
-                spriteRend.color = slowColor;
-            }
+            spriteRend.color = slowColor;
         }
 
     }
@@ -1023,15 +1010,15 @@ public class Enemy : MonoBehaviour, Attacker
         float slowTargetSpeed;
         float slowStartTime = Time.time;
         float slowEndTime = slowStartTime + slowDuration;
-        
+
         if (!rageTriggered)
         {
-             slowTargetSpeed = originalSpeed * slowPercentage;
-        } else{ 
-            //rage mod being added repeatedly - fix!
-             slowTargetSpeed = rageSpeed * slowPercentage;
+            slowTargetSpeed = originalSpeed * slowPercentage;
         }
-        //Debug.Log(rageSpeed);
+        else
+        {
+            slowTargetSpeed = rageSpeed * slowPercentage;
+        }
 
         while (Time.time < slowEndTime)
         {
@@ -1043,17 +1030,13 @@ public class Enemy : MonoBehaviour, Attacker
         if (!rageTriggered)
         {
             speed = originalSpeed;
-            aiPath.maxSpeed = speed;
-            spriteRend.color = OGcolor;
         }
         else
         {
             speed = rageSpeed;
-            aiPath.maxSpeed = speed;
-            spriteRend.color = rageColor;
-            //Debug.Log(rageSpeed);
         }
-        StopCoroutine(slowCoroutine);  
+        aiPath.maxSpeed = speed;
+        StopCoroutine(slowCoroutine);
     }
 
     
@@ -1071,10 +1054,24 @@ public class Enemy : MonoBehaviour, Attacker
         }
     }
 
+    public void StartRage() // Called when rage is triggered
+    {
+        rageSpeed = aiPath.maxSpeed + rageSpeedMod; // Save the increased speed during rage mode
+        aiPath.maxSpeed = rageSpeed;
+        animator.speed *= 1.5f;
+        damage *= rageDmgMod;
+        animator.SetBool("IsRage", true);
+        rageTriggered = true;
+
+        if (isElite)
+        {
+            eliteBorder.speed *= 1.5f;
+            eliteBorder.SetBool("IsRage", true);
+        }
+    }
 
 
-
-        private void LateUpdate()
+    private void LateUpdate()
     {
         if (rb.velocity.x > 0)
         {

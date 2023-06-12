@@ -446,7 +446,6 @@ public class AttackStats : Upgrade
         this.cantMove |= attackStats.cantMove;
         this.is360 |= attackStats.is360;
         this.coneAngle += attackStats.coneAngle;
-        this.rarity = this.rarity.CompareRarity(attackStats.rarity);
         this.activeDuration += attackStats.activeDuration;
         this.effectDuration += attackStats.effectDuration;
         this.effectMultiplier += attackStats.effectMultiplier;
@@ -490,7 +489,14 @@ public class AttackStats : Upgrade
         this.isDoT |= attackStats.isDoT;
         this.dotDamage += attackStats.dotDamage;
         this.dotDuration = Mathf.Max(this.dotDuration, attackStats.dotDuration);
-        this.dotTickRate = Mathf.Min(this.dotTickRate, attackStats.dotTickRate);
+
+        if (this.dotTickRate <= 0)
+        {
+            this.dotTickRate = attackStats.dotTickRate;
+        } else if (attackStats.dotTickRate > 0)
+        {
+            this.dotTickRate = Mathf.Min(this.dotTickRate, attackStats.dotTickRate);
+        }
 
         this.isSplit |= attackStats.isSplit;
         this.splitAmount += attackStats.splitAmount;
@@ -498,7 +504,16 @@ public class AttackStats : Upgrade
 
         this.isChain |= attackStats.isChain;
         this.chainTimes += attackStats.chainTimes;
-        this.chainStatDecayPercent = Mathf.Min(this.chainStatDecayPercent, attackStats.chainStatDecayPercent);
+
+        if (this.chainStatDecayPercent <= 0)
+        {
+            this.chainStatDecayPercent = attackStats.chainStatDecayPercent;
+        }
+        else if (attackStats.chainStatDecayPercent > 0)
+        {
+            this.chainStatDecayPercent = Mathf.Min(this.chainStatDecayPercent, attackStats.chainStatDecayPercent);
+        }
+
         this.chainRange = Mathf.Max(this.chainRange, attackStats.chainRange);
         this.chainSpeed = Mathf.Max(this.chainSpeed, attackStats.chainSpeed);
 

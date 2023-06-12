@@ -1320,9 +1320,9 @@ TextureImporter:
       name: monster_06_49
       rect:
         serializedVersion: 2
-        x: 1168
+        x: 1174
         y: 0
-        width: 292
+        width: 286
         height: 133
       alignment: 9
       pivot: {x: 0.65, y: 0.5}

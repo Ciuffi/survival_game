@@ -185,6 +185,8 @@ public class AttackBuilder
             Debug.Log("rarity: " + rarity);
             // Use the WeaponRarityStats class to upgrade the baseStats based on the rarity
             attack.baseStats.mergeInStats(WeaponRarityStats.ApplyRarity(rarityUpgrades, rarity));
+            attack.baseStats.rarity = rarity;
+            attack.stats.rarity = rarity;
         }
 
         attack.effect = effect;

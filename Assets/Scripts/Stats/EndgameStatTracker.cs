@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndgameStatTracker : MonoBehaviour
 {
@@ -17,7 +18,18 @@ public class EndgameStatTracker : MonoBehaviour
 
     private void Awake()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;  // Subscribe to sceneLoaded event
+
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         playerData = FindObjectOfType<PlayerDataManager>();
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;  // Unsubscribe from sceneLoaded when this GameObject is destroyed
     }
 
     public void EndGameStats()

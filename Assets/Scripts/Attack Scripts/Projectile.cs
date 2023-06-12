@@ -190,7 +190,7 @@ public class Projectile : MonoBehaviour
                 attack.stats.thrownDamage;
             pierce = 5 + attack.stats.pierce;
             projectileRange = 6 + (attack.stats.range / 2);
-            knockback = 0.35f + (attack.stats.knockback / 2);
+            knockback = 0.25f + (attack.stats.knockback / 2);
         }
         GetComponent<Collider2D>().enabled = true;
 
@@ -481,7 +481,7 @@ public class Projectile : MonoBehaviour
         }
 
         // Check the timers for each object in the list
-        if (hitEnemies.Count > 0)
+        if (hitEnemies.Count > 0 )
         {
             List<GameObject> hitEnemiesCopy = hitEnemies.ToList();
             foreach (GameObject enemy in hitEnemiesCopy)
@@ -492,7 +492,7 @@ public class Projectile : MonoBehaviour
 
                     if (timers[enemy] <= 0)
                     {
-                        hitEnemies.Remove(enemy);
+                        StartCoroutine(RemoveEnemyAfterDelay(enemy));
                         timers.Remove(enemy);
                     }
                 }
@@ -502,6 +502,12 @@ public class Projectile : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator RemoveEnemyAfterDelay(GameObject enemy)
+    {
+        yield return new WaitForSeconds(0.1f);
+        hitEnemies.Remove(enemy);
     }
 
     private GameObject FindNearestEnemy(Vector3 center, float range, GameObject exclude = null)
@@ -655,9 +661,11 @@ public class Projectile : MonoBehaviour
 
                 if (isSplit && !isSplitProjectile) // we only split on the first collision with an enemy
                 {
+                    float randomOffsetAngle = Random.Range(0, 360) * Mathf.Deg2Rad; // Random offset angle in radians
+
                     for (int i = 0; i < splitAmount; i++)
                     {
-                        float angle = i * 360f / splitAmount * Mathf.Deg2Rad;
+                        float angle = i * 360f / splitAmount * Mathf.Deg2Rad + randomOffsetAngle;
                         Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
                         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
 
@@ -679,6 +687,9 @@ public class Projectile : MonoBehaviour
                         {
                             newProjectile.transform.position += direction * attack.stats.meleeSpacerGap;
                         }
+
+
+
                     }
 
                     // Make sure we don't split again

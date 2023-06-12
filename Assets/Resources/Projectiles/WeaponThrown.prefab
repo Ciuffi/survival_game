@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 0}
-  damage: 10
+  damage: 5
   projectileRange: 0
   knockback: 0
   spawnPos: {x: 0, y: 0}
@@ -197,7 +197,7 @@ MonoBehaviour:
   startup: 0
   active: 0
   scaleSpeed: 1
-  disappearSpeed: 1.5
+  disappearSpeed: 0.5
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
   playerShakeTime: 0.07
@@ -230,8 +230,9 @@ MonoBehaviour:
   isChain: 0
   chainTimes: 0
   chainStatDecayPercent: 0
+  chainRange: 0
+  chainSpeed: 0
   isSplitProjectile: 0
-  isChainProjectile: 0
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
   wpnProjSizeMultiplier: 0
