@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -28,7 +29,23 @@ public class PlayerInventory : MonoBehaviour
         LoadInventory();
 
         inventoryUI = FindObjectOfType<InventoryUIManager>();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;  // Subscribe to sceneLoaded event
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)  // Check if the scene being loaded is the menu scene
+        {
+            inventoryUI = FindObjectOfType<InventoryUIManager>();  // Find the InventoryUIManager in the new scene
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;  // Unsubscribe from sceneLoaded when this GameObject is destroyed
+    }
+
 
     public void StartingInventory()
     {

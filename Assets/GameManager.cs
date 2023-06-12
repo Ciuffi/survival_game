@@ -15,6 +15,16 @@ public class GameManager : MonoBehaviour
     private PlayerDataManager playerData;
     private PlayerInventory playerInv;
 
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;  // Subscribe to sceneLoaded event
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;  // Unsubscribe from sceneLoaded when this GameObject is destroyed
+    }
+
     public void ShowPauseScreen()
     {
         if (playerStats.currentHealth <= 0)
@@ -94,7 +104,14 @@ public class GameManager : MonoBehaviour
         playerAttacks = playerMovement.GetComponent<AttackHandler>();
         playerData = PlayerDataManager.Instance;
         playerInv = PlayerInventory.Instance;
-        pauseMenu.SetActive(false);
+    }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex != 0)  
+        {
+            pauseMenu = GameObject.Find("PauseMenu");
+            pauseMenu.SetActive(false);
+        }
     }
 }

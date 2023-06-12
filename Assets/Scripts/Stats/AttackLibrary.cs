@@ -1568,7 +1568,7 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
                     shakeRotation: 0.1f,
-                    thrownDamage: 9f,
+                    thrownDamage: 7f,
                     thrownSpeed: 0.5f
                 )
             )
@@ -2067,7 +2067,7 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
                     shakeRotation: 0.4f,
-                    thrownDamage: 11f,
+                    thrownDamage: 9f,
                     thrownSpeed: 0.5f,
                     isStun: true,
                     stunDuration: 3f
@@ -3313,7 +3313,7 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
                     shakeRotation: 0.5f,
-                    thrownDamage: 13f,
+                    thrownDamage: 11f,
                     thrownSpeed: 0.6f,
                     isMagnet: true,
                     magnetStrength: 4,
