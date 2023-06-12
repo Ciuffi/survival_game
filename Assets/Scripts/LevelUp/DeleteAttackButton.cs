@@ -40,7 +40,7 @@ public class DeleteAttackButton : MonoBehaviour, IPointerClickHandler
     void RemoveAssociatedAttack()
     {
         // Fetch the TimelineIcon from the parent GameObject
-        TimelineIcon timelineIcon = GetComponentInParent<TimelineIcon>();
+        TimelineIcon timelineIcon = transform.parent.Find("WpnImage").gameObject.GetComponent<TimelineIcon>();
         AttackHandler attackCycle = FindObjectOfType<AttackHandler>();
 
         if (timelineIcon != null && timelineIcon.AssociatedAttack != null)

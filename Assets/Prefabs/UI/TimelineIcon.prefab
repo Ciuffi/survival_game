@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1856154808643813546}
   - component: {fileID: 3912313323906110764}
   - component: {fileID: 4701243694687015413}
+  - component: {fileID: 1004138792150256507}
   m_Layer: 5
   m_Name: WpnImage
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: -18, y: -50, z: -18, w: -75}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -76,6 +77,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1004138792150256507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440742744573301329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a72ec90d27e55478046253109cb7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackHandler: {fileID: 0}
 --- !u!1 &1850242906243947163
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +101,8 @@ GameObject:
   - component: {fileID: 4518665110741624750}
   - component: {fileID: 4790578984211975010}
   - component: {fileID: 5539655144229869797}
-  - component: {fileID: 1423540025721519241}
+  - component: {fileID: 6851113345960571396}
+  - component: {fileID: 6328537317440471758}
   m_Layer: 5
   m_Name: TimelineIcon
   m_TagString: Untagged
@@ -117,7 +132,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 110, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4790578984211975010
 CanvasRenderer:
@@ -140,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.2, g: 0.2, b: 0.2, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -157,19 +172,44 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1423540025721519241
-MonoBehaviour:
+--- !u!61 &6851113345960571396
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850242906243947163}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80a72ec90d27e55478046253109cb7d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackHandler: {fileID: 0}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.08798981, y: 17.751677}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 100.369, y: 134.8684}
+  m_EdgeRadius: 0
+--- !u!225 &6328537317440471758
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850242906243947163}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3609136236107141556
 GameObject:
   m_ObjectHideFlags: 0

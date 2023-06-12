@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e6fc318430eae45b973b7e934ee310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseXP: 50
-  growthMultiplier: 1.2
+  baseXP: 45
+  growthMultiplier: 1.25
   flashColor: {r: 0.32549024, g: 0.9117146, b: 1, a: 0.92156863}
   playerStatUpgrades: []
   upgrades: []

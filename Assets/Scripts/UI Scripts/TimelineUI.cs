@@ -50,6 +50,7 @@ public class TimelineUI : MonoBehaviour
 
     public void spawnTimeline()
     {
+
         currentOffset = 0;
         icons = new List<GameObject>();
 
@@ -59,11 +60,12 @@ public class TimelineUI : MonoBehaviour
         foreach (Attack attack in playerAttacks.attacks)
         {
             GameObject Icon = Instantiate(IconPrefab, transform);
-            TimelineIcon t = Icon.GetComponent<TimelineIcon>();
+            TimelineIcon t = Icon.transform.Find("WpnImage").gameObject.GetComponent<TimelineIcon>();
             t.AssociatedAttack = attack;
 
             Icon.GetComponentInChildren<TextMeshProUGUI>().text = attack.weaponSetType.ToString();
-            Icon.GetComponent<Image>().color = rarityColors[(int)attack.rarity];
+
+            Icon.transform.Find("BG").gameObject.GetComponent<Image>().color = rarityColors[(int)attack.stats.GetRarity()];
             Icon.transform.Find("WpnImage").gameObject.GetComponent<Image>().sprite = attack.thrownSprite;
 
             finalPositions.Add(Icon.transform.localPosition + Vector3.right * currentOffset);
@@ -82,14 +84,22 @@ public class TimelineUI : MonoBehaviour
             }
         }
 
+        // Calculate the width of each icon (assuming they're all the same size)
+        float iconWidth = IconPrefab.GetComponent<RectTransform>().rect.width;
+        // The space between each icon
+        float spacing = 10f;
+
         // Animate the icons into place
         float delay = 0.5f;
         for (int i = 0; i < icons.Count; i++)
         {
+            // Calculate the final position of each icon
+            Vector3 finalPos = new Vector3((iconWidth + spacing) * i, 0, 0);
+
             // Create a sequence for each icon
             Sequence sequence = DOTween.Sequence();
             // Append a move and scale tween to the sequence
-            sequence.Join(icons[i].transform.DOLocalMove(finalPositions[i], 0.5f).SetEase(Ease.OutExpo));
+            sequence.Join(icons[i].transform.DOLocalMove(finalPos, 0.5f).SetEase(Ease.OutExpo));
             sequence.SetUpdate(true);
             // Start the sequence after a delay
             sequence.Play().SetDelay(delay);

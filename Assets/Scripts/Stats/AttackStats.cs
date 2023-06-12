@@ -498,7 +498,7 @@ public class AttackStats : Upgrade
 
         this.isChain |= attackStats.isChain;
         this.chainTimes += attackStats.chainTimes;
-        this.chainStatDecayPercent = Mathf.Max(this.chainStatDecayPercent, attackStats.chainStatDecayPercent);
+        this.chainStatDecayPercent = Mathf.Min(this.chainStatDecayPercent, attackStats.chainStatDecayPercent);
         this.chainRange = Mathf.Max(this.chainRange, attackStats.chainRange);
         this.chainSpeed = Mathf.Max(this.chainSpeed, attackStats.chainSpeed);
 

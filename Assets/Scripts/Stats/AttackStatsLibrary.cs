@@ -197,9 +197,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                rangeMultiplier: 0.12f,
+                rangeMultiplier: 0.10f,
                 name: "Reach 1",
-                description: "Range +12%",
+                description: "Range +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Reach"),
                 rarity: Rarity.Common
             )
@@ -260,6 +260,33 @@ public static class AttackStatsLibrary
             )
         );
         ;
+
+        AddStat(
+            new AttackStats(
+                isSlow: true,
+                slowPercentage: 0.1f,
+                slowDuration: 1f,
+                name: "Slow Down 1",
+                description: "On hit, slow for 1s",
+                icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isMagnet: true,
+                magnetStrength: 1f,
+                magnetDuration: 0.5f,
+                name: "Magnetize 1",
+                description: "On hit, pull target(s) in",
+                icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
+                rarity: Rarity.Common
+            )
+        );
+        ;
+
 
         //rare
         AddStat(
@@ -409,9 +436,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                rangeMultiplier: 0.25f,
+                rangeMultiplier: 0.15f,
                 name: "Reach 2",
-                description: "Range +25%",
+                description: "Range +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Reach"),
                 rarity: Rarity.Rare
             )
@@ -612,7 +639,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectDuration: 0.5f,
                 name: "Hourglass 1",
-                description: "Debuff duration +0.5s",
+                description: "Effect duration +0.5s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Rare
             )
@@ -623,7 +650,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectMultiplier: 0.25f,
                 name: "Saboteur 1",
-                description: "Debuff Power +25%",
+                description: "Effect Power +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Rare
             )
@@ -683,9 +710,9 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isChain: true,
                 chainTimes: 1,
-                chainStatDecayPercent: 0.4f,
+                chainStatDecayPercent: 0.33f,
                 chainRange: 3f,
-                chainSpeed: 8f,
+                chainSpeed: 10f,
                 name: "Chain 1",
                 description: "Damage jumps to 1 more target",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
@@ -699,7 +726,7 @@ public static class AttackStatsLibrary
                 isChain: true,
                 chainTimes: 2,
                 chainStatDecayPercent: 0.2f,
-                chainRange: 3,
+                chainRange: 3.5f,
                 chainSpeed: 5f,
                 name: "Chain+ 1",
                 description: "Damage jumps to 2 more targets",
@@ -730,10 +757,38 @@ public static class AttackStatsLibrary
                 name: "Split+ 1",
                 description: "On hit, create a lesser attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
-                rarity: Rarity.Epic
+                rarity: Rarity.Rare
             )
         );
         ;
+
+        AddStat(
+            new AttackStats(
+                isSlow: true,
+                slowPercentage: 0.12f,
+                slowDuration: 1.5f,
+                name: "Slow Down 2",
+                description: "On hit, slow for 1.5s",
+                icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isMagnet: true,
+                magnetStrength: 2f,
+                magnetDuration: 0.75f,
+                name: "Magnetize 2",
+                description: "On hit, pull target(s) in",
+                icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+
 
 
         //epic
@@ -862,9 +917,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                rangeMultiplier: 0.4f,
+                rangeMultiplier: 0.3f,
                 name: "Reach 3",
-                description: "Projectile Range +40%",
+                description: "Projectile Range +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/Reach"),
                 rarity: Rarity.Epic
             )
@@ -1074,7 +1129,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectDuration: 1f,
                 name: "Hourglass 2",
-                description: "Debuff duration +1s",
+                description: "Effect duration +1s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Epic
             )
@@ -1085,7 +1140,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectMultiplier: 0.5f,
                 name: "Saboteur 2",
-                description: "Debuff Power +50%",
+                description: "Effect Power +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Epic
             )
@@ -1148,8 +1203,8 @@ public static class AttackStatsLibrary
                isChain: true,
                chainTimes: 2,
                chainStatDecayPercent: 0.25f,
-               chainRange: 3.25f,
-               chainSpeed: 11f,
+               chainRange: 3.5f,
+               chainSpeed: 14f,
                name: "Chain 2",
                description: "Damage jumps to 2 more targets",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
@@ -1163,8 +1218,8 @@ public static class AttackStatsLibrary
                 isChain: true,
                 chainTimes: 3,
                 chainStatDecayPercent: 0.1f,
-                chainRange: 3.5f,
-                chainSpeed: 6.5f,
+                chainRange: 4f,
+                chainSpeed: 7f,
                 name: "Chain+ 2",
                 description: "Damage jumps to 3 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
@@ -1198,6 +1253,45 @@ public static class AttackStatsLibrary
             )
         );
         ;
+
+        AddStat(
+           new AttackStats(
+               isSlow: true,
+               slowPercentage: 0.15f,
+               slowDuration: 2f,
+               name: "Slow Down 3",
+               description: "On hit, slow for 2s",
+               icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
+        AddStat(
+            new AttackStats(
+                isMagnet: true,
+                magnetStrength: 3f,
+                magnetDuration: 1f,
+                name: "Magnetize 3",
+                description: "On hit, pull target(s) in",
+                icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+           new AttackStats(
+               isStun: true,
+               stunDuration: 0.5f,
+               name: "Concussive 1",
+               description: "On hit, stun for 0.5s",
+               icon: Resources.Load<Sprite>("UI_Icons/Concussive"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
 
         //legendary
 
@@ -1392,7 +1486,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectDuration: 1.5f,
                 name: "Hourglass 3",
-                description: "Debuff duration +1.5s",
+                description: "Effect duration +1.5s",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Legendary
             )
@@ -1403,7 +1497,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectMultiplier: 0.8f,
                 name: "Saboteur 3",
-                description: "Debuff Power +80%",
+                description: "Effect Power +80%",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Legendary
             )
@@ -1464,9 +1558,9 @@ public static class AttackStatsLibrary
            new AttackStats(
                isChain: true,
                chainTimes: 3,
-               chainStatDecayPercent: 0.2f,
-               chainRange: 3.5f,
-               chainSpeed: 15f,
+               chainStatDecayPercent: 0.15f,
+               chainRange: 4f,
+               chainSpeed: 18f,
                name: "Chain 3",
                description: "Damage jumps to 3 more targets",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
@@ -1480,8 +1574,8 @@ public static class AttackStatsLibrary
                 isChain: true,
                 chainTimes: 5,
                 chainStatDecayPercent: 0.08f,
-                chainRange: 4f,
-                chainSpeed: 9f,
+                chainRange: 5f,
+                chainSpeed: 10f,
                 name: "Chain+ 3",
                 description: "Damage jumps to 5 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
@@ -1515,6 +1609,19 @@ public static class AttackStatsLibrary
             )
         );
         ;
+
+        AddStat(
+           new AttackStats(
+               isStun: true,
+               stunDuration: 1f,
+               name: "Concussive 2",
+               description: "On hit, stun for 1s",
+               icon: Resources.Load<Sprite>("UI_Icons/Concussive"),
+               rarity: Rarity.Legendary
+           )
+       );
+        ;
+
 
         //Weapon Sets
         //common

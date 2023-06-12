@@ -32,11 +32,13 @@ public class PlayerInventory : MonoBehaviour
 
     public void StartingInventory()
     {
-        AddWeapon(new Weapon("Consecrate", 0, false, 1));
-        AddWeapon(new Weapon("Earth Shock", 0, false, 1));
+        AddWeapon(new Weapon("Plasma Pistol", 0, false, 1));
+
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
 
         //AddWeapon(new Weapon("Fire Starter", 0, false, 1));
+        //AddWeapon(new Weapon("Consecrate", 0, false, 1));
+        //AddWeapon(new Weapon("Earth Shock", 0, false, 1));
 
         //AddWeapon(new Weapon("Impact Mine", 0, false, 1));
 

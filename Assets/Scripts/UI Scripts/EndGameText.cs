@@ -86,54 +86,44 @@ public class EndGameText : MonoBehaviour
             totalDmg += damage;
         }
 
-        if (totalDmg == 0)
+        // Remove the if (totalDmg == 0) condition
+        ScaleTextEffect(totalDamage, scaleAmount * 1.1f, defaultScaleDuration);
+        totalDamage.color = totalDmgColor;
+
+        if (totalDmg > 499999)
         {
-            ScaleTextEffect(totalDamage, scaleAmount, defaultScaleDuration);
-            totalDamage.text = "FINAL SCORE:\n" + totalDmg;
-            totalDamage.color = totalDmgColor;
+            incrementValueFast *= 15;
+        }
+        else if (totalDmg > 99999)
+        {
+            incrementValueFast *= 10;
+        }
+        else if (totalDmg > 49999)
+        {
+            incrementValueFast *= 5;
+        }
+        else if (totalDmg > 9999)
+        {
+            incrementValueFast *= 3;
+        }
+        else if (totalDmg > 999)
+        {
+            incrementValueFast *= 2;
         }
         else
         {
-            //float countDuration = (totalDmg / incrementValueFast) * 0.01f;
-            ScaleTextEffect(totalDamage, scaleAmount * 1.1f, defaultScaleDuration);
+            incrementValueFast *= 20;
+        }
 
-            totalDamage.color = totalDmgColor;
-
-            if (totalDmg > 499999)
+        while (currentTotalDmg < totalDmg)
+        {
+            currentTotalDmg += incrementValueFast;
+            if (currentTotalDmg > totalDmg)
             {
-                incrementValueFast *= 15;
+                currentTotalDmg = totalDmg;
             }
-            else if (totalDmg > 99999)
-            {
-                incrementValueFast *= 10;
-            }
-            else if (totalDmg > 49999)
-            {
-                incrementValueFast *= 5;
-            }
-            else if (totalDmg > 9999)
-            {
-                incrementValueFast *= 3;
-            }
-            else if (totalDmg > 999)
-            {
-                incrementValueFast *= 2;
-            }
-            else
-            {
-                incrementValueFast *= 20;
-            }
-
-            while (currentTotalDmg < totalDmg)
-            {
-                currentTotalDmg += incrementValueFast;
-                if (currentTotalDmg > totalDmg)
-                {
-                    currentTotalDmg = totalDmg;
-                }
-                totalDamage.text = "FINAL SCORE:\n" + currentTotalDmg;
-                yield return new WaitForSeconds(countUpSpeed);
-            }
+            totalDamage.text = "FINAL SCORE:\n" + currentTotalDmg;
+            yield return new WaitForSeconds(countUpSpeed);
         }
     }
 
