@@ -32,7 +32,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void StartingInventory()
     {
-        AddWeapon(new Weapon("Plasma Pistol", 0, false, 1));
+        AddWeapon(new Weapon("Petrify Nova", 0, false, 1));
 
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
 
