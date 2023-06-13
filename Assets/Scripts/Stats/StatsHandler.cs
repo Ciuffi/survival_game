@@ -188,7 +188,7 @@ public class StatsHandler : MonoBehaviour
             }
         }
 
-        GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed * (stats.speedMultiplier + 1), 0.030f); //change second value to be the default
+        GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed * (stats.speedMultiplier + 1), 1f); //change second value to be the default
 
         if (currentHealth > stats.maxHealth)
             currentHealth = stats.maxHealth;

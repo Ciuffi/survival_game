@@ -11,10 +11,10 @@ public class ConfirmationPopupController : MonoBehaviour
     public Button exitButton;
     public TextMeshProUGUI messageText;
 
-    public void Setup(UnityEvent onConfirm, UnityAction<GameObject> onClose, string message)
+    public void Setup(UnityEvent onConfirm, UnityAction<GameObject> onClose, string message, GameManager gm)
     {
         messageText.text = message;
-        confirmButton.onClick.AddListener(() => { onConfirm.Invoke(); onClose.Invoke(gameObject); });
+        confirmButton.onClick.AddListener(() => { onConfirm.Invoke(); onClose.Invoke(gameObject); gm.MenuReset(); });
         exitButton.onClick.AddListener(() => { onClose.Invoke(gameObject); });
     }
 }

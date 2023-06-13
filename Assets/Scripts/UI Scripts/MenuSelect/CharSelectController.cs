@@ -12,9 +12,12 @@ public class CharSelectController : MonoBehaviour
     public GameObject selectedImagePrefab;
     private GameObject selectedImage;
     public bool hasSelected;
+    PlayerDataManager playerData;
 
     void Start()
     {
+        playerData = FindObjectOfType<PlayerDataManager>();
+
         // Instantiate each prefab and add it as a child of the content object
         GameObject firstCharacter = null;
         foreach (GameObject prefab in PlayerCharactersLibrary.getCharacters())
@@ -23,6 +26,12 @@ public class CharSelectController : MonoBehaviour
             GameObject character = Instantiate(prefab, content.transform);
             StatComponent statComponent = character.AddComponent<StatComponent>();
             statComponent.stat = prefab.GetComponent<StatComponent>().stat;
+
+            // Check if the character is unlocked
+            if (playerData.unlockedCharactersNames.Contains(statComponent.stat.name))
+            {
+                statComponent.stat.isLocked = false;
+            }
             character.GetComponent<CharacterButton>().stats = statComponent.stat;
 
             string characterName = character.name.EndsWith("(Clone)")

@@ -111,7 +111,10 @@ public class GameManager : MonoBehaviour
         if (scene.buildIndex != 0)  
         {
             pauseMenu = GameObject.Find("PauseMenu");
-            pauseMenu.SetActive(false);
+            if (pauseMenu != null)
+            {
+                pauseMenu.SetActive(false);
+            }
         }
     }
 }

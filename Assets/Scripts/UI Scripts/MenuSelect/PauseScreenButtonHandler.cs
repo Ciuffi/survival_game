@@ -12,6 +12,9 @@ public class PauseScreenButtonHandler : MonoBehaviour, IPointerClickHandler
     public bool isRestart;
     public string popupMessage;
 
+    EventTrigger eventTrigger;
+    GameManager gameManager;
+
     private void Start()
     {
         if (isRestart)
@@ -20,6 +23,29 @@ public class PauseScreenButtonHandler : MonoBehaviour, IPointerClickHandler
         } else
         {
             popupMessage = "Exit to Menu?";
+        }
+
+        // Find the GameManager in the scene
+        gameManager = FindObjectOfType<GameManager>();
+
+        // Get the EventTrigger component from the button
+        eventTrigger = GetComponent<EventTrigger>();
+
+        if (gameManager != null && eventTrigger != null)
+        {
+            // Create a new trigger entry
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            // Set the event type
+            entry.eventID = EventTriggerType.PointerUp;
+            // Set the method to be called when the event triggers
+            entry.callback.AddListener((eventData) => { gameManager.MenuReset(); });
+
+            // Add the trigger entry to the event trigger
+            eventTrigger.triggers.Add(entry);
+        }
+        else
+        {
+            Debug.LogError("GameManager or EventTrigger not found!");
         }
     }
 
@@ -35,7 +61,7 @@ public class PauseScreenButtonHandler : MonoBehaviour, IPointerClickHandler
         popup.transform.SetParent(transform.root, false);
 
         ConfirmationPopupController popupController = popup.GetComponent<ConfirmationPopupController>();
-        popupController.Setup(onClickEvent, ClosePopup, popupMessage);
+        popupController.Setup(onClickEvent, ClosePopup, popupMessage, gameManager);
     }
 
     void ClosePopup(GameObject popup)

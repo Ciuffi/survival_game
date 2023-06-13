@@ -469,7 +469,7 @@ MonoBehaviour:
   currentLimit: 0
   enemyAmount: 0
   availableAmount: 0
-  spawner: {fileID: 0}
+  spawner: {fileID: 1458138793}
   currentGuilt: 0
 --- !u!4 &654484891
 Transform:

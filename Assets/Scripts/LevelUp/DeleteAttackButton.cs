@@ -10,12 +10,14 @@ public class DeleteAttackButton : MonoBehaviour, IPointerClickHandler
     public UnityEvent onClickEvent;
     public bool isRestart;
     public string popupMessage;
+    private GameManager gameManager; // Add this line
 
     // Start is called before the first frame update
     void Start()
     {
         popupMessage = "Delete Weapon?";
         onClickEvent.AddListener(RemoveAssociatedAttack);
+        gameManager = FindObjectOfType<GameManager>(); // Initialize it here
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -29,7 +31,7 @@ public class DeleteAttackButton : MonoBehaviour, IPointerClickHandler
         popup.transform.SetParent(transform.root, false);
 
         ConfirmationPopupController popupController = popup.GetComponent<ConfirmationPopupController>();
-        popupController.Setup(onClickEvent, ClosePopup, popupMessage);
+        popupController.Setup(onClickEvent, ClosePopup, popupMessage, gameManager);
     }
 
     void ClosePopup(GameObject popup)

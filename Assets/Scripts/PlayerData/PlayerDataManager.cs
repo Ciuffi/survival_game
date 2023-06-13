@@ -4,12 +4,14 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerDataManager : MonoBehaviour
 {
     public int gold;
-    public int unlockedCharacters; // This is an integer where each bit represents a character, e.g. 00000101 means characters 1 and 3 are unlocked
     public int unlockedStages; // This is an integer where each bit represents a stage, e.g. 00000011 means stages 1 and 2 are unlocked
+
+    public HashSet<string> unlockedCharactersNames = new HashSet<string>();
 
     private PlayerInventory playerInventory;
     public List<TextMeshProUGUI> goldDisplay;
@@ -64,7 +66,7 @@ public class PlayerDataManager : MonoBehaviour
                 continue;
             }
 
-            bool isUnlocked = (unlockedCharacters & (1 << i)) != 0;
+            bool isUnlocked = unlockedCharactersNames.Contains(character.name);
             character.isLocked = !isUnlocked;
         }
 
@@ -85,7 +87,10 @@ public class PlayerDataManager : MonoBehaviour
     public void SaveData()
     {
         PlayerPrefs.SetInt("Gold", gold);
-        PlayerPrefs.SetInt("UnlockedCharacters", unlockedCharacters);
+        // Convert unlockedCharactersNames to a string
+        string unlockedCharactersNamesString = string.Join(",", unlockedCharactersNames);
+        PlayerPrefs.SetString("UnlockedCharactersNames", unlockedCharactersNamesString);
+        
         PlayerPrefs.SetInt("UnlockedStages", unlockedStages);
         PlayerPrefs.Save();
     }
@@ -93,7 +98,10 @@ public class PlayerDataManager : MonoBehaviour
     private void LoadData()
     {
         gold = PlayerPrefs.GetInt("Gold", 0);
-        unlockedCharacters = PlayerPrefs.GetInt("UnlockedCharacters", 1);
+        // Load the string from PlayerPrefs and convert it back to a HashSet
+        string unlockedCharactersNamesString = PlayerPrefs.GetString("UnlockedCharactersNames", "");
+        unlockedCharactersNames = new HashSet<string>(unlockedCharactersNamesString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
+        
         unlockedStages = PlayerPrefs.GetInt("UnlockedStages", 1);
     }
 
@@ -111,15 +119,13 @@ public class PlayerDataManager : MonoBehaviour
         SaveData();
     }
 
-    public void UnlockCharacter(GameObject characterObject)
+    public void UnlockCharacter(GameObject character)
     {
-        PlayerCharacterStats character = characterObject.GetComponent<CharacterButton>().stats;
-
-        character.isLocked = false;
-
-        int characterIndex = charSelectController.characterPrefabs.IndexOf(characterObject);
-        unlockedCharacters |= (1 << characterIndex); // Set the bit corresponding to this character to 1
-
+        var characterStats = character.GetComponent<CharacterButton>().GetStats();
+        if (characterStats != null)
+        {
+            unlockedCharactersNames.Add(characterStats.name);
+        }
         SaveData();
     }
 
@@ -149,8 +155,8 @@ public class PlayerDataManager : MonoBehaviour
     public void ResetData()
     {
         PlayerPrefs.DeleteKey("Gold");
-        PlayerPrefs.DeleteKey("UnlockedCharacters");
         PlayerPrefs.DeleteKey("UnlockedStages");
+        PlayerPrefs.DeleteKey("UnlockedCharactersNames");
 
         CharacterButton[] characters = FindObjectsOfType<CharacterButton>();
 
@@ -175,7 +181,7 @@ public class PlayerDataManager : MonoBehaviour
         }
 
         gold = 300;
-        unlockedCharacters = 1;
+        unlockedCharactersNames.Clear();
         unlockedStages = 1;
 
         SaveData();

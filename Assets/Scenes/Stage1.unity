@@ -1296,6 +1296,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2052080985, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: baseReroll
+      value: 1111
+      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SkipBtn
       value: 
@@ -1336,6 +1340,18 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1465128669}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: playerStatChance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: weaponStatChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
+      propertyPath: weaponSetStatChance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
       value: 
@@ -2433,14 +2449,6 @@ PrefabInstance:
       propertyPath: onClickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 142728913}
-    - target: {fileID: 1098140728267500798, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -330
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098140728267500798, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 33
-      objectReference: {fileID: 0}
     - target: {fileID: 1098140728325287417, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2557,10 +2565,6 @@ PrefabInstance:
       propertyPath: LevelUp
       value: 
       objectReference: {fileID: 2052080981}
-    - target: {fileID: 1098140729213561802, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1098140729213561806, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: onClickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

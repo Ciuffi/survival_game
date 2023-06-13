@@ -92,7 +92,7 @@ public static class PlayerCharactersLibrary
            maxHealth: 30,
            health: 30,
            defense: 0,
-           speed: 1.5f,
+           speed: 1.3f,
            pickupRange: 3f,
            aimRangeAdditive: 0
 
@@ -112,7 +112,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 50,
             health: 50,
             defense: 0,
-            speed: 0.02f,
+            speed: 0.55f,
             pickupRange: 2.5f,
 
            damageMultiplier: 0.5f,
@@ -134,7 +134,7 @@ public static class PlayerCharactersLibrary
            maxHealth: 40,
            health: 40,
            defense: 0,
-           speed: 0.9f,
+           speed: 0.75f,
            pickupRange: 2.5f,
            aimRangeAdditive: 0,
 
@@ -145,6 +145,7 @@ public static class PlayerCharactersLibrary
         DemoMan.name = DemoManStats.name;
         DemoMan.AddComponent<StatComponent>().stat = DemoManStats;
         AddCharacter(DemoMan);
+
 
         GameObject Brawler = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
         PlayerCharacterStats BrawlerStats = new PlayerCharacterStats(
@@ -157,7 +158,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 45,
             health: 45,
             defense: 0,
-            speed: 1f,
+            speed: 0.9f,
             pickupRange: 2f,
             aimRangeAdditive: 0,
 
@@ -167,6 +168,7 @@ public static class PlayerCharactersLibrary
 
         Brawler.AddComponent<StatComponent>().stat = BrawlerStats;
         AddCharacter(Brawler);
+
 
 
         GameObject Alchemist = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
@@ -190,6 +192,8 @@ public static class PlayerCharactersLibrary
 
         Alchemist.AddComponent<StatComponent>().stat = AlchemistStats;
         AddCharacter(Alchemist);
+
+
 
         GameObject SpaceMarine = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
         PlayerCharacterStats SpaceMarineStats = new PlayerCharacterStats(
@@ -238,6 +242,7 @@ public static class PlayerCharactersLibrary
         AddCharacter(Monk);
 
 
+
         GameObject Fractured = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
         PlayerCharacterStats FracturedStats = new PlayerCharacterStats(
             name: "Fractured",
@@ -245,11 +250,11 @@ public static class PlayerCharactersLibrary
             icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/7"),
             rarity: Rarity.Epic,
             price: 1200,
-            isLocked: false,
+            isLocked: true,
             maxHealth: 30,
             health: 30,
             defense: 0,
-            speed: 1.1f,
+            speed: 0.7f,
             pickupRange: 2f,
 
             multicastChance: 0.5f
@@ -271,7 +276,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 40,
             health: 40,
             defense: 0,
-            speed: 1f,
+            speed: 0.8f,
             pickupRange: 2f,
 
             shootOpposideSide: true
