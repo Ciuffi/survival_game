@@ -116,6 +116,8 @@ MonoBehaviour:
   spawnTimer: 0.5
   isFlyby: 1
   flybyDistance: 20
+  isObstacle: 0
+  obstacleLifetime: 0
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 0}
@@ -215,7 +217,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 2.5
+  maxSpeed: 2.1
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

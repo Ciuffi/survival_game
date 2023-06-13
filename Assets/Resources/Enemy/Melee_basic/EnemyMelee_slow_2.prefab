@@ -117,6 +117,8 @@ MonoBehaviour:
   spawnTimer: 0.5
   isFlyby: 0
   flybyDistance: 15
+  isObstacle: 0
+  obstacleLifetime: 0
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
@@ -124,6 +126,7 @@ MonoBehaviour:
   xpSizeScaling: 0.3
   destroyDistance: 12
   dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
+  isGamePaused: 0
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -215,7 +218,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 0.38
+  maxSpeed: 0.4
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

@@ -76,6 +76,10 @@ public class MaxEnemyTracker : MonoBehaviour
             case 5:
                 currentLimit = enemyLimit[5];
                 break;
+            case 6:
+                currentLimit = enemyLimit[6];
+                break;
+
         }
     }
 }

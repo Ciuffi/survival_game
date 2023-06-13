@@ -128,6 +128,8 @@ MonoBehaviour:
   spawnTimer: 0.5
   isFlyby: 0
   flybyDistance: 15
+  isObstacle: 0
+  obstacleLifetime: 0
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
@@ -135,6 +137,7 @@ MonoBehaviour:
   xpSizeScaling: 0.3
   destroyDistance: 30
   dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
+  isGamePaused: 0
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -383,7 +386,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
@@ -519,7 +522,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -662902435344139210, guid: d86a3de7b11430248b0bcbeea8956f12, type: 3}
   m_Color: {r: 0.6117647, g: 0, b: 0.7254902, a: 1}
@@ -639,7 +642,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -662902435344139210, guid: d86a3de7b11430248b0bcbeea8956f12, type: 3}
   m_Color: {r: 1, g: 0.9575472, b: 0.9986733, a: 1}

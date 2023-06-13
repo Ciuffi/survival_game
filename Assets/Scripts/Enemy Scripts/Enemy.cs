@@ -131,6 +131,10 @@ public class Enemy : MonoBehaviour, Attacker
     private Vector3 endPosition;
     public float flybyDistance = 15f; // distance to move from starting position
 
+    public bool isObstacle;
+    public float obstacleLifetime;
+    private float obstacleTimer;
+
     private Vector3 magnetTarget;
     private float magnetStrength;
     private float magnetDuration;
@@ -337,6 +341,16 @@ public class Enemy : MonoBehaviour, Attacker
     void Update()
     {
         CheckDistanceToPlayer();
+
+        if (isObstacle)
+        {
+            obstacleTimer += Time.deltaTime;
+
+            if (obstacleTimer >= obstacleLifetime) {
+                xpAmount = 0;
+                health = 0; 
+            }
+        }
 
         if (isSpawn)
         {
@@ -1114,4 +1128,6 @@ public class Enemy : MonoBehaviour, Attacker
     {
         return transform;
     }
+
+
 }

@@ -1,5 +1,71 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &471850000414088910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2668674356725275873}
+  - component: {fileID: 5290986885487603207}
+  m_Layer: 0
+  m_Name: ConstantSpawner_Circle_Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2668674356725275873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471850000414088910}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.028363952, z: 0}
+  m_LocalScale: {x: 2.79089, y: -1.2777799, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3103800210338332545}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5290986885487603207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471850000414088910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2173fc19cd9964080aa34817ab1d0075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1423453834646843868, guid: 6263bb017d8e13a41ae15c90ac4fd502, type: 3}
+  isEliteSpawner: 0
+  alwaysSpawn: 1
+  isCircleSpawn: 1
+  isClumpSpawn: 0
+  diameter: 13
+  initialDelay: 0
+  spawnTimer: 60
+  spawnRate: 32
+  spawnRateLimit_G0: 32
+  spawnRateLimit_G1: 32
+  spawnRateLimit_G2: 32
+  spawnRateLimit_G3: 32
+  spawnRateLimit_G4: 32
+  spawnRateLimit_G5: 32
+  spawnRateLimit_G6: 32
+  scaleRateSeconds: 100
+  spawnRateScaling: 0
+  elapsedTime: 0
+  basicSpawner: {fileID: 3590323111623112659}
+  healthScalingList: []
 --- !u!1 &2267821650962416045
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,21 +112,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: 9534f73f2bc6d2f479f26e771f35a4c2, type: 3}
-  diameter: 16
-  initialDelay: 33
-  spawnTimer: 10
+  isEliteSpawner: 0
+  alwaysSpawn: 0
+  isCircleSpawn: 1
+  isClumpSpawn: 0
+  diameter: 15
+  initialDelay: 0
+  spawnTimer: 6
   spawnRate: 4
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
-  spawnRateLimit_G2: 4
-  spawnRateLimit_G3: 6
-  spawnRateLimit_G4: 10
-  spawnRateLimit_G5: 12
-  spawnRateLimit_G6: 16
+  spawnRateLimit_G2: 6
+  spawnRateLimit_G3: 10
+  spawnRateLimit_G4: 16
+  spawnRateLimit_G5: 20
+  spawnRateLimit_G6: 20
   scaleRateSeconds: 10
   spawnRateScaling: 4
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  healthScalingList: []
 --- !u!1 &3590323111623112659
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,9 +169,10 @@ Transform:
   - {fileID: 7225228742065929914}
   - {fileID: 5166308137017737836}
   - {fileID: 5569694836232097062}
+  - {fileID: 5105516774206070542}
   - {fileID: 4708802364272801579}
   - {fileID: 1559126801157746373}
-  - {fileID: 5105516774206070542}
+  - {fileID: 2668674356725275873}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,10 +243,17 @@ MonoBehaviour:
   isSpawning: 0
   player: {fileID: 0}
   currentGuilt: 0
-  healthScaling: 0.3
-  damageScaling: 0.003
-  weightScaling: 0.003
-  xpScaling: 0.5
+  healthScalingList:
+  - 0
+  - 0.2
+  - 0.25
+  - 0.3
+  - 0.4
+  - 0.5
+  - 0.5
+  damageScaling: 0.1
+  weightScaling: 0.1
+  xpScaling: 0.55
   stageHealthScaling: 0
   stageDamageScaling: 0
   stageWeightScaling: 0
@@ -182,6 +261,9 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   uiCamera: {fileID: 0}
   comboManager: {fileID: 0}
+  bossPrefab: {fileID: 1423453834646843868, guid: 9514c5350b7eeed47813dea2044f8014, type: 3}
+  bossDirection360: 0
+  bossDistance: 1
 --- !u!61 &1552293673573798405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,7 +317,7 @@ GameObject:
   - component: {fileID: 1559126801157746373}
   - component: {fileID: 3425260914488843242}
   m_Layer: 0
-  m_Name: ConstantSpawner_Circle_Rare
+  m_Name: ConstantSpawner_Clump_Rare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +336,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3103800210338332545}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3425260914488843242
 MonoBehaviour:
@@ -269,22 +351,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: 558ef957fad818245b932140cf2dd553, type: 3}
-  diameter: 16
-  initialDelay: 105
+  - {fileID: 1423453834646843868, guid: 25f3ff65bfdfc9a469ce25ee755bf618, type: 3}
+  isEliteSpawner: 0
+  alwaysSpawn: 0
+  isCircleSpawn: 0
+  isClumpSpawn: 1
+  diameter: 15
+  initialDelay: 0
   spawnTimer: 15
-  spawnRate: 2
+  spawnRate: 4
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
   spawnRateLimit_G2: 0
-  spawnRateLimit_G3: 2
-  spawnRateLimit_G4: 4
-  spawnRateLimit_G5: 10
+  spawnRateLimit_G3: 6
+  spawnRateLimit_G4: 10
+  spawnRateLimit_G5: 12
   spawnRateLimit_G6: 12
-  scaleRateSeconds: 24
+  scaleRateSeconds: 15
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  healthScalingList: []
 --- !u!1 &4508033489353577495
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,9 +417,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: 6349e5fb12c6ddf4abc375fe7b730287, type: 3}
   - {fileID: 1423453834646843868, guid: 192c54fe29a9c3c4ba51991f31c521f2, type: 3}
   - {fileID: 1423453834646843868, guid: 90802e0d6d82bfa40adbcd872a507abb, type: 3}
+  - {fileID: 1423453834646843868, guid: 192c54fe29a9c3c4ba51991f31c521f2, type: 3}
+  - {fileID: 1423453834646843868, guid: 90802e0d6d82bfa40adbcd872a507abb, type: 3}
+  - {fileID: 1423453834646843868, guid: 6349e5fb12c6ddf4abc375fe7b730287, type: 3}
+  isEliteSpawner: 1
+  alwaysSpawn: 1
+  isCircleSpawn: 0
+  isClumpSpawn: 0
   diameter: 16
   initialDelay: 60
   spawnTimer: 60
@@ -342,12 +435,13 @@ MonoBehaviour:
   spawnRateLimit_G2: 1
   spawnRateLimit_G3: 1
   spawnRateLimit_G4: 1
-  spawnRateLimit_G5: 2
+  spawnRateLimit_G5: 1
   spawnRateLimit_G6: 0
   scaleRateSeconds: 60
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  healthScalingList: []
 --- !u!1 &6869813565750737804
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,22 +488,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: 558ef957fad818245b932140cf2dd553, type: 3}
-  - {fileID: 1423453834646843868, guid: 19057dc3c55ed664d822ca9bff185af3, type: 3}
+  - {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+  isEliteSpawner: 0
+  alwaysSpawn: 0
+  isCircleSpawn: 0
+  isClumpSpawn: 0
   diameter: 16
-  initialDelay: 45
+  initialDelay: 30
   spawnTimer: 15
   spawnRate: 1
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 0
-  spawnRateLimit_G2: 1
-  spawnRateLimit_G3: 2
-  spawnRateLimit_G4: 3
+  spawnRateLimit_G1: 1
+  spawnRateLimit_G2: 2
+  spawnRateLimit_G3: 3
+  spawnRateLimit_G4: 4
   spawnRateLimit_G5: 5
   spawnRateLimit_G6: 5
   scaleRateSeconds: 15
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  healthScalingList: []
 --- !u!1 &6884074055211575582
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +520,7 @@ GameObject:
   - component: {fileID: 4708802364272801579}
   - component: {fileID: 6469275836928157862}
   m_Layer: 0
-  m_Name: ConstantSpawner_Circle_Uncommon
+  m_Name: ConstantSpawner_Clump_Basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +539,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3103800210338332545}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6469275836928157862
 MonoBehaviour:
@@ -456,21 +555,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: da9efb1b854dfe745af4c4561d7df9ed, type: 3}
-  diameter: 15
+  isEliteSpawner: 0
+  alwaysSpawn: 0
+  isCircleSpawn: 0
+  isClumpSpawn: 1
+  diameter: 16
   initialDelay: 0
-  spawnTimer: 12
-  spawnRate: 4
+  spawnTimer: 10
+  spawnRate: 6
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
   spawnRateLimit_G2: 0
   spawnRateLimit_G3: 10
-  spawnRateLimit_G4: 12
+  spawnRateLimit_G4: 14
   spawnRateLimit_G5: 16
-  spawnRateLimit_G6: 12
-  scaleRateSeconds: 12
+  spawnRateLimit_G6: 16
+  scaleRateSeconds: 10
   spawnRateScaling: 4
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  healthScalingList: []
 --- !u!1 &7402554872140478952
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,21 +621,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: df38c6492d2f8e14ab33ca7a5a45db72, type: 3}
-  diameter: 15
+  isEliteSpawner: 0
+  alwaysSpawn: 0
+  isCircleSpawn: 0
+  isClumpSpawn: 0
+  diameter: 14
   initialDelay: 0
   spawnTimer: 2
-  spawnRate: 4
-  spawnRateLimit_G0: 10
-  spawnRateLimit_G1: 12
-  spawnRateLimit_G2: 16
-  spawnRateLimit_G3: 6
-  spawnRateLimit_G4: 0
-  spawnRateLimit_G5: 0
-  spawnRateLimit_G6: 0
-  scaleRateSeconds: 20
+  spawnRate: 6
+  spawnRateLimit_G0: 8
+  spawnRateLimit_G1: 10
+  spawnRateLimit_G2: 12
+  spawnRateLimit_G3: 14
+  spawnRateLimit_G4: 16
+  spawnRateLimit_G5: 16
+  spawnRateLimit_G6: 16
+  scaleRateSeconds: 10
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  healthScalingList: []
 --- !u!1 &7710190321212061916
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +652,7 @@ GameObject:
   - component: {fileID: 5105516774206070542}
   - component: {fileID: 5943591504085994352}
   m_Layer: 0
-  m_Name: ConstantSpawner_Circle_Rare_1
+  m_Name: ConstantSpawner_Circle_Rare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,7 +671,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3103800210338332545}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5943591504085994352
 MonoBehaviour:
@@ -578,21 +687,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: 2b60050c318efa24385bf6be1d8da3c5, type: 3}
-  diameter: 18
-  initialDelay: 180
+  isEliteSpawner: 0
+  alwaysSpawn: 0
+  isCircleSpawn: 1
+  isClumpSpawn: 0
+  diameter: 17
+  initialDelay: 0
   spawnTimer: 20
   spawnRate: 0
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
   spawnRateLimit_G2: 0
   spawnRateLimit_G3: 0
-  spawnRateLimit_G4: 4
-  spawnRateLimit_G5: 10
+  spawnRateLimit_G4: 6
+  spawnRateLimit_G5: 12
   spawnRateLimit_G6: 12
   scaleRateSeconds: 20
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  healthScalingList: []
 --- !u!1 &8760006987686430828
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,18 +753,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1423453834646843868, guid: c2f52e19ec35e2146ae75fec9608576a, type: 3}
+  isEliteSpawner: 0
+  alwaysSpawn: 0
+  isCircleSpawn: 0
+  isClumpSpawn: 0
   diameter: 15
   initialDelay: 0
   spawnTimer: 5
   spawnRate: 2
-  spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 4
-  spawnRateLimit_G2: 6
-  spawnRateLimit_G3: 8
-  spawnRateLimit_G4: 10
-  spawnRateLimit_G5: 12
-  spawnRateLimit_G6: 0
+  spawnRateLimit_G0: 4
+  spawnRateLimit_G1: 8
+  spawnRateLimit_G2: 10
+  spawnRateLimit_G3: 12
+  spawnRateLimit_G4: 14
+  spawnRateLimit_G5: 14
+  spawnRateLimit_G6: 14
   scaleRateSeconds: 15
-  spawnRateScaling: 4
+  spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
+  healthScalingList: []

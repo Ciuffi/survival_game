@@ -117,6 +117,8 @@ MonoBehaviour:
   spawnTimer: 0.5
   isFlyby: 0
   flybyDistance: 15
+  isObstacle: 0
+  obstacleLifetime: 0
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
@@ -124,6 +126,7 @@ MonoBehaviour:
   xpSizeScaling: 0.3
   destroyDistance: 30
   dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
+  isGamePaused: 0
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -215,7 +218,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 1.8
+  maxSpeed: 1.6
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -356,7 +359,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
@@ -492,7 +495,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136704945
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -3301723577448011057, guid: 9f2959c7bbb6ab7439ed347a718c1709, type: 3}
   m_Color: {r: 1, g: 0.9575472, b: 0.9986733, a: 1}

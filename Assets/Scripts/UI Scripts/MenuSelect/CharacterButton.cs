@@ -205,7 +205,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         string statsString = "";
 
         statsString += "Health " + stats.health + "\n";
-        statsString += "Speed " + (stats.speed * 100) + "\n";
+        statsString += "Speed " + stats.speed + "\n";
 
         // Check each stat and add it to the string if it meets the criteria
 

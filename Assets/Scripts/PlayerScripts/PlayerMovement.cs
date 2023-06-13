@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
     private float speed;
     private float speedMultiplier;
     public Vector2 lastInputDirection { get; private set; }
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +37,16 @@ public class PlayerMovement : MonoBehaviour, Attacker
         oldSpeed = 0;
         localSpeed = 0;
         afterimageRend = afterimage.GetComponent<SpriteRenderer>();
-    }
+        rb = GetComponent<Rigidbody2D>();
+    }   
 
     void Move()
     {
         if (VJ.InputDirection.magnitude == 0)
         {
             afterimageRend.enabled = false;
-            lastInputDirection = Vector2.zero; // Joystick is not being used
+            //lastInputDirection = Vector2.zero; // Joystick is not being used
+            rb.velocity = Vector2.zero; // Setting the velocity to zero
             return;
         }
 
@@ -55,17 +58,15 @@ public class PlayerMovement : MonoBehaviour, Attacker
 
         float InputY = VJ.InputDirection.y * 100;
         float InputX = VJ.InputDirection.x * 100;
-        float TransformY = transform.position.y;
-        float TransformX = transform.position.x;
+
         float y = Mathf.Abs(InputY) > DeadZonePercentage ? InputY / 100 : 0;
 
         float x = Mathf.Abs(InputX) > DeadZonePercentage ? InputX / 100 : 0;
 
-        transform.position = new Vector3(
-            TransformX + x * localSpeed,
-            TransformY + y * localSpeed,
-            0
-        );
+        Vector2 move = new Vector2(x * localSpeed, y * localSpeed);
+        Vector2 targetPos = rb.position + move * Time.fixedDeltaTime;
+        rb.MovePosition(targetPos);
+
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, VJ.InputAngle));
         direction = VJ.InputDirection;
     }
@@ -82,7 +83,7 @@ public class PlayerMovement : MonoBehaviour, Attacker
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         speed = GetComponent<StatsHandler>().stats.speed;
         speedMultiplier = GetComponent<StatsHandler>().stats.speedMultiplier + 1;

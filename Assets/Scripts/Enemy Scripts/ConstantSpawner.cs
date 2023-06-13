@@ -6,8 +6,12 @@ public class ConstantSpawner : MonoBehaviour
 {
     // Public variables that can be adjusted in the inspector
     public List<GameObject> enemies;
+    public bool isEliteSpawner = false;
+    private int eliteEnemyIndex = 0; // Index of the enemy to spawn
 
+    public bool alwaysSpawn;
     public bool isCircleSpawn;
+    public bool isClumpSpawn;
     public float diameter = 10f;
     public float initialDelay;
     public float spawnTimer = 0f;
@@ -142,21 +146,26 @@ public class ConstantSpawner : MonoBehaviour
         weightScaling = basicSpawner.GetComponent<BasicSpawner>().weightScaling;
         damageScaling = basicSpawner.GetComponent<BasicSpawner>().damageScaling;
         xpScaling = basicSpawner.GetComponent<BasicSpawner>().xpScaling;
-
-
     }
 
 
     private void QueueSpawn()
     {
-        if (spawnRate <= availableEnemyAmount)
+        if (alwaysSpawn)
         {
             SpawnEnemies();
-            maxEnemiesTracker.GetComponent<MaxEnemyTracker>().IncreaseCount(spawnRate);
         }
         else
         {
-            maxEnemiesTracker.GetComponent<MaxEnemyTracker>().spawnerQueue.Enqueue(this);
+            if (spawnRate <= availableEnemyAmount)
+            {
+                SpawnEnemies();
+                maxEnemiesTracker.GetComponent<MaxEnemyTracker>().IncreaseCount(spawnRate);
+            }
+            else
+            {
+                maxEnemiesTracker.GetComponent<MaxEnemyTracker>().spawnerQueue.Enqueue(this);
+            }
         }
     }
 
@@ -165,7 +174,20 @@ public class ConstantSpawner : MonoBehaviour
     public void SpawnEnemies () {
 
         // Pick a random enemy prefab from the list
-        GameObject enemyPrefab = enemies[Random.Range(0, enemies.Count)];
+        GameObject enemyPrefab;
+        if (isEliteSpawner)
+        {
+            // Choose the next enemy in the list instead of picking randomly.
+            enemyPrefab = enemies[eliteEnemyIndex];
+            eliteEnemyIndex++;
+            if (eliteEnemyIndex >= enemies.Count)
+                eliteEnemyIndex = enemies.Count - 1;
+        }
+        else
+        {
+            // Pick a random enemy prefab from the list
+            enemyPrefab = enemies[Random.Range(0, enemies.Count)];
+        }
 
         float cumulativeHealthScaling = 1.0f;
         for (int j = 0; j < (currentGuilt + 1) && j < healthScalingList.Count; j++)
@@ -199,15 +221,14 @@ public class ConstantSpawner : MonoBehaviour
 
                     // Instantiate the enemy at the spawn position
                     GameObject newEnemy = Instantiate(enemyPrefab, spawnCenter + enemyPosition, Quaternion.identity);
-
-                    if (newEnemy != null && newEnemy.tag == "Enemy")
+                    Enemy enemy = newEnemy.GetComponent<Enemy>();
+                    if (enemy != null)
                     {
-
-                        newEnemy.GetComponent<Enemy>().health *= (cumulativeHealthScaling) + stageHealthScaling;
-                        newEnemy.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
-                        newEnemy.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
-                        newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
-                        newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                        enemy.health *= (cumulativeHealthScaling) + stageHealthScaling;
+                        enemy.projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                        enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                        enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+                        enemy.xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
                     }
 
                 }
@@ -217,16 +238,36 @@ public class ConstantSpawner : MonoBehaviour
                 // Spawn a single enemy at a random position on the edge of the circle
                 Vector2 spawnPosition = Random.insideUnitCircle.normalized * diameter / 2f;
                 GameObject newEnemy = Instantiate(enemyPrefab, (Vector2)transform.position + spawnPosition, Quaternion.identity);
-                if (newEnemy != null && newEnemy.tag == "Enemy")
+                Enemy enemy = newEnemy.GetComponent<Enemy>();
+                if (enemy != null)
                 {
-                    newEnemy.GetComponent<Enemy>().health *= (cumulativeHealthScaling) + stageHealthScaling;
-                    newEnemy.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
-                    newEnemy.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
-                    newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
-                    newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                    enemy.health *= (cumulativeHealthScaling) + stageHealthScaling;
+                    enemy.projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+                    enemy.xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
                 }
             }
-        } else
+        }
+        else if (isClumpSpawn)
+        {
+            Vector2 clumpCenter = Random.insideUnitCircle.normalized * diameter / 2f;
+
+            for (int i = 0; i < spawnRate; i++)
+            {
+                GameObject newEnemy = Instantiate(enemyPrefab, clumpCenter, Quaternion.identity);
+                Enemy enemy = newEnemy.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    enemy.health *= (cumulativeHealthScaling) + stageHealthScaling;
+                    enemy.projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+                    enemy.xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                }
+            }
+        }
+        else //random spawning
         {
             for (int i = 0; i < spawnRate; i++)
             {
@@ -242,14 +283,14 @@ public class ConstantSpawner : MonoBehaviour
 
                 // Instantiate the enemy at the spawn position
                 GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-
-                if (newEnemy != null && newEnemy.tag == "Enemy")
+                Enemy enemy = newEnemy.GetComponent<Enemy>();
+                if (enemy != null)
                 {
-                    newEnemy.GetComponent<Enemy>().health *= (cumulativeHealthScaling) + stageHealthScaling;
-                    newEnemy.GetComponent<Enemy>().projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
-                    newEnemy.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
-                    newEnemy.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
-                    newEnemy.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                    enemy.health *= (cumulativeHealthScaling) + stageHealthScaling;
+                    enemy.projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+                    enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+                    enemy.xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
                 }
             }
 

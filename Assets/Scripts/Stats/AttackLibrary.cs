@@ -385,7 +385,7 @@ public static class AttackLibrary
             .SetDescription("2 shots to the dome.")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.6f,
+                    aimRange: 1.75f,
                     is360: false,
                     coneAngle: 50,
                     damage: 9,
@@ -1190,7 +1190,7 @@ public static class AttackLibrary
             .SetDescription("Violence is the answer.")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 1.6f,
                     is360: false,
                     coneAngle: 65f,
                     damage: 12,
@@ -1307,9 +1307,9 @@ public static class AttackLibrary
             .SetDescription("Explode on impact.")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.6f,
+                    aimRange: 2f,
                     is360: false,
-                    coneAngle: 20f,
+                    coneAngle: 30f,
                     damage: 10,
                     spread: 1f,
                     spray: 0f,
@@ -1927,9 +1927,9 @@ public static class AttackLibrary
             .SetDescription("Freeze targets in place.")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 2f,
                     is360: false,
-                    coneAngle: 30f,
+                    coneAngle: 35f,
                     damage: 3,
                     shotgunSpread: 65f,
                     spray: 0,
@@ -2050,7 +2050,7 @@ public static class AttackLibrary
             .SetDescription("Freeze!")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1f,
+                    aimRange: 1.25f,
                     is360: true,
                     damage: 3,
                     spread: 0.4f,
@@ -2548,7 +2548,7 @@ public static class AttackLibrary
             .SetDescription("Dattebayo!")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.6f,
+                    aimRange: 1.7f,
                     is360: false,
                     coneAngle: 60f,
                     damage: 3,
@@ -2795,7 +2795,7 @@ public static class AttackLibrary
             .SetDescription("Hotbox the world.")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 1.8f,
                     is360: true,
                     damage: 2,
                     shotgunSpread: 50f,
@@ -3296,7 +3296,7 @@ public static class AttackLibrary
             .SetDescription("GET OVER HERE!")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1f,
+                    aimRange: 1.25f,
                     is360: true,
                     damage: 3,
                     spread: 0.35f,
