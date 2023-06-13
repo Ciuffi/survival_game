@@ -12,6 +12,7 @@ public class PlayerDataManager : MonoBehaviour
     public int unlockedStages; // This is an integer where each bit represents a stage, e.g. 00000011 means stages 1 and 2 are unlocked
 
     public HashSet<string> unlockedCharactersNames = new HashSet<string>();
+    public HashSet<string> purchasedUpgrades = new HashSet<string>();
 
     private PlayerInventory playerInventory;
     public List<TextMeshProUGUI> goldDisplay;
@@ -90,7 +91,9 @@ public class PlayerDataManager : MonoBehaviour
         // Convert unlockedCharactersNames to a string
         string unlockedCharactersNamesString = string.Join(",", unlockedCharactersNames);
         PlayerPrefs.SetString("UnlockedCharactersNames", unlockedCharactersNamesString);
-        
+        // Save purchasedUpgrades
+        string purchasedUpgradesString = string.Join(",", purchasedUpgrades);
+        PlayerPrefs.SetString("PurchasedUpgrades", purchasedUpgradesString);
         PlayerPrefs.SetInt("UnlockedStages", unlockedStages);
         PlayerPrefs.Save();
     }
@@ -101,8 +104,25 @@ public class PlayerDataManager : MonoBehaviour
         // Load the string from PlayerPrefs and convert it back to a HashSet
         string unlockedCharactersNamesString = PlayerPrefs.GetString("UnlockedCharactersNames", "");
         unlockedCharactersNames = new HashSet<string>(unlockedCharactersNamesString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
-        
+
+        // Load purchasedUpgrades
+        string purchasedUpgradesString = PlayerPrefs.GetString("PurchasedUpgrades", "");
+        purchasedUpgrades = new HashSet<string>(purchasedUpgradesString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
+
         unlockedStages = PlayerPrefs.GetInt("UnlockedStages", 1);
+    }
+
+
+    public bool PurchaseUpgrade(string upgradeName, int price)
+    {
+        if (gold >= price)
+        {
+            gold -= price;
+            purchasedUpgrades.Add(upgradeName);
+            SaveData();
+            return true;
+        }
+        return false;
     }
 
     public void IncrementGold()

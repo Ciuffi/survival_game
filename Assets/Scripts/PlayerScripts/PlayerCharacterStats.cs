@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerCharacterStats : Upgrade
@@ -10,6 +11,7 @@ public class PlayerCharacterStats : Upgrade
     public string name;
     public bool isLocked;
     public int price;
+    public int level;
 
     // Base stats
     public float maxHealth,
@@ -144,6 +146,7 @@ public class PlayerCharacterStats : Upgrade
     public PlayerCharacterStats(
         bool isLocked = false,
         int price = 0,
+        int level = 0,
         float maxHealth = 0,
         float health = 0,
         float speed = 0f,
@@ -220,6 +223,7 @@ public class PlayerCharacterStats : Upgrade
         this.description = description;
         this.price = price;
         this.isLocked = isLocked;
+        this.level = level;
         this.icon = icon == null ? Resources.Load<Sprite>("UI_Icons/DMG_up") : icon;
     }
 
@@ -256,5 +260,12 @@ public class PlayerCharacterStats : Upgrade
     public void setContainer(GameObject container)
     {
         statsContainer = container;
+    }
+
+    public string GetBaseName()
+    {
+        // Split by space and remove the last part (which is assumed to be the level)
+        var splitName = name.Split(' ');
+        return string.Join(" ", splitName.Take(splitName.Length - 1));
     }
 }

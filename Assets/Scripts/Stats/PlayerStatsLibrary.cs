@@ -117,7 +117,7 @@ public static class PlayerStatsLibrary
         //defense
         AddStat(
             new PlayerCharacterStats(
-                defense: 0.5f,
+                defense: 0.15f,
                 name: "Protection 1",
                 description: "Reduce damage taken",
                 icon: Resources.Load<Sprite>("UI_Icons/Protection"),
@@ -241,7 +241,7 @@ public static class PlayerStatsLibrary
         //defense
         AddStat(
             new PlayerCharacterStats(
-                defense: 1,
+                defense: 0.3f,
                 name: "Protection 2",
                 description: "Reduce Damage taken",
                 icon: Resources.Load<Sprite>("UI_Icons/Protection"),
