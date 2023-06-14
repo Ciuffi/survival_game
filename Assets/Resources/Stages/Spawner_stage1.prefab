@@ -627,7 +627,7 @@ MonoBehaviour:
   isClumpSpawn: 0
   diameter: 14
   initialDelay: 0
-  spawnTimer: 2
+  spawnTimer: 3
   spawnRate: 6
   spawnRateLimit_G0: 8
   spawnRateLimit_G1: 10

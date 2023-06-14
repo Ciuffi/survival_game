@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class DeathTransition : MonoBehaviour
 {
+    public static DeathTransition Instance;
     public Image transitionMask;
     public float delayBeforeStart = 0.5f;
     public float transitionDuration = 2.0f;
@@ -14,6 +15,18 @@ public class DeathTransition : MonoBehaviour
     public GameObject gameManager;
 
     private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);  // This prevents the object from being destroyed between scenes
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void Start()
     {
         gameObject.SetActive(false);
     }

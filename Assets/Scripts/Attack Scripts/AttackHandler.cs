@@ -35,6 +35,8 @@ public class AttackHandler : MonoBehaviour
     private Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
     public Image attackWheel;
 
+    public HashSet<AttackStats> WeaponSetAttackStats = new HashSet<AttackStats>();
+
     public List<TimelineUI> timelines = new List<TimelineUI>();
 
     private void Awake()
@@ -62,7 +64,7 @@ public class AttackHandler : MonoBehaviour
         HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
         attackWheel = GameObject.Find("Wheel").GetComponent<Image>();
         originalScale = attackWheel.transform.localScale;
-        
+
         StartCoroutine(LoadWeaponAndStartAttack());
     }
     IEnumerator LoadWeaponAndStartAttack()
@@ -355,6 +357,9 @@ public class AttackHandler : MonoBehaviour
         newWeapon.baseStats = weapon.baseStats;
         newWeapon.stats = weapon.stats;
         newWeapon.weaponUpgrades = weapon.weaponUpgrades;
+        WeaponSetAttackStats.Where(stat => stat.weaponSetType == weapon.weaponSetType)
+                    .ToList()
+                    .ForEach(a => newWeapon.AddWeaponUpgrade(a));
         attacks.Add(newWeapon);
 
         //weapon basestats - exists

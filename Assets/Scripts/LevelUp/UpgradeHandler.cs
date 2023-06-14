@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using System.Linq;
 
 public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
@@ -39,22 +36,17 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
                     levelUpManager.SignalItemChosen();
                     break;
                 case UpgradeType.WeaponSetStat:
-                    var weaponSet = WeaponSetUpgradeMap.AttackStatsMap.FirstOrDefault(
-                        w => w.Value.Any(r => r.Value.Contains((AttackStats)upgrade))
-                    );
                     playerAttacks.attacks
-                        .Where(a => a.weaponSetType == weaponSet.Key)
+                        .Where(a => a.weaponSetType == ((AttackStats)upgrade).weaponSetType)
                         .ToList()
                         .ForEach(a => a.AddWeaponUpgrade((AttackStats)upgrade));
+                    playerAttacks.WeaponSetAttackStats.Add((AttackStats)upgrade);
                     levelUpManager.SignalItemChosen();
                     break;
                 case UpgradeType.WeaponStat:
                     playerAttacks.attacks
-                        .Where(a => a.weaponUpgrades.Any(upgrade => 
-                            upgrade is AttackStats weaponUpgrade && 
-                            weaponUpgrade.AttackName == a.name.Replace("(Clone)", "").Trim()))
-                        .ToList()
-                        .ForEach(a => a.AddWeaponUpgrade((AttackStats)upgrade));
+                        .Where(a => a.name.Contains(((AttackStats)upgrade).AttackName))
+                        .ToList().ForEach(a => a.AddWeaponUpgrade((AttackStats)upgrade));
                     levelUpManager.SignalItemChosen();
                     break;
             }

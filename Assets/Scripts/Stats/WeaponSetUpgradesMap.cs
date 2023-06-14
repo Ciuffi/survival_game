@@ -25,8 +25,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Propulsion 1"),
                         AttackStatsLibrary.GetStat("Gravitation 1"),
                         AttackStatsLibrary.GetStat("Scope 1"),
-
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Automatic;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Rare,
@@ -44,7 +46,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("High Caliber 1"),
                         AttackStatsLibrary.GetStat("Scope 2"),
                         AttackStatsLibrary.GetStat("Auto Novice"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Automatic;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Epic,
@@ -62,7 +67,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("High Caliber 2"),
                         AttackStatsLibrary.GetStat("Scope 3"),
                         AttackStatsLibrary.GetStat("Auto Pro"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Automatic;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Legendary,
@@ -79,7 +87,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("High Caliber 3"),
                         AttackStatsLibrary.GetStat("Buddy System"),
                         AttackStatsLibrary.GetStat("Auto God"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Automatic;
+                        return stat;
+                    }).ToList()
                 },
             }
         },
@@ -99,7 +110,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Propulsion 1"),
                         AttackStatsLibrary.GetStat("Gravitation 1"),
                         AttackStatsLibrary.GetStat("Scope 1"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.SemiAuto;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Rare,
@@ -118,7 +132,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Penetrating Ammo 1"),
                         AttackStatsLibrary.GetStat("High Caliber 1"),
                         AttackStatsLibrary.GetStat("Semi-Auto Novice"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.SemiAuto;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Epic,
@@ -137,7 +154,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Penetrating Ammo 2"),
                         AttackStatsLibrary.GetStat("High Caliber 2"),
                         AttackStatsLibrary.GetStat("Semi-Auto Pro"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.SemiAuto;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Legendary,
@@ -153,7 +173,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("High Caliber 3"),
                         AttackStatsLibrary.GetStat("Buddy System"),
                         AttackStatsLibrary.GetStat("Semi-Auto God"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.SemiAuto;
+                        return stat;
+                    }).ToList()
                 },
             }
         },
@@ -173,7 +196,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Gravitation 1"),
                         AttackStatsLibrary.GetStat("Scope 1"),
                         AttackStatsLibrary.GetStat("Wide Barrel 1"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Shotgun;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Rare,
@@ -192,7 +218,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Penetrating Ammo 1"),
                         AttackStatsLibrary.GetStat("High Caliber 1"),
                         AttackStatsLibrary.GetStat("Shotgun Novice"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Shotgun;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Epic,
@@ -211,7 +240,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Penetrating Ammo 2"),
                         AttackStatsLibrary.GetStat("High Caliber 2"),
                         AttackStatsLibrary.GetStat("Shotgun Pro"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Shotgun;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Legendary,
@@ -228,7 +260,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("High Caliber 3"),
                         AttackStatsLibrary.GetStat("Buddy System"),
                         AttackStatsLibrary.GetStat("Shotgun God"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Shotgun;
+                        return stat;
+                    }).ToList()
                 },
             }
         },
@@ -246,7 +281,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Quickswap 1"),
                         AttackStatsLibrary.GetStat("Impact 1"),
                         AttackStatsLibrary.GetStat("Scope 1"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Explosive;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Rare,
@@ -262,7 +300,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Bonus Round 1"),
                         AttackStatsLibrary.GetStat("Size Up 1"),
                         AttackStatsLibrary.GetStat("Explosive Novice"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Explosive;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Epic,
@@ -278,7 +319,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Bonus Round 2"),
                         AttackStatsLibrary.GetStat("Size Up 2"),
                         AttackStatsLibrary.GetStat("Explosive Pro"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Explosive;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Legendary,
@@ -294,7 +338,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Size Up 3"),
                         AttackStatsLibrary.GetStat("Buddy System"),
                         AttackStatsLibrary.GetStat("Explosive God"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Explosive;
+                        return stat;
+                    }).ToList()
                 },
             }
         },
@@ -313,7 +360,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Impact 1"),
                         AttackStatsLibrary.GetStat("Dexterity 1"),
                         AttackStatsLibrary.GetStat("Lunge 1"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Nova;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Rare,
@@ -330,7 +380,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Enlarge 1"),
                         AttackStatsLibrary.GetStat("Wave Master 1"),
                         AttackStatsLibrary.GetStat("AFK Novice"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Nova;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Epic,
@@ -349,7 +402,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("After-shock 1"),
                         AttackStatsLibrary.GetStat("Once More 1"),
                         AttackStatsLibrary.GetStat("AFK Pro"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Nova;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Legendary,
@@ -365,7 +421,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Once More 2"),
                         AttackStatsLibrary.GetStat("AFK God"),
                         AttackStatsLibrary.GetStat("Buddy System"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Nova;
+                        return stat;
+                    }).ToList()
                 },
             }
         },
@@ -385,7 +444,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Dexterity 1"),
                         AttackStatsLibrary.GetStat("Lunge 1"),
                         AttackStatsLibrary.GetStat("Implode 1"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Melee;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Rare,
@@ -404,7 +466,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Wave Master 1"),
                         AttackStatsLibrary.GetStat("Ki Master 1"),
                         AttackStatsLibrary.GetStat("Melee Novice"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Melee;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Epic,
@@ -424,7 +489,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("After-shock 1"),
                         AttackStatsLibrary.GetStat("Once More 1"),
                         AttackStatsLibrary.GetStat("Melee Pro"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Melee;
+                        return stat;
+                    }).ToList()
                 },
                 {
                     Rarity.Legendary,
@@ -441,7 +509,10 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Once More 2"),
                         AttackStatsLibrary.GetStat("Melee God"),
                         AttackStatsLibrary.GetStat("Buddy System"),
-                    }
+                    }.Select(stat => {
+                        stat.weaponSetType = WeaponSetType.Melee;
+                        return stat;
+                    }).ToList()
                 },
             }
         },
@@ -483,7 +554,7 @@ public static class WeaponSetUpgradeMap
 
     public static WeaponSetType? GetWeaponSetTypeForStat(AttackStats stat)
     {
-       // Debug.Log($"Checking for stat: {stat} ");
+        // Debug.Log($"Checking for stat: {stat} ");
         //Debug.Log(stat.name);
 
         foreach (var weaponSet in AttackStatsMap)
@@ -494,7 +565,7 @@ public static class WeaponSetUpgradeMap
                 return weaponSet.Key;
             }
         }
-       
+
         Debug.Log("Stat not found in any weapon set");
         Debug.Log(stat.name);
         return null;

@@ -49,7 +49,10 @@ public class Attack : MonoBehaviour, Upgrade
     {
         Player = GameObject.FindWithTag("Player");
         Camera = GameObject.FindWithTag("MainCamera");
-        upgradeContainer = Instantiate(new GameObject("attack_upgrades"), transform).transform;
+        if (upgradeContainer == null)
+        {
+            upgradeContainer = Instantiate(new GameObject("attack_upgrades"), transform).transform;
+        }
 
     }
 

@@ -1284,22 +1284,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1731126420, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1731126420, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1731126420, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2052080985, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: baseReroll
-      value: 1111
-      objectReference: {fileID: 0}
     - target: {fileID: 5247325245746788677, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: SkipBtn
       value: 
@@ -1340,18 +1324,6 @@ PrefabInstance:
       propertyPath: TimelineManager
       value: 
       objectReference: {fileID: 1465128669}
-    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: playerStatChance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: weaponStatChance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8055189426503789870, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
-      propertyPath: weaponSetStatChance
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9136689211427610628, guid: dddfb5660d652304cb9b3d578e3c7a2c, type: 3}
       propertyPath: HandsSprite
       value: 

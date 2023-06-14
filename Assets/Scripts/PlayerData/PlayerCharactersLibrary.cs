@@ -92,7 +92,7 @@ public static class PlayerCharactersLibrary
            maxHealth: 30,
            health: 30,
            defense: 0,
-           speed: 1.3f,
+           speed: 1.4f,
            pickupRange: 3f,
            aimRangeAdditive: 0
 
@@ -112,7 +112,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 50,
             health: 50,
             defense: 0,
-            speed: 0.55f,
+            speed: 0.7f,
             pickupRange: 2.5f,
 
            damageMultiplier: 0.5f,
@@ -134,7 +134,7 @@ public static class PlayerCharactersLibrary
            maxHealth: 40,
            health: 40,
            defense: 0,
-           speed: 0.75f,
+           speed: 0.9f,
            pickupRange: 2.5f,
            aimRangeAdditive: 0,
 
@@ -182,7 +182,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 35,
             health: 35,
             defense: 0,
-            speed: 1.1f,
+            speed: 1.2f,
             pickupRange: 3f,
 
            effectDuration: 1f,
@@ -206,7 +206,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 45,
             health: 45,
             defense: 0,
-            speed: 0.9f,
+            speed: 1f,
             pickupRange: 2f,
 
            projectileSpeedMultiplier: -0.5f,
@@ -230,7 +230,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 42,
             health: 42,
             defense: 0,
-            speed: 1.2f,
+            speed: 1.1f,
             pickupRange: 2f,
             aimRangeAdditive: 0,
 
@@ -254,7 +254,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 30,
             health: 30,
             defense: 0,
-            speed: 0.7f,
+            speed: 1f,
             pickupRange: 2f,
 
             multicastChance: 0.5f

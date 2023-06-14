@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     PlayerMovement playerMovement;
     StatsHandler playerStats;
     AttackHandler playerAttacks;
-    public GameObject deathTransition;
     public GameObject pauseMenu;
 
     private PlayerDataManager playerData;
@@ -76,7 +75,7 @@ public class GameManager : MonoBehaviour
     {
         playerInv.DecrementWeaponDurability();
 
-        deathTransition.GetComponent<DeathTransition>().StartTransition();
+        DeathTransition.Instance.StartTransition();
         int currentStageID = SceneManager.GetActiveScene().buildIndex;
         playerData.UnlockNextStage(currentStageID);
     }
@@ -85,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         playerInv.DecrementWeaponDurability();
 
-        deathTransition.GetComponent<DeathTransition>().StartTransition();
+        DeathTransition.Instance.StartTransition();
     }
 
     public void playerDeathScreen()
@@ -108,7 +107,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex != 0)  
+        if (scene.buildIndex != 0)
         {
             pauseMenu = GameObject.Find("PauseMenu");
             if (pauseMenu != null)

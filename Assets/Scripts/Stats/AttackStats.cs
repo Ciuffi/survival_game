@@ -383,7 +383,7 @@ public class AttackStats : Upgrade
         magnetStrength *= effectMultiplier;
         slowPercentage *= effectMultiplier;
         dotDamage *= effectMultiplier;
-        
+
     }
 
     public AttackStats mergeInStats(AttackStats[] attackstats)
@@ -493,7 +493,8 @@ public class AttackStats : Upgrade
         if (this.dotTickRate <= 0)
         {
             this.dotTickRate = attackStats.dotTickRate;
-        } else if (attackStats.dotTickRate > 0)
+        }
+        else if (attackStats.dotTickRate > 0)
         {
             this.dotTickRate = Mathf.Min(this.dotTickRate, attackStats.dotTickRate);
         }
@@ -767,7 +768,7 @@ public class AttackStats : Upgrade
             chainStatDecayPercent = this.chainStatDecayPercent,
             chainRange = this.chainRange,
             chainSpeed = this.chainSpeed
-    };
+        };
     }
 
     public UpgradeType GetUpgradeType()
@@ -803,5 +804,9 @@ public class AttackStats : Upgrade
     public void setContainer(GameObject container)
     {
         statsContainer = container;
+    }
+    public override int GetHashCode()
+    {
+        return name.GetHashCode() + weaponSetType.GetHashCode();
     }
 }

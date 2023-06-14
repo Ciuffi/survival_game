@@ -16,15 +16,27 @@ public class EndgameStatTracker : MonoBehaviour
 
     public PlayerDataManager playerData;
 
-    private void Awake()
+    private IEnumerator Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;  // Subscribe to sceneLoaded event
+        // Wait for a short amount of time to ensure that all objects are fully loaded
+        yield return new WaitForSeconds(0.1f);
 
+        playerData = PlayerDataManager.Instance;
+
+        // Try finding and assigning the objects again
+        attacks = FindObjectOfType<AttackHandler>().transform.Find("Weapons").gameObject;
+        timer = FindObjectOfType<GameTimer>().gameObject;
+        killTracker = FindObjectOfType<ComboTracker>().gameObject;
+        goldTracker = FindObjectOfType<GoldTracker>().gameObject;
     }
-
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        playerData = FindObjectOfType<PlayerDataManager>();
+        playerData = PlayerDataManager.Instance;
+        attacks = FindObjectOfType<AttackHandler>().transform.Find("Weapons").gameObject;
+        timer = FindObjectOfType<GameTimer>().gameObject;
+        killTracker = FindObjectOfType<ComboTracker>().gameObject;
+        goldTracker = FindObjectOfType<GoldTracker>().gameObject;
+
     }
 
     private void OnDestroy()
