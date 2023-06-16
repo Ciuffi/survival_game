@@ -239,7 +239,7 @@ MonoBehaviour:
   deathRattle:
   - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
   isSpawn: 0
-  spawnTimer: 0.5
+  spawnTimer: 1
   isFlyby: 0
   flybyDistance: 15
   isObstacle: 0
@@ -268,7 +268,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 0.55
+  maxSpeed: 0.5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

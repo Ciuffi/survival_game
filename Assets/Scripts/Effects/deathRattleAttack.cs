@@ -197,6 +197,7 @@ public class deathRattleAttack : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             GameObject enemy = col.gameObject;
+            float finalDotDamage;
 
             if (!hitEnemies.Contains(enemy)) //if enemy is not within hitDetection List
             {
@@ -204,17 +205,24 @@ public class deathRattleAttack : MonoBehaviour
                 if (critChance >= critRoll)
                 { //CRITS
                     finalDamage = damage * critDmg;
+                    finalDotDamage = dotDamage * critDmg;
                     isCrit = true;
                 }
                 else
                 {
                     //no crit
                     finalDamage = damage;
+                    finalDotDamage = dotDamage;
                     isCrit = false;
                 }
 
                 hitEnemies.Add(enemy); //add enemy to hitList
                 timers[enemy] = damageTickDuration;
+
+                if (isDoT)
+                {
+                    col.gameObject.GetComponent<Enemy>().StartDoT(finalDotDamage, dotTickRate, dotDuration, isCrit);
+                }
 
                 //apply magnetizing effect
                 if (isMagnet)

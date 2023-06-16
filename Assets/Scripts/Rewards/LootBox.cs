@@ -14,9 +14,10 @@ public class LootBox : MonoBehaviour
     Color OGcolor;
 
     private GameObject goldManager;
+    private BasicSpawner guiltTracker;
 
-    public int minGold;
-    public int maxGold;
+    public List<int> minGold;
+    public List<int> maxGold;
     public int finalGold;
 
     private bool hasTriggered = false;
@@ -33,10 +34,10 @@ public class LootBox : MonoBehaviour
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
         OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
         goldManager = GameObject.Find("GoldManager");
-        finalGold = Random.Range(minGold, maxGold);
         anim = GetComponent<Animator>();
         StartBouncing(bounceHeight, bounceSpeed, bounceDecay);
 
+        guiltTracker = FindObjectOfType<BasicSpawner>();
     }
 
     public void StartBouncing(float startHeight, float startSpeed, float decayRate)
@@ -83,8 +84,9 @@ public class LootBox : MonoBehaviour
 
         if (col.gameObject.tag == "Player" && !hasTriggered)
         {
-            anim.SetBool("IsOpen", true);
+            finalGold = Random.Range(minGold[guiltTracker.currentGuilt], maxGold[guiltTracker.currentGuilt]);
 
+            anim.SetBool("IsOpen", true);
             player.GetComponentInChildren<LootBoxManager>().ShowLootUI();
             hasTriggered = true;
             StartCoroutine(delayGold());

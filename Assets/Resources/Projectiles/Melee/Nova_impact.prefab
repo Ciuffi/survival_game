@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -2013033289, guid: 2ddd5b9c8924f9d4a94bbd1b37112e09, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,6 +134,21 @@ MonoBehaviour:
   slowDuration: 0
   isStun: 0
   stunDuration: 0
+  isHoming: 0
+  rotateSpeed: 0
+  isDoT: 0
+  dotDuration: 0
+  dotDamage: 0
+  dotTickRate: 0
+  isSplit: 0
+  splitAmount: 0
+  splitStatPercentage: 0
+  isChain: 0
+  chainTimes: 0
+  chainStatDecayPercent: 0
+  chainRange: 0
+  chainSpeed: 0
+  isSplitProjectile: 0
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}
   wpnProjSizeMultiplier: 0

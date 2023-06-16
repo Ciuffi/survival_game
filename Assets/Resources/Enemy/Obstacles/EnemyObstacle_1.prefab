@@ -59,10 +59,10 @@ MonoBehaviour:
   isElite: 0
   isBoss: 0
   damage: 1
-  health: 350
+  health: 330
   maxHealth: 0
   xpAmount: 75
-  weight: 100
+  weight: 65
   stopDistanceMin: 0
   stopDistanceMax: 0
   moveDistanceCheck: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   isDeathExplode: 0
   deathRattle: []
   isSpawn: 0
-  spawnTimer: 0.5
+  spawnTimer: 0.6
   isFlyby: 0
   flybyDistance: 15
   isObstacle: 1
@@ -218,7 +218,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 0.25
+  maxSpeed: 0.15
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

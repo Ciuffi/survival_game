@@ -264,10 +264,10 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isSlow: true,
-                slowPercentage: 0.1f,
+                slowPercentage: 0.85f,
                 slowDuration: 1f,
                 name: "Slow Down 1",
-                description: "On hit, slow for 1s",
+                description: "Slow for +1s",
                 icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
                 rarity: Rarity.Common
             )
@@ -483,9 +483,20 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                multicastChance: 0.15f,
+                multicastChance: 0.2f,
                 name: "Multicast 1",
-                description: "Multicast chance +15%",
+                description: "Multicast chance +20%",
+                icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
+                rarity: Rarity.Rare
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                multicastChance: 0.30f,
+                name: "Multicast+ 1",
+                description: "Multicast chance +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Rare
             )
@@ -604,9 +615,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeSpacerGapMultiplier: 0.15f,
+                meleeSpacerGapMultiplier: 0.12f,
                 name: "Ki Surge 1",
-                description: "Aftershock Range +15%",
+                description: "Aftershock Range +12%",
                 icon: Resources.Load<Sprite>("UI_Icons/KiSurge"),
                 rarity: Rarity.Rare
             )
@@ -984,6 +995,17 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
+                multicastChance: 0.5f,
+                name: "Multicast+ 2",
+                description: "Multicast chance +50%",
+                icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
+                rarity: Rarity.Epic
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
                 shotsPerAttack: 3,
                 name: "Extra Round 2",
                 description: "+3 Projectiles",
@@ -1094,9 +1116,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeSpacerGapMultiplier: 0.4f,
+                meleeSpacerGapMultiplier: 0.25f,
                 name: "Ki Surge 2",
-                description: "Aftershock Range +40%",
+                description: "Aftershock Range +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/KiSurge"),
                 rarity: Rarity.Epic
             )
@@ -1151,7 +1173,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isHoming: true,
                 name: "Homing 1",
-                description: "Projectiles track nearby enemies",
+                description: "Projectiles follow nearby enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/Homing"),
                 rarity: Rarity.Epic
             )
@@ -1365,7 +1387,18 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 0.9f,
                 name: "Multicast 3",
-                description: "Multicast chance +90%",
+                description: "Multicast chance +75%",
+                icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
+                rarity: Rarity.Legendary
+            )
+        );
+        ;
+
+        AddStat(
+            new AttackStats(
+                multicastChance: 1f,
+                name: "Multicast+ 3",
+                description: "Multicast chance +100%",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Legendary
             )
@@ -1966,9 +1999,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                multicastChance: 0.08f,
+                multicastChance: 0.10f,
                 name: "Multi-cast 1",
-                description: "Multicast chance +8%",
+                description: "Multicast chance +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2062,9 +2095,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeShotsScaleUpMultiplier: 0.05f,
+                meleeShotsScaleUpMultiplier: 0.06f,
                 name: "Wave Master 1",
-                description: "Aftershock Size +5% per shock",
+                description: "Aftershock Size +6% per shock",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveMaster"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2074,9 +2107,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeSpacerGapMultiplier: 0.12f,
+                meleeSpacerGapMultiplier: 0.10f,
                 name: "Ki Master 1",
-                description: "Aftershock Range +12%",
+                description: "Aftershock Range +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/KiMaster"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2254,9 +2287,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                multicastChance: 0.15f,
+                multicastChance: 0.25f,
                 name: "Multi-cast 2",
-                description: "Multicast chance +15%",
+                description: "Multicast chance +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2386,9 +2419,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeSpacerGapMultiplier: 0.25f,
+                meleeSpacerGapMultiplier: 0.20f,
                 name: "Ki Master 2",
-                description: "Aftershock Range +25%",
+                description: "Aftershock Range +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/KiMaster"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2713,7 +2746,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttack: 2,
                 shotgunSpreadMultiplier: 0.3f,
-                multicastWaitTimeMultiplier: -0.2f,
+                multicastWaitTimeMultiplier: -0.25f,
                 multicastChance: 0.5f,
                 name: "Shotgun God",
                 description: "All Shotgun Weapons Enhanced",

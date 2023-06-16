@@ -52,8 +52,8 @@ public class PlayerInventory : MonoBehaviour
 
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
         AddWeapon(new Weapon("Plasma Pistol", 0, false, 1));
-        AddWeapon(new Weapon("Fire Starter", 0, false, 1));
-        AddWeapon(new Weapon("Consecrate", 0, false, 1));
+        //AddWeapon(new Weapon("Fire Starter", 0, false, 1));
+        //AddWeapon(new Weapon("Consecrate", 0, false, 1));
         //AddWeapon(new Weapon("Earth Shock", 0, false, 1));
 
         //AddWeapon(new Weapon("Impact Mine", 0, false, 1));
@@ -64,7 +64,7 @@ public class PlayerInventory : MonoBehaviour
         //AddWeapon(new Weapon("Gatling Gun", 0, false, 1));
         //AddWeapon(new Weapon("Suction Cannon", 0, false, 1));
         //AddWeapon(new Weapon("Double Barrel", 0, false, 1));
-        //AddWeapon(new Weapon("Shotgun", 0, false, 1));
+        //AddWeapon(new Weapon("Pump-Action", 0, false, 1));
         //AddWeapon(new Weapon("Impact Nova", 0, false, 1));
         //AddWeapon(new Weapon("Petrify Nova", 0, false, 1));
         //AddWeapon(new Weapon("Suction Nova", 0, false, 1));
@@ -76,7 +76,7 @@ public class PlayerInventory : MonoBehaviour
         //AddWeapon(new Weapon("Smoke Grenade", 0, false, 1));
         //AddWeapon(new Weapon("Petrify Grenade", 0, false, 1));
         //AddWeapon(new Weapon("Suction Grenade", 0, false, 1));
-        AddWeapon(new Weapon("Wind Blade", 0, false, 1));
+        //AddWeapon(new Weapon("Wind Blade", 0, false, 1));
 
 
 

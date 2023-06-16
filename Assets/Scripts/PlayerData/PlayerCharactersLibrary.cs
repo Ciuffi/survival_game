@@ -89,10 +89,10 @@ public static class PlayerCharactersLibrary
            rarity: Rarity.Common,
            price: 450,
            isLocked: true,
-           maxHealth: 30,
-           health: 30,
+           maxHealth: 40,
+           health: 40,
            defense: 0,
-           speed: 1.4f,
+           speed: 1.6f,
            pickupRange: 3f,
            aimRangeAdditive: 0
 
@@ -109,14 +109,14 @@ public static class PlayerCharactersLibrary
             rarity: Rarity.Common,
             price: 450,
             isLocked: true,
-            maxHealth: 50,
-            health: 50,
+            maxHealth: 55,
+            health: 55,
             defense: 0,
-            speed: 0.7f,
+            speed: 0.8f,
             pickupRange: 2.5f,
 
            damageMultiplier: 0.5f,
-           castTimeMultiplier: 0.25f
+           castTimeMultiplier: 0.5f
 
         );
         Tank.name = TankStats.name;
@@ -134,13 +134,12 @@ public static class PlayerCharactersLibrary
            maxHealth: 40,
            health: 40,
            defense: 0,
-           speed: 0.9f,
+           speed: 1f,
            pickupRange: 2.5f,
            aimRangeAdditive: 0,
 
            shotsPerAttack: 1,
-
-           activeDuration: 0.2f
+           projectileSizeMultiplier: 0.3f
        );
         DemoMan.name = DemoManStats.name;
         DemoMan.AddComponent<StatComponent>().stat = DemoManStats;
@@ -158,11 +157,12 @@ public static class PlayerCharactersLibrary
             maxHealth: 45,
             health: 45,
             defense: 0,
-            speed: 0.9f,
+            speed: 1.2f,
             pickupRange: 2f,
             aimRangeAdditive: 0,
 
-            comboLength: 1
+            comboLength: 1,
+            comboWaitTimeMultiplier: -0.15f
         );
         Brawler.name = BrawlerStats.name;
 
@@ -182,7 +182,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 35,
             health: 35,
             defense: 0,
-            speed: 1.2f,
+            speed: 1.3f,
             pickupRange: 3f,
 
            effectDuration: 1f,
@@ -203,13 +203,13 @@ public static class PlayerCharactersLibrary
             rarity: Rarity.Rare,
             price: 800,
             isLocked: true,
-            maxHealth: 45,
-            health: 45,
+            maxHealth: 50,
+            health: 50,
             defense: 0,
             speed: 1f,
             pickupRange: 2f,
 
-           projectileSpeedMultiplier: -0.5f,
+           projectileSpeedMultiplier: -0.7f,
            rangeMultiplier: -0.5f,
            activeMultiplier: 0.5f
         );
@@ -227,14 +227,15 @@ public static class PlayerCharactersLibrary
             rarity: Rarity.Epic,
             price: 1200,
             isLocked: true,
-            maxHealth: 42,
-            health: 42,
+            maxHealth: 40,
+            health: 40,
             defense: 0,
-            speed: 1.1f,
+            speed: 1.4f,
             pickupRange: 2f,
             aimRangeAdditive: 0,
 
-            shotsPerAttackMelee: 1
+            shotsPerAttackMelee: 1,
+            knockbackMultiplier: 0.25f
         );
         Monk.name = MonkStats.name;
 
@@ -249,15 +250,15 @@ public static class PlayerCharactersLibrary
             description: "Tweakin' hard",
             icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/7"),
             rarity: Rarity.Epic,
-            price: 1200,
+            price: 1500,
             isLocked: true,
-            maxHealth: 30,
-            health: 30,
+            maxHealth: 35,
+            health: 35,
             defense: 0,
-            speed: 1f,
+            speed: 1.2f,
             pickupRange: 2f,
 
-            multicastChance: 0.5f
+            multicastChance: 1f
         );
         Fractured.name = FracturedStats.name;
 
@@ -276,7 +277,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 40,
             health: 40,
             defense: 0,
-            speed: 0.8f,
+            speed: 1f,
             pickupRange: 2f,
 
             shootOpposideSide: true

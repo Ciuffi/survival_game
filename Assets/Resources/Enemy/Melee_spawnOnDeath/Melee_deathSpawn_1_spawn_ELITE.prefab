@@ -114,7 +114,7 @@ MonoBehaviour:
   isDeathExplode: 0
   deathRattle: []
   isSpawn: 1
-  spawnTimer: 0.5
+  spawnTimer: 0.3
   isFlyby: 0
   flybyDistance: 15
   isObstacle: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 1.6
+  maxSpeed: 1.5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

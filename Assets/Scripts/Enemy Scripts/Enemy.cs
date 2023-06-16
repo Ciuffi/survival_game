@@ -142,7 +142,7 @@ public class Enemy : MonoBehaviour, Attacker
     private float magnetStartTime;
 
     private float animSpeed;
-    private bool isSlowing = false;
+    private bool isSlowed = false;
     private float currentSlowPercentage;
     private float magnetMinDistance = 1.7f;
 
@@ -544,7 +544,7 @@ public class Enemy : MonoBehaviour, Attacker
                 StartRage();
             }
 
-            if (rageTriggered && !isStunned && !isSlowing && !isDead) //back to red
+            if (rageTriggered && !isStunned && !isSlowed && !isDead) //back to red
             {
                 spriteRend.color = new Color(rageColor.r, rageColor.g, rageColor.b);
             }
@@ -598,7 +598,13 @@ public class Enemy : MonoBehaviour, Attacker
                 transform.position = stunPos;
                 if (stunTimer <= 0)
                 {
-                    spriteRend.color = OGcolor;
+                    if (!isSlowed)
+                    {
+                        spriteRend.color = OGcolor;
+                    } else
+                    {
+                        spriteRend.color = slowColor;
+                    }
                     isStunned = false;
                     stunTimer = 0;
                     animator.speed = 1f;
@@ -1025,6 +1031,8 @@ public class Enemy : MonoBehaviour, Attacker
         float slowStartTime = Time.time;
         float slowEndTime = slowStartTime + slowDuration;
 
+        isSlowed = true;
+
         if (!rageTriggered)
         {
             slowTargetSpeed = originalSpeed * slowPercentage;
@@ -1050,6 +1058,8 @@ public class Enemy : MonoBehaviour, Attacker
             speed = rageSpeed;
         }
         aiPath.maxSpeed = speed;
+        isSlowed = false;
+
         StopCoroutine(slowCoroutine);
     }
 

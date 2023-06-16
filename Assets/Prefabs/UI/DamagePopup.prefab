@@ -198,5 +198,5 @@ MonoBehaviour:
   critScaleUpPercent: 1.4
   defaultDamageSize: 10
   damageScaleAmount: 4
-  upScaleIncrement: 5
+  upScaleIncrement: 4
   downScaleIncrement: 3

@@ -30,6 +30,7 @@ public class PlayerCharacterStats : Upgrade
         comboLength;
 
     public float aimRangeAdditive,
+        coneAngle,
         multicastChance,
         shotgunSpread,
         speedMultiplier,
@@ -48,7 +49,7 @@ public class PlayerCharacterStats : Upgrade
         activeDuration,
         activeMultiplier;
 
-    public bool shootOpposideSide;
+    public bool shootOpposideSide, isHoming;
     public Rarity rarity;
     public GameObject statsContainer;
 
@@ -57,41 +58,83 @@ public class PlayerCharacterStats : Upgrade
     {
         maxHealth += other.maxHealth;
         other.maxHealth = 0;
+
         health += other.health;
         other.health = 0;
+
         speed += other.speed;
+        other.speed = 0;
+
         pickupRange += other.pickupRange;
+        other.pickupRange = 0;
+
         damageMultiplier += other.damageMultiplier;
+        other.damageMultiplier = 0;
+
         critChance += other.critChance;
+        other.critChance = 0;
+
         critDmg += other.critDmg;
+        other.critDmg = 0;
+
         defense += other.defense;
+        other.defense = 0;
+
         shield += other.shield;
+        other.shield = 0;
 
         shotsPerAttack += other.shotsPerAttack;
+        other.shotsPerAttack = 0;
         shotsPerAttackMelee += other.shotsPerAttackMelee;
+        other.shotsPerAttackMelee = 0;
         comboLength += other.comboLength;
+        other.comboLength = 0;
 
         aimRangeAdditive += other.aimRangeAdditive;
+        other.aimRangeAdditive = 0;
+
+        coneAngle += other.coneAngle;
+        other.coneAngle = 0;
+
         multicastChance += other.multicastChance;
+        other.multicastChance = 0;
         shotgunSpread += other.shotgunSpread;
+        other.shotgunSpread = 0;
         spreadMultiplier += other.spreadMultiplier;
+        other.spreadMultiplier = 0;
         castTimeMultiplier += other.castTimeMultiplier;
+        other.castTimeMultiplier = 0;
         comboWaitTimeMultiplier += other.comboWaitTimeMultiplier;
+        other.comboWaitTimeMultiplier = 0;
         projectileSpeedMultiplier += other.projectileSpeedMultiplier;
+        other.projectileSpeedMultiplier = 0;
         rangeMultiplier += other.rangeMultiplier;
+        other.rangeMultiplier = 0;
         knockbackMultiplier += other.knockbackMultiplier;
+        other.knockbackMultiplier = 0;
         thrownDamageMultiplier += other.thrownDamageMultiplier;
+        other.thrownDamageMultiplier = 0;
         thrownSpeedMultiplier += other.thrownSpeedMultiplier;
+        other.thrownSpeedMultiplier = 0;
         projectileSizeMultiplier += other.projectileSizeMultiplier;
+        other.projectileSizeMultiplier = 0;
         meleeSizeMultiplier += other.meleeSizeMultiplier;
+        other.meleeSizeMultiplier = 0;
         speedMultiplier += other.speedMultiplier;
+        other.speedMultiplier = 0;
 
         activeDuration += other.activeDuration;
+        other.activeDuration = 0;
         effectDuration += other.effectDuration;
+        other.effectDuration = 0;
         effectMultiplier += other.effectMultiplier;
+        other.effectMultiplier = 0;
         activeMultiplier += other.activeMultiplier;
+        other.activeMultiplier = 0;
 
         shootOpposideSide |= other.shootOpposideSide;
+        isHoming |= other.isHoming;
+
         this.rarity = this.rarity.CompareRarity(other.rarity);
     }
 
@@ -119,6 +162,7 @@ public class PlayerCharacterStats : Upgrade
         comboLength = other.comboLength;
 
         aimRangeAdditive = other.aimRangeAdditive;
+        coneAngle = other.coneAngle;
         multicastChance = other.multicastChance;
         shotgunSpread = other.shotgunSpread;
         spreadMultiplier = other.spreadMultiplier;
@@ -138,6 +182,7 @@ public class PlayerCharacterStats : Upgrade
         effectDuration = other.effectDuration;
         activeMultiplier = other.activeMultiplier;
 
+        isHoming = other.isHoming;
         shootOpposideSide = other.shootOpposideSide;
         rarity = rarity.CompareRarity(other.rarity);
     }
@@ -160,6 +205,7 @@ public class PlayerCharacterStats : Upgrade
         int shotsPerAttackMelee = 0,
         int comboLength = 0,
         float aimRangeAdditive = 0,
+        float coneAngle = 0,
         float multicastChance = 0,
         float shotgunSpread = 0,
         float spreadMultiplier = 0,
@@ -178,6 +224,7 @@ public class PlayerCharacterStats : Upgrade
         float activeMultiplier = 0,
         float speedMultiplier = 0,
         bool shootOpposideSide = false,
+        bool isHoming = false,
         Rarity rarity = Rarity.Common,
         string name = "Player Stats",
         string description = "Player Stats",
@@ -198,6 +245,7 @@ public class PlayerCharacterStats : Upgrade
         this.shotsPerAttackMelee = shotsPerAttackMelee;
         this.comboLength = comboLength;
 
+        this.coneAngle = coneAngle;
         this.aimRangeAdditive = aimRangeAdditive;
         this.multicastChance = multicastChance;
         this.shotgunSpread = shotgunSpread;
@@ -218,6 +266,7 @@ public class PlayerCharacterStats : Upgrade
         this.activeMultiplier = activeMultiplier;
 
         this.shootOpposideSide = shootOpposideSide;
+        this.isHoming = isHoming;
         this.rarity = rarity;
         this.name = name;
         this.description = description;

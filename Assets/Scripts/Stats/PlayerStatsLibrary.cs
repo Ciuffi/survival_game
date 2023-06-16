@@ -117,7 +117,7 @@ public static class PlayerStatsLibrary
         //defense
         AddStat(
             new PlayerCharacterStats(
-                defense: 0.15f,
+                defense: 0.25f,
                 name: "Protection 1",
                 description: "Reduce damage taken",
                 icon: Resources.Load<Sprite>("UI_Icons/Protection"),
@@ -241,7 +241,7 @@ public static class PlayerStatsLibrary
         //defense
         AddStat(
             new PlayerCharacterStats(
-                defense: 0.3f,
+                defense: 0.4f,
                 name: "Protection 2",
                 description: "Reduce Damage taken",
                 icon: Resources.Load<Sprite>("UI_Icons/Protection"),
@@ -333,6 +333,17 @@ public static class PlayerStatsLibrary
                name: "Persistence 2",
                description: "All Attack duration +30%",
                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
+        AddStat(
+           new PlayerCharacterStats(
+               isHoming: true,
+               name: "Homing 1",
+               description: "Projectiles follow nearby enemies",
+               icon: Resources.Load<Sprite>("UI_Icons/Homing"),
                rarity: Rarity.Epic
            )
        );

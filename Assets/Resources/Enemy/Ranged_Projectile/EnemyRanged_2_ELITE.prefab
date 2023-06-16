@@ -119,7 +119,7 @@ MonoBehaviour:
   deathRattle:
   - {fileID: 1423453834646843868, guid: e89130871519a1c4f875022804e0ada5, type: 3}
   isSpawn: 0
-  spawnTimer: 0.5
+  spawnTimer: 1
   isFlyby: 0
   flybyDistance: 15
   isObstacle: 0

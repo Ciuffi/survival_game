@@ -227,7 +227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba6b382c90d174438b69a62a03af4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathTransition: {fileID: 957711943}
   pauseMenu: {fileID: 1890201155}
 --- !u!4 &142728914
 Transform:
@@ -465,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9490d15ff5d68be4ca6f884680ed6ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLimit: 320000005000000064000000640000007d0000009600000096000000
+  enemyLimit: 320000003c0000004600000050000000500000005a00000064000000
   currentLimit: 0
   enemyAmount: 0
   availableAmount: 0
@@ -584,11 +583,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1423453834646843856, guid: e13af86631cb82041a6abdf778674844, type: 3}
   m_PrefabInstance: {fileID: 1851761000}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &957711943 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1098140730004457194, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
-  m_PrefabInstance: {fileID: 2089525146}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1011739293
 PrefabInstance:
@@ -1130,12 +1124,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1807947899467005882, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateLimit_G0
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807947899467005882, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G6
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2012197308701122828, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: alwaysSpawn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012197308701122828, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: initialDelay
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2012197308701122828, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: isEliteSpawner
@@ -1175,11 +1177,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRate
-      value: 32
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnTimer
-      value: 60
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: basicSpawner
@@ -1199,31 +1201,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G0
-      value: 32
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G1
-      value: 32
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G2
-      value: 32
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G3
-      value: 32
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G4
-      value: 32
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G5
-      value: 32
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G6
-      value: 32
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3103800210338332545, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: m_RootOrder
@@ -1402,6 +1404,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8363155532757008864, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: spawnRateLimit_G1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363155532757008864, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRateLimit_G6
       value: 12
       objectReference: {fileID: 0}
@@ -1442,6 +1448,10 @@ PrefabInstance:
       value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: stageXpScaling
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: stageHealthScaling
       value: 0
       objectReference: {fileID: 0}
@@ -1467,11 +1477,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: healthScalingList.Array.data[4]
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: healthScalingList.Array.data[5]
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: healthScalingList.Array.data[6]

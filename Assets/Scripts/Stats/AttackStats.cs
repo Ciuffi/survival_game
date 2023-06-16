@@ -342,6 +342,7 @@ public class AttackStats : Upgrade
         this.rangeMultiplier = this.rangeMultiplier == 0 ? 1 : this.rangeMultiplier;
         this.projectileSize = this.projectileSize == 0 ? 1 : this.projectileSize;
         this.meleeSize = this.meleeSize == 0 ? 1 : this.meleeSize;
+        this.meleeShotsScaleUp = this.meleeShotsScaleUp == 0 ? 1 : this.meleeShotsScaleUp;
         this.projectileSizeMultiplier = this.projectileSizeMultiplier == 0 ? 1 : this.projectileSizeMultiplier;
         this.comboWaitTimeMultiplier = this.comboWaitTimeMultiplier == 0 ? 1 : this.comboWaitTimeMultiplier;
         this.comboAttackBuffMultiplier = this.comboAttackBuffMultiplier == 0 ? 1 : this.comboAttackBuffMultiplier;
@@ -478,8 +479,8 @@ public class AttackStats : Upgrade
         this.magnetDuration = Mathf.Max(this.magnetDuration, attackStats.magnetDuration);
 
         this.isSlow |= attackStats.isSlow;
-        this.slowDuration = Mathf.Max(this.slowDuration, attackStats.slowDuration);
-        this.slowPercentage += attackStats.slowPercentage;
+        this.slowDuration += attackStats.slowDuration;
+        this.slowPercentage = Mathf.Min(this.slowPercentage, attackStats.slowPercentage);
 
         this.isStun |= attackStats.isStun;
         this.stunDuration += attackStats.stunDuration;
@@ -523,6 +524,7 @@ public class AttackStats : Upgrade
     public AttackStats MergeInPlayerStats(PlayerCharacterStats playerStats)
     {
         this.aimRangeAdditive += playerStats.aimRangeAdditive;
+        this.coneAngle += playerStats.coneAngle;
         this.shotgunSpread += playerStats.shotgunSpread;
         this.shotsPerAttack += playerStats.shotsPerAttack;
         this.shotsPerAttackMelee += playerStats.shotsPerAttackMelee;
@@ -530,6 +532,7 @@ public class AttackStats : Upgrade
         this.critDmg += playerStats.critDmg;
         this.multicastChance += playerStats.multicastChance;
         this.shootOppositeSide |= playerStats.shootOpposideSide;
+        this.isHoming |= playerStats.isHoming;
         this.comboLength += playerStats.comboLength;
 
         this.damageMultiplier += playerStats.damageMultiplier;

@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.52, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.45, y: 0.42, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1514911375676208822}
@@ -55,7 +55,7 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
-  isBasic: 0
+  isBasic: 1
   isElite: 0
   isBoss: 0
   damage: 1
@@ -218,7 +218,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 0.45
+  maxSpeed: 0.4
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

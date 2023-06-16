@@ -52,15 +52,15 @@ MonoBehaviour:
   isClumpSpawn: 0
   diameter: 13
   initialDelay: 0
-  spawnTimer: 60
-  spawnRate: 32
-  spawnRateLimit_G0: 32
-  spawnRateLimit_G1: 32
-  spawnRateLimit_G2: 32
-  spawnRateLimit_G3: 32
-  spawnRateLimit_G4: 32
-  spawnRateLimit_G5: 32
-  spawnRateLimit_G6: 32
+  spawnTimer: 120
+  spawnRate: 20
+  spawnRateLimit_G0: 20
+  spawnRateLimit_G1: 24
+  spawnRateLimit_G2: 24
+  spawnRateLimit_G3: 28
+  spawnRateLimit_G4: 28
+  spawnRateLimit_G5: 30
+  spawnRateLimit_G6: 30
   scaleRateSeconds: 100
   spawnRateScaling: 0
   elapsedTime: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   spawnTimer: 6
   spawnRate: 4
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 0
+  spawnRateLimit_G1: 2
   spawnRateLimit_G2: 6
   spawnRateLimit_G3: 10
   spawnRateLimit_G4: 16
@@ -245,12 +245,12 @@ MonoBehaviour:
   currentGuilt: 0
   healthScalingList:
   - 0
+  - 0.1
   - 0.2
-  - 0.25
+  - 0.4
+  - 0.2
   - 0.3
   - 0.4
-  - 0.5
-  - 0.5
   damageScaling: 0.1
   weightScaling: 0.1
   xpScaling: 0.55
@@ -363,10 +363,10 @@ MonoBehaviour:
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
   spawnRateLimit_G2: 0
-  spawnRateLimit_G3: 6
-  spawnRateLimit_G4: 10
-  spawnRateLimit_G5: 12
-  spawnRateLimit_G6: 12
+  spawnRateLimit_G3: 4
+  spawnRateLimit_G4: 6
+  spawnRateLimit_G5: 8
+  spawnRateLimit_G6: 10
   scaleRateSeconds: 15
   spawnRateScaling: 2
   elapsedTime: 0
@@ -427,7 +427,7 @@ MonoBehaviour:
   isCircleSpawn: 0
   isClumpSpawn: 0
   diameter: 16
-  initialDelay: 60
+  initialDelay: 30
   spawnTimer: 60
   spawnRate: 1
   spawnRateLimit_G0: 1
@@ -562,10 +562,10 @@ MonoBehaviour:
   diameter: 16
   initialDelay: 0
   spawnTimer: 10
-  spawnRate: 6
+  spawnRate: 4
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
-  spawnRateLimit_G2: 0
+  spawnRateLimit_G2: 4
   spawnRateLimit_G3: 10
   spawnRateLimit_G4: 14
   spawnRateLimit_G5: 16
@@ -631,11 +631,11 @@ MonoBehaviour:
   spawnRate: 6
   spawnRateLimit_G0: 8
   spawnRateLimit_G1: 10
-  spawnRateLimit_G2: 12
-  spawnRateLimit_G3: 14
-  spawnRateLimit_G4: 16
-  spawnRateLimit_G5: 16
-  spawnRateLimit_G6: 16
+  spawnRateLimit_G2: 10
+  spawnRateLimit_G3: 12
+  spawnRateLimit_G4: 14
+  spawnRateLimit_G5: 14
+  spawnRateLimit_G6: 14
   scaleRateSeconds: 10
   spawnRateScaling: 2
   elapsedTime: 0

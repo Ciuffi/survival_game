@@ -217,9 +217,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSizeMultiplier,
-                    currentScale.y * stats.projectileSizeMultiplier,
-                    currentScale.z * stats.projectileSizeMultiplier
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
                 );
 
                 Quaternion forwardRotation = rotation;
@@ -265,9 +265,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSizeMultiplier,
-                    currentScale.y * stats.projectileSizeMultiplier,
-                    currentScale.z * stats.projectileSizeMultiplier
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
                 );
 
                 Quaternion forwardRotation = rotation;
@@ -302,7 +302,7 @@ public class Attack : MonoBehaviour, Upgrade
                     }
                 }
 
-                float scale = currentScale.x * stats.projectileSizeMultiplier;
+                float scale = currentScale.x * stats.projectileSize;
                 Vector3 backwardDirection = -transform.right;
                 backwardDirection = backwardDirection.normalized;
                 // Flip the rotation variable 180 degrees and put it in a variable called backwardRotation
@@ -403,9 +403,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.rotation = rotation;
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSizeMultiplier,
-                    currentScale.y * stats.projectileSizeMultiplier,
-                    currentScale.z * stats.projectileSizeMultiplier
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
                 );
 
                 if (stats.multicastTimes > 0)
@@ -440,9 +440,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.attack = this;
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSizeMultiplier,
-                    currentScale.y * stats.projectileSizeMultiplier,
-                    currentScale.z * stats.projectileSizeMultiplier
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
                 );
 
                 if (stats.multicastTimes > 0)
@@ -474,9 +474,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p2.transform.rotation = Quaternion.LookRotation(-direction);
                 p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
                 p2.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSizeMultiplier,
-                    currentScale.y * stats.projectileSizeMultiplier,
-                    currentScale.z * stats.projectileSizeMultiplier
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
                 );
 
                 if (stats.multicastTimes > 0)
@@ -539,9 +539,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSizeMultiplier,
-                    currentScale.y * stats.projectileSizeMultiplier,
-                    currentScale.z * stats.projectileSizeMultiplier
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
                 );
 
                 if (stats.multicastTimes > 0)
@@ -578,9 +578,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
                 Vector3 currentScale = p.transform.localScale;
                 p.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSizeMultiplier,
-                    currentScale.y * stats.projectileSizeMultiplier,
-                    currentScale.z * stats.projectileSizeMultiplier
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
                 );
 
                 if (stats.multicastTimes > 0)
@@ -613,9 +613,9 @@ public class Attack : MonoBehaviour, Upgrade
                 p2.transform.up = -direction; // set the projectile's up direction to the opposite of the direction
                 p2.transform.Rotate(new Vector3(0, 0, angle), Space.Self);
                 p2.transform.localScale = new Vector3(
-                    currentScale.x * stats.projectileSizeMultiplier,
-                    currentScale.y * stats.projectileSizeMultiplier,
-                    currentScale.z * stats.projectileSizeMultiplier
+                    currentScale.x * stats.projectileSize,
+                    currentScale.y * stats.projectileSize,
+                    currentScale.z * stats.projectileSize
                 );
 
                 if (stats.multicastTimes > 0)
@@ -656,7 +656,7 @@ public class Attack : MonoBehaviour, Upgrade
         }
 
         firstShot = false;
-        float localSpacer = stats.meleeSpacer * stats.meleeSpacerMultiplier;
+        float localSpacer = stats.meleeSpacer;
 
         if (stats.cantMove)
         {
@@ -664,11 +664,7 @@ public class Attack : MonoBehaviour, Upgrade
         }
 
         Vector3 originalScale = projectile.transform.localScale;
-        Vector3 scaler = new Vector3(
-            stats.meleeShotsScaleUp,
-            stats.meleeShotsScaleUp,
-            stats.meleeShotsScaleUp
-        );
+        float scaler = stats.meleeShotsScaleUp;
 
         for (int i = 0; i < stats.comboLength; i++)
         {
@@ -702,19 +698,19 @@ public class Attack : MonoBehaviour, Upgrade
                     {
                         Vector3 currentScale = p.transform.localScale;
                         p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSizeMultiplier,
-                            currentScale.y * stats.meleeSizeMultiplier,
-                            currentScale.z * stats.meleeSizeMultiplier
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
                         );
-                        p.transform.localScale += scaler * c;
+                        p.transform.localScale *= (scaler * c);
                     }
                     else
                     {
                         Vector3 currentScale = p.transform.localScale;
                         p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSizeMultiplier,
-                            currentScale.y * stats.meleeSizeMultiplier,
-                            currentScale.z * stats.meleeSizeMultiplier
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
                         );
                     }
                     //change animation state
@@ -770,11 +766,11 @@ public class Attack : MonoBehaviour, Upgrade
                     {
                         Vector3 currentScale = p.transform.localScale;
                         p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSizeMultiplier,
-                            currentScale.y * stats.meleeSizeMultiplier,
-                            currentScale.z * stats.meleeSizeMultiplier
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
                         );
-                        p.transform.localScale += scaler * c;
+                        p.transform.localScale *= (scaler * c);
                     }
                     else
                     {
@@ -836,19 +832,19 @@ public class Attack : MonoBehaviour, Upgrade
                     {
                         Vector3 currentScale = p2.transform.localScale;
                         p2.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSizeMultiplier,
-                            currentScale.y * stats.meleeSizeMultiplier,
-                            currentScale.z * stats.meleeSizeMultiplier
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
                         );
-                        p2.transform.localScale += scaler * c;
+                        p2.transform.localScale *= (scaler * c);
                     }
                     else
                     {
                         Vector3 currentScale = p2.transform.localScale;
                         p2.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSizeMultiplier,
-                            currentScale.y * stats.meleeSizeMultiplier,
-                            currentScale.z * stats.meleeSizeMultiplier
+                            currentScale.x * stats.meleeSize,
+                            currentScale.y * stats.meleeSize,
+                            currentScale.z * stats.meleeSize
                         );
                     }
                     //change animation state

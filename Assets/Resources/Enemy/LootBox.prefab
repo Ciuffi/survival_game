@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c3dc4132797a546ad6f3738a8cab62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minGold: 39
-  maxGold: 239
+  minGold: 13000000270000003b000000450000004f0000005900000063000000
+  maxGold: 270000003b0000004f000000630000006d000000810000008b000000
   finalGold: 0
   bounceHeight: 0.7
   bounceSpeed: 25

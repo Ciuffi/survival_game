@@ -289,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba6b382c90d174438b69a62a03af4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathTransition: {fileID: 557370170}
   pauseMenu: {fileID: 1048518506}
 --- !u!4 &142728914
 Transform:
@@ -565,11 +564,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1098140730006121789, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
   m_PrefabInstance: {fileID: 1098140729453383120}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &557370170 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1098140730004457194, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
-  m_PrefabInstance: {fileID: 1098140729453383120}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &568263438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1098140730010504926, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
@@ -604,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9490d15ff5d68be4ca6f884680ed6ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLimit: 320000005000000064000000640000007d0000009600000096000000
+  enemyLimit: 320000003c0000004600000050000000500000005a00000064000000
   currentLimit: 0
   enemyAmount: 0
   availableAmount: 0

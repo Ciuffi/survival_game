@@ -17,8 +17,9 @@ public class PlayerDataManager : MonoBehaviour
     private PlayerInventory playerInventory;
     public List<TextMeshProUGUI> goldDisplay;
     CharSelectController charSelectController;
-
+    public Transform upgradeButtonParent;
     public static PlayerDataManager Instance { get; private set; }
+    public Dictionary<string, int> upgradeIndices = new Dictionary<string, int>();
 
     private void Awake()
     {
@@ -35,8 +36,9 @@ public class PlayerDataManager : MonoBehaviour
         playerInventory = PlayerInventory.Instance;
         goldDisplay.Add(GameObject.Find("playerGold").GetComponentInChildren<TextMeshProUGUI>());
         goldDisplay.Add(GameObject.Find("playerGold2").GetComponentInChildren<TextMeshProUGUI>());
+        goldDisplay.Add(GameObject.Find("playerGold3").GetComponentInChildren<TextMeshProUGUI>());
         charSelectController = FindObjectOfType<CharSelectController>();
-
+        upgradeButtonParent = GameObject.Find("Canvas_Shop/PlayerUpgradesScrollView/Viewport/Content").transform;
         LoadData();
     }
 
@@ -88,41 +90,73 @@ public class PlayerDataManager : MonoBehaviour
     public void SaveData()
     {
         PlayerPrefs.SetInt("Gold", gold);
+        PlayerPrefs.SetInt("UnlockedStages", unlockedStages);
+
         // Convert unlockedCharactersNames to a string
         string unlockedCharactersNamesString = string.Join(",", unlockedCharactersNames);
         PlayerPrefs.SetString("UnlockedCharactersNames", unlockedCharactersNamesString);
+
         // Save purchasedUpgrades
         string purchasedUpgradesString = string.Join(",", purchasedUpgrades);
         PlayerPrefs.SetString("PurchasedUpgrades", purchasedUpgradesString);
-        PlayerPrefs.SetInt("UnlockedStages", unlockedStages);
+
+        // Save upgradeIndices
+        string upgradeIndicesString = string.Join(",", upgradeIndices.Select(kv => kv.Key + ":" + kv.Value.ToString()));
+        PlayerPrefs.SetString("UpgradeIndices", upgradeIndicesString);
+
         PlayerPrefs.Save();
     }
 
     private void LoadData()
     {
         gold = PlayerPrefs.GetInt("Gold", 0);
-        // Load the string from PlayerPrefs and convert it back to a HashSet
+        unlockedStages = PlayerPrefs.GetInt("UnlockedStages", 1);
+
         string unlockedCharactersNamesString = PlayerPrefs.GetString("UnlockedCharactersNames", "");
         unlockedCharactersNames = new HashSet<string>(unlockedCharactersNamesString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
 
-        // Load purchasedUpgrades
         string purchasedUpgradesString = PlayerPrefs.GetString("PurchasedUpgrades", "");
         purchasedUpgrades = new HashSet<string>(purchasedUpgradesString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
 
-        unlockedStages = PlayerPrefs.GetInt("UnlockedStages", 1);
+        string upgradeIndicesString = PlayerPrefs.GetString("UpgradeIndices", "");
+        var upgradeIndicesArray = upgradeIndicesString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var upgradeIndex in upgradeIndicesArray)
+        {
+            var keyValue = upgradeIndex.Split(':');
+            if (keyValue.Length == 2)
+            {
+                string upgradeName = keyValue[0];
+                int index;
+                if (int.TryParse(keyValue[1], out index))
+                {
+                    upgradeIndices[upgradeName] = index;
+                }
+            }
+        }
     }
 
 
-    public bool PurchaseUpgrade(string upgradeName, int price)
+    public void PurchaseUpgrade(string upgradeName, int price, int index)
     {
-        if (gold >= price)
+        if (gold >= price && !purchasedUpgrades.Contains(upgradeName))
         {
             gold -= price;
             purchasedUpgrades.Add(upgradeName);
+
+            // Update the upgrade index for the specific upgrade
+            upgradeIndices[upgradeName] = index;
+
             SaveData();
-            return true;
+
+            var upgradeButtonDictionary = FindObjectOfType<PlayerUpgradeManager>().upgradeButtonDictionary;
+
+            // Trigger the upgrade UI reset and update immediately
+            if (upgradeButtonDictionary.TryGetValue(upgradeName, out var button))
+            {
+                button.ResetUpgradeUI();
+                button.SetUpgrade(index);
+            }
         }
-        return false;
     }
 
     public void IncrementGold()
@@ -135,7 +169,9 @@ public class PlayerDataManager : MonoBehaviour
 
     public void AddGold(int amount)
     {
+        int originalGold = gold;
         gold += amount;
+        StartCoroutine(CountUpGold(originalGold, gold, 1.5f)); // count up over 1 second
         SaveData();
     }
 
@@ -177,6 +213,14 @@ public class PlayerDataManager : MonoBehaviour
         PlayerPrefs.DeleteKey("Gold");
         PlayerPrefs.DeleteKey("UnlockedStages");
         PlayerPrefs.DeleteKey("UnlockedCharactersNames");
+        PlayerPrefs.DeleteKey("PurchasedUpgrades");
+        PlayerPrefs.DeleteKey("UpgradeIndices");
+
+        AddMoney addMoneyComponent = FindObjectOfType<AddMoney>();
+        if (addMoneyComponent != null)
+        {
+            addMoneyComponent.ResetCooldown();
+        }
 
         CharacterButton[] characters = FindObjectsOfType<CharacterButton>();
 
@@ -203,6 +247,17 @@ public class PlayerDataManager : MonoBehaviour
         gold = 300;
         unlockedCharactersNames.Clear();
         unlockedStages = 1;
+        purchasedUpgrades.Clear();  // Also clear the in-memory HashSet of purchased upgrades
+        for (int i = 0; i < upgradeButtonParent.childCount; i++)
+        {
+            var button = upgradeButtonParent.GetChild(i).GetComponent<PlayerUpgradeButton>();
+            button.SetUpgrade(0); // Set the upgrade to the first one after resetting
+            string upgradeName = button.buttonId;
+            upgradeIndices[upgradeName] = 0;
+            button.ResetUpgradeUI();
+
+        }
+
 
         SaveData();
     }
@@ -233,6 +288,30 @@ public class PlayerDataManager : MonoBehaviour
             goldDisplay.Clear();
             goldDisplay.Add(GameObject.Find("playerGold").GetComponentInChildren<TextMeshProUGUI>());
             goldDisplay.Add(GameObject.Find("playerGold2").GetComponentInChildren<TextMeshProUGUI>());
+            goldDisplay.Add(GameObject.Find("playerGold3").GetComponentInChildren<TextMeshProUGUI>());
+
         }
     }
+
+    public IEnumerator CountUpGold(int originalAmount, int newAmount, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime; // advance the 'timer'
+            int currentAmount = (int)Mathf.Lerp(originalAmount, newAmount, elapsed / duration);
+            // Set the text on all goldDisplay items
+            for (int i = 0; i < goldDisplay.Count; i++)
+            {
+                goldDisplay[i].text = "$" + currentAmount.ToString();
+            }
+            yield return null; // wait until next frame
+        }
+        // Ensure the final value is correct (and not off due to rounding)
+        for (int i = 0; i < goldDisplay.Count; i++)
+        {
+            goldDisplay[i].text = "$" + newAmount.ToString();
+        }
+    }
+
 }

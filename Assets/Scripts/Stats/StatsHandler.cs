@@ -53,7 +53,31 @@ public class StatsHandler : MonoBehaviour
             {
                 stats = obj.GetComponent<StatComponent>().stat;
                 currentHealth = stats.health;
+                CalculatePlayerStats();
+                MatchUpgrades();
+                Debug.Log("Matched Upgrades");
                 break;
+            }
+        }
+
+    }
+
+    private void MatchUpgrades()
+    {
+        string storedUpgradeNames = PlayerPrefs.GetString("PurchasedUpgrades");
+        string[] upgradeNames = storedUpgradeNames.Split(',');
+
+        // For each upgrade name, we retrieve the upgrade from the PlayerUpgradesLibrary
+        // and add it to the player's stats.
+        foreach (string upgradeName in upgradeNames)
+        {
+            GameObject upgradeObject = PlayerUpgradesLibrary.getUpgrade(upgradeName);
+            Debug.Log(upgradeObject.name);
+
+            if (upgradeObject != null)
+            {
+                PlayerCharacterStats upgradeStats = upgradeObject.GetComponent<StatComponent>().stat;
+                AddStat(upgradeStats);
             }
         }
     }
@@ -192,6 +216,16 @@ public class StatsHandler : MonoBehaviour
 
         if (currentHealth > stats.maxHealth)
             currentHealth = stats.maxHealth;
+
+        Debug.Log(stats.damageMultiplier);
+        Debug.Log(stats.speed + "and Speed Multiplier: " + stats.speedMultiplier) ; 
+
+        Debug.Log(healthBar);
+        Debug.Log(healthBarQueue);
+
+        Debug.Log(currentHealth);
+        Debug.Log(stats.maxHealth);
+
         healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth));
 
         CalculateWeaponStats(weaponsList);
@@ -199,8 +233,6 @@ public class StatsHandler : MonoBehaviour
 
     void Start()
     {
-        MatchCharacter();
-
         weaponsList = transform.Find("Weapons").gameObject;
         spriteRend = Sprite.GetComponent<SpriteRenderer>();
         OGMaterial = spriteRend.material;
@@ -215,8 +247,8 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue = gameObject.AddComponent<CoroutineQueue>();
         healthBarQueue.StartQueue();
         healthColor = healthBar.fillRect.GetComponent<Image>().color;
+        MatchCharacter();
 
-        CalculatePlayerStats();
     }
 
     private void CalculateWeaponStats(GameObject prefab)

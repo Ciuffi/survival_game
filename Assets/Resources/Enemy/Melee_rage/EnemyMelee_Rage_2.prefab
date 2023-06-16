@@ -116,9 +116,11 @@ MonoBehaviour:
   isDeathExplode: 0
   deathRattle: []
   isSpawn: 0
-  spawnTimer: 0.5
+  spawnTimer: 0.6
   isFlyby: 0
   flybyDistance: 15
+  isObstacle: 0
+  obstacleLifetime: 0
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 4303292662091484887}
@@ -143,7 +145,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 0.4
+  maxSpeed: 0.38
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
