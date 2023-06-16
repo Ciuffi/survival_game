@@ -2730,21 +2730,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 955154073, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975490170140608065, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
-      propertyPath: orthographic size
-      value: 6.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1975490170140608066, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975490170140608188, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
-      propertyPath: maxShakePower
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1975490170140608190, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
       propertyPath: m_RootOrder
@@ -2794,14 +2782,6 @@ PrefabInstance:
       propertyPath: UICamera
       value: 
       objectReference: {fileID: 1562854927}
-    - target: {fileID: 1975490170140608191, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
-      propertyPath: zoomSpeed
-      value: 0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975490170140608191, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
-      propertyPath: targetPercentIncrease
-      value: 0.11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac15e93a9402b894dafeea1cd50ac652, type: 3}
 --- !u!114 &2193001037462208308

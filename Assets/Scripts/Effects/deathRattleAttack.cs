@@ -58,6 +58,13 @@ public class deathRattleAttack : MonoBehaviour
     public float dotDamage;
     public float dotTickRate;
 
+    public bool isChain;
+    public int chainTimes;
+    public float chainStatDecayPercent; //determines percent of stats removed after each chain
+    public float chainRange;
+    public float chainSpeed;
+    private GameObject chainPrefab;
+
     private float meleeTime;
 
     private List<SpriteRenderer> spriteRenderers;
@@ -89,6 +96,13 @@ public class deathRattleAttack : MonoBehaviour
         dotDuration = attack.stats.dotDuration += attack.stats.effectDuration;
         dotDamage = attack.stats.dotDamage;
         dotTickRate = attack.stats.dotTickRate;
+
+        isChain = attack.stats.isChain;
+        chainTimes = attack.stats.chainTimes;
+        chainStatDecayPercent = attack.stats.chainStatDecayPercent;
+        chainRange = attack.stats.chainRange;
+        chainSpeed = attack.stats.chainSpeed;
+        if (isChain) { chainPrefab = Resources.Load<GameObject>("Projectiles/ChainProjectile"); }
 
         active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
 
@@ -279,6 +293,20 @@ public class deathRattleAttack : MonoBehaviour
                         Quaternion.identity
                     );
                 }
+
+                if (isChain)
+                {
+                    GameObject chainTarget = FindNearestEnemy(transform.position, chainRange, col.gameObject);
+
+                    GameObject chainProjectileGO = Instantiate(chainPrefab, transform.position, Quaternion.identity);
+                    ChainProjectile chainProjectile = chainProjectileGO.GetComponent<ChainProjectile>();
+
+                    chainProjectile.Initialize(chainTimes, chainStatDecayPercent, chainRange, chainTarget, damage, chainSpeed);
+
+                    chainProjectileGO.transform.localScale *= 3f;
+
+                    isChain = false;
+                }
             }
             else
             {
@@ -286,4 +314,36 @@ public class deathRattleAttack : MonoBehaviour
             }
         }
     }
+
+    private GameObject FindNearestEnemy(Vector3 center, float range, GameObject exclude = null)
+    {
+        Collider2D[] results = new Collider2D[100];
+        int numResults = Physics2D.OverlapCircleNonAlloc(center, range, results);
+
+        GameObject closestEnemy = null;
+        float closestDistanceSqr = Mathf.Infinity;
+
+        for (int i = 0; i < numResults; i++)
+        {
+            GameObject potentialTarget = results[i].gameObject;
+
+            // Skip if the potential target is the excluded GameObject
+            if (potentialTarget == exclude)
+                continue;
+
+            if (potentialTarget.tag == "Enemy")
+            {
+                float distanceSqr = (potentialTarget.transform.position - center).sqrMagnitude;
+
+                if (distanceSqr < closestDistanceSqr)
+                {
+                    closestDistanceSqr = distanceSqr;
+                    closestEnemy = potentialTarget;
+                }
+            }
+        }
+
+        return closestEnemy;
+    }
+
 }

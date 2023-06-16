@@ -1263,6 +1263,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 1"),
             AttackStatsLibrary.GetStat("Split 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
@@ -1282,6 +1283,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1297,6 +1299,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
         };
 
         AttackBuilder ImpactGrenade = new AttackBuilder()
@@ -1881,6 +1884,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hourglass 1"),
             AttackStatsLibrary.GetStat("Ignite 1"),
             AttackStatsLibrary.GetStat("Split 1"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
@@ -1900,6 +1904,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 2"),
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1915,6 +1920,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hourglass 3"),
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Split 2"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
 
         };
 
@@ -2728,6 +2734,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Saw'd Off 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
+            AttackStatsLibrary.GetStat("Slow Down 1"),
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
@@ -2746,6 +2753,9 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Saboteur 1"),
             AttackStatsLibrary.GetStat("Ignite 1"),
             AttackStatsLibrary.GetStat("Split 1"),
+            AttackStatsLibrary.GetStat("Chain 1"),
+            AttackStatsLibrary.GetStat("Slow Down 2"),
+
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
@@ -2765,7 +2775,8 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 2"),
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Concussive 1"),
-
+            AttackStatsLibrary.GetStat("Chain 2"),
+            AttackStatsLibrary.GetStat("Slow Down 3"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -2782,6 +2793,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Chain 3"),
 
         };
 
@@ -3108,7 +3120,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Crit Dmg 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
-   
+
             AttackStatsLibrary.GetStat("Hacker 2"),
             AttackStatsLibrary.GetStat("AFK 2"),
             AttackStatsLibrary.GetStat("Multicast 1"),
@@ -3120,6 +3132,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 1"),
             AttackStatsLibrary.GetStat("Split 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
@@ -3140,6 +3153,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 2"),
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -3155,6 +3169,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hourglass 3"),
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Split 3"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
         };
 
         AttackBuilder SuctionGrenade = new AttackBuilder()

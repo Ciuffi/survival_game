@@ -55,7 +55,7 @@ public class BasicSpawner : MonoBehaviour
         currentGuilt += 1;
         comboManager.GetComponent<ComboTracker>().ColorChange(currentGuilt);
 
-        if (currentGuilt <= 4)
+        if (currentGuilt <= 5)
         {
             mainCamera.GetComponent<CameraController>().StartZoom();
             uiCamera.GetComponent<CameraController>().StartZoom();

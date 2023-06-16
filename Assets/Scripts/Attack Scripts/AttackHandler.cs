@@ -38,6 +38,7 @@ public class AttackHandler : MonoBehaviour
     public HashSet<AttackStats> WeaponSetAttackStats = new HashSet<AttackStats>();
 
     public List<TimelineUI> timelines = new List<TimelineUI>();
+    IEnumerator attackCoroutine; // Declare this variable at the class level
 
     private void Awake()
     {
@@ -74,7 +75,8 @@ public class AttackHandler : MonoBehaviour
 
         LoadSelectedWeapon();
 
-        StartCoroutine(Attack());
+        attackCoroutine = Attack();
+        StartCoroutine(attackCoroutine);
     }
 
     private void MatchCharacter()
@@ -112,61 +114,8 @@ public class AttackHandler : MonoBehaviour
 
     public void ResetAttackCycle()
     {
-        StopCoroutine(Attack()); // Stop the current attack cycle coroutine
-        StartCoroutine(Attack()); // Start a new attack cycle coroutine
-    }
-
-    IEnumerator HandleAttackSlider(float castTime)
-    {
-        float timer = 0;
-        bool isFlashing = false;
-        Color originalColor = colors[0];
-        float flashDuration = castTime / 6f; // Set the duration of the flash here
-
-        while (true)
-        {
-            if (timer == 0)
-            {
-                attackBarImage.color = originalColor;
-                attackBarImage2.color = originalColor;
-            }
-
-            if (castTime - timer <= flashDuration)
-            {
-                if (!isFlashing)
-                {
-                    // Start the flash
-                    StartCoroutine(FlashColor(flashColor, flashDuration));
-                    isFlashing = true;
-                }
-            }
-            else if (isFlashing)
-            {
-                // End the flash
-                StopCoroutine("FlashColor");
-                attackBarImage.color = originalColor;
-                attackBarImage2.color = originalColor;
-                isFlashing = false;
-            }
-
-            float opacity = Mathf.Lerp(0.1f, 1f, attackBar.value);
-            Color currentColor = attackBarImage.color;
-            currentColor.a = opacity;
-            attackBarImage.color = currentColor;
-            attackBarImage2.color = currentColor;
-
-            timer += Time.deltaTime;
-            float progress = Mathf.Clamp01(timer / castTime);
-            attackBar.value = progress;
-            attackBar2.value = progress;
-            yield return new WaitForEndOfFrame();
-            if (timer >= castTime)
-            {
-                timer = 0;
-                isFlashing = false;
-                yield break;
-            }
-        }
+        StopCoroutine(attackCoroutine); // Stop the current attack cycle coroutine
+        StartCoroutine(attackCoroutine); // Start a new attack cycle coroutine
     }
 
     IEnumerator HandleAttackWheel(float castTime)
@@ -371,6 +320,19 @@ public class AttackHandler : MonoBehaviour
         if (attacks.Contains(attackToRemove))
         {
             Debug.Log("Contains the attack");
+            // Check if the attack to remove is the current one or comes before it in the list
+            int removeIndex = attacks.IndexOf(attackToRemove);
+            if (removeIndex <= attackIndex)
+            {
+                // Decrement attackIndex to ensure it remains pointing to the correct attack
+                attackIndex--;
+                // Ensure attackIndex doesn't go below zero
+                if (attackIndex < 0)
+                {
+                    attackIndex = 0;
+                }
+            }
+
             Destroy(attackToRemove.gameObject);
             attacks.Remove(attackToRemove);
         }
@@ -384,6 +346,14 @@ public class AttackHandler : MonoBehaviour
                 timeline.spawnTimeline();
             }
         }
+
+        // Stop the attack cycle
+        if (attackCoroutine != null)
+            StopCoroutine(attackCoroutine);
+
+        // Start the attack cycle anew
+        attackCoroutine = Attack();
+        StartCoroutine(attackCoroutine);
     }
 
     public void ResetWeapons()

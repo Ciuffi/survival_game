@@ -94,6 +94,7 @@ public class Projectile : MonoBehaviour
     public float chainStatDecayPercent; //determines percent of stats removed after each chain
     public float chainRange;
     public float chainSpeed;
+    private GameObject chainPrefab;
 
     public bool isSplitProjectile; //to be turned on after splitting to acquire scaled stats
 
@@ -106,8 +107,6 @@ public class Projectile : MonoBehaviour
 
     float moveSpeed;
     private Vector2 targetDirection = Vector2.zero;
-
-    private GameObject chainPrefab;
 
     void Start()
     {
