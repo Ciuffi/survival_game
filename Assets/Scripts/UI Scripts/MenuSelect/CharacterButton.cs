@@ -11,6 +11,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
     public PlayerCharacterStats stats;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI infoText;
+    public TextMeshProUGUI descText;
 
     //public TextMeshProUGUI weaponsText;
 
@@ -38,6 +39,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         nameText = text1.transform.Find("Name").GetComponent<TextMeshProUGUI>();
         GameObject text2 = GameObject.Find("InfoBox");
         infoText = text2.transform.Find("Info").GetComponent<TextMeshProUGUI>();
+        descText = GameObject.Find("Canvas/InfoBox_Desc/Info").GetComponent<TextMeshProUGUI>();
         //GameObject text3 = GameObject.Find("WeaponsName");
         //weaponsText = text3.GetComponent<TextMeshProUGUI>();
         hasSelected = false;
@@ -122,6 +124,8 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
             infoText.text = GenerateStatsString(stats);
         }
 
+        descText.text = stats.description;
+
         purchaseButton.onClick.RemoveAllListeners();
         purchaseButton.onClick.AddListener(OnPurchaseButtonClicked);
 
@@ -175,6 +179,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             infoText.text = GenerateStatsString(stats);
         }
+        descText.text = stats.description;
 
         purchaseButton.onClick.RemoveAllListeners();
         purchaseButton.onClick.AddListener(OnPurchaseButtonClicked);

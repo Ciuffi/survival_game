@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PauseScreenButtonHandler : MonoBehaviour, IPointerClickHandler
 {
@@ -12,10 +13,9 @@ public class PauseScreenButtonHandler : MonoBehaviour, IPointerClickHandler
     public bool isRestart;
     public string popupMessage;
 
-    EventTrigger eventTrigger;
     GameManager gameManager;
 
-    private void Start()
+    private void Awake()
     {
         if (isRestart)
         {
@@ -24,31 +24,22 @@ public class PauseScreenButtonHandler : MonoBehaviour, IPointerClickHandler
         {
             popupMessage = "Exit to Menu?";
         }
-
-        // Find the GameManager in the scene
-        gameManager = FindObjectOfType<GameManager>();
-
-        // Get the EventTrigger component from the button
-        eventTrigger = GetComponent<EventTrigger>();
-
-        if (gameManager != null && eventTrigger != null)
-        {
-            // Create a new trigger entry
-            EventTrigger.Entry entry = new EventTrigger.Entry();
-            // Set the event type
-            entry.eventID = EventTriggerType.PointerUp;
-            // Set the method to be called when the event triggers
-            entry.callback.AddListener((eventData) => { gameManager.MenuReset(); });
-
-            // Add the trigger entry to the event trigger
-            eventTrigger.triggers.Add(entry);
-        }
-        else
-        {
-            Debug.LogError("GameManager or EventTrigger not found!");
-        }
     }
 
+    private void Start()
+    {
+        StartCoroutine(WaitForGameManager());
+    }
+
+    private IEnumerator WaitForGameManager()
+    {
+        while (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+            yield return null;
+        }
+
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -57,15 +48,44 @@ public class PauseScreenButtonHandler : MonoBehaviour, IPointerClickHandler
 
     void ShowConfirmationPopup()
     {
+        Initialize();
+
         GameObject popup = Instantiate(confirmationPopupPrefab);
         popup.transform.SetParent(transform.root, false);
 
+        UnityEvent onClickEvent = new UnityEvent();
+        onClickEvent.AddListener(gameManager.MenuReset);
+
         ConfirmationPopupController popupController = popup.GetComponent<ConfirmationPopupController>();
-        popupController.Setup(onClickEvent, ClosePopup, popupMessage, gameManager);
+        popupController.Setup(onClickEvent, ClosePopup, popupMessage);
+    }
+
+    void Initialize()
+    {
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
     }
 
     void ClosePopup(GameObject popup)
     {
         Destroy(popup);
     }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
 }

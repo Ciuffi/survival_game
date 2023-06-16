@@ -42,46 +42,6 @@ public class PlayerDataManager : MonoBehaviour
         LoadData();
     }
 
-    public void LoadUnlocks()
-    {
-        for (int i = 0; i < charSelectController.characterPrefabs.Count; i++)
-        {
-            GameObject characterObject = charSelectController.characterPrefabs[i];
-            if (characterObject == null)
-            {
-                Debug.LogError("CharacterObject at index " + i + " is null");
-                continue;
-            }
-
-            StatComponent statComponent = characterObject.GetComponent<StatComponent>();
-
-            if (statComponent == null)
-            {
-                Debug.LogError("StatComponent for CharacterObject at index " + i + " is null");
-                continue;
-            }
-
-            PlayerCharacterStats character = statComponent.stat;
-
-            if (character == null)
-            {
-                Debug.LogError("Stat for CharacterObject at index " + i + " is null");
-                continue;
-            }
-
-            bool isUnlocked = unlockedCharactersNames.Contains(character.name);
-            character.isLocked = !isUnlocked;
-        }
-
-        // Check and update unlocked state of stages
-        StageButton[] stages = FindObjectsOfType<StageButton>();
-        foreach (StageButton stage in stages)
-        {
-            bool isUnlocked = (unlockedStages & (1 << stage.stageID)) != 0;
-            stage.isLocked = !isUnlocked;
-        }
-    }
-
     private void OnApplicationQuit()
     {
         SaveData();
@@ -99,6 +59,7 @@ public class PlayerDataManager : MonoBehaviour
         // Save purchasedUpgrades
         string purchasedUpgradesString = string.Join(",", purchasedUpgrades);
         PlayerPrefs.SetString("PurchasedUpgrades", purchasedUpgradesString);
+        Debug.Log("Saved purchased upgrades: " + purchasedUpgradesString);
 
         // Save upgradeIndices
         string upgradeIndicesString = string.Join(",", upgradeIndices.Select(kv => kv.Key + ":" + kv.Value.ToString()));
@@ -117,6 +78,7 @@ public class PlayerDataManager : MonoBehaviour
 
         string purchasedUpgradesString = PlayerPrefs.GetString("PurchasedUpgrades", "");
         purchasedUpgrades = new HashSet<string>(purchasedUpgradesString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
+        Debug.Log("Retrieved purchased upgrades: " + purchasedUpgradesString);
 
         string upgradeIndicesString = PlayerPrefs.GetString("UpgradeIndices", "");
         var upgradeIndicesArray = upgradeIndicesString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -283,12 +245,14 @@ public class PlayerDataManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+
         if (scene.buildIndex == 0)  // Check if the scene being loaded is the menu scene
         {
             goldDisplay.Clear();
             goldDisplay.Add(GameObject.Find("playerGold").GetComponentInChildren<TextMeshProUGUI>());
             goldDisplay.Add(GameObject.Find("playerGold2").GetComponentInChildren<TextMeshProUGUI>());
             goldDisplay.Add(GameObject.Find("playerGold3").GetComponentInChildren<TextMeshProUGUI>());
+            upgradeButtonParent = GameObject.Find("Canvas_Shop/PlayerUpgradesScrollView/Viewport/Content").transform;
 
         }
     }

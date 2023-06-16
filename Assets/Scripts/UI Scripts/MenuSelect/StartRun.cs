@@ -22,7 +22,10 @@ public class StartRun : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("CharacterName");
+        PlayerPrefs.DeleteKey("SelectedWeapon");
+        PlayerPrefs.DeleteKey("SelectedWeaponRarity");
+
         GetComponent<Image>().enabled = false;
         canStart = false;
 

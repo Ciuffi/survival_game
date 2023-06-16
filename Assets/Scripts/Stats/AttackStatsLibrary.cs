@@ -776,10 +776,10 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isSlow: true,
-                slowPercentage: 0.12f,
+                slowPercentage: 0.7f,
                 slowDuration: 1.5f,
                 name: "Slow Down 2",
-                description: "On hit, slow for 1.5s",
+                description: "Slow for +1.5s",
                 icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
                 rarity: Rarity.Rare
             )
@@ -1279,10 +1279,10 @@ public static class AttackStatsLibrary
         AddStat(
            new AttackStats(
                isSlow: true,
-               slowPercentage: 0.15f,
+               slowPercentage: 0.55f,
                slowDuration: 2f,
                name: "Slow Down 3",
-               description: "On hit, slow for 2s",
+               description: "Slow for +2s",
                icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
                rarity: Rarity.Epic
            )

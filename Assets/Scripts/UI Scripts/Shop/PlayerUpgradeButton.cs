@@ -188,6 +188,7 @@ public class PlayerUpgradeButton : MonoBehaviour
             }
             else
             {
+                UpdateUI();
                 purchaseButton.interactable = false;
             }
 

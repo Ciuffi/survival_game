@@ -11,10 +11,15 @@ public class PlayerUpgradeManager : MonoBehaviour
     private PlayerDataManager playerData;
     public Dictionary<string, PlayerUpgradeButton> upgradeButtonDictionary = new Dictionary<string, PlayerUpgradeButton>();
 
-    private void Start()
+    private void Awake()
     {
         playerData = FindObjectOfType<PlayerDataManager>();
         upgradeButtonParent = transform.Find("Viewport/Content").transform;
+    }
+
+    private void OnEnable()
+    {
+        PlayerUpgradesLibrary.ResetLibrary();
         LoadUpgradeButtons();
         LoadUpgradeIndices();
     }

@@ -1861,6 +1861,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Saw'd Off 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
             AttackStatsLibrary.GetStat("AFK 1"),
+            AttackStatsLibrary.GetStat("Slow Down 1"),
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
@@ -1868,6 +1869,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Crit Dmg 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Saw'd Off 2"),
+            AttackStatsLibrary.GetStat("Slow Down 2"),
 
             AttackStatsLibrary.GetStat("Hacker 2"),
             AttackStatsLibrary.GetStat("AFK 2"),
@@ -1897,6 +1899,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hourglass 2"),
             AttackStatsLibrary.GetStat("Ignite 2"),
             AttackStatsLibrary.GetStat("Split 2"),
+            AttackStatsLibrary.GetStat("Slow Down 3"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1978,6 +1981,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Quick Hands 1"),
             AttackStatsLibrary.GetStat("Extend 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
+            AttackStatsLibrary.GetStat("Slow Down 1"),
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
@@ -1997,6 +2001,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hourglass 1"),
             AttackStatsLibrary.GetStat("Ignite 1"),
             AttackStatsLibrary.GetStat("Split 1"),
+            AttackStatsLibrary.GetStat("Slow Down 2"),
 
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
@@ -2017,6 +2022,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hourglass 2"),
             AttackStatsLibrary.GetStat("Ignite 2"),
             AttackStatsLibrary.GetStat("Split 2"),
+            AttackStatsLibrary.GetStat("Slow Down 3"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),

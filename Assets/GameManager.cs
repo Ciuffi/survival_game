@@ -52,13 +52,9 @@ public class GameManager : MonoBehaviour
         GameTime.instance.Unpause();
         Time.timeScale = 1;
         playerInv.DecrementWeaponDurability();
+        playerData.SaveData();  // Save data before changing scene
         SceneManager.LoadScene(0);
 
-        //new List<Enemy>(GameManager.FindObjectsOfType<Enemy>()).ForEach((e) => Destroy(e.gameObject));
-        //new List<Projectile>(GameManager.FindObjectsOfType<Projectile>()).ForEach((e) => Destroy(e.gameObject));
-        //playerMovement.transform.position = playerPosition;
-        //playerStats.ResetStats(true);
-        //playerAttacks.ResetWeapons();
     }
 
     public void ReloadScene()

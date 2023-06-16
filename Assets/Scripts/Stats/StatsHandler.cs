@@ -12,6 +12,7 @@ public class StatsHandler : MonoBehaviour
 
     //public PlayerCharacterStats baseStats;
     public PlayerCharacterStats stats;
+    public PlayerCharacterStats baseStats;
 
     public float Iframes;
     public float IFtimer;
@@ -52,10 +53,9 @@ public class StatsHandler : MonoBehaviour
             if (obj.name == storedName)
             {
                 stats = obj.GetComponent<StatComponent>().stat;
+                baseStats = obj.GetComponent<StatComponent>().stat;
                 currentHealth = stats.health;
                 CalculatePlayerStats();
-                MatchUpgrades();
-                Debug.Log("Matched Upgrades");
                 break;
             }
         }
@@ -67,17 +67,21 @@ public class StatsHandler : MonoBehaviour
         string storedUpgradeNames = PlayerPrefs.GetString("PurchasedUpgrades");
         string[] upgradeNames = storedUpgradeNames.Split(',');
 
+        Debug.Log("Retrieved purchased upgrades: " + storedUpgradeNames);
+
+
         // For each upgrade name, we retrieve the upgrade from the PlayerUpgradesLibrary
         // and add it to the player's stats.
         foreach (string upgradeName in upgradeNames)
         {
             GameObject upgradeObject = PlayerUpgradesLibrary.getUpgrade(upgradeName);
-            Debug.Log(upgradeObject.name);
 
             if (upgradeObject != null)
             {
                 PlayerCharacterStats upgradeStats = upgradeObject.GetComponent<StatComponent>().stat;
                 AddStat(upgradeStats);
+                Debug.Log(upgradeStats.name);
+
             }
         }
     }
@@ -169,7 +173,10 @@ public class StatsHandler : MonoBehaviour
 
     public void ResetStats(bool fullReset)
     {
-        stats = new PlayerCharacterStats(stats);
+        float currentHealth = stats.health;
+        stats = new PlayerCharacterStats(baseStats);
+        stats.health = currentHealth;
+        
 
         if (fullReset)
         {
@@ -217,15 +224,6 @@ public class StatsHandler : MonoBehaviour
         if (currentHealth > stats.maxHealth)
             currentHealth = stats.maxHealth;
 
-        Debug.Log(stats.damageMultiplier);
-        Debug.Log(stats.speed + "and Speed Multiplier: " + stats.speedMultiplier) ; 
-
-        Debug.Log(healthBar);
-        Debug.Log(healthBarQueue);
-
-        Debug.Log(currentHealth);
-        Debug.Log(stats.maxHealth);
-
         healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth));
 
         CalculateWeaponStats(weaponsList);
@@ -248,6 +246,7 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue.StartQueue();
         healthColor = healthBar.fillRect.GetComponent<Image>().color;
         MatchCharacter();
+        MatchUpgrades();
 
     }
 

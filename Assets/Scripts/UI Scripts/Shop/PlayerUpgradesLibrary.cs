@@ -542,4 +542,21 @@ public static class PlayerUpgradesLibrary
 
         return UpgradesLibraryMap.Values.ToArray();
     }
+
+    public static void ResetLibrary()
+    {
+        isInitialized = false;
+
+        // Delete old GameObjects
+        foreach (Transform child in parentObject.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        // Clear the dictionary
+        UpgradesLibraryMap.Clear();
+
+        // Reinitialize
+        InitializeLibrary();
+    }
 }

@@ -57,80 +57,49 @@ public class PlayerCharacterStats : Upgrade
     public void MergeStats(PlayerCharacterStats other)
     {
         maxHealth += other.maxHealth;
-        other.maxHealth = 0;
 
         health += other.health;
         other.health = 0;
 
         speed += other.speed;
-        other.speed = 0;
-
         pickupRange += other.pickupRange;
-        other.pickupRange = 0;
 
         damageMultiplier += other.damageMultiplier;
-        other.damageMultiplier = 0;
 
         critChance += other.critChance;
-        other.critChance = 0;
 
         critDmg += other.critDmg;
-        other.critDmg = 0;
 
         defense += other.defense;
-        other.defense = 0;
 
         shield += other.shield;
-        other.shield = 0;
 
         shotsPerAttack += other.shotsPerAttack;
-        other.shotsPerAttack = 0;
         shotsPerAttackMelee += other.shotsPerAttackMelee;
-        other.shotsPerAttackMelee = 0;
         comboLength += other.comboLength;
-        other.comboLength = 0;
 
         aimRangeAdditive += other.aimRangeAdditive;
-        other.aimRangeAdditive = 0;
 
         coneAngle += other.coneAngle;
-        other.coneAngle = 0;
 
         multicastChance += other.multicastChance;
-        other.multicastChance = 0;
         shotgunSpread += other.shotgunSpread;
-        other.shotgunSpread = 0;
         spreadMultiplier += other.spreadMultiplier;
-        other.spreadMultiplier = 0;
         castTimeMultiplier += other.castTimeMultiplier;
-        other.castTimeMultiplier = 0;
         comboWaitTimeMultiplier += other.comboWaitTimeMultiplier;
-        other.comboWaitTimeMultiplier = 0;
         projectileSpeedMultiplier += other.projectileSpeedMultiplier;
-        other.projectileSpeedMultiplier = 0;
         rangeMultiplier += other.rangeMultiplier;
-        other.rangeMultiplier = 0;
         knockbackMultiplier += other.knockbackMultiplier;
-        other.knockbackMultiplier = 0;
         thrownDamageMultiplier += other.thrownDamageMultiplier;
-        other.thrownDamageMultiplier = 0;
         thrownSpeedMultiplier += other.thrownSpeedMultiplier;
-        other.thrownSpeedMultiplier = 0;
         projectileSizeMultiplier += other.projectileSizeMultiplier;
-        other.projectileSizeMultiplier = 0;
         meleeSizeMultiplier += other.meleeSizeMultiplier;
-        other.meleeSizeMultiplier = 0;
         speedMultiplier += other.speedMultiplier;
-        other.speedMultiplier = 0;
 
         activeDuration += other.activeDuration;
-        other.activeDuration = 0;
         effectDuration += other.effectDuration;
-        other.effectDuration = 0;
         effectMultiplier += other.effectMultiplier;
-        other.effectMultiplier = 0;
         activeMultiplier += other.activeMultiplier;
-        other.activeMultiplier = 0;
 
         shootOpposideSide |= other.shootOpposideSide;
         isHoming |= other.isHoming;
