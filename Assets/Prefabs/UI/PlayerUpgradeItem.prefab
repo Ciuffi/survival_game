@@ -239,6 +239,7 @@ MonoBehaviour:
   offsetAmount: 50
   currentUpgradeIndex: 0
   particleEffectPrefab: {fileID: 4053501027209517259, guid: 08cc147ba2c36ae4ba6e7e7a306ada73, type: 3}
+  invWpn: {fileID: 3957629950819426908, guid: 3e591f76f118fc64f91575f67282e51a, type: 3}
 --- !u!114 &1497069738704751855
 MonoBehaviour:
   m_ObjectHideFlags: 0

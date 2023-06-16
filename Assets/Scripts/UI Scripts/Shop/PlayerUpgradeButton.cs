@@ -36,6 +36,9 @@ public class PlayerUpgradeButton : MonoBehaviour
     public GameObject particleEffectPrefab;
     private GameObject particleEffectInstance;
 
+    public GameObject invWpn;
+    private List<Color> rarityColors;
+    
     private void Awake()
     {
         playerDataManager = FindObjectOfType<PlayerDataManager>();
@@ -51,13 +54,14 @@ public class PlayerUpgradeButton : MonoBehaviour
 
         // Get the parent object for rarity images
         rarityImageParent = transform.Find("RarityImageParent").transform;
+        rarityColors = invWpn.GetComponent<InventoryItem>().rarityColors;
+
     }
 
     private void Start()
     {
         GetComponent<Button>().onClick.AddListener(() => playerUpgradeManager.OnButtonClicked(this));
-        selectedImage.SetActive(false);
-       
+        selectedImage.SetActive(false);       
     }
 
     public void LoadUpgrade()
@@ -209,15 +213,28 @@ public class PlayerUpgradeButton : MonoBehaviour
         string editedName = Regex.Replace(upgradeName, @"\s\d$", "");
         nameText.text = editedName;
         rarityText.text = currentUpgrade.GetRarity().ToString();
+        rarityText.color = rarityColors[(int)currentUpgrade.GetRarity()];
         descriptionText.text = currentUpgrade.GetUpgradeDescription();
-
-        string price = "$" + currentUpgrade.price.ToString();
-        priceText.text = price;
         iconImage.sprite = currentUpgrade.GetUpgradeIcon();
 
         bool isUpgradePurchased = IsUpgradePurchased(currentUpgrade);
         purchaseButton.interactable = !isUpgradePurchased;
         iconImage.color = isUpgradePurchased ? Color.gray : Color.white;
+
+        string price;
+        if (!isUpgradePurchased)
+        {
+            price = "$" + currentUpgrade.price.ToString();
+            nameText.color = Color.white;
+
+        } else
+        {
+            price = "---";
+            nameText.color = Color.gray;
+        }
+
+        priceText.text = price;
+
     }
 
     private bool IsUpgradePurchased(PlayerCharacterStats upgrade)
