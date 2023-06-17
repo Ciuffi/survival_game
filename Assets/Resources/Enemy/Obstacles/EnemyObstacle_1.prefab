@@ -59,10 +59,10 @@ MonoBehaviour:
   isElite: 0
   isBoss: 0
   damage: 1
-  health: 330
+  health: 300
   maxHealth: 0
   xpAmount: 75
-  weight: 65
+  weight: 70
   stopDistanceMin: 0
   stopDistanceMax: 0
   moveDistanceCheck: 0

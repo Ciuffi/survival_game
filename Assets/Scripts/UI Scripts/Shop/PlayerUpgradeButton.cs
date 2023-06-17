@@ -67,6 +67,8 @@ public class PlayerUpgradeButton : MonoBehaviour
     public void LoadUpgrade()
     {
         initialUpgradesCount = upgrades.Count;
+        Debug.Log($"Initial upgrade count: {initialUpgradesCount}");
+
         InstantiateRarityImages();
 
         currentUpgradeIndex = playerDataManager.upgradeIndices[buttonId];
@@ -84,7 +86,7 @@ public class PlayerUpgradeButton : MonoBehaviour
         {
             currentUpgrade = null;
         }
-
+        Debug.Log($"Current upgrade: {currentUpgrade}");
         UpdateUI();
     }
 
@@ -206,6 +208,7 @@ public class PlayerUpgradeButton : MonoBehaviour
     {
         if (currentUpgrade == null)
         {
+            Debug.Log("Current upgrade is null");
             ResetUI();
             return;
         }

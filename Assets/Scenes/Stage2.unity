@@ -1173,7 +1173,7 @@ PrefabInstance:
       objectReference: {fileID: 1423453834646843868, guid: b989ab29394a4ef48ab375f8c355d11c, type: 3}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: diameter
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: spawnRate
