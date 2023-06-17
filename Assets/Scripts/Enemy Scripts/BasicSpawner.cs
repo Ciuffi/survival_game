@@ -12,8 +12,8 @@ public class BasicSpawner : MonoBehaviour
     public EnemySpawnMap spawnMap;
 
     public int currentGuilt;
-    public List<float> healthScalingList;
-    public float damageScaling, weightScaling, xpScaling; //percentile - start with base of 1.0f
+    public List<float> healthScalingList, xpScalingList;
+    public float damageScaling, weightScaling;
     public float stageHealthScaling, stageDamageScaling, stageWeightScaling, stageXpScaling;
 
     //public float speedScaling; -----Doesn't work properly
@@ -104,7 +104,7 @@ public class BasicSpawner : MonoBehaviour
                         newSpawn.GetComponent<Enemy>().health *= (cumulativeHealthScaling) + stageHealthScaling; 
                         newSpawn.GetComponent<Enemy>().damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                         newSpawn.GetComponent<Enemy>().weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
-                        newSpawn.GetComponent<Enemy>().xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                        newSpawn.GetComponent<Enemy>().xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
                         //newSpawn.GetComponent<Enemy>().calculateSpeed(speedScaling);
                     }
                 }

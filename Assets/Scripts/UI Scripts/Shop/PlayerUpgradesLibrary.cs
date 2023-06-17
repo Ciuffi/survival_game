@@ -294,11 +294,11 @@ public static class PlayerUpgradesLibrary
         //Crit
         GameObject Crit1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Crit1Stats = new PlayerCharacterStats(
-             critChance: 0.03f,
+             critChance: 0.04f,
                level: 1,
-               price: 500,
+               price: 800,
                name: "Accuracy 1",
-               description: "+3% Critical Hit Chance",
+               description: "+4% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Rare
              );
@@ -310,9 +310,9 @@ public static class PlayerUpgradesLibrary
 
         GameObject Crit2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Crit2Stats = new PlayerCharacterStats(
-             critChance: 0.05f,
+             critChance: 0.04f,
                level: 2,
-               price: 1000,
+               price: 1200,
                name: "Accuracy 2",
                description: "+8% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
@@ -460,7 +460,7 @@ public static class PlayerUpgradesLibrary
         PlayerCharacterStats AimRange1Stats = new PlayerCharacterStats(
            aimRangeAdditive: 0.75f,
                level: 1,
-               price: 800,
+               price: 500,
                name: "Vision 1",
                description: "Increase Aim Assist range",
                icon: Resources.Load<Sprite>("UI_Icons/Vision"),
@@ -477,7 +477,7 @@ public static class PlayerUpgradesLibrary
         PlayerCharacterStats AimRange2Stats = new PlayerCharacterStats(
            aimRangeAdditive: 1.25f,
                level: 2,
-               price: 1200,
+               price: 1000,
                name: "Vision 2",
                description: "Massively increase Aim Assist range",
                icon: Resources.Load<Sprite>("UI_Icons/Vision"),
@@ -492,7 +492,7 @@ public static class PlayerUpgradesLibrary
         //ConeAngle
         GameObject ConeAngle1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats ConeAngle1Stats = new PlayerCharacterStats(
-           coneAngle: 25f,
+           coneAngle: 30f,
                level: 1,
                price: 500,
                name: "Awareness 1",
@@ -509,11 +509,11 @@ public static class PlayerUpgradesLibrary
         //ConeAngle
         GameObject ConeAngle2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats ConeAngle2Stats = new PlayerCharacterStats(
-           coneAngle: 25f,
-               level: 1,
-               price: 500,
+           coneAngle: 50f,
+               level: 2,
+               price: 1000,
                name: "Awareness 2",
-               description: "Increase Aim Assist width",
+               description: "Massively increase Aim Assist width",
                icon: Resources.Load<Sprite>("UI_Icons/AFK"),
                rarity: Rarity.Epic
              );

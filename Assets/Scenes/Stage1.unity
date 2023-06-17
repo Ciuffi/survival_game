@@ -2620,26 +2620,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 5290986885487603207, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: diameter
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290986885487603207, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: spawnRate
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290986885487603207, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: spawnRateLimit_G0
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290986885487603207, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: spawnRateLimit_G2
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290986885487603207, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
-      propertyPath: spawnRateLimit_G4
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 8372484968578920456, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: uiCamera
       value: 

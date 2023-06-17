@@ -50,15 +50,15 @@ MonoBehaviour:
   alwaysSpawn: 1
   isCircleSpawn: 1
   isClumpSpawn: 0
-  diameter: 13
+  diameter: 14
   initialDelay: 0
   spawnTimer: 120
-  spawnRate: 20
-  spawnRateLimit_G0: 20
+  spawnRate: 24
+  spawnRateLimit_G0: 24
   spawnRateLimit_G1: 24
-  spawnRateLimit_G2: 24
+  spawnRateLimit_G2: 28
   spawnRateLimit_G3: 28
-  spawnRateLimit_G4: 28
+  spawnRateLimit_G4: 30
   spawnRateLimit_G5: 30
   spawnRateLimit_G6: 30
   scaleRateSeconds: 100
@@ -66,6 +66,7 @@ MonoBehaviour:
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &2267821650962416045
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +133,7 @@ MonoBehaviour:
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &3590323111623112659
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,9 +253,15 @@ MonoBehaviour:
   - 0.2
   - 0.3
   - 0.4
+  xpScalingList:
+  - 0
+  - 0.5
+  - 0.55
+  - 0.5
+  - 0.6
+  - 0.5
   damageScaling: 0.1
   weightScaling: 0.1
-  xpScaling: 0.55
   stageHealthScaling: 0
   stageDamageScaling: 0
   stageWeightScaling: 0
@@ -372,6 +380,7 @@ MonoBehaviour:
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &4508033489353577495
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +451,7 @@ MonoBehaviour:
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &6869813565750737804
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +519,7 @@ MonoBehaviour:
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &6884074055211575582
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +586,7 @@ MonoBehaviour:
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &7402554872140478952
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +653,7 @@ MonoBehaviour:
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &7710190321212061916
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +720,7 @@ MonoBehaviour:
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &8760006987686430828
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,3 +787,4 @@ MonoBehaviour:
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []

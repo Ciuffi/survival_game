@@ -38,7 +38,7 @@ public class PlayerDataManager : MonoBehaviour
         goldDisplay.Add(GameObject.Find("playerGold2").GetComponentInChildren<TextMeshProUGUI>());
         goldDisplay.Add(GameObject.Find("playerGold3").GetComponentInChildren<TextMeshProUGUI>());
         charSelectController = FindObjectOfType<CharSelectController>();
-        upgradeButtonParent = GameObject.Find("Canvas_Shop/PlayerUpgradesScrollView/Viewport/Content").transform;
+        upgradeButtonParent = GameObject.Find("Canvas_Upgrades/PlayerUpgradesScrollView/Viewport/Content").transform;
         LoadData();
     }
 
@@ -252,7 +252,7 @@ public class PlayerDataManager : MonoBehaviour
             goldDisplay.Add(GameObject.Find("playerGold").GetComponentInChildren<TextMeshProUGUI>());
             goldDisplay.Add(GameObject.Find("playerGold2").GetComponentInChildren<TextMeshProUGUI>());
             goldDisplay.Add(GameObject.Find("playerGold3").GetComponentInChildren<TextMeshProUGUI>());
-            upgradeButtonParent = GameObject.Find("Canvas_Shop/PlayerUpgradesScrollView/Viewport/Content").transform;
+            upgradeButtonParent = GameObject.Find("Canvas_Upgrades/PlayerUpgradesScrollView/Viewport/Content").transform;
 
         }
     }

@@ -382,9 +382,13 @@ public class AttackStats : Upgrade
         projectileSize *= projectileSizeMultiplier;
 
         magnetStrength *= effectMultiplier;
-        slowPercentage *= effectMultiplier;
         dotDamage *= effectMultiplier;
+        chainSpeed *= effectMultiplier;
+        splitStatPercentage *= effectMultiplier;
 
+        //divide because lower number = better here
+        chainStatDecayPercent /= effectMultiplier;
+        slowPercentage /= effectMultiplier;
     }
 
     public AttackStats mergeInStats(AttackStats[] attackstats)

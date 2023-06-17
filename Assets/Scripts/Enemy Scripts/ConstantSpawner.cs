@@ -38,8 +38,8 @@ public class ConstantSpawner : MonoBehaviour
 
 
     private int currentGuilt;
-    public List<float> healthScalingList;
-    private float damageScaling, weightScaling, xpScaling;
+    public List<float> healthScalingList, xpScalingList;
+    private float damageScaling, weightScaling;
     private float stageHealthScaling, stageDamageScaling, stageWeightScaling, stageXpScaling;
     private float prevGuiltValue;
 
@@ -145,7 +145,7 @@ public class ConstantSpawner : MonoBehaviour
         currentGuilt = basicSpawner.GetComponent<BasicSpawner>().currentGuilt;
         weightScaling = basicSpawner.GetComponent<BasicSpawner>().weightScaling;
         damageScaling = basicSpawner.GetComponent<BasicSpawner>().damageScaling;
-        xpScaling = basicSpawner.GetComponent<BasicSpawner>().xpScaling;
+        xpScalingList = basicSpawner.GetComponent<BasicSpawner>().xpScalingList;
     }
 
 
@@ -228,7 +228,7 @@ public class ConstantSpawner : MonoBehaviour
                         enemy.projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                         enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                         enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
-                        enemy.xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                        enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
                     }
 
                 }
@@ -245,7 +245,7 @@ public class ConstantSpawner : MonoBehaviour
                     enemy.projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
-                    enemy.xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                    enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
                 }
             }
         }
@@ -263,7 +263,7 @@ public class ConstantSpawner : MonoBehaviour
                     enemy.projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
-                    enemy.xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                    enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
                 }
             }
         }
@@ -290,7 +290,7 @@ public class ConstantSpawner : MonoBehaviour
                     enemy.projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
-                    enemy.xpAmount *= (1 + (xpScaling * currentGuilt)) + stageXpScaling;
+                    enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
                 }
             }
 

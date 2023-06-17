@@ -92,7 +92,7 @@ public static class PlayerCharactersLibrary
            maxHealth: 35,
            health: 35,
            defense: 0,
-           speed: 1.6f,
+           speed: 1.7f,
            pickupRange: 3f,
            aimRangeAdditive: 0
 
@@ -112,8 +112,8 @@ public static class PlayerCharactersLibrary
             maxHealth: 55,
             health: 55,
             defense: 0,
-            speed: 0.8f,
-            pickupRange: 2.5f,
+            speed: 0.7f,
+            pickupRange: 2f,
 
            damageMultiplier: 0.5f,
            castTimeMultiplier: 0.5f
@@ -174,7 +174,7 @@ public static class PlayerCharactersLibrary
         GameObject Alchemist = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
         PlayerCharacterStats AlchemistStats = new PlayerCharacterStats(
             name: "Alchemist",
-            description: "Swish, Glug",
+            description: "Shadow Wizard Money Gang",
             icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/4"),
             rarity: Rarity.Rare,
             price: 800,
@@ -185,8 +185,8 @@ public static class PlayerCharactersLibrary
             speed: 1.3f,
             pickupRange: 3f,
 
-           effectDuration: 1f,
-           effectMultiplier: 0.5f
+           effectDuration: 0.5f,
+           effectMultiplier: 1f
         );
         Alchemist.name = AlchemistStats.name;
 

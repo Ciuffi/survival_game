@@ -48,9 +48,9 @@ public class PlayerUpgradeButton : MonoBehaviour
         rarityText = transform.Find("Text_Rarity").GetComponent<TextMeshProUGUI>();
         iconImage = transform.Find("Image").GetComponent<Image>();
 
-        descriptionText = GameObject.Find("Canvas_Shop/PlayerUpgradesScrollView/Textbox/Text").GetComponent<TextMeshProUGUI>();
-        priceText = GameObject.Find("Canvas_Shop/PlayerUpgradesScrollView/BuyUpgrade/Text").GetComponent<TextMeshProUGUI>();
-        purchaseButton = GameObject.Find("Canvas_Shop/PlayerUpgradesScrollView/BuyUpgrade").GetComponent<Button>();
+        descriptionText = GameObject.Find("Canvas_Upgrades/PlayerUpgradesScrollView/Textbox/Text").GetComponent<TextMeshProUGUI>();
+        priceText = GameObject.Find("Canvas_Upgrades/PlayerUpgradesScrollView/BuyUpgrade/Text").GetComponent<TextMeshProUGUI>();
+        purchaseButton = GameObject.Find("Canvas_Upgrades/PlayerUpgradesScrollView/BuyUpgrade").GetComponent<Button>();
 
         // Get the parent object for rarity images
         rarityImageParent = transform.Find("RarityImageParent").transform;

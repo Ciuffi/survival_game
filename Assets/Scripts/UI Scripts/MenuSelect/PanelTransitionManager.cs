@@ -8,6 +8,11 @@ public class PanelTransitionManager : MonoBehaviour
     [SerializeField] private float transitionDuration = 0.5f;
     [SerializeField] private float initialXValue;  // set this value according to your UI layout
     [SerializeField] private float targetXValue;  // set this value according to your UI layout
+
+    [SerializeField] private float initialYValue;  // set this value according to your UI layout
+    [SerializeField] private float targetYValue;  // set this value according to your UI layout
+
+    [SerializeField] private bool moveVertically; // The transition direction (false for horizontal, true for vertical)
     [SerializeField] private bool moveToLeft; // The direction of movement
 
     [SerializeField] private Button transitionButton; // Reference to the button
@@ -23,7 +28,14 @@ public class PanelTransitionManager : MonoBehaviour
     {
         // Position the panel initially off the screen to the specified side
         Vector2 initialPosition = contentPanel.anchoredPosition;
-        initialPosition.x = initialXValue;
+        if (moveVertically)
+        {
+            initialPosition.y = initialYValue;
+        }
+        else
+        {
+            initialPosition.x = initialXValue;
+        }
         contentPanel.anchoredPosition = initialPosition;
 
         // Set the initial button sprite
@@ -32,16 +44,22 @@ public class PanelTransitionManager : MonoBehaviour
     }
 
     public void OnButtonClick()
-    {
-        if (isTransitioning)
-            return;
-
+    {  
         // Change the button sprite immediately when the button is clicked
         isTransitioned = !isTransitioned;
         transitionButton.image.sprite = isTransitioned ? transitionedButtonSprite : initialButtonSprite;
 
+        float targetPos;
+
         // Check the panel's current position and determine where to move next
-        float targetX = contentPanel.anchoredPosition.x == targetXValue ? initialXValue : targetXValue;
+        if (moveVertically)
+        {
+            targetPos = contentPanel.anchoredPosition.y == targetYValue ? initialYValue : targetYValue;
+        }
+        else
+        {
+            targetPos = contentPanel.anchoredPosition.x == targetXValue ? initialXValue : targetXValue;
+        }
 
         // Set the sorting layer immediately when the button is clicked
         if (!isTransitioned)
@@ -56,9 +74,18 @@ public class PanelTransitionManager : MonoBehaviour
 
         // Start the transition
         isTransitioning = true;
-        contentPanel.DOAnchorPosX(targetX, transitionDuration)
-            .SetEase(Ease.OutBounce)
-            .OnComplete(() => isTransitioning = false);
+        if (moveVertically)
+        {
+            contentPanel.DOAnchorPosY(targetPos, transitionDuration)
+                .SetEase(Ease.OutBack)
+                .OnComplete(() => isTransitioning = false);
+        }
+        else
+        {
+            contentPanel.DOAnchorPosX(targetPos, transitionDuration)
+                .SetEase(Ease.OutBack)
+                .OnComplete(() => isTransitioning = false);
+        }
     }
 
     private int GetMaxSortingOrder()
