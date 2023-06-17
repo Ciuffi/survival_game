@@ -320,21 +320,21 @@ public class AttackHandler : MonoBehaviour
         if (attacks.Contains(attackToRemove))
         {
             Debug.Log("Contains the attack");
-            // Check if the attack to remove is the current one or comes before it in the list
-            int removeIndex = attacks.IndexOf(attackToRemove);
-            if (removeIndex <= attackIndex)
+               // Check if the attack to remove is the current one or comes before it in the list
+        int removeIndex = attacks.IndexOf(attackToRemove);
+        if (removeIndex <= attackIndex)
+        {
+            // Decrement attackIndex to ensure it remains pointing to the correct attack
+            attackIndex--;
+            // Ensure attackIndex doesn't go below zero
+            if (attackIndex < 0)
             {
-                // Decrement attackIndex to ensure it remains pointing to the correct attack
-                attackIndex--;
-                // Ensure attackIndex doesn't go below zero
-                if (attackIndex < 0)
-                {
-                    attackIndex = 0;
-                }
+                attackIndex = 0;
             }
+        }
 
-            Destroy(attackToRemove.gameObject);
-            attacks.Remove(attackToRemove);
+        Destroy(attackToRemove.gameObject);
+        attacks.Remove(attackToRemove);
         }
 
         // Refresh all timelines:

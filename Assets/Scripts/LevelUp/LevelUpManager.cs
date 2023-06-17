@@ -197,6 +197,8 @@ public class LevelUpManager : MonoBehaviour
 
                     int index = rarityNames.IndexOf(rarityText) * 2;
                     textComponents[1].color = rarityColors[index];
+                    u.GetComponentInChildren<TMP_Text>().color = rarityColors[index];
+
                     u.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 
                     textComponents[2].text = GO.GetComponent<Upgrade>().GetUpgradeDescription();
@@ -336,7 +338,7 @@ public class LevelUpManager : MonoBehaviour
                     textComponents[1].text = rarityText;
 
                     int index = rarityNames.IndexOf(rarityText) * 2;
-
+                    u.GetComponentInChildren<TMP_Text>().color = rarityColors[index];
                     textComponents[1].color = rarityColors[index];
                     u.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 
@@ -363,7 +365,7 @@ public class LevelUpManager : MonoBehaviour
                     textComponents[1].text = rarityText;
 
                     int index = rarityNames.IndexOf(rarityText) * 2;
-
+                    u.GetComponentInChildren<TMP_Text>().color = rarityColors[index];
                     textComponents[1].color = rarityColors[index];
                     u.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 

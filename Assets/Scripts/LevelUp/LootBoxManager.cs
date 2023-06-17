@@ -209,6 +209,8 @@ public class LootBoxManager : MonoBehaviour
 
                     int index = rarityNames.IndexOf(rarityText) * 2;
                     textComponents[1].color = rarityColors[index];
+                    upgradeWindow.GetComponentInChildren<TMP_Text>().color = rarityColors[index];
+
                     upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 
                     textComponents[2].text = GO.GetComponent<Upgrade>().GetUpgradeDescription();
@@ -248,61 +250,10 @@ public class LootBoxManager : MonoBehaviour
                 chosenRarity = Rarity.Common;
             }
 
-            float typeRoll = Random.value;
-            float upgradeRoll = Random.value;
-
-            if (typeRoll < dropTable.playerStatChance)
-            {
-                Debug.Log("player stat");
-
-                // Player Stat upgrade
-                upgrades = playerStatUpgrades;
-
-                upgrades = upgrades.Where(u => u.GetComponent<StatComponent>().stat.GetRarity() == chosenRarity).ToList();
-
-            }
-            else if (typeRoll < dropTable.playerStatChance + dropTable.weaponSetStatChance)
-            {
-                Debug.Log("weapon set");
-
-                // Weapon Set upgrade
-                upgrades = weaponSetUpgrades;
-
-                if (upgradeRoll < dropTable.existingWeaponOrSetChance)
-                {
-                    var attackHandler = FindObjectOfType<AttackHandler>();
-                    // Get the unique weapon set types in the current attacks
-                    var currentWeaponSetTypes = attackHandler.attacks.Select(a => a.weaponSetType).Distinct();
-                    // Filter upgrades that correspond to any of the current weapon set types
-                    upgrades = upgrades
-                        .Where(u => currentWeaponSetTypes.Contains(u.GetComponent<AttackStatComponent>().stat.weaponSetType))
-                        .ToList();
-                }
-
-                upgrades = upgrades.Where(u => u.GetComponent<AttackStatComponent>().stat.GetRarity() == chosenRarity).ToList();
-
-            }
-            else
-            {
-                Debug.Log("specific weapon");
-
-                //specific weapon stat
-
-                //if (upgradeRoll < dropTable.existingWeaponOrSetChance) //owned weapon stat
-                //{
-                    //Debug.Log("existing weapon stat");
-
-                    upgrades = GetAttackStatsGameObjects().ToList();
-                //}
-                //else //new weapon stat
-                //{
-                    //upgrades = GetPotentialUpgrades(weaponBuilders).ToList();
-                    //dont filter
-                //}
-
-                upgrades = upgrades.Where(u => u.GetComponent<AttackStatComponent>().stat.GetRarity() == chosenRarity).ToList();
-            }
-
+    
+            // Player Stat upgrade
+            upgrades = playerStatUpgrades;
+            upgrades = upgrades.Where(u => u.GetComponent<StatComponent>().stat.GetRarity() == chosenRarity).ToList();
 
             GameObject GO = null;
             while (GO == null)
@@ -317,7 +268,6 @@ public class LootBoxManager : MonoBehaviour
             previousUpgrades.Add(GO.name);
 
             var statComponent = GO.GetComponent<StatComponent>();
-            var attackStatComponent = GO.GetComponent<AttackStatComponent>();
             TMP_Text[] textComponents = upgradeWindow.GetComponentsInChildren<TMP_Text>();
 
             if (statComponent != null)
@@ -336,55 +286,14 @@ public class LootBoxManager : MonoBehaviour
                 textComponents[1].text = rarityText;
 
                 int index = rarityNames.IndexOf(rarityText) * 2;
-
+                upgradeWindow.GetComponentInChildren<TMP_Text>().color = rarityColors[index];
                 textComponents[1].color = rarityColors[index];
                 upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
 
                 textComponents[2].text = statComponent.stat.description;
 
-                string upgradeTag = "ALL";
+                string upgradeTag = "RELIC";
                 textComponents[3].text = upgradeTag;
-
-            }
-            else if (attackStatComponent != null)
-            {
-                // It's either a WeaponStat upgrade or a WeaponSet upgrade
-                upgradeWindow.upgrade = attackStatComponent.stat;
-
-                string pattern = @"\s\d$";
-                string editedName = Regex.Replace(GO.name, pattern, "");
-                upgradeWindow.GetComponentInChildren<TMP_Text>().text = editedName;
-                
-                upgradeWindow.transform.Find("Image").GetComponent<Image>().enabled = true;
-                upgradeWindow.transform.Find("Image").GetComponent<Image>().sprite = attackStatComponent.stat.GetUpgradeIcon();
-
-                string rarityText = chosenRarity.ToString();
-                textComponents[1].text = rarityText;
-
-                int index = rarityNames.IndexOf(rarityText) * 2;
-
-                textComponents[1].color = rarityColors[index];
-                upgradeWindow.transform.Find("Image_Outline").GetComponent<Image>().color = rarityColors[index];
-
-                textComponents[2].text = attackStatComponent.stat.description;
-
-                switch (upgradeWindow.upgrade.GetUpgradeType())
-                {
-                    case UpgradeType.WeaponSetStat:
-                        {
-                            string upgradeTag = attackStatComponent.stat.weaponSetType.ToString();
-                            textComponents[3].text = upgradeTag;
-                        }
-                        break;
-
-                    case UpgradeType.WeaponStat:
-                        if (upgradeWindow.upgrade is AttackStats weaponUpgrade)
-                        {
-                            string upgradeTag = weaponUpgrade.AttackName;
-                            textComponents[3].text = upgradeTag;
-                        }
-                        break;
-                }
 
             }
         } 

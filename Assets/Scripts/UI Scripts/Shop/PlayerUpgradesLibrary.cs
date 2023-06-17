@@ -170,7 +170,7 @@ public static class PlayerUpgradesLibrary
             speed: 0.2f,
                level: 1,
                price: 500,
-               name: "Boost 1",
+               name: "Speed 1",
                description: "+0.2 base Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
                rarity: Rarity.Rare
@@ -185,7 +185,7 @@ public static class PlayerUpgradesLibrary
             speed: 0.2f,
                level: 2,
                price: 1000,
-               name: "Boost 2",
+               name: "Speed 2",
                description: "+0.4 base Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
                rarity: Rarity.Epic
@@ -200,7 +200,7 @@ public static class PlayerUpgradesLibrary
            speed: 0.4f,
                level: 3,
                price: 2000,
-               name: "Boost 3",
+               name: "Speed 3",
                description: "+0.8 base Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
                rarity: Rarity.Legendary
@@ -217,7 +217,7 @@ public static class PlayerUpgradesLibrary
               damageMultiplier: 0.05f,
                level: 1,
                price: 500,
-               name: "Mastery 1",
+               name: "Damage 1",
                description: "+5% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Rare
@@ -233,7 +233,7 @@ public static class PlayerUpgradesLibrary
           damageMultiplier: 0.05f,
                level: 2,
                price: 500,
-               name: "Mastery 2",
+               name: "Damage 2",
                description: "+10% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Rare
@@ -249,7 +249,7 @@ public static class PlayerUpgradesLibrary
             damageMultiplier: 0.10f,
                level: 3,
                price: 1200,
-               name: "Mastery 3",
+               name: "Damage 3",
                description: "+20% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Epic
@@ -265,7 +265,7 @@ public static class PlayerUpgradesLibrary
             damageMultiplier: 0.10f,
                level: 4,
                price: 1500,
-               name: "Mastery 4",
+               name: "Damage 4",
                description: "+30% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Epic
@@ -280,7 +280,7 @@ public static class PlayerUpgradesLibrary
             damageMultiplier: 0.20f,
                level: 5,
                price: 2000,
-               name: "Mastery 5",
+               name: "Damage 5",
                description: "+50% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Legendary
@@ -297,7 +297,7 @@ public static class PlayerUpgradesLibrary
              critChance: 0.04f,
                level: 1,
                price: 800,
-               name: "Accuracy 1",
+               name: "Critical 1",
                description: "+4% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Rare
@@ -313,7 +313,7 @@ public static class PlayerUpgradesLibrary
              critChance: 0.04f,
                level: 2,
                price: 1200,
-               name: "Accuracy 2",
+               name: "Critical 2",
                description: "+8% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Epic
@@ -329,7 +329,7 @@ public static class PlayerUpgradesLibrary
               critChance: 0.07f,
                level: 3,
                price: 2000,
-               name: "Accuracy 3",
+               name: "Critical 3",
                description: "+15% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Legendary
@@ -346,7 +346,7 @@ public static class PlayerUpgradesLibrary
              critDmg: 0.20f,
                level: 1,
                price: 500,
-               name: "Brutality 1",
+               name: "Overkill 1",
                description: "+20% Critical Hit Damage",
                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                rarity: Rarity.Rare
@@ -362,7 +362,7 @@ public static class PlayerUpgradesLibrary
              critDmg: 0.20f,
                level: 2,
                price: 800,
-               name: "Brutality 2",
+               name: "Overkill 2",
                description: "+40% Critical Hit Damage",
                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                rarity: Rarity.Rare
@@ -378,7 +378,7 @@ public static class PlayerUpgradesLibrary
              critDmg: 0.30f,
                level: 3,
                price: 1200,
-               name: "Brutality 3",
+               name: "Overkill 3",
                description: "+70% Critical Hit Damage",
                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                rarity: Rarity.Epic
@@ -394,7 +394,7 @@ public static class PlayerUpgradesLibrary
              critDmg: 0.30f,
                level: 4,
                price: 1500,
-               name: "Brutality 4",
+               name: "Overkill 4",
                description: "+100% Critical Hit Damage",
                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                rarity: Rarity.Legendary

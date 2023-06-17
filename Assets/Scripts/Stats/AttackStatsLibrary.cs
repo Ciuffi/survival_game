@@ -88,7 +88,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 critChance: 0.03f,
-                name: "Crit Chance 1",
+                name: "Critical 1",
                 description: "Crit Chance +3%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Common
@@ -99,7 +99,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 critDmg: 0.20f,
-                name: "Crit Dmg 1",
+                name: "Overkill 1",
                 description: "Crit Dmg +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Common
@@ -327,7 +327,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 critChance: 0.06f,
-                name: "Crit Chance 2",
+                name: "Critical 2",
                 description: "Crit Chance +6%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Rare
@@ -338,7 +338,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 critDmg: 0.35f,
-                name: "Crit Dmg 2",
+                name: "Overkill 2",
                 description: "Crit Dmg +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Rare
@@ -841,7 +841,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 critChance: 0.15f,
-                name: "Crit Chance 3",
+                name: "Critical 3",
                 description: "Crit Chance +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Epic
@@ -852,7 +852,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 critDmg: 0.6f,
-                name: "Crit Dmg 3",
+                name: "Overkill 3",
                 description: "Crit Dmg +60%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Epic
@@ -1342,7 +1342,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 critChance: 0.25f,
-                name: "Crit Chance 4",
+                name: "Critical 4",
                 description: "Crit Chance +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Legendary
@@ -1353,7 +1353,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 critDmg: 1f,
-                name: "Crit Dmg 4",
+                name: "Overkill 4",
                 description: "Crit Dmg +100%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Legendary

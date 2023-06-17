@@ -2415,6 +2415,10 @@ PrefabInstance:
       propertyPath: onClickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 142728913}
+    - target: {fileID: 1098140728286368306, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1098140728325287417, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2519,6 +2523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1098140728898083402, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1098140729040693068, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: player
       value: 
@@ -2543,6 +2551,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1098140729547035322, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1098140729611216925, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2550,6 +2562,14 @@ PrefabInstance:
     - target: {fileID: 1098140729611216925, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098140729739344393, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098140730004457194, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1098140730004457198, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: gameManager
@@ -3129,6 +3149,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6845398078285996823, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: recoilForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845398078285996823, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
+      propertyPath: recoveryDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7313015711702768581, guid: 3ff22b41fabfb584b9c9c6aeaf338e23, type: 3}
       propertyPath: m_Name
       value: WeaponSprite

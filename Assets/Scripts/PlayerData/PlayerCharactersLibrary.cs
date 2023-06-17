@@ -93,7 +93,7 @@ public static class PlayerCharactersLibrary
            health: 35,
            defense: 0,
            speed: 1.7f,
-           pickupRange: 3f,
+           pickupRange: 2.5f,
            aimRangeAdditive: 0
 
        );
@@ -113,7 +113,7 @@ public static class PlayerCharactersLibrary
             health: 55,
             defense: 0,
             speed: 0.7f,
-            pickupRange: 2f,
+            pickupRange: 1.8f,
 
            damageMultiplier: 0.5f,
            castTimeMultiplier: 0.5f
@@ -135,7 +135,7 @@ public static class PlayerCharactersLibrary
            health: 40,
            defense: 0,
            speed: 1f,
-           pickupRange: 2.5f,
+           pickupRange: 2f,
            aimRangeAdditive: 0,
 
            shotsPerAttack: 1,
@@ -231,7 +231,7 @@ public static class PlayerCharactersLibrary
             health: 40,
             defense: 0,
             speed: 1.4f,
-            pickupRange: 2f,
+            pickupRange: 2.5f,
             aimRangeAdditive: 0,
 
             shotsPerAttackMelee: 1,
@@ -278,7 +278,7 @@ public static class PlayerCharactersLibrary
             health: 40,
             defense: 0,
             speed: 1f,
-            pickupRange: 2f,
+            pickupRange: 2.5f,
 
             shootOpposideSide: true
         );

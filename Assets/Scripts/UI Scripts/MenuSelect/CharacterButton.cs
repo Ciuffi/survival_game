@@ -211,13 +211,10 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
 
         statsString += "Health " + stats.health + "\n";
         statsString += "Speed " + stats.speed + "\n";
+        statsString += "Pickup Range " + stats.pickupRange + "\n";
 
-        // Check each stat and add it to the string if it meets the criteria
+        // Check each stat and add it to the string if it meets the criteria 
 
-        if (stats.pickupRange != 2)
-        {
-            statsString += "Pickup Range +" + (stats.pickupRange - 2) + "\n";
-        }
         if (stats.defense != 0)
         {
             statsString += "Defense " + stats.defense + "\n";
@@ -226,33 +223,55 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             statsString += "Shield " + stats.shield + "\n";
         }
-        if (stats.damageMultiplier != 0)
+        if (stats.damageMultiplier > 0)
         {
-            statsString += "DmgMultiplier% " + stats.damageMultiplier + "\n";
+            statsString += "Damage +" + stats.damageMultiplier * 100 + "%" + "\n";
+        } else if (stats.damageMultiplier < 0)
+        {
+            statsString += "Damage " + stats.damageMultiplier * 100 + "%" + "\n";
         }
-        if (stats.critChance != 0)
+        if (stats.critChance > 0)
         {
-            statsString += "Crit% +" + stats.critChance + "\n";
+            statsString += "Crit Chance +" + stats.critChance * 100 + "%" + "\n";
+        } else if (stats.critChance < 0)
+        {
+            statsString += "Crit Chance " + stats.critChance * 100 + "%" + "\n";
         }
-        if (stats.critDmg != 0)
+        if (stats.critDmg > 0)
         {
-            statsString += "Crit DMG% +" + stats.critDmg + "\n";
+            statsString += "Crit Damage +" + stats.critDmg * 100 + "%" + "\n";
+        } else if (stats.critDmg < 0)
+        {
+            statsString += "Crit Damage " + stats.critDmg * 100 + "%" + "\n";
         }
-        if (stats.castTimeMultiplier != 0)
+        if (stats.castTimeMultiplier > 0)
         {
-            statsString += "Cast Time% " + stats.castTimeMultiplier + "\n";
+            statsString += "Cast Time +" + stats.castTimeMultiplier * 100 + "%" + "\n";
         }
-        if (stats.spreadMultiplier != 0)
+        else if (stats.castTimeMultiplier < 0){
+            statsString += "Cast Time " + stats.castTimeMultiplier * 100 + "%" + "\n";
+        }
+        if (stats.spreadMultiplier > 0)
         {
-            statsString += "Rate of Fire% " + stats.spreadMultiplier + "\n";
+            statsString += "Rate of Fire +" + stats.spreadMultiplier * 100 + "%" + "\n";
+        }
+        else if (stats.spreadMultiplier < 0)
+        {
+            statsString += "Rate of Fire " + stats.spreadMultiplier * 100 + "%" + "\n";
         }
         if (stats.shotgunSpread > 0)
         {
-            statsString += "Shotgun Spread +" + stats.shotgunSpread + "\n";
-        }
-        if (stats.multicastChance != 0)
+            statsString += "Shotgun Spread +" + stats.shotgunSpread + "degrees" + "\n";
+        } else if (stats.shotgunSpread < 0)
         {
-            statsString += "Multicast% +" + stats.multicastChance + "\n";
+            statsString += "Shotgun Spread " + stats.shotgunSpread + "degrees" + "\n";
+        }
+        if (stats.multicastChance > 0)
+        {
+            statsString += "Multicast Chance +" + stats.multicastChance * 100 + "%" + "\n";
+        } else if (stats.multicastChance < 0)
+        {
+            statsString += "Multicast Chance " + stats.multicastChance * 100 + "%" + "\n";
         }
         if (stats.shotsPerAttack != 0 && stats.shotsPerAttack > 0)
         {
@@ -262,65 +281,110 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             statsString += "Projectiles " + stats.shotsPerAttack + "\n";
         }
-        if (stats.projectileSpeedMultiplier != 0)
+        if (stats.projectileSpeedMultiplier > 0)
         {
-            statsString += "Proj Spd% " + stats.projectileSpeedMultiplier + "\n";
-        }
-        if (stats.rangeMultiplier != 0)
+            statsString += "Projectile Speed +" + stats.projectileSpeedMultiplier * 100 + "%" + "\n";
+        } else if (stats.projectileSpeedMultiplier < 0)
         {
-            statsString += "Proj Range% " + stats.rangeMultiplier + "\n";
+            statsString += "Projectile Speed " + stats.projectileSpeedMultiplier * 100 + "%" + "\n";
         }
-        if (stats.projectileSizeMultiplier != 0)
+        if (stats.rangeMultiplier > 0)
         {
-            statsString += "Proj Size% " + stats.projectileSizeMultiplier + "\n";
+            statsString += "Projectile Range +" + stats.rangeMultiplier * 100 + "%" + "\n";
         }
-        if (stats.comboLength != 0 && stats.comboLength > 0)
+        else if (stats.rangeMultiplier < 0)
         {
-            statsString += "Melee Hits +" + stats.comboLength + "\n";
+            statsString += "Projectile Range " + stats.rangeMultiplier * 100 + "%" + "\n";
         }
-        if (stats.comboLength != 0 && stats.comboLength < 0)
+        if (stats.projectileSizeMultiplier > 0)
         {
-            statsString += "Melee Hits " + stats.comboLength + "\n";
-        }
-        if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee > 0)
+            statsString += "Projectile Size +" + stats.projectileSizeMultiplier * 100 + "%" + "\n";
+        } else if (stats.projectileSizeMultiplier < 0)
         {
-            statsString += "Aftershock +" + stats.shotsPerAttackMelee + "\n";
+            statsString += "Projectile Size " + stats.projectileSizeMultiplier * 100 + "%" + "\n";
         }
-        if (stats.shotsPerAttackMelee != 0 && stats.shotsPerAttackMelee < 0)
+        if (stats.comboLength > 0)
         {
-            statsString += "Aftershock " + stats.comboLength + "\n";
+            statsString += "Melee, Nova cast +" + stats.comboLength + "\n";
         }
-        if (stats.comboWaitTimeMultiplier != 0)
+        else if (stats.comboLength < 0)
         {
-            statsString += "Melee Speed% " + stats.comboWaitTimeMultiplier + "\n";
+            statsString += "Melee, Nova cast " + stats.comboLength + "\n";
         }
-        if (stats.meleeSizeMultiplier != 0)
+        if (stats.shotsPerAttackMelee > 0)
         {
-            statsString += "Melee Size% " + stats.meleeSizeMultiplier + "\n";
+            statsString += "Aftershocks +" + stats.shotsPerAttackMelee + "\n";
         }
-        if (stats.knockbackMultiplier != 0)
+        else if (stats.shotsPerAttackMelee < 0)
         {
-            statsString += "Knockback% " + stats.knockbackMultiplier + "\n";
+            statsString += "Aftershocks " + stats.comboLength + "\n";
         }
-        if (stats.activeMultiplier != 0)
+        if (stats.comboWaitTimeMultiplier > 0)
         {
-            statsString += "Attack Duration% " + stats.activeMultiplier + "\n";
+            statsString += "Melee, Nova Speed +" + stats.comboWaitTimeMultiplier * 100 + "%" + "\n";
         }
-        if (stats.activeDuration != 0)
+        else if (stats.comboWaitTimeMultiplier < 0)
+        {
+            statsString += "Melee, Nova Speed " + stats.comboWaitTimeMultiplier * 100 + "%" + "\n";
+        }
+        if (stats.meleeSizeMultiplier > 0)
+        {
+            statsString += "Melee, Nova Size +" + stats.meleeSizeMultiplier * 100 + "%" + "\n";
+        } else if (stats.meleeSizeMultiplier < 0)
+        {
+            statsString += "Melee, Nova Size " + stats.meleeSizeMultiplier * 100 + "%" + "\n";
+        }
+        if (stats.knockbackMultiplier > 0)
+        {
+            statsString += "Knockback +" + stats.knockbackMultiplier * 100 + "%" + "\n";
+        } else if (stats.knockbackMultiplier < 0)
+        {
+            statsString += "Knockback " + stats.knockbackMultiplier * 100 + "%" + "\n";
+        }
+        if (stats.activeMultiplier > 0)
+        {
+            statsString += "Attack Duration +" + stats.activeMultiplier * 100 + "%" + "\n";
+        } else if (stats.activeMultiplier < 0)
+        {
+            statsString += "Attack Duration " + stats.activeMultiplier * 100 + "%" + "\n";
+        }
+        if (stats.activeDuration > 0)
         {
             statsString += "Attack Duration +" + stats.activeDuration + "s" + "\n";
         }
-        if (stats.effectMultiplier != 0)
+        else if (stats.activeDuration < 0)
         {
-            statsString += "Debuff Power% " + stats.effectMultiplier + "\n";
+            statsString += "Attack Duration " + stats.activeDuration + "s" + "\n";
         }
-        if (stats.effectDuration != 0)
+        if (stats.effectMultiplier > 0)
+        {
+            statsString += "Debuff Power +" + stats.effectMultiplier * 100 + "%" + "\n";
+        } else if (stats.effectMultiplier < 0)
+        {
+            statsString += "Debuff Power " + stats.effectMultiplier * 100 + "%" + "\n";
+        }
+        if (stats.effectDuration > 0)
         {
             statsString += "Debuff Duration +" + stats.effectDuration + "s" + "\n";
         }
-        if (stats.thrownSpeedMultiplier != 0)
+        else if (stats.effectDuration < 0)
         {
-            statsString += "Wpn Toss Speed% " + stats.thrownSpeedMultiplier + "\n";
+            statsString += "Debuff Duration " + stats.effectDuration + "s" + "\n";
+        }
+        if (stats.thrownDamageMultiplier > 0)
+        {
+            statsString += "Wpn Toss Damage +" + stats.thrownSpeedMultiplier * 100 + "%" + "\n";
+        } else if (stats.thrownDamageMultiplier < 0)
+        {
+            statsString += "Wpn Toss Damage " + stats.thrownSpeedMultiplier * 100 + "%" + "\n";
+        }
+        if (stats.thrownSpeedMultiplier > 0)
+        {
+            statsString += "Wpn Toss Speed +" + stats.thrownSpeedMultiplier * 100 + "%" + "\n";
+        }
+        else if (stats.thrownSpeedMultiplier < 0)
+        {
+            statsString += "Wpn Toss Speed " + stats.thrownSpeedMultiplier * 100 + "%" + "\n";
         }
         if (stats.shootOpposideSide != false)
         {

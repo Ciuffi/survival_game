@@ -9,8 +9,9 @@ public class WpnSpriteRecoil : MonoBehaviour
     public float recoveryDuration = 0.2f;
 
     private Rigidbody2D rb;
-    private Vector3 originalPosition, currentPosition;
+    private Vector3 originalPosition;
     private GameObject player;
+    private Coroutine recoilCoroutine; // Store the reference to the running coroutine
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +22,18 @@ public class WpnSpriteRecoil : MonoBehaviour
 
     private void Update()
     {
-        currentPosition = transform.localPosition;
     }
 
 
     public void Recoil()
     {
-        originalPosition = transform.localPosition; 
-        StartCoroutine(DoRecoil());
+        if (recoilCoroutine != null)
+        {
+            StopCoroutine(recoilCoroutine); // Stop the last coroutine if it exists
+        }
+
+        originalPosition = transform.localPosition;
+        recoilCoroutine = StartCoroutine(DoRecoil());
     }
 
     private IEnumerator DoRecoil()
@@ -44,8 +49,10 @@ public class WpnSpriteRecoil : MonoBehaviour
         var t = 0f;
         while (t < recoveryDuration)
         {
+
             t += Time.deltaTime;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, currentPosition, t / recoveryDuration);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, originalPosition, t / recoveryDuration);
+
             yield return null;
         }
     }

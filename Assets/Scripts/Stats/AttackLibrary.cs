@@ -61,8 +61,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Extend 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -72,8 +72,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Extend 2"),
             AttackStatsLibrary.GetStat("Hacker 2"),
@@ -91,8 +91,8 @@ public static class AttackLibrary
 
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Extend 3"),
             AttackStatsLibrary.GetStat("Hacker 3"),
@@ -111,8 +111,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
@@ -182,8 +182,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Overheat 1"),
@@ -194,8 +194,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Overheat 2"),
@@ -214,8 +214,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Glattt 3"),
             AttackStatsLibrary.GetStat("Hacker 3"),
@@ -236,8 +236,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extended Clip 3"),
@@ -309,8 +309,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Saw'd Off 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
@@ -322,8 +322,8 @@ public static class AttackLibrary
    
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Saw'd Off 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
@@ -342,8 +342,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Saw'd Off 3"),
             AttackStatsLibrary.GetStat("Reach 3"),
@@ -365,8 +365,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Multicast+ 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
             AttackStatsLibrary.GetStat("Puncture 3"),
@@ -437,8 +437,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
             AttackStatsLibrary.GetStat("AFK 1"),
@@ -447,8 +447,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Quick Hands 2"),
@@ -473,8 +473,8 @@ public static class AttackLibrary
 
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Quick Hands 3"),
@@ -500,8 +500,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
@@ -577,8 +577,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
 
             AttackStatsLibrary.GetStat("Extend 1"),
@@ -589,8 +589,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
 
@@ -613,8 +613,8 @@ public static class AttackLibrary
 
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
 
@@ -636,8 +636,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
@@ -710,8 +710,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Saw'd Off 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
             AttackStatsLibrary.GetStat("Gravity 1"),
@@ -721,8 +721,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Saw'd Off 2"),
             AttackStatsLibrary.GetStat("Hacker 2"),
             AttackStatsLibrary.GetStat("AFK 2"),
@@ -739,8 +739,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Saw'd Off 3"),
             AttackStatsLibrary.GetStat("Multicast+ 2"),
             AttackStatsLibrary.GetStat("Extra Round 2"),
@@ -761,8 +761,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Multicast+ 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
             AttackStatsLibrary.GetStat("Big Ammo 3"),
@@ -842,8 +842,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
 
             AttackStatsLibrary.GetStat("Quick Hands 1"),
@@ -854,8 +854,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
 
             AttackStatsLibrary.GetStat("Quick Hands 2"),
@@ -877,8 +877,8 @@ public static class AttackLibrary
 
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
 
             AttackStatsLibrary.GetStat("Quick Hands 3"),
@@ -903,8 +903,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
@@ -982,8 +982,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
@@ -995,8 +995,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
@@ -1014,8 +1014,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Glattt 3"),
             AttackStatsLibrary.GetStat("Reach 3"),
@@ -1034,8 +1034,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extended Clip 3"),
@@ -1107,8 +1107,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Quick Hands 1"),
 
@@ -1118,8 +1118,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Quick Hands 2"),
@@ -1141,8 +1141,8 @@ public static class AttackLibrary
 
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Quick Hands 3"),
@@ -1167,8 +1167,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
@@ -1240,8 +1240,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -1250,8 +1250,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Hacker 2"),
@@ -1267,8 +1267,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("MLG 3"),
@@ -1287,8 +1287,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -1357,16 +1357,16 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Slow Down 1"),
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Multicast 1"),
@@ -1383,8 +1383,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
 
@@ -1402,8 +1402,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -1477,8 +1477,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Quick Hands 1"),
@@ -1488,8 +1488,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Quick Hands 2"),
@@ -1508,8 +1508,8 @@ public static class AttackLibrary
 
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Quick Hands 3"),
@@ -1531,8 +1531,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
@@ -1601,8 +1601,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Quick Hands 1"),
             AttackStatsLibrary.GetStat("Glattt 1"),
@@ -1613,8 +1613,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Quick Hands 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
@@ -1637,8 +1637,8 @@ public static class AttackLibrary
  
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Quick Hands 3"),
             AttackStatsLibrary.GetStat("Glattt 3"),
@@ -1662,8 +1662,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
@@ -1732,8 +1732,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
             AttackStatsLibrary.GetStat("Gravity 1"),
@@ -1743,8 +1743,8 @@ public static class AttackLibrary
   
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Gravity 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
@@ -1762,8 +1762,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Gravity 3"),
             AttackStatsLibrary.GetStat("Reach 3"),
@@ -1784,8 +1784,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -1858,8 +1858,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Saw'd Off 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -1868,8 +1868,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Saw'd Off 2"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
@@ -1888,8 +1888,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Saw'd Off 3"),
             AttackStatsLibrary.GetStat("MLG 3"),
@@ -1908,8 +1908,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast+ 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -1981,8 +1981,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Quick Hands 1"),
             AttackStatsLibrary.GetStat("Extend 1"),
@@ -1991,8 +1991,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Quick Hands 2"),
             AttackStatsLibrary.GetStat("Extend 2"),
@@ -2011,8 +2011,8 @@ public static class AttackLibrary
 
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Quick Hands 3"),
             AttackStatsLibrary.GetStat("Extend 3"),
@@ -2032,8 +2032,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
@@ -2105,8 +2105,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -2116,8 +2116,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Hacker 2"),
@@ -2134,8 +2134,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Glattt 3"),
             AttackStatsLibrary.GetStat("MLG 3"),
@@ -2155,8 +2155,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -2232,8 +2232,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Steady 1"),
@@ -2244,8 +2244,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Steady 2"),
@@ -2263,8 +2263,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Glattt 3"),
             AttackStatsLibrary.GetStat("MLG 3"),
@@ -2284,8 +2284,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -2357,8 +2357,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Saw'd Off 1"),
             AttackStatsLibrary.GetStat("Velocity 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
@@ -2368,8 +2368,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Saw'd Off 2"),
             AttackStatsLibrary.GetStat("Velocity 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
@@ -2386,8 +2386,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Saw'd Off 3"),
             AttackStatsLibrary.GetStat("Velocity 3"),
@@ -2409,8 +2409,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast+ 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -2482,8 +2482,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Reach 1"),
             AttackStatsLibrary.GetStat("Gravity 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -2493,8 +2493,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Reach 2"),
             AttackStatsLibrary.GetStat("Gravity 2"),
@@ -2511,8 +2511,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Reach 3"),
             AttackStatsLibrary.GetStat("Gravity 3"),
@@ -2531,8 +2531,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast+ 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -2603,8 +2603,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Overheat 1"),
@@ -2615,8 +2615,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Overheat 2"),
@@ -2634,8 +2634,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Glattt 3"),
             AttackStatsLibrary.GetStat("MLG 3"),
@@ -2656,8 +2656,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extended Clip 3"),
@@ -2729,8 +2729,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Saw'd Off 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -2738,8 +2738,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Saw'd Off 2"),
 
@@ -2759,8 +2759,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Saw'd Off 3"),
             AttackStatsLibrary.GetStat("MLG 3"),
@@ -2780,8 +2780,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast+ 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -2854,8 +2854,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -2865,8 +2865,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
             AttackStatsLibrary.GetStat("Hacker 2"),
@@ -2883,8 +2883,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Glattt 3"),
             AttackStatsLibrary.GetStat("MLG 3"),
@@ -2904,8 +2904,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -3029,8 +3029,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Puncture 3"),
@@ -3106,8 +3106,8 @@ public static class AttackLibrary
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
@@ -3116,8 +3116,8 @@ public static class AttackLibrary
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
 
@@ -3136,8 +3136,8 @@ public static class AttackLibrary
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Glattt 3"),
             AttackStatsLibrary.GetStat("MLG 3"),
@@ -3157,8 +3157,8 @@ public static class AttackLibrary
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
@@ -3229,8 +3229,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Haste 1"),
             AttackStatsLibrary.GetStat("Extend 1"),
@@ -3239,8 +3239,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Haste 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Quick Hands 2"),
@@ -3261,8 +3261,8 @@ public static class AttackLibrary
 
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Haste 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Quick Hands 3"),
@@ -3285,8 +3285,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
@@ -3362,8 +3362,8 @@ public static class AttackLibrary
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
-            AttackStatsLibrary.GetStat("Crit Chance 1"),
-            AttackStatsLibrary.GetStat("Crit Dmg 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
             AttackStatsLibrary.GetStat("Quick Hands 1"),
             AttackStatsLibrary.GetStat("Extend 1"),
@@ -3374,8 +3374,8 @@ public static class AttackLibrary
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
-            AttackStatsLibrary.GetStat("Crit Chance 2"),
-            AttackStatsLibrary.GetStat("Crit Dmg 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Quick Hands 2"),
             AttackStatsLibrary.GetStat("Extend 2"),
@@ -3397,8 +3397,8 @@ public static class AttackLibrary
  
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
-            AttackStatsLibrary.GetStat("Crit Chance 3"),
-            AttackStatsLibrary.GetStat("Crit Dmg 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
             AttackStatsLibrary.GetStat("Quick Hands 3"),
             AttackStatsLibrary.GetStat("Extend 3"),
@@ -3423,8 +3423,8 @@ public static class AttackLibrary
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
-            AttackStatsLibrary.GetStat("Crit Chance 4"),
-            AttackStatsLibrary.GetStat("Crit Dmg 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
