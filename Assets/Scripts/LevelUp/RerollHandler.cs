@@ -40,9 +40,13 @@ public class RerollHandler : MonoBehaviour
         currentSwap = baseSwap;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddReroll (int amount)
     {
-        
+        currentReroll += amount;
+    }
+
+    public void AddSwap(int amount)
+    {
+        currentSwap += amount;
     }
 }

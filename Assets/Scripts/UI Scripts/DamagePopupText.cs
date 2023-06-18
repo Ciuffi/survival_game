@@ -47,12 +47,14 @@ public class DamagePopupText : MonoBehaviour
 
         if (damageAmount > defaultDamageSize)
         {
-            textMesh.fontSize += ((damageAmount - defaultDamageSize) / upScaleIncrement * damageScaleAmount);
-        } else
+            float increment = Mathf.Floor((damageAmount - defaultDamageSize) / upScaleIncrement);
+            textMesh.fontSize += increment * damageScaleAmount;
+        }
+        else if (damageAmount < defaultDamageSize)
         {
-            textMesh.fontSize += ((damageAmount - defaultDamageSize) / downScaleIncrement * damageScaleAmount);
-
-        }  
+            float increment = Mathf.Floor((defaultDamageSize - damageAmount) / downScaleIncrement);
+            textMesh.fontSize -= increment * damageScaleAmount;
+        }
 
         if ( isCrit == true ) {
 

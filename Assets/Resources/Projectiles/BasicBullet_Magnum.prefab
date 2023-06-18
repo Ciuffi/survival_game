@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2896332563551487401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.115907215, y: 0.123151414, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4235860010000021948}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 36fcd6d37bfe6e446b9f492f5e8e0388, type: 3}
-  m_Color: {r: 0.6886792, g: 0.67893374, b: 0.67893374, a: 0.78431374}
+  m_Sprite: {fileID: 21300000, guid: aa2d209e72d81404b959aa09a6c917c9, type: 3}
+  m_Color: {r: 1, g: 0.9900874, b: 0.9481132, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 4235860010000021921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.52, y: 0.45, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.42, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2046734351210729163}
@@ -272,7 +272,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00026085973, y: 0.007641062}
+  m_Offset: {x: 0.00026085973, y: 0.0016483963}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -283,7 +283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46017087, y: 0.9318632}
+  m_Size: {x: 0.46017087, y: 1.0437255}
   m_EdgeRadius: 0
 --- !u!96 &5748511108580089752
 TrailRenderer:
@@ -327,7 +327,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Time: 0.075
+  m_Time: 0.12
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.15
@@ -358,7 +358,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 0}
+      key1: {r: 0, g: 0, b: 0, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

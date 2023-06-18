@@ -45,8 +45,7 @@ public class LootBox : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         int sceneIndex = currentScene.buildIndex;
         // Calculate the percentage increase based on the scene index
-        finalMultiplier = 1f + (stageScaling * (sceneIndex - 1));
-
+        finalMultiplier = 1f + stageScaling + player.GetComponent<StatsHandler>().stats.goldGainMultiplier;
 
     }
 

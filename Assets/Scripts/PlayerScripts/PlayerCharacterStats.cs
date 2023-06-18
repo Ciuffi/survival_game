@@ -18,6 +18,7 @@ public class PlayerCharacterStats : Upgrade
         health,
         speed,
         pickupRange,
+        damageAdditive,
         damageMultiplier,
         critChance,
         critDmg,
@@ -27,9 +28,14 @@ public class PlayerCharacterStats : Upgrade
     // Attack stats
     public int shotsPerAttack,
         shotsPerAttackMelee,
-        comboLength;
+        comboLength,
+        rerollTimes,
+        swapTimes;
 
-    public float aimRangeAdditive,
+    public float goldGainMultiplier,
+        xpGainMultiplier,
+        recoveryAdditive,
+        aimRangeAdditive,
         coneAngle,
         multicastChance,
         shotgunSpread,
@@ -49,29 +55,55 @@ public class PlayerCharacterStats : Upgrade
         activeDuration,
         activeMultiplier;
 
-    public bool shootOpposideSide, isHoming;
+    public bool shootOpposideSide, isHoming, is360;
+
+    public bool isDoT;
+    public float dotDuration;
+    public float dotDamage;
+    public float dotTickRate;
+
+    public bool isSplit;
+    public int splitAmount;
+    public float splitStatPercentage;
+
+    public bool isChain;
+    public int chainTimes;
+    public float chainStatDecayPercent;
+    public float chainRange;
+    public float chainSpeed;
+
+    public bool isMagnet;
+    public float magnetStrength;
+    public float magnetDuration;
+
+    public bool isSlow;
+    public float slowPercentage;
+    public float slowDuration;
+
+    public bool isStun;
+    public float stunDuration;
+
+
     public Rarity rarity;
     public GameObject statsContainer;
 
     // Merges the current PlayerCharacterStats with the provided PlayerCharacterStats
     public void MergeStats(PlayerCharacterStats other)
     {
-        maxHealth += other.maxHealth;
+        rerollTimes += other.rerollTimes;
+        other.rerollTimes = 0;
+        swapTimes += other.swapTimes;
+        other.swapTimes = 0;
 
+        maxHealth += other.maxHealth;
         health += other.health;
         other.health = 0;
-
         speed += other.speed;
         pickupRange += other.pickupRange;
-
         damageMultiplier += other.damageMultiplier;
-
         critChance += other.critChance;
-
         critDmg += other.critDmg;
-
         defense += other.defense;
-
         shield += other.shield;
 
         shotsPerAttack += other.shotsPerAttack;
@@ -79,7 +111,6 @@ public class PlayerCharacterStats : Upgrade
         comboLength += other.comboLength;
 
         aimRangeAdditive += other.aimRangeAdditive;
-
         coneAngle += other.coneAngle;
 
         multicastChance += other.multicastChance;
@@ -100,6 +131,33 @@ public class PlayerCharacterStats : Upgrade
         effectDuration += other.effectDuration;
         effectMultiplier += other.effectMultiplier;
         activeMultiplier += other.activeMultiplier;
+
+        damageAdditive += other.damageAdditive;
+        goldGainMultiplier += other.goldGainMultiplier;
+        xpGainMultiplier += xpGainMultiplier;
+        recoveryAdditive += recoveryAdditive;
+        is360 |= other.is360;
+        isMagnet |= other.isMagnet;
+        magnetStrength += other.magnetStrength;
+        magnetDuration += other.magnetDuration;
+        isSlow |= other.isSlow;
+        slowDuration += other.slowDuration;
+        slowPercentage += other.slowPercentage;
+        isStun |= other.isStun;
+        stunDuration += other.stunDuration;
+        isDoT |= other.isDoT;
+        dotDamage += other.dotDamage;
+        dotDuration += other.dotDuration;
+        dotTickRate += other.dotTickRate;
+        isSplit |= other.isSplit;
+        splitAmount += other.splitAmount;
+        splitStatPercentage += other.splitStatPercentage;
+        isChain |= other.isChain;
+        chainTimes += other.chainTimes;
+        chainStatDecayPercent += other.chainStatDecayPercent;
+        chainRange += other.chainRange;
+        chainSpeed += other.chainSpeed;
+
 
         shootOpposideSide |= other.shootOpposideSide;
         isHoming |= other.isHoming;
@@ -154,6 +212,34 @@ public class PlayerCharacterStats : Upgrade
         isHoming = other.isHoming;
         shootOpposideSide = other.shootOpposideSide;
         rarity = rarity.CompareRarity(other.rarity);
+
+        rerollTimes = other.rerollTimes;
+        swapTimes = other.swapTimes;
+        damageAdditive = other.damageAdditive;
+        goldGainMultiplier = other.goldGainMultiplier;
+        xpGainMultiplier = other.xpGainMultiplier;
+        recoveryAdditive = other.recoveryAdditive;
+        is360 = other.is360;
+        isMagnet = other.isMagnet;
+        magnetStrength = other.magnetStrength;
+        magnetDuration = other.magnetDuration;
+        isSlow = other.isSlow;
+        slowDuration = other.slowDuration;
+        slowPercentage = other.slowPercentage;
+        isStun = other.isStun;
+        stunDuration = other.stunDuration;
+        isDoT = other.isDoT;
+        dotDamage = other.dotDamage;
+        dotDuration = other.dotDuration;
+        dotTickRate = other.dotTickRate;
+        isSplit = other.isSplit;
+        splitAmount = other.splitAmount;
+        splitStatPercentage = other.splitStatPercentage;
+        isChain = other.isChain;
+        chainTimes = other.chainTimes;
+        chainStatDecayPercent = other.chainStatDecayPercent;
+        chainRange = other.chainRange;
+        chainSpeed = other.chainSpeed;
     }
 
     //Constructor with smart defaults in parameters
@@ -194,6 +280,34 @@ public class PlayerCharacterStats : Upgrade
         float speedMultiplier = 0,
         bool shootOpposideSide = false,
         bool isHoming = false,
+        int rerollTimes = 0,
+        int swapTimes = 0,
+        float damageAdditive = 0,
+        float goldGainMultiplier = 0,
+        float xpGainMultiplier = 0,
+        float recoveryAdditive = 0,
+        bool is360 = false,
+        bool isMagnet = false,
+        float magnetStrength = 0,
+        float magnetDuration = 0,
+        bool isSlow = false,
+        float slowPercentage = 0,
+        float slowDuration = 0,
+        bool isStun = false,
+        float stunDuration = 0,
+        bool isDoT = false,
+        float dotDuration = 0,
+        float dotDamage = 0,
+        float dotTickRate = 0,
+        bool isSplit = false,
+        int splitAmount = 0,
+        float splitStatPercentage = 0,
+        bool isChain = false,
+        int chainTimes = 0,
+        float chainStatDecayPercent = 0,
+        float chainRange = 0,
+        float chainSpeed = 0,
+
         Rarity rarity = Rarity.Common,
         string name = "Player Stats",
         string description = "Player Stats",
@@ -233,6 +347,34 @@ public class PlayerCharacterStats : Upgrade
         this.effectDuration = effectDuration;
         this.effectMultiplier = effectMultiplier;
         this.activeMultiplier = activeMultiplier;
+
+        this.rerollTimes = rerollTimes;
+        this.swapTimes = swapTimes;
+        this.damageAdditive = damageAdditive;
+        this.goldGainMultiplier = goldGainMultiplier;
+        this.xpGainMultiplier = xpGainMultiplier;
+        this.recoveryAdditive = recoveryAdditive;
+        this.is360 = is360;
+        this.isMagnet = isMagnet;
+        this.magnetStrength = magnetStrength;
+        this.magnetDuration = magnetDuration;
+        this.isSlow = isSlow;
+        this.slowDuration = slowDuration;
+        this.slowPercentage = slowPercentage;
+        this.isStun = isStun;
+        this.stunDuration = stunDuration;
+        this.isDoT = isDoT;
+        this.dotDamage = dotDamage;
+        this.dotDuration = dotDuration;
+        this.dotTickRate = dotTickRate;
+        this.isSplit = isSplit;
+        this.splitAmount = splitAmount;
+        this.splitStatPercentage = splitStatPercentage;
+        this.isChain = isChain;
+        this.chainTimes = chainTimes;
+        this.chainStatDecayPercent = chainStatDecayPercent;
+        this.chainRange = chainRange;
+        this.chainSpeed = chainSpeed;
 
         this.shootOpposideSide = shootOpposideSide;
         this.isHoming = isHoming;

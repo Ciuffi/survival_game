@@ -13,7 +13,7 @@ public class AttackHandler : MonoBehaviour
     public bool usingAttackBar;
     private GameObject attackContainer;
     private int attackIndex;
-    public GameObject WeaponPrefab;
+    public WpnSpriteRecoil WeaponPrefab;
     public SpriteRenderer WeaponSprite;
     public GameObject WeaponOutline;
     public GameObject HandsSprite;
@@ -65,6 +65,8 @@ public class AttackHandler : MonoBehaviour
         HandsSprite.GetComponent<SpriteRenderer>().enabled = true;
         attackWheel = GameObject.Find("Wheel").GetComponent<Image>();
         originalScale = attackWheel.transform.localScale;
+        WeaponPrefab = FindObjectOfType<WpnSpriteRecoil>();
+
 
         StartCoroutine(LoadWeaponAndStartAttack());
     }
@@ -202,7 +204,7 @@ public class AttackHandler : MonoBehaviour
 
     public void triggerRecoil()
     {
-        WeaponPrefab.GetComponent<WpnSpriteRecoil>().Recoil();
+        WeaponPrefab.Recoil();
     }
 
     public void triggerWpnOff()

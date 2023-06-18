@@ -20,11 +20,6 @@ public class WpnSpriteRecoil : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
 
-    private void Update()
-    {
-    }
-
-
     public void Recoil()
     {
         if (recoilCoroutine != null)
@@ -45,13 +40,14 @@ public class WpnSpriteRecoil : MonoBehaviour
         // Wait for recoil duration
         yield return new WaitForSeconds(recoilDuration);
 
-        // Return to original position
-        var t = 0f;
-        while (t < recoveryDuration)
-        {
+        // Calculate the target position to smoothly return to
+        var targetPosition = originalPosition;
 
-            t += Time.deltaTime;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, originalPosition, t / recoveryDuration);
+        // Continue the recovery until the target position is reached
+        while (transform.localPosition != targetPosition)
+        {
+            // Interpolate towards the target position
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, Time.deltaTime / recoveryDuration);
 
             yield return null;
         }

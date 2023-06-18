@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-
-public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
+public class RollSwapHandler : MonoBehaviour
 {
     public bool isLoot;
 
@@ -19,6 +19,7 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
     public bool delayFinished;
     private float timer; // make timer a class member variable
     float pressTimer;
+    private Button button; // Reference to the Button component
 
     void Start()
     {
@@ -26,9 +27,12 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
         delayFinished = false;
         currentReroll = LevelUp.GetComponent<RerollHandler>().currentReroll;
         currentSwap = LevelUp.GetComponent<RerollHandler>().currentSwap;
+        button = GetComponent<Button>(); // Get the reference to the Button component
+
+        button.onClick.AddListener(ButtonClicked);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    private void ButtonClicked()
     {
         if (delayFinished)
         {
@@ -41,14 +45,12 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
                 {
                     LevelUp.GetComponent<RerollHandler>().usedReroll();
                     GameObject.FindObjectOfType<LevelUpManager>().reroll();
-
                 }
                 else
                 {
                     LevelUp.GetComponent<RerollHandler>().usedReroll();
                     GameObject.FindObjectOfType<LootBoxManager>().reroll();
                 }
-
             }
 
             if (isSwap)
@@ -65,8 +67,8 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
                 }
             }
         }
-       
     }
+
 
     void Update()
     {
@@ -77,13 +79,14 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
         {
             if (currentReroll <= 0)
             {
-                gameObject.SetActive(false);
+                button.interactable = false; // Disable button interaction
             }
         }
         else
         {
             if (currentSwap <= 0)
             {
+                button.interactable = false; // Disable button interaction
                 gameObject.SetActive(false);
             }
         }
@@ -106,6 +109,7 @@ public class RollSwapHandler : MonoBehaviour, IPointerDownHandler
         timer = 0f; // reset timer when panel is set active
         startDelay = true;
         delayFinished = false;
+        button.interactable = true; // Enable button interaction
         gameObject.SetActive(true);
     }
 

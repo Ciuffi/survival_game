@@ -37,7 +37,7 @@ public static class PlayerUpgradesLibrary
              health: 5,
                 level: 1,
                 price: 300,
-                name: "Health 1",
+                name: "Healthy 1",
                 description: "+5 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Rare
@@ -54,7 +54,7 @@ public static class PlayerUpgradesLibrary
              health: 5,
                 level: 2,
                 price: 500,
-                name: "Health 2",
+                name: "Healthy 2",
                 description: "+10 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Rare
@@ -71,7 +71,7 @@ public static class PlayerUpgradesLibrary
              health: 5,
                 level: 3,
                 price: 1000,
-                name: "Health 3",
+                name: "Healthy 3",
                 description: "+15 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Epic
@@ -88,7 +88,7 @@ public static class PlayerUpgradesLibrary
              health: 5,
                 level: 4,
                 price: 1000,
-                name: "Health 4",
+                name: "Healthy 4",
                 description: "+20 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Epic
@@ -105,7 +105,7 @@ public static class PlayerUpgradesLibrary
              health: 10,
                 level: 5,
                 price: 2000,
-                name: "Health 5",
+                name: "Healthy 5",
                 description: "+30 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Legendary
@@ -123,7 +123,7 @@ public static class PlayerUpgradesLibrary
              defense: 0.25f,
                 level: 1,
                 price: 800,
-                name: "Armor 1",
+                name: "Tough 1",
                 description: "Reduce incoming Damage by 0.25",
                 icon: Resources.Load<Sprite>("UI_Icons/Protection"),
                 rarity: Rarity.Rare
@@ -138,7 +138,7 @@ public static class PlayerUpgradesLibrary
              defense: 0.25f,
                 level: 2,
                 price: 1200,
-                name: "Armor 2",
+                name: "Tough 2",
                 description: "Reduce incoming Damage by 0.5",
                 icon: Resources.Load<Sprite>("UI_Icons/Protection"),
                 rarity: Rarity.Epic
@@ -153,7 +153,7 @@ public static class PlayerUpgradesLibrary
              defense: 0.4f,
                 level: 3,
                 price: 1500,
-                name: "Armor 3",
+                name: "Tough 3",
                 description: "Reduce incoming Damage by 1",
                 icon: Resources.Load<Sprite>("UI_Icons/Protection"),
                 rarity: Rarity.Legendary
@@ -167,11 +167,11 @@ public static class PlayerUpgradesLibrary
         //moveSpeed
         GameObject Speed1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Speed1Stats = new PlayerCharacterStats(
-            speed: 0.2f,
+            speed: 0.15f,
                level: 1,
                price: 500,
-               name: "Speed 1",
-               description: "+0.2 base Speed",
+               name: "Agile 1",
+               description: "+0.15 base Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
                rarity: Rarity.Rare
              );
@@ -182,11 +182,11 @@ public static class PlayerUpgradesLibrary
 
         GameObject Speed2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Speed2Stats = new PlayerCharacterStats(
-            speed: 0.2f,
+            speed: 0.15f,
                level: 2,
                price: 1000,
-               name: "Speed 2",
-               description: "+0.4 base Speed",
+               name: "Agile 2",
+               description: "+0.3 base Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
                rarity: Rarity.Epic
              );
@@ -197,11 +197,11 @@ public static class PlayerUpgradesLibrary
 
         GameObject Speed3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Speed3Stats = new PlayerCharacterStats(
-           speed: 0.4f,
+           speed: 0.2f,
                level: 3,
                price: 2000,
-               name: "Speed 3",
-               description: "+0.8 base Speed",
+               name: "Agile 3",
+               description: "+0.5 base Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
                rarity: Rarity.Legendary
              );
@@ -217,7 +217,7 @@ public static class PlayerUpgradesLibrary
               damageMultiplier: 0.05f,
                level: 1,
                price: 500,
-               name: "Damage 1",
+               name: "Mastery 1",
                description: "+5% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Rare
@@ -233,7 +233,7 @@ public static class PlayerUpgradesLibrary
           damageMultiplier: 0.05f,
                level: 2,
                price: 500,
-               name: "Damage 2",
+               name: "Mastery 2",
                description: "+10% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Rare
@@ -249,7 +249,7 @@ public static class PlayerUpgradesLibrary
             damageMultiplier: 0.10f,
                level: 3,
                price: 1200,
-               name: "Damage 3",
+               name: "Mastery 3",
                description: "+20% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Epic
@@ -265,7 +265,7 @@ public static class PlayerUpgradesLibrary
             damageMultiplier: 0.10f,
                level: 4,
                price: 1500,
-               name: "Damage 4",
+               name: "Mastery 4",
                description: "+30% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Epic
@@ -280,7 +280,7 @@ public static class PlayerUpgradesLibrary
             damageMultiplier: 0.20f,
                level: 5,
                price: 2000,
-               name: "Damage 5",
+               name: "Mastery 5",
                description: "+50% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Legendary
@@ -297,7 +297,7 @@ public static class PlayerUpgradesLibrary
              critChance: 0.04f,
                level: 1,
                price: 800,
-               name: "Critical 1",
+               name: "Accuracy 1",
                description: "+4% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Rare
@@ -313,7 +313,7 @@ public static class PlayerUpgradesLibrary
              critChance: 0.04f,
                level: 2,
                price: 1200,
-               name: "Critical 2",
+               name: "Accuracy 2",
                description: "+8% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Epic
@@ -329,7 +329,7 @@ public static class PlayerUpgradesLibrary
               critChance: 0.07f,
                level: 3,
                price: 2000,
-               name: "Critical 3",
+               name: "Accuracy 3",
                description: "+15% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Legendary
@@ -405,13 +405,179 @@ public static class PlayerUpgradesLibrary
         AddUpgrade(CritDmg4);
 
 
+        //XPGain
+        GameObject XPGain1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats XPGain1Stats = new PlayerCharacterStats(
+           xpGainMultiplier: 0.03f,
+               level: 1,
+               price: 800,
+               name: "Talented 1",
+               description: "+3% Experience",
+               icon: Resources.Load<Sprite>("UI_Icons/Talented"),
+               rarity: Rarity.Rare
+             );
+        XPGain1.name = XPGain1Stats.name;
+        XPGain1.AddComponent<StatComponent>().stat = XPGain1Stats;
+        XPGain1Stats.setContainer(XPGain1);
+
+        AddUpgrade(XPGain1);
+
+        GameObject XPGain2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats XPGain2Stats = new PlayerCharacterStats(
+           xpGainMultiplier: 0.03f,
+               level: 2,
+               price: 1200,
+               name: "Talented 2",
+               description: "+6% Experience",
+               icon: Resources.Load<Sprite>("UI_Icons/Talented"),
+               rarity: Rarity.Epic
+             );
+        XPGain2.name = XPGain2Stats.name;
+        XPGain2.AddComponent<StatComponent>().stat = XPGain2Stats;
+        XPGain2Stats.setContainer(XPGain2);
+
+        AddUpgrade(XPGain2);
+
+        GameObject XPGain3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats XPGain3Stats = new PlayerCharacterStats(
+           xpGainMultiplier: 0.04f,
+               level: 3,
+               price: 2000,
+               name: "Talented 3",
+               description: "+10% Experience",
+               icon: Resources.Load<Sprite>("UI_Icons/Talented"),
+               rarity: Rarity.Legendary
+             );
+        XPGain3.name = XPGain3Stats.name;
+        XPGain3.AddComponent<StatComponent>().stat = XPGain3Stats;
+        XPGain3Stats.setContainer(XPGain3);
+
+        AddUpgrade(XPGain3);
+
+
+        //GoldGain
+        GameObject GoldGain1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats GoldGain1Stats = new PlayerCharacterStats(
+           goldGainMultiplier: 0.02f,
+               level: 1,
+               price: 800,
+               name: "Greedy 1",
+               description: "+2% Gold",
+               icon: Resources.Load<Sprite>("UI_Icons/Greedy"),
+               rarity: Rarity.Rare
+             );
+        GoldGain1.name = GoldGain1Stats.name;
+        GoldGain1.AddComponent<StatComponent>().stat = GoldGain1Stats;
+        GoldGain1Stats.setContainer(GoldGain1);
+
+        AddUpgrade(GoldGain1);
+
+        GameObject GoldGain2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats GoldGain2Stats = new PlayerCharacterStats(
+           goldGainMultiplier: 0.02f,
+               level: 2,
+               price: 1500,
+               name: "Greedy 2",
+               description: "+4% Gold",
+               icon: Resources.Load<Sprite>("UI_Icons/Greedy"),
+               rarity: Rarity.Epic
+             );
+        GoldGain2.name = GoldGain2Stats.name;
+        GoldGain2.AddComponent<StatComponent>().stat = GoldGain2Stats;
+        GoldGain2Stats.setContainer(GoldGain2);
+
+        AddUpgrade(GoldGain2);
+
+        GameObject GoldGain3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats GoldGain3Stats = new PlayerCharacterStats(
+           goldGainMultiplier: 0.04f,
+               level: 3,
+               price: 2500,
+               name: "Greedy 3",
+               description: "+8% Gold",
+               icon: Resources.Load<Sprite>("UI_Icons/Greedy"),
+               rarity: Rarity.Legendary
+             );
+        GoldGain3.name = GoldGain3Stats.name;
+        GoldGain3.AddComponent<StatComponent>().stat = GoldGain3Stats;
+        GoldGain3Stats.setContainer(GoldGain3);
+
+        AddUpgrade(GoldGain3);
+
+
+        //Reroll
+        GameObject Reroll1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats Reroll1Stats = new PlayerCharacterStats(
+           rerollTimes: 1,
+               level: 1,
+               price: 800,
+               name: "Indecisive 1",
+               description: "+1 Reroll",
+               icon: Resources.Load<Sprite>("UI_Icons/Reroll"),
+               rarity: Rarity.Rare
+             );
+        Reroll1.name = Reroll1Stats.name;
+        Reroll1.AddComponent<StatComponent>().stat = Reroll1Stats;
+        Reroll1Stats.setContainer(Reroll1);
+
+        AddUpgrade(Reroll1);
+
+        GameObject Reroll2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats Reroll2Stats = new PlayerCharacterStats(
+           rerollTimes: 1,
+               level: 2,
+               price: 1000,
+               name: "Indecisive 2",
+               description: "+2 Rerolls",
+               icon: Resources.Load<Sprite>("UI_Icons/Reroll"),
+               rarity: Rarity.Rare
+             );
+        Reroll2.name = Reroll2Stats.name;
+        Reroll2.AddComponent<StatComponent>().stat = Reroll2Stats;
+        Reroll2Stats.setContainer(Reroll2);
+
+        AddUpgrade(Reroll2);
+
+        GameObject Reroll3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats Reroll3Stats = new PlayerCharacterStats(
+           rerollTimes: 1,
+               level: 3,
+               price: 1200,
+               name: "Indecisive 3",
+               description: "+3 Rerolls",
+               icon: Resources.Load<Sprite>("UI_Icons/Reroll"),
+               rarity: Rarity.Epic
+             );
+        Reroll3.name = Reroll3Stats.name;
+        Reroll3.AddComponent<StatComponent>().stat = Reroll3Stats;
+        Reroll3Stats.setContainer(Reroll3);
+
+        AddUpgrade(Reroll3);
+
+        GameObject Reroll4 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
+        PlayerCharacterStats Reroll4Stats = new PlayerCharacterStats(
+           rerollTimes: 2,
+               level: 4,
+               price: 2000,
+               name: "Indecisive 4",
+               description: "+5 Rerolls",
+               icon: Resources.Load<Sprite>("UI_Icons/Reroll"),
+               rarity: Rarity.Legendary
+             );
+        Reroll4.name = Reroll4Stats.name;
+        Reroll4.AddComponent<StatComponent>().stat = Reroll4Stats;
+        Reroll4Stats.setContainer(Reroll4);
+
+        AddUpgrade(Reroll4);
+
+
         //pickup
         GameObject Pickup1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Pickup1Stats = new PlayerCharacterStats(
            pickupRange: 0.5f,
                level: 1,
                price: 800,
-               name: "Magnet 1",
+               name: "Magnetic 1",
                description: "+0.5 base Pickup range",
                icon: Resources.Load<Sprite>("UI_Icons/Magnet"),
                rarity: Rarity.Rare
@@ -427,7 +593,7 @@ public static class PlayerUpgradesLibrary
            pickupRange: 0.5f,
                level: 2,
                price: 1200,
-               name: "Magnet 2",
+               name: "Magnetic 2",
                description: "+1 base Pickup range",
                icon: Resources.Load<Sprite>("UI_Icons/Magnet"),
                rarity: Rarity.Epic
@@ -443,7 +609,7 @@ public static class PlayerUpgradesLibrary
            pickupRange: 1f,
                level: 3,
                price: 1500,
-               name: "Magnet 3",
+               name: "Magnetic 3",
                description: "+2 base Pickup range",
                icon: Resources.Load<Sprite>("UI_Icons/Magnet"),
                rarity: Rarity.Legendary
@@ -472,7 +638,6 @@ public static class PlayerUpgradesLibrary
 
         AddUpgrade(AimRange1);
 
-        //AimRange;
         GameObject AimRange2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats AimRange2Stats = new PlayerCharacterStats(
            aimRangeAdditive: 1.25f,
@@ -506,7 +671,6 @@ public static class PlayerUpgradesLibrary
 
         AddUpgrade(ConeAngle1);
 
-        //ConeAngle
         GameObject ConeAngle2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats ConeAngle2Stats = new PlayerCharacterStats(
            coneAngle: 50f,
@@ -522,7 +686,6 @@ public static class PlayerUpgradesLibrary
         ConeAngle2Stats.setContainer(ConeAngle2);
 
         AddUpgrade(ConeAngle2);
-
 
         // ... Add other upgrades
         isInitialized = true;

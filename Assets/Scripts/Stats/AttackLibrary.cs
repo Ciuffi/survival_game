@@ -1005,7 +1005,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hacker 2"),
             AttackStatsLibrary.GetStat("AFK 2"),
             AttackStatsLibrary.GetStat("Multicast 1"),
-            AttackStatsLibrary.GetStat("Extended Clip 1"),
+            AttackStatsLibrary.GetStat("Extended Clip+ 1"),
             AttackStatsLibrary.GetStat("Pierce 1"),
             AttackStatsLibrary.GetStat("Big Ammo 1"),
             AttackStatsLibrary.GetStat("Chain 1"),
@@ -1024,7 +1024,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("MLG 3"),
             AttackStatsLibrary.GetStat("Gamer 3"),
             AttackStatsLibrary.GetStat("Multicast 2"),
-            AttackStatsLibrary.GetStat("Extended Clip 2"),
+            AttackStatsLibrary.GetStat("Extended Clip+ 2"),
             AttackStatsLibrary.GetStat("Pierce 2"),
             AttackStatsLibrary.GetStat("Big Ammo 2"),
             AttackStatsLibrary.GetStat("Chain+ 2"),
@@ -1038,7 +1038,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Overkill 4"),
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
-            AttackStatsLibrary.GetStat("Extended Clip 3"),
+            AttackStatsLibrary.GetStat("Extended Clip+ 3"),
             AttackStatsLibrary.GetStat("Pierce 3"),
             AttackStatsLibrary.GetStat("Big Ammo 3"),
             AttackStatsLibrary.GetStat("Double Trouble"),
@@ -1247,6 +1247,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hacker 1"),
             AttackStatsLibrary.GetStat("AFK 1"),
             AttackStatsLibrary.GetStat("Slow Down 1"),
+            AttackStatsLibrary.GetStat("Magnetize 1"),
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
@@ -1264,6 +1265,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
             AttackStatsLibrary.GetStat("Chain+ 1"),
+            AttackStatsLibrary.GetStat("Magnetize 2"),
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
@@ -1284,6 +1286,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
             AttackStatsLibrary.GetStat("Chain+ 2"),
+            AttackStatsLibrary.GetStat("Magnetize 3"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1714,6 +1717,131 @@ public static class AttackLibrary
                     .SetWeaponUpgrades(LaserBeamUpgrades);
 
         AddAttack(LaserBeam);
+
+
+        // MissileLauncher
+        List<AttackStats> MissileLauncherRarity = new List<AttackStats>
+        {
+            new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 0.3f, damage: 4),
+            new AttackStats(rarity: Rarity.Rare, knockback: 0.4f, shakeRotation: 0.2f, speedMultiplier: 0.15f),
+
+            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1),
+            new AttackStats(rarity: Rarity.Epic, spread: -0.25f),
+
+            new AttackStats(rarity: Rarity.Legendary, isSplit: true, splitAmount: 1, splitStatPercentage: 0.75f),
+            new AttackStats(rarity: Rarity.Legendary, damage: -6),
+        };
+
+        List<AttackStats> MissileLauncherUpgrades = new List<AttackStats>
+        {
+            //common
+            AttackStatsLibrary.GetStat("Damage 1"),
+            AttackStatsLibrary.GetStat("Critical 1"),
+            AttackStatsLibrary.GetStat("Overkill 1"),
+            AttackStatsLibrary.GetStat("Haste 1"),
+            AttackStatsLibrary.GetStat("Knockback 1"),
+            AttackStatsLibrary.GetStat("Hacker 1"),
+            AttackStatsLibrary.GetStat("AFK 1"),
+            AttackStatsLibrary.GetStat("Slow Down 1"),
+            AttackStatsLibrary.GetStat("Magnetize 1"),
+
+            //rare
+            AttackStatsLibrary.GetStat("Damage 2"),
+            AttackStatsLibrary.GetStat("Critical 2"),
+            AttackStatsLibrary.GetStat("Overkill 2"),
+            AttackStatsLibrary.GetStat("Haste 2"),
+            AttackStatsLibrary.GetStat("Knockback 2"),
+            AttackStatsLibrary.GetStat("Hacker 2"),
+            AttackStatsLibrary.GetStat("AFK 2"),
+            AttackStatsLibrary.GetStat("Multicast 1"),
+            AttackStatsLibrary.GetStat("Extra Round 1"),
+            AttackStatsLibrary.GetStat("Big Gadget 1"),
+            AttackStatsLibrary.GetStat("Persistence 1"),
+            AttackStatsLibrary.GetStat("Ignite 1"),
+            AttackStatsLibrary.GetStat("Split 1"),
+            AttackStatsLibrary.GetStat("Slow Down 2"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
+            AttackStatsLibrary.GetStat("Magnetize 2"),
+
+            //epic
+            AttackStatsLibrary.GetStat("Damage 3"),
+            AttackStatsLibrary.GetStat("Critical 3"),
+            AttackStatsLibrary.GetStat("Overkill 3"),
+            AttackStatsLibrary.GetStat("Haste 3"),
+            AttackStatsLibrary.GetStat("Knockback 3"),
+            AttackStatsLibrary.GetStat("MLG 3"),
+            AttackStatsLibrary.GetStat("Hacker 3"),
+            AttackStatsLibrary.GetStat("AFK 3"),
+            AttackStatsLibrary.GetStat("Multicast 2"),
+            AttackStatsLibrary.GetStat("Extra Round 2"),
+            AttackStatsLibrary.GetStat("Puncture 2"),
+            AttackStatsLibrary.GetStat("Big Gadget 2"),
+            AttackStatsLibrary.GetStat("Persistence 2"),
+            AttackStatsLibrary.GetStat("Ignite 2"),
+            AttackStatsLibrary.GetStat("Split 2"),
+            AttackStatsLibrary.GetStat("Slow Down 3"),
+            AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
+            AttackStatsLibrary.GetStat("Magnetize 3"),
+
+            //legendary
+            AttackStatsLibrary.GetStat("Damage 4"),
+            AttackStatsLibrary.GetStat("Critical 4"),
+            AttackStatsLibrary.GetStat("Overkill 4"),
+            AttackStatsLibrary.GetStat("Haste 4"),
+            AttackStatsLibrary.GetStat("Multicast 3"),
+            AttackStatsLibrary.GetStat("Extra Round 3"),
+            AttackStatsLibrary.GetStat("Puncture 3"),
+            AttackStatsLibrary.GetStat("Big Gadget 3"),
+            AttackStatsLibrary.GetStat("Double Trouble"),
+            AttackStatsLibrary.GetStat("Persistence 3"),
+            AttackStatsLibrary.GetStat("Ignite 3"),
+            AttackStatsLibrary.GetStat("Split 3"),
+            AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
+        };
+
+        AttackBuilder MissileLauncher = new AttackBuilder()
+            .SetAttackName("Missile Launcher")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/missile_frag"))
+            .SetWeaponSetType(WeaponSetType.Explosive)
+            .SetDescription("Heat seeking explosions.")
+            .SetBaseStats(
+                new AttackStats(
+                    aimRange: 2f,
+                    is360: false,
+                    coneAngle: 25f,
+                    damage: 18,
+                    spread: 1.15f,
+                    spray: 0f,
+                    castTime: 2.5f,
+                    range: 8f,
+                    shotsPerAttack: 1,
+                    speed: 0.02f,
+                    knockback: 0.25f,
+                    pierce: 0,
+                    critChance: 0.05f,
+                    critDmg: 1.5f,
+                    multicastWaitTime: 0.25f,
+                    shakeTime: 0.5f,
+                    shakeStrength: 1f,
+                    shakeRotation: 0.5f,
+                    thrownDamage: 12f,
+                    thrownSpeed: 0.25f,
+                    isHoming: true
+                )
+            )
+            .SetProperties(
+                attackType: AttackTypes.Projectile,
+                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/MissileLauncher_01"),
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
+                thrownSprite: Resources.Load<Sprite>("WeaponSprites/MissileLauncher_01"),
+                muzzleFlashPrefab: BigMuzzleFlash
+             
+            )
+            .SetRarityUpgrades(MissileLauncherRarity)
+            .SetWeaponUpgrades(MissileLauncherUpgrades);
+        AddAttack(MissileLauncher);
 
         // PainWheel
         List<AttackStats> PainWheelRarity = new List<AttackStats>
@@ -2735,6 +2863,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Saw'd Off 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
             AttackStatsLibrary.GetStat("Slow Down 1"),
+            AttackStatsLibrary.GetStat("Magnetize 1"),
 
             //rare
             AttackStatsLibrary.GetStat("Damage 2"),
@@ -2755,7 +2884,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 1"),
             AttackStatsLibrary.GetStat("Chain 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
-
+            AttackStatsLibrary.GetStat("Magnetize 2"),
 
             //epic
             AttackStatsLibrary.GetStat("Damage 3"),
@@ -2777,6 +2906,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Concussive 1"),
             AttackStatsLibrary.GetStat("Chain 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
+            AttackStatsLibrary.GetStat("Magnetize 3"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -3066,9 +3196,9 @@ public static class AttackLibrary
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
-                    shakeTime: 0.1f,
-                    shakeStrength: 0.1f,
-                    shakeRotation: 0.05f,
+                    shakeTime: 0.25f,
+                    shakeStrength: 0.4f,
+                    shakeRotation: 0.5f,
                     thrownDamage: 21f,
                     thrownSpeed: 0.12f,
                     isMagnet: true,

@@ -631,7 +631,7 @@ public class LevelUpManager : MonoBehaviour
         if (RerollBtn != null)
         {
             RerollBtn.GetComponentInChildren<TextMeshProUGUI>().text =
-                "Reroll "
+                ""
                 + "("
                 + RerollBtn.GetComponent<RollSwapHandler>().currentReroll.ToString()
                 + ")";

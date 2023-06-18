@@ -484,7 +484,7 @@ public class LootBoxManager : MonoBehaviour
         if (RerollBtn != null)
         {
             RerollBtn.GetComponentInChildren<TextMeshProUGUI>().text =
-                "Reroll "
+                ""
                 + "("
                 + RerollBtn.GetComponent<RollSwapHandler>().currentReroll.ToString()
                 + ")";

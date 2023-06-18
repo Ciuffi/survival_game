@@ -556,6 +556,34 @@ public class AttackStats : Upgrade
         this.effectMultiplier += playerStats.effectMultiplier;
         this.activeMultiplier += playerStats.activeMultiplier;
 
+        this.damage += playerStats.damageAdditive;
+        this.recoveryTime += playerStats.recoveryAdditive;
+        this.is360 |= playerStats.is360;
+        this.isDoT |= playerStats.isDoT;
+        this.dotDamage += playerStats.dotDamage;
+        this.dotDuration += playerStats.dotDuration;
+        this.dotTickRate += playerStats.dotTickRate;
+        this.isSplit |= playerStats.isSplit;
+        this.splitAmount += playerStats.splitAmount;
+        this.splitStatPercentage += playerStats.splitStatPercentage;
+        this.isChain |= playerStats.isChain;
+        this.chainTimes += playerStats.chainTimes;
+        this.chainRange += playerStats.chainRange;
+        this.chainStatDecayPercent += playerStats.chainStatDecayPercent;
+        this.chainSpeed += playerStats.chainSpeed;
+
+        this.isMagnet |= playerStats.isMagnet;
+        this.magnetStrength += playerStats.magnetStrength;
+        this.magnetDuration += playerStats.magnetDuration;
+
+        this.isSlow |= playerStats.isSlow;
+        this.slowPercentage += playerStats.slowPercentage;
+        this.slowDuration += playerStats.slowDuration;
+
+        this.isStun |= playerStats.isStun;
+        this.stunDuration += playerStats.stunDuration;
+
+
         return this;
     }
 

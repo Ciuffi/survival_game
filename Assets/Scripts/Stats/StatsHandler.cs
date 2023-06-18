@@ -41,7 +41,7 @@ public class StatsHandler : MonoBehaviour
         playerShakeRotation;
 
     public GameObject weaponsList;
-
+    private RerollHandler rerollHandler;
     private void MatchCharacter()
     {
         string storedName = PlayerPrefs.GetString("CharacterName");
@@ -155,8 +155,10 @@ public class StatsHandler : MonoBehaviour
 
     public void GainXP(float xpAmount)
     {
-        LevelManager.AddXP(xp, xpAmount + xp, nextXp);
-        xp += xpAmount;
+        float finalXP = xpAmount * (1 + stats.xpGainMultiplier);
+
+        LevelManager.AddXP(xp, finalXP + xp, nextXp);
+        xp += finalXP;
         if (xp >= nextXp)
         {
             nextXp = LevelManager.GetXpToNextLevel(level);
@@ -219,6 +221,18 @@ public class StatsHandler : MonoBehaviour
             }
         }
 
+        if (stats.rerollTimes != 0)
+        {
+            rerollHandler.AddReroll(stats.rerollTimes);
+            stats.rerollTimes = 0;
+        }
+
+        if (stats.swapTimes != 0)
+        {
+            rerollHandler.AddSwap(stats.swapTimes);
+            stats.swapTimes = 0;
+        }
+
         GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed * (stats.speedMultiplier + 1), 1f); //change second value to be the default
 
         if (currentHealth > stats.maxHealth)
@@ -245,6 +259,7 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue = gameObject.AddComponent<CoroutineQueue>();
         healthBarQueue.StartQueue();
         healthColor = healthBar.fillRect.GetComponent<Image>().color;
+        rerollHandler = GetComponentInChildren<RerollHandler>();
         MatchCharacter();
         MatchUpgrades();
 

@@ -230,9 +230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b4bb85397155140aa738672c279e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseReroll: 5
+  baseReroll: 1
   currentReroll: 0
-  baseSwap: 2
+  baseSwap: 0
   currentSwap: 0
 --- !u!114 &8055189426503789870
 MonoBehaviour:

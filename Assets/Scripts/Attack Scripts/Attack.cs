@@ -44,6 +44,7 @@ public class Attack : MonoBehaviour, Upgrade
     public bool isAutoAim;
 
     public GameObject AutoAim;
+    private WpnSpriteRecoil recoil;
 
     void Awake()
     {
@@ -53,7 +54,7 @@ public class Attack : MonoBehaviour, Upgrade
         {
             upgradeContainer = Instantiate(new GameObject("attack_upgrades"), transform).transform;
         }
-
+        recoil = FindObjectOfType<WpnSpriteRecoil>();
     }
 
     void Start()
@@ -198,7 +199,6 @@ public class Attack : MonoBehaviour, Upgrade
         {
             SpawnMuzzleFlash();
             SpawnBulletCasing();
-            Player.GetComponent<AttackHandler>().triggerRecoil();
 
             Quaternion rotation = weaponContainer.GetTransform().rotation;
             Vector3 position = weaponContainer.GetTransform().position;

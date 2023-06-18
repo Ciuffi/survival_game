@@ -96,7 +96,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 maxHealth: 5,
                 health: 5,
-                name: "Thick Hide 1",
+                name: "Constitution 1",
                 description: "Increase Max HP by 5",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Rare
@@ -231,7 +231,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 maxHealth: 10,
                 health: 10,
-                name: "Thick Hide 2",
+                name: "Constitution 2",
                 description: "Increase Max HP by 10",
                 icon: Resources.Load<Sprite>("UI_Icons/ThickHide"),
                 rarity: Rarity.Epic
