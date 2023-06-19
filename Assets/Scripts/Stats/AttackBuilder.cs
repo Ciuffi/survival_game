@@ -15,12 +15,14 @@ public class AttackBuilder
     private Effect effect;
     private AttackTypes attackType;
 
-    private Sprite weaponSprite;
+    private List<Sprite> weaponSprite;
+    private List<Sprite> displaySprite;
+
     private bool isAutoAim;
     private GameObject autoAim;
 
     private GameObject thrownWeapon;
-    private Sprite thrownSprite;
+    private List<Sprite> thrownSprite;
     private GameObject bulletCasing;
     private List<GameObject> muzzleFlashPrefab;
     private float muzzleFlashXOffset;
@@ -88,11 +90,12 @@ public class AttackBuilder
     public AttackBuilder SetProperties(
         Effect effect = null,
         AttackTypes attackType = default,
-        Sprite weaponSprite = null,
+        List<Sprite> weaponSprite = null,
+        List<Sprite> displaySprite = null,
         bool isAutoAim = false,
         GameObject autoAim = null,
         GameObject thrownWeapon = null,
-        Sprite thrownSprite = null,
+        List<Sprite> thrownSprite = null,
         GameObject bulletCasing = null,
         List<GameObject> muzzleFlashPrefab = null,
         float muzzleFlashXOffset = 0,
@@ -103,6 +106,7 @@ public class AttackBuilder
         this.effect = effect;
         this.attackType = attackType;
         this.weaponSprite = weaponSprite;
+        this.displaySprite = displaySprite;
         this.isAutoAim = isAutoAim;
         this.autoAim = autoAim;
         this.thrownWeapon = thrownWeapon;
@@ -192,6 +196,7 @@ public class AttackBuilder
         attack.effect = effect;
         attack.attackType = attackType;
         attack.weaponSprite = weaponSprite;
+        attack.displaySprite = displaySprite;
         if (thrownWeapon != null)
         {
             attack.thrownWeapon = thrownWeapon;
@@ -234,9 +239,16 @@ public class AttackBuilder
         return attack;
     }
 
-    public Sprite GetThrownSprite()
+    public Sprite GetThrownSprite(int rarity)
     {
-        return thrownSprite;
+        
+        return thrownSprite[rarity / 2];
+    }
+
+    public Sprite GetDisplaySprite(int rarity)
+    {
+
+        return displaySprite[rarity / 2];
     }
 
     public string GetAttackName()

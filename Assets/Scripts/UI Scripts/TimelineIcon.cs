@@ -167,7 +167,7 @@ public class TimelineIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             bgImage.color = rarityColors[(int)attack.stats.GetRarity()];
         }
 
-        icon.GetComponent<Image>().sprite = attack.thrownSprite;
+        icon.GetComponent<Image>().sprite = attack.GetUpgradeIcon();
     }
 
 

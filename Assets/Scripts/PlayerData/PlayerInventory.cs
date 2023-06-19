@@ -49,6 +49,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void StartingInventory()
     {
+        AddWeapon(new Weapon("Suction Beam", 0, false, 1));
 
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
         AddWeapon(new Weapon("Plasma Pistol", 0, false, 1));
@@ -72,8 +73,8 @@ public class PlayerInventory : MonoBehaviour
         //AddWeapon(new Weapon("Laser Beam", 0, false, 1));
         //AddWeapon(new Weapon("Shuriken", 0, false, 1));
         //AddWeapon(new Weapon("Pain Wheel", 0, false, 1));
-        //AddWeapon(new Weapon("Missile Launcher", 0, false, 1));
-        //AddWeapon(new Weapon("Impact Grenade", 0, false, 1));
+        //AddWeapon(new Weapon("RPG", 0, false, 1));
+        //AddWeapon(new Weapon("Frag Grenade", 0, false, 1));
         //AddWeapon(new Weapon("Smoke Grenade", 0, false, 1));
         //AddWeapon(new Weapon("Petrify Grenade", 0, false, 1));
         //AddWeapon(new Weapon("Suction Grenade", 0, false, 1));

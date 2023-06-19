@@ -24,11 +24,12 @@ public class Attack : MonoBehaviour, Upgrade
 
     private int attackAnimState = 0;
 
-    public Sprite weaponSprite;
+    public List<Sprite> weaponSprite;
+    public List<Sprite> thrownSprite;
+    public List<Sprite> displaySprite;
     public WpnSpriteRotation weaponContainer;
 
     public GameObject thrownWeapon;
-    public Sprite thrownSprite;
     private bool firstShot = true;
 
     public GameObject bulletCasing;
@@ -992,8 +993,8 @@ public class Attack : MonoBehaviour, Upgrade
             Vector3 direction = owner.GetDirection();
 
             GameObject wpnToss = Instantiate(thrownWeapon, position, Quaternion.identity);
-            wpnToss.GetComponent<SpriteRenderer>().sprite = thrownSprite;
-            wpnToss.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = thrownSprite;
+            wpnToss.GetComponent<SpriteRenderer>().sprite = GetUpgradeIcon();
+            wpnToss.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = GetUpgradeIcon();
             Rigidbody2D rb = wpnToss.GetComponent<Rigidbody2D>();
             rb.AddForce(direction * stats.thrownSpeed * -1, ForceMode2D.Impulse);
             rb.AddTorque(1200f);
@@ -1085,7 +1086,17 @@ public class Attack : MonoBehaviour, Upgrade
 
     public Sprite GetUpgradeIcon()
     {
-        return thrownSprite;
+        return thrownSprite[(int)stats.rarity / 2];
+    }
+
+    public Sprite GetWeaponSprite()
+    {
+        return weaponSprite[(int)stats.rarity / 2];
+    }
+
+    public Sprite GetDisplaySprite()
+    {
+        return displaySprite[(int)stats.rarity / 2];
     }
 
     public string GetUpgradeDescription()

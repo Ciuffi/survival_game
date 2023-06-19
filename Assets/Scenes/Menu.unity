@@ -1989,7 +1989,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -648}
+  m_AnchoredPosition: {x: 0, y: -903}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &537809111
@@ -2033,18 +2033,6 @@ MonoBehaviour:
         - m_Target: {fileID: 537809111}
           m_TargetAssemblyTypeName: StartRun, Assembly-CSharp
           m_MethodName: StartGame
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1461001797}
-          m_TargetAssemblyTypeName: PanelTransitionManager, Assembly-CSharp
-          m_MethodName: OnButtonClick
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2204,7 +2192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: -0.000015875647, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &615323526
@@ -2239,7 +2227,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 7
-  m_Spacing: 250
+  m_Spacing: 230
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -2446,7 +2434,7 @@ RectTransform:
   m_GameObject: {fileID: 672877101}
   m_LocalRotation: {x: -0, y: -0, z: 0.2588191, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.04, y: 1.15, z: 1}
+  m_LocalScale: {x: 1.7641721, y: 3.85361, z: 1.6994859}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 848280423}
@@ -2454,8 +2442,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: 286}
-  m_SizeDelta: {x: 1200, y: 400}
+  m_AnchoredPosition: {x: 3, y: 346}
+  m_SizeDelta: {x: 1000, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &672877103
 MonoBehaviour:
@@ -2477,7 +2465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a530c1177ae7aef439907eb23c054eaf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90c008427c074c24e8f6f39565092af9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2535,8 +2523,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1220, y: -333}
-  m_SizeDelta: {x: 1150, y: 1200}
+  m_AnchoredPosition: {x: 1220, y: -233}
+  m_SizeDelta: {x: 1150, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &683540838
 MonoBehaviour:
@@ -2581,7 +2569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
+  m_Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2999,7 +2987,7 @@ RectTransform:
   m_GameObject: {fileID: 748918466}
   m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6988322, y: 3.3041112, z: 1.6994859}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 848280423}
@@ -3007,8 +2995,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41, y: 298}
-  m_SizeDelta: {x: 1200, y: 400}
+  m_AnchoredPosition: {x: 0, y: 362}
+  m_SizeDelta: {x: 1000, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &748918468
 MonoBehaviour:
@@ -3022,7 +3010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3030,7 +3018,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a530c1177ae7aef439907eb23c054eaf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90c008427c074c24e8f6f39565092af9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3775,7 +3763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 55}
   m_SizeDelta: {x: 1600, y: 3000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848280424
@@ -4881,6 +4869,7 @@ MonoBehaviour:
   transitionButton: {fileID: 1031333707}
   initialButtonSprite: {fileID: -1932144967, guid: 7bcf4e1a541c5ee40bf07686b24b75ae, type: 3}
   transitionedButtonSprite: {fileID: -1595262145, guid: 7bcf4e1a541c5ee40bf07686b24b75ae, type: 3}
+  isTransitioned: 0
   canvas: {fileID: 1615882886}
 --- !u!114 &1031333707
 MonoBehaviour:
@@ -6681,7 +6670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 349, y: -1208}
+  m_AnchoredPosition: {x: 349, y: -1463}
   m_SizeDelta: {x: 600, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331482335
@@ -6896,7 +6885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -783}
+  m_AnchoredPosition: {x: 0, y: -1038}
   m_SizeDelta: {x: 700, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351866567
@@ -7542,6 +7531,7 @@ MonoBehaviour:
   transitionButton: {fileID: 1461001798}
   initialButtonSprite: {fileID: -1595262145, guid: 7bcf4e1a541c5ee40bf07686b24b75ae, type: 3}
   transitionedButtonSprite: {fileID: -1932144967, guid: 7bcf4e1a541c5ee40bf07686b24b75ae, type: 3}
+  isTransitioned: 0
   canvas: {fileID: 833167489}
 --- !u!114 &1461001798
 MonoBehaviour:
@@ -9502,6 +9492,7 @@ MonoBehaviour:
   transitionButton: {fileID: 1832050008}
   initialButtonSprite: {fileID: -1932144967, guid: 7bcf4e1a541c5ee40bf07686b24b75ae, type: 3}
   transitionedButtonSprite: {fileID: -1595262145, guid: 7bcf4e1a541c5ee40bf07686b24b75ae, type: 3}
+  isTransitioned: 0
   canvas: {fileID: 233852466}
 --- !u!114 &1832050008
 MonoBehaviour:

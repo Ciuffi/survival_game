@@ -66,7 +66,7 @@ public class TimelineUI : MonoBehaviour
             Icon.GetComponentInChildren<TextMeshProUGUI>().text = attack.weaponSetType.ToString();
 
             Icon.transform.Find("BG").gameObject.GetComponent<Image>().color = rarityColors[(int)attack.stats.GetRarity()];
-            Icon.transform.Find("WpnImage").gameObject.GetComponent<Image>().sprite = attack.thrownSprite;
+            Icon.transform.Find("WpnImage").gameObject.GetComponent<Image>().sprite = attack.GetUpgradeIcon();
 
             finalPositions.Add(Icon.transform.localPosition + Vector3.right * currentOffset);
 

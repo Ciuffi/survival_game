@@ -21,7 +21,7 @@ public class PanelTransitionManager : MonoBehaviour
 
     private int sortingLayerOffset = 0; // Offset to manage the sorting layer order
     private bool isTransitioning = false;
-    private bool isTransitioned = false; // New bool to track the state of the panel
+    public bool isTransitioned = false; // New bool to track the state of the panel
     public Canvas canvas;
 
     private void Start()

@@ -30,9 +30,9 @@ public class GachaOverlayManager : MonoBehaviour
         // Update the UI elements with the weapon's details
 
         AttackBuilder attackBuilder = AttackLibrary.GetAttackBuilder(weapon.name);
-        this.weapon.GetComponent<Image>().sprite = attackBuilder.GetThrownSprite();
+        this.weapon.GetComponent<Image>().sprite = attackBuilder.GetThrownSprite(weapon.rarity);
 
-        outline.GetComponent<Image>().sprite = attackBuilder.GetThrownSprite();
+        outline.GetComponent<Image>().sprite = attackBuilder.GetThrownSprite(weapon.rarity);
         outline.GetComponent<Image>().color = outlineColors[weapon.rarity];
 
         nameText.text = weapon.name;
@@ -68,10 +68,10 @@ public class GachaOverlayManager : MonoBehaviour
 
         // Scale up the child elements one at a time
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(outline.transform.DOScale(1, 0.5f).SetEase(Ease.OutElastic));
-        sequence.Append(this.weapon.transform.DOScale(1, 0.4f).SetEase(Ease.OutElastic));
-        sequence.Append(nameText.transform.DOScale(1, 0.3f).SetEase(Ease.OutElastic));
-        sequence.Append(rarityText.transform.DOScale(1, 0.2f).SetEase(Ease.OutElastic));
+        sequence.Append(outline.transform.DOScale(1.8f, 0.5f).SetEase(Ease.OutElastic));
+        sequence.Append(this.weapon.transform.DOScale(1.8f, 0.4f).SetEase(Ease.OutElastic));
+        sequence.Append(nameText.transform.DOScale(1.3f, 0.3f).SetEase(Ease.OutElastic));
+        sequence.Append(rarityText.transform.DOScale(1.3f, 0.2f).SetEase(Ease.OutElastic));
 
         StartCoroutine(StartCloseTimer());
     }

@@ -156,9 +156,26 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/nova_04"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Nova_04")
+                weaponSprite: new List<Sprite> { 
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_consecrate_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_consecrate_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_consecrate_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_consecrate_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/nova_consecrate_1"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_consecrate_2"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_consecrate_3"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_consecrate_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_consecrate_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_consecrate_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_consecrate_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_consecrate_4")
+                },
+
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
             )
             .SetRarityUpgrades(ConsecrateRarity)
             .SetWeaponUpgrades(ConsecrateUpgrades);
@@ -281,9 +298,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/Burst_03"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/rifle_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/rifle_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/rifle_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/rifle_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/rifle_1"),
+                    Resources.Load<Sprite>("WeaponSprites/rifle_2"),
+                    Resources.Load<Sprite>("WeaponSprites/rifle_3"),
+                    Resources.Load<Sprite>("WeaponSprites/rifle_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/rifle_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/rifle_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/rifle_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/rifle_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/BurstRifle_02"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: AutomaticMuzzleFlash
             )
@@ -410,9 +443,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Shotgun,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/shotgun_double_1"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/doubleBarrel_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/doubleBarrel_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/doubleBarrel_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/doubleBarrel_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/doubleBarrel_1"),
+                    Resources.Load<Sprite>("WeaponSprites/doubleBarrel_2"),
+                    Resources.Load<Sprite>("WeaponSprites/doubleBarrel_3"),
+                    Resources.Load<Sprite>("WeaponSprites/doubleBarrel_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/doubleBarrel_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/doubleBarrel_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/doubleBarrel_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/doubleBarrel_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/shotgun_double"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: BigMuzzleFlash
             )
@@ -551,9 +600,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/scythe_01"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Scythe_01")
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/scythe_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/scythe_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/scythe_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/scythe_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/scythe_1"),
+                    Resources.Load<Sprite>("WeaponSprites/scythe_2"),
+                    Resources.Load<Sprite>("WeaponSprites/scythe_3"),
+                    Resources.Load<Sprite>("WeaponSprites/scythe_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/scythe_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/scythe_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/scythe_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/scythe_4")
+                }, 
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
             )
             .SetRarityUpgrades(DrainScytheRarity)
         .SetWeaponUpgrades(DrainScytheUpgrades);
@@ -684,8 +749,27 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/MeleeSlam_01"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Final/MeleeSlam_01")
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/gauntlets_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/gauntlets_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/gauntlets_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/gauntlets_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/gauntlets_1"),
+                    Resources.Load<Sprite>("WeaponSprites/gauntlets_2"),
+                    Resources.Load<Sprite>("WeaponSprites/gauntlets_3"),
+                    Resources.Load<Sprite>("WeaponSprites/gauntlets_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/gauntlets_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/gauntlets_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/gauntlets_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/gauntlets_4")
+                }, 
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
+
+
             )
             .SetRarityUpgrades(EarthShockRarity)
             .SetWeaponUpgrades(EarthShockUpgrades);
@@ -811,9 +895,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Shotgun,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/fireStarter_01"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/fireStarter_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/fireStarter_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/fireStarter_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/fireStarter_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/fireStarter_1"),
+                    Resources.Load<Sprite>("WeaponSprites/fireStarter_2"),
+                    Resources.Load<Sprite>("WeaponSprites/fireStarter_3"),
+                    Resources.Load<Sprite>("WeaponSprites/fireStarter_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/fireStarter_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/fireStarter_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/fireStarter_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/fireStarter_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/fireStarter_01"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing_Energy"),
                 muzzleFlashPrefab: BigMuzzleFlash
             )
@@ -945,8 +1045,8 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.3f,
                     shakeRotation: 1f,
-                    thrownDamage: 1,
-                    thrownSpeed: 0f,
+                    thrownDamage: 8,
+                    thrownSpeed: 0.42f,
                     isMagnet: true,
                     magnetStrength: 8f,
                     magnetDuration: 0.5f,
@@ -957,8 +1057,26 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/GrabHand_Dark_01"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Final/GrabHand_Dark_01")
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/grasp_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grasp_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grasp_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grasp_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/grasp_1"),
+                    Resources.Load<Sprite>("WeaponSprites/grasp_2"),
+                    Resources.Load<Sprite>("WeaponSprites/grasp_3"),
+                    Resources.Load<Sprite>("WeaponSprites/grasp_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/grasp_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grasp_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grasp_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grasp_4")
+                },
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
+
             )
             .SetRarityUpgrades(GravityGrabRarity)
                         .SetWeaponUpgrades(GravityGrabUpgrades);
@@ -1079,9 +1197,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/gatling_02"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/gatling_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/gatling_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/gatling_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/gatling_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/gatling_1"),
+                    Resources.Load<Sprite>("WeaponSprites/gatling_2"),
+                    Resources.Load<Sprite>("WeaponSprites/gatling_3"),
+                    Resources.Load<Sprite>("WeaponSprites/gatling_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/gatling_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/gatling_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/gatling_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/gatling_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Gatling_02"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: AutomaticMuzzleFlash
             )
@@ -1208,23 +1342,37 @@ public static class AttackLibrary
                     meleeSpacerGap: 1.5f,
                     shakeTime: 0.15f,
                     shakeStrength: 0.7f,
-                    shakeRotation: 0.5f,
-                    thrownDamage: 1,
-                    thrownSpeed: 0f
+                    shakeRotation: 0.5f
                 )
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/GodHand_01"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Final/GodHand_01")
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/fist_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/fist_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/fist_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/fist_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/fist_1"),
+                    Resources.Load<Sprite>("WeaponSprites/fist_2"),
+                    Resources.Load<Sprite>("WeaponSprites/fist_3"),
+                    Resources.Load<Sprite>("WeaponSprites/fist_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/fist_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/fist_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/fist_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/fist_4")
+                }
             )
             .SetRarityUpgrades(GodHandRarity)
                     .SetWeaponUpgrades(GodHandUpgrades);
 
         AddAttack(GodHand);
 
-        // ImpactGrenade
-        List<AttackStats> ImpactGrenadeRarity = new List<AttackStats>
+        // FragGrenade
+        List<AttackStats> FragGrenadeRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1),
             new AttackStats(rarity: Rarity.Rare, knockback: 0.5f, shakeRotation: 0.3f),
@@ -1236,7 +1384,7 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Legendary, range: 1.5f, pierce: 10, aimRangeAdditive: 1f),
         };
 
-        List<AttackStats> ImpactGrenadeUpgrades = new List<AttackStats>
+        List<AttackStats> FragGrenadeUpgrades = new List<AttackStats>
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
@@ -1305,8 +1453,8 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 3"),
         };
 
-        AttackBuilder ImpactGrenade = new AttackBuilder()
-            .SetAttackName("Impact Grenade")
+        AttackBuilder FragGrenade = new AttackBuilder()
+            .SetAttackName("Frag Grenade")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_impact"))
             .SetWeaponSetType(WeaponSetType.Explosive)
             .SetDescription("Explode on impact.")
@@ -1329,19 +1477,34 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.15f,
-                    shakeRotation: 0.1f,
-                    thrownDamage: 1
+                    shakeRotation: 0.1f
                 )
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/grenade_frag"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/grenade_frag"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_frag_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_frag_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_frag_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_frag_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/grenade_frag_1"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_frag_2"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_frag_3"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_frag_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_frag_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_frag_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_frag_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_frag_4")
+                },
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
-            .SetRarityUpgrades(ImpactGrenadeRarity)
-            .SetWeaponUpgrades(ImpactGrenadeUpgrades);
-        AddAttack(ImpactGrenade);
+            .SetRarityUpgrades(FragGrenadeRarity)
+            .SetWeaponUpgrades(FragGrenadeUpgrades);
+        AddAttack(FragGrenade);
 
         // ImpactMine
         List<AttackStats> ImpactMineRarity = new List<AttackStats>
@@ -1444,8 +1607,6 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.15f,
                     shakeRotation: 0.1f,
-                    thrownDamage: 1f,
-                    thrownSpeed: 0f,
                     isSlow: true,
                     slowPercentage: 0.5f,
                     slowDuration: 0.5f
@@ -1453,9 +1614,24 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/mine_01"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Mine_01"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/mine_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/mine_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/mine_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/mine_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/mine_1"),
+                    Resources.Load<Sprite>("WeaponSprites/mine_2"),
+                    Resources.Load<Sprite>("WeaponSprites/mine_3"),
+                    Resources.Load<Sprite>("WeaponSprites/mine_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/mine_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/mine_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/mine_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/mine_4")
+                },
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(ImpactMineRarity)
@@ -1579,89 +1755,91 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/nova_01"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Nova_01")
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_impact_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_impact_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_impact_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_impact_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/nova_impact_1"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_impact_3"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_impact_2"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_impact_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_impact_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_impact_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_impact_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_impact_4")
+                },
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
             )
             .SetRarityUpgrades(ImpactNovaRarity)
                     .SetWeaponUpgrades(ImpactNovaUpgrades);
         AddAttack(ImpactNova);
 
-        //LaserBeam
-        List<AttackStats> LaserBeamRarity = new List<AttackStats>
+        //SuctionBeam
+        List<AttackStats> SuctionBeamRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 5),
-            new AttackStats(rarity: Rarity.Rare, meleeSpacerGapMultiplier: 0.25f, meleeSpacerMultiplier: 0.4f, aimRangeAdditive: 1.5f),
+            new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 0.25f),
 
-            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 1, spreadMultiplier: -0.2f),
-            new AttackStats(rarity: Rarity.Rare, meleeShotsScaleUp: 0.15f, coneAngle: 60f),
+            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1, spread: -0.2f),
+            new AttackStats(rarity: Rarity.Epic, aimRangeAdditive: 1f, coneAngle: 30f),
 
-            new AttackStats(rarity: Rarity.Rare, castTimeMultiplier: -0.2f, meleeSizeMultiplier: 0.25f, damage: 5),
-            new AttackStats(rarity: Rarity.Rare, knockbackMultiplier: 0.5f, shakeTime: 0.05f, shakeRotation: 0.3f),
+            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 0.3f, magnetStrength: 2f, magnetDuration: 0.5f),
+            new AttackStats(rarity: Rarity.Legendary, castTimeMultiplier: -0.2f, knockback: 0.3f, damage: 3f)
         };
 
-        List<AttackStats> LaserBeamUpgrades = new List<AttackStats>
+        List<AttackStats> SuctionBeamUpgrades = new List<AttackStats>
         {
           //common
             AttackStatsLibrary.GetStat("Damage 1"),
             AttackStatsLibrary.GetStat("Critical 1"),
             AttackStatsLibrary.GetStat("Overkill 1"),
             AttackStatsLibrary.GetStat("Knockback 1"),
-            AttackStatsLibrary.GetStat("Quick Hands 1"),
             AttackStatsLibrary.GetStat("Glattt 1"),
             AttackStatsLibrary.GetStat("Hacker 1"),
             AttackStatsLibrary.GetStat("AFK 1"),
             AttackStatsLibrary.GetStat("Slow Down 1"),
-            AttackStatsLibrary.GetStat("Magnetize 1"),
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
             AttackStatsLibrary.GetStat("Critical 2"),
             AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
-            AttackStatsLibrary.GetStat("Quick Hands 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
 
             AttackStatsLibrary.GetStat("Hacker 2"),
             AttackStatsLibrary.GetStat("AFK 2"),
 
             AttackStatsLibrary.GetStat("Multicast 1"),
-            AttackStatsLibrary.GetStat("One More 1"),
-            AttackStatsLibrary.GetStat("Big Weapon 1"),
-            AttackStatsLibrary.GetStat("Wave Surge 1"),
-            AttackStatsLibrary.GetStat("Ki Surge 1"),
-            AttackStatsLibrary.GetStat("Aftershock 1"),
+            AttackStatsLibrary.GetStat("Big Gadget 1"),
+            AttackStatsLibrary.GetStat("Extra Round 1"),
             AttackStatsLibrary.GetStat("Cindershot 1"),
             AttackStatsLibrary.GetStat("Chain 1"),
             AttackStatsLibrary.GetStat("Split+ 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
-            AttackStatsLibrary.GetStat("Magnetize 2"),
-
  
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
             AttackStatsLibrary.GetStat("Critical 3"),
             AttackStatsLibrary.GetStat("Overkill 3"),
             AttackStatsLibrary.GetStat("Knockback 3"),
-            AttackStatsLibrary.GetStat("Quick Hands 3"),
             AttackStatsLibrary.GetStat("Glattt 3"),
 
             AttackStatsLibrary.GetStat("MLG 3"),
             AttackStatsLibrary.GetStat("Gamer 3"),
             AttackStatsLibrary.GetStat("Hacker 3"),
             AttackStatsLibrary.GetStat("AFK 3"),
-
+            AttackStatsLibrary.GetStat("Extra Round 2"),
             AttackStatsLibrary.GetStat("Multicast 2"),
-            AttackStatsLibrary.GetStat("One More 2"),
-            AttackStatsLibrary.GetStat("Big Weapon 2"),
-            AttackStatsLibrary.GetStat("Wave Surge 2"),
-            AttackStatsLibrary.GetStat("Ki Surge 2"),
-            AttackStatsLibrary.GetStat("Aftershock 2"),
+            AttackStatsLibrary.GetStat("Big Gadget 2"),
             AttackStatsLibrary.GetStat("Cindershot 2"),
             AttackStatsLibrary.GetStat("Chain 2"),
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
-            AttackStatsLibrary.GetStat("Magnetize 3"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1670,57 +1848,78 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Haste 4"),
 
             AttackStatsLibrary.GetStat("Multicast 3"),
-            AttackStatsLibrary.GetStat("Big Weapon 3"),
-            AttackStatsLibrary.GetStat("Aftershock 3"),
+            AttackStatsLibrary.GetStat("Big Gadget 3"),
+            AttackStatsLibrary.GetStat("Extra Round 3"),
 
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Cindershot 3"),
             AttackStatsLibrary.GetStat("Chain 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
         };
-        AttackBuilder LaserBeam = new AttackBuilder()
-            .SetAttackName("Laser Beam")
-            .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/DoubleBeam"))
-            .SetWeaponSetType(WeaponSetType.Melee)
-            .SetDescription("Firin' mah lazer or whatever.")
+
+        AttackBuilder SuctionBeam = new AttackBuilder()
+            .SetAttackName("Suction Beam")
+            .SetProjectile(Resources.Load<GameObject>("Projectiles/DoubleBeam"))
+            .SetWeaponSetType(WeaponSetType.SemiAuto)
+            .SetDescription("Firin' mah lazer!")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 2.2f,
+                    aimRange: 2.25f,
                     is360: false,
                     coneAngle: 50f,
-                    damage: 11,
-                    spread: 0.35f,
+                    damage: 8,
+                    spread: 1f,
                     castTime: 1.7f,
-                    shotsPerAttackMelee: 0,
-                    knockback: 0.65f,
+                    shotsPerAttack: 1,
+                    spray: 2f,
+                    range: 2f,
+                    speed: 0.2f,
+                    knockback: 0.4f,
+                    pierce: 99,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
-                    comboLength: 1,
-                    comboWaitTime: 1f,
-                    meleeShotsScaleUp: -0.1f,
-                    meleeSpacer: 3.7f,
-                    meleeSpacerGap: 3f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
                     shakeRotation: 0.5f,
-                    thrownDamage: 1,
-                    thrownSpeed: 0f
+                    thrownDamage: 11,
+                    thrownSpeed: 0.35f,
+                    isMagnet: true,
+                    magnetStrength: 3,
+                    magnetDuration: 0.5f
                 )
             )
             .SetProperties(
-                attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/gunFlash1_0"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/gunFlash1_0")
+                attackType: AttackTypes.Projectile,
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/beam_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/beam_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/beam_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/beam_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/beam_1"),
+                    Resources.Load<Sprite>("WeaponSprites/beam_2"),
+                    Resources.Load<Sprite>("WeaponSprites/beam_3"),
+                    Resources.Load<Sprite>("WeaponSprites/beam_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/beam_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/beam_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/beam_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/beam_4")
+                },
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
+                muzzleFlashPrefab: AutomaticMuzzleFlash
             )
-            .SetRarityUpgrades(LaserBeamRarity)
-                    .SetWeaponUpgrades(LaserBeamUpgrades);
+            .SetRarityUpgrades(SuctionBeamRarity)
+                    .SetWeaponUpgrades(SuctionBeamUpgrades);
 
-        AddAttack(LaserBeam);
+        AddAttack(SuctionBeam);
 
 
-        // MissileLauncher
-        List<AttackStats> MissileLauncherRarity = new List<AttackStats>
+        // RPG
+        List<AttackStats> RPGRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 0.3f, damage: 4),
             new AttackStats(rarity: Rarity.Rare, knockback: 0.4f, shakeRotation: 0.2f, speedMultiplier: 0.15f),
@@ -1732,7 +1931,7 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Legendary, damage: -6),
         };
 
-        List<AttackStats> MissileLauncherUpgrades = new List<AttackStats>
+        List<AttackStats> RPGUpgrades = new List<AttackStats>
         {
             //common
             AttackStatsLibrary.GetStat("Damage 1"),
@@ -1801,8 +2000,8 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 3"),
         };
 
-        AttackBuilder MissileLauncher = new AttackBuilder()
-            .SetAttackName("Missile Launcher")
+        AttackBuilder RPG = new AttackBuilder()
+            .SetAttackName("RPG")
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/missile_frag"))
             .SetWeaponSetType(WeaponSetType.Explosive)
             .SetDescription("Heat seeking explosions.")
@@ -1833,15 +2032,31 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/MissileLauncher_01"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/rpg_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/rpg_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/rpg_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/rpg_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/rpg_1"),
+                    Resources.Load<Sprite>("WeaponSprites/rpg_2"),
+                    Resources.Load<Sprite>("WeaponSprites/rpg_3"),
+                    Resources.Load<Sprite>("WeaponSprites/rpg_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/rpg_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/rpg_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/rpg_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/rpg_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/MissileLauncher_01"),
                 muzzleFlashPrefab: BigMuzzleFlash
              
             )
-            .SetRarityUpgrades(MissileLauncherRarity)
-            .SetWeaponUpgrades(MissileLauncherUpgrades);
-        AddAttack(MissileLauncher);
+            .SetRarityUpgrades(RPGRarity)
+            .SetWeaponUpgrades(RPGUpgrades);
+        AddAttack(RPG);
 
         // PainWheel
         List<AttackStats> PainWheelRarity = new List<AttackStats>
@@ -1958,9 +2173,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/shuriken_02"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/painWheel_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/painWheel_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/painWheel_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/painWheel_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/painWheel_1"),
+                    Resources.Load<Sprite>("WeaponSprites/painWheel_2"),
+                    Resources.Load<Sprite>("WeaponSprites/painWheel_3"),
+                    Resources.Load<Sprite>("WeaponSprites/painWheel_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/painWheel_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/painWheel_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/painWheel_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/painWheel_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/shuriken_1"),
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(PainWheelRarity)
@@ -2077,15 +2308,30 @@ public static class AttackLibrary
                     shakeTime: 0.1f,
                     shakeStrength: 0.05f,
                     shakeRotation: 0.05f,
-                    thrownDamage: 1,
                     isStun: true,
                     stunDuration: 4f
                 )
             )
             .SetProperties(
                 attackType: AttackTypes.Shotgun,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/grenade_shock"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/grenade_shock"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_shock_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_shock_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_shock_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_shock_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/grenade_shock_1"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_shock_2"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_shock_3"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_shock_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_shock_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_shock_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_shock_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_shock_4")
+                },
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(PetrifyGrenadeRarity)
@@ -2207,16 +2453,32 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/nova_03"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Nova_03")
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_petrify_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_petrify_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_petrify_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_petrify_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/nova_petrify_1"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_petrify_2"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_petrify_3"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_petrify_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_petrify_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_petrify_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_petrify_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_petrify_4")
+                },
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
             )
             .SetRarityUpgrades(PetrifyNovaRarity)
                     .SetWeaponUpgrades(PetrifyNovaUpgrades);
 
         AddAttack(PetrifyNova);
 
-        // Revolver
+        // PlasmaPistol
         List<AttackStats> PlasmaPistolRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 3, pierce: 5),
@@ -2332,9 +2594,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/PlasmaWhip_01"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/plasmaPistol_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/plasmaPistol_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/plasmaPistol_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/plasmaPistol_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/plasmaPistol_1"),
+                    Resources.Load<Sprite>("WeaponSprites/plasmaPistol_2"),
+                    Resources.Load<Sprite>("WeaponSprites/plasmaPistol_3"),
+                    Resources.Load<Sprite>("WeaponSprites/plasmaPistol_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/plasmaPistol_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/plasmaPistol_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/plasmaPistol_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/plasmaPistol_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/PlasmaWhip_01"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: AutomaticMuzzleFlash
             )
@@ -2457,9 +2735,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/pistol_magnum_1"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/revolver_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/revolver_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/revolver_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/revolver_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/revolver_1"),
+                    Resources.Load<Sprite>("WeaponSprites/revolver_2"),
+                    Resources.Load<Sprite>("WeaponSprites/revolver_3"),
+                    Resources.Load<Sprite>("WeaponSprites/revolver_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/revolver_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/revolver_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/revolver_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/revolver_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/pistol_magnum"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
@@ -2583,9 +2877,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Shotgun,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/shotgun_01"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/shotgun_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/shotgun_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/shotgun_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/shotgun_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/shotgun_1"),
+                    Resources.Load<Sprite>("WeaponSprites/shotgun_2"),
+                    Resources.Load<Sprite>("WeaponSprites/shotgun_3"),
+                    Resources.Load<Sprite>("WeaponSprites/shotgun_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/shotgun_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/shotgun_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/shotgun_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/shotgun_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/shotgun_01"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: BigMuzzleFlash
             )
@@ -2704,9 +3014,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Shotgun,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/shuriken_01"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/shuriken_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/shuriken_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/shuriken_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/shuriken_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/shuriken_1"),
+                    Resources.Load<Sprite>("WeaponSprites/shuriken_2"),
+                    Resources.Load<Sprite>("WeaponSprites/shuriken_3"),
+                    Resources.Load<Sprite>("WeaponSprites/shuriken_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/shuriken_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/shuriken_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/shuriken_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/shuriken_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/shuriken_2"),
                 muzzleFlashPrefab: BigMuzzleFlash
             )
             .SetRarityUpgrades(ShurikenRarity)
@@ -2830,9 +3156,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/smg_01"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/smg_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/smg_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/smg_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/smg_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/smg_1"),
+                    Resources.Load<Sprite>("WeaponSprites/smg_2"),
+                    Resources.Load<Sprite>("WeaponSprites/smg_3"),
+                    Resources.Load<Sprite>("WeaponSprites/smg_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/smg_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/smg_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/smg_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/smg_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/SMG_01"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: AutomaticMuzzleFlash
             )
@@ -2958,8 +3300,24 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Shotgun,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/grenade_smoke"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/grenade_smoke"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_smoke_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_smoke_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_smoke_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_smoke_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/grenade_smoke_1"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_smoke_2"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_smoke_3"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_smoke_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_smoke_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_smoke_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_smoke_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_smoke_4")
+                },
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(SmokeGrenadeRarity)
@@ -3081,9 +3439,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/longshot_02"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/sniper_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/sniper_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/sniper_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/sniper_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/sniper_1"),
+                    Resources.Load<Sprite>("WeaponSprites/sniper_2"),
+                    Resources.Load<Sprite>("WeaponSprites/sniper_3"),
+                    Resources.Load<Sprite>("WeaponSprites/sniper_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/sniper_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/sniper_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/sniper_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/sniper_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/LongShotRifle_02"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing"),
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
@@ -3208,9 +3582,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/GravCannon_01"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/cannon_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/cannon_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/cannon_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/cannon_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/cannon_1"),
+                    Resources.Load<Sprite>("WeaponSprites/cannon_2"),
+                    Resources.Load<Sprite>("WeaponSprites/cannon_3"),
+                    Resources.Load<Sprite>("WeaponSprites/cannon_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/cannon_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/cannon_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/cannon_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/cannon_4")
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/gravCannon_01"),
                 bulletCasing: Resources.Load<GameObject>("WeaponVFX/BulletCasing_Energy"),
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
@@ -3334,8 +3724,24 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Projectile,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/grenade_magnet"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/grenade_magnet"),
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_magnet_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_magnet_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_magnet_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/grenade_magnet_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/grenade_magnet_1"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_magnet_2"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_magnet_3"),
+                    Resources.Load<Sprite>("WeaponSprites/grenade_magnet_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_magnet_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_magnet_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_magnet_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/grenade_magnet_4")
+                },
                 muzzleFlashPrefab: PistolMuzzleFlash
             )
             .SetRarityUpgrades(SuctionGrenadeRarity)
@@ -3466,9 +3872,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/nova_02"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/Nova_02")
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_magnet_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_magnet_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_magnet_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/nova_magnet_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/nova_magnet_1"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_magnet_2"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_magnet_3"),
+                    Resources.Load<Sprite>("WeaponSprites/nova_magnet_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_magnet_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_magnet_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_magnet_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/nova_magnet_4")
+                },
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
             )
             .SetRarityUpgrades(SuctionNovaRarity)
         .SetWeaponUpgrades(SuctionNovaUpgrades);
@@ -3600,9 +4022,25 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: Resources.Load<Sprite>("WeaponSprites/Final/katana_02"),
-                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
-                thrownSprite: Resources.Load<Sprite>("WeaponSprites/katana_02")
+                weaponSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Final/katana_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/katana_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/katana_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Final/katana_4")
+                },
+                thrownSprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/katana_1"),
+                    Resources.Load<Sprite>("WeaponSprites/katana_2"),
+                    Resources.Load<Sprite>("WeaponSprites/katana_3"),
+                    Resources.Load<Sprite>("WeaponSprites/katana_4")
+                },
+                displaySprite: new List<Sprite> {
+                    Resources.Load<Sprite>("WeaponSprites/Display/katana_1"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/katana_2"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/katana_3"),
+                    Resources.Load<Sprite>("WeaponSprites/Display/katana_4")
+                },
+                thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
             )
             .SetRarityUpgrades(WindBladeRarity)
                     .SetWeaponUpgrades(WindBladeUpgrades);

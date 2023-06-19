@@ -202,11 +202,6 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
-    public void triggerRecoil()
-    {
-        WeaponPrefab.Recoil();
-    }
-
     public void triggerWpnOff()
     {
         Attack currentAttack = attacks[attackIndex];
@@ -232,11 +227,7 @@ public class AttackHandler : MonoBehaviour
             attackState = AttackState.Casting;
 
             WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack
-                .GetComponent<Attack>()
-                .weaponSprite;
-            WeaponSprite.GetComponent<SpriteRenderer>().sprite = currentAttack
-                .GetComponent<Attack>()
-                .weaponSprite;
+                .GetComponent<Attack>().GetWeaponSprite();
 
             //swap animation
             HandsSprite.GetComponent<Animator>().SetBool("IsSwap", true);
@@ -372,10 +363,7 @@ public class AttackHandler : MonoBehaviour
         AddWeapon(defaultWeapon.GetComponent<Attack>());
         WeaponSprite.GetComponent<SpriteRenderer>().sprite = defaultWeapon
             .GetComponent<Attack>()
-            .weaponSprite;
-        WeaponOutline.GetComponent<SpriteRenderer>().sprite = defaultWeapon
-            .GetComponent<Attack>()
-            .weaponSprite;
+            .GetWeaponSprite();
 
         StartCoroutine(Attack());
     }

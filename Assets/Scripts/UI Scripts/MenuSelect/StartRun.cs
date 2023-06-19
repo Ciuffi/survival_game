@@ -19,6 +19,7 @@ public class StartRun : MonoBehaviour
     public GameObject stageSelectUI;
 
     private InventoryUIManager InvManager;
+    PanelTransitionManager inventoryButton;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class StartRun : MonoBehaviour
         stageSelectUI.SetActive(false);
         InvManager = FindObjectOfType<InventoryUIManager>();
         inventoryController = FindObjectOfType<InventoryUIManager>();
+        inventoryButton = GameObject.Find("Canvas_Btns/InventoryButton").GetComponent<PanelTransitionManager>();
 
     }
     private void Update()
@@ -57,6 +59,10 @@ public class StartRun : MonoBehaviour
         if (charSelected && wpnSelected && !stageSelectUI.activeInHierarchy)
         {
             stageSelectUI.SetActive(true);
+            if (inventoryButton.isTransitioned)
+            {
+                inventoryButton.OnButtonClick();
+            }
             return;
         }
 

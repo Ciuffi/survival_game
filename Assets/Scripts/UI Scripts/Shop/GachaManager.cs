@@ -29,25 +29,21 @@ public class GachaManager : MonoBehaviour
         if (playerDataManager.gold >= rarityData.cost)
         {
             // Check if player already has all weapons of this rarity
-            if (shopLootBox.AllWeaponsOwned(inventory))
-            {
-                Debug.Log("Player owns all weapons of this rarity!");
-                return;
-            }
+            //if (shopLootBox.AllWeaponsOwned(inventory)) { Debug.Log("Player owns all weapons of this rarity!"); return;}
 
             // Subtract the cost of the loot box from the player's currency
             playerDataManager.gold -= rarityData.cost;
 
             // Roll to determine the weapon's name and rarity
-            string weaponName;
-            int weaponRarity;
+            string weaponName = shopLootBox.PickRandomWeapon();
+            int weaponRarity = rarityData.RollRarity();
 
-            do
-            {
-                weaponName = shopLootBox.PickRandomWeapon();
-                weaponRarity = rarityData.RollRarity();
-            }
-            while (inventory.WeaponExists(weaponName, weaponRarity));
+            // Roll to determine the weapon's name and rarity
+            //string weaponName; int weaponRarity;
+            //do {
+                //weaponName = shopLootBox.PickRandomWeapon();
+                //weaponRarity = rarityData.RollRarity();
+            //} while (inventory.WeaponExists(weaponName, weaponRarity));
 
             // Add the weapon to the player's inventory
             Weapon weapon = new Weapon(weaponName, weaponRarity, false, 1);

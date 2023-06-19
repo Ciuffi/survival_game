@@ -82,8 +82,8 @@ public class InventoryUIManager : MonoBehaviour
         string weaponName = weapon.name;
 
         AttackBuilder attackBuilder = AttackLibrary.GetAttackBuilder(weaponName);
-        weaponImage.sprite = attackBuilder.GetThrownSprite();
-        outlineImage.sprite = attackBuilder.GetThrownSprite();
+        weaponImage.sprite = attackBuilder.GetDisplaySprite(weapon.rarity);
+        outlineImage.sprite = attackBuilder.GetDisplaySprite(weapon.rarity);
 
         if (weapon.isPermanent) //hide durability if permanent item
         {
