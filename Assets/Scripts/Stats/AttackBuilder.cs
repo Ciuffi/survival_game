@@ -260,4 +260,9 @@ public class AttackBuilder
     {
         return baseStats;
     }
+
+    public string GetWeaponSet()
+    {
+        return weaponSetType.ToString();
+    }
 }
