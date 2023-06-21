@@ -128,7 +128,9 @@ public class BasicSpawner : MonoBehaviour
             bossSpawned = true;
             Vector3 spawnPosition = transform.position + MathUtilities.DegreesToVector3(bossDirection360) * (6 + bossDistance);
             GameObject boss = Instantiate(bossPrefab, spawnPosition, Quaternion.identity);
-            AstarPath.active.Scan();
+
+            WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
+            waypointManager.AddWaypoint(boss, true);
         }
     }
 }

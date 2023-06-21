@@ -7,6 +7,7 @@ public class GachaManager : MonoBehaviour
     public PlayerDataManager playerDataManager; // Reference to the player's data manager
     public PlayerInventory inventory;
     public GachaOverlayManager overlay;
+    public GameObject particleEffectPrefab;
 
     // Define the cost and drop rates for each rarity
     public List<RarityData> rarities;
@@ -38,13 +39,6 @@ public class GachaManager : MonoBehaviour
             string weaponName = shopLootBox.PickRandomWeapon();
             int weaponRarity = rarityData.RollRarity();
 
-            // Roll to determine the weapon's name and rarity
-            //string weaponName; int weaponRarity;
-            //do {
-                //weaponName = shopLootBox.PickRandomWeapon();
-                //weaponRarity = rarityData.RollRarity();
-            //} while (inventory.WeaponExists(weaponName, weaponRarity));
-
             // Add the weapon to the player's inventory
             Weapon weapon = new Weapon(weaponName, weaponRarity, false, 1);
             inventory.AddWeapon(weapon);
@@ -54,6 +48,13 @@ public class GachaManager : MonoBehaviour
 
             overlay.gameObject.SetActive(true);
             overlay.DisplayWeapon(weapon);
+
+            if (particleEffectPrefab != null)
+            {
+                Vector3 newPos = new Vector3(overlay.transform.position.x, overlay.transform.position.y + 0.75f, 0);
+                GameObject particle = Instantiate(particleEffectPrefab, newPos, Quaternion.identity, transform);
+                particle.transform.localScale *= 1.3f;
+            }
 
             // Debug line to ensure weapon is being added
             Debug.Log("Added weapon: " + weapon.name + ", rarity: " + weapon.rarity);

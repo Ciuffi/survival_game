@@ -28,6 +28,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
     private TextMeshProUGUI priceText;
     private Image characterPreviewSprite;
     private Animator characterPreviewAnimator;
+    public GameObject particleEffectPrefab;
 
 
     private void Awake()
@@ -214,6 +215,16 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
 
             UpdatePriceText();
             UpdatePurchaseButton();
+
+            if (particleEffectPrefab != null)
+            {
+                Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                Instantiate(particleEffectPrefab, newPos, Quaternion.identity, transform);
+
+                Vector3 btnPos = new Vector3(purchaseButton.transform.position.x, purchaseButton.transform.position.y, 0);
+                GameObject particle = Instantiate(particleEffectPrefab, btnPos, Quaternion.identity, transform);
+                particle.transform.localScale *= 0.25f;
+            }
         }
     }
 

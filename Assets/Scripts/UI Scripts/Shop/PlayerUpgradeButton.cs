@@ -34,7 +34,6 @@ public class PlayerUpgradeButton : MonoBehaviour
     private int initialUpgradesCount;
 
     public GameObject particleEffectPrefab;
-    private GameObject particleEffectInstance;
 
     public GameObject invWpn;
     private List<Color> rarityColors;
