@@ -747,7 +747,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isChain: true,
                 chainTimes: 2,
-                chainStatDecayPercent: 0.3f,
+                chainStatDecayPercent: 0.2f,
                 chainRange: 5f,
                 chainSpeed: 5f,
                 name: "Chain+ 1",
@@ -1246,12 +1246,12 @@ public static class AttackStatsLibrary
         AddStat(
            new AttackStats(
                isChain: true,
-               chainTimes: 2,
+               chainTimes: 1,
                chainStatDecayPercent: 0.33f,
                chainRange: 3f,
                chainSpeed: 14f,
                name: "Chain 2",
-               description: "Damage jumps to 2 more targets",
+               description: "Damage jumps to 1 more target",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                rarity: Rarity.Epic
            )
@@ -1261,12 +1261,12 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isChain: true,
-                chainTimes: 3,
-                chainStatDecayPercent: 0.45f,
+                chainTimes: 4,
+                chainStatDecayPercent: 0.12f,
                 chainRange: 6f,
                 chainSpeed: 7f,
                 name: "Chain+ 2",
-                description: "Damage jumps to 3 more targets",
+                description: "Damage jumps to 4 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Epic
             )
@@ -1624,12 +1624,12 @@ public static class AttackStatsLibrary
         AddStat(
            new AttackStats(
                isChain: true,
-               chainTimes: 3,
-               chainStatDecayPercent: 0.3f,
+               chainTimes: 2,
+               chainStatDecayPercent: 0.25f,
                chainRange: 4f,
                chainSpeed: 18f,
                name: "Chain 3",
-               description: "Damage jumps to 3 more targets",
+               description: "Damage jumps to 2 more targets",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                rarity: Rarity.Legendary
            )
@@ -1640,7 +1640,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isChain: true,
                 chainTimes: 5,
-                chainStatDecayPercent: 0.10f,
+                chainStatDecayPercent: 0.06f,
                 chainRange: 8f,
                 chainSpeed: 10f,
                 name: "Chain+ 3",

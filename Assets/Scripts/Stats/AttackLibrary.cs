@@ -368,7 +368,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Puncture 1"),
             AttackStatsLibrary.GetStat("Big Ammo 1"),
             AttackStatsLibrary.GetStat("Cindershot 1"),
-            AttackStatsLibrary.GetStat("Chain 1"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
             AttackStatsLibrary.GetStat("Split+ 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
             AttackStatsLibrary.GetStat("Magnetize 2"),
@@ -391,7 +391,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Gamer 3"),
             AttackStatsLibrary.GetStat("Homing 1"),
             AttackStatsLibrary.GetStat("Cindershot 2"),
-            AttackStatsLibrary.GetStat("Chain 2"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
@@ -406,7 +406,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Big Ammo 3"),
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Cindershot 3"),
-            AttackStatsLibrary.GetStat("Chain 3"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
 
         };
@@ -672,7 +672,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Aftershock 1"),
             AttackStatsLibrary.GetStat("Persistence 1"),
             AttackStatsLibrary.GetStat("Ignite 1"),
-            AttackStatsLibrary.GetStat("Chain 1"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
             AttackStatsLibrary.GetStat("Split 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
 
@@ -694,7 +694,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hacker 3"),
             AttackStatsLibrary.GetStat("AFK 3"),
             AttackStatsLibrary.GetStat("Ignite 2"),
-            AttackStatsLibrary.GetStat("Chain 2"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
@@ -712,7 +712,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Persistence 3"),
             AttackStatsLibrary.GetStat("Ignite 3"),
-            AttackStatsLibrary.GetStat("Chain 3"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
         };
@@ -1803,6 +1803,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hacker 1"),
             AttackStatsLibrary.GetStat("AFK 1"),
             AttackStatsLibrary.GetStat("Slow Down 1"),
+            AttackStatsLibrary.GetStat("Magnetize 1"),
 
           //rare
             AttackStatsLibrary.GetStat("Damage 2"),
@@ -1810,7 +1811,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Overkill 2"),
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Glattt 2"),
-
             AttackStatsLibrary.GetStat("Hacker 2"),
             AttackStatsLibrary.GetStat("AFK 2"),
 
@@ -1818,9 +1818,10 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Big Gadget 1"),
             AttackStatsLibrary.GetStat("Extra Round 1"),
             AttackStatsLibrary.GetStat("Cindershot 1"),
-            AttackStatsLibrary.GetStat("Chain 1"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
             AttackStatsLibrary.GetStat("Split+ 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
+            AttackStatsLibrary.GetStat("Magnetize 2"),
  
           //epic
             AttackStatsLibrary.GetStat("Damage 3"),
@@ -1837,9 +1838,10 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Multicast 2"),
             AttackStatsLibrary.GetStat("Big Gadget 2"),
             AttackStatsLibrary.GetStat("Cindershot 2"),
-            AttackStatsLibrary.GetStat("Chain 2"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
+            AttackStatsLibrary.GetStat("Magnetize 3"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1853,7 +1855,7 @@ public static class AttackLibrary
 
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Cindershot 3"),
-            AttackStatsLibrary.GetStat("Chain 3"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
         };
 
@@ -2481,7 +2483,7 @@ public static class AttackLibrary
         // PlasmaPistol
         List<AttackStats> PlasmaPistolRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, damage: 5, pierce: 5),
+            new AttackStats(rarity: Rarity.Rare, damage: 5, pierce: 7),
             new AttackStats(rarity: Rarity.Rare, speedMultiplier: 0.2f, rangeMultiplier: 0.2f),
 
             new AttackStats(rarity: Rarity.Epic, chainTimes: 1, chainStatDecayPercent: 0.20f),
@@ -2517,7 +2519,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Puncture 1"),
             AttackStatsLibrary.GetStat("Big Ammo 1"),
             AttackStatsLibrary.GetStat("Cindershot 1"),
-            AttackStatsLibrary.GetStat("Chain 1"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
             AttackStatsLibrary.GetStat("Split+ 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
             AttackStatsLibrary.GetStat("Magnetize 2"),
@@ -2538,7 +2540,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Big Ammo 2"),
             AttackStatsLibrary.GetStat("Homing 1"),
             AttackStatsLibrary.GetStat("Cindershot 2"),
-            AttackStatsLibrary.GetStat("Chain 2"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
@@ -2554,7 +2556,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Big Ammo 3"),
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Cindershot 3"),
-            AttackStatsLibrary.GetStat("Chain 3"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
         };
 
@@ -2586,7 +2588,7 @@ public static class AttackLibrary
                     thrownDamage: 3f,
                     thrownSpeed: 0.65f,
                     isChain: true,
-                    chainTimes: 4,
+                    chainTimes: 3,
                     chainStatDecayPercent: 0.30f,
                     chainRange: 4.5f,
                     chainSpeed: 15f
@@ -2943,7 +2945,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Puncture 1"),
             AttackStatsLibrary.GetStat("Big Gadget 1"),
             AttackStatsLibrary.GetStat("Persistence+ 1"),
-            AttackStatsLibrary.GetStat("Chain 1"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
             AttackStatsLibrary.GetStat("Magnetize 2"),
 
@@ -2963,7 +2965,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Puncture 2"),
             AttackStatsLibrary.GetStat("Big Gadget 2"),
             AttackStatsLibrary.GetStat("Persistence+ 2"),
-            AttackStatsLibrary.GetStat("Chain 2"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
 
@@ -2979,7 +2981,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Persistence+ 3"),
             AttackStatsLibrary.GetStat("Homing 2"),
-            AttackStatsLibrary.GetStat("Chain 3"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
 
         };
 
@@ -3224,7 +3226,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Saboteur 1"),
             AttackStatsLibrary.GetStat("Ignite 1"),
             AttackStatsLibrary.GetStat("Split 1"),
-            AttackStatsLibrary.GetStat("Chain 1"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
             AttackStatsLibrary.GetStat("Magnetize 2"),
 
@@ -3246,7 +3248,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 2"),
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Concussive 1"),
-            AttackStatsLibrary.GetStat("Chain 2"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
 
@@ -3265,7 +3267,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
-            AttackStatsLibrary.GetStat("Chain 3"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
 
         };
 
@@ -3942,7 +3944,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Aftershock 1"),
             AttackStatsLibrary.GetStat("Persistence 1"),
             AttackStatsLibrary.GetStat("Ignite 1"),
-            AttackStatsLibrary.GetStat("Chain 1"),
+            AttackStatsLibrary.GetStat("Chain+ 1"),
             AttackStatsLibrary.GetStat("Split+ 1"),
             AttackStatsLibrary.GetStat("Slow Down 2"),
             AttackStatsLibrary.GetStat("Magnetize 2"),
@@ -3968,7 +3970,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Aftershock 2"),
             AttackStatsLibrary.GetStat("Persistence 2"),
             AttackStatsLibrary.GetStat("Ignite 2"),
-            AttackStatsLibrary.GetStat("Chain 2"),
+            AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
@@ -3986,7 +3988,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Persistence 3"),
             AttackStatsLibrary.GetStat("Ignite 3"),
-            AttackStatsLibrary.GetStat("Chain 3"),
+            AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
         };
 
@@ -4010,8 +4012,8 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     comboLength: 3,
                     comboWaitTime: 0.9f,
-                    meleeSpacer: 1.25f,
-                    meleeSpacerGap: 1.5f,
+                    meleeSpacer: 1.2f,
+                    meleeSpacerGap: 1.3f,
                     shakeTime: 0.08f,
                     shakeStrength: 0.12f,
                     shakeRotation: 0.1f,
