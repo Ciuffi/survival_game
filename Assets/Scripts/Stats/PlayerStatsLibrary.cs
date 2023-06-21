@@ -341,8 +341,9 @@ public static class PlayerStatsLibrary
         AddStat(
            new PlayerCharacterStats(
                isHoming: true,
+               damageAdditive: -2f,
                name: "Homing 1",
-               description: "Projectiles follow nearby enemies",
+               description: "Projectiles follow enemies, -2 Base Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Homing"),
                rarity: Rarity.Epic
            )

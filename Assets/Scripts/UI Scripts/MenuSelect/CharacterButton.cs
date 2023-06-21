@@ -412,6 +412,10 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             statsString += "Wpn Toss Speed " + stats.thrownSpeedMultiplier * 100 + "%" + "\n";
         }
+        if (stats.is360 != false)
+        {
+            statsString += "360 Aim Vision\n";
+        }
         if (stats.isHoming != false)
         {
             statsString += "Homing Projectiles!\n";

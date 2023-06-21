@@ -206,7 +206,7 @@ public class Projectile : MonoBehaviour
         SpriteRenderer[] childSR = this.GetComponentsInChildren<SpriteRenderer>();
         spriteRenderers.AddRange(childSR);
 
-        turnSpeed = Random.Range(rotateSpeed / 2, rotateSpeed);
+        turnSpeed = Random.Range(rotateSpeed / 3, rotateSpeed);
     }
 
     void Update()
