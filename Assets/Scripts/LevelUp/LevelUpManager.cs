@@ -344,7 +344,7 @@ public class LevelUpManager : MonoBehaviour
 
                     textComponents[2].text = statComponent.stat.description;
 
-                    string upgradeTag = "ALL";
+                    string upgradeTag = "RELIC";
                     textComponents[3].text = upgradeTag;
 
                 }

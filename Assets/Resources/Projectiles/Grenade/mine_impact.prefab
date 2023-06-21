@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1822861191
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a723efcfbaf450642a87945d444f9e27, type: 3}
   m_Color: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 0.39215687}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3966782872280218973
@@ -159,14 +159,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1822861191
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a723efcfbaf450642a87945d444f9e27, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bfa9bc0e1556864bb56404fa55cb219, type: 3}
   m_Color: {r: 1, g: 0.54885304, b: 0.48584908, a: 0.72156864}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 8, y: 8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -206,6 +206,7 @@ MonoBehaviour:
   damageTickDuration: 1
   isThrown: 0
   isHover: 1
+  stopOnHit: 0
   hoverTimer: 5
   hitFirstEnemy: 0
   isAnimated: 0
@@ -217,10 +218,25 @@ MonoBehaviour:
   slowDuration: 0
   isStun: 0
   stunDuration: 0
+  isHoming: 0
+  rotateSpeed: 0
+  isDoT: 0
+  dotDuration: 0
+  dotDamage: 0
+  dotTickRate: 0
+  isSplit: 0
+  splitAmount: 0
+  splitStatPercentage: 0
+  isChain: 0
+  chainTimes: 0
+  chainStatDecayPercent: 0
+  chainRange: 0
+  chainSpeed: 0
+  isSplitProjectile: 0
   hasDeathrattle: 1
   deathSpawn: {fileID: 4908858350499337675, guid: 1f7bc36f8f107924faa3bee74f0794cb, type: 3}
-  projSize: 0
-  meleeSize: 0
+  wpnProjSizeMultiplier: 0
+  wpnMeleeSizeMultiplier: 0
 --- !u!58 &3115735194507937141
 CircleCollider2D:
   m_ObjectHideFlags: 0

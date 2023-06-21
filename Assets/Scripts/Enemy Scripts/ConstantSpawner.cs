@@ -231,6 +231,11 @@ public class ConstantSpawner : MonoBehaviour
                         enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
                     }
 
+                    if (isEliteSpawner)
+                    {
+                        WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
+                        waypointManager.AddWaypoint(newEnemy, true);
+                    }
                 }
             }
             else if (spawnRate == 1)
@@ -246,6 +251,11 @@ public class ConstantSpawner : MonoBehaviour
                     enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                     enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
+                }
+                if (isEliteSpawner)
+                {
+                    WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
+                    waypointManager.AddWaypoint(newEnemy, true);
                 }
             }
         }
@@ -264,6 +274,11 @@ public class ConstantSpawner : MonoBehaviour
                     enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                     enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
+                }
+                if (isEliteSpawner)
+                {
+                    WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
+                    waypointManager.AddWaypoint(newEnemy, true);
                 }
             }
         }
@@ -291,6 +306,11 @@ public class ConstantSpawner : MonoBehaviour
                     enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                     enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
+                }
+                if (isEliteSpawner)
+                {
+                    WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
+                    waypointManager.AddWaypoint(newEnemy, true);
                 }
             }
 

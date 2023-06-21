@@ -26,6 +26,8 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
     public Button purchaseButton; // The button to purchase/unlock the character.
     private PlayerDataManager playerDataManager; // Reference to the PlayerDataManager in the scene.
     private TextMeshProUGUI priceText;
+    private Image characterPreviewSprite;
+    private Animator characterPreviewAnimator;
 
 
     private void Awake()
@@ -47,6 +49,8 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         buttonImage = GetComponent<Image>();
         defaultColor = GetComponent<Image>().color;
 
+        characterPreviewSprite = GameObject.Find("Canvas/CharacterPreview").GetComponent<Image>();
+        characterPreviewAnimator = GameObject.Find("Canvas/CharacterPreview").GetComponent<Animator>();
     }
 
     private void Update()
@@ -64,6 +68,13 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             buttonImage.color = defaultColor;
         }
+    }
+
+    public void UpdateCharacterPreview(PlayerCharacterStats newCharacter)
+    {
+        Debug.Log(newCharacter.name);
+        characterPreviewSprite.sprite = newCharacter.characterSprite;
+        characterPreviewAnimator.runtimeAnimatorController = newCharacter.characterAnimationController;
     }
 
     private void UpdatePurchaseButton()
@@ -185,6 +196,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         purchaseButton.onClick.AddListener(OnPurchaseButtonClicked);
         UpdatePriceText();
         UpdatePurchaseButton();
+        UpdateCharacterPreview(stats);
     }
 
     // New method to handle purchase button click event.
@@ -214,7 +226,10 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         statsString += "Pickup Range " + stats.pickupRange + "\n";
 
         // Check each stat and add it to the string if it meets the criteria 
-
+        if (stats.rerollTimes != 0)
+        {
+            statsString += "Reroll +" + stats.rerollTimes + "\n";
+        }
         if (stats.defense != 0)
         {
             statsString += "Defense " + stats.defense + "\n";
@@ -358,18 +373,18 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         }
         if (stats.effectMultiplier > 0)
         {
-            statsString += "Debuff Power +" + stats.effectMultiplier * 100 + "%" + "\n";
+            statsString += "Effect Power +" + stats.effectMultiplier * 100 + "%" + "\n";
         } else if (stats.effectMultiplier < 0)
         {
-            statsString += "Debuff Power " + stats.effectMultiplier * 100 + "%" + "\n";
+            statsString += "Effect Power " + stats.effectMultiplier * 100 + "%" + "\n";
         }
         if (stats.effectDuration > 0)
         {
-            statsString += "Debuff Duration +" + stats.effectDuration + "s" + "\n";
+            statsString += "Effect Duration +" + stats.effectDuration + "s" + "\n";
         }
         else if (stats.effectDuration < 0)
         {
-            statsString += "Debuff Duration " + stats.effectDuration + "s" + "\n";
+            statsString += "Effect Duration " + stats.effectDuration + "s" + "\n";
         }
         if (stats.thrownDamageMultiplier > 0)
         {
@@ -385,6 +400,10 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         else if (stats.thrownSpeedMultiplier < 0)
         {
             statsString += "Wpn Toss Speed " + stats.thrownSpeedMultiplier * 100 + "%" + "\n";
+        }
+        if (stats.isHoming != false)
+        {
+            statsString += "Homing Projectiles!\n";
         }
         if (stats.shootOpposideSide != false)
         {

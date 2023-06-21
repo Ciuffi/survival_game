@@ -49,7 +49,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void StartingInventory()
     {
-        AddWeapon(new Weapon("Suction Beam", 0, false, 1));
+        //AddWeapon(new Weapon("Suction Beam", 0, false, 1));
 
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
         AddWeapon(new Weapon("Plasma Pistol", 0, false, 1));
@@ -78,7 +78,7 @@ public class PlayerInventory : MonoBehaviour
         //AddWeapon(new Weapon("Smoke Grenade", 0, false, 1));
         //AddWeapon(new Weapon("Petrify Grenade", 0, false, 1));
         //AddWeapon(new Weapon("Suction Grenade", 0, false, 1));
-        //AddWeapon(new Weapon("Wind Blade", 0, false, 1));
+        AddWeapon(new Weapon("Wind Blade", 0, false, 1));
 
 
 

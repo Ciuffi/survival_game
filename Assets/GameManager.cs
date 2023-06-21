@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
             {
                 pauseMenu.SetActive(false);
             }
-        }
+        } 
+        
     }
 }

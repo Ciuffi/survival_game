@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class InventoryUIManager : MonoBehaviour
 {
     private PlayerInventory playerInventory;
+    private WeaponPreview preview;
     public GameObject contentPanel;
     public GameObject inventoryItemPrefab;
 
@@ -18,6 +19,7 @@ public class InventoryUIManager : MonoBehaviour
     private void Awake()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
+        preview = FindObjectOfType<WeaponPreview>();
     }
 
     void Start()
@@ -32,6 +34,7 @@ public class InventoryUIManager : MonoBehaviour
         wpnSelected = true;
 
         playerInventory.SetSelectedWeaponIndex(weaponName, weaponRarity);
+        preview.UpdatePreview(weaponName, weaponRarity);
     }
 
     public void DeselectAllItems()

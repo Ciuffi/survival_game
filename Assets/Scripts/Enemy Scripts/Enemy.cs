@@ -483,6 +483,11 @@ public class Enemy : MonoBehaviour, Attacker
             if (isBoss)
             {
                 FindObjectOfType<GameManager>().EndGame();
+            } 
+
+            if (isElite || isBoss)
+            {
+                FindObjectOfType<WaypointManager>().RemoveWaypoint(gameObject);
             }
             Destroy(gameObject);
         }

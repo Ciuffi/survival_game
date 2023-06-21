@@ -53,6 +53,7 @@ public class CharSelectController : MonoBehaviour
             {
                 character.GetComponent<Image>().color = character.GetComponent<CharacterButton>().lockedColor;
             }
+
             //Debug.Log("First Character: " + firstCharacter);
 
             characterPrefabs.Add(character);
@@ -61,6 +62,7 @@ public class CharSelectController : MonoBehaviour
         if (firstCharacter != null)
         {
             firstCharacter.GetComponent<CharacterButton>().SelectThisCharacter();
+            firstCharacter.GetComponent<CharacterButton>().UpdateCharacterPreview(firstCharacter.GetComponent<CharacterButton>().stats);
         }
     }
 

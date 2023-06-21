@@ -278,9 +278,9 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isMagnet: true,
                 magnetStrength: 0.25f,
-                magnetDuration: 0.5f,
+                magnetDuration: 0.25f,
                 name: "Magnetize 1",
-                description: "On hit, pull target(s) in",
+                description: "On hit, pull targets in",
                 icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
                 rarity: Rarity.Common
             )
@@ -800,10 +800,10 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isMagnet: true,
-                magnetStrength: 0.6f,
-                magnetDuration: 0.75f,
+                magnetStrength: 0.5f,
+                magnetDuration: 0.5f,
                 name: "Magnetize 2",
-                description: "On hit, pull target(s) in",
+                description: "On hit, pull targets in",
                 icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
                 rarity: Rarity.Rare
             )
@@ -1315,9 +1315,9 @@ public static class AttackStatsLibrary
             new AttackStats(
                 isMagnet: true,
                 magnetStrength: 1f,
-                magnetDuration: 1f,
+                magnetDuration: 0.5f,
                 name: "Magnetize 3",
-                description: "On hit, pull target(s) in",
+                description: "On hit, pull targets in",
                 icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
                 rarity: Rarity.Epic
             )

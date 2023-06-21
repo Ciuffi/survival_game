@@ -167,11 +167,11 @@ public static class PlayerUpgradesLibrary
         //moveSpeed
         GameObject Speed1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Speed1Stats = new PlayerCharacterStats(
-            speed: 0.15f,
+            speed: 0.10f,
                level: 1,
                price: 500,
                name: "Agile 1",
-               description: "+0.15 base Speed",
+               description: "+0.10 base Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
                rarity: Rarity.Rare
              );
@@ -182,11 +182,11 @@ public static class PlayerUpgradesLibrary
 
         GameObject Speed2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Speed2Stats = new PlayerCharacterStats(
-            speed: 0.15f,
+            speed: 0.10f,
                level: 2,
                price: 1000,
                name: "Agile 2",
-               description: "+0.3 base Speed",
+               description: "+0.20 base Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
                rarity: Rarity.Epic
              );
@@ -197,11 +197,11 @@ public static class PlayerUpgradesLibrary
 
         GameObject Speed3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Speed3Stats = new PlayerCharacterStats(
-           speed: 0.2f,
+           speed: 0.15f,
                level: 3,
                price: 2000,
                name: "Agile 3",
-               description: "+0.5 base Speed",
+               description: "+0.35 base Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
                rarity: Rarity.Legendary
              );
@@ -526,11 +526,11 @@ public static class PlayerUpgradesLibrary
         PlayerCharacterStats Reroll2Stats = new PlayerCharacterStats(
            rerollTimes: 1,
                level: 2,
-               price: 1000,
+               price: 1200,
                name: "Indecisive 2",
                description: "+2 Rerolls",
                icon: Resources.Load<Sprite>("UI_Icons/Reroll"),
-               rarity: Rarity.Rare
+               rarity: Rarity.Epic
              );
         Reroll2.name = Reroll2Stats.name;
         Reroll2.AddComponent<StatComponent>().stat = Reroll2Stats;
@@ -542,34 +542,17 @@ public static class PlayerUpgradesLibrary
         PlayerCharacterStats Reroll3Stats = new PlayerCharacterStats(
            rerollTimes: 1,
                level: 3,
-               price: 1200,
+               price: 1500,
                name: "Indecisive 3",
                description: "+3 Rerolls",
                icon: Resources.Load<Sprite>("UI_Icons/Reroll"),
-               rarity: Rarity.Epic
+               rarity: Rarity.Legendary
              );
         Reroll3.name = Reroll3Stats.name;
         Reroll3.AddComponent<StatComponent>().stat = Reroll3Stats;
         Reroll3Stats.setContainer(Reroll3);
 
         AddUpgrade(Reroll3);
-
-        GameObject Reroll4 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
-        PlayerCharacterStats Reroll4Stats = new PlayerCharacterStats(
-           rerollTimes: 2,
-               level: 4,
-               price: 2000,
-               name: "Indecisive 4",
-               description: "+5 Rerolls",
-               icon: Resources.Load<Sprite>("UI_Icons/Reroll"),
-               rarity: Rarity.Legendary
-             );
-        Reroll4.name = Reroll4Stats.name;
-        Reroll4.AddComponent<StatComponent>().stat = Reroll4Stats;
-        Reroll4Stats.setContainer(Reroll4);
-
-        AddUpgrade(Reroll4);
-
 
         //pickup
         GameObject Pickup1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);

@@ -42,11 +42,9 @@ public class LootBox : MonoBehaviour
 
         guiltTracker = FindObjectOfType<BasicSpawner>();
 
-        Scene currentScene = SceneManager.GetActiveScene();
-        int sceneIndex = currentScene.buildIndex;
+        WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
+        waypointManager.AddWaypoint(this.gameObject, false);
         // Calculate the percentage increase based on the scene index
-        finalMultiplier = 1f + stageScaling + player.GetComponent<StatsHandler>().stats.goldGainMultiplier;
-
     }
 
     public void StartBouncing(float startHeight, float startSpeed, float decayRate)
@@ -93,12 +91,15 @@ public class LootBox : MonoBehaviour
 
         if (col.gameObject.tag == "Player" && !hasTriggered)
         {
-            finalGold = Mathf.RoundToInt((Random.Range(minGold[guiltTracker.currentGuilt], maxGold[guiltTracker.currentGuilt])) * finalMultiplier);
+            hasTriggered = true;
 
+            finalMultiplier = 1f + stageScaling + player.GetComponent<StatsHandler>().stats.goldGainMultiplier;
+            finalGold = Mathf.RoundToInt((Random.Range(minGold[guiltTracker.currentGuilt], maxGold[guiltTracker.currentGuilt])) * finalMultiplier);
             anim.SetBool("IsOpen", true);
             player.GetComponentInChildren<LootBoxManager>().ShowLootUI();
-            hasTriggered = true;
             StartCoroutine(delayGold());
+            WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
+            waypointManager.RemoveWaypoint(this.gameObject);
         }
     }
 

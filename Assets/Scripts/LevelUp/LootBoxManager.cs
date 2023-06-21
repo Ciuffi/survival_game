@@ -10,7 +10,8 @@ using DG.Tweening;
 public class LootBoxManager : MonoBehaviour
 {
     GameObject player;
-    public UpgradeLootHandler upgradeWindow;
+    public List<UpgradeLootHandler> upgradeWindows;
+
     public AttackBuilder[] weaponBuilders;
     public Upgrade[] weapons;
     public List<GameObject> playerStatUpgrades;
@@ -37,6 +38,8 @@ public class LootBoxManager : MonoBehaviour
     DropTableUpgrades dropTable;
     BasicSpawner guiltTracker;
 
+    TextMeshProUGUI orText;
+
     public List<string> rarityNames = new List<string>()
     {
         "Common",
@@ -52,14 +55,14 @@ public class LootBoxManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        upgradeWindow = FindObjectOfType<UpgradeLootHandler>();
+        upgradeWindows = new List<UpgradeLootHandler>(FindObjectsOfType<UpgradeLootHandler>());
 
         panel = GameObject.Find("LootContainer");
         panelAnimated = GameObject.Find("LootPopup");
         weaponBuilders = AttackLibrary.getAttackBuilders();
         playerStatUpgrades = PlayerStatsLibrary.GetStatGameObjects();
         stats = PlayerStatsLibrary.GetStatGameObjects().ToArray();
-
+        orText = panel.transform.Find("OR").GetComponent<TextMeshProUGUI>();
 
         panel.SetActive(false);
         panelAnimated.SetActive(false);
@@ -81,7 +84,10 @@ public class LootBoxManager : MonoBehaviour
         RerollBtn.GetComponent<RollSwapHandler>().setActive();
         SwapBtn.GetComponent<RollSwapHandler>().setActive();
         SkipBtn.GetComponent<SkipHandler>().setActive();
-        upgradeWindow.GetComponent<UpgradeLootHandler>().setActive();
+        foreach (UpgradeLootHandler upgrade in upgradeWindows)
+        {
+            upgrade.setActive();
+        }
 
         isWeapon = true; //always set to weapon
         setUpgrades();
@@ -113,21 +119,22 @@ public class LootBoxManager : MonoBehaviour
 
     private void AnimateUpgradeWindows()
     {
-        Vector3 finalPosition = upgradeWindow.transform.localPosition; 
-        Vector3 finalScale = upgradeWindow.transform.localScale; 
+        foreach (UpgradeLootHandler upgradeWindow in upgradeWindows)
+        {
+            Vector3 finalPosition = upgradeWindow.transform.localPosition;
+            Vector3 finalScale = upgradeWindow.transform.localScale;
 
-        upgradeWindow.transform.localPosition += new Vector3(0, -2000, 0);
-        upgradeWindow.transform.localScale = new Vector3(0f, 0f, 1f);
-        
+            upgradeWindow.transform.localPosition += new Vector3(0, -2000, 0);
+            upgradeWindow.transform.localScale = new Vector3(0f, 0f, 1f);
 
-        float delay = 0.1f;
+            float delay = 0.1f;
             Sequence sequence = DOTween.Sequence();
             sequence.Append(upgradeWindow.transform.DOLocalMove(finalPosition, 0.5f).SetEase(Ease.OutExpo));
             sequence.Join(upgradeWindow.transform.DOScale(finalScale, 1f).SetEase(Ease.OutExpo));
             sequence.SetUpdate(true);
             sequence.Play().SetDelay(delay);
             delay += 0.1f;
-       
+        }
     }
 
     private void AnimateButtons()
@@ -135,22 +142,42 @@ public class LootBoxManager : MonoBehaviour
         List<Vector3> finalBtnPositions = new List<Vector3>() {
         RerollBtn.transform.localPosition,
         SwapBtn.transform.localPosition,
-        SkipBtn.transform.localPosition
+        SkipBtn.transform.localPosition,
+        orText.transform.localPosition
     };
 
         RerollBtn.transform.localPosition += new Vector3(0, -500, 0);
         SwapBtn.transform.localPosition += new Vector3(0, -500, 0);
         SkipBtn.transform.localPosition += new Vector3(0, -500, 0);
+        orText.transform.localPosition += new Vector3(0, -500, 0);
 
         Sequence buttonSequence = DOTween.Sequence();
         buttonSequence.SetUpdate(true);
         buttonSequence.Append(RerollBtn.transform.DOLocalMove(finalBtnPositions[0], 0.5f).SetEase(Ease.OutExpo));
         buttonSequence.Join(SwapBtn.transform.DOLocalMove(finalBtnPositions[1], 0.5f).SetEase(Ease.OutExpo));
         buttonSequence.Join(SkipBtn.transform.DOLocalMove(finalBtnPositions[2], 0.5f).SetEase(Ease.OutExpo));
-        buttonSequence.Play().SetDelay(0.1f);
+        buttonSequence.Join(orText.transform.DOLocalMove(finalBtnPositions[3], 0.5f).SetEase(Ease.OutExpo));
+        buttonSequence.Play().SetDelay(0.05f);
+    }
+    public void setUpgrades()
+    {
+        // Ensure that there are at least 2 UpgradeLootHandlers.
+        if (upgradeWindows.Count < 2)
+        {
+            Debug.LogError("Less than 2 UpgradeLootHandlers in the scene!");
+            return;
+        }
+
+        // Set the first UpgradeLootHandler with isWeapon = false
+        isWeapon = false;
+        setUpgradeWindow(upgradeWindows[0]);
+
+        // Set the second UpgradeLootHandler with isWeapon = true
+        isWeapon = true;
+        setUpgradeWindow(upgradeWindows[1]);
     }
 
-    public void setUpgrades()
+    private void setUpgradeWindow(UpgradeLootHandler upgradeWindow)
     {
         if (isWeapon)
         {
@@ -433,18 +460,20 @@ public class LootBoxManager : MonoBehaviour
 
     private IEnumerator animateUpgrades()
     {
-        // Store the final scale of the upgrade windows
-        Vector3 finalScale = upgradeWindow.transform.localScale;
+        foreach (UpgradeLootHandler upgradeWindow in upgradeWindows)
+        {
+            // Store the final scale of the upgrade windows
+            Vector3 finalScale = upgradeWindow.transform.localScale;
 
-        // Kill any ongoing animations and scale down the upgrade windows
-        upgradeWindow.transform.DOKill();
-        upgradeWindow.transform.localScale = new Vector3(0f, 0f, 1f);
+            // Kill any ongoing animations and scale down the upgrade windows
+            upgradeWindow.transform.DOKill();
+            upgradeWindow.transform.localScale = new Vector3(0f, 0f, 1f);
 
-        // Wait for the end of frame to allow DOTween to reset the tweened properties
-        yield return new WaitForEndOfFrame();
+            // Wait for the end of frame to allow DOTween to reset the tweened properties
+            yield return new WaitForEndOfFrame();
 
-        // Animate the upgrade windows into place
-        float delay = 0f;
+            // Animate the upgrade windows into place
+            float delay = 0f;
             // Create a sequence for each upgrade window
             Sequence sequence = DOTween.Sequence();
             // Append a scale tween to the sequence
@@ -452,6 +481,7 @@ public class LootBoxManager : MonoBehaviour
             sequence.SetUpdate(true);
             // Start the sequence after a delay
             sequence.Play().SetDelay(delay);
+        }
     }
 
     public void SignalItemChosen()

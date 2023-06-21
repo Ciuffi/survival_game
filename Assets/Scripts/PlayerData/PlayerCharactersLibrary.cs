@@ -38,7 +38,9 @@ public static class PlayerCharactersLibrary
         PlayerCharacterStats defaultStats = new PlayerCharacterStats(
             name: "Default",
             description: "The OG",
-            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/2"),
+            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/default"),
+            characterSprite: Resources.Load<Sprite>("PlayerCharacters/Sprites/v3/player_v3"),
+            characterAnimationController: Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/v3/PlayerMenuPreview"),
             rarity: Rarity.Common,
             price: 0,
             isLocked: false,
@@ -48,6 +50,7 @@ public static class PlayerCharactersLibrary
             speed: 1f,
             pickupRange: 2f,
             aimRangeAdditive: 0,
+            rerollTimes: 1,
 
             shotsPerAttack: 0,
             comboLength: 0,
@@ -81,211 +84,53 @@ public static class PlayerCharactersLibrary
         AddCharacter(defaultCharacter);
 
 
-        GameObject Scout = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
-        PlayerCharacterStats ScoutStats = new PlayerCharacterStats(
-           name: "Scout",
-           description: "Ding Dong",
-           icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/5"),
-           rarity: Rarity.Common,
-           price: 450,
+        GameObject Witch = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
+        PlayerCharacterStats WitchStats = new PlayerCharacterStats(
+           name: "Witch",
+           description: "Shadow wizard money gang",
+           icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/witch"),
+           characterSprite: Resources.Load<Sprite>("PlayerCharacters/Sprites/v2/player_idle_2"),
+           characterAnimationController: Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/v2/WitchPreview"),
+           rarity: Rarity.Epic,
+           price: 1500,
            isLocked: true,
-           maxHealth: 35,
-           health: 35,
+           maxHealth: 30,
+           health: 30,
            defense: 0,
-           speed: 1.7f,
+           speed: 1.4f,
            pickupRange: 2.5f,
-           aimRangeAdditive: 0
-
+           multicastChance: 0.5f,
+           effectMultiplier: 0.5f
        );
-        Scout.name = ScoutStats.name;
-        Scout.AddComponent<StatComponent>().stat = ScoutStats;
-        AddCharacter(Scout);
-
-        GameObject Tank = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
-        PlayerCharacterStats TankStats = new PlayerCharacterStats(
-            name: "Tank",
-            description: "It's all Ogre now",
-            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/1"),
-            rarity: Rarity.Rare,
-            price: 800,
-            isLocked: true,
-            maxHealth: 55,
-            health: 55,
-            defense: 0,
-            speed: 0.7f,
-            pickupRange: 1.8f,
-
-           damageMultiplier: 0.5f,
-           castTimeMultiplier: 0.5f
-
-        );
-        Tank.name = TankStats.name;
-        Tank.AddComponent<StatComponent>().stat = TankStats;
-        AddCharacter(Tank);
-
-        GameObject DemoMan = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
-        PlayerCharacterStats DemoManStats = new PlayerCharacterStats(
-           name: "DemoMan",
-           description: "KaBoom",
-           icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/7"),
-           rarity: Rarity.Rare,
-           price: 800,
-           isLocked: true,
-           maxHealth: 40,
-           health: 40,
-           defense: 0,
-           speed: 1f,
-           pickupRange: 2f,
-           aimRangeAdditive: 0,
-
-           shotsPerAttack: 1,
-           projectileSizeMultiplier: 0.3f
-       );
-        DemoMan.name = DemoManStats.name;
-        DemoMan.AddComponent<StatComponent>().stat = DemoManStats;
-        AddCharacter(DemoMan);
+        Witch.name = WitchStats.name;
+        Witch.AddComponent<StatComponent>().stat = WitchStats;
+        AddCharacter(Witch);
 
 
-        GameObject Brawler = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
-        PlayerCharacterStats BrawlerStats = new PlayerCharacterStats(
-            name: "Brawler",
-            description: "Bloody Knuckles",
-            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/3"),
-            rarity: Rarity.Rare,
-            price: 800,
-            isLocked: true,
-            maxHealth: 45,
-            health: 45,
-            defense: 0,
-            speed: 1.2f,
-            pickupRange: 2f,
-            aimRangeAdditive: 0,
-
-            comboLength: 1,
-            comboWaitTimeMultiplier: -0.15f
-        );
-        Brawler.name = BrawlerStats.name;
-
-        Brawler.AddComponent<StatComponent>().stat = BrawlerStats;
-        AddCharacter(Brawler);
-
-
-
-        GameObject Alchemist = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
-        PlayerCharacterStats AlchemistStats = new PlayerCharacterStats(
-            name: "Alchemist",
-            description: "Shadow Wizard Money Gang",
-            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/4"),
-            rarity: Rarity.Rare,
-            price: 800,
-            isLocked: true,
-            maxHealth: 35,
-            health: 35,
-            defense: 0,
-            speed: 1.3f,
-            pickupRange: 3f,
-
-           effectDuration: 0.5f,
-           effectMultiplier: 1f
-        );
-        Alchemist.name = AlchemistStats.name;
-
-        Alchemist.AddComponent<StatComponent>().stat = AlchemistStats;
-        AddCharacter(Alchemist);
-
-
-
-        GameObject SpaceMarine = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
-        PlayerCharacterStats SpaceMarineStats = new PlayerCharacterStats(
-            name: "Space Marine",
-            description: "Gravity? nah",
-            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/6"),
-            rarity: Rarity.Rare,
-            price: 800,
+        GameObject AI = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
+        PlayerCharacterStats AIStats = new PlayerCharacterStats(
+            name: "AI",
+            description: "Beep boop",
+            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/ai"),
+            characterSprite: Resources.Load<Sprite>("PlayerCharacters/Sprites/robot/front"),
+            characterAnimationController: Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/robot/robot_characterPreview"),
+            rarity: Rarity.Legendary,
+            price: 2500,
             isLocked: true,
             maxHealth: 50,
             health: 50,
             defense: 0,
-            speed: 1f,
+            speed: 0.8f,
             pickupRange: 2f,
-
-           projectileSpeedMultiplier: -0.7f,
-           rangeMultiplier: -0.5f,
-           activeMultiplier: 0.5f
+            isHoming: true,
+            projectileSpeedMultiplier: -0.6f,
+            castTimeMultiplier: 0.6f,
+            projectileSizeMultiplier: 0.3f
         );
-        SpaceMarine.name = SpaceMarineStats.name;
+        AI.name = AIStats.name;
+        AI.AddComponent<StatComponent>().stat = AIStats;
+        AddCharacter(AI);
 
-        SpaceMarine.AddComponent<StatComponent>().stat = SpaceMarineStats;
-        AddCharacter(SpaceMarine);
-
-
-        GameObject Monk = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
-        PlayerCharacterStats MonkStats = new PlayerCharacterStats(
-            name: "Monk",
-            description: "Harness your energy",
-            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/2"),
-            rarity: Rarity.Epic,
-            price: 1200,
-            isLocked: true,
-            maxHealth: 40,
-            health: 40,
-            defense: 0,
-            speed: 1.4f,
-            pickupRange: 2.5f,
-            aimRangeAdditive: 0,
-
-            shotsPerAttackMelee: 1,
-            knockbackMultiplier: 0.25f
-        );
-        Monk.name = MonkStats.name;
-
-        Monk.AddComponent<StatComponent>().stat = MonkStats;
-        AddCharacter(Monk);
-
-
-
-        GameObject Fractured = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
-        PlayerCharacterStats FracturedStats = new PlayerCharacterStats(
-            name: "Fractured",
-            description: "Tweakin' hard",
-            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/7"),
-            rarity: Rarity.Epic,
-            price: 1500,
-            isLocked: true,
-            maxHealth: 35,
-            health: 35,
-            defense: 0,
-            speed: 1.2f,
-            pickupRange: 2f,
-
-            multicastChance: 1f
-        );
-        Fractured.name = FracturedStats.name;
-
-        Fractured.AddComponent<StatComponent>().stat = FracturedStats;
-        AddCharacter(Fractured);
-
-
-        GameObject Twins = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
-        PlayerCharacterStats TwinsStats = new PlayerCharacterStats(
-            name: "Twins",
-            description: "Watches your back",
-            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/8"),
-            rarity: Rarity.Legendary,
-            price: 2500,
-            isLocked: true,
-            maxHealth: 40,
-            health: 40,
-            defense: 0,
-            speed: 1f,
-            pickupRange: 2.5f,
-
-            shootOpposideSide: true
-        );
-        Twins.name = TwinsStats.name;
-
-        Twins.AddComponent<StatComponent>().stat = TwinsStats;
-        AddCharacter(Twins);
 
         Debug.Log("Finished initalizing PlayerCharacterLibrary");
         isInitialized = true;

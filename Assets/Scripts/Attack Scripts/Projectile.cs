@@ -79,6 +79,7 @@ public class Projectile : MonoBehaviour
 
     public bool isHoming;
     public float rotateSpeed;
+    private float turnSpeed;
 
     public bool isDoT;
     public float dotDuration;
@@ -204,6 +205,8 @@ public class Projectile : MonoBehaviour
         // Get SpriteRenderers from all child objects
         SpriteRenderer[] childSR = this.GetComponentsInChildren<SpriteRenderer>();
         spriteRenderers.AddRange(childSR);
+
+        turnSpeed = Random.Range(rotateSpeed / 2, rotateSpeed);
     }
 
     void Update()
@@ -231,7 +234,7 @@ public class Projectile : MonoBehaviour
                     if (targetDirection != Vector2.zero)
                     {
                         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, targetDirection);
-                        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+                        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
                     }
                 }
 
@@ -404,7 +407,7 @@ public class Projectile : MonoBehaviour
                         if (targetDirection != Vector2.zero)
                         {
                             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, targetDirection);
-                            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+                            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
                         }
                     }
 

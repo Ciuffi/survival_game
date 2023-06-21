@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class PlayerCharacterStats : Upgrade
 {
+    public Sprite characterSprite;
+    public RuntimeAnimatorController characterAnimationController;
+
     public Sprite icon;
     public string description;
     public string name;
@@ -212,6 +215,8 @@ public class PlayerCharacterStats : Upgrade
         isHoming = other.isHoming;
         shootOpposideSide = other.shootOpposideSide;
         rarity = rarity.CompareRarity(other.rarity);
+        characterSprite = other.characterSprite;
+        characterAnimationController = other.characterAnimationController;
 
         rerollTimes = other.rerollTimes;
         swapTimes = other.swapTimes;
@@ -307,6 +312,8 @@ public class PlayerCharacterStats : Upgrade
         float chainStatDecayPercent = 0,
         float chainRange = 0,
         float chainSpeed = 0,
+        Sprite characterSprite = null,
+        RuntimeAnimatorController characterAnimationController = null,
 
         Rarity rarity = Rarity.Common,
         string name = "Player Stats",
@@ -385,6 +392,8 @@ public class PlayerCharacterStats : Upgrade
         this.isLocked = isLocked;
         this.level = level;
         this.icon = icon == null ? Resources.Load<Sprite>("UI_Icons/DMG_up") : icon;
+        this.characterSprite = characterSprite;
+        this.characterAnimationController = characterAnimationController;
     }
 
     public UpgradeType GetUpgradeType()

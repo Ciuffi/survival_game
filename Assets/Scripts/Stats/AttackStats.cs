@@ -541,15 +541,15 @@ public class AttackStats : Upgrade
 
         this.damageMultiplier += playerStats.damageMultiplier;
         this.rangeMultiplier += playerStats.rangeMultiplier;
+        this.speedMultiplier += playerStats.projectileSpeedMultiplier;
         this.comboWaitTimeMultiplier += playerStats.comboWaitTimeMultiplier;
-        this.damageMultiplier += playerStats.damageMultiplier;
         this.castTimeMultiplier += playerStats.castTimeMultiplier;
         this.knockbackMultiplier += playerStats.knockbackMultiplier;
         this.spreadMultiplier += playerStats.spreadMultiplier;
-        this.projectileSizeMultiplier += playerStats.projectileSizeMultiplier;
         this.thrownDamageMultiplier += playerStats.thrownDamageMultiplier;
         this.thrownSpeedMultiplier += playerStats.thrownSpeedMultiplier;
         this.meleeSizeMultiplier += playerStats.meleeSizeMultiplier;
+        this.projectileSizeMultiplier += playerStats.projectileSizeMultiplier;
 
         this.activeDuration += playerStats.activeDuration;
         this.effectDuration += playerStats.effectDuration;
@@ -577,7 +577,7 @@ public class AttackStats : Upgrade
         this.magnetDuration += playerStats.magnetDuration;
 
         this.isSlow |= playerStats.isSlow;
-        this.slowPercentage += playerStats.slowPercentage;
+        this.slowPercentage -= playerStats.slowPercentage;
         this.slowDuration += playerStats.slowDuration;
 
         this.isStun |= playerStats.isStun;

@@ -61,7 +61,7 @@ MonoBehaviour:
   isElite: 1
   isBoss: 0
   damage: 3
-  health: 350
+  health: 330
   maxHealth: 0
   xpAmount: 250
   weight: 22

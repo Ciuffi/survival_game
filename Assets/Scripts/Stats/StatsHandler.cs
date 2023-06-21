@@ -52,10 +52,32 @@ public class StatsHandler : MonoBehaviour
         {
             if (obj.name == storedName)
             {
+
                 stats = obj.GetComponent<StatComponent>().stat;
                 baseStats = obj.GetComponent<StatComponent>().stat;
                 currentHealth = stats.health;
                 CalculatePlayerStats();
+
+                // Updating sprite and animator.
+                SpriteRenderer spriteRenderer = Sprite.GetComponent<SpriteRenderer>();
+
+                spriteRenderer.sprite = stats.characterSprite;
+
+                if (storedName == "Witch")
+                {
+                    animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/v2/Witch");
+                    afterimageAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/v2/Witch");
+                } else if (storedName == "AI")
+                {
+                    animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/robot/robot_character");
+                    afterimageAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/robot/robot_character");
+
+                }
+                else //default
+                {
+                    animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/Player");
+                    afterimageAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/Player");
+                }
                 break;
             }
         }
