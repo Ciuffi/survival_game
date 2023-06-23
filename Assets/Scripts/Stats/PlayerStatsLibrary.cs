@@ -53,7 +53,7 @@ public static class PlayerStatsLibrary
                 defense: -0.5f,
                 name: "Greedy 1",
                 description: "Gold +5%, Take +0.5 more damage",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Greedy"),
                 rarity: Rarity.Common
             )
         );
@@ -65,31 +65,31 @@ public static class PlayerStatsLibrary
                 damageMultiplier: -0.05f,
                 name: "Talented 1",
                 description: "Experience +3%, Damage -5%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Talented"),
                 rarity: Rarity.Common
             )
         );
 
-        //Quickdraw
+        //Lightweight
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: -0.20f,
                 damageMultiplier: -0.12f,
-                name: "Quickdraw 1",
+                name: "Lightweight 1",
                 description: "Cooldowns -20%, Damage -15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Common
             )
         );
 
-        //Slowdraw
+        //Heavyweight
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: 0.2f,
                 damageMultiplier: 0.15f,
-                name: "Slowdraw 1",
+                name: "Heavyweight 1",
                 description: "Cooldowns +20%, Damage +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Heavy"),
                 rarity: Rarity.Common
             )
         );
@@ -102,7 +102,7 @@ public static class PlayerStatsLibrary
                 damageMultiplier: -0.25f,
                 name: "Gambler 1",
                 description: "Crit Chance +5%, Crit Damage +50%, Damage -25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
                 rarity: Rarity.Common
             )
         );
@@ -114,7 +114,7 @@ public static class PlayerStatsLibrary
                 thrownDamageMultiplier: 0.6f,
                 name: "Pitcher 1",
                 description: "Weapon Throw: Speed and Damage +60%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Pitch"),
                 rarity: Rarity.Common
             )
         );
@@ -126,7 +126,7 @@ public static class PlayerStatsLibrary
                 thrownDamageMultiplier: 0.3f,
                 name: "Tosser 1",
                 description: "Weapon Throw: Speed -40%, Damage +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Toss"),
                 rarity: Rarity.Common
             )
         );
@@ -138,7 +138,7 @@ public static class PlayerStatsLibrary
                 health: 5f,
                 name: "Plump 1",
                 description: "Max Health +5",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Plump"),
                 rarity: Rarity.Common
             )
         );
@@ -154,7 +154,7 @@ public static class PlayerStatsLibrary
                 defense: -1f,
                 name: "Greedy 2",
                 description: "Gold +10%, Take +1 more damage",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Greedy"),
                 rarity: Rarity.Rare
             )
         );
@@ -166,31 +166,31 @@ public static class PlayerStatsLibrary
                 damageMultiplier: -0.10f,
                 name: "Talented 2",
                 description: "Experience +5%, Damage -10%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Talented"),
                 rarity: Rarity.Rare
             )
         );
 
-        //Quickdraw
+        //Lightweight
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: -0.3f,
                 damageMultiplier: -0.25f,
-                name: "Quickdraw 2",
+                name: "Lightweight 2",
                 description: "Cooldowns -30%, Damage -25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Rare
             )
         );
 
-        //Slowdraw
+        //Heavyweight
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: 0.3f,
                 damageMultiplier: 0.3f,
-                name: "Slowdraw 2",
+                name: "Heavyweight 2",
                 description: "Cooldowns +30%, Damage +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Heavy"),
                 rarity: Rarity.Rare
             )
         );
@@ -203,7 +203,7 @@ public static class PlayerStatsLibrary
                 damageMultiplier: -0.5f,
                 name: "Gambler 2",
                 description: "Crit Chance +10%, Crit Damage +100%, Damage -50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
                 rarity: Rarity.Rare
             )
         );
@@ -217,7 +217,7 @@ public static class PlayerStatsLibrary
                 thrownWeaponSizeMultiplier: 0.25f,
                 name: "Pitcher 2",
                 description: "Weapon Throw: Speed and Damage +100%, Size +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Pitch"),
                 rarity: Rarity.Rare
             )
         );
@@ -230,7 +230,7 @@ public static class PlayerStatsLibrary
                 thrownWeaponSizeMultiplier: 0.15f,
                 name: "Tosser 2",
                 description: "Weapon Throw: Speed -70%, Damage +50%, Size +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Toss"),
                 rarity: Rarity.Rare
             )
         );
@@ -243,7 +243,7 @@ public static class PlayerStatsLibrary
                 defense: -0.2f,
                 name: "Plump 2",
                 description: "Max Health +15, take +0.2 more Damage",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Plump"),
                 rarity: Rarity.Rare
             )
         );
@@ -255,7 +255,7 @@ public static class PlayerStatsLibrary
                 speedMultiplier: -0.12f,
                 name: "Colossus 1",
                 description: "Damage +20%, Move Speed -12%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Colossus"),
                 rarity: Rarity.Rare
             )
         );
@@ -270,7 +270,7 @@ public static class PlayerStatsLibrary
                 damageMultiplier: 0.25f,
                 name: "Kompact 1",
                 description: "Attack size -50%, Damage & Range +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Kompact"),
                 rarity: Rarity.Rare
             )
         );
@@ -283,11 +283,11 @@ public static class PlayerStatsLibrary
                 recoveryAdditive: 0.5f,
                 name: "Overclock 1",
                 description: "Attack speed, Rate of fire +25%, exhausted for +0.5s after attacking",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Overclock"),
                 rarity: Rarity.Rare
             )
         );
-        //Penetrating
+        //Drill
         AddStat(
             new PlayerCharacterStats(
                 knockbackMultiplier: -0.70f,
@@ -295,9 +295,9 @@ public static class PlayerStatsLibrary
                 rangeMultiplier: 0.20f,
                 meleeSpacerMultiplier: 0.15f,
                 meleeSpacerGapMultiplier: 0.15f,
-                name: "Penetrating 1",
+                name: "Drill 1",
                 description: "Knockback -70%, Damage & Range +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Drill"),
                 rarity: Rarity.Rare
             )
         );
@@ -313,35 +313,35 @@ public static class PlayerStatsLibrary
                 meleeSpacerMultiplier: -0.35f,
                 name: "Close Combat 1",
                 description: "Attack speed, Knockback +25%, Attack Range -40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Close"),
                 rarity: Rarity.Rare
             )
         );
 
-        //Hover
+        //Hoverball
         AddStat(
             new PlayerCharacterStats(
                 activeMultiplier: 0.5f,
                 pierce: 15,
                 projectileSizeMultiplier: -0.2f,
                 meleeSizeMultiplier: -0.2f,
-                name: "Hover 1",
+                name: "Hoverball 1",
                 description: "Attack Duration +50%, Pierce +15, Size -20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Hover"),
                 rarity: Rarity.Rare
             )
         );
 
-        //Persistent
+        //Biggenball
         AddStat(
             new PlayerCharacterStats(
                 activeMultiplier: 0.5f,
                 projectileSizeMultiplier: 0.25f,
                 meleeSizeMultiplier: 0.25f,
                 damageMultiplier: -0.15f,
-                name: "Persistent 1",
+                name: "Biggenball 1",
                 description: "Attack Duration +50%, Size +25%, Damage -15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Biggen"),
                 rarity: Rarity.Rare
             )
         );
@@ -353,7 +353,7 @@ public static class PlayerStatsLibrary
                 effectMultiplier: -0.5f,
                 name: "Curse 1",
                 description: "Effect Duration +1s, Effect Power -50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Curse"),
                 rarity: Rarity.Rare
             )
         );
@@ -365,7 +365,7 @@ public static class PlayerStatsLibrary
                 effectMultiplier: 0.5f,
                 name: "Doom 1",
                 description: "Effect Power +50%, Effect Duration -1s",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Doom"),
                 rarity: Rarity.Rare
             )
         );
@@ -376,7 +376,7 @@ public static class PlayerStatsLibrary
                 dotDamage: 3,
                 name: "Pyro 1",
                 description: "+3 Burn Damage",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Rare
             )
         );
@@ -389,7 +389,7 @@ public static class PlayerStatsLibrary
                 chainSpeed: 3,
                 name: "Link 1",
                 description: "Chain to +1 targets, increase chain Range and Speed",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Link"),
                 rarity: Rarity.Rare
             )
         );
@@ -401,7 +401,7 @@ public static class PlayerStatsLibrary
                 splitStatPercentage: 0.3f,
                 name: "Mitosis 1",
                 description: "Split into 1 fewer attack, all splits gain +30% stats",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Mitosis"),
                 rarity: Rarity.Rare
             )
         );
@@ -412,7 +412,7 @@ public static class PlayerStatsLibrary
                 rerollTimes: 2,
                 name: "Lucky 1",
                 description: "+2 Rerolls",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Lucky"),
                 rarity: Rarity.Rare
             )
         );
@@ -426,7 +426,7 @@ public static class PlayerStatsLibrary
                 knockbackMultiplier: -0.25f,
                 name: "Sleepy 1",
                 description: "Attacks slow for 2s, Knockback -25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Sleepy"),
                 rarity: Rarity.Rare
             )
         );
@@ -442,7 +442,7 @@ public static class PlayerStatsLibrary
                 defense: -1.5f,
                 name: "Greedy 3",
                 description: "Gold +15%, Take +1.5 more damage",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Greedy"),
                 rarity: Rarity.Epic
             )
         );
@@ -454,31 +454,31 @@ public static class PlayerStatsLibrary
                 damageMultiplier: -0.15f,
                 name: "Talented 3",
                 description: "Experience +10%, Damage -15%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Talented"),
                 rarity: Rarity.Epic
             )
         );
 
-        //Quickdraw
+        //Lightweight
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: -0.5f,
                 damageMultiplier: -0.4f,
-                name: "Quickdraw 3",
+                name: "Lightweight 3",
                 description: "Cooldowns -50%, Damage -40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Epic
             )
         );
 
-        //Slowdraw
+        //Heavyweight
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: 0.5f,
                 damageMultiplier: 0.5f,
-                name: "Slowdraw 3",
+                name: "Heavyweight 3",
                 description: "Cooldowns +50%, Damage +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Heavy"),
                 rarity: Rarity.Epic
             )
         );
@@ -491,7 +491,7 @@ public static class PlayerStatsLibrary
                 damageMultiplier: -0.75f,
                 name: "Gambler 3",
                 description: "Crit Chance +20%, Crit Damage +150%, Damage -75%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
                 rarity: Rarity.Epic
             )
         );
@@ -505,7 +505,7 @@ public static class PlayerStatsLibrary
                 thrownWeaponSizeMultiplier: 0.3f,
                 name: "Pitcher 3",
                 description: "Weapon Throw: Speed and Damage +150%, Size +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Pitch"),
                 rarity: Rarity.Epic
             )
         );
@@ -518,7 +518,7 @@ public static class PlayerStatsLibrary
                 thrownWeaponSizeMultiplier: 0.2f,
                 name: "Tosser 3",
                 description: "Weapon Throw: Speed -90%, Damage +75%, Size +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Toss"),
                 rarity: Rarity.Epic
             )
         );
@@ -531,7 +531,7 @@ public static class PlayerStatsLibrary
                 defense: -0.4f,
                 name: "Plump 3",
                 description: "Max Health +20, take +0.4 more Damage",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Plump"),
                 rarity: Rarity.Epic
             )
         );
@@ -543,7 +543,7 @@ public static class PlayerStatsLibrary
                 speedMultiplier: -0.25f,
                 name: "Colossus 2",
                 description: "Damage +40%, Move Speed -25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Colossus"),
                 rarity: Rarity.Epic
             )
         );
@@ -558,7 +558,7 @@ public static class PlayerStatsLibrary
                 damageMultiplier: 0.4f,
                 name: "Kompact 2",
                 description: "Attack size -75%, Damage & Range +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Kompact"),
                 rarity: Rarity.Epic
             )
         );
@@ -571,11 +571,11 @@ public static class PlayerStatsLibrary
                 recoveryAdditive: 0.75f,
                 name: "Overclock 2",
                 description: "Attack speed, Rate of fire +35%, exhausted for +0.75s after attacking",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Overclock"),
                 rarity: Rarity.Epic
             )
         );
-        //Penetrating
+        //Drill
         AddStat(
             new PlayerCharacterStats(
                 knockbackMultiplier: -1f,
@@ -583,9 +583,9 @@ public static class PlayerStatsLibrary
                 rangeMultiplier: 0.3f,
                 meleeSpacerMultiplier: 0.2f,
                 meleeSpacerGapMultiplier: 0.2f,
-                name: "Penetrating 2",
+                name: "Drill 2",
                 description: "Knockback -100%, Damage & Range +30%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Drill"),
                 rarity: Rarity.Epic
             )
         );
@@ -601,35 +601,35 @@ public static class PlayerStatsLibrary
                 meleeSpacerMultiplier: -0.55f,
                 name: "Close Combat 2",
                 description: "Attack speed, Knockback +35%, Attack Range -60%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Close"),
                 rarity: Rarity.Epic
             )
         );
 
-        //Hover
+        //Hoverball
         AddStat(
             new PlayerCharacterStats(
                 activeMultiplier: 0.75f,
                 pierce: 25,
                 projectileSizeMultiplier: -0.25f,
                 meleeSizeMultiplier: -0.25f,
-                name: "Hover 2",
+                name: "Hoverball 2",
                 description: "Attack Duration +75%, Pierce +25, Size -25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Hover"),
                 rarity: Rarity.Epic
             )
         );
 
-        //Persistent
+        //Biggenball
         AddStat(
             new PlayerCharacterStats(
                 activeMultiplier: 0.75f,
                 projectileSizeMultiplier: 0.25f,
                 meleeSizeMultiplier: 0.25f,
                 damageMultiplier: -0.25f,
-                name: "Persistent 2",
+                name: "Biggenball 2",
                 description: "Attack Duration +75%, Size +25%, Damage -25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Biggen"),
                 rarity: Rarity.Epic
             )
         );
@@ -641,7 +641,7 @@ public static class PlayerStatsLibrary
                 effectMultiplier: -0.75f,
                 name: "Curse 2",
                 description: "Effect Duration +1.5s, Effect Power -75%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Curse"),
                 rarity: Rarity.Epic
             )
         );
@@ -653,7 +653,7 @@ public static class PlayerStatsLibrary
                 effectMultiplier: 0.75f,
                 name: "Doom 2",
                 description: "Effect Power +75%, Effect Duration -1.5s",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Doom"),
                 rarity: Rarity.Epic
             )
         );
@@ -664,7 +664,7 @@ public static class PlayerStatsLibrary
                 dotDamage: 6,
                 name: "Pyro 2",
                 description: "+6 Burn Damage",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Epic
             )
         );
@@ -677,7 +677,7 @@ public static class PlayerStatsLibrary
                 chainSpeed: 3,
                 name: "Link 2",
                 description: "Chain to +2 targets, increase chain Range and Speed",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Link"),
                 rarity: Rarity.Epic
             )
         );
@@ -689,7 +689,7 @@ public static class PlayerStatsLibrary
                 splitStatPercentage: 0.5f,
                 name: "Mitosis 2",
                 description: "Split into 1 fewer attack, all splits gain +50% stats",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Mitosis"),
                 rarity: Rarity.Epic
             )
         );
@@ -700,7 +700,7 @@ public static class PlayerStatsLibrary
                 rerollTimes: 3,
                 name: "Lucky 2",
                 description: "+3 Rerolls",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Lucky"),
                 rarity: Rarity.Epic
             )
         );
@@ -714,19 +714,19 @@ public static class PlayerStatsLibrary
                 knockbackMultiplier: -0.5f,
                 name: "Sleepy 2",
                 description: "Attacks slow for 4s, Knockback -50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Sleepy"),
                 rarity: Rarity.Epic
             )
         );
 
-        //Meditation
+        //Visor
         AddStat(
             new PlayerCharacterStats(
                 is360: true,
                 aimRangeAdditive: -1f,
-                name: "Meditation 1",
+                name: "Visor 1",
                 description: "360 Vision, Aim Range -1",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Visor"),
                 rarity: Rarity.Epic
             )
         );
@@ -738,7 +738,7 @@ public static class PlayerStatsLibrary
                 spreadMultiplier: -0.4f,
                 name: "Telekinesis 1",
                 description: "Projectiles follow enemies, Rate of Fire -40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Telekinesis"),
                 rarity: Rarity.Epic
             )
         );
@@ -754,21 +754,21 @@ public static class PlayerStatsLibrary
                 comboLength: -1000,
                 name: "Quarterback 1",
                 description: "Weapon throw Damage, Size +100%, Cooldowns -25%, Cannot attack normally",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Quarterback"),
                 rarity: Rarity.Epic
             )
         );
 
-        //Pyro
+        //Gasoline
         AddStat(
             new PlayerCharacterStats(
                 isDoT: true,
                 dotDuration: 10f,
                 dotTickRate: 0.5f,
                 dotDamage: 1,
-                name: "Hellish 1",
+                name: "Gasoline 1",
                 description: "All attacks Ignite for 10 seconds and burn twice as quickly.",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Gasoline"),
                 rarity: Rarity.Epic
             )
         );
@@ -784,12 +784,12 @@ public static class PlayerStatsLibrary
                 meleeSizeMultiplier: -0.5f,
                 name: "Clone 1",
                 description: "Split amount +1, all Splits +100% stats, -50% Damage and Size",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Clone"),
                 rarity: Rarity.Epic
             )
         );
 
-        //Lightning
+        //Battery
         AddStat(
             new PlayerCharacterStats(
                 isChain: true,
@@ -797,9 +797,9 @@ public static class PlayerStatsLibrary
                 chainStatDecayPercent: 0.5f,
                 chainRange: 2f,
                 chainSpeed: 5f,
-                name: "Lightning 1",
+                name: "Battery 1",
                 description: "Damage jumps to 2 more targets",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Battery"),
                 rarity: Rarity.Epic
             )
         );
@@ -813,34 +813,47 @@ public static class PlayerStatsLibrary
                 knockbackMultiplier: 0.25f,
                 name: "Polarity 1",
                 description: "Attacks pull targets in, Knockback +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Polarity"),
                 rarity: Rarity.Epic
             )
         );
 
+        //Glass
+        AddStat(
+           new PlayerCharacterStats(
+               defense: -3f,
+               critChance: 0.1f,
+               critDmg: 0.5f,
+               name: "Glass 1",
+               description: "Crit Chance +10%, Crit Damage +50%, take +3 more Damage",
+               icon: Resources.Load<Sprite>("UI_Icons/Relics/Glass"),
+               rarity: Rarity.Epic
+           )
+       );
+
 
         //legendary
 
-        //Quickdraw
+        //Lightweight
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: -0.6f,
                 damageMultiplier: -0.5f,
-                name: "Quickdraw 4",
+                name: "Lightweight 4",
                 description: "Cooldowns -60%, Damage -50%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Legendary
             )
         );
 
-        //Slowdraw
+        //Heavyweight
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: 0.6f,
                 damageMultiplier: 0.6f,
-                name: "Slowdraw 4",
+                name: "Heavyweight 4",
                 description: "Cooldowns +60%, Damage +60%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Heavy"),
                 rarity: Rarity.Legendary
             )
         );
@@ -853,7 +866,7 @@ public static class PlayerStatsLibrary
                 damageMultiplier: -1f,
                 name: "Gambler 4",
                 description: "Crit Chance +25%, Crit Damage +200%, Damage -100%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
                 rarity: Rarity.Legendary
             )
         );
@@ -866,7 +879,7 @@ public static class PlayerStatsLibrary
                 speedMultiplier: -0.33f,
                 name: "Colossus 3",
                 description: "Damage +50%, Move Speed -33%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Colossus"),
                 rarity: Rarity.Legendary
             )
         );
@@ -881,7 +894,7 @@ public static class PlayerStatsLibrary
                 damageMultiplier: 0.6f,
                 name: "Kompact 3",
                 description: "Attack size -90%, Damage & Range +60%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Kompact"),
                 rarity: Rarity.Legendary
             )
         );
@@ -894,11 +907,11 @@ public static class PlayerStatsLibrary
                 recoveryAdditive: 1f,
                 name: "Overclock 3",
                 description: "Attack speed, Rate of fire +50%, exhausted for +1s after attacking",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Overclock"),
                 rarity: Rarity.Legendary
             )
         );
-        //Penetrating
+        //Drill
         AddStat(
             new PlayerCharacterStats(
                 knockbackMultiplier: -1.2f,
@@ -906,9 +919,9 @@ public static class PlayerStatsLibrary
                 rangeMultiplier: 0.4f,
                 meleeSpacerMultiplier: 0.3f,
                 meleeSpacerGapMultiplier: 0.3f,
-                name: "Penetrating 3",
+                name: "Drill 3",
                 description: "Knockback -120%, Damage & Range +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Drill"),
                 rarity: Rarity.Legendary
             )
         );
@@ -924,35 +937,35 @@ public static class PlayerStatsLibrary
                 meleeSpacerMultiplier: -0.65f,
                 name: "Close Combat 3",
                 description: "Attack speed, Knockback +50%, Attack Range -75%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Close"),
                 rarity: Rarity.Legendary
             )
         );
 
-        //Hover
+        //Hoverball
         AddStat(
             new PlayerCharacterStats(
                 activeMultiplier: 1f,
                 pierce: 35,
                 projectileSizeMultiplier: -0.35f,
                 meleeSizeMultiplier: -0.35f,
-                name: "Hover 3",
+                name: "Hoverball 3",
                 description: "Attack Duration +100%, Pierce +35, Size -35%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Hover"),
                 rarity: Rarity.Legendary
             )
         );
 
-        //Persistent
+        //Biggenball
         AddStat(
             new PlayerCharacterStats(
                 activeMultiplier: 1f,
                 projectileSizeMultiplier: 0.35f,
                 meleeSizeMultiplier: 0.35f,
                 damageMultiplier: -0.35f,
-                name: "Persistent 3",
+                name: "Biggenball 3",
                 description: "Attack Duration +100%, Size +35%, Damage -35%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Biggen"),
                 rarity: Rarity.Legendary
             )
         );
@@ -964,7 +977,7 @@ public static class PlayerStatsLibrary
                 effectMultiplier: -0.9f,
                 name: "Curse 3",
                 description: "Effect Duration +2s, Effect Power -90%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Curse"),
                 rarity: Rarity.Legendary
             )
         );
@@ -976,7 +989,7 @@ public static class PlayerStatsLibrary
                 effectMultiplier: 1f,
                 name: "Doom 3",
                 description: "Effect Power +100%, Effect Duration -2s",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Doom"),
                 rarity: Rarity.Legendary
             )
         );
@@ -987,7 +1000,7 @@ public static class PlayerStatsLibrary
                 dotDamage: 9,
                 name: "Pyro 3",
                 description: "+10 Burn Damage",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1000,7 +1013,7 @@ public static class PlayerStatsLibrary
                 chainSpeed: 5,
                 name: "Link 3",
                 description: "Chain to +2 targets, increase chain Range and Speed",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Link"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1012,18 +1025,18 @@ public static class PlayerStatsLibrary
                 splitStatPercentage: 0.75f,
                 name: "Mitosis 3",
                 description: "Split into 1 fewer attack, all splits gain +75% stats",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Mitosis"),
                 rarity: Rarity.Legendary
             )
         );
 
-        //Meditation
+        //Visor
         AddStat(
             new PlayerCharacterStats(
                 is360: true,
-                name: "Meditation 2",
+                name: "Visor 2",
                 description: "360 degree Vision",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Visor"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1035,7 +1048,7 @@ public static class PlayerStatsLibrary
                 spreadMultiplier: -0.2f,
                 name: "Telekinesis 2",
                 description: "Projectiles follow enemies, Rate of Fire -20%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Telekinesis"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1051,21 +1064,21 @@ public static class PlayerStatsLibrary
                 comboLength: -1000,
                 name: "Quarterback 2",
                 description: "Weapon throw Damage, Size +150%, Cooldowns -40%, Cannot attack normally",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Quarterback"),
                 rarity: Rarity.Legendary
             )
         );
 
-        //Pyro
+        //Gasoline
         AddStat(
             new PlayerCharacterStats(
                 isDoT: true,
                 dotDuration: 10f,
                 dotTickRate: 0.33f,
                 dotDamage: 1,
-                name: "Hellish 2",
+                name: "Gasoline 2",
                 description: "All attacks Ignite for 10 seconds and burn twice as quickly.",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Gasoline"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1081,12 +1094,12 @@ public static class PlayerStatsLibrary
                 meleeSizeMultiplier: -0.33f,
                 name: "Clone 2",
                 description: "Split amount +1, all Splits +100% stats, -33% Damage and Size",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Clone"),
                 rarity: Rarity.Legendary
             )
         );
 
-        //Lightning
+        //Battery
         AddStat(
             new PlayerCharacterStats(
                 isChain: true,
@@ -1094,9 +1107,9 @@ public static class PlayerStatsLibrary
                 chainStatDecayPercent: 0.4f,
                 chainRange: 2f,
                 chainSpeed: 5f,
-                name: "Lightning 2",
+                name: "Battery 2",
                 description: "Damage jumps to 3 more targets",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Battery"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1110,20 +1123,20 @@ public static class PlayerStatsLibrary
                 knockbackMultiplier: 0.4f,
                 name: "Polarity 2",
                 description: "Attacks pull targets in, Knockback +40%",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Polarity"),
                 rarity: Rarity.Legendary
             )
         );
 
 
-        //Stunner
+        //Stopsign
         AddStat(
             new PlayerCharacterStats(
                 isStun: true,
                 stunDuration: 0.5f,
-                name: "Stunner 1",
+                name: "Stopsign 1",
                 description: "Attacks stun for 0.5s",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Stopsign"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1135,7 +1148,7 @@ public static class PlayerStatsLibrary
                 recoveryAdditive: 0.5f,
                 name: "Hindsight 1",
                 description: "Attack again behind you, exhausted for +0.5s after attacking",
-                icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Hindsight"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1144,11 +1157,11 @@ public static class PlayerStatsLibrary
         AddStat(
            new PlayerCharacterStats(
                defense: -5f,
-               critChance: 0.5f,
+               critChance: 0.25f,
                critDmg: 0.5f,
-               name: "Glass 1",
-               description: "Crit Chance & Crit Damage +50%, take +5 more Damage",
-               icon: Resources.Load<Sprite>("UI_Icons/DMG_up"),
+               name: "Glass 2",
+               description: "Crit Chance +25% & Crit Damage +50%, take +5 more Damage",
+               icon: Resources.Load<Sprite>("UI_Icons/Relics/Relics/Glass"),
                rarity: Rarity.Legendary
            )
        );
