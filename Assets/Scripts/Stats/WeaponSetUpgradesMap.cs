@@ -281,6 +281,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Quickswap 1"),
                         AttackStatsLibrary.GetStat("Impact 1"),
                         AttackStatsLibrary.GetStat("Scope 1"),
+                        AttackStatsLibrary.GetStat("Fire Rate 1"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Explosive;
                         return stat;
@@ -299,6 +300,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Multi-cast 1"),
                         AttackStatsLibrary.GetStat("Bonus Round 1"),
                         AttackStatsLibrary.GetStat("Size Up 1"),
+                        AttackStatsLibrary.GetStat("Fire Rate 2"),
                         AttackStatsLibrary.GetStat("Explosive Novice"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Explosive;
@@ -318,6 +320,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Multi-cast 2"),
                         AttackStatsLibrary.GetStat("Bonus Round 2"),
                         AttackStatsLibrary.GetStat("Size Up 2"),
+                        AttackStatsLibrary.GetStat("Fire Rate 3"),
                         AttackStatsLibrary.GetStat("Explosive Pro"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Explosive;
@@ -360,6 +363,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Impact 1"),
                         AttackStatsLibrary.GetStat("Dexterity 1"),
                         AttackStatsLibrary.GetStat("Lunge 1"),
+                        AttackStatsLibrary.GetStat("Charged Up 1"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Nova;
                         return stat;
@@ -379,6 +383,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Multi-cast 1"),
                         AttackStatsLibrary.GetStat("Enlarge 1"),
                         AttackStatsLibrary.GetStat("Wave Master 1"),
+                        AttackStatsLibrary.GetStat("Charged Up 2"),
                         AttackStatsLibrary.GetStat("AFK Novice"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Nova;
@@ -401,6 +406,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Wave Master 2"),
                         AttackStatsLibrary.GetStat("After-shock 1"),
                         AttackStatsLibrary.GetStat("Once More 1"),
+                        AttackStatsLibrary.GetStat("Charged Up 3"),
                         AttackStatsLibrary.GetStat("AFK Pro"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Nova;
@@ -420,6 +426,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("After-shock 2"),
                         AttackStatsLibrary.GetStat("Once More 2"),
                         AttackStatsLibrary.GetStat("AFK God"),
+                        AttackStatsLibrary.GetStat("Charged Up 4"),
                         AttackStatsLibrary.GetStat("Buddy System"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Nova;
@@ -444,6 +451,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Dexterity 1"),
                         AttackStatsLibrary.GetStat("Lunge 1"),
                         AttackStatsLibrary.GetStat("Implode 1"),
+                        AttackStatsLibrary.GetStat("Charged Up 1"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Melee;
                         return stat;
@@ -464,7 +472,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Multi-cast 1"),
                         AttackStatsLibrary.GetStat("Enlarge 1"),
                         AttackStatsLibrary.GetStat("Wave Master 1"),
-                        AttackStatsLibrary.GetStat("Ki Master 1"),
+                        AttackStatsLibrary.GetStat("Charged Up 2"),
                         AttackStatsLibrary.GetStat("Melee Novice"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Melee;
@@ -485,9 +493,9 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("Multi-cast 2"),
                         AttackStatsLibrary.GetStat("Enlarge 2"),
                         AttackStatsLibrary.GetStat("Wave Master 2"),
-                        AttackStatsLibrary.GetStat("Ki Master 2"),
                         AttackStatsLibrary.GetStat("After-shock 1"),
                         AttackStatsLibrary.GetStat("Once More 1"),
+                        AttackStatsLibrary.GetStat("Charged Up 3"),
                         AttackStatsLibrary.GetStat("Melee Pro"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Melee;
@@ -508,6 +516,7 @@ public static class WeaponSetUpgradeMap
                         AttackStatsLibrary.GetStat("After-shock 2"),
                         AttackStatsLibrary.GetStat("Once More 2"),
                         AttackStatsLibrary.GetStat("Melee God"),
+                        AttackStatsLibrary.GetStat("Charged Up 4"),
                         AttackStatsLibrary.GetStat("Buddy System"),
                     }.Select(stat => {
                         stat.weaponSetType = WeaponSetType.Melee;

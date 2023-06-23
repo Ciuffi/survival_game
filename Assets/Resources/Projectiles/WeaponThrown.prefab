@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 0}
-  damage: 5
+  damage: 9
   projectileRange: 0
   knockback: 0
   spawnPos: {x: 0, y: 0}
@@ -197,14 +197,14 @@ MonoBehaviour:
   isMelee: 0
   startup: 0
   active: 0
-  scaleSpeed: 1
+  scaleSpeed: 0.5
   disappearSpeed: 0.5
   isCrit: 0
   onHitParticle: {fileID: 4053501027209517259, guid: a32e586bbc78fb74cba20db900467cb4, type: 3}
   playerShakeTime: 0.07
   playerShakeStrength: 0.05
   playerShakeRotation: 0.03
-  damageTickDuration: 0.5
+  damageTickDuration: 0.75
   isThrown: 1
   isHover: 0
   stopOnHit: 0
@@ -255,7 +255,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.66, y: 2.38}
+    oldSize: {x: 6.928, y: 1.904}
     newSize: {x: 7.3, y: 1.83}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

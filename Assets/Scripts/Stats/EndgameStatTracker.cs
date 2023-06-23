@@ -16,6 +16,11 @@ public class EndgameStatTracker : MonoBehaviour
 
     public PlayerDataManager playerData;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     private IEnumerator Start()
     {
         // Wait for a short amount of time to ensure that all objects are fully loaded
@@ -29,19 +34,30 @@ public class EndgameStatTracker : MonoBehaviour
         killTracker = FindObjectOfType<ComboTracker>().gameObject;
         goldTracker = FindObjectOfType<GoldTracker>().gameObject;
     }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        playerData = PlayerDataManager.Instance;
-        attacks = FindObjectOfType<AttackHandler>().transform.Find("Weapons").gameObject;
-        timer = FindObjectOfType<GameTimer>().gameObject;
-        killTracker = FindObjectOfType<ComboTracker>().gameObject;
-        goldTracker = FindObjectOfType<GoldTracker>().gameObject;
+        // only reassign if the loaded scene is a game scene
+        if (scene.buildIndex != 0 && scene.buildIndex != SceneManager.sceneCountInBuildSettings - 1)
+        {
+            // PlayerDataManager singleton is not destroyed when switching scenes
+            playerData = PlayerDataManager.Instance;
 
+            attacks = FindObjectOfType<AttackHandler>().transform.Find("Weapons").gameObject;
+            timer = FindObjectOfType<GameTimer>().gameObject;
+            killTracker = FindObjectOfType<ComboTracker>().gameObject;
+            goldTracker = FindObjectOfType<GoldTracker>().gameObject;
+        }
     }
 
-    private void OnDestroy()
+    private void OnEnable()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;  // Unsubscribe from sceneLoaded when this GameObject is destroyed
+        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to sceneLoaded when this GameObject is enabled
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe from sceneLoaded when this GameObject is disabled
     }
 
     public void EndGameStats()

@@ -33,7 +33,8 @@ public class PlayerCharacterStats : Upgrade
         shotsPerAttackMelee,
         comboLength,
         rerollTimes,
-        swapTimes;
+        swapTimes,
+        pierce;
 
     public float goldGainMultiplier,
         xpGainMultiplier,
@@ -48,9 +49,12 @@ public class PlayerCharacterStats : Upgrade
         comboWaitTimeMultiplier,
         projectileSpeedMultiplier,
         rangeMultiplier,
+        meleeSpacerGapMultiplier,
+        meleeSpacerMultiplier,
         knockbackMultiplier,
         thrownDamageMultiplier,
         thrownSpeedMultiplier,
+        thrownWeaponSizeMultiplier,
         projectileSizeMultiplier,
         meleeSizeMultiplier,
         effectMultiplier,
@@ -108,7 +112,7 @@ public class PlayerCharacterStats : Upgrade
         critDmg += other.critDmg;
         defense += other.defense;
         shield += other.shield;
-
+        pierce += other.pierce;
         shotsPerAttack += other.shotsPerAttack;
         shotsPerAttackMelee += other.shotsPerAttackMelee;
         comboLength += other.comboLength;
@@ -126,10 +130,12 @@ public class PlayerCharacterStats : Upgrade
         knockbackMultiplier += other.knockbackMultiplier;
         thrownDamageMultiplier += other.thrownDamageMultiplier;
         thrownSpeedMultiplier += other.thrownSpeedMultiplier;
+        thrownWeaponSizeMultiplier += other.thrownWeaponSizeMultiplier;
         projectileSizeMultiplier += other.projectileSizeMultiplier;
         meleeSizeMultiplier += other.meleeSizeMultiplier;
         speedMultiplier += other.speedMultiplier;
-
+        meleeSpacerGapMultiplier += other.meleeSpacerGapMultiplier;
+        meleeSpacerMultiplier += meleeSpacerMultiplier;
         activeDuration += other.activeDuration;
         effectDuration += other.effectDuration;
         effectMultiplier += other.effectMultiplier;
@@ -186,7 +192,7 @@ public class PlayerCharacterStats : Upgrade
         critDmg = other.critDmg;
         defense = other.defense;
         shield = other.shield;
-
+        pierce = other.pierce;
         shotsPerAttack = other.shotsPerAttack;
         shotsPerAttackMelee = other.shotsPerAttackMelee;
         comboLength = other.comboLength;
@@ -203,10 +209,12 @@ public class PlayerCharacterStats : Upgrade
         knockbackMultiplier = other.knockbackMultiplier;
         thrownDamageMultiplier = other.thrownDamageMultiplier;
         thrownSpeedMultiplier = other.thrownSpeedMultiplier;
+        thrownWeaponSizeMultiplier = other.thrownWeaponSizeMultiplier;
         projectileSizeMultiplier = other.projectileSizeMultiplier;
         meleeSizeMultiplier = other.meleeSizeMultiplier;
         speedMultiplier = other.speedMultiplier;
-
+        meleeSpacerGapMultiplier = other.meleeSpacerGapMultiplier;
+        meleeSpacerMultiplier = other.meleeSpacerMultiplier;
         activeDuration = other.activeDuration;
         effectMultiplier = other.effectMultiplier;
         effectDuration = other.effectDuration;
@@ -261,6 +269,7 @@ public class PlayerCharacterStats : Upgrade
         float critDmg = 0,
         float defense = 0,
         float shield = 0,
+        int pierce = 0,
         int shotsPerAttack = 0,
         int shotsPerAttackMelee = 0,
         int comboLength = 0,
@@ -273,9 +282,12 @@ public class PlayerCharacterStats : Upgrade
         float comboWaitTimeMultiplier = 0,
         float projectileSpeedMultiplier = 0,
         float rangeMultiplier = 0,
+        float meleeSpacerGapMultiplier = 0,
+        float meleeSpacerMultiplier = 0,
         float knockbackMultiplier = 0,
         float thrownDamageMultiplier = 0,
         float thrownSpeedMultiplier = 0,
+        float thrownWeaponSizeMultiplier = 0,
         float projectileSizeMultiplier = 0,
         float meleeSizeMultiplier = 0,
         float activeDuration = 0,
@@ -330,7 +342,7 @@ public class PlayerCharacterStats : Upgrade
         this.critDmg = critDmg;
         this.defense = defense;
         this.shield = shield;
-
+        this.pierce = pierce;
         this.shotsPerAttack = shotsPerAttack;
         this.shotsPerAttackMelee = shotsPerAttackMelee;
         this.comboLength = comboLength;
@@ -347,6 +359,7 @@ public class PlayerCharacterStats : Upgrade
         this.knockbackMultiplier = knockbackMultiplier;
         this.thrownDamageMultiplier = thrownDamageMultiplier;
         this.thrownSpeedMultiplier = thrownSpeedMultiplier;
+        this.thrownWeaponSizeMultiplier = thrownWeaponSizeMultiplier;
         this.projectileSizeMultiplier = projectileSizeMultiplier;
         this.meleeSizeMultiplier = meleeSizeMultiplier;
         this.speedMultiplier = speedMultiplier;
@@ -354,7 +367,8 @@ public class PlayerCharacterStats : Upgrade
         this.effectDuration = effectDuration;
         this.effectMultiplier = effectMultiplier;
         this.activeMultiplier = activeMultiplier;
-
+        this.meleeSpacerGapMultiplier = meleeSpacerGapMultiplier;
+        this.meleeSpacerMultiplier = meleeSpacerMultiplier;
         this.rerollTimes = rerollTimes;
         this.swapTimes = swapTimes;
         this.damageAdditive = damageAdditive;

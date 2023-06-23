@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DeathTransition : MonoBehaviour
@@ -29,6 +30,25 @@ public class DeathTransition : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(false);
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // only reassign if the loaded scene is a game scene
+        if (scene.buildIndex != 0)
+        {
+            gameManager = FindObjectOfType<GameManager>().gameObject;
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to sceneLoaded when this GameObject is enabled
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe from sceneLoaded when this GameObject is disabled
     }
 
     public void StartTransition()

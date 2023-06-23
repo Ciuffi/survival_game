@@ -124,7 +124,7 @@ MonoBehaviour:
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
   eliteOutline: {fileID: 0}
-  xpSizeScaling: 0.3
+  xpSizeScaling: 0.4
   destroyDistance: 30
   dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
   isGamePaused: 0

@@ -863,11 +863,9 @@ MonoBehaviour:
   timeSurvivedText: {fileID: 1212464834}
   goldGainedText: {fileID: 1237471332}
   enemiesKilledText: {fileID: 2005427475}
-  countUpSpeed: 0
-  incrementValueFast: 9
-  incrementValueSlow: 3
+  countUpSpeed: 0.01
   displaySpeed: 0.5
-  defaultScaleDuration: 0.25
+  defaultScaleDuration: 0.15
   scaleDuration: 0.5
   scaleAmount: 0.15
 --- !u!1 &924002401

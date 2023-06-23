@@ -5,7 +5,6 @@ public static class WeaponRarityStats
 {
     public static AttackStats ApplyRarity(List<AttackStats> attackStatUpgrades, Rarity rarity)
     {
-        //Debug.Log("Rarity: " + (int)rarity);
 
         // Create a new AttackStats object to store the upgraded values
         AttackStats upgradedAttackStats = new AttackStats();
@@ -46,7 +45,6 @@ public static class WeaponRarityStats
                 }
             }
         }
-
         return upgradedAttackStats;
     }
 }

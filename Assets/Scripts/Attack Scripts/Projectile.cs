@@ -128,7 +128,14 @@ public class Projectile : MonoBehaviour
         if (isSplitProjectile) // scale down stats if it's a split projectile
         {
             pierce = Mathf.RoundToInt(attack.stats.pierce * splitStatPercentage);
-            damage = attack.stats.damage * splitStatPercentage ;
+            if (!isMelee)
+            {
+                damage = attack.stats.damage * splitStatPercentage;
+
+            } else //we pass damage in Attack.cs to Melee for combo scaling
+            {
+                damage *= splitStatPercentage;
+            }
             knockback = attack.stats.knockback * splitStatPercentage;
             projectileRange = attack.stats.range * splitStatPercentage;
             moveSpeed = attack.stats.speed * splitStatPercentage;
@@ -139,7 +146,10 @@ public class Projectile : MonoBehaviour
         } else
         {
             pierce = attack.stats.pierce;
-            damage = attack.stats.damage;
+            if (!isMelee)
+            {
+                damage = attack.stats.damage;
+            }
             knockback = attack.stats.knockback;
             projectileRange = attack.stats.range;
             moveSpeed = attack.stats.speed;
@@ -192,6 +202,7 @@ public class Projectile : MonoBehaviour
             projectileRange = 6 + (attack.stats.range / 2);
             knockback = 0.25f + (attack.stats.knockback / 2);
         }
+
         GetComponent<Collider2D>().enabled = true;
 
 

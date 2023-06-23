@@ -4,43 +4,46 @@ using UnityEngine.EventSystems;
 
 public class PauseButton : MonoBehaviour
 {
-    EventTrigger eventTrigger;
-    GameManager gameManager;
-
+    public GameManager gameManager;
     public bool isResume;
 
-    void Start()
+    private void Start()
     {
-        // Find the GameManager in the scene
         gameManager = FindObjectOfType<GameManager>();
 
-        // Get the EventTrigger component from the button
-        eventTrigger = GetComponent<EventTrigger>();
-
-        if (gameManager != null && eventTrigger != null)
+        if (gameManager == null)
         {
-            // Create a new trigger entry
-            EventTrigger.Entry entry = new EventTrigger.Entry();
-            // Set the event type
-            entry.eventID = EventTriggerType.PointerUp;
+            Debug.LogError("GameManager not found!");
+        }
 
-            if (!isResume)
-            {
-                // Set the method to be called when the event triggers
-                entry.callback.AddListener((eventData) => { gameManager.ShowPauseScreen(); });
-            } else
-            {
-                // Set the method to be called when the event triggers
-                entry.callback.AddListener((eventData) => { gameManager.HidePauseScreen(); });
-            }
-           
+        Button button = GetComponent<Button>();
 
-            // Add the trigger entry to the event trigger
-            eventTrigger.triggers.Add(entry);
+        if (button != null)
+        {
+            button.onClick.AddListener(OnClick);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Button button = GetComponent<Button>();
+
+        if (button != null)
+        {
+            button.onClick.RemoveListener(OnClick);
+        }
+    }
+
+    private void OnClick()
+    {
+        Debug.Log("click");
+        if (!isResume)
+        {
+            gameManager.ShowPauseScreen();
         }
         else
         {
-            Debug.LogError("GameManager or EventTrigger not found!");
+            gameManager.HidePauseScreen();
         }
     }
 }

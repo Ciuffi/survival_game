@@ -105,7 +105,7 @@ MonoBehaviour:
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   projectilePrefab: {fileID: 0}
   attackRange: 1.5
-  shootChargeTime: 1.25
+  shootChargeTime: 2
   projectileSpeed: 0
   projectileRange: 0
   projectileDamage: 3

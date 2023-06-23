@@ -261,12 +261,12 @@ public class Enemy : MonoBehaviour, Attacker
             dotAnimator = currentDoTAnimation.GetComponent<Animator>();
             if (!isBasic)
             {
-                currentDoTAnimation.transform.localScale *= 4f;
+                currentDoTAnimation.transform.localScale *= 3f;
             }
 
             if (isElite || isBoss)
             {
-                currentDoTAnimation.transform.localScale *= 1.4f;
+                currentDoTAnimation.transform.localScale *= 1.5f;
             }
         }
 

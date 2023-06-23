@@ -41,6 +41,7 @@ public class Attack : MonoBehaviour, Upgrade
     public float shotsCount;
     public int numMulticast;
     public float multicastAlphaAmount;
+    public float multicastAlphaFade = 0.20f;
 
     public bool isAutoAim;
 
@@ -95,6 +96,11 @@ public class Attack : MonoBehaviour, Upgrade
 
     public void CalculateStats()
     {
+        if (Player == null)
+        {
+            return;
+        }
+
         AttackStats[] upgrades = upgradeContainer
             .GetComponentsInChildren<AttackStatComponent>()
             .Select(x => x.stat)
@@ -108,7 +114,6 @@ public class Attack : MonoBehaviour, Upgrade
         {
             //Debug.Log("no upgrades");
             stats = new AttackStats(baseStats);
-            stats.FixUpStats();
         }
 
         //Debug.Log("merge stats");
@@ -140,6 +145,22 @@ public class Attack : MonoBehaviour, Upgrade
                 stats.spread * stats.shotsPerAttack
                 + Mathf.RoundToInt(stats.multicastChance) * stats.multicastWaitTime;
         }
+
+        FixNegativeStats();
+    }
+
+    private void FixNegativeStats()
+    {
+        stats.damage = stats.damage < 0 ? 0 : stats.damage;
+        stats.castTime = stats.castTime < 0 ? 0 : stats.castTime;
+        stats.range = stats.range < 1 ? 1 : stats.range;
+        stats.shotsPerAttack = stats.shotsPerAttack < 0 ? 0 : stats.shotsPerAttack;
+        stats.shotsPerAttackMelee = stats.shotsPerAttackMelee < 0 ? 0 : stats.shotsPerAttackMelee;
+        stats.comboLength = stats.comboLength < 0 ? 0 : stats.comboLength;
+        stats.pierce = stats.pierce < 0 ? 0 : stats.pierce;
+        stats.splitAmount = stats.splitAmount < 0 ? 0 : stats.splitAmount;
+        stats.chainTimes = stats.chainTimes < 0 ? 0 : stats.chainTimes;
+        stats.thrownSpeed = stats.thrownSpeed < 0 ? 0 : stats.thrownSpeed;
     }
 
     private void rollMulticast()
@@ -244,7 +265,7 @@ public class Attack : MonoBehaviour, Upgrade
                         Color spriteColor = sr.color;
                         if (spriteColor.a <= multicastAlpha)
                         {
-                            spriteColor.a = 0.05f;
+                            spriteColor.a = 0.20f;
                         }
                         else
                         {
@@ -293,7 +314,7 @@ public class Attack : MonoBehaviour, Upgrade
                         Color spriteColor = sr.color;
                         if (spriteColor.a <= multicastAlpha)
                         {
-                            spriteColor.a = 0.05f;
+                            spriteColor.a = 0.20f;
                         }
                         else
                         {
@@ -342,7 +363,7 @@ public class Attack : MonoBehaviour, Upgrade
                         Color spriteColor = sr.color;
                         if (spriteColor.a <= multicastAlpha)
                         {
-                            spriteColor.a = 0.05f;
+                            spriteColor.a = 0.20f;
                         }
                         else
                         {
@@ -419,7 +440,7 @@ public class Attack : MonoBehaviour, Upgrade
                         Color spriteColor = sr.color;
                         if (spriteColor.a <= multicastAlpha)
                         {
-                            spriteColor.a = 0.05f;
+                            spriteColor.a = 0.20f;
                         }
                         else
                         {
@@ -456,7 +477,7 @@ public class Attack : MonoBehaviour, Upgrade
                         Color spriteColor = sr.color;
                         if (spriteColor.a <= multicastAlpha)
                         {
-                            spriteColor.a = 0.05f;
+                            spriteColor.a = 0.20f;
                         }
                         else
                         {
@@ -490,7 +511,7 @@ public class Attack : MonoBehaviour, Upgrade
                         Color spriteColor = sr.color;
                         if (spriteColor.a <= multicastAlpha)
                         {
-                            spriteColor.a = 0.05f;
+                            spriteColor.a = 0.20f;
                         }
                         else
                         {
@@ -555,7 +576,7 @@ public class Attack : MonoBehaviour, Upgrade
                         Color spriteColor = sr.color;
                         if (spriteColor.a <= multicastAlpha)
                         {
-                            spriteColor.a = 0.05f;
+                            spriteColor.a = 0.20f;
                         }
                         else
                         {
@@ -594,7 +615,7 @@ public class Attack : MonoBehaviour, Upgrade
                         Color spriteColor = sr.color;
                         if (spriteColor.a <= multicastAlpha)
                         {
-                            spriteColor.a = 0.05f;
+                            spriteColor.a = 0.20f;
                         }
                         else
                         {
@@ -629,7 +650,7 @@ public class Attack : MonoBehaviour, Upgrade
                         Color spriteColor = sr.color;
                         if (spriteColor.a <= multicastAlpha)
                         {
-                            spriteColor.a = 0.05f;
+                            spriteColor.a = 0.20f;
                         }
                         else
                         {
@@ -674,7 +695,7 @@ public class Attack : MonoBehaviour, Upgrade
             Vector3 position = weaponContainer.GetTransform().position;
             Vector3 direction = weaponContainer.GetDirection();
 
-            float perAttackScaling = 1 + (stats.comboAttackBuff * i);
+            float scaledDamage = stats.damage * (1 + (stats.comboAttackBuffMultiplier * i));
 
             //chain spawn
             for (int c = 0; c < stats.shotsPerAttackMelee + 1; c++)
@@ -693,7 +714,7 @@ public class Attack : MonoBehaviour, Upgrade
                     );
                     Projectile p = projectileGO.GetComponent<Projectile>();
                     p.attack = this;
-                    p.attack.stats.damage *= perAttackScaling; //scale damage per shotInAttack
+                    p.damage = scaledDamage; //scale damage per shotInAttack
                     p.transform.rotation = rotation;
                     if (c >= 1)
                     {
@@ -740,7 +761,7 @@ public class Attack : MonoBehaviour, Upgrade
                             Color spriteColor = sr.color;
                             if (spriteColor.a <= multicastAlpha)
                             {
-                                spriteColor.a = 0.05f;
+                                spriteColor.a = 0.20f;
                             }
                             else
                             {
@@ -759,7 +780,7 @@ public class Attack : MonoBehaviour, Upgrade
                     );
                     Projectile p = projectileGO.GetComponent<Projectile>();
                     p.attack = this;
-                    p.attack.stats.damage *= perAttackScaling; //scale damage per shotInAttack
+                    p.damage = scaledDamage; //scale damage per shotInAttack
 
                     p.transform.rotation = rotation;
                     p.transform.up = direction;
@@ -808,7 +829,7 @@ public class Attack : MonoBehaviour, Upgrade
                             Color spriteColor = sr.color;
                             if (spriteColor.a <= multicastAlpha)
                             {
-                                spriteColor.a = 0.05f;
+                                spriteColor.a = 0.20f;
                             }
                             else
                             {
@@ -825,7 +846,7 @@ public class Attack : MonoBehaviour, Upgrade
                     );
                     Projectile p2 = projectileGO2.GetComponent<Projectile>();
                     p2.attack = this;
-                    p.attack.stats.damage *= perAttackScaling; //scale damage per shotInAttack
+                    p2.damage = scaledDamage; //scale damage per shotInAttack
 
                     p2.transform.rotation = Quaternion.LookRotation(-directionSpacer);
                     p2.transform.up = -directionSpacer; // set the projectile's up direction to the opposite of the direction
@@ -874,7 +895,7 @@ public class Attack : MonoBehaviour, Upgrade
                             Color spriteColor = sr.color;
                             if (spriteColor.a <= multicastAlpha)
                             {
-                                spriteColor.a = 0.05f;
+                                spriteColor.a = 0.20f;
                             }
                             else
                             {
@@ -938,7 +959,7 @@ public class Attack : MonoBehaviour, Upgrade
 
                 {
                     StartCoroutine(ShootSingleShot(multicastAlphaAmount));
-                    multicastAlphaAmount += stats.multicastAlphaFade;
+                    multicastAlphaAmount += multicastAlphaFade;
                 }
                 break;
 
@@ -946,14 +967,14 @@ public class Attack : MonoBehaviour, Upgrade
 
                 {
                     StartCoroutine(ShootShotgun(multicastAlphaAmount));
-                    multicastAlphaAmount += stats.multicastAlphaFade;
+                    multicastAlphaAmount += multicastAlphaFade;
                 }
                 break;
             case AttackTypes.Melee:
 
                 {
                     StartCoroutine(Melee(multicastAlphaAmount));
-                    multicastAlphaAmount += stats.multicastAlphaFade;
+                    multicastAlphaAmount += multicastAlphaFade;
                 }
                 break;
 
@@ -993,6 +1014,7 @@ public class Attack : MonoBehaviour, Upgrade
             Vector3 direction = owner.GetDirection();
 
             GameObject wpnToss = Instantiate(thrownWeapon, position, Quaternion.identity);
+            wpnToss.transform.localScale *= stats.thrownWeaponSizeMultiplier;
             wpnToss.GetComponent<SpriteRenderer>().sprite = GetUpgradeIcon();
             wpnToss.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = GetUpgradeIcon();
             Rigidbody2D rb = wpnToss.GetComponent<Rigidbody2D>();

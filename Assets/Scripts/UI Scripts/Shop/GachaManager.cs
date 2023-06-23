@@ -36,7 +36,7 @@ public class GachaManager : MonoBehaviour
             playerDataManager.gold -= rarityData.cost;
 
             // Roll to determine the weapon's name and rarity
-            string weaponName = shopLootBox.PickRandomWeapon();
+            string weaponName = shopLootBox.PickRandomWeapon(inventory);
             int weaponRarity = rarityData.RollRarity();
 
             // Add the weapon to the player's inventory

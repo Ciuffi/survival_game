@@ -34,7 +34,7 @@ public class ShopLootBox : MonoBehaviour
         // Check if there's any weapon that the player doesn't own
         foreach (string weaponName in possibleWeapons)
         {
-            if (!inventory.WeaponExists(weaponName, rarity))
+            if (!inventory.WeaponExists(weaponName))
             {
                 return false;
             }
@@ -56,9 +56,28 @@ public class ShopLootBox : MonoBehaviour
         return attackNames;
     }
 
-    public string PickRandomWeapon()
+    public string PickRandomWeapon(PlayerInventory inventory)
     {
-        int randomIndex = Random.Range(0, possibleWeapons.Count);
-        return possibleWeapons[randomIndex];
+        List<string> availableWeapons = new List<string>();
+
+        // Filter out weapons that are already owned by the player
+        foreach (string weaponName in possibleWeapons)
+        {
+            if (!inventory.WeaponExists(weaponName))
+            {
+                availableWeapons.Add(weaponName);
+            }
+        }
+
+        if (availableWeapons.Count == 0)
+        {
+            // Player already owns all weapons of this rarity,
+            // so choose a random weapon from the original list
+            int random = Random.Range(0, possibleWeapons.Count);
+            return possibleWeapons[random];
+        }
+
+        int randomIndex = Random.Range(0, availableWeapons.Count);
+        return availableWeapons[randomIndex];
     }
 }

@@ -279,11 +279,11 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         }
         if (stats.spreadMultiplier > 0)
         {
-            statsString += "Rate of Fire +" + stats.spreadMultiplier * 100 + "%" + "\n";
+            statsString += "Rate of Fire -" + stats.spreadMultiplier * 100 + "%" + "\n";
         }
         else if (stats.spreadMultiplier < 0)
         {
-            statsString += "Rate of Fire " + stats.spreadMultiplier * 100 + "%" + "\n";
+            statsString += "Rate of Fire +" + (stats.spreadMultiplier * -100) + "%" + "\n";
         }
         if (stats.shotgunSpread > 0)
         {

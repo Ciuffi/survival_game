@@ -22,7 +22,6 @@ public class AttackStats : Upgrade
     public float multicastChance;
     public float multicastWaitTime;
     public int multicastTimes;
-    public float multicastAlphaFade;
 
     public int shotsPerAttack;
     public float spread;
@@ -37,7 +36,6 @@ public class AttackStats : Upgrade
     public int shotsPerAttackMelee;
     public int comboLength;
     public float comboWaitTime;
-    public float comboAttackBuff;
     public float meleeShotsScaleUp;
     public float meleeSpacer;
     public float meleeSpacerGap;
@@ -82,6 +80,7 @@ public class AttackStats : Upgrade
 
     public float thrownDamageMultiplier;
     public float thrownSpeedMultiplier;
+    public float thrownWeaponSizeMultiplier;
 
     public float meleeSizeMultiplier;
     public float effectMultiplier;
@@ -149,11 +148,9 @@ public class AttackStats : Upgrade
         float multicastChance = 0,
         float multicastWaitTime = 0,
         int multicastTimes = 0,
-        float multicastAlphaFade = 0,
         Vector3 scaleUP = new Vector3(),
         int comboLength = 0,
         float comboWaitTime = 0,
-        float comboAttackBuff = 0,
         float meleeShotsScaleUp = 0,
         float meleeSpacer = 0,
         float meleeSpacerGap = 0,
@@ -189,6 +186,7 @@ public class AttackStats : Upgrade
         float meleeSpacerGapMultiplier = 0,
         float thrownDamageMultiplier = 0,
         float thrownSpeedMultiplier = 0,
+        float thrownWeaponSizeMultiplier = 0,
         float meleeSizeMultiplier = 0,
         bool weaponSet = false,
         bool is360 = false,
@@ -243,11 +241,9 @@ public class AttackStats : Upgrade
         this.multicastChance = multicastChance;
         this.multicastWaitTime = multicastWaitTime;
         this.multicastTimes = multicastTimes;
-        this.multicastAlphaFade = multicastAlphaFade;
         this.scaleUP = scaleUP;
         this.comboLength = comboLength;
         this.comboWaitTime = comboWaitTime;
-        this.comboAttackBuff = comboAttackBuff;
         this.meleeShotsScaleUp = meleeShotsScaleUp;
         this.meleeSpacer = meleeSpacer;
         this.meleeSpacerGap = meleeSpacerGap;
@@ -257,6 +253,7 @@ public class AttackStats : Upgrade
         this.shakeRotation = shakeRotation;
         this.thrownDamage = thrownDamage;
         this.thrownSpeed = thrownSpeed;
+        this.thrownWeaponSizeMultiplier = thrownWeaponSizeMultiplier;
         this.cantMove = cantMove;
         this.rarity = rarity;
         this.activeDuration = activeDuration;
@@ -322,9 +319,9 @@ public class AttackStats : Upgrade
     {
         this.coneAngle = this.coneAngle < 0f ? 0f : this.coneAngle;
         this.aimRange = this.aimRange < 0f ? 0f : this.aimRange;
-        this.shotsPerAttack = this.shotsPerAttack < 1 ? 1 : this.shotsPerAttack;
+        this.shotsPerAttack = this.shotsPerAttack < 0 ? 0 : this.shotsPerAttack;
         this.shotsPerAttackMelee = this.shotsPerAttackMelee < 0 ? 0 : this.shotsPerAttackMelee;
-        this.comboLength = this.comboLength < 1 ? 1 : this.comboLength;
+        this.comboLength = this.comboLength < 0 ? 0 : this.comboLength;
         this.effectMultiplier = this.effectMultiplier == 0 ? 1 : this.effectMultiplier;
         this.activeMultiplier = this.activeMultiplier == 0 ? 1 : this.activeMultiplier;
         this.damageMultiplier = this.damageMultiplier == 0 ? 1 : this.damageMultiplier;
@@ -345,7 +342,6 @@ public class AttackStats : Upgrade
         this.meleeShotsScaleUp = this.meleeShotsScaleUp == 0 ? 1 : this.meleeShotsScaleUp;
         this.projectileSizeMultiplier = this.projectileSizeMultiplier == 0 ? 1 : this.projectileSizeMultiplier;
         this.comboWaitTimeMultiplier = this.comboWaitTimeMultiplier == 0 ? 1 : this.comboWaitTimeMultiplier;
-        this.comboAttackBuffMultiplier = this.comboAttackBuffMultiplier == 0 ? 1 : this.comboAttackBuffMultiplier;
         this.meleeShotsScaleUpMultiplier =
             this.meleeShotsScaleUpMultiplier == 0 ? 1 : this.meleeShotsScaleUpMultiplier;
         this.meleeSpacerMultiplier = this.meleeSpacerMultiplier == 0 ? 1 : this.meleeSpacerMultiplier;
@@ -353,7 +349,7 @@ public class AttackStats : Upgrade
         this.thrownDamageMultiplier = this.thrownDamageMultiplier == 0 ? 1 : this.thrownDamageMultiplier;
         this.thrownSpeedMultiplier = this.thrownSpeedMultiplier == 0 ? 1 : this.thrownSpeedMultiplier;
         this.meleeSizeMultiplier = this.meleeSizeMultiplier == 0 ? 1 : this.meleeSizeMultiplier;
-
+        this.thrownWeaponSizeMultiplier = this.thrownWeaponSizeMultiplier == 0 ? 1 : this.thrownWeaponSizeMultiplier;
     }
 
     public void ApplyMultiplier()
@@ -371,7 +367,6 @@ public class AttackStats : Upgrade
         range *= rangeMultiplier;
 
         comboWaitTime *= comboWaitTimeMultiplier;
-        comboAttackBuff *= comboAttackBuffMultiplier;
         meleeShotsScaleUp *= meleeShotsScaleUpMultiplier;
         meleeSpacer *= meleeSpacerMultiplier;
         meleeSpacerGap *= meleeSpacerGapMultiplier;
@@ -434,11 +429,9 @@ public class AttackStats : Upgrade
         this.multicastChance += attackStats.multicastChance;
         this.multicastWaitTime += attackStats.multicastWaitTime;
         this.multicastTimes += attackStats.multicastTimes;
-        this.multicastAlphaFade += attackStats.multicastAlphaFade;
         this.scaleUP += attackStats.scaleUP;
         this.comboLength += attackStats.comboLength;
         this.comboWaitTime += attackStats.comboWaitTime;
-        this.comboAttackBuff += attackStats.comboAttackBuff;
         this.meleeShotsScaleUp += attackStats.meleeShotsScaleUp;
         this.meleeSpacer += attackStats.meleeSpacer;
         this.meleeSpacerGap += attackStats.meleeSpacerGap;
@@ -476,6 +469,7 @@ public class AttackStats : Upgrade
         this.meleeSpacerGapMultiplier += attackStats.meleeSpacerGapMultiplier;
         this.thrownDamageMultiplier += attackStats.thrownDamageMultiplier;
         this.thrownSpeedMultiplier += attackStats.thrownSpeedMultiplier;
+        this.thrownWeaponSizeMultiplier += attackStats.thrownWeaponSizeMultiplier;
         this.meleeSizeMultiplier += attackStats.meleeSizeMultiplier;
 
         this.isMagnet |= attackStats.isMagnet;
@@ -538,7 +532,7 @@ public class AttackStats : Upgrade
         this.shootOppositeSide |= playerStats.shootOpposideSide;
         this.isHoming |= playerStats.isHoming;
         this.comboLength += playerStats.comboLength;
-
+        this.pierce += playerStats.pierce;
         this.damageMultiplier += playerStats.damageMultiplier;
         this.rangeMultiplier += playerStats.rangeMultiplier;
         this.speedMultiplier += playerStats.projectileSpeedMultiplier;
@@ -550,11 +544,13 @@ public class AttackStats : Upgrade
         this.thrownSpeedMultiplier += playerStats.thrownSpeedMultiplier;
         this.meleeSizeMultiplier += playerStats.meleeSizeMultiplier;
         this.projectileSizeMultiplier += playerStats.projectileSizeMultiplier;
-
+        this.meleeSpacerGapMultiplier += playerStats.meleeSpacerGapMultiplier;
+        this.meleeSpacerMultiplier += playerStats.meleeSpacerMultiplier;
         this.activeDuration += playerStats.activeDuration;
         this.effectDuration += playerStats.effectDuration;
         this.effectMultiplier += playerStats.effectMultiplier;
         this.activeMultiplier += playerStats.activeMultiplier;
+        this.thrownWeaponSizeMultiplier += playerStats.thrownWeaponSizeMultiplier;
 
         this.damage += playerStats.damageAdditive;
         this.recoveryTime += playerStats.recoveryAdditive;
@@ -562,14 +558,16 @@ public class AttackStats : Upgrade
         this.isDoT |= playerStats.isDoT;
         this.dotDamage += playerStats.dotDamage;
         this.dotDuration += playerStats.dotDuration;
-        this.dotTickRate += playerStats.dotTickRate;
+        this.dotTickRate = Mathf.Min(this.dotTickRate, playerStats.dotTickRate);
+
         this.isSplit |= playerStats.isSplit;
         this.splitAmount += playerStats.splitAmount;
         this.splitStatPercentage += playerStats.splitStatPercentage;
+
         this.isChain |= playerStats.isChain;
         this.chainTimes += playerStats.chainTimes;
         this.chainRange += playerStats.chainRange;
-        this.chainStatDecayPercent += playerStats.chainStatDecayPercent;
+        this.chainStatDecayPercent = Mathf.Min(this.chainStatDecayPercent, playerStats.chainStatDecayPercent);
         this.chainSpeed += playerStats.chainSpeed;
 
         this.isMagnet |= playerStats.isMagnet;
@@ -577,7 +575,7 @@ public class AttackStats : Upgrade
         this.magnetDuration += playerStats.magnetDuration;
 
         this.isSlow |= playerStats.isSlow;
-        this.slowPercentage -= playerStats.slowPercentage;
+        this.slowPercentage = Mathf.Min(this.slowPercentage, playerStats.slowPercentage);
         this.slowDuration += playerStats.slowDuration;
 
         this.isStun |= playerStats.isStun;
@@ -612,11 +610,9 @@ public class AttackStats : Upgrade
         this.multicastChance = attackStats.multicastChance;
         this.multicastWaitTime = attackStats.multicastWaitTime;
         this.multicastTimes = attackStats.multicastTimes;
-        this.multicastAlphaFade = attackStats.multicastAlphaFade;
         this.scaleUP = attackStats.scaleUP;
         this.comboLength = attackStats.comboLength;
         this.comboWaitTime = attackStats.comboWaitTime;
-        this.comboAttackBuff = attackStats.comboAttackBuff;
         this.meleeShotsScaleUp = attackStats.meleeShotsScaleUp;
         this.meleeSpacer = attackStats.meleeSpacer;
         this.meleeSpacerGap = attackStats.meleeSpacerGap;
@@ -653,6 +649,7 @@ public class AttackStats : Upgrade
         this.meleeSpacerGapMultiplier = attackStats.meleeSpacerGapMultiplier;
         this.thrownDamageMultiplier = attackStats.thrownDamageMultiplier;
         this.thrownSpeedMultiplier = attackStats.thrownSpeedMultiplier;
+        this.thrownWeaponSizeMultiplier = attackStats.thrownWeaponSizeMultiplier;
         this.meleeSizeMultiplier = attackStats.meleeSizeMultiplier;
         this.description = attackStats.description;
         this.name = attackStats.name;
@@ -709,7 +706,6 @@ public class AttackStats : Upgrade
             multicastChance = this.multicastChance,
             multicastWaitTime = this.multicastWaitTime,
             multicastTimes = this.multicastTimes,
-            multicastAlphaFade = this.multicastAlphaFade,
 
             shotsPerAttack = this.shotsPerAttack,
             spread = this.spread,
@@ -724,7 +720,6 @@ public class AttackStats : Upgrade
             shotsPerAttackMelee = this.shotsPerAttackMelee,
             comboLength = this.comboLength,
             comboWaitTime = this.comboWaitTime,
-            comboAttackBuff = this.comboAttackBuff,
             meleeShotsScaleUp = this.meleeShotsScaleUp,
             meleeSpacer = this.meleeSpacer,
             meleeSpacerGap = this.meleeSpacerGap,
@@ -769,6 +764,7 @@ public class AttackStats : Upgrade
 
             thrownDamageMultiplier = this.thrownDamageMultiplier,
             thrownSpeedMultiplier = this.thrownSpeedMultiplier,
+            thrownWeaponSizeMultiplier = this.thrownWeaponSizeMultiplier,
 
             meleeSizeMultiplier = this.meleeSizeMultiplier,
             effectMultiplier = this.effectMultiplier,

@@ -259,17 +259,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14778383}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.059197444, w: 0.9982463}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 746664397}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.787}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 91.3, y: 766.7}
+  m_AnchoredPosition: {x: 82.3, y: 758.6}
   m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14778385
@@ -3187,7 +3187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7914a6e8235dc1e44989ce77fc2bd65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 300
+  gold: 100
   unlockedStages: 0
   goldDisplay: []
   upgradeButtonParent: {fileID: 0}
@@ -5238,24 +5238,24 @@ MonoBehaviour:
   - rarity: 2
     cost: 100
     dropChances:
-    - 90
-    - 10
+    - 85
+    - 15
     - 0
     - 0
   - rarity: 4
-    cost: 350
+    cost: 250
     dropChances:
-    - 5
-    - 85
+    - 15
+    - 75
     - 10
     - 0
   - rarity: 6
-    cost: 800
+    cost: 500
     dropChances:
     - 0
-    - 5
+    - 10
     - 80
-    - 15
+    - 10
 --- !u!1 &1085263397
 GameObject:
   m_ObjectHideFlags: 0

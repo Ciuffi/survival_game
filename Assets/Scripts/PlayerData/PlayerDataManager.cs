@@ -165,10 +165,6 @@ public class PlayerDataManager : MonoBehaviour
         }
     }
 
-    public void DecrementWeaponDurability()
-    {
-        playerInventory.DecrementWeaponDurability();
-    }
 
     public void ResetData()
     {
@@ -206,7 +202,7 @@ public class PlayerDataManager : MonoBehaviour
             stage.isLocked = true;
         }
 
-        gold = 300;
+        gold = 100;
         unlockedCharactersNames.Clear();
         unlockedStages = 1;
         purchasedUpgrades.Clear();  // Also clear the in-memory HashSet of purchased upgrades

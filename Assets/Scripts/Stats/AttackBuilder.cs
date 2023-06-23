@@ -172,13 +172,16 @@ public class AttackBuilder
     public Attack Build(Rarity rarity)
     {
         ValidateRequiredFields();
-        this.baseStats = new AttackStats(baseStats);
 
-        //ValidateRequiredFields();
+        // Create a new instance of AttackStats for the Attack object
+        AttackStats attackBaseStats = new AttackStats(baseStats);
+
+        // Create a new Attack object
         GameObject attackObject = new GameObject(attackName);
         Attack attack = attackObject.AddComponent<Attack>();
-        attack.baseStats = baseStats;
-        attack.stats = baseStats;
+
+        // Assign the copied AttackStats to the Attack object
+        attack.baseStats = attackBaseStats;
 
         // Set the properties of the Attack component
         attack.name = attackName;
@@ -186,13 +189,12 @@ public class AttackBuilder
 
         if (rarity > 0)
         {
-            Debug.Log("rarity: " + rarity);
             // Use the WeaponRarityStats class to upgrade the baseStats based on the rarity
-            attack.baseStats.mergeInStats(WeaponRarityStats.ApplyRarity(rarityUpgrades, rarity));
             attack.baseStats.rarity = rarity;
-            attack.stats.rarity = rarity;
+            attack.baseStats.mergeInStats(WeaponRarityStats.ApplyRarity(rarityUpgrades, rarity));
         }
 
+        attack.stats = attackBaseStats;
         attack.effect = effect;
         attack.attackType = attackType;
         attack.weaponSprite = weaponSprite;
@@ -200,7 +202,7 @@ public class AttackBuilder
         if (thrownWeapon != null)
         {
             attack.thrownWeapon = thrownWeapon;
-            attack.thrownWeapon.GetComponent<Projectile>().damage = attack.stats.thrownDamage;
+            attack.thrownWeapon.GetComponent<Projectile>().damage = attack.baseStats.thrownDamage;
         }
         //Debug.Log(attack.stats.thrownDamage);
 

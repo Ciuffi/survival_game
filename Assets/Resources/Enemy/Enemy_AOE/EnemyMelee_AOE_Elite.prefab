@@ -62,7 +62,7 @@ MonoBehaviour:
   isElite: 1
   isBoss: 0
   damage: 2
-  health: 300
+  health: 400
   maxHealth: 0
   xpAmount: 250
   weight: 25
@@ -106,7 +106,7 @@ MonoBehaviour:
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   projectilePrefab: {fileID: 0}
   attackRange: 3
-  shootChargeTime: 2.5
+  shootChargeTime: 3
   projectileSpeed: 0
   projectileRange: 0
   projectileDamage: 5
@@ -127,7 +127,7 @@ MonoBehaviour:
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 3682808208575244435}
   eliteOutline: {fileID: 8510872242104360133}
-  xpSizeScaling: 1
+  xpSizeScaling: 0.8
   destroyDistance: 30
   dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
   isGamePaused: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 1.6
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

@@ -50,22 +50,23 @@ MonoBehaviour:
   alwaysSpawn: 1
   isCircleSpawn: 1
   isClumpSpawn: 0
-  diameter: 18
-  initialDelay: 150
-  spawnTimer: 25
-  spawnRate: 4
-  spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 0
-  spawnRateLimit_G2: 0
-  spawnRateLimit_G3: 0
-  spawnRateLimit_G4: 6
-  spawnRateLimit_G5: 12
-  spawnRateLimit_G6: 1
-  scaleRateSeconds: 25
-  spawnRateScaling: 3
+  diameter: 14
+  initialDelay: 0
+  spawnTimer: 120
+  spawnRate: 26
+  spawnRateLimit_G0: 26
+  spawnRateLimit_G1: 26
+  spawnRateLimit_G2: 30
+  spawnRateLimit_G3: 30
+  spawnRateLimit_G4: 32
+  spawnRateLimit_G5: 34
+  spawnRateLimit_G6: 34
+  scaleRateSeconds: 60
+  spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &2267821650962416045
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,24 +115,25 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: abd48a3c027f3b04aa00c7ca1fe06fbb, type: 3}
   isEliteSpawner: 0
   alwaysSpawn: 0
-  isCircleSpawn: 0
+  isCircleSpawn: 1
   isClumpSpawn: 0
   diameter: 16
-  initialDelay: 33
+  initialDelay: 0
   spawnTimer: 10
-  spawnRate: 0
+  spawnRate: 1
   spawnRateLimit_G0: 0
-  spawnRateLimit_G1: 0
+  spawnRateLimit_G1: 1
   spawnRateLimit_G2: 3
   spawnRateLimit_G3: 6
   spawnRateLimit_G4: 8
   spawnRateLimit_G5: 12
-  spawnRateLimit_G6: 1
+  spawnRateLimit_G6: 12
   scaleRateSeconds: 10
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &3590323111623112659
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,20 +245,34 @@ MonoBehaviour:
   isSpawning: 0
   player: {fileID: 0}
   currentGuilt: 0
-  healthScalingList: []
-  damageScaling: 0.002
-  weightScaling: 0.002
-  xpScaling: 0.5
-  stageHealthScaling: -0.3
+  healthScalingList:
+  - 0
+  - 0.2
+  - 0.2
+  - 0.4
+  - 0.3
+  - 0.4
+  - 0.5
+  xpScalingList:
+  - 0
+  - 0.5
+  - 0.5
+  - 0.6
+  - 0.55
+  - 0.5
+  - 0.5
+  damageScaling: 0.1
+  weightScaling: 0.12
+  stageHealthScaling: 0
   stageDamageScaling: 0
   stageWeightScaling: 0
   stageXpScaling: 0.1
   mainCamera: {fileID: 0}
   uiCamera: {fileID: 0}
   comboManager: {fileID: 0}
-  bossPrefab: {fileID: 0}
+  bossPrefab: {fileID: 1423453834646843868, guid: 9514c5350b7eeed47813dea2044f8014, type: 3}
   bossDirection360: 0
-  bossDistance: 0
+  bossDistance: 1
 --- !u!61 &1552293673573798405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -347,7 +363,7 @@ MonoBehaviour:
   - {fileID: 1423453834646843868, guid: 25f3ff65bfdfc9a469ce25ee755bf618, type: 3}
   isEliteSpawner: 0
   alwaysSpawn: 0
-  isCircleSpawn: 0
+  isCircleSpawn: 1
   isClumpSpawn: 0
   diameter: 16
   initialDelay: 90
@@ -355,16 +371,17 @@ MonoBehaviour:
   spawnRate: 8
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
-  spawnRateLimit_G2: 0
+  spawnRateLimit_G2: 2
   spawnRateLimit_G3: 8
   spawnRateLimit_G4: 12
-  spawnRateLimit_G5: 16
-  spawnRateLimit_G6: 1
+  spawnRateLimit_G5: 14
+  spawnRateLimit_G6: 16
   scaleRateSeconds: 15
   spawnRateScaling: 4
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &4508033489353577495
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,14 +427,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
+  - {fileID: 1423453834646843868, guid: 0f9e167d8877c4b4b8fdf9efac587042, type: 3}
+  - {fileID: 1423453834646843868, guid: c190cf3259ce79b43bf33681c2a098c4, type: 3}
   - {fileID: 1423453834646843868, guid: b989ab29394a4ef48ab375f8c355d11c, type: 3}
   - {fileID: 1423453834646843868, guid: 0f9e167d8877c4b4b8fdf9efac587042, type: 3}
-  isEliteSpawner: 0
-  alwaysSpawn: 0
+  - {fileID: 1423453834646843868, guid: c190cf3259ce79b43bf33681c2a098c4, type: 3}
+  - {fileID: 1423453834646843868, guid: b989ab29394a4ef48ab375f8c355d11c, type: 3}
+  isEliteSpawner: 1
+  alwaysSpawn: 1
   isCircleSpawn: 0
   isClumpSpawn: 0
   diameter: 16
-  initialDelay: 60
+  initialDelay: 0
   spawnTimer: 60
   spawnRate: 1
   spawnRateLimit_G0: 1
@@ -425,13 +446,14 @@ MonoBehaviour:
   spawnRateLimit_G2: 1
   spawnRateLimit_G3: 1
   spawnRateLimit_G4: 1
-  spawnRateLimit_G5: 2
+  spawnRateLimit_G5: 1
   spawnRateLimit_G6: 1
   scaleRateSeconds: 60
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &6869813565750737804
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,8 +501,9 @@ MonoBehaviour:
   enemies:
   - {fileID: 1423453834646843868, guid: 7252c597ddc35604caad5bf2eabb00eb, type: 3}
   - {fileID: 1423453834646843868, guid: 19057dc3c55ed664d822ca9bff185af3, type: 3}
+  - {fileID: 1423453834646843868, guid: 19057dc3c55ed664d822ca9bff185af3, type: 3}
   isEliteSpawner: 0
-  alwaysSpawn: 0
+  alwaysSpawn: 1
   isCircleSpawn: 0
   isClumpSpawn: 0
   diameter: 16
@@ -490,15 +513,16 @@ MonoBehaviour:
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 1
   spawnRateLimit_G2: 2
-  spawnRateLimit_G3: 2
-  spawnRateLimit_G4: 3
+  spawnRateLimit_G3: 3
+  spawnRateLimit_G4: 4
   spawnRateLimit_G5: 5
-  spawnRateLimit_G6: 1
+  spawnRateLimit_G6: 5
   scaleRateSeconds: 15
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &6884074055211575582
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,10 +568,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1423453834646843868, guid: d29f1d50c3c43424fa3b83d83386fb54, type: 3}
+  - {fileID: 1423453834646843868, guid: e13af86631cb82041a6abdf778674844, type: 3}
   isEliteSpawner: 0
   alwaysSpawn: 0
-  isCircleSpawn: 0
+  isCircleSpawn: 1
   isClumpSpawn: 0
   diameter: 15
   initialDelay: 0
@@ -556,15 +580,16 @@ MonoBehaviour:
   spawnRateLimit_G0: 6
   spawnRateLimit_G1: 10
   spawnRateLimit_G2: 12
-  spawnRateLimit_G3: 6
-  spawnRateLimit_G4: 4
-  spawnRateLimit_G5: 0
-  spawnRateLimit_G6: 1
+  spawnRateLimit_G3: 14
+  spawnRateLimit_G4: 14
+  spawnRateLimit_G5: 16
+  spawnRateLimit_G6: 16
   scaleRateSeconds: 12
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &7402554872140478952
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,17 +645,18 @@ MonoBehaviour:
   spawnTimer: 4
   spawnRate: 4
   spawnRateLimit_G0: 8
-  spawnRateLimit_G1: 10
-  spawnRateLimit_G2: 12
-  spawnRateLimit_G3: 14
-  spawnRateLimit_G4: 10
-  spawnRateLimit_G5: 6
-  spawnRateLimit_G6: 1
+  spawnRateLimit_G1: 12
+  spawnRateLimit_G2: 14
+  spawnRateLimit_G3: 16
+  spawnRateLimit_G4: 16
+  spawnRateLimit_G5: 16
+  spawnRateLimit_G6: 16
   scaleRateSeconds: 20
   spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &7710190321212061916
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +668,7 @@ GameObject:
   - component: {fileID: 5105516774206070542}
   - component: {fileID: 5943591504085994352}
   m_Layer: 0
-  m_Name: ConstantSpawner_Circle_Rare_1
+  m_Name: ConstantSpawner_Clump_Rare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,23 +706,24 @@ MonoBehaviour:
   isEliteSpawner: 0
   alwaysSpawn: 0
   isCircleSpawn: 0
-  isClumpSpawn: 0
+  isClumpSpawn: 1
   diameter: 18
   initialDelay: 150
-  spawnTimer: 25
-  spawnRate: 4
+  spawnTimer: 20
+  spawnRate: 2
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 0
-  spawnRateLimit_G2: 0
-  spawnRateLimit_G3: 0
+  spawnRateLimit_G2: 2
+  spawnRateLimit_G3: 2
   spawnRateLimit_G4: 6
-  spawnRateLimit_G5: 12
-  spawnRateLimit_G6: 1
-  scaleRateSeconds: 25
-  spawnRateScaling: 3
+  spawnRateLimit_G5: 8
+  spawnRateLimit_G6: 12
+  scaleRateSeconds: 20
+  spawnRateScaling: 2
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []
 --- !u!1 &8760006987686430828
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +776,7 @@ MonoBehaviour:
   isClumpSpawn: 0
   diameter: 15
   initialDelay: 0
-  spawnTimer: 12
+  spawnTimer: 10
   spawnRate: 0
   spawnRateLimit_G0: 0
   spawnRateLimit_G1: 1
@@ -757,9 +784,10 @@ MonoBehaviour:
   spawnRateLimit_G3: 3
   spawnRateLimit_G4: 4
   spawnRateLimit_G5: 5
-  spawnRateLimit_G6: 1
+  spawnRateLimit_G6: 5
   scaleRateSeconds: 12
   spawnRateScaling: 1
   elapsedTime: 0
   basicSpawner: {fileID: 3590323111623112659}
   healthScalingList: []
+  xpScalingList: []

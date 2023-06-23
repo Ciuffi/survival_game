@@ -92,7 +92,7 @@ public static class PlayerCharactersLibrary
            characterSprite: Resources.Load<Sprite>("PlayerCharacters/Sprites/v2/player_idle_2"),
            characterAnimationController: Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/v2/WitchPreview"),
            rarity: Rarity.Epic,
-           price: 1500,
+           price: 1600,
            isLocked: true,
            maxHealth: 30,
            health: 30,
@@ -115,7 +115,7 @@ public static class PlayerCharactersLibrary
             characterSprite: Resources.Load<Sprite>("PlayerCharacters/Sprites/robot/front"),
             characterAnimationController: Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/robot/robot_characterPreview"),
             rarity: Rarity.Legendary,
-            price: 2500,
+            price: 2000,
             isLocked: true,
             maxHealth: 50,
             health: 50,
@@ -123,7 +123,9 @@ public static class PlayerCharactersLibrary
             speed: 0.7f,
             pickupRange: 1.25f,
             is360: true,
-            castTimeMultiplier: 0.5f
+            castTimeMultiplier: 0.25f,
+            spreadMultiplier: -0.25f,
+            damageMultiplier: 0.15f
         );
         AI.name = AIStats.name;
         AI.AddComponent<StatComponent>().stat = AIStats;

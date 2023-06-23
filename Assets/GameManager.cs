@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
         GameTime.instance.resetTime();
         GameTime.instance.Unpause();
         Time.timeScale = 1;
-        playerInv.DecrementWeaponDurability();
         playerData.SaveData();  // Save data before changing scene
         SceneManager.LoadScene(0);
 
@@ -69,8 +68,6 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        playerInv.DecrementWeaponDurability();
-
         DeathTransition.Instance.StartTransition();
         int currentStageID = SceneManager.GetActiveScene().buildIndex;
         playerData.UnlockNextStage(currentStageID);
@@ -78,8 +75,6 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        playerInv.DecrementWeaponDurability();
-
         DeathTransition.Instance.StartTransition();
     }
 

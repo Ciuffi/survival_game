@@ -76,6 +76,9 @@ public class StartRun : MonoBehaviour
             PlayerPrefs.SetString("SelectedWeapon", InvManager.GetSelectedWeapon());
             PlayerPrefs.SetInt("SelectedWeaponRarity", InvManager.GetSelectedWeaponRarity());
 
+            PlayerInventory inventory = FindObjectOfType<PlayerInventory>();
+            inventory.DecrementWeaponDurability();
+
             // Load the next scene
             if (chosenStage == 1)
             {

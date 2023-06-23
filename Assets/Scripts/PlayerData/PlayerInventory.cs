@@ -52,7 +52,7 @@ public class PlayerInventory : MonoBehaviour
         //AddWeapon(new Weapon("Suction Beam", 0, false, 1));
 
         AddWeapon(new Weapon("Classic Rifle", 0, false, 1));
-        //AddWeapon(new Weapon("Plasma Pistol", 0, false, 1));
+        //AddWeapon(new Weapon("Plasma Pistol", 4, false, 1));
         //AddWeapon(new Weapon("Fire Starter", 0, false, 1));
         //AddWeapon(new Weapon("Consecrate", 0, false, 1));
         //AddWeapon(new Weapon("Earth Shock", 0, false, 1));
@@ -63,7 +63,7 @@ public class PlayerInventory : MonoBehaviour
         //AddWeapon(new Weapon("Revolver", 0, false, 1));
         //AddWeapon(new Weapon("Sniper Rifle", 0, false, 1));
         //AddWeapon(new Weapon("Gatling Gun", 0, false, 1));
-        //AddWeapon(new Weapon("Suction Cannon", 0, false, 1));
+        //AddWeapon(new Weapon("Gravity Cannon", 0, false, 1));
         //AddWeapon(new Weapon("Double Barrel", 0, false, 1));
         //AddWeapon(new Weapon("Pump-Action", 0, false, 1));
         //AddWeapon(new Weapon("Impact Nova", 0, false, 1));
@@ -166,9 +166,9 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public bool WeaponExists(string weaponName, int weaponRarity)
+    public bool WeaponExists(string weaponName)
     {
-        return weaponInventory.Exists(w => w.name == weaponName && w.rarity == weaponRarity);
+        return weaponInventory.Exists(w => w.name == weaponName);
     }
 
     public void DecrementWeaponDurability()

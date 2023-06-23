@@ -15,8 +15,6 @@ public class EndGameText : MonoBehaviour
     List<int> finalDmg;
 
     public float countUpSpeed = 0f;
-    public int incrementValueFast = 9;
-    public int incrementValueSlow = 3;
     public float displaySpeed = 0.5f;
     public float defaultScaleDuration = 0.22f;
 
@@ -24,6 +22,15 @@ public class EndGameText : MonoBehaviour
     public float scaleAmount = 0.15f;
 
     private Color totalDmgColor, wpnDmgColor, runStatsColor, timeSurvivedColor, goldGainedColor, enemiesKilledColor;
+    private bool skipToEnd = false; // Added to allow skip
+
+    private void Update() // Listen for a screen tap
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            skipToEnd = true;
+        }
+    }
 
     public void Start()
     {
@@ -64,13 +71,22 @@ public class EndGameText : MonoBehaviour
     private IEnumerator StartCounting(List<int> finalDmg, string timeSurvived, int goldGained, int enemiesKilled, WeaponStats weaponStats)
     {
         yield return StartCoroutine(UpdateTotalDamage(finalDmg));
-        yield return new WaitForSeconds(displaySpeed *2);
+        yield return new WaitForSeconds(displaySpeed);
         yield return StartCoroutine(UpdateWeaponDamage(finalDmg, weaponStats));
-        yield return new WaitForSeconds(displaySpeed);
+        if (!skipToEnd)
+        {
+            yield return new WaitForSeconds(displaySpeed);
+        }
         yield return StartCoroutine(UpdateTimeSurvived(timeSurvived));
-        yield return new WaitForSeconds(displaySpeed);
+        if (!skipToEnd)
+        {
+            yield return new WaitForSeconds(displaySpeed);
+        }
         yield return StartCoroutine(UpdateGoldGained(goldGained));
-        yield return new WaitForSeconds(displaySpeed);
+        if (!skipToEnd)
+        {
+            yield return new WaitForSeconds(displaySpeed);
+        }
         yield return StartCoroutine(UpdateEnemiesKilled(enemiesKilled));
     }
 
@@ -78,6 +94,7 @@ public class EndGameText : MonoBehaviour
 
     private IEnumerator UpdateTotalDamage(List<int> finalDmg)
     {
+
         int totalDmg = 0;
         int currentTotalDmg = 0;
 
@@ -86,38 +103,37 @@ public class EndGameText : MonoBehaviour
             totalDmg += damage;
         }
 
-        // Remove the if (totalDmg == 0) condition
-        ScaleTextEffect(totalDamage, scaleAmount * 1.1f, defaultScaleDuration);
-        totalDamage.color = totalDmgColor;
+        float targetTime = 0.75f; // Set your target time here
 
+        // Apply multiplier based on thresholds
         if (totalDmg > 499999)
         {
-            incrementValueFast *= 15;
+            targetTime *= 1.5f; // Adjust this value as needed
         }
         else if (totalDmg > 99999)
         {
-            incrementValueFast *= 10;
-        }
-        else if (totalDmg > 49999)
-        {
-            incrementValueFast *= 8;
+            targetTime *= 1.3f; // Adjust this value as needed
         }
         else if (totalDmg > 9999)
         {
-            incrementValueFast *= 5;
+            targetTime *= 1.1f; // Adjust this value as needed
         }
-        else if (totalDmg > 999)
-        {
-            incrementValueFast *= 3;
-        }
-        else
-        {
-            incrementValueFast *= 20;
-        }
+
+        int incrementValue = (int)(totalDmg / (targetTime / countUpSpeed));
+
+        ScaleTextEffect(totalDamage, scaleAmount * 1.1f, defaultScaleDuration);
+        totalDamage.color = totalDmgColor;
 
         while (currentTotalDmg < totalDmg)
         {
-            currentTotalDmg += incrementValueFast;
+            if (skipToEnd)
+            {
+                currentTotalDmg = totalDmg;
+                totalDamage.text = "FINAL SCORE:\n" + currentTotalDmg;
+                break;
+            }
+
+            currentTotalDmg += incrementValue;
             if (currentTotalDmg > totalDmg)
             {
                 currentTotalDmg = totalDmg;
@@ -155,35 +171,39 @@ public class EndGameText : MonoBehaviour
 
             wpnDamage.color = wpnDmgColor;
 
+            int currentDmg = 0;
+            float targetTime = 0.3f; // Set your target time here
+
+            // Apply multiplier based on thresholds
             if (finalDmg > 499999)
             {
-                incrementValueFast *= 15;
+                targetTime *= 1.5f; // Adjust this value as needed
             }
             else if (finalDmg > 99999)
             {
-                incrementValueFast *= 10;
-            }
-            else if (finalDmg > 49999)
-            {
-                incrementValueFast *= 8;
+                targetTime *= 1.3f; // Adjust this value as needed
             }
             else if (finalDmg > 9999)
             {
-                incrementValueFast *= 5;
-            }
-            else if (finalDmg > 999)
-            {
-                incrementValueFast *= 3;
-            }
-            else
-            {
-                incrementValueFast *= 20;
+                targetTime *= 1.1f; // Adjust this value as needed
             }
 
-            int currentDmg = 0;
+            int incrementValue = (int)(finalDmg / (targetTime / countUpSpeed));
+
+            ScaleTextEffect(wpnDamage, scaleAmount * 1.1f, defaultScaleDuration);
+            wpnDamage.color = wpnDmgColor;
+
             while (currentDmg < finalDmg)
             {
-                currentDmg += incrementValueFast;
+                if (skipToEnd)
+                {
+                    currentDmg = finalDmg;
+                    string finalLine = weaponName + " - " + currentDmg + "\n";
+                    wpnDamage.text = GetWeaponDamageText(weaponIndex, finalLine);
+                    break;
+                }
+
+                currentDmg += incrementValue;
                 if (currentDmg > finalDmg)
                 {
                     currentDmg = finalDmg;
@@ -230,19 +250,28 @@ public class EndGameText : MonoBehaviour
             ScaleTextEffect(goldGainedText, scaleAmount, defaultScaleDuration);
 
             int currentGold = 0;
+            float targetTime = 0.25f; // Set your target time here
+            int incrementValue = (int)(goldGained / (targetTime / countUpSpeed));
 
             while (currentGold < goldGained)
             {
-                currentGold += incrementValueSlow;
+                if (skipToEnd)
+                {
+                    currentGold = goldGained;
+                    goldGainedText.text = "Blood Money: \n" + currentGold;
+                    goldGainedText.color = goldGainedColor;
+                    break;
+                }
+
+                currentGold += incrementValue;
                 if (currentGold > goldGained)
                 {
                     currentGold = goldGained;
                 }
                 goldGainedText.text = "Blood Money: \n" + currentGold;
                 goldGainedText.color = goldGainedColor;
-
                 yield return new WaitForSeconds(countUpSpeed);
-            }
+            }    
         }
     }
 
@@ -259,27 +288,27 @@ public class EndGameText : MonoBehaviour
             //float countDuration = (enemiesKilled / incrementValueSlow) * 0.02f;
             ScaleTextEffect(enemiesKilledText, scaleAmount, defaultScaleDuration);
 
-            if (enemiesKilled > 199)
-            {
-                incrementValueSlow *= 2;
-            }
-            else if (enemiesKilled > 999)
-            {
-                incrementValueSlow *= 5;
-            }
-
             int currentKills = 0;
+            float targetTime = 0.25f; // Set your target time here
+            int incrementValue = (int)(enemiesKilled / (targetTime / countUpSpeed));
 
             while (currentKills < enemiesKilled)
             {
-                currentKills += incrementValueSlow;
+                if (skipToEnd)
+                {
+                    currentKills = enemiesKilled;
+                    enemiesKilledText.text = "Murders: \n" + currentKills;
+                    enemiesKilledText.color = enemiesKilledColor;
+                    break;
+                }
+
+                currentKills += incrementValue;
                 if (currentKills > enemiesKilled)
                 {
                     currentKills = enemiesKilled;
                 }
                 enemiesKilledText.text = "Murders: \n" + currentKills;
                 enemiesKilledText.color = enemiesKilledColor;
-
                 yield return new WaitForSeconds(countUpSpeed);
             }
         }

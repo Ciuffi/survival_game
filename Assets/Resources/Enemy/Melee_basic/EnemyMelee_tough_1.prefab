@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1423453834646843868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.42, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1514911375676208822}
@@ -61,7 +61,7 @@ MonoBehaviour:
   damage: 1
   health: 60
   maxHealth: 0
-  xpAmount: 20
+  xpAmount: 22
   weight: 7
   stopDistanceMin: 0
   stopDistanceMax: 0
@@ -161,7 +161,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000333488, y: -0.034315288}
+  m_Offset: {x: -0.0022039004, y: -0.03543268}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -172,7 +172,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.97753155, y: 1.148465}
+  m_Size: {x: 0.2174797, y: 0.2743241}
   m_EdgeRadius: 0
 --- !u!114 &7904818385536196546
 MonoBehaviour:
@@ -272,7 +272,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008236527, y: 0.032721937}
+  m_Offset: {x: -0.0028485656, y: -0.0032458901}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -283,7 +283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3322253, y: 1.986195}
+  m_Size: {x: 0.45019716, y: 0.50508785}
   m_EdgeRadius: 0
 --- !u!1 &2331833043301358605
 GameObject:
@@ -313,8 +313,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2331833043301358605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.96, z: -0.0059312293}
-  m_LocalScale: {x: 0.28402358, y: 1.2154348, z: 0}
+  m_LocalPosition: {x: -0, y: -0.293, z: 0}
+  m_LocalScale: {x: 0.10956232, y: 0.4382493, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
@@ -450,7 +450,7 @@ Transform:
   m_GameObject: {fileID: 6531945945894358812}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: -0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: -0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1423453834646843856}
