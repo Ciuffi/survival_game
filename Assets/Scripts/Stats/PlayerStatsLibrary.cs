@@ -1161,7 +1161,7 @@ public static class PlayerStatsLibrary
                critDmg: 0.5f,
                name: "Glass 2",
                description: "Crit Chance +25% & Crit Damage +50%, take +5 more Damage",
-               icon: Resources.Load<Sprite>("UI_Icons/Relics/Relics/Glass"),
+               icon: Resources.Load<Sprite>("UI_Icons/Relics/Glass"),
                rarity: Rarity.Legendary
            )
        );
@@ -1177,7 +1177,7 @@ public static class PlayerStatsLibrary
                 health: 10,
                 name: "First Aid 1",
                 description: "Recover 10 HP",
-                icon: Resources.Load<Sprite>("UI_Icons/FirstAid"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/FirstAid"),
                 rarity: Rarity.Common
             )
         );
@@ -1189,7 +1189,7 @@ public static class PlayerStatsLibrary
                 pickupRange: 0.5f,
                 name: "Magnet 1",
                 description: "Pickup Range +0.5",
-                icon: Resources.Load<Sprite>("UI_Icons/Magnet"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Magnet"),
                 rarity: Rarity.Common
             )
         );
@@ -1200,7 +1200,7 @@ public static class PlayerStatsLibrary
                 speedMultiplier: 0.10f,
                 name: "Boost 1",
                 description: "Move speed +10%",
-                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Boost"),
                 rarity: Rarity.Common
             )
         );
@@ -1211,7 +1211,7 @@ public static class PlayerStatsLibrary
                 health: 15,
                 name: "First Aid 2",
                 description: "Recover 15 HP",
-                icon: Resources.Load<Sprite>("UI_Icons/FirstAid"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/FirstAid"),
                 rarity: Rarity.Rare
             )
         );
@@ -1222,7 +1222,7 @@ public static class PlayerStatsLibrary
                 pickupRange: 1f,
                 name: "Magnet 2",
                 description: "Increase pickup range",
-                icon: Resources.Load<Sprite>("UI_Icons/Magnet"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Magnet"),
                 rarity: Rarity.Rare
             )
         );
@@ -1233,7 +1233,7 @@ public static class PlayerStatsLibrary
                 defense: 0.25f,
                 name: "Protection 1",
                 description: "Reduce incoming Damage by 0.25",
-                icon: Resources.Load<Sprite>("UI_Icons/Protection"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Protection"),
                 rarity: Rarity.Rare
             )
         );
@@ -1244,32 +1244,11 @@ public static class PlayerStatsLibrary
                 castTimeMultiplier: -0.08f,
                 name: "Adrenaline 1",
                 description: "All Cooldowns -8%",
-                icon: Resources.Load<Sprite>("UI_Icons/Adrenaline"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Adrenaline"),
                 rarity: Rarity.Rare
             )
         );
 
-        //melee Size
-        AddStat(
-            new PlayerCharacterStats(
-                meleeSizeMultiplier: 0.12f,
-                name: "Mass 1",
-                description: "Melee, Nova size +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/Mass"),
-                rarity: Rarity.Rare
-            )
-        );
-
-        //proj size
-        AddStat(
-            new PlayerCharacterStats(
-                projectileSizeMultiplier: 0.15f,
-                name: "Size 1",
-                description: "Auto, SemiAuto, Shotgun, Explosive size +15%",
-                icon: Resources.Load<Sprite>("UI_Icons/Size"),
-                rarity: Rarity.Rare
-            )
-        );
 
         //move Speed
         AddStat(
@@ -1277,7 +1256,7 @@ public static class PlayerStatsLibrary
                 speedMultiplier: 0.20f,
                 name: "Boost 2",
                 description: "Move speed +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Boost"),
                 rarity: Rarity.Rare
             )
         );
@@ -1289,7 +1268,7 @@ public static class PlayerStatsLibrary
                 multicastChance: 0.12f,
                 name: "Multicast 1",
                 description: "All Multicast chance +12%",
-                icon: Resources.Load<Sprite>("UI_Icons/Multicast"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Multi"),
                 rarity: Rarity.Rare
             )
         );
@@ -1302,7 +1281,7 @@ public static class PlayerStatsLibrary
                 health: 30,
                 name: "First Aid 3",
                 description: "Recover 30 HP",
-                icon: Resources.Load<Sprite>("UI_Icons/FirstAid"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/FirstAid"),
                 rarity: Rarity.Epic
             )
         );
@@ -1314,7 +1293,7 @@ public static class PlayerStatsLibrary
                 defense: 0.4f,
                 name: "Protection 2",
                 description: "Reduce incoming Damage by 0.4",
-                icon: Resources.Load<Sprite>("UI_Icons/Protection"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Protection"),
                 rarity: Rarity.Epic
             )
         );
@@ -1325,29 +1304,7 @@ public static class PlayerStatsLibrary
                 castTimeMultiplier: -0.15f,
                 name: "Adrenaline 2",
                 description: "All Cooldowns -15%",
-                icon: Resources.Load<Sprite>("UI_Icons/Adrenaline"),
-                rarity: Rarity.Epic
-            )
-        );
-
-        //melee Size
-        AddStat(
-            new PlayerCharacterStats(
-                meleeSizeMultiplier: 0.20f,
-                name: "Mass 2",
-                description: "Melee, Nova size +20%",
-                icon: Resources.Load<Sprite>("UI_Icons/Mass"),
-                rarity: Rarity.Epic
-            )
-        );
-
-        //proj size
-        AddStat(
-            new PlayerCharacterStats(
-                projectileSizeMultiplier: 0.25f,
-                name: "Size 2",
-                description: "Auto, SemiAuto, Shotgun, Explosive size +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/Size"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Adrenaline"),
                 rarity: Rarity.Epic
             )
         );
@@ -1359,7 +1316,7 @@ public static class PlayerStatsLibrary
                 speedMultiplier: 0.33f,
                 name: "Boost 3",
                 description: "Move speed +33%",
-                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Boost"),
                 rarity: Rarity.Epic
             )
         );
@@ -1370,7 +1327,7 @@ public static class PlayerStatsLibrary
                 multicastChance: 0.25f,
                 name: "Multicast 2",
                 description: "All Multicast chance +25%",
-                icon: Resources.Load<Sprite>("UI_Icons/Multicast"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Multi"),
                 rarity: Rarity.Epic
             )
         );
@@ -1382,7 +1339,7 @@ public static class PlayerStatsLibrary
                 health: 50,
                 name: "First Aid 4",
                 description: "Recover 50 HP",
-                icon: Resources.Load<Sprite>("UI_Icons/FirstAid"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/FirstAid"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1391,10 +1348,10 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 critChance: 0.10f,
-                critDmg: 0.5f,
+                critDmg: 0.25f,
                 name: "Eagle Eye 4",
-                description: "Crit Chance +10%, Crit Damage +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/EagleEye"),
+                description: "Crit Chance +10%, Crit Damage +25%",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Eye"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1405,7 +1362,7 @@ public static class PlayerStatsLibrary
                 castTimeMultiplier: -0.25f,
                 name: "Adrenaline 3",
                 description: "All Cooldowns -25%",
-                icon: Resources.Load<Sprite>("UI_Icons/Adrenaline"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Adrenaline"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1416,7 +1373,7 @@ public static class PlayerStatsLibrary
                 speedMultiplier: 0.5f,
                 name: "Boost 4",
                 description: "Move speed +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/Boost"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Boost"),
                 rarity: Rarity.Legendary
             )
         );
@@ -1427,7 +1384,7 @@ public static class PlayerStatsLibrary
                 multicastChance: 0.5f,
                 name: "Multicast 3",
                 description: "All Multicast chance +50%",
-                icon: Resources.Load<Sprite>("UI_Icons/Multicast"),
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Multi"),
                 rarity: Rarity.Legendary
             )
         );
