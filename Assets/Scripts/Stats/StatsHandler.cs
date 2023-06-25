@@ -67,7 +67,8 @@ public class StatsHandler : MonoBehaviour
                 {
                     animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/v2/Witch");
                     afterimageAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/v2/Witch");
-                } else if (storedName == "AI")
+                }
+                else if (storedName == "AI")
                 {
                     animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/robot/robot_character");
                     afterimageAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/robot/robot_character");
@@ -200,7 +201,7 @@ public class StatsHandler : MonoBehaviour
         float currentHealth = stats.health;
         stats = new PlayerCharacterStats(baseStats);
         stats.health = currentHealth;
-        
+
 
         if (fullReset)
         {
@@ -247,12 +248,14 @@ public class StatsHandler : MonoBehaviour
         {
             rerollHandler.AddReroll(stats.rerollTimes);
             stats.rerollTimes = 0;
+            baseStats.rerollTimes = 0;
         }
 
         if (stats.swapTimes != 0)
         {
             rerollHandler.AddSwap(stats.swapTimes);
             stats.swapTimes = 0;
+            baseStats.swapTimes = 0;
         }
 
         GetComponent<PlayerMovement>().SetAnimSpeed(stats.speed * (stats.speedMultiplier + 1), 1f); //change second value to be the default

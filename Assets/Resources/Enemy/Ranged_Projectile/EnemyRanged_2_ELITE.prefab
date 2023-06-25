@@ -111,7 +111,7 @@ MonoBehaviour:
   projectileSpeed: 1.75
   projectileRange: 10
   projectileDamage: 3
-  shootRecovery: 1.5
+  shootRecovery: 2
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 5189165830211085352}
   isDeathrattle: 1

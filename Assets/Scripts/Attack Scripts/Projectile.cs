@@ -132,7 +132,8 @@ public class Projectile : MonoBehaviour
             {
                 damage = attack.stats.damage * splitStatPercentage;
 
-            } else //we pass damage in Attack.cs to Melee for combo scaling
+            }
+            else //we pass damage in Attack.cs to Melee for combo scaling
             {
                 damage *= splitStatPercentage;
             }
@@ -143,7 +144,8 @@ public class Projectile : MonoBehaviour
             wpnMeleeSizeMultiplier = attack.stats.meleeSize * splitStatPercentage;
             active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
             hoverTimer = hoverTimer * attack.stats.activeMultiplier + attack.stats.activeDuration;
-        } else
+        }
+        else
         {
             pierce = attack.stats.pierce;
             if (!isMelee)
@@ -188,7 +190,7 @@ public class Projectile : MonoBehaviour
         chainRange = attack.stats.chainRange;
         chainSpeed = attack.stats.chainSpeed;
         if (isChain) { chainPrefab = Resources.Load<GameObject>("Projectiles/ChainProjectile"); }
-      
+
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();
         hitFirstEnemy = false;
@@ -198,7 +200,7 @@ public class Projectile : MonoBehaviour
         {
             damage =
                 attack.stats.thrownDamage;
-            pierce = 5 + attack.stats.pierce;
+            pierce = 10 + attack.stats.pierce;
             projectileRange = 6 + (attack.stats.range / 2);
             knockback = 0.25f + (attack.stats.knockback / 2);
         }
@@ -494,7 +496,7 @@ public class Projectile : MonoBehaviour
         }
 
         // Check the timers for each object in the list
-        if (hitEnemies.Count > 0 )
+        if (hitEnemies.Count > 0)
         {
             List<GameObject> hitEnemiesCopy = hitEnemies.ToList();
             foreach (GameObject enemy in hitEnemiesCopy)
@@ -691,7 +693,8 @@ public class Projectile : MonoBehaviour
                         {
                             newProjectile.transform.localScale *= 0.4f;
                         }
-                        else {
+                        else
+                        {
                             newProjectile.transform.localScale *= splitStatPercentage;
                         }
 

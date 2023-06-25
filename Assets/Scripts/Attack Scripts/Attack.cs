@@ -153,6 +153,7 @@ public class Attack : MonoBehaviour, Upgrade
     {
         stats.damage = stats.damage < 0 ? 0 : stats.damage;
         stats.castTime = stats.castTime < 0 ? 0 : stats.castTime;
+        stats.spread = stats.spread < 0 ? 0 : stats.spread;
         stats.range = stats.range < 1 ? 1 : stats.range;
         stats.shotsPerAttack = stats.shotsPerAttack < 0 ? 0 : stats.shotsPerAttack;
         stats.shotsPerAttackMelee = stats.shotsPerAttackMelee < 0 ? 0 : stats.shotsPerAttackMelee;

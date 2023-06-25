@@ -1317,8 +1317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460fef944a336fc4589decc4b3f8958f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldToAdd: 500
-  cooldown: 43200
+  goldToAdd: 200
+  cooldown: 900
   cooldownText: {fileID: 0}
   particle: {fileID: 4053501027209517259, guid: f2211be0160c53b439c2ea908760c02c, type: 3}
 --- !u!1 &300412346
@@ -5245,17 +5245,17 @@ MonoBehaviour:
   - rarity: 4
     cost: 250
     dropChances:
+    - 0
+    - 85
     - 15
-    - 75
-    - 10
     - 0
   - rarity: 6
     cost: 500
     dropChances:
     - 0
-    - 10
-    - 80
-    - 10
+    - 0
+    - 85
+    - 15
 --- !u!1 &1085263397
 GameObject:
   m_ObjectHideFlags: 0

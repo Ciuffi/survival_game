@@ -558,7 +558,12 @@ public class AttackStats : Upgrade
         this.isDoT |= playerStats.isDoT;
         this.dotDamage += playerStats.dotDamage;
         this.dotDuration += playerStats.dotDuration;
-        this.dotTickRate = Mathf.Min(this.dotTickRate, playerStats.dotTickRate);
+        if (this.dotTickRate <= 0)
+            this.dotTickRate = playerStats.dotTickRate;
+        else if (playerStats.dotTickRate > 0)
+        {
+            this.dotTickRate = Mathf.Min(this.dotTickRate, playerStats.dotTickRate);
+        }
 
         this.isSplit |= playerStats.isSplit;
         this.splitAmount += playerStats.splitAmount;
@@ -567,7 +572,12 @@ public class AttackStats : Upgrade
         this.isChain |= playerStats.isChain;
         this.chainTimes += playerStats.chainTimes;
         this.chainRange += playerStats.chainRange;
-        this.chainStatDecayPercent = Mathf.Min(this.chainStatDecayPercent, playerStats.chainStatDecayPercent);
+        if (this.chainStatDecayPercent <= 0)
+            this.chainStatDecayPercent = playerStats.chainStatDecayPercent;
+        else if (playerStats.chainStatDecayPercent > 0)
+        {
+            this.dotTickRate = Mathf.Min(this.dotTickRate, playerStats.dotTickRate);
+        }
         this.chainSpeed += playerStats.chainSpeed;
 
         this.isMagnet |= playerStats.isMagnet;
@@ -575,7 +585,12 @@ public class AttackStats : Upgrade
         this.magnetDuration += playerStats.magnetDuration;
 
         this.isSlow |= playerStats.isSlow;
-        this.slowPercentage = Mathf.Min(this.slowPercentage, playerStats.slowPercentage);
+        if (this.slowPercentage <= 0)
+            this.slowPercentage = playerStats.slowPercentage;
+        else if (playerStats.slowPercentage > 0)
+        {
+            this.slowPercentage = Mathf.Min(this.slowPercentage, playerStats.slowPercentage);
+        }
         this.slowDuration += playerStats.slowDuration;
 
         this.isStun |= playerStats.isStun;

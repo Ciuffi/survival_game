@@ -154,7 +154,7 @@ public static class AttackLibrary
             )
             .SetProperties(
                 attackType: AttackTypes.Melee,
-                weaponSprite: new List<Sprite> { 
+                weaponSprite: new List<Sprite> {
                     Resources.Load<Sprite>("WeaponSprites/Final/nova_consecrate_1"),
                     Resources.Load<Sprite>("WeaponSprites/Final/nova_consecrate_2"),
                     Resources.Load<Sprite>("WeaponSprites/Final/nova_consecrate_3"),
@@ -436,7 +436,7 @@ public static class AttackLibrary
                     shakeRotation: 0.05f,
                     thrownDamage: 7,
                     thrownSpeed: 0.6f
-                   
+
                 )
             )
             .SetProperties(
@@ -617,7 +617,7 @@ public static class AttackLibrary
                     Resources.Load<Sprite>("WeaponSprites/Display/scythe_2"),
                     Resources.Load<Sprite>("WeaponSprites/Display/scythe_3"),
                     Resources.Load<Sprite>("WeaponSprites/Display/scythe_4")
-                }, 
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
             )
             .SetRarityUpgrades(DrainScytheRarity)
@@ -766,7 +766,7 @@ public static class AttackLibrary
                     Resources.Load<Sprite>("WeaponSprites/Display/gauntlets_2"),
                     Resources.Load<Sprite>("WeaponSprites/Display/gauntlets_3"),
                     Resources.Load<Sprite>("WeaponSprites/Display/gauntlets_4")
-                }, 
+                },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown")
 
 
@@ -964,7 +964,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Implode 2"),
             AttackStatsLibrary.GetStat("Hacker 2"),
             AttackStatsLibrary.GetStat("AFK 2"),
-           
+
             AttackStatsLibrary.GetStat("Multicast 1"),
             AttackStatsLibrary.GetStat("One More 1"),
             AttackStatsLibrary.GetStat("Big Weapon 1"),
@@ -1086,10 +1086,10 @@ public static class AttackLibrary
         // GatlingGun
         List<AttackStats> GatlingGunRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, shotsPerAttack: 20),
+            new AttackStats(rarity: Rarity.Rare, damage: 1, shotsPerAttack: 10),
             new AttackStats(rarity: Rarity.Rare, projectileSizeMultiplier: 0.1f, speedMultiplier: 0.12f),
 
-            new AttackStats(rarity: Rarity.Epic, damage: 1),
+            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 20),
             new AttackStats(rarity: Rarity.Epic, rangeMultiplier: 0.3f, aimRangeAdditive: 1f, coneAngle: 25f),
 
             new AttackStats(rarity: Rarity.Legendary, spreadMultiplier: -0.25f, sprayMultiplier: 0.2f),
@@ -1176,7 +1176,7 @@ public static class AttackLibrary
                     aimRange: 2f,
                     is360: false,
                     coneAngle: 45f,
-                    damage: 2f,
+                    damage: 1.5f,
                     spread: 0.016f,
                     spray: 0.3f,
                     castTime: 2.4f,
@@ -1191,7 +1191,7 @@ public static class AttackLibrary
                     shakeTime: 0.01f,
                     shakeStrength: 0.01f,
                     shakeRotation: 0.01f,
-                    thrownDamage: 16f,
+                    thrownDamage: 15f,
                     thrownSpeed: 0.2f
                 )
             )
@@ -1427,7 +1427,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("AFK 3"),
             AttackStatsLibrary.GetStat("Multicast 2"),
             AttackStatsLibrary.GetStat("Extra Round 2"),
-            AttackStatsLibrary.GetStat("Puncture 2"),
             AttackStatsLibrary.GetStat("Big Gadget 2"),
             AttackStatsLibrary.GetStat("Persistence 2"),
             AttackStatsLibrary.GetStat("Ignite 2"),
@@ -1444,7 +1443,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Haste 4"),
             AttackStatsLibrary.GetStat("Multicast 3"),
             AttackStatsLibrary.GetStat("Extra Round 3"),
-            AttackStatsLibrary.GetStat("Puncture 3"),
             AttackStatsLibrary.GetStat("Big Gadget 3"),
             AttackStatsLibrary.GetStat("Double Trouble"),
             AttackStatsLibrary.GetStat("Persistence 3"),
@@ -1464,7 +1462,7 @@ public static class AttackLibrary
                     aimRange: 2f,
                     is360: false,
                     coneAngle: 30f,
-                    damage: 10,
+                    damage: 14,
                     spread: 1f,
                     spray: 0f,
                     castTime: 2f,
@@ -1472,7 +1470,7 @@ public static class AttackLibrary
                     shotsPerAttack: 1,
                     speed: 0.08f,
                     knockback: 0.4f,
-                    pierce: 0,
+                    pierce: 15,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -1517,7 +1515,7 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Epic, spreadMultiplier: -0.25f, effectDuration: 1f),
 
             new AttackStats(rarity: Rarity.Legendary, isMagnet: true, magnetDuration: 0.5f, magnetStrength: 2f),
-            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 0.25f, shotsPerAttack: 1),
+            new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 0.25f, shotsPerAttack: 1, damage: 5),
         };
 
         List<AttackStats> ImpactMineUpgrades = new List<AttackStats>
@@ -1538,7 +1536,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Knockback 2"),
             AttackStatsLibrary.GetStat("Multicast 1"),
             AttackStatsLibrary.GetStat("Extra Round 1"),
-            AttackStatsLibrary.GetStat("Puncture 1"),
             AttackStatsLibrary.GetStat("Big Gadget 1"),
             AttackStatsLibrary.GetStat("Persistence 1"),
             AttackStatsLibrary.GetStat("Hourglass 1"),
@@ -1557,7 +1554,6 @@ public static class AttackLibrary
 
             AttackStatsLibrary.GetStat("Multicast 2"),
             AttackStatsLibrary.GetStat("Extra Round 2"),
-            AttackStatsLibrary.GetStat("Puncture 2"),
             AttackStatsLibrary.GetStat("Big Gadget 2"),
             AttackStatsLibrary.GetStat("Persistence 2"),
             AttackStatsLibrary.GetStat("Hourglass 2"),
@@ -1746,7 +1742,7 @@ public static class AttackLibrary
                     comboWaitTime: 1.5f,
                     meleeShotsScaleUp: 0f,
                     meleeSpacer: 0.5f,
-                    meleeSpacerGap: 0f,
+                    meleeSpacerGap: 0.5f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
                     shakeRotation: 0.1f,
@@ -1870,7 +1866,7 @@ public static class AttackLibrary
                     aimRange: 2.25f,
                     is360: false,
                     coneAngle: 50f,
-                    damage: 8,
+                    damage: 10,
                     spread: 1f,
                     castTime: 1.7f,
                     shotsPerAttack: 1,
@@ -1930,8 +1926,8 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1),
             new AttackStats(rarity: Rarity.Epic, spread: -0.25f, damage: 4),
 
-            new AttackStats(rarity: Rarity.Legendary, isSplit: true, splitAmount: 1, splitStatPercentage: 0.75f),
-            new AttackStats(rarity: Rarity.Legendary, damage: -2),
+            new AttackStats(rarity: Rarity.Legendary, isSplit: true, splitAmount: 2, splitStatPercentage: 0.5f),
+            new AttackStats(rarity: Rarity.Legendary, damage: 2),
         };
 
         List<AttackStats> RPGUpgrades = new List<AttackStats>
@@ -2055,7 +2051,7 @@ public static class AttackLibrary
                 },
                 thrownWeapon: Resources.Load<GameObject>("Projectiles/WeaponThrown"),
                 muzzleFlashPrefab: BigMuzzleFlash
-             
+
             )
             .SetRarityUpgrades(RPGRarity)
             .SetWeaponUpgrades(RPGUpgrades);
@@ -2155,7 +2151,7 @@ public static class AttackLibrary
                     aimRange: 2.4f,
                     is360: false,
                     coneAngle: 35,
-                    damage: 5,
+                    damage: 6,
                     spread: 0.85f,
                     spray: 0f,
                     castTime: 2f,
@@ -2205,14 +2201,14 @@ public static class AttackLibrary
         //PetrifyGrenade
         List<AttackStats> PetrifyGrenadeRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, damage: 3),
-            new AttackStats(rarity: Rarity.Rare, rangeMultiplier: 0.5f, aimRangeAdditive: 1f, pierce: 5),
+            new AttackStats(rarity: Rarity.Rare, damage: 5),
+            new AttackStats(rarity: Rarity.Rare, rangeMultiplier: 0.5f, aimRangeAdditive: 1f, pierce: 10),
 
             new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1, aimRange: 1, coneAngle: 45f),
             new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.1f, shotgunSpread: 15, shakeStrength: 0.2f),
 
             new AttackStats(rarity: Rarity.Legendary, isSlow: true, slowPercentage: 0.5f, slowDuration: 7f),
-            new AttackStats(rarity: Rarity.Legendary, damage: 4),
+            new AttackStats(rarity: Rarity.Legendary, damage: 5),
 
         };
 
@@ -2240,7 +2236,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("AFK 2"),
             AttackStatsLibrary.GetStat("Multicast+ 1"),
             AttackStatsLibrary.GetStat("Extra Round 1"),
-            AttackStatsLibrary.GetStat("Puncture 1"),
             AttackStatsLibrary.GetStat("Big Gadget 1"),
             AttackStatsLibrary.GetStat("Persistence 1"),
             AttackStatsLibrary.GetStat("Hourglass 1"),
@@ -2259,7 +2254,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("AFK 3"),
             AttackStatsLibrary.GetStat("Multicast+ 2"),
             AttackStatsLibrary.GetStat("Extra Round 2"),
-            AttackStatsLibrary.GetStat("Puncture 2"),
             AttackStatsLibrary.GetStat("Big Gadget 2"),
             AttackStatsLibrary.GetStat("Persistence 2"),
             AttackStatsLibrary.GetStat("Hourglass 2"),
@@ -2296,7 +2290,7 @@ public static class AttackLibrary
                     aimRange: 2f,
                     is360: false,
                     coneAngle: 35f,
-                    damage: 5,
+                    damage: 7,
                     shotgunSpread: 65f,
                     spray: 0,
                     castTime: 1.7f,
@@ -2304,7 +2298,7 @@ public static class AttackLibrary
                     shotsPerAttack: 1,
                     speed: 0.1f,
                     knockback: 0f,
-                    pierce: 2,
+                    pierce: 10,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -2571,7 +2565,7 @@ public static class AttackLibrary
                     aimRange: 2.2f,
                     is360: false,
                     coneAngle: 30f,
-                    damage: 9,
+                    damage: 11,
                     spread: 0.5f,
                     spray: 3f,
                     castTime: 2f,
@@ -2717,7 +2711,7 @@ public static class AttackLibrary
                     aimRange: 2f,
                     is360: false,
                     coneAngle: 35f,
-                    damage: 10,
+                    damage: 13,
                     spread: 0.42f,
                     spray: 1.8f,
                     castTime: 1.65f,
@@ -3188,13 +3182,13 @@ public static class AttackLibrary
         List<AttackStats> SmokeGrenadeRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, activeDuration: 1),
-            new AttackStats(rarity: Rarity.Rare, effectMultiplier: 0.25f, damage: 1),
+            new AttackStats(rarity: Rarity.Rare, effectMultiplier: 0.25f, shotsPerAttack: 1),
 
             new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.2f),
-            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1, shotgunSpread: 20, damage: 1),
+            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1, shotgunSpread: 20, damage: 2),
 
             new AttackStats(rarity: Rarity.Legendary, effectDuration: 2f, activeDuration: 1),
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, shotgunSpread: 40, damage: 1),
+            new AttackStats(rarity: Rarity.Legendary, shotgunSpread: 40, damage: 2, projectileSizeMultiplier: 0.2f),
         };
 
         List<AttackStats> SmokeGrenadeUpgrades = new List<AttackStats>
@@ -3219,7 +3213,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hacker 2"),
             AttackStatsLibrary.GetStat("Multicast+ 1"),
             AttackStatsLibrary.GetStat("Extra Round 1"),
-            AttackStatsLibrary.GetStat("Puncture 1"),
             AttackStatsLibrary.GetStat("Big Gadget 1"),
             AttackStatsLibrary.GetStat("Persistence 1"),
             AttackStatsLibrary.GetStat("Hourglass 1"),
@@ -3240,7 +3233,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hacker 3"),
             AttackStatsLibrary.GetStat("Multicast+ 2"),
             AttackStatsLibrary.GetStat("Extra Round 2"),
-            AttackStatsLibrary.GetStat("Puncture 2"),
             AttackStatsLibrary.GetStat("Big Gadget 2"),
             AttackStatsLibrary.GetStat("Persistence 2"),
             AttackStatsLibrary.GetStat("Hourglass 2"),
@@ -3280,14 +3272,14 @@ public static class AttackLibrary
                 new AttackStats(
                     aimRange: 1.8f,
                     is360: true,
-                    damage: 2,
+                    damage: 3,
                     shotgunSpread: 50f,
                     castTime: 2.1f,
                     range: 1f,
                     shotsPerAttack: 1,
                     speed: 0.08f,
                     knockback: 0f,
-                    pierce: 5,
+                    pierce: 20,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -3417,7 +3409,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2.5f,
-                    damage: 18,
+                    damage: 21,
                     is360: false,
                     coneAngle: 20f,
                     spread: 0.65f,
@@ -3558,7 +3550,7 @@ public static class AttackLibrary
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
-                    damage: 3,
+                    damage: 4,
                     is360: false,
                     coneAngle: 40f,
                     spread: 1.2f,
@@ -3575,7 +3567,7 @@ public static class AttackLibrary
                     shakeTime: 0.25f,
                     shakeStrength: 0.4f,
                     shakeRotation: 0.5f,
-                    thrownDamage: 21f,
+                    thrownDamage: 18f,
                     thrownSpeed: 0.12f,
                     isMagnet: true,
                     magnetStrength: 5,
@@ -3615,12 +3607,12 @@ public static class AttackLibrary
         List<AttackStats> SuctionGrenadeRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, speedMultiplier: 0.2f, rangeMultiplier: 0.2f, pierce: 10, aimRangeAdditive: 1f, coneAngle: 30),
-            new AttackStats(rarity: Rarity.Rare, knockback: 0.55f, damage: 1, shakeStrength: 0.1f),
+            new AttackStats(rarity: Rarity.Rare, knockback: 0.55f, damage: 2, shakeStrength: 0.1f),
 
             new AttackStats(rarity: Rarity.Epic, damage: 4),
             new AttackStats(rarity: Rarity.Epic, activeDuration: 0.5f, effectMultiplier: 0.25f, effectDuration: 0.5f),
 
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, damage: 5),
+            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, damage: 4),
             new AttackStats(rarity: Rarity.Legendary, projectileSizeMultiplier: 0.15f, shakeRotation: 0.1f),
         };
 
@@ -3665,7 +3657,6 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("AFK 3"),
             AttackStatsLibrary.GetStat("Multicast 2"),
             AttackStatsLibrary.GetStat("Extra Round 2"),
-            AttackStatsLibrary.GetStat("Puncture 2"),
             AttackStatsLibrary.GetStat("Big Gadget 2"),
             AttackStatsLibrary.GetStat("Persistence+ 2"),
             AttackStatsLibrary.GetStat("Saboteur 2"),
@@ -3702,14 +3693,14 @@ public static class AttackLibrary
                     aimRange: 2f,
                     is360: false,
                     coneAngle: 25f,
-                    damage: 5,
+                    damage: 8,
                     spread: 1.5f,
                     castTime: 2f,
                     range: 1.6f,
                     shotsPerAttack: 1,
                     speed: 0.1f,
                     knockback: 0f,
-                    pierce: 0,
+                    pierce: 15,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -3751,13 +3742,13 @@ public static class AttackLibrary
         //SuctionNova
         List<AttackStats> SuctionNovaRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, damage: 4),
+            new AttackStats(rarity: Rarity.Rare, damage: 4, meleeSpacer: 3f, aimRangeAdditive: 2f),
             new AttackStats(rarity: Rarity.Rare, knockback: 0.15f, effectMultiplier: 0.2f),
 
             new AttackStats(rarity: Rarity.Epic, meleeSizeMultiplier: 0.15f, shakeRotation: 0.1f),
-            new AttackStats(rarity: Rarity.Epic, meleeSpacer: 3f, aimRangeAdditive: 2f, damage: 2),
+            new AttackStats(rarity: Rarity.Epic, damage: 4, knockback: 0.1f),
 
-            new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, damage: 4),
+            new AttackStats(rarity: Rarity.Legendary, comboLength: 1, damage: 6),
             new AttackStats(rarity: Rarity.Legendary, effectDuration: 1f),
         };
 

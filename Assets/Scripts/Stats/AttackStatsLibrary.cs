@@ -98,7 +98,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                critDmg: 0.15f,
+                critDmg: 0.2f,
                 name: "Overkill 1",
                 description: "Crit Dmg +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
@@ -340,9 +340,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                critDmg: 0.30f,
+                critDmg: 0.40f,
                 name: "Overkill 2",
-                description: "Crit Dmg +30%",
+                description: "Crit Dmg +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Rare
             )
@@ -485,7 +485,7 @@ public static class AttackStatsLibrary
         );
         ;
 
-       
+
 
         AddStat(
             new AttackStats(
@@ -621,9 +621,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeShotsScaleUpMultiplier: 0.10f,
+                meleeShotsScaleUpMultiplier: 0.08f,
                 name: "Wave Surge 1",
-                description: "Aftershock Size +10% per shock",
+                description: "Aftershock Size +8% per shock",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
                 rarity: Rarity.Rare
             )
@@ -700,21 +700,21 @@ public static class AttackStatsLibrary
                isDoT: true,
                dotDamage: 1,
                dotDuration: 5,
-               dotTickRate: 1,
+               dotTickRate: 2,
                name: "Ignite 1",
                description: "Ignite targets for 5 seconds",
                icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
                rarity: Rarity.Rare
            )
        );
-        ; 
+        ;
 
         AddStat(
             new AttackStats(
                 isDoT: true,
                 dotDamage: 1,
                 dotDuration: 3,
-                dotTickRate: 1,
+                dotTickRate: 2,
                 name: "Cindershot 1",
                 description: "Ignite targets for 3 seconds",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
@@ -857,9 +857,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                critDmg: 0.4f,
+                critDmg: 0.6f,
                 name: "Overkill 3",
-                description: "Crit Dmg +40%",
+                description: "Crit Dmg +60%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Epic
             )
@@ -1124,9 +1124,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeShotsScaleUpMultiplier: 0.15f,
+                meleeShotsScaleUpMultiplier: 0.12f,
                 name: "Wave Surge 2",
-                description: "Aftershock Size +15% per shock",
+                description: "Aftershock Size +12% per shock",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
                 rarity: Rarity.Epic
             )
@@ -1181,7 +1181,7 @@ public static class AttackStatsLibrary
         AddStat(
           new AttackStats(
               isDoT: true,
-              dotDamage: 1,
+              dotDamage: 2,
               dotDuration: 8,
               dotTickRate: 0.8f,
               name: "Ignite 2",
@@ -1195,7 +1195,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isDoT: true,
-                dotDamage: 1,
+                dotDamage: 2,
                 dotDuration: 5,
                 dotTickRate: 0.8f,
                 name: "Cindershot 2",
@@ -1351,9 +1351,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                critDmg: 1f,
+                critDmg: 0.75f,
                 name: "Overkill 4",
-                description: "Crit Dmg +60%",
+                description: "Crit Dmg +75%",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Legendary
             )
@@ -1562,7 +1562,7 @@ public static class AttackStatsLibrary
         AddStat(
           new AttackStats(
               isDoT: true,
-              dotDamage: 1,
+              dotDamage: 2,
               dotDuration: 10,
               dotTickRate: 0.75f,
               name: "Ignite 3",
@@ -1576,7 +1576,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isDoT: true,
-                dotDamage: 1,
+                dotDamage: 2,
                 dotDuration: 6,
                 dotTickRate: 0.7f,
                 name: "Cindershot 3",
@@ -1589,7 +1589,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                dotDamage: 4,
+                dotDamage: 5,
                 name: "Cindershot+ 3",
                 description: "Burns like hell.",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
@@ -2137,9 +2137,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeShotsScaleUpMultiplier: 0.12f,
+                meleeShotsScaleUpMultiplier: 0.10f,
                 name: "Wave Master 1",
-                description: "Aftershock Size +12% per shock",
+                description: "Aftershock Size +10% per shock",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveMaster"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2198,9 +2198,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                critDmg: 0.50f,
+                critDmg: 0.60f,
                 name: "Brutality 3",
-                description: "Crit Dmg +50%",
+                description: "Crit Dmg +60%",
                 icon: Resources.Load<Sprite>("UI_Icons/Brutality"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2464,9 +2464,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeShotsScaleUpMultiplier: 0.18f,
+                meleeShotsScaleUpMultiplier: 0.15f,
                 name: "Wave Master 2",
-                description: "Aftershock Size +18% per shock",
+                description: "Aftershock Size +15% per shock",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveMaster"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2973,7 +2973,7 @@ public static class AttackStatsLibrary
             )
         );
         ;
-        
+
         isInitialized = true;
 
         //foreach (var kvp in AttackStatsLibraryMap)

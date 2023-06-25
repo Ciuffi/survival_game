@@ -1219,6 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58943e2e69b41484b8ffc2075d7645d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   isResume: 0
 --- !u!1 &1098140728390717499
 GameObject:
@@ -2149,6 +2150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58943e2e69b41484b8ffc2075d7645d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   isResume: 1
 --- !u!114 &6265222644557385975
 MonoBehaviour:

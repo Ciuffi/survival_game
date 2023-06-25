@@ -74,7 +74,7 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: -0.20f,
-                damageMultiplier: -0.12f,
+                damageMultiplier: -0.15f,
                 name: "Lightweight 1",
                 description: "Cooldowns -20%, Damage -15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
@@ -85,10 +85,10 @@ public static class PlayerStatsLibrary
         //Heavyweight
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: 0.2f,
-                damageMultiplier: 0.15f,
+                castTimeMultiplier: 0.15f,
+                damageMultiplier: 0.2f,
                 name: "Heavyweight 1",
-                description: "Cooldowns +20%, Damage +20%",
+                description: "Cooldowns +15%, Damage +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Heavy"),
                 rarity: Rarity.Common
             )
@@ -99,9 +99,9 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 critChance: 0.05f,
                 critDmg: 0.5f,
-                damageMultiplier: -0.25f,
+                damageMultiplier: -0.15f,
                 name: "Gambler 1",
-                description: "Crit Chance +5%, Crit Damage +50%, Damage -25%",
+                description: "Crit Chance +5%, Crit Damage +50%, Damage -15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
                 rarity: Rarity.Common
             )
@@ -175,9 +175,9 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: -0.3f,
-                damageMultiplier: -0.25f,
+                damageMultiplier: -0.22f,
                 name: "Lightweight 2",
-                description: "Cooldowns -30%, Damage -25%",
+                description: "Cooldowns -30%, Damage -22%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Rare
             )
@@ -186,10 +186,10 @@ public static class PlayerStatsLibrary
         //Heavyweight
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: 0.3f,
+                castTimeMultiplier: 0.22f,
                 damageMultiplier: 0.3f,
                 name: "Heavyweight 2",
-                description: "Cooldowns +30%, Damage +30%",
+                description: "Cooldowns +22%, Damage +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Heavy"),
                 rarity: Rarity.Rare
             )
@@ -200,9 +200,9 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 critChance: 0.10f,
                 critDmg: 1f,
-                damageMultiplier: -0.5f,
+                damageMultiplier: -0.25f,
                 name: "Gambler 2",
-                description: "Crit Chance +10%, Crit Damage +100%, Damage -50%",
+                description: "Crit Chance +10%, Crit Damage +100%, Damage -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
                 rarity: Rarity.Rare
             )
@@ -282,7 +282,7 @@ public static class PlayerStatsLibrary
                 comboWaitTimeMultiplier: -0.25f,
                 recoveryAdditive: 0.5f,
                 name: "Overclock 1",
-                description: "Attack speed, Rate of fire +25%, exhausted for +0.5s after attacking",
+                description: "Attack speed, Rate of fire +25%, Attack recovery +0.5s",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Overclock"),
                 rarity: Rarity.Rare
             )
@@ -398,9 +398,9 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 splitAmount: -1,
-                splitStatPercentage: 0.3f,
+                splitStatPercentage: 0.4f,
                 name: "Mitosis 1",
-                description: "Split into 1 fewer attack, all splits gain +30% stats",
+                description: "Split into 1 fewer attack, all splits gain +50% stats",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Mitosis"),
                 rarity: Rarity.Rare
             )
@@ -463,9 +463,9 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: -0.5f,
-                damageMultiplier: -0.4f,
+                damageMultiplier: -0.3f,
                 name: "Lightweight 3",
-                description: "Cooldowns -50%, Damage -40%",
+                description: "Cooldowns -50%, Damage -30%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Epic
             )
@@ -474,10 +474,10 @@ public static class PlayerStatsLibrary
         //Heavyweight
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: 0.5f,
+                castTimeMultiplier: 0.3f,
                 damageMultiplier: 0.5f,
                 name: "Heavyweight 3",
-                description: "Cooldowns +50%, Damage +50%",
+                description: "Cooldowns +30%, Damage +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Heavy"),
                 rarity: Rarity.Epic
             )
@@ -487,10 +487,10 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 critChance: 0.20f,
-                critDmg: 1.5f,
-                damageMultiplier: -0.75f,
+                critDmg: 2f,
+                damageMultiplier: -0.40f,
                 name: "Gambler 3",
-                description: "Crit Chance +20%, Crit Damage +150%, Damage -75%",
+                description: "Crit Chance +20%, Crit Damage +200%, Damage -40%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
                 rarity: Rarity.Epic
             )
@@ -570,7 +570,7 @@ public static class PlayerStatsLibrary
                 comboWaitTimeMultiplier: -0.35f,
                 recoveryAdditive: 0.75f,
                 name: "Overclock 2",
-                description: "Attack speed, Rate of fire +35%, exhausted for +0.75s after attacking",
+                description: "Attack speed, Rate of fire +35%, attack recovery +0.75s",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Overclock"),
                 rarity: Rarity.Epic
             )
@@ -688,7 +688,7 @@ public static class PlayerStatsLibrary
                 splitAmount: -1,
                 splitStatPercentage: 0.5f,
                 name: "Mitosis 2",
-                description: "Split into 1 fewer attack, all splits gain +50% stats",
+                description: "Split into 1 fewer attack, all splits gain +60% stats",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Mitosis"),
                 rarity: Rarity.Epic
             )
@@ -735,9 +735,9 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 isHoming: true,
-                spreadMultiplier: -0.4f,
+                spreadMultiplier: -0.2f,
                 name: "Telekinesis 1",
-                description: "Projectiles follow enemies, Rate of Fire -40%",
+                description: "Projectiles follow enemies, Rate of Fire -20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Telekinesis"),
                 rarity: Rarity.Epic
             )
@@ -746,14 +746,15 @@ public static class PlayerStatsLibrary
         //Quarterback
         AddStat(
             new PlayerCharacterStats(
-                thrownDamageMultiplier: 1f,
-                thrownWeaponSizeMultiplier: 1f,
+                thrownDamageMultiplier: 1.5f,
+                thrownWeaponSizeMultiplier: 1.5f,
                 castTimeMultiplier: -0.25f,
+                pierce: 5,
                 shotsPerAttack: -1000,
                 shotsPerAttackMelee: -1000,
                 comboLength: -1000,
                 name: "Quarterback 1",
-                description: "Weapon throw Damage, Size +100%, Cooldowns -25%, Cannot attack normally",
+                description: "Weapon throw: Damage, Size +150%, Cooldowns -25%, Cannot attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Quarterback"),
                 rarity: Rarity.Epic
             )
@@ -838,9 +839,9 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 castTimeMultiplier: -0.6f,
-                damageMultiplier: -0.5f,
+                damageMultiplier: -0.35f,
                 name: "Lightweight 4",
-                description: "Cooldowns -60%, Damage -50%",
+                description: "Cooldowns -60%, Damage -35%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Legendary
             )
@@ -849,10 +850,10 @@ public static class PlayerStatsLibrary
         //Heavyweight
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: 0.6f,
+                castTimeMultiplier: 0.35f,
                 damageMultiplier: 0.6f,
                 name: "Heavyweight 4",
-                description: "Cooldowns +60%, Damage +60%",
+                description: "Cooldowns +35%, Damage +60%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Heavy"),
                 rarity: Rarity.Legendary
             )
@@ -862,10 +863,10 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 critChance: 0.25f,
-                critDmg: 2f,
-                damageMultiplier: -1f,
+                critDmg: 2.5f,
+                damageMultiplier: -0.5f,
                 name: "Gambler 4",
-                description: "Crit Chance +25%, Crit Damage +200%, Damage -100%",
+                description: "Crit Chance +25%, Crit Damage +250%, Damage -50%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
                 rarity: Rarity.Legendary
             )
@@ -1045,9 +1046,9 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 isHoming: true,
-                spreadMultiplier: -0.2f,
+                spreadMultiplier: -0.1f,
                 name: "Telekinesis 2",
-                description: "Projectiles follow enemies, Rate of Fire -20%",
+                description: "Projectiles follow enemies, Rate of Fire -10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Telekinesis"),
                 rarity: Rarity.Legendary
             )
@@ -1056,14 +1057,15 @@ public static class PlayerStatsLibrary
         //Quarterback
         AddStat(
             new PlayerCharacterStats(
-                thrownDamageMultiplier: 1.5f,
-                thrownWeaponSizeMultiplier: 1.5f,
+                thrownDamageMultiplier: 2f,
+                thrownWeaponSizeMultiplier: 2f,
                 castTimeMultiplier: -0.4f,
+                pierce: 10,
                 shotsPerAttack: -1000,
                 shotsPerAttackMelee: -1000,
                 comboLength: -1000,
                 name: "Quarterback 2",
-                description: "Weapon throw Damage, Size +150%, Cooldowns -40%, Cannot attack normally",
+                description: "Weapon throw: Damage, Size +200%, Cooldowns -40%, Cannot attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Quarterback"),
                 rarity: Rarity.Legendary
             )
@@ -1174,9 +1176,9 @@ public static class PlayerStatsLibrary
         //Healing
         AddStat(
             new PlayerCharacterStats(
-                health: 10,
+                health: 15,
                 name: "First Aid 1",
-                description: "Recover 10 HP",
+                description: "Recover 15 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/FirstAid"),
                 rarity: Rarity.Common
             )
@@ -1208,9 +1210,9 @@ public static class PlayerStatsLibrary
         //RARE STATS
         AddStat(
             new PlayerCharacterStats(
-                health: 15,
+                health: 20,
                 name: "First Aid 2",
-                description: "Recover 15 HP",
+                description: "Recover 20 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/FirstAid"),
                 rarity: Rarity.Rare
             )
@@ -1278,9 +1280,9 @@ public static class PlayerStatsLibrary
         //Healing
         AddStat(
             new PlayerCharacterStats(
-                health: 30,
+                health: 35,
                 name: "First Aid 3",
-                description: "Recover 30 HP",
+                description: "Recover 35 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/FirstAid"),
                 rarity: Rarity.Epic
             )
@@ -1336,9 +1338,9 @@ public static class PlayerStatsLibrary
 
         AddStat(
             new PlayerCharacterStats(
-                health: 50,
+                health: 60,
                 name: "First Aid 4",
-                description: "Recover 50 HP",
+                description: "Recover 60 HP",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/FirstAid"),
                 rarity: Rarity.Legendary
             )
@@ -1388,7 +1390,7 @@ public static class PlayerStatsLibrary
                 rarity: Rarity.Legendary
             )
         );
- 
+
 
         isInitialized = true;
     }

@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseXP: 45
-  growthMultiplier: 1.25
+  growthMultiplier: 1.3
   flashColor: {r: 0.32549024, g: 0.9117146, b: 1, a: 0.92156863}
   playerStatUpgrades: []
   upgrades: []
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7074f3890344a2438191836251585d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeWindow: {fileID: 0}
+  upgradeWindows: []
   playerStatUpgrades: []
   stats: []
   potentialUpgrades: []
@@ -246,8 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd6010c9fedde4fb94cbf370e6bcbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatChance: 0.2
-  weaponSetStatChance: 0.3
+  playerStatChance: 0.1
+  weaponSetStatChance: 0.4
   weaponStatChance: 0.5
   existingWeaponOrSetChance: 0.85
   newWeaponOrSetChance: 0.15
@@ -452,7 +452,7 @@ Animator:
   m_GameObject: {fileID: 6301032241555800557}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 645f2b23eeed35940a32288b00d6fcd4, type: 2}
+  m_Controller: {fileID: 9100000, guid: bfd0bf1e3859e4944a3bce51c68c314c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

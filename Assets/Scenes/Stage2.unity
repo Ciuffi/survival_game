@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9490d15ff5d68be4ca6f884680ed6ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLimit: 320000003c0000004600000050000000500000005a00000064000000
+  enemyLimit: 320000003c0000003c00000046000000460000005000000050000000
   currentLimit: 0
   enemyAmount: 0
   availableAmount: 0
@@ -1103,6 +1103,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2510322864428639492, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
+      propertyPath: diameter
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 3103800210338332545, guid: 438e70175a8966c4ab426b6acde58f27, type: 3}
       propertyPath: m_RootOrder
       value: 4
