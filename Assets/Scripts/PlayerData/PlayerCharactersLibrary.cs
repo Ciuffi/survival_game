@@ -47,7 +47,7 @@ public static class PlayerCharactersLibrary
             maxHealth: 40,
             health: 40,
             defense: 0,
-            speed: 1f,
+            speed: 1.25f,
             pickupRange: 1.5f,
             aimRangeAdditive: 0,
             rerollTimes: 1,
@@ -97,7 +97,7 @@ public static class PlayerCharactersLibrary
            maxHealth: 30,
            health: 30,
            defense: 0,
-           speed: 1.4f,
+           speed: 1.5f,
            pickupRange: 2f,
            multicastChance: 0.5f,
            effectMultiplier: 0.5f
@@ -120,12 +120,10 @@ public static class PlayerCharactersLibrary
             maxHealth: 50,
             health: 50,
             defense: 0,
-            speed: 0.7f,
+            speed: 1f,
             pickupRange: 1.25f,
             is360: true,
-            castTimeMultiplier: 0.25f,
-            spreadMultiplier: -0.25f,
-            damageMultiplier: 0.15f
+            damageMultiplier: 0.10f
         );
         AI.name = AIStats.name;
         AI.AddComponent<StatComponent>().stat = AIStats;

@@ -50,7 +50,6 @@ public class Enemy : MonoBehaviour, Attacker
     private bool duringKnockback;
     private float knockbackWeight, newKnockbackWeight, oldKnockbackWeight;
 
-
     public bool canDamage;
     public GameObject DamagePopup;
     public GameObject HitEffect;
@@ -322,19 +321,11 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (distance > destroyDistance)
         {
-            if (!isElite && !isBoss)
-            {
-                Destroy(gameObject);
-                maxEnemiesTracker.GetComponent<MaxEnemyTracker>().DecreaseCount();
-            } else
-            {
                 // Calculate the position that's 1/3rd of the max distance in the opposite direction from the player
                 Vector2 newPosition = player.transform.position + toPlayer.normalized * (destroyDistance / 2);
 
                 // Move the enemy to the new position
                 transform.position = newPosition;
-            }
-  
         }
     }
 

@@ -127,6 +127,7 @@ public class Projectile : MonoBehaviour
 
         if (isSplitProjectile) // scale down stats if it's a split projectile
         {
+            isHoming = false;
             pierce = Mathf.RoundToInt(attack.stats.pierce * splitStatPercentage);
             if (!isMelee)
             {

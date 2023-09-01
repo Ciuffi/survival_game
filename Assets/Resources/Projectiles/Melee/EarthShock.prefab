@@ -119,7 +119,7 @@ MonoBehaviour:
   playerShakeTime: 0.05
   playerShakeStrength: 0.1
   playerShakeRotation: 0.06
-  damageTickDuration: 0.45
+  damageTickDuration: 0.5
   isThrown: 0
   isHover: 0
   stopOnHit: 0

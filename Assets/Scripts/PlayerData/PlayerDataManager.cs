@@ -202,7 +202,7 @@ public class PlayerDataManager : MonoBehaviour
             stage.isLocked = true;
         }
 
-        gold = 100;
+        gold = 420;
         unlockedCharactersNames.Clear();
         unlockedStages = 1;
         purchasedUpgrades.Clear();  // Also clear the in-memory HashSet of purchased upgrades

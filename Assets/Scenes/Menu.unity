@@ -1317,8 +1317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460fef944a336fc4589decc4b3f8958f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldToAdd: 200
-  cooldown: 900
+  goldToAdd: 2500
+  cooldown: 300
   cooldownText: {fileID: 0}
   particle: {fileID: 4053501027209517259, guid: f2211be0160c53b439c2ea908760c02c, type: 3}
 --- !u!1 &300412346
@@ -3187,7 +3187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7914a6e8235dc1e44989ce77fc2bd65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 100
+  gold: 420
   unlockedStages: 0
   goldDisplay: []
   upgradeButtonParent: {fileID: 0}

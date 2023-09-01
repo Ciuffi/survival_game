@@ -45,16 +45,6 @@ public class LevelOneSpawnMap : EnemySpawnMap
         });
 
 
-        EnemySpawn wave10 = new EnemySpawn()
-            .WithDirection(Random.Range(0, 10))
-           .WithDistance(Random.Range(-1, 0))
-          .WithEnemiesPerWave(1)
-        .WithSpawnTimer(0)
-        .WithEnemyMap(new Dictionary<GameObject, int>(){
-                {enemies.lootBox, 100}
-          });
-
-
         for (int i = 0; i < 4; i++)
         {
             int roller = Random.Range(1, 4);
@@ -76,7 +66,6 @@ public class LevelOneSpawnMap : EnemySpawnMap
             }
 
         }
-
 
 
     }

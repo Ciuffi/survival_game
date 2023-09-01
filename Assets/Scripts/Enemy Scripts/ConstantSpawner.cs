@@ -67,6 +67,10 @@ public class ConstantSpawner : MonoBehaviour
         {
             // Reset the timer for scaling the spawn rate
             elapsedTime = 0f;
+            if (isEliteSpawner)
+            {
+                SpawnEliteEnemy();
+            }
         }
 
         // Set the previous guilt value to the current value for the next frame
@@ -149,6 +153,7 @@ public class ConstantSpawner : MonoBehaviour
     }
 
 
+
     private void QueueSpawn()
     {
         if (alwaysSpawn)
@@ -173,21 +178,17 @@ public class ConstantSpawner : MonoBehaviour
     // Spawn enemies along the edge of the circle
     public void SpawnEnemies () {
 
-        // Pick a random enemy prefab from the list
-        GameObject enemyPrefab;
         if (isEliteSpawner)
         {
-            // Choose the next enemy in the list instead of picking randomly.
-            enemyPrefab = enemies[eliteEnemyIndex];
-            eliteEnemyIndex++;
-            if (eliteEnemyIndex >= enemies.Count)
-                eliteEnemyIndex = enemies.Count - 1;
+            return;
         }
-        else
-        {
-            // Pick a random enemy prefab from the list
-            enemyPrefab = enemies[Random.Range(0, enemies.Count)];
-        }
+
+        // Pick a random enemy prefab from the list
+        GameObject enemyPrefab;
+
+        // Pick a random enemy prefab from the list
+        enemyPrefab = enemies[Random.Range(0, enemies.Count)];
+
 
         float cumulativeHealthScaling = 1.0f;
         for (int j = 0; j < (currentGuilt + 1) && j < healthScalingList.Count; j++)
@@ -231,11 +232,6 @@ public class ConstantSpawner : MonoBehaviour
                         enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
                     }
 
-                    if (isEliteSpawner)
-                    {
-                        WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
-                        waypointManager.AddWaypoint(newEnemy, true);
-                    }
                 }
             }
             else if (spawnRate == 1)
@@ -251,11 +247,6 @@ public class ConstantSpawner : MonoBehaviour
                     enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                     enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
-                }
-                if (isEliteSpawner)
-                {
-                    WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
-                    waypointManager.AddWaypoint(newEnemy, true);
                 }
             }
         }
@@ -274,11 +265,6 @@ public class ConstantSpawner : MonoBehaviour
                     enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
                     enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                     enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
-                }
-                if (isEliteSpawner)
-                {
-                    WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
-                    waypointManager.AddWaypoint(newEnemy, true);
                 }
             }
         }
@@ -307,15 +293,42 @@ public class ConstantSpawner : MonoBehaviour
                     enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
                     enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
                 }
-                if (isEliteSpawner)
-                {
-                    WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
-                    waypointManager.AddWaypoint(newEnemy, true);
-                }
             }
 
         }
 
+    }
+
+    private void SpawnEliteEnemy()
+    {
+        // Choose the next enemy in the list instead of picking randomly.
+        GameObject enemyPrefab = enemies[eliteEnemyIndex];
+        eliteEnemyIndex++;
+        if (eliteEnemyIndex >= enemies.Count)
+            eliteEnemyIndex = enemies.Count - 1;
+
+        float cumulativeHealthScaling = 1.0f;
+        for (int j = 0; j < (currentGuilt + 1) && j < healthScalingList.Count; j++)
+        {
+            cumulativeHealthScaling += healthScalingList[j];
+        }
+
+        // Spawn a single elite enemy at a random position on the edge of the circle
+        Vector2 spawnPosition = Random.insideUnitCircle.normalized * diameter / 2f;
+        GameObject newEnemy = Instantiate(enemyPrefab, (Vector2)transform.position + spawnPosition, Quaternion.identity);
+
+        Enemy enemy = newEnemy.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.health *= (cumulativeHealthScaling) + stageHealthScaling;
+            enemy.projectileDamage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+            enemy.damage *= (1 + (damageScaling * currentGuilt)) + stageDamageScaling;
+            enemy.weight *= (1 + (weightScaling * currentGuilt)) + stageWeightScaling;
+            enemy.xpAmount *= (1 + (xpScalingList[currentGuilt])) + stageXpScaling;
+        }
+
+        WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
+        waypointManager.AddWaypoint(newEnemy, true);
     }
 
     // Draw the circle in the editor for easier debugging

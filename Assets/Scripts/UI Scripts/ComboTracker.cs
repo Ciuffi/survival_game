@@ -9,120 +9,126 @@ public class ComboTracker : MonoBehaviour
 {
 
     public int comboCount;
-    private Color baseColor = new Color (0,0,0,255);
 
     public GameObject spawner;
-    public int guiltThreshold1, guiltThreshold2, guiltThreshold3, guiltThreshold4, guiltThreshold5, guiltThreshold6;
-    private bool threshold1Reached, threshold2Reached, threshold3Reached, threshold4Reached, threshold5Reached, threshold6Reached;
+    public List<int> guiltThresholds;
+    public List<Color> guiltColors;
+    private List<bool> thresholdsReached;
 
-    public Color guiltColor1, guiltColor2, guiltColor3, guiltColor4, guiltColor5;
+    public GameObject bannerPrefab;
+    private Canvas parentCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-    
-        GetComponentInChildren<TMP_Text>().color = baseColor;
+        // Initialize the thresholdsReached list with all values set to false
+        thresholdsReached = new List<bool>();
+        for (int i = 0; i < guiltThresholds.Count; i++)
+        {
+            thresholdsReached.Add(false);
+        }
+        parentCanvas = GetComponentInParent<Canvas>();
         comboCount = 0;
+        ColorChange(0);
     }
 
     public void ColorChange(int currentGuilt)
     {
-        switch (currentGuilt)
+        if (currentGuilt == 0)
         {
-            case 0:
-                GetComponentInChildren<TMP_Text>().color = baseColor;
-                break;
-
-            case 1:
-                GetComponentInChildren<TMP_Text>().color = guiltColor1;
-                break;
-
-            case 2:
-                GetComponentInChildren<TMP_Text>().color = guiltColor2;
-                break;
-
-            case 3:
-                GetComponentInChildren<TMP_Text>().color = guiltColor3;
-                break;
-
-            case 4:
-                GetComponentInChildren<TMP_Text>().color = guiltColor4;
-                break;
-
-            case 5:
-                GetComponentInChildren<TMP_Text>().color = guiltColor5;
-                break;
-            case 6:
-                GetComponentInChildren<TMP_Text>().color = guiltColor5;
-                break;
+            GetComponentInChildren<TMP_Text>().color = guiltColors[0];
+        }
+        else if (currentGuilt <= guiltColors.Count) // Ensure we don't exceed the list's boundaries
+        {
+            GetComponentInChildren<TMP_Text>().color = guiltColors[currentGuilt - 1];
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        string comboText;
+        int previousThreshold = GetPreviousThreshold();
+        int nextThreshold = GetNextThreshold();
 
-        if (comboCount < 10)
-        {
-            comboText = "00" + comboCount;
-        }
-        else if (comboCount >= 10 && comboCount < 100)
-        {
-            comboText = "0" + comboCount;
-        }
-        else
-        {
-            comboText = "" + comboCount;
-        }
+        // The difference in kills since the last threshold
+        int killsSinceLastThreshold = comboCount - previousThreshold;
 
+        // The difference between the next and last threshold
+        int differenceBetweenThresholds = nextThreshold - previousThreshold;
+
+        string comboText = killsSinceLastThreshold + "/" + differenceBetweenThresholds;
         GetComponentInChildren<TMP_Text>().text = comboText;
 
 
-        if (comboCount >= guiltThreshold1 && comboCount < guiltThreshold2 && !threshold1Reached)
+        for (int i = 0; i < guiltThresholds.Count; i++)
         {
-            spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
-            threshold1Reached = true;
-        }
-        else if (comboCount >= guiltThreshold2 && comboCount < guiltThreshold3 && !threshold2Reached)
-        {
-            spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
-            threshold2Reached = true;
-        }
-        else if (comboCount >= guiltThreshold3 && comboCount < guiltThreshold4 && !threshold3Reached)
-        {
-            spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
-            threshold3Reached = true;
-        }
-        else if (comboCount >= guiltThreshold4 && comboCount < guiltThreshold5 && !threshold4Reached)
-        {
-            spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
-            threshold4Reached = true;
-        }
-        else if (comboCount >= guiltThreshold5 && !threshold5Reached)
-        {
-            spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
-            threshold5Reached = true;
-        }
-        else if (comboCount >= guiltThreshold6 && !threshold6Reached)
-        {
-            spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
-            threshold6Reached = true;
-        }
+            if (comboCount >= guiltThresholds[i] && !thresholdsReached[i])
+            {
+                if (i + 1 < guiltThresholds.Count && comboCount < guiltThresholds[i + 1])
+                {
+                    spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
+                    thresholdsReached[i] = true;
 
+                    // Call ColorChange with the new guilt level
+                    ColorChange(i + 1);
 
+                    GameObject bannerInstance = Instantiate(bannerPrefab, parentCanvas.transform);
+                    bannerInstance.GetComponent<BannerController>().DisplayBannerWithText("! SWARM INCOMING !");
+                }
+                else if (i + 1 >= guiltThresholds.Count)
+                {
+                    spawner.GetComponent<BasicSpawner>().IncreaseGuilt();
+                    thresholdsReached[i] = true;
+
+                    // Call ColorChange with the new guilt level
+                    ColorChange(i + 1);
+                }
+            }
+        }
     }
 
+    int GetNextThreshold()
+    {
+        foreach (int threshold in guiltThresholds)
+        {
+            if (comboCount < threshold)
+            {
+                return threshold;
+            }
+        }
+        return guiltThresholds[guiltThresholds.Count - 1];
+    }
+
+    int GetPreviousThreshold()
+    {
+        int lastThreshold = 0;
+        foreach (int threshold in guiltThresholds)
+        {
+            if (comboCount >= threshold)
+            {
+                lastThreshold = threshold;
+            }
+            else
+            {
+                break;  // Exit once we reach a threshold greater than comboCount
+            }
+        }
+        return lastThreshold;
+    }
 
     public void IncreaseCount(int amount)
     {
         comboCount += amount;
-
     }
 
     public void ResetCount()
     {
         comboCount = 0;
+
+        // Reset all threshold reached flags
+        for (int i = 0; i < thresholdsReached.Count; i++)
+        {
+            thresholdsReached[i] = false;
+        }
     }
 
 }

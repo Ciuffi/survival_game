@@ -129,11 +129,11 @@ public static class AttackLibrary
             .SetDescription("The light shall burn you.")
             .SetBaseStats(
                 new AttackStats(
-                    aimRange: 1.5f,
+                    aimRange: 0f,
                     is360: true,
-                    damage: 3,
+                    damage: 2,
                     spread: 0.7f,
-                    castTime: 2.5f,
+                    castTime: 3f,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -275,7 +275,7 @@ public static class AttackLibrary
                     aimRange: 2.5f,
                     is360: false,
                     coneAngle: 40,
-                    damage: 8,
+                    damage: 7,
                     spread: 0.085f,
                     spray: 1.35f,
                     castTime: 2f,
@@ -586,8 +586,8 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
                     comboWaitTime: 1f,
-                    meleeSpacer: 1.75f,
-                    meleeSpacerGap: 2f,
+                    meleeSpacer: 1.25f,
+                    meleeSpacerGap: 1.25f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
                     shakeRotation: 0.1f,
@@ -738,8 +738,8 @@ public static class AttackLibrary
                     comboLength: 1,
                     comboWaitTime: 1.3f,
                     meleeShotsScaleUp: 0f,
-                    meleeSpacer: 1.8f,
-                    meleeSpacerGap: 2f,
+                    meleeSpacer: 1.5f,
+                    meleeSpacerGap: 1.25f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.2f,
                     shakeRotation: 1f,
@@ -932,7 +932,7 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Rare, effectMultiplier: 0.5f, damage: 2),
 
             new AttackStats(rarity: Rarity.Epic, damage: 3, activeMultiplier: 0.4f),
-            new AttackStats(rarity: Rarity.Epic, meleeSpacer: 2f, meleeSpacerGap: 1.5f, aimRangeAdditive: 1.5f, coneAngle: 30f),
+            new AttackStats(rarity: Rarity.Epic, meleeSpacer: 1f, meleeSpacerGap: 0.5f, aimRangeAdditive: 1.5f, coneAngle: 30f),
 
             new AttackStats(rarity: Rarity.Legendary, effectDuration: 1f, damage: 2),
             new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 1, spread: -0.1f)
@@ -1040,7 +1040,7 @@ public static class AttackLibrary
                     comboWaitTime: 1.1f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 0.5f,
-                    meleeSpacerGap: 1.5f,
+                    meleeSpacerGap: 1f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.3f,
                     shakeRotation: 1f,
@@ -1228,7 +1228,7 @@ public static class AttackLibrary
         List<AttackStats> GodHandRarity = new List<AttackStats>
         {
             new AttackStats(rarity: Rarity.Rare, damage: 4),
-            new AttackStats(rarity: Rarity.Rare, meleeSpacer: 1.5f, meleeSpacerGap: 1f, meleeSizeMultiplier: 0.15f),
+            new AttackStats(rarity: Rarity.Rare, meleeSpacer: 1f, meleeSpacerGap: 0.75f, meleeSizeMultiplier: 0.15f),
 
             new AttackStats(rarity: Rarity.Epic, castTimeMultiplier: -0.20f),
             new AttackStats(rarity: Rarity.Epic, comboLength: 1, comboAttackBuffMultiplier: 0.1f),
@@ -1339,8 +1339,8 @@ public static class AttackLibrary
                     comboLength: 1,
                     comboWaitTime: 1f,
                     meleeShotsScaleUp: 0f,
-                    meleeSpacer: 1.5f,
-                    meleeSpacerGap: 1.5f,
+                    meleeSpacer: 1f,
+                    meleeSpacerGap: 1f,
                     shakeTime: 0.15f,
                     shakeStrength: 0.7f,
                     shakeRotation: 0.5f
@@ -1466,7 +1466,7 @@ public static class AttackLibrary
                     spread: 1f,
                     spray: 0f,
                     castTime: 2f,
-                    range: 1.2f,
+                    range: 1.35f,
                     shotsPerAttack: 1,
                     speed: 0.08f,
                     knockback: 0.4f,
@@ -1866,9 +1866,9 @@ public static class AttackLibrary
                     aimRange: 2.25f,
                     is360: false,
                     coneAngle: 50f,
-                    damage: 10,
+                    damage: 9,
                     spread: 1f,
-                    castTime: 1.7f,
+                    castTime: 1.5f,
                     shotsPerAttack: 1,
                     spray: 2f,
                     range: 2f,
@@ -2009,10 +2009,11 @@ public static class AttackLibrary
                     aimRange: 2f,
                     is360: false,
                     coneAngle: 25f,
-                    damage: 18,
-                    spread: 1.15f,
+                    damage: 16,
+                    spread: 2f,
                     spray: 0f,
-                    castTime: 2.5f,
+                    castTime: 3f,
+                    recoveryTime: 0.5f,
                     range: 7f,
                     shotsPerAttack: 1,
                     speed: 0.02f,
@@ -2151,7 +2152,7 @@ public static class AttackLibrary
                     aimRange: 2.4f,
                     is360: false,
                     coneAngle: 35,
-                    damage: 6,
+                    damage: 5,
                     spread: 0.85f,
                     spray: 0f,
                     castTime: 2f,
@@ -2159,7 +2160,7 @@ public static class AttackLibrary
                     shotsPerAttack: 1,
                     speed: 0.15f,
                     knockback: 0f,
-                    pierce: 35,
+                    pierce: 20,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -2290,7 +2291,7 @@ public static class AttackLibrary
                     aimRange: 2f,
                     is360: false,
                     coneAngle: 35f,
-                    damage: 7,
+                    damage: 4,
                     shotgunSpread: 65f,
                     spray: 0,
                     castTime: 1.7f,
@@ -2568,7 +2569,7 @@ public static class AttackLibrary
                     damage: 11,
                     spread: 0.5f,
                     spray: 3f,
-                    castTime: 2f,
+                    castTime: 1.75f,
                     range: 5f,
                     shotsPerAttack: 1,
                     speed: 0.15f,
@@ -2625,7 +2626,7 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Rare, pierce: 2, speedMultiplier: 0.2f, rangeMultiplier: 0.2f),
 
             new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 3, pierce: 2),
-            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.3f, shakeStrength: 0.05f),
+            new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.3f, shakeStrength: 0.05f, rangeMultiplier: 0.2f),
 
             new AttackStats(rarity: Rarity.Legendary, shotsPerAttack: 3, damage: 5, spreadMultiplier: -0.25f),
             new AttackStats(rarity: Rarity.Legendary, rangeMultiplier: 0.2f, sprayMultiplier: 0.25f, aimRangeAdditive: 1f, coneAngle: 30f),
@@ -3136,7 +3137,7 @@ public static class AttackLibrary
                     spray: 1.4f,
                     castTime: 1.5f,
                     range: 5f,
-                    shotsPerAttack: 35,
+                    shotsPerAttack: 30,
                     speed: 0.15f,
                     knockback: 0.35f,
                     pierce: 0,
@@ -3185,10 +3186,10 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Rare, effectMultiplier: 0.25f, shotsPerAttack: 1),
 
             new AttackStats(rarity: Rarity.Epic, projectileSizeMultiplier: 0.2f),
-            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1, shotgunSpread: 20, damage: 2),
+            new AttackStats(rarity: Rarity.Epic, shotsPerAttack: 1, shotgunSpread: 35, damage: 2),
 
             new AttackStats(rarity: Rarity.Legendary, effectDuration: 2f, activeDuration: 1),
-            new AttackStats(rarity: Rarity.Legendary, shotgunSpread: 40, damage: 2, projectileSizeMultiplier: 0.2f),
+            new AttackStats(rarity: Rarity.Legendary, shotgunSpread: 25, damage: 2, projectileSizeMultiplier: 0.2f),
         };
 
         List<AttackStats> SmokeGrenadeUpgrades = new List<AttackStats>
@@ -3415,7 +3416,7 @@ public static class AttackLibrary
                     spread: 0.65f,
                     spray: 1.5f,
                     sprayThreshold: 1,
-                    castTime: 1.9f,
+                    castTime: 1.85f,
                     range: 8f,
                     shotsPerAttack: 1,
                     speed: 0.2f,
@@ -3553,9 +3554,9 @@ public static class AttackLibrary
                     damage: 4,
                     is360: false,
                     coneAngle: 40f,
-                    spread: 1.2f,
+                    spread: 3f,
                     spray: 0f,
-                    castTime: 2.2f,
+                    castTime: 2.5f,
                     range: 3.5f,
                     shotsPerAttack: 1,
                     speed: 0.018f,
@@ -3571,7 +3572,7 @@ public static class AttackLibrary
                     thrownSpeed: 0.12f,
                     isMagnet: true,
                     magnetStrength: 5,
-                    magnetDuration: 1.0f
+                    magnetDuration: 1.5f
                 )
             )
             .SetProperties(
@@ -3893,7 +3894,7 @@ public static class AttackLibrary
             new AttackStats(rarity: Rarity.Rare, comboWaitTime: -0.2f, shakeRotation: 0.1f, comboAttackBuffMultiplier: 0.10f),
             new AttackStats(rarity: Rarity.Rare, meleeSpacer: 1.5f, coneAngle: 30f, aimRangeAdditive: 1f),
 
-            new AttackStats(rarity: Rarity.Epic, comboLength: -1, damage: 6, meleeSizeMultiplier: 0.15f),
+            new AttackStats(rarity: Rarity.Epic, damage: 6, meleeSizeMultiplier: 0.15f),
             new AttackStats(rarity: Rarity.Epic, comboWaitTimeMultiplier: 0.5f),
 
             new AttackStats(rarity: Rarity.Legendary, shotsPerAttackMelee: 1, shakeStrength: 0.02f),
@@ -4002,7 +4003,7 @@ public static class AttackLibrary
                     comboLength: 3,
                     comboWaitTime: 0.9f,
                     meleeSpacer: 1.2f,
-                    meleeSpacerGap: 1.3f,
+                    meleeSpacerGap: 1.1f,
                     shakeTime: 0.08f,
                     shakeStrength: 0.12f,
                     shakeRotation: 0.1f,

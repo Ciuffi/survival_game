@@ -63,6 +63,8 @@ public class AutoAim : MonoBehaviour
         // Calculate the player's movement direction
         Vector2 playerMovementDirection = joystick.lastInputDirection.normalized;
 
+        bool validTargetFound = false;
+
         foreach (Collider2D col in colliders)
         {
             Enemy enemy = col.GetComponent<Enemy>();
@@ -78,6 +80,7 @@ public class AutoAim : MonoBehaviour
                     {
                         closestDistance = distance;
                         closestEnemy = col.gameObject;
+                        validTargetFound = true;
                     }
                 }
                 else
@@ -87,22 +90,19 @@ public class AutoAim : MonoBehaviour
                     // Calculate the dot product between player movement direction and target direction
                     float dotProduct = Vector2.Dot(playerMovementDirection, targetDirection);
 
-                    if (distance < closestDistance && angle <= coneAngle * 0.5f)
+                    if (distance < closestDistance && angle <= coneAngle * 0.5f && dotProduct >= 0)
                     {
-                        // Check if the dot product is positive (moving towards the target) or zero (player stopped moving)
-                        if (dotProduct >= 0)
-                        {
-                            closestDistance = distance;
-                            closestEnemy = col.gameObject;
-                        }
-                    }
-                    // Unlock the target if moving away from it or the current target is out of range
-                    else if (dotProduct < 0 || (currentTarget == col.gameObject && distance > aimRange))
-                    {
-                        closestEnemy = null;
+                        closestDistance = distance;
+                        closestEnemy = col.gameObject;
+                        validTargetFound = true;
                     }
                 }
             }
+        }
+
+        if (!validTargetFound)
+        {
+            closestEnemy = null;
         }
 
         currentTarget = closestEnemy;

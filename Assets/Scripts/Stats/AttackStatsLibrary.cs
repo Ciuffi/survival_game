@@ -109,9 +109,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.10f,
+                castTimeMultiplier: -0.05f,
                 name: "Haste 1",
-                description: "Cooldown -10%",
+                description: "Cooldown -5%",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Common
             )
@@ -351,9 +351,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.20f,
+                castTimeMultiplier: -0.10f,
                 name: "Haste 2",
-                description: "Cooldown -20%",
+                description: "Cooldown -10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Rare
             )
@@ -782,7 +782,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isSlow: true,
-                slowPercentage: 0.75f,
+                slowPercentage: 0.8f,
                 slowDuration: 1.5f,
                 name: "Slow Down 2",
                 description: "Slow for +1.5s",
@@ -868,9 +868,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.25f,
+                castTimeMultiplier: -0.15f,
                 name: "Haste 3",
-                description: "Cooldown -25%",
+                description: "Cooldown -15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Epic
             )
@@ -1016,7 +1016,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttack: 2,
                 name: "Extra Round 2",
-                description: "+2 Projectiles",
+                description: "+3 Projectiles",
                 icon: Resources.Load<Sprite>("UI_Icons/ExtraRound"),
                 rarity: Rarity.Epic
             )
@@ -1277,7 +1277,7 @@ public static class AttackStatsLibrary
         AddStat(
            new AttackStats(
                isSlow: true,
-               slowPercentage: 0.6f,
+               slowPercentage: 0.65f,
                slowDuration: 2f,
                name: "Slow Down 3",
                description: "Slow for +2s",
@@ -1362,9 +1362,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.35f,
+                castTimeMultiplier: -0.20f,
                 name: "Haste 4",
-                description: "Cooldown -35%",
+                description: "Cooldown -20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Legendary
             )
@@ -1406,9 +1406,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                shotsPerAttack: 4,
+                shotsPerAttack: 5,
                 name: "Extra Round 3",
-                description: "+4 Projectiles",
+                description: "+5 Projectiles",
                 icon: Resources.Load<Sprite>("UI_Icons/ExtraRound"),
                 rarity: Rarity.Legendary
             )
@@ -1708,9 +1708,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.12f,
+                castTimeMultiplier: -0.05f,
                 name: "Quickswap 1",
-                description: "Cooldowns -12%",
+                description: "Cooldowns -5%",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1833,7 +1833,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 comboAttackBuffMultiplier: 0.05f,
                 name: "Charged Up 1",
-                description: "+4% Damage per additional Cast",
+                description: "+5% Damage per additional Cast",
                 icon: Resources.Load<Sprite>("UI_Icons/Charged"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1894,9 +1894,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.20f,
+                castTimeMultiplier: -0.10f,
                 name: "Quickswap 2",
-                description: "Cooldowns -20%",
+                description: "Cooldowns -10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2149,9 +2149,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                comboAttackBuffMultiplier: 0.07f,
+                comboAttackBuffMultiplier: 0.08f,
                 name: "Charged Up 2",
-                description: "+7% Damage per additional Cast",
+                description: "+8% Damage per additional Cast",
                 icon: Resources.Load<Sprite>("UI_Icons/Charged"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2210,9 +2210,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.30f,
+                castTimeMultiplier: -0.15f,
                 name: "Quickswap 3",
-                description: "Cooldowns -30%",
+                description: "Cooldowns -15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2356,9 +2356,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                shotsPerAttack: 2,
+                shotsPerAttack: 3,
                 name: "Bonus Round 2",
-                description: "+2 Projectiles",
+                description: "+3 Projectiles",
                 icon: Resources.Load<Sprite>("UI_Icons/BonusRound"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2370,7 +2370,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttack: 15,
                 name: "Extended Mag 2",
-                description: "+15 Projectiles",
+                description: "+12 Projectiles",
                 icon: Resources.Load<Sprite>("UI_Icons/ExtendedMag"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2476,9 +2476,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                comboAttackBuffMultiplier: 0.10f,
+                comboAttackBuffMultiplier: 0.12f,
                 name: "Charged Up 3",
-                description: "+10% Damage per additional Cast",
+                description: "+12% Damage per additional Cast",
                 icon: Resources.Load<Sprite>("UI_Icons/Charged"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2503,9 +2503,9 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 shootOppositeSide: true,
-                damageMultiplier: -0.3f,
+                damageMultiplier: -0.5f,
                 name: "Buddy System",
-                description: "Attack again behind you, -30% Damage",
+                description: "Attack again behind you, -50% Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/BuddySystem"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2551,9 +2551,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                castTimeMultiplier: -0.4f,
+                castTimeMultiplier: -0.2f,
                 name: "Quickswap 4",
-                description: "Cooldowns -40%",
+                description: "Cooldowns -20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2587,9 +2587,9 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                shotsPerAttack: 6,
+                shotsPerAttack: 5,
                 name: "Bonus Round 3",
-                description: "+6 Projectiles",
+                description: "+5 Projectiles",
                 icon: Resources.Load<Sprite>("UI_Icons/BonusRound"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2601,7 +2601,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttack: 30,
                 name: "Extended Mag 3",
-                description: "+25 Projectiles",
+                description: "+20 Projectiles",
                 icon: Resources.Load<Sprite>("UI_Icons/ExtendedMag"),
                 rarity: Rarity.Legendary,
                 weaponSet: true

@@ -282,11 +282,14 @@ public class AttackHandler : MonoBehaviour
 
             if (currentAttack.thrownWeapon != null)
             {
-                //throw animation
-                HandsSprite.GetComponent<Animator>().SetBool("IsThrow", true);
-                yield return new WaitForSeconds(0.3f);
-                currentAttack.ThrowWeapon();
-                HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);
+                for (int i = 0; i < currentAttack.stats.multicastTimes + 1; i++)
+                {
+                    //throw animation
+                    HandsSprite.GetComponent<Animator>().SetBool("IsThrow", true);
+                    yield return new WaitForSeconds(0.3f);
+                    currentAttack.ThrowWeapon();
+                    HandsSprite.GetComponent<Animator>().SetBool("IsThrow", false);
+                }
             }
         }
     }

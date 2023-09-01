@@ -73,10 +73,10 @@ public static class PlayerStatsLibrary
         //Lightweight
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: -0.20f,
+                castTimeMultiplier: -0.15f,
                 damageMultiplier: -0.15f,
                 name: "Lightweight 1",
-                description: "Cooldowns -20%, Damage -15%",
+                description: "Cooldowns -15%, Damage -15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Common
             )
@@ -174,10 +174,10 @@ public static class PlayerStatsLibrary
         //Lightweight
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: -0.3f,
-                damageMultiplier: -0.22f,
+                castTimeMultiplier: -0.2f,
+                damageMultiplier: -0.15f,
                 name: "Lightweight 2",
-                description: "Cooldowns -30%, Damage -22%",
+                description: "Cooldowns -20%, Damage -20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Rare
             )
@@ -278,11 +278,10 @@ public static class PlayerStatsLibrary
         //Overclock
         AddStat(
             new PlayerCharacterStats(
-                spreadMultiplier: -0.25f,
-                comboWaitTimeMultiplier: -0.25f,
-                recoveryAdditive: 0.5f,
+                spreadMultiplier: -0.10f,
+                comboWaitTimeMultiplier: -0.10f,
                 name: "Overclock 1",
-                description: "Attack speed, Rate of fire +25%, Attack recovery +0.5s",
+                description: "Attack speed, Rate of fire +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Overclock"),
                 rarity: Rarity.Rare
             )
@@ -322,11 +321,11 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 activeMultiplier: 0.5f,
-                pierce: 15,
+                pierce: 5,
                 projectileSizeMultiplier: -0.2f,
                 meleeSizeMultiplier: -0.2f,
                 name: "Hoverball 1",
-                description: "Attack Duration +50%, Pierce +15, Size -20%",
+                description: "Attack Duration +50%, Pierce +5, Size -20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Hover"),
                 rarity: Rarity.Rare
             )
@@ -335,12 +334,10 @@ public static class PlayerStatsLibrary
         //Biggenball
         AddStat(
             new PlayerCharacterStats(
-                activeMultiplier: 0.5f,
-                projectileSizeMultiplier: 0.25f,
-                meleeSizeMultiplier: 0.25f,
-                damageMultiplier: -0.15f,
+                projectileSizeMultiplier: 0.15f,
+                meleeSizeMultiplier: 0.15f,
                 name: "Biggenball 1",
-                description: "Attack Duration +50%, Size +25%, Damage -15%",
+                description: "Attack, Projectile Size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Biggen"),
                 rarity: Rarity.Rare
             )
@@ -373,9 +370,9 @@ public static class PlayerStatsLibrary
         //Pyro
         AddStat(
             new PlayerCharacterStats(
-                dotDamage: 3,
+                dotDamage: 2,
                 name: "Pyro 1",
-                description: "+3 Burn Damage",
+                description: "+2 Burn Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Rare
             )
@@ -388,7 +385,7 @@ public static class PlayerStatsLibrary
                 chainRange: 0.5f,
                 chainSpeed: 3,
                 name: "Link 1",
-                description: "Chain to +1 targets, increase chain Range and Speed",
+                description: "Improve Chain Amount, Range and Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Link"),
                 rarity: Rarity.Rare
             )
@@ -422,7 +419,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 isSlow: true,
                 slowDuration: 2f,
-                slowPercentage: 0.5f,
+                slowPercentage: 0.6f,
                 knockbackMultiplier: -0.25f,
                 name: "Sleepy 1",
                 description: "Attacks slow for 2s, Knockback -25%",
@@ -462,10 +459,10 @@ public static class PlayerStatsLibrary
         //Lightweight
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: -0.5f,
-                damageMultiplier: -0.3f,
+                castTimeMultiplier: -0.3f,
+                damageMultiplier: -0.15f,
                 name: "Lightweight 3",
-                description: "Cooldowns -50%, Damage -30%",
+                description: "Cooldowns -30%, Damage -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Epic
             )
@@ -566,11 +563,10 @@ public static class PlayerStatsLibrary
         //Overclock
         AddStat(
             new PlayerCharacterStats(
-                spreadMultiplier: -0.35f,
-                comboWaitTimeMultiplier: -0.35f,
-                recoveryAdditive: 0.75f,
+                spreadMultiplier: -0.2f,
+                comboWaitTimeMultiplier: -0.2f,
                 name: "Overclock 2",
-                description: "Attack speed, Rate of fire +35%, attack recovery +0.75s",
+                description: "Attack speed, Rate of fire +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Overclock"),
                 rarity: Rarity.Epic
             )
@@ -610,11 +606,11 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 activeMultiplier: 0.75f,
-                pierce: 25,
+                pierce: 10,
                 projectileSizeMultiplier: -0.25f,
                 meleeSizeMultiplier: -0.25f,
                 name: "Hoverball 2",
-                description: "Attack Duration +75%, Pierce +25, Size -25%",
+                description: "Attack Duration +75%, Pierce +10, Size -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Hover"),
                 rarity: Rarity.Epic
             )
@@ -623,12 +619,10 @@ public static class PlayerStatsLibrary
         //Biggenball
         AddStat(
             new PlayerCharacterStats(
-                activeMultiplier: 0.75f,
                 projectileSizeMultiplier: 0.25f,
                 meleeSizeMultiplier: 0.25f,
-                damageMultiplier: -0.25f,
                 name: "Biggenball 2",
-                description: "Attack Duration +75%, Size +25%, Damage -25%",
+                description: "Attack, Projectile Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Biggen"),
                 rarity: Rarity.Epic
             )
@@ -661,9 +655,9 @@ public static class PlayerStatsLibrary
         //Pyro
         AddStat(
             new PlayerCharacterStats(
-                dotDamage: 6,
+                dotDamage: 4,
                 name: "Pyro 2",
-                description: "+6 Burn Damage",
+                description: "+4 Burn Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Epic
             )
@@ -676,7 +670,7 @@ public static class PlayerStatsLibrary
                 chainRange: 0.5f,
                 chainSpeed: 3,
                 name: "Link 2",
-                description: "Chain to +2 targets, increase chain Range and Speed",
+                description: "Improve Chain Amount, Range and Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Link"),
                 rarity: Rarity.Epic
             )
@@ -748,13 +742,13 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 thrownDamageMultiplier: 1.5f,
                 thrownWeaponSizeMultiplier: 1.5f,
-                castTimeMultiplier: -0.25f,
-                pierce: 5,
+                castTimeMultiplier: -0.5f,
+                pierce: 10,
                 shotsPerAttack: -1000,
                 shotsPerAttackMelee: -1000,
                 comboLength: -1000,
                 name: "Quarterback 1",
-                description: "Weapon throw: Damage, Size +150%, Cooldowns -25%, Cannot attack",
+                description: "Weapon throw: Damage, Size +150%, Cooldowns -50%, Cannot attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Quarterback"),
                 rarity: Rarity.Epic
             )
@@ -766,7 +760,6 @@ public static class PlayerStatsLibrary
                 isDoT: true,
                 dotDuration: 10f,
                 dotTickRate: 0.5f,
-                dotDamage: 1,
                 name: "Gasoline 1",
                 description: "All attacks Ignite for 10 seconds and burn twice as quickly.",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gasoline"),
@@ -780,11 +773,11 @@ public static class PlayerStatsLibrary
                 isSplit: true,
                 splitAmount: 1,
                 splitStatPercentage: 1f,
-                damageMultiplier: -0.5f,
-                projectileSizeMultiplier: -0.5f,
-                meleeSizeMultiplier: -0.5f,
+                damageMultiplier: -0.6f,
+                projectileSizeMultiplier: -0.6f,
+                meleeSizeMultiplier: -0.6f,
                 name: "Clone 1",
-                description: "Split amount +1, all Splits +100% stats, -50% Damage and Size",
+                description: "Split amount +1, -60% Damage and Size",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Clone"),
                 rarity: Rarity.Epic
             )
@@ -838,10 +831,10 @@ public static class PlayerStatsLibrary
         //Lightweight
         AddStat(
             new PlayerCharacterStats(
-                castTimeMultiplier: -0.6f,
+                castTimeMultiplier: -0.5f,
                 damageMultiplier: -0.35f,
                 name: "Lightweight 4",
-                description: "Cooldowns -60%, Damage -35%",
+                description: "Cooldowns -40%, Damage -30%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Light"),
                 rarity: Rarity.Legendary
             )
@@ -903,11 +896,10 @@ public static class PlayerStatsLibrary
         //Overclock
         AddStat(
             new PlayerCharacterStats(
-                spreadMultiplier: -0.5f,
-                comboWaitTimeMultiplier: -0.5f,
-                recoveryAdditive: 1f,
+                spreadMultiplier: -0.3f,
+                comboWaitTimeMultiplier: -0.3f,
                 name: "Overclock 3",
-                description: "Attack speed, Rate of fire +50%, exhausted for +1s after attacking",
+                description: "Attack speed, Rate of fire +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Overclock"),
                 rarity: Rarity.Legendary
             )
@@ -947,11 +939,11 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 activeMultiplier: 1f,
-                pierce: 35,
+                pierce: 15,
                 projectileSizeMultiplier: -0.35f,
                 meleeSizeMultiplier: -0.35f,
                 name: "Hoverball 3",
-                description: "Attack Duration +100%, Pierce +35, Size -35%",
+                description: "Attack Duration +100%, Pierce +15, Size -35%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Hover"),
                 rarity: Rarity.Legendary
             )
@@ -960,12 +952,10 @@ public static class PlayerStatsLibrary
         //Biggenball
         AddStat(
             new PlayerCharacterStats(
-                activeMultiplier: 1f,
                 projectileSizeMultiplier: 0.35f,
                 meleeSizeMultiplier: 0.35f,
-                damageMultiplier: -0.35f,
                 name: "Biggenball 3",
-                description: "Attack Duration +100%, Size +35%, Damage -35%",
+                description: "Attack, Projectile Size +35%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Biggen"),
                 rarity: Rarity.Legendary
             )
@@ -998,9 +988,9 @@ public static class PlayerStatsLibrary
         //Pyro
         AddStat(
             new PlayerCharacterStats(
-                dotDamage: 9,
+                dotDamage: 6,
                 name: "Pyro 3",
-                description: "+10 Burn Damage",
+                description: "+6 Burn Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Legendary
             )
@@ -1013,7 +1003,7 @@ public static class PlayerStatsLibrary
                 chainRange: 1f,
                 chainSpeed: 5,
                 name: "Link 3",
-                description: "Chain to +2 targets, increase chain Range and Speed",
+                description: "Improve Chain Amount, Range and Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Link"),
                 rarity: Rarity.Legendary
             )
@@ -1059,13 +1049,13 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 thrownDamageMultiplier: 2f,
                 thrownWeaponSizeMultiplier: 2f,
-                castTimeMultiplier: -0.4f,
-                pierce: 10,
+                castTimeMultiplier: -0.6f,
+                pierce: 20,
                 shotsPerAttack: -1000,
                 shotsPerAttackMelee: -1000,
                 comboLength: -1000,
                 name: "Quarterback 2",
-                description: "Weapon throw: Damage, Size +200%, Cooldowns -40%, Cannot attack",
+                description: "Weapon throw: Damage, Size +200%, Cooldowns -60%, Cannot attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Quarterback"),
                 rarity: Rarity.Legendary
             )
@@ -1076,7 +1066,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 isDoT: true,
                 dotDuration: 10f,
-                dotTickRate: 0.33f,
+                dotTickRate: 0.35f,
                 dotDamage: 1,
                 name: "Gasoline 2",
                 description: "All attacks Ignite for 10 seconds and burn twice as quickly.",
@@ -1091,11 +1081,11 @@ public static class PlayerStatsLibrary
                 isSplit: true,
                 splitAmount: 1,
                 splitStatPercentage: 1f,
-                damageMultiplier: -0.33f,
-                projectileSizeMultiplier: -0.33f,
-                meleeSizeMultiplier: -0.33f,
+                damageMultiplier: -0.50f,
+                projectileSizeMultiplier: -0.50f,
+                meleeSizeMultiplier: -0.50f,
                 name: "Clone 2",
-                description: "Split amount +1, all Splits +100% stats, -33% Damage and Size",
+                description: "Split amount +1, -50% Damage and Size",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Clone"),
                 rarity: Rarity.Legendary
             )
@@ -1147,9 +1137,9 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 shootOpposideSide: true,
-                recoveryAdditive: 0.5f,
+                recoveryAdditive: 3f,
                 name: "Hindsight 1",
-                description: "Attack again behind you, exhausted for +0.5s after attacking",
+                description: "Attack again behind you, exhausted after attacking",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Hindsight"),
                 rarity: Rarity.Legendary
             )
