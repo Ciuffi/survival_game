@@ -140,7 +140,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 174acfd923c89054f95b854c7aa2bf2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -230,8 +230,9 @@ MonoBehaviour:
   isChain: 0
   chainTimes: 0
   chainStatDecayPercent: 0
+  chainRange: 0
+  chainSpeed: 0
   isSplitProjectile: 0
-  isChainProjectile: 0
   hasDeathrattle: 1
   deathSpawn: {fileID: 4908858350499337675, guid: 9874714d374cf67458b2889bf556b3b2, type: 3}
   wpnProjSizeMultiplier: 0

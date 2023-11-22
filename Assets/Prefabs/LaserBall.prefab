@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 174acfd923c89054f95b854c7aa2bf2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1602682635
-  m_SortingLayer: 1
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 36a211586ca702245b4808b3c37e322b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -130,7 +130,6 @@ MonoBehaviour:
   bounceRange: 0
   bounceTimes: 0
   isMelee: 0
-  meleeTime: 0
   startup: 0
   active: 0
   scaleSpeed: 0
@@ -141,12 +140,39 @@ MonoBehaviour:
   playerShakeStrength: 0.05
   playerShakeRotation: 0.05
   damageTickDuration: 1
-  startPos: {x: 0, y: 0, z: 0}
   isThrown: 0
   isHover: 0
+  stopOnHit: 0
   hoverTimer: 0
   hitFirstEnemy: 0
   isAnimated: 0
+  isMagnet: 0
+  magnetStrength: 0
+  magnetDuration: 0
+  isSlow: 0
+  slowPercentage: 0
+  slowDuration: 0
+  isStun: 0
+  stunDuration: 0
+  isHoming: 0
+  rotateSpeed: 0
+  isDoT: 0
+  dotDuration: 0
+  dotDamage: 0
+  dotTickRate: 0
+  isSplit: 0
+  splitAmount: 0
+  splitStatPercentage: 0
+  isChain: 0
+  chainTimes: 0
+  chainStatDecayPercent: 0
+  chainRange: 0
+  chainSpeed: 0
+  isSplitProjectile: 0
+  hasDeathrattle: 0
+  deathSpawn: {fileID: 0}
+  wpnProjSizeMultiplier: 0
+  wpnMeleeSizeMultiplier: 0
 --- !u!61 &878022755994954586
 BoxCollider2D:
   m_ObjectHideFlags: 0

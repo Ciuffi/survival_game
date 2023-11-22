@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 174acfd923c89054f95b854c7aa2bf2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1822861191
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 52829240, guid: fa318c18e2ee32148a50049a8bbaae7f, type: 3}
   m_Color: {r: 0, g: 1, b: 0.24680638, a: 0.5882353}
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf6025681fe2df40a988eaafdab2c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: {fileID: 0}
   damage: 5
   critChance: 0.05
   critDmg: 1.5
@@ -179,3 +180,12 @@ MonoBehaviour:
   slowDuration: 2
   isStun: 1
   stunDuration: 0.5
+  isDoT: 0
+  dotDuration: 0
+  dotDamage: 0
+  dotTickRate: 0
+  isChain: 0
+  chainTimes: 0
+  chainStatDecayPercent: 0
+  chainRange: 0
+  chainSpeed: 0

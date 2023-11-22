@@ -61,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 174acfd923c89054f95b854c7aa2bf2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,6 +108,9 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   localScale: {x: 0, y: 0, z: 0}
   knockDirection: {x: 0, y: 0, z: 0}
+  isBasic: 0
+  isElite: 0
+  isBoss: 0
   damage: 2
   health: 7
   maxHealth: 0
@@ -121,6 +124,7 @@ MonoBehaviour:
   isMelee: 0
   isAOE: 0
   isArmor: 0
+  armorTime: 0
   armorPercent: 0
   weightIncrease: 0
   canDamage: 0
@@ -159,9 +163,23 @@ MonoBehaviour:
   shootRecovery: 4
   AOEPrefab: {fileID: 0}
   dangerSign: {fileID: 0}
+  isDeathrattle: 0
+  isDeathExplode: 0
+  deathRattle: []
+  isSpawn: 0
+  spawnTimer: 0.5
+  isFlyby: 0
+  flybyDistance: 15
+  isObstacle: 0
+  obstacleLifetime: 0
   isStunned: 0
   stunColor: {r: 0, g: 0, b: 0, a: 0}
   shadow: {fileID: 0}
+  eliteOutline: {fileID: 0}
+  xpSizeScaling: 0.5
+  destroyDistance: 12
+  dotVFX: {fileID: 0}
+  isGamePaused: 0
 --- !u!50 &1423453834646843859
 Rigidbody2D:
   serializedVersion: 4
@@ -309,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+  isFlyby: 0
 --- !u!1 &6531945945894358812
 GameObject:
   m_ObjectHideFlags: 0
