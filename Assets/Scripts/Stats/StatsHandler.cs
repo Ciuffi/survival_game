@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class StatsHandler : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class StatsHandler : MonoBehaviour
     public Material newMaterial;
     private bool resetMaterial = false;
     public float flashDuration;
+
+    public float damageCheckDuration = 0.05f;
 
     GameObject Camera;
     public float playerShakeTime,
@@ -109,41 +112,139 @@ public class StatsHandler : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageAmount)
+    public void AddHealth(float amount)
+    {
+        float newHealth;
+        if (currentHealth + amount >= stats.maxHealth)
+        {
+            newHealth = stats.maxHealth;
+        }
+        else
+        {
+            newHealth = currentHealth + amount;
+        }
+
+        healthBarQueue.AddToQueue(
+            BarHelper.AddToBar(healthBar, currentHealth, newHealth, stats.maxHealth, 0.4f)
+        );
+        currentHealth = newHealth;
+
+    }
+
+    private class DamageSource
+    {
+        public float DamageAmount;
+        public GameObject Enemy;
+    }
+
+    private List<DamageSource> damageSourcesDuringIframes = new List<DamageSource>();
+    private bool isEvaluatingDamage = false;
+
+    public void TakeDamage(float damageAmount, GameObject enemy)
     {
         if (!canDamage)
         {
             return;
         }
-        canDamage = false;
-        float newHealth;
-        if ((damageAmount - stats.defense) > 0)
-        {
-            newHealth = currentHealth - damageAmount + stats.defense;
-        }
-        else
-        {
-            newHealth = currentHealth;
-        }
-        animator.SetBool("TookDamage", true);
-        afterimageAnim.SetBool("TookDamage", true);
 
-        spriteRend.material = newMaterial;
-        resetMaterial = true;
-        healthBar.fillRect.GetComponent<Image>().color = Color.red;
-        Camera
-            .GetComponent<ScreenShakeController>()
-            .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+        // Store potential damage sources
+        damageSourcesDuringIframes.Add(new DamageSource { DamageAmount = damageAmount, Enemy = enemy });
 
-        healthBarQueue.AddToQueue(
-            BarHelper.RemoveFromBar(healthBar, currentHealth, newHealth, stats.maxHealth, 0.5f)
-        );
-        currentHealth = newHealth;
-        if (currentHealth <= 0)
+        if (!isEvaluatingDamage)
         {
-            GameObject.FindObjectOfType<EndgameStatTracker>().EndGameStats();
-            GameObject.FindObjectOfType<GameManager>().EndGame();
+            isEvaluatingDamage = true;
+            StartCoroutine(EvaluateDamageAfterDelay(damageCheckDuration));
         }
+    }
+
+    private IEnumerator EvaluateDamageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (damageSourcesDuringIframes.Count > 0)
+        {
+            var highestDamageSource = damageSourcesDuringIframes.OrderByDescending(d => d.DamageAmount).First();
+
+            // Apply the highest damage
+            float damageAmount = highestDamageSource.DamageAmount;
+            GameObject enemy = highestDamageSource.Enemy;
+
+            // Now handle the damage with the highest damage source
+            canDamage = false;
+            float newHealth;
+            if ((damageAmount - stats.defense) > 0)
+            {
+                newHealth = currentHealth - damageAmount + stats.defense;
+            }
+            else
+            {
+                newHealth = currentHealth;
+            }
+            animator.SetBool("TookDamage", true);
+            afterimageAnim.SetBool("TookDamage", true);
+
+            spriteRend.material = newMaterial;
+            resetMaterial = true;
+            healthBar.fillRect.GetComponent<Image>().color = Color.red;
+            Camera
+                .GetComponent<ScreenShakeController>()
+                .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+
+            healthBarQueue.AddToQueue(
+                BarHelper.RemoveFromBar(healthBar, currentHealth, newHealth, stats.maxHealth, 0.3f)
+            );
+            currentHealth = newHealth;
+            if (currentHealth <= 0)
+            {
+                GameObject.FindObjectOfType<EndgameStatTracker>().EndGameStats();
+                GameObject.FindObjectOfType<GameManager>().EndGame();
+            }
+
+            if (stats.isRevenge && enemy != null)
+            {
+                bool isCrit;
+                float revengeDamageAmount = stats.revengeDamage;
+
+                if (stats.critChance >= 1)
+                {
+                    isCrit = true;
+                }
+                else
+                {
+                    isCrit = UnityEngine.Random.Range(0f, 1f) < stats.critChance;
+                }
+
+                if (isCrit)
+                {
+                    // Apply critical damage multiplier
+                    revengeDamageAmount *= stats.critDmg;
+                }
+
+                enemy.GetComponent<Enemy>().TakeDamage(revengeDamageAmount, isCrit);
+
+                if (stats.isLifesteal)
+                {
+                    bool isLifesteal;
+                    if (stats.lifestealChance >= 1)
+                    {
+                        isLifesteal = true;
+                    }
+                    else
+                    {
+                        isLifesteal = UnityEngine.Random.Range(0f, 1f) < stats.lifestealChance;
+                    }
+
+                    if (isLifesteal)
+                    {
+                        AddHealth(stats.lifestealAmount);
+                    }
+                }
+            }
+            // Clear the stored damage sources
+            damageSourcesDuringIframes.Clear();
+        }
+
+        isEvaluatingDamage = false;
     }
 
     void ResetMaterial()

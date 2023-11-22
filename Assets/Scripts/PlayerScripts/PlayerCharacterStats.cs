@@ -90,6 +90,12 @@ public class PlayerCharacterStats : Upgrade
     public bool isStun;
     public float stunDuration;
 
+    public bool isLifesteal;
+    public float lifestealAmount;
+    public float lifestealChance;
+
+    public bool isRevenge;
+    public float revengeDamage;
 
     public Rarity rarity;
     public GameObject statsContainer;
@@ -167,6 +173,11 @@ public class PlayerCharacterStats : Upgrade
         chainRange += other.chainRange;
         chainSpeed += other.chainSpeed;
 
+        isLifesteal |= other.isLifesteal;
+        lifestealAmount += other.lifestealAmount;
+        lifestealChance += other.lifestealChance;
+        isRevenge |= other.isRevenge;
+        revengeDamage += other.revengeDamage;
 
         shootOpposideSide |= other.shootOpposideSide;
         isHoming |= other.isHoming;
@@ -253,6 +264,12 @@ public class PlayerCharacterStats : Upgrade
         chainStatDecayPercent = other.chainStatDecayPercent;
         chainRange = other.chainRange;
         chainSpeed = other.chainSpeed;
+
+        isLifesteal = other.isLifesteal;
+        lifestealAmount = other.lifestealAmount;
+        lifestealChance = other.lifestealChance;
+        isRevenge = other.isRevenge;
+        revengeDamage = other.revengeDamage;
     }
 
     //Constructor with smart defaults in parameters
@@ -324,6 +341,12 @@ public class PlayerCharacterStats : Upgrade
         float chainStatDecayPercent = 0,
         float chainRange = 0,
         float chainSpeed = 0,
+        bool isLifesteal = false,
+        float lifestealAmount = 0,
+        float lifestealChance = 0,
+        bool isRevenge = false,
+        float revengeDamage = 0,
+
         Sprite characterSprite = null,
         RuntimeAnimatorController characterAnimationController = null,
 
@@ -396,6 +419,12 @@ public class PlayerCharacterStats : Upgrade
         this.chainStatDecayPercent = chainStatDecayPercent;
         this.chainRange = chainRange;
         this.chainSpeed = chainSpeed;
+
+        this.isLifesteal = isLifesteal;
+        this.lifestealAmount = lifestealAmount;
+        this.lifestealChance = lifestealChance;
+        this.isRevenge = isRevenge;
+        this.revengeDamage = revengeDamage;
 
         this.shootOpposideSide = shootOpposideSide;
         this.isHoming = isHoming;

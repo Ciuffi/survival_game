@@ -117,6 +117,10 @@ public class AttackStats : Upgrade
     public float chainRange;
     public float chainSpeed;
 
+    public bool isLifesteal;
+    public float lifestealAmount;
+    public float lifestealChance;
+
     public GameObject statsContainer;
     public string AttackName { get; set; }
     public WeaponSetType weaponSetType { get; set; }
@@ -213,8 +217,11 @@ public class AttackStats : Upgrade
         float chainStatDecayPercent = 0,
         float chainRange = 0,
         float chainSpeed = 0,
+        bool isLifesteal = false,
+        float lifestealAmount = 0,
+        float lifestealChance = 0,
 
-        string name = "",
+    string name = "",
         string description = "",
         Sprite icon = null
     )
@@ -311,6 +318,9 @@ public class AttackStats : Upgrade
         this.chainStatDecayPercent = chainStatDecayPercent;
         this.chainRange = chainRange;
         this.chainSpeed = chainSpeed;
+        this.isLifesteal = isLifesteal;
+        this.lifestealAmount = lifestealAmount;
+        this.lifestealChance = lifestealChance;
     }
 
     //shotsPerAttack and comboLength must be be one or greater.
@@ -517,6 +527,10 @@ public class AttackStats : Upgrade
         this.chainRange = Mathf.Max(this.chainRange, attackStats.chainRange);
         this.chainSpeed = Mathf.Max(this.chainSpeed, attackStats.chainSpeed);
 
+        this.isLifesteal |= attackStats.isLifesteal;
+        this.lifestealChance += attackStats.lifestealChance;
+        this.lifestealAmount += attackStats.lifestealAmount;
+
     }
 
     public AttackStats MergeInPlayerStats(PlayerCharacterStats playerStats)
@@ -596,6 +610,9 @@ public class AttackStats : Upgrade
         this.isStun |= playerStats.isStun;
         this.stunDuration += playerStats.stunDuration;
 
+        this.isLifesteal |= playerStats.isLifesteal;
+        this.lifestealChance += playerStats.lifestealChance;
+        this.lifestealAmount += playerStats.lifestealAmount;
 
         return this;
     }
@@ -696,6 +713,9 @@ public class AttackStats : Upgrade
         this.chainRange = attackStats.chainRange;
         this.chainSpeed = attackStats.chainSpeed;
 
+        this.isLifesteal = attackStats.isLifesteal;
+        this.lifestealAmount = attackStats.lifestealAmount;
+        this.lifestealChance = attackStats.lifestealChance;
     }
 
     public AttackStats Clone()
@@ -813,7 +833,11 @@ public class AttackStats : Upgrade
             chainTimes = this.chainTimes,
             chainStatDecayPercent = this.chainStatDecayPercent,
             chainRange = this.chainRange,
-            chainSpeed = this.chainSpeed
+            chainSpeed = this.chainSpeed,
+
+            isLifesteal = this.isLifesteal,
+            lifestealChance = this.lifestealChance,
+            lifestealAmount = this.lifestealAmount
         };
     }
 

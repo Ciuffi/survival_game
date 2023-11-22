@@ -75,9 +75,14 @@ public static class PlayerCharactersLibrary
            effectMultiplier: 0,
            activeDuration: 0,
            activeMultiplier: 0,
+           isRevenge: true,
+           revengeDamage: 20,
+           isLifesteal: true,
+           lifestealChance: 1f,
+           lifestealAmount: 1f,
 
             shootOpposideSide: false
-        );
+        ) ;
 
         defaultCharacter.name = defaultStats.name;
         defaultCharacter.AddComponent<StatComponent>().stat = defaultStats;

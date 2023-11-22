@@ -23,7 +23,7 @@ public class EnemyDeathExplode : MonoBehaviour
             if (col.CompareTag("Player"))
             {
                 Instantiate(onHitParticle, col.transform.position, Quaternion.identity);
-                col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
+                col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage, gameObject);
             }
 
             if (col.CompareTag("Enemy"))

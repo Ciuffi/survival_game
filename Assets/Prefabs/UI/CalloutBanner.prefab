@@ -239,6 +239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bannerText: {fileID: 3299466694545545003}
-  flashDuration: 2
-  fadeOutDuration: 1.5
-  flashRate: 0.55
+  flashDuration: 2.4
+  fadeOutDuration: 2
+  flashRate: 0.6

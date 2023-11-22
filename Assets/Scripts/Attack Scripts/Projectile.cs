@@ -97,6 +97,10 @@ public class Projectile : MonoBehaviour
     public float chainSpeed;
     private GameObject chainPrefab;
 
+    public bool isLifesteal;
+    public float lifestealChance;
+    public float lifestealAmount;
+
     public bool isSplitProjectile; //to be turned on after splitting to acquire scaled stats
 
     public bool hasDeathrattle;
@@ -145,6 +149,7 @@ public class Projectile : MonoBehaviour
             wpnMeleeSizeMultiplier = attack.stats.meleeSize * splitStatPercentage;
             active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
             hoverTimer = hoverTimer * attack.stats.activeMultiplier + attack.stats.activeDuration;
+            isLifesteal = false;
         }
         else
         {
@@ -160,6 +165,9 @@ public class Projectile : MonoBehaviour
             wpnMeleeSizeMultiplier = attack.stats.meleeSize;
             active = active * attack.stats.activeMultiplier + attack.stats.activeDuration;
             hoverTimer = hoverTimer * attack.stats.activeMultiplier + attack.stats.activeDuration;
+            isLifesteal = attack.stats.isLifesteal;
+            lifestealAmount = attack.stats.lifestealAmount;
+            lifestealChance = attack.stats.lifestealChance;
         }
 
 
@@ -624,6 +632,24 @@ public class Projectile : MonoBehaviour
                 {
 
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
+                    if (isLifesteal)
+                    {
+                        bool doesLifesteal;
+                        if (lifestealChance >= 1)
+                        {
+                            doesLifesteal = true;
+                        }
+                        else
+                        {
+                            doesLifesteal = UnityEngine.Random.Range(0f, 1f) < lifestealChance;
+                        }
+
+                        if (doesLifesteal)
+                        {
+                            Player.GetComponent<StatsHandler>().AddHealth(lifestealAmount);
+                        }
+                    }
+
                     Vector3 knockDirection = isMelee
                         ? (col.transform.position - transform.position).normalized
                         : transform.up;
@@ -643,6 +669,23 @@ public class Projectile : MonoBehaviour
                 {
 
                     col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
+                    if (isLifesteal)
+                    {
+                        bool doesLifesteal;
+                        if (lifestealChance >= 1)
+                        {
+                            doesLifesteal = true;
+                        }
+                        else
+                        {
+                            doesLifesteal = UnityEngine.Random.Range(0f, 1f) < lifestealChance;
+                        }
+
+                        if (doesLifesteal)
+                        {
+                            Player.GetComponent<StatsHandler>().AddHealth(lifestealAmount);
+                        }
+                    }
                     Vector3 knockDirection = isMelee
                         ? (col.transform.position - transform.position).normalized
                         : transform.up;

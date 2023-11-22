@@ -11,7 +11,7 @@ public class GachaOverlayManager : MonoBehaviour
     public GameObject weapon;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI rarityText;
-    public float displayDuration = 2f; // The time to wait before allowing the player to close the overlay
+    public float displayDuration = 1.25f; // The time to wait before allowing the player to close the overlay
     private bool canClose = false;
 
     public GameObject weaponPrefab;
@@ -69,9 +69,9 @@ public class GachaOverlayManager : MonoBehaviour
         // Scale up the child elements one at a time
         Sequence sequence = DOTween.Sequence();
         sequence.Append(outline.transform.DOScale(1.8f, 0.5f).SetEase(Ease.OutElastic));
-        sequence.Append(this.weapon.transform.DOScale(1.8f, 0.4f).SetEase(Ease.OutElastic));
-        sequence.Append(nameText.transform.DOScale(1.3f, 0.3f).SetEase(Ease.OutElastic));
-        sequence.Append(rarityText.transform.DOScale(1.3f, 0.2f).SetEase(Ease.OutElastic));
+        sequence.Append(this.weapon.transform.DOScale(1.8f, 0.3f).SetEase(Ease.OutElastic));
+        sequence.Append(nameText.transform.DOScale(1.3f, 0.2f).SetEase(Ease.OutElastic));
+        sequence.Append(rarityText.transform.DOScale(1.3f, 0.1f).SetEase(Ease.OutElastic));
 
         StartCoroutine(StartCloseTimer());
     }

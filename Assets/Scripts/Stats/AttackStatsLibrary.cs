@@ -55,7 +55,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: -1f,
                 critChance: 0.05f,
                 name: "MLG 1",
-                description: "Decrease Aim Range, Crit Chance +5%",
+                description: "Decrease Aim Range, increase Crit Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Common
             )
@@ -67,7 +67,7 @@ public static class AttackStatsLibrary
                 coneAngle: -30f,
                 critDmg: 0.25f,
                 name: "Gamer 1",
-                description: "Decrease Aim Width, Crit Damage +25%",
+                description: "Decrease Aim Width, increase Crit Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Common
             )
@@ -78,7 +78,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 damageMultiplier: 0.10f,
                 name: "Damage 1",
-                description: "Damage +10%",
+                description: "Increase Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Damage"),
                 rarity: Rarity.Common
             )
@@ -89,7 +89,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critChance: 0.02f,
                 name: "Critical 1",
-                description: "Crit Chance +2%",
+                description: "Increase Critical Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Common
             )
@@ -100,7 +100,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critDmg: 0.2f,
                 name: "Overkill 1",
-                description: "Crit Dmg +20%",
+                description: "Increase Critical Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Common
             )
@@ -111,7 +111,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 castTimeMultiplier: -0.05f,
                 name: "Haste 1",
-                description: "Cooldown -5%",
+                description: "Decrease Cooldown",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Common
             )
@@ -122,7 +122,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 knockbackMultiplier: 0.10f,
                 name: "Knockback 1",
-                description: "Knockback +10%",
+                description: "Increase Knockback",
                 icon: Resources.Load<Sprite>("UI_Icons/Knockback"),
                 rarity: Rarity.Common
             )
@@ -133,7 +133,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.10f,
                 name: "Glattt 1",
-                description: "Rate of Fire +10%",
+                description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Glattt"),
                 rarity: Rarity.Common
             )
@@ -144,7 +144,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotgunSpreadMultiplier: 0.12f,
                 name: "Saw'd Off 1",
-                description: "Shotgun Spread +12%",
+                description: "Increase Shotgun Spread",
                 icon: Resources.Load<Sprite>("UI_Icons/Saw'dOff"),
                 rarity: Rarity.Common
             )
@@ -155,7 +155,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 sprayMultiplier: -0.3f,
                 name: "Steady 1",
-                description: "Projectile Spray -30%",
+                description: "Decrease Projectile Spray",
                 icon: Resources.Load<Sprite>("UI_Icons/Steady"),
                 rarity: Rarity.Common
             )
@@ -166,7 +166,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 sprayMultiplier: 0.3f,
                 name: "Overheat 1",
-                description: "Projectile Spray +30%",
+                description: "Increase Projectile Spray",
                 icon: Resources.Load<Sprite>("UI_Icons/Overheat"),
                 rarity: Rarity.Common
             )
@@ -177,7 +177,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 speedMultiplier: 0.10f,
                 name: "Velocity 1",
-                description: "Projectile Speed +10%",
+                description: "Increase Projectile Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Velocity"),
                 rarity: Rarity.Common
             )
@@ -188,7 +188,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                speedMultiplier: -0.12f,
                name: "Gravity 1",
-               description: "Projectile Speed -12%",
+               description: "Decrease Projectile Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
                rarity: Rarity.Common
            )
@@ -199,7 +199,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 rangeMultiplier: 0.10f,
                 name: "Reach 1",
-                description: "Range +10%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Reach"),
                 rarity: Rarity.Common
             )
@@ -212,7 +212,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: -0.10f,
                 spreadMultiplier: -0.05f,
                 name: "Quick Hands 1",
-                description: "Attack speed +10%",
+                description: "Increase Attack speed",
                 icon: Resources.Load<Sprite>("UI_Icons/QuickHands"),
                 rarity: Rarity.Common
             )
@@ -224,7 +224,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.15f,
                 meleeSpacerGapMultiplier: 0.10f,
                 name: "Extend 1",
-                description: "Range +15%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Extend"),
                 rarity: Rarity.Common
             )
@@ -236,7 +236,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: -0.20f,
                 meleeSpacerGapMultiplier: -0.10f,
                 name: "Kamakazi 1",
-                description: "Range -20%",
+                description: "Decrease Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Kamakazi"),
                 rarity: Rarity.Common
             )
@@ -247,7 +247,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                aimRangeAdditive: 0.6f,
                name: "Hacker 1",
-               description: "Increases Aim Range",
+               description: "Increase Aim Range",
                icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
                rarity: Rarity.Common
            )
@@ -257,7 +257,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 coneAngle: 35f,
                 name: "AFK 1",
-                description: "Increases Aim Width",
+                description: "Increase Aim Width",
                 icon: Resources.Load<Sprite>("UI_Icons/AFK"),
                 rarity: Rarity.Common
             )
@@ -270,7 +270,7 @@ public static class AttackStatsLibrary
                 slowPercentage: 0.9f,
                 slowDuration: 1f,
                 name: "Slow Down 1",
-                description: "Slow for +1s",
+                description: "Attacks slow enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
                 rarity: Rarity.Common
             )
@@ -283,7 +283,7 @@ public static class AttackStatsLibrary
                 magnetStrength: 0.25f,
                 magnetDuration: 0.25f,
                 name: "Magnetize 1",
-                description: "On hit, pull targets in",
+                description: "Attacks are magnetic",
                 icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
                 rarity: Rarity.Common
             )
@@ -297,7 +297,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: -2f,
                 critChance: 0.1f,
                 name: "MLG 2",
-                description: "Decrease Aim Range, Crit Chance +10%",
+                description: "Decrease Aim Range, increase Crit Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Rare
             )
@@ -309,7 +309,7 @@ public static class AttackStatsLibrary
                 coneAngle: -60f,
                 critDmg: 0.45f,
                 name: "Gamer 2",
-                description: "Decrease Aim Width, Crit Dmg +45%",
+                description: "Decrease Aim Width, increase Crit Dmg",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Rare
             )
@@ -320,7 +320,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 damageMultiplier: 0.15f,
                 name: "Damage 2",
-                description: "Damage +15%",
+                description: "Increase Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Damage"),
                 rarity: Rarity.Rare
             )
@@ -331,7 +331,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critChance: 0.05f,
                 name: "Critical 2",
-                description: "Crit Chance +5%",
+                description: "Increase Critical Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Rare
             )
@@ -342,7 +342,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critDmg: 0.40f,
                 name: "Overkill 2",
-                description: "Crit Dmg +40%",
+                description: "Increase Critical Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Rare
             )
@@ -353,7 +353,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 castTimeMultiplier: -0.10f,
                 name: "Haste 2",
-                description: "Cooldown -10%",
+                description: "Decrease Cooldown",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Rare
             )
@@ -364,7 +364,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 knockbackMultiplier: 0.20f,
                 name: "Knockback 2",
-                description: "Knockback +20%",
+                description: "Increase Knockback",
                 icon: Resources.Load<Sprite>("UI_Icons/Knockback"),
                 rarity: Rarity.Rare
             )
@@ -375,7 +375,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.15f,
                 name: "Glattt 2",
-                description: "Rate of Fire +15%",
+                description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Glattt"),
                 rarity: Rarity.Rare
             )
@@ -386,7 +386,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotgunSpreadMultiplier: 0.25f,
                 name: "Saw'd Off 2",
-                description: "Shotgun Spread +25%",
+                description: "Increase Shotgun Spread",
                 icon: Resources.Load<Sprite>("UI_Icons/Saw'dOff"),
                 rarity: Rarity.Rare
             )
@@ -397,7 +397,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 sprayMultiplier: -0.6f,
                 name: "Steady 2",
-                description: "Projectile Spray -60%",
+                description: "Decrease Projectile Spray",
                 icon: Resources.Load<Sprite>("UI_Icons/Steady"),
                 rarity: Rarity.Rare
             )
@@ -408,7 +408,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 sprayMultiplier: 0.6f,
                 name: "Overheat 2",
-                description: "Projectile Spray +60%",
+                description: "Increase Projectile Spray",
                 icon: Resources.Load<Sprite>("UI_Icons/Overheat"),
                 rarity: Rarity.Rare
             )
@@ -419,7 +419,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 speedMultiplier: 0.20f,
                 name: "Velocity 2",
-                description: "Projectile Speed +20%",
+                description: "Increase Projectile Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Velocity"),
                 rarity: Rarity.Rare
             )
@@ -430,7 +430,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                speedMultiplier: -0.22f,
                name: "Gravity 2",
-               description: "Projectile Speed -22%",
+               description: "Decrease Projectile Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
                rarity: Rarity.Rare
            )
@@ -441,7 +441,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 rangeMultiplier: 0.15f,
                 name: "Reach 2",
-                description: "Range +15%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Reach"),
                 rarity: Rarity.Rare
             )
@@ -454,7 +454,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: -0.20f,
                 spreadMultiplier: -0.10f,
                 name: "Quick Hands 2",
-                description: "Attack speed +20%",
+                description: "Increase Attack speed",
                 icon: Resources.Load<Sprite>("UI_Icons/QuickHands"),
                 rarity: Rarity.Rare
             )
@@ -466,7 +466,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.25f,
                 meleeSpacerGapMultiplier: 0.15f,
                 name: "Extend 2",
-                description: "Range +25%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Extend"),
                 rarity: Rarity.Rare
             )
@@ -478,7 +478,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: -0.35f,
                 meleeSpacerGapMultiplier: -0.15f,
                 name: "Kamakazi 2",
-                description: "Range -35%",
+                description: "Decrease Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Kamakazi"),
                 rarity: Rarity.Rare
             )
@@ -491,7 +491,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 0.15f,
                 name: "Multicast 1",
-                description: "Multicast chance +15%",
+                description: "Increase Multicast chance",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Rare
             )
@@ -502,7 +502,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 0.30f,
                 name: "Multicast+ 1",
-                description: "Multicast chance +30%",
+                description: "Increase Multicast chance",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Rare
             )
@@ -568,7 +568,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.12f,
                 name: "Big Ammo 1",
-                description: "Projectile Size +12%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/BigAmmo"),
                 rarity: Rarity.Rare
             )
@@ -579,7 +579,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.10f,
                 name: "Big Gadget 1",
-                description: "Projectile Size +10%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/BigGadget"),
                 rarity: Rarity.Rare
             )
@@ -590,7 +590,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 comboLength: 1,
                 name: "One More 1",
-                description: "+1 Cast",
+                description: "+1 Attack",
                 icon: Resources.Load<Sprite>("UI_Icons/OneMore"),
                 rarity: Rarity.Rare
             )
@@ -601,7 +601,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttackMelee: 1,
                 name: "Aftershock 1",
-                description: "Release an aftershock after each cast",
+                description: "Attacks release an Aftershock",
                 icon: Resources.Load<Sprite>("UI_Icons/Aftershock"),
                 rarity: Rarity.Rare
             )
@@ -612,7 +612,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeSizeMultiplier: 0.10f,
                 name: "Big Weapon 1",
-                description: "Attack Size +10%",
+                description: "Increase Attack Size",
                 icon: Resources.Load<Sprite>("UI_Icons/BigWeapon"),
                 rarity: Rarity.Rare
             )
@@ -623,7 +623,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeShotsScaleUpMultiplier: 0.08f,
                 name: "Wave Surge 1",
-                description: "Aftershock Size +8% per shock",
+                description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
                 rarity: Rarity.Rare
             )
@@ -634,7 +634,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 activeMultiplier: 0.3f,
                 name: "Persistence 1",
-                description: "Attack duration +30%",
+                description: "Increase Attack duration",
                 icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
                 rarity: Rarity.Rare
             )
@@ -645,7 +645,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 activeDuration: 0.5f,
                 name: "Persistence+ 1",
-                description: "Attack duration +0.5s",
+                description: "Increase Attack duration",
                 icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
                 rarity: Rarity.Rare
             )
@@ -656,7 +656,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectDuration: 0.5f,
                 name: "Hourglass 1",
-                description: "Effect duration +0.5s",
+                description: "Increase Effect duration",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Rare
             )
@@ -667,7 +667,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectMultiplier: 0.25f,
                 name: "Saboteur 1",
-                description: "Effect Power +25%",
+                description: "Increase Effect Power",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Rare
             )
@@ -678,7 +678,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                aimRangeAdditive: 1f,
                name: "Hacker 2",
-               description: "Increases Aim Range",
+               description: "Increase Aim Range",
                icon: Resources.Load<Sprite>("UI_Icons/Hacker"),
                rarity: Rarity.Rare
            )
@@ -688,7 +688,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 coneAngle: 60f,
                 name: "AFK 2",
-                description: "Increases Aim Width",
+                description: "Increase Aim Width",
                 icon: Resources.Load<Sprite>("UI_Icons/AFK"),
                 rarity: Rarity.Rare
             )
@@ -702,7 +702,7 @@ public static class AttackStatsLibrary
                dotDuration: 5,
                dotTickRate: 2,
                name: "Ignite 1",
-               description: "Ignite targets for 5 seconds",
+               description: "Attacks set enemies on Fire",
                icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
                rarity: Rarity.Rare
            )
@@ -716,7 +716,7 @@ public static class AttackStatsLibrary
                 dotDuration: 3,
                 dotTickRate: 2,
                 name: "Cindershot 1",
-                description: "Ignite targets for 3 seconds",
+                description: "Attacks set enemies on Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Rare
             )
@@ -731,7 +731,7 @@ public static class AttackStatsLibrary
                 chainRange: 2.5f,
                 chainSpeed: 10f,
                 name: "Chain 1",
-                description: "Damage jumps to 1 more target",
+                description: "Attacks jump to 1 more target",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Rare
             )
@@ -746,7 +746,7 @@ public static class AttackStatsLibrary
                 chainRange: 5f,
                 chainSpeed: 5f,
                 name: "Chain+ 1",
-                description: "Damage jumps to 2 more targets",
+                description: "Attacks jump to 2 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Rare
             )
@@ -759,7 +759,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.20f,
                 name: "Split 1",
-                description: "On hit, create 1 lesser attack",
+                description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Rare
             )
@@ -772,7 +772,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.3f,
                 name: "Split+ 1",
-                description: "On hit, create a lesser attack",
+                description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Rare
             )
@@ -785,7 +785,7 @@ public static class AttackStatsLibrary
                 slowPercentage: 0.8f,
                 slowDuration: 1.5f,
                 name: "Slow Down 2",
-                description: "Slow for +1.5s",
+                description: "Attacks slow enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
                 rarity: Rarity.Rare
             )
@@ -798,7 +798,7 @@ public static class AttackStatsLibrary
                 magnetStrength: 0.5f,
                 magnetDuration: 0.5f,
                 name: "Magnetize 2",
-                description: "On hit, pull targets in",
+                description: "Attacks are magnetic",
                 icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
                 rarity: Rarity.Rare
             )
@@ -814,7 +814,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: -4f,
                 critChance: 0.15f,
                 name: "MLG 3",
-                description: "Decrease Aim Range, Crit Chance +15%",
+                description: "Decrease Aim Range, increase Crit Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Epic
             )
@@ -826,7 +826,7 @@ public static class AttackStatsLibrary
                 coneAngle: -150f,
                 critDmg: 0.70f,
                 name: "Gamer 3",
-                description: "Decrease Aim Width, Crit Dmg +70%",
+                description: "Decrease Aim Width, increase Crit Dmg",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Epic
             )
@@ -837,7 +837,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 damageMultiplier: 0.20f,
                 name: "Damage 3",
-                description: "Damage +20%",
+                description: "Increase Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Damage"),
                 rarity: Rarity.Epic
             )
@@ -848,7 +848,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critChance: 0.10f,
                 name: "Critical 3",
-                description: "Crit Chance +10%",
+                description: "Increase Critical Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Epic
             )
@@ -859,7 +859,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critDmg: 0.6f,
                 name: "Overkill 3",
-                description: "Crit Dmg +60%",
+                description: "Increase Critical Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Epic
             )
@@ -870,7 +870,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 castTimeMultiplier: -0.15f,
                 name: "Haste 3",
-                description: "Cooldown -15%",
+                description: "Decrease Cooldown",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Epic
             )
@@ -881,7 +881,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 knockbackMultiplier: 0.30f,
                 name: "Knockback 3",
-                description: "Knockback +30%",
+                description: "Increase Knockback",
                 icon: Resources.Load<Sprite>("UI_Icons/Knockback"),
                 rarity: Rarity.Epic
             )
@@ -892,7 +892,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.25f,
                 name: "Glattt 3",
-                description: "Rate of Fire +25%",
+                description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Glattt"),
                 rarity: Rarity.Epic
             )
@@ -903,7 +903,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotgunSpreadMultiplier: 0.4f,
                 name: "Saw'd Off 3",
-                description: "Shotgun Spread +40%",
+                description: "Increase Shotgun Spread",
                 icon: Resources.Load<Sprite>("UI_Icons/Saw'dOff"),
                 rarity: Rarity.Epic
             )
@@ -914,7 +914,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 speedMultiplier: 0.3f,
                 name: "Velocity 3",
-                description: "Projectile Speed +30%",
+                description: "Increase Projectile Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Velocity"),
                 rarity: Rarity.Epic
             )
@@ -925,7 +925,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                speedMultiplier: -0.35f,
                name: "Gravity 3",
-               description: "Projectile Speed -35%",
+               description: "Decrease Projectile Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
                rarity: Rarity.Rare
            )
@@ -936,7 +936,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 rangeMultiplier: 0.3f,
                 name: "Reach 3",
-                description: "Projectile Range +30%",
+                description: "Increase Projectile Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Reach"),
                 rarity: Rarity.Epic
             )
@@ -949,7 +949,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: -0.35f,
                 spreadMultiplier: -0.15f,
                 name: "Quick Hands 3",
-                description: "Attack speed +35%",
+                description: "Increase Attack speed",
                 icon: Resources.Load<Sprite>("UI_Icons/QuickHands"),
                 rarity: Rarity.Epic
             )
@@ -961,7 +961,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.40f,
                 meleeSpacerGapMultiplier: 0.20f,
                 name: "Extend 3",
-                description: "Range +40%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Extend"),
                 rarity: Rarity.Epic
             )
@@ -994,7 +994,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 0.30f,
                 name: "Multicast 2",
-                description: "Multicast chance +30%",
+                description: "Increase Multicast chance",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Epic
             )
@@ -1005,7 +1005,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 0.5f,
                 name: "Multicast+ 2",
-                description: "Multicast chance +50%",
+                description: "Increase Multicast chance",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Epic
             )
@@ -1071,7 +1071,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.2f,
                 name: "Big Ammo 2",
-                description: "Projectile Size +20%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/BigAmmo"),
                 rarity: Rarity.Epic
             )
@@ -1082,7 +1082,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.18f,
                 name: "Big Gadget 2",
-                description: "Projectile Size +18%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/BigGadget"),
                 rarity: Rarity.Epic
             )
@@ -1093,7 +1093,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 comboLength: 2,
                 name: "One More 2",
-                description: "+2 Cast",
+                description: "+2 Attacks",
                 icon: Resources.Load<Sprite>("UI_Icons/OneMore"),
                 rarity: Rarity.Epic
             )
@@ -1104,7 +1104,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttackMelee: 1,
                 name: "Aftershock 2",
-                description: "Release 1 aftershock after each cast",
+                description: "Attacks release an Aftershock",
                 icon: Resources.Load<Sprite>("UI_Icons/Aftershock"),
                 rarity: Rarity.Epic
             )
@@ -1115,7 +1115,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeSizeMultiplier: 0.18f,
                 name: "Big Weapon 2",
-                description: "Attack Size +18%",
+                description: "Increase Attack Size",
                 icon: Resources.Load<Sprite>("UI_Icons/BigWeapon"),
                 rarity: Rarity.Epic
             )
@@ -1126,7 +1126,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeShotsScaleUpMultiplier: 0.12f,
                 name: "Wave Surge 2",
-                description: "Aftershock Size +12% per shock",
+                description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
                 rarity: Rarity.Epic
             )
@@ -1138,7 +1138,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                activeMultiplier: 0.5f,
                name: "Persistence 2",
-               description: "Attack duration +50%",
+               description: "Increase Attack duration",
                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
                rarity: Rarity.Epic
            )
@@ -1149,7 +1149,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 activeDuration: 1f,
                 name: "Persistence+ 2",
-                description: "Attack duration +1s",
+                description: "Increase Attack duration",
                 icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
                 rarity: Rarity.Epic
             )
@@ -1160,7 +1160,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectDuration: 1f,
                 name: "Hourglass 2",
-                description: "Effect duration +1s",
+                description: "Increase Effect duration",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Epic
             )
@@ -1171,7 +1171,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectMultiplier: 0.5f,
                 name: "Saboteur 2",
-                description: "Effect Power +50%",
+                description: "Increase Effect Power",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Epic
             )
@@ -1185,7 +1185,7 @@ public static class AttackStatsLibrary
               dotDuration: 8,
               dotTickRate: 0.8f,
               name: "Ignite 2",
-              description: "Ignite targets for 8 seconds",
+              description: "Attacks set enemies on Fire",
               icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
               rarity: Rarity.Epic
           )
@@ -1199,7 +1199,7 @@ public static class AttackStatsLibrary
                 dotDuration: 5,
                 dotTickRate: 0.8f,
                 name: "Cindershot 2",
-                description: "Ignite targets for 5 seconds",
+                description: "Attacks set enemies on Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Epic
             )
@@ -1226,7 +1226,7 @@ public static class AttackStatsLibrary
                chainRange: 3f,
                chainSpeed: 14f,
                name: "Chain 2",
-               description: "Damage jumps to 1 more target",
+               description: "Attacks jump to 1 more target",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                rarity: Rarity.Epic
            )
@@ -1241,7 +1241,7 @@ public static class AttackStatsLibrary
                 chainRange: 6f,
                 chainSpeed: 7f,
                 name: "Chain+ 2",
-                description: "Damage jumps to 4 more targets",
+                description: "Attacks jump to 4 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Epic
             )
@@ -1254,7 +1254,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.33f,
                 name: "Split 2",
-                description: "On hit, create a lesser attack",
+                description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Epic
             )
@@ -1267,7 +1267,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.5f,
                 name: "Split+ 2",
-                description: "On hit, create a lesser attack",
+                description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Epic
             )
@@ -1280,7 +1280,7 @@ public static class AttackStatsLibrary
                slowPercentage: 0.65f,
                slowDuration: 2f,
                name: "Slow Down 3",
-               description: "Slow for +2s",
+               description: "Attacks slow enemies",
                icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
                rarity: Rarity.Epic
            )
@@ -1293,7 +1293,7 @@ public static class AttackStatsLibrary
                 magnetStrength: 1f,
                 magnetDuration: 0.5f,
                 name: "Magnetize 3",
-                description: "On hit, pull targets in",
+                description: "Attacks are magnetic",
                 icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
                 rarity: Rarity.Epic
             )
@@ -1305,7 +1305,7 @@ public static class AttackStatsLibrary
                isStun: true,
                stunDuration: 0.5f,
                name: "Concussive 1",
-               description: "On hit, stun for 0.5s",
+               description: "Attacks stun enemies",
                icon: Resources.Load<Sprite>("UI_Icons/Concussive"),
                rarity: Rarity.Epic
            )
@@ -1331,7 +1331,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 damageMultiplier: 0.3f,
                 name: "Damage 4",
-                description: "Damage +30%",
+                description: "Increase Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Damage"),
                 rarity: Rarity.Legendary
             )
@@ -1342,7 +1342,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critChance: 0.15f,
                 name: "Critical 4",
-                description: "Crit Chance +15%",
+                description: "Increase Critical Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                 rarity: Rarity.Legendary
             )
@@ -1353,7 +1353,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critDmg: 0.75f,
                 name: "Overkill 4",
-                description: "Crit Dmg +75%",
+                description: "Increase Critical Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                 rarity: Rarity.Legendary
             )
@@ -1364,7 +1364,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 castTimeMultiplier: -0.20f,
                 name: "Haste 4",
-                description: "Cooldown -20%",
+                description: "Decrease Cooldown",
                 icon: Resources.Load<Sprite>("UI_Icons/Haste"),
                 rarity: Rarity.Legendary
             )
@@ -1375,7 +1375,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 knockbackMultiplier: 0.50f,
                 name: "Knockback 4",
-                description: "Knockback +50%",
+                description: "Increase Knockback",
                 icon: Resources.Load<Sprite>("UI_Icons/Knockback"),
                 rarity: Rarity.Legendary
             )
@@ -1386,7 +1386,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 0.7f,
                 name: "Multicast 3",
-                description: "Multicast chance +70%",
+                description: "Increase Multicast chance",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Legendary
             )
@@ -1397,7 +1397,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 1f,
                 name: "Multicast+ 3",
-                description: "Multicast chance +100%",
+                description: "Increase Multicast chance",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Legendary
             )
@@ -1463,7 +1463,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.25f,
                 name: "Big Ammo 3",
-                description: "Projectile Size +25%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/BigAmmo"),
                 rarity: Rarity.Legendary
             )
@@ -1474,7 +1474,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.22f,
                 name: "Big Gadget 3",
-                description: "Projectile Size +22%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/BigGadget"),
                 rarity: Rarity.Legendary
             )
@@ -1485,7 +1485,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttackMelee: 2,
                 name: "Aftershock 3",
-                description: "Release 2 aftershocks after each cast",
+                description: "Attacks release 2 Aftershocks",
                 icon: Resources.Load<Sprite>("UI_Icons/Aftershock"),
                 rarity: Rarity.Legendary
             )
@@ -1496,7 +1496,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeSizeMultiplier: 0.20f,
                 name: "Big Weapon 3",
-                description: "Attack Size +22%",
+                description: "Increase Attack Size",
                 icon: Resources.Load<Sprite>("UI_Icons/BigWeapon"),
                 rarity: Rarity.Legendary
             )
@@ -1507,7 +1507,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                activeMultiplier: 0.75f,
                name: "Persistence 3",
-               description: "Attack duration +75%",
+               description: "Increase Attack duration",
                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
                rarity: Rarity.Legendary
            )
@@ -1518,7 +1518,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 activeDuration: 2f,
                 name: "Persistence+ 3",
-                description: "Attack duration +2s",
+                description: "Increase Attack duration",
                 icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
                 rarity: Rarity.Legendary
             )
@@ -1529,7 +1529,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectDuration: 1.5f,
                 name: "Hourglass 3",
-                description: "Effect duration +1.5s",
+                description: "Increase Effect duration",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Legendary
             )
@@ -1540,7 +1540,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectMultiplier: 0.75f,
                 name: "Saboteur 3",
-                description: "Effect Power +75%",
+                description: "Increase Effect Power",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Legendary
             )
@@ -1552,7 +1552,7 @@ public static class AttackStatsLibrary
                 isHoming: true,
                 damage: -3,
                 name: "Homing 1",
-                description: "Projectiles follow enemies, -3 base Damage",
+                description: "Projectiles follow enemies, -3 Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Homing"),
                 rarity: Rarity.Legendary
             )
@@ -1566,7 +1566,7 @@ public static class AttackStatsLibrary
               dotDuration: 10,
               dotTickRate: 0.75f,
               name: "Ignite 3",
-              description: "Heavily ignite targets for 10 seconds",
+              description: "Attacks set enemies on Fire",
               icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
               rarity: Rarity.Legendary
           )
@@ -1580,7 +1580,7 @@ public static class AttackStatsLibrary
                 dotDuration: 6,
                 dotTickRate: 0.7f,
                 name: "Cindershot 3",
-                description: "Heavily ignite targets for 6 seconds",
+                description: "Attacks set enemies on Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Legendary
             )
@@ -1606,7 +1606,7 @@ public static class AttackStatsLibrary
                chainRange: 4f,
                chainSpeed: 18f,
                name: "Chain 3",
-               description: "Damage jumps to 2 more targets",
+               description: "Attacks jump to 2 more targets",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                rarity: Rarity.Legendary
            )
@@ -1621,7 +1621,7 @@ public static class AttackStatsLibrary
                 chainRange: 8f,
                 chainSpeed: 10f,
                 name: "Chain+ 3",
-                description: "Damage jumps to 5 more targets",
+                description: "Attacks jump to 5 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Legendary
             )
@@ -1634,7 +1634,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.50f,
                 name: "Split 3",
-                description: "On hit, create another attack",
+                description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Legendary
             )
@@ -1647,7 +1647,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.60f,
                 name: "Split+ 3",
-                description: "On hit, create another attack",
+                description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Legendary
             )
@@ -1659,7 +1659,7 @@ public static class AttackStatsLibrary
                isStun: true,
                stunDuration: 1f,
                name: "Concussive 2",
-               description: "On hit, stun for 1s",
+               description: "Attacks stun enemies",
                icon: Resources.Load<Sprite>("UI_Icons/Concussive"),
                rarity: Rarity.Legendary
            )
@@ -1674,7 +1674,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 damageMultiplier: 0.12f,
                 name: "Mastery 1",
-                description: "Damage +12%",
+                description: "Increase Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1686,7 +1686,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critChance: 0.04f,
                 name: "Marksman 1",
-                description: "Crit Chance +4%",
+                description: "Increase Critical Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/EagleEye"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1698,7 +1698,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critDmg: 0.25f,
                 name: "Brutality 1",
-                description: "Crit Dmg +25%",
+                description: "Increase Critical Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Brutality"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1710,7 +1710,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 castTimeMultiplier: -0.05f,
                 name: "Quickswap 1",
-                description: "Cooldowns -5%",
+                description: "Decrease Cooldowns",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1722,7 +1722,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 knockbackMultiplier: 0.15f,
                 name: "Impact 1",
-                description: "Knockback +15%",
+                description: "Increase Knockback",
                 icon: Resources.Load<Sprite>("UI_Icons/Impact"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1734,7 +1734,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.12f,
                 name: "RoF 1",
-                description: "Rate of Fire +12%",
+                description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/RoF"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1746,7 +1746,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 speedMultiplier: 0.15f,
                 name: "Propulsion 1",
-                description: "Projectile Speed +15%",
+                description: "Increase Projectile Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Propulsion"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1758,7 +1758,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                speedMultiplier: -0.15f,
                name: "Gravitation 1",
-               description: "Projectile Speed -15%",
+               description: "Decrease Projectile Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
                rarity: Rarity.Common,
                weaponSet: true
@@ -1770,7 +1770,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 rangeMultiplier: 0.12f,
                 name: "Scope 1",
-                description: "Range +12%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Scope"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1782,7 +1782,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotgunSpreadMultiplier: 0.20f,
                 name: "Wide Barrel 1",
-                description: "Shotgun Spread +20%",
+                description: "Increase Shotgun Spread",
                 icon: Resources.Load<Sprite>("UI_Icons/WideBarrel"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1795,7 +1795,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: -0.15f,
                 spreadMultiplier: -0.10f,
                 name: "Dexterity 1",
-                description: "Attack speed +15%",
+                description: "Increase Attack speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Dexterity"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1808,7 +1808,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.15f,
                 meleeSpacerGapMultiplier: 0.08f,
                 name: "Lunge 1",
-                description: "Range +15%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Lunge"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1821,7 +1821,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: -0.25f,
                 meleeSpacerGapMultiplier: -0.15f,
                 name: "Implode 1",
-                description: "Range -25%",
+                description: "Decrease Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Implode"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1833,7 +1833,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 comboAttackBuffMultiplier: 0.05f,
                 name: "Charged Up 1",
-                description: "+5% Damage per additional Cast",
+                description: "Consecutive attacks deal more damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Charged"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1845,7 +1845,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.12f,
                 name: "Fire Rate 1",
-                description: "Rate of Fire +12%",
+                description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/FireRate"),
                 rarity: Rarity.Common,
                 weaponSet: true
@@ -1860,7 +1860,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 damageMultiplier: 0.20f,
                 name: "Mastery 2",
-                description: "Damage +20%",
+                description: "Increase Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1872,7 +1872,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critChance: 0.08f,
                 name: "Marksman 2",
-                description: "Crit Chance +8%",
+                description: "Increase Critical Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/EagleEye"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1884,7 +1884,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critDmg: 0.4f,
                 name: "Brutality 2",
-                description: "Crit Dmg +40%",
+                description: "Increase Critical Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Brutality"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1896,7 +1896,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 castTimeMultiplier: -0.10f,
                 name: "Quickswap 2",
-                description: "Cooldowns -10%",
+                description: "Decrease Cooldowns",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1908,7 +1908,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 knockbackMultiplier: 0.25f,
                 name: "Impact 2",
-                description: "Knockback +25%",
+                description: "Increase Knockback",
                 icon: Resources.Load<Sprite>("UI_Icons/Impact"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1920,7 +1920,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.20f,
                 name: "RoF 2",
-                description: "Rate of Fire +20%",
+                description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/RoF"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1932,7 +1932,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotgunSpreadMultiplier: 0.35f,
                 name: "Wide Barrel 2",
-                description: "Shotgun Spread +35%",
+                description: "Increase Shotgun Spread",
                 icon: Resources.Load<Sprite>("UI_Icons/WideBarrel"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1944,7 +1944,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 speedMultiplier: 0.2f,
                 name: "Propulsion 2",
-                description: "Projectile Speed +25%",
+                description: "Increase Projectile Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Propulsion"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1956,7 +1956,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                speedMultiplier: -0.20f,
                name: "Gravitation 2",
-               description: "Projectile Speed -25%",
+               description: "Decrease Projectile Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
                rarity: Rarity.Rare,
                weaponSet: true
@@ -1968,7 +1968,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 rangeMultiplier: 0.2f,
                 name: "Scope 2",
-                description: "Range +25%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Scope"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1982,7 +1982,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: -0.25f,
                 spreadMultiplier: -0.15f,
                 name: "Dexterity 2",
-                description: "Reduce time between attacks -25%",
+                description: "Increase Attack speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Dexterity"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -1995,7 +1995,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.25f,
                 meleeSpacerGapMultiplier: 0.15f,
                 name: "Lunge 2",
-                description: "Range +25%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Lunge"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2008,7 +2008,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: -0.4f,
                 meleeSpacerGapMultiplier: -0.25f,
                 name: "Implode 2",
-                description: "Range -40%",
+                description: "Decrease Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Implode"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2043,7 +2043,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 0.25f,
                 name: "Multi-cast 1",
-                description: "Multicast chance +25%",
+                description: "Increase Multicast chance",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2103,7 +2103,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.15f,
                 name: "High Caliber 1",
-                description: "Projectile Size +15%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/HighCaliber"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2115,7 +2115,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.10f,
                 name: "Size Up 1",
-                description: "Projectile Size +12%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/SizeUp"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2127,7 +2127,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeSizeMultiplier: 0.20f,
                 name: "Enlarge 1",
-                description: "Attack Size +12%",
+                description: "Increase Attack Size",
                 icon: Resources.Load<Sprite>("UI_Icons/Enlarge"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2139,7 +2139,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeShotsScaleUpMultiplier: 0.10f,
                 name: "Wave Master 1",
-                description: "Aftershock Size +10% per shock",
+                description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveMaster"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2151,7 +2151,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 comboAttackBuffMultiplier: 0.08f,
                 name: "Charged Up 2",
-                description: "+8% Damage per additional Cast",
+                description: "Consecutive attacks deal more damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Charged"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2163,7 +2163,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.22f,
                 name: "Fire Rate 2",
-                description: "Rate of Fire +22%",
+                description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/FireRate"),
                 rarity: Rarity.Rare,
                 weaponSet: true
@@ -2177,7 +2177,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 damageMultiplier: 0.3f,
                 name: "Mastery 3",
-                description: "Damage +30%",
+                description: "Increase Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2188,7 +2188,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critChance: 0.12f,
                 name: "Marksman 3",
-                description: "Crit Chance +12%",
+                description: "Increase Critical Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/EagleEye"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2200,7 +2200,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critDmg: 0.60f,
                 name: "Brutality 3",
-                description: "Crit Dmg +60%",
+                description: "Increase Critical Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Brutality"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2212,7 +2212,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 castTimeMultiplier: -0.15f,
                 name: "Quickswap 3",
-                description: "Cooldowns -15%",
+                description: "Decrease Cooldowns",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2224,7 +2224,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 knockbackMultiplier: 0.4f,
                 name: "Impact 3",
-                description: "Knockback +40%",
+                description: "Increase Knockback",
                 icon: Resources.Load<Sprite>("UI_Icons/Impact"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2236,7 +2236,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.30f,
                 name: "RoF 3",
-                description: "Rate of Fire +30%",
+                description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/RoF"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2248,7 +2248,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotgunSpreadMultiplier: 0.4f,
                 name: "Wide Barrel 3",
-                description: "Shotgun Spread +40%",
+                description: "Increase Shotgun Spread",
                 icon: Resources.Load<Sprite>("UI_Icons/WideBarrel"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2260,7 +2260,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 speedMultiplier: 0.35f,
                 name: "Propulsion 3",
-                description: "Projectile Speed +35%",
+                description: "Increase Projectile Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Propulsion"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2272,7 +2272,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                speedMultiplier: -0.35f,
                name: "Gravitation 3",
-               description: "Projectile Speed -35%",
+               description: "Increase Projectile Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
                rarity: Rarity.Epic,
                weaponSet: true
@@ -2284,7 +2284,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 rangeMultiplier: 0.35f,
                 name: "Scope 3",
-                description: "Range +35%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Scope"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2298,7 +2298,7 @@ public static class AttackStatsLibrary
                 comboWaitTimeMultiplier: -0.40f,
                 spreadMultiplier: -0.20f,
                 name: "Dexterity 3",
-                description: "Reduce time between attacks -40%",
+                description: "Increase Attack speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Dexterity"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2311,7 +2311,7 @@ public static class AttackStatsLibrary
                 meleeSpacerMultiplier: 0.4f,
                 meleeSpacerGapMultiplier: 0.20f,
                 name: "Lunge 3",
-                description: "Range +40%",
+                description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Lunge"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2346,7 +2346,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 0.33f,
                 name: "Multi-cast 2",
-                description: "Multicast chance +33%",
+                description: "Increase Multicast chance",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2406,7 +2406,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.25f,
                 name: "High Caliber 2",
-                description: "Projectile Size +25%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/HighCaliber"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2418,7 +2418,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.20f,
                 name: "Size Up 2",
-                description: "Projectile Size +20%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/SizeUp"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2430,7 +2430,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 comboLength: 1,
                 name: "Once More 1",
-                description: "+1 Cast",
+                description: "+1 Attack",
                 icon: Resources.Load<Sprite>("UI_Icons/OnceMore"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2442,7 +2442,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttackMelee: 1,
                 name: "After-shock 1",
-                description: "Release an aftershock after each cast",
+                description: "Attacks release an Aftershock",
                 icon: Resources.Load<Sprite>("UI_Icons/After-shock"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2454,7 +2454,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeSizeMultiplier: 0.20f,
                 name: "Enlarge 2",
-                description: "Attack Size +20%",
+                description: "Increase Attack Size",
                 icon: Resources.Load<Sprite>("UI_Icons/Enlarge"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2466,7 +2466,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeShotsScaleUpMultiplier: 0.15f,
                 name: "Wave Master 2",
-                description: "Aftershock Size +15% per shock",
+                description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveMaster"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2478,7 +2478,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 comboAttackBuffMultiplier: 0.12f,
                 name: "Charged Up 3",
-                description: "+12% Damage per additional Cast",
+                description: "Consecutive attacks deal more damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Charged"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2490,7 +2490,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 spreadMultiplier: -0.3f,
                 name: "Fire Rate 3",
-                description: "Rate of Fire +30%",
+                description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/FireRate"),
                 rarity: Rarity.Epic,
                 weaponSet: true
@@ -2517,7 +2517,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 damageMultiplier: 0.40f,
                 name: "Mastery 4",
-                description: "Damage +40%",
+                description: "Increase Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2529,7 +2529,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critChance: 0.2f,
                 name: "Marksman 4",
-                description: "Crit Chance +20%",
+                description: "Increase Critical Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/EagleEye"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2541,7 +2541,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 critDmg: 0.8f,
                 name: "Brutality 4",
-                description: "Crit Dmg +80%",
+                description: "Increase Critical Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Brutality"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2553,7 +2553,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 castTimeMultiplier: -0.2f,
                 name: "Quickswap 4",
-                description: "Cooldowns -20%",
+                description: "Decrease Cooldowns",
                 icon: Resources.Load<Sprite>("UI_Icons/Quickswap"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2565,7 +2565,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 knockbackMultiplier: 0.5f,
                 name: "Impact 4",
-                description: "Knockback +50%",
+                description: "Increase Knockback",
                 icon: Resources.Load<Sprite>("UI_Icons/Impact"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2577,7 +2577,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 multicastChance: 0.5f,
                 name: "Multi-cast 3",
-                description: "Multicast chance +50%",
+                description: "Increase Multicast chance",
                 icon: Resources.Load<Sprite>("UI_Icons/Multi-cast"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2637,7 +2637,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.4f,
                 name: "High Caliber 3",
-                description: "Projectile Size +40%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/HighCaliber"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2649,7 +2649,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 projectileSizeMultiplier: 0.30f,
                 name: "Size Up 3",
-                description: "Projectile Size +30%",
+                description: "Increase Projectile Size",
                 icon: Resources.Load<Sprite>("UI_Icons/SizeUp"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2661,7 +2661,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttackMelee: 2,
                 name: "After-shock 2",
-                description: "Release 2 aftershocks after each cast",
+                description: "Attacks release 2 Aftershocks",
                 icon: Resources.Load<Sprite>("UI_Icons/After-shock"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2673,7 +2673,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 comboLength: 2,
                 name: "Once More 2",
-                description: "+2 Casts",
+                description: "+2 Attacks",
                 icon: Resources.Load<Sprite>("UI_Icons/OnceMore"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2685,7 +2685,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeSizeMultiplier: 0.30f,
                 name: "Enlarge 3",
-                description: "Attack Size +30%",
+                description: "Increase Attack Size",
                 icon: Resources.Load<Sprite>("UI_Icons/Enlarge"),
                 rarity: Rarity.Legendary,
                 weaponSet: true
@@ -2698,7 +2698,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 comboAttackBuffMultiplier: 0.15f,
                 name: "Charged Up 4",
-                description: "+15% Damage per additional Cast",
+                description: "Consecutive attacks deal more damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Charged"),
                 rarity: Rarity.Legendary,
                 weaponSet: true

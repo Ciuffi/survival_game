@@ -18,6 +18,8 @@ public class ComboTracker : MonoBehaviour
     public GameObject bannerPrefab;
     private Canvas parentCanvas;
 
+    public int yOffset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,9 +72,14 @@ public class ComboTracker : MonoBehaviour
 
                     // Call ColorChange with the new guilt level
                     ColorChange(i + 1);
+                        GameObject bannerInstance = Instantiate(bannerPrefab, parentCanvas.transform);
+                        bannerInstance.GetComponent<BannerController>().DisplayBannerWithText("! SWARM INCOMING !");
 
-                    GameObject bannerInstance = Instantiate(bannerPrefab, parentCanvas.transform);
-                    bannerInstance.GetComponent<BannerController>().DisplayBannerWithText("! SWARM INCOMING !");
+                    // Get the RectTransform
+                    RectTransform rectTransform = bannerInstance.GetComponent<RectTransform>();
+
+                    // Move it upwards by a certain amount (e.g., 100 units)
+                    rectTransform.anchoredPosition += new Vector2(0, yOffset);
                 }
                 else if (i + 1 >= guiltThresholds.Count)
                 {

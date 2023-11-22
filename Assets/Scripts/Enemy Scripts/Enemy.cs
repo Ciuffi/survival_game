@@ -1113,7 +1113,7 @@ public class Enemy : MonoBehaviour, Attacker
 
         if (col.gameObject.name == "Player" && isDead == false && player.GetComponent<StatsHandler>().canDamage == true)
         {
-            col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage);
+            col.gameObject.GetComponent<StatsHandler>().TakeDamage(damage, gameObject);
         }
     }
 
