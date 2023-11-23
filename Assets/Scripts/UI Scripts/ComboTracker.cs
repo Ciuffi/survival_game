@@ -51,13 +51,24 @@ public class ComboTracker : MonoBehaviour
         int previousThreshold = GetPreviousThreshold();
         int nextThreshold = GetNextThreshold();
 
-        // The difference in kills since the last threshold
-        int killsSinceLastThreshold = comboCount - previousThreshold;
+        bool isFinalThresholdReached = comboCount >= guiltThresholds[guiltThresholds.Count - 1];
 
-        // The difference between the next and last threshold
-        int differenceBetweenThresholds = nextThreshold - previousThreshold;
+        string comboText;
+        if (isFinalThresholdReached)
+        {
+            comboText = "SLAY BOSS"; 
+        }
+        else
+        {
+            // The difference in kills since the last threshold
+            int killsSinceLastThreshold = comboCount - previousThreshold;
 
-        string comboText = killsSinceLastThreshold + "/" + differenceBetweenThresholds;
+            // The difference between the next and last threshold
+            int differenceBetweenThresholds = nextThreshold - previousThreshold;
+
+            comboText = killsSinceLastThreshold + "/" + differenceBetweenThresholds;
+        }
+
         GetComponentInChildren<TMP_Text>().text = comboText;
 
 

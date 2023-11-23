@@ -687,7 +687,7 @@ public class Attack : MonoBehaviour, Upgrade
         }
 
         Vector3 originalScale = projectile.transform.localScale;
-        float scaler = stats.meleeShotsScaleUp;
+        float scaler = stats.meleeShotsScaleUp + 1;
 
         for (int i = 0; i < stats.comboLength; i++)
         {
@@ -701,10 +701,7 @@ public class Attack : MonoBehaviour, Upgrade
             //chain spawn
             for (int c = 0; c < stats.shotsPerAttackMelee + 1; c++)
             {
-                Vector3 directionSpacer = Vector3.Scale(
-                    direction,
-                    new Vector3(localSpacer, localSpacer, localSpacer)
-                );
+                Vector3 directionSpacer = direction * localSpacer;
 
                 if (!stats.shootOppositeSide) //only shoots forward
                 {
@@ -717,25 +714,11 @@ public class Attack : MonoBehaviour, Upgrade
                     p.attack = this;
                     p.damage = scaledDamage; //scale damage per shotInAttack
                     p.transform.rotation = rotation;
-                    if (c >= 1)
-                    {
-                        Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
-                        );
-                        p.transform.localScale *= (scaler * c);
-                    }
-                    else
-                    {
-                        Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
-                        );
-                    }
+
+                    //scale up
+                    Vector3 newScale = originalScale * stats.meleeSize * scaler;
+                    p.transform.localScale = newScale;
+
                     //change animation state
                     if (stats.swapAnimOnAttack)
                     {
@@ -771,6 +754,7 @@ public class Attack : MonoBehaviour, Upgrade
                             sr.color = spriteColor;
                         }
                     }
+                    scaler += stats.meleeShotsScaleUp;
                 }
                 else //does shoot opposite side
                 {
@@ -785,25 +769,11 @@ public class Attack : MonoBehaviour, Upgrade
 
                     p.transform.rotation = rotation;
                     p.transform.up = direction;
-                    if (c >= 1)
-                    {
-                        Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
-                        );
-                        p.transform.localScale *= (scaler * c);
-                    }
-                    else
-                    {
-                        Vector3 currentScale = p.transform.localScale;
-                        p.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
-                        );
-                    }
+
+                    //scale up
+                    Vector3 newScale = originalScale * stats.meleeSize * scaler;
+                    p.transform.localScale = newScale;
+
                     //change animation state
                     if (stats.swapAnimOnAttack)
                     {
@@ -851,25 +821,10 @@ public class Attack : MonoBehaviour, Upgrade
 
                     p2.transform.rotation = Quaternion.LookRotation(-directionSpacer);
                     p2.transform.up = -directionSpacer; // set the projectile's up direction to the opposite of the direction
-                    if (c >= 1)
-                    {
-                        Vector3 currentScale = p2.transform.localScale;
-                        p2.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
-                        );
-                        p2.transform.localScale *= (scaler * c);
-                    }
-                    else
-                    {
-                        Vector3 currentScale = p2.transform.localScale;
-                        p2.transform.localScale = new Vector3(
-                            currentScale.x * stats.meleeSize,
-                            currentScale.y * stats.meleeSize,
-                            currentScale.z * stats.meleeSize
-                        );
-                    }
+
+                    //scale up
+                    p2.transform.localScale = newScale;
+
                     //change animation state
                     if (stats.swapAnimOnAttack)
                     {
@@ -905,6 +860,7 @@ public class Attack : MonoBehaviour, Upgrade
                             sr.color = spriteColor;
                         }
                     }
+                    scaler += stats.meleeShotsScaleUp; 
                 }
 
                 Camera

@@ -249,6 +249,13 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             statsString += "Shield " + stats.shield + "\n";
         }
+        if (stats.recoveryAmount > 0)
+        {
+            statsString += "Heal " + stats.recoveryAmount + " hp every " + stats.TotalRecoverySpeed + "s" + "\n";
+        } else if (stats.recoveryAmount < 0)
+        {
+            statsString += "Lose " + stats.recoveryAmount + " hp every " + stats.TotalRecoverySpeed + "s" + "\n";
+        }
         if (stats.damageMultiplier > 0)
         {
             statsString += "Damage +" + stats.damageMultiplier * 100 + "%" + "\n";
@@ -412,15 +419,23 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         {
             statsString += "Wpn Toss Speed " + stats.thrownSpeedMultiplier * 100 + "%" + "\n";
         }
-        if (stats.is360 != false)
+        if (stats.isLifesteal)
+        {
+            statsString += "Chance to heal on hit\n";
+        }
+        if (stats.isRevenge)
+        {
+            statsString += "Damage enemies that hurt you\n";
+        }
+        if (stats.is360)
         {
             statsString += "360 Aim Vision\n";
         }
-        if (stats.isHoming != false)
+        if (stats.isHoming)
         {
             statsString += "Homing Projectiles!\n";
         }
-        if (stats.shootOpposideSide != false)
+        if (stats.shootOpposideSide)
         {
             statsString += "DOUBLE TROUBLE\n";
         }

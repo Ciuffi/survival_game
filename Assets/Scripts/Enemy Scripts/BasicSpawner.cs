@@ -14,7 +14,7 @@ public class BasicSpawner : MonoBehaviour
     public int currentGuilt;
     public List<float> healthScalingList, xpScalingList;
     public float damageScaling, weightScaling;
-    public float stageHealthScaling, stageDamageScaling, stageWeightScaling, stageXpScaling;
+    public float stageHealthScaling, stageDamageScaling, stageWeightScaling, stageXpScaling, stageGoldScaling;
 
     //public float speedScaling; -----Doesn't work properly
     public Camera mainCamera;

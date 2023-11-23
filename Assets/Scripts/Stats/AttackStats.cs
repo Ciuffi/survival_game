@@ -349,7 +349,6 @@ public class AttackStats : Upgrade
         this.rangeMultiplier = this.rangeMultiplier == 0 ? 1 : this.rangeMultiplier;
         this.projectileSize = this.projectileSize == 0 ? 1 : this.projectileSize;
         this.meleeSize = this.meleeSize == 0 ? 1 : this.meleeSize;
-        this.meleeShotsScaleUp = this.meleeShotsScaleUp == 0 ? 1 : this.meleeShotsScaleUp;
         this.projectileSizeMultiplier = this.projectileSizeMultiplier == 0 ? 1 : this.projectileSizeMultiplier;
         this.comboWaitTimeMultiplier = this.comboWaitTimeMultiplier == 0 ? 1 : this.comboWaitTimeMultiplier;
         this.meleeShotsScaleUpMultiplier =

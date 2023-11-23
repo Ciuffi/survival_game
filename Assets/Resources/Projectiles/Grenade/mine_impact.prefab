@@ -232,6 +232,9 @@ MonoBehaviour:
   chainStatDecayPercent: 0
   chainRange: 0
   chainSpeed: 0
+  isLifesteal: 0
+  lifestealChance: 0
+  lifestealAmount: 0
   isSplitProjectile: 0
   hasDeathrattle: 1
   deathSpawn: {fileID: 4908858350499337675, guid: 1f7bc36f8f107924faa3bee74f0794cb, type: 3}
@@ -250,9 +253,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.055844486, y: 0.0676319}
+  m_Offset: {x: -0.055844545, y: 0.036241055}
   serializedVersion: 2
-  m_Radius: 3.5178492
+  m_Radius: 2.2936044
 --- !u!50 &-3887285398624502537
 Rigidbody2D:
   serializedVersion: 4

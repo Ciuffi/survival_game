@@ -51,6 +51,7 @@ public static class PlayerCharactersLibrary
             pickupRange: 1.5f,
             aimRangeAdditive: 0,
             rerollTimes: 1,
+            baseRecoverySpeed: 5,
 
             shotsPerAttack: 0,
             comboLength: 0,
@@ -75,11 +76,7 @@ public static class PlayerCharactersLibrary
            effectMultiplier: 0,
            activeDuration: 0,
            activeMultiplier: 0,
-           isRevenge: true,
-           revengeDamage: 20,
-           isLifesteal: true,
-           lifestealChance: 1f,
-           lifestealAmount: 1f,
+           isHoming: true,
 
             shootOpposideSide: false
         ) ;
@@ -104,6 +101,7 @@ public static class PlayerCharactersLibrary
            defense: 0,
            speed: 1.5f,
            pickupRange: 2f,
+           baseRecoverySpeed: 5,
            multicastChance: 0.5f,
            effectMultiplier: 0.5f
        );
@@ -127,6 +125,7 @@ public static class PlayerCharactersLibrary
             defense: 0,
             speed: 1f,
             pickupRange: 1.25f,
+            baseRecoverySpeed: 5,
             is360: true,
             damageMultiplier: 0.10f
         );

@@ -45,6 +45,8 @@ public class StatsHandler : MonoBehaviour
 
     public GameObject weaponsList;
     private RerollHandler rerollHandler;
+    private bool IsRecoveryCoroutineRunning = false;
+
     private void MatchCharacter()
     {
         string storedName = PlayerPrefs.GetString("CharacterName");
@@ -108,6 +110,31 @@ public class StatsHandler : MonoBehaviour
                 AddStat(upgradeStats);
                 Debug.Log(upgradeStats.name);
 
+            }
+        }
+    }
+
+    private IEnumerator PassiveRecovery()
+    {
+        while (true)
+        {
+           if (stats.recoveryAmount > 0)
+            {
+                float recoverySpeed = stats.TotalRecoverySpeed;
+                if (recoverySpeed > 0)
+                {
+                    yield return new WaitForSeconds(recoverySpeed);
+                    AddHealth(stats.recoveryAmount);
+                }
+                else
+                {
+                    yield return null;
+                }
+            }
+            else
+            {
+                IsRecoveryCoroutineRunning = false;
+                yield break; 
             }
         }
     }
@@ -367,6 +394,20 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth));
 
         CalculateWeaponStats(weaponsList);
+
+        if (stats.recoveryAmount > 0)
+        {
+            if (!IsRecoveryCoroutineRunning)
+            {
+                StartCoroutine(PassiveRecovery());
+                IsRecoveryCoroutineRunning = true;
+            }
+        }
+        else if (IsRecoveryCoroutineRunning)
+        {
+            StopCoroutine("PassiveRecovery");
+            IsRecoveryCoroutineRunning = false;
+        }
     }
 
     void Start()
@@ -388,7 +429,11 @@ public class StatsHandler : MonoBehaviour
         rerollHandler = GetComponentInChildren<RerollHandler>();
         MatchCharacter();
         MatchUpgrades();
-
+        if (stats.recoveryAmount != 0)
+        {
+            StartCoroutine(PassiveRecovery());
+            IsRecoveryCoroutineRunning = true;
+        }
     }
 
     private void CalculateWeaponStats(GameObject prefab)

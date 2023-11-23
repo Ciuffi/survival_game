@@ -2102,6 +2102,7 @@ MonoBehaviour:
   wpnSelected: 0
   stageSelected: 0
   stageSelectUI: {fileID: 1251121127}
+  buttonText: {fileID: 1887210307}
 --- !u!114 &537809112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10372,7 +10373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: IT'S TIME
+  m_text: SELECT STAGE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 52d38c84e469b9149a91af5359b9e041, type: 2}
   m_sharedMaterial: {fileID: 7562844569638490226, guid: 52d38c84e469b9149a91af5359b9e041, type: 2}

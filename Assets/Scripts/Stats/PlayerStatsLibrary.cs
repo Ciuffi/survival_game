@@ -61,10 +61,9 @@ public static class PlayerStatsLibrary
         //xp
         AddStat(
             new PlayerCharacterStats(
-                xpGainMultiplier: 0.03f,
-                damageMultiplier: -0.05f,
+                xpGainMultiplier: 0.02f,
                 name: "Talented 1",
-                description: "Experience +3%, Damage -5%",
+                description: "Experience +2%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Talented"),
                 rarity: Rarity.Common
             )
@@ -163,9 +162,8 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 xpGainMultiplier: 0.05f,
-                damageMultiplier: -0.10f,
                 name: "Talented 2",
-                description: "Experience +5%, Damage -10%",
+                description: "Experience +5%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Talented"),
                 rarity: Rarity.Rare
             )
@@ -238,11 +236,10 @@ public static class PlayerStatsLibrary
         //Plump
         AddStat(
             new PlayerCharacterStats(
-                maxHealth: 15f,
-                health: 15f,
-                defense: -0.2f,
+                maxHealth: 10f,
+                health: 10f,
                 name: "Plump 2",
-                description: "Max Health +15, take +0.2 more Damage",
+                description: "Max Health +10",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Plump"),
                 rarity: Rarity.Rare
             )
@@ -448,9 +445,8 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 xpGainMultiplier: 0.1f,
-                damageMultiplier: -0.15f,
                 name: "Talented 3",
-                description: "Experience +10%, Damage -15%",
+                description: "Experience +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Talented"),
                 rarity: Rarity.Epic
             )
@@ -523,11 +519,10 @@ public static class PlayerStatsLibrary
         //Plump
         AddStat(
             new PlayerCharacterStats(
-                maxHealth: 20f,
-                health: 20f,
-                defense: -0.4f,
+                maxHealth: 15f,
+                health: 15f,
                 name: "Plump 3",
-                description: "Max Health +20, take +0.4 more Damage",
+                description: "Max Health +15",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Plump"),
                 rarity: Rarity.Epic
             )

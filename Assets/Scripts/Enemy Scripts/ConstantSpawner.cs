@@ -7,6 +7,7 @@ public class ConstantSpawner : MonoBehaviour
     // Public variables that can be adjusted in the inspector
     public List<GameObject> enemies;
     public bool isEliteSpawner = false;
+    public bool isWallSpawner;
     private int eliteEnemyIndex = 0; // Index of the enemy to spawn
 
     public bool alwaysSpawn;
@@ -71,6 +72,10 @@ public class ConstantSpawner : MonoBehaviour
             {
                 SpawnEliteEnemy();
             }
+            if (isWallSpawner)
+            {
+                QueueSpawn();
+            }
         }
 
         // Set the previous guilt value to the current value for the next frame
@@ -128,7 +133,10 @@ public class ConstantSpawner : MonoBehaviour
 
             
             // Check if it's time to spawn enemies
-            spawnTimer -= Time.deltaTime;
+            if (!isWallSpawner)
+            {
+                spawnTimer -= Time.deltaTime;
+            }
             if (spawnTimer <= 0f)
             {
                 QueueSpawn();

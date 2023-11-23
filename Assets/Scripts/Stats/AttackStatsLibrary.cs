@@ -621,7 +621,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeShotsScaleUpMultiplier: 0.08f,
+                meleeShotsScaleUp: 0.08f,
                 name: "Wave Surge 1",
                 description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
@@ -1124,7 +1124,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeShotsScaleUpMultiplier: 0.12f,
+                meleeShotsScaleUp: 0.12f,
                 name: "Wave Surge 2",
                 description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
@@ -2137,7 +2137,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeShotsScaleUpMultiplier: 0.10f,
+                meleeShotsScaleUp: 0.10f,
                 name: "Wave Master 1",
                 description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveMaster"),
@@ -2464,7 +2464,7 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeShotsScaleUpMultiplier: 0.15f,
+                meleeShotsScaleUp: 0.15f,
                 name: "Wave Master 2",
                 description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveMaster"),
@@ -2963,7 +2963,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 shotsPerAttackMelee: 1,
-                meleeShotsScaleUpMultiplier: 0.10f,
+                meleeShotsScaleUp: 0.10f,
                 comboAttackBuffMultiplier: 0.04f,
                 name: "Melee God",
                 description: "All Melee Weapons Enhanced",

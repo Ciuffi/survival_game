@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class StartRun : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class StartRun : MonoBehaviour
     bool canStart;
 
     public GameObject stageSelectUI;
+    public TextMeshProUGUI buttonText;
 
     private InventoryUIManager InvManager;
     PanelTransitionManager inventoryButton;
@@ -52,6 +54,18 @@ public class StartRun : MonoBehaviour
             canStart = true;
         }
 
+        if (!wpnSelected || !charSelected)
+        {
+            buttonText.text = "";
+        }
+        else if (!stageSelected)
+        {
+            buttonText.text = "Select Stage"; 
+        }
+        else
+        {
+            buttonText.text = "Start Run"; 
+        }
     }
 
     public void StartGame()
@@ -69,6 +83,7 @@ public class StartRun : MonoBehaviour
 
         if (canStart)
         {
+            buttonText.text = "Start Run";
             string gameObjectName = chosenName;
             string newName = gameObjectName.EndsWith("(Clone)") ? gameObjectName.Substring(0, gameObjectName.Length - 7) : gameObjectName;
             PlayerPrefs.SetString("CharacterName", newName);

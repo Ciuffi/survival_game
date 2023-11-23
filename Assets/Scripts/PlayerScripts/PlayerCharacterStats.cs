@@ -97,6 +97,10 @@ public class PlayerCharacterStats : Upgrade
     public bool isRevenge;
     public float revengeDamage;
 
+    public float baseRecoverySpeed;
+    public float recoverySpeedAdditive;
+    public float recoveryAmount;
+
     public Rarity rarity;
     public GameObject statsContainer;
 
@@ -178,6 +182,9 @@ public class PlayerCharacterStats : Upgrade
         lifestealChance += other.lifestealChance;
         isRevenge |= other.isRevenge;
         revengeDamage += other.revengeDamage;
+
+        recoverySpeedAdditive += other.recoverySpeedAdditive;
+        recoveryAmount += other.recoveryAmount;
 
         shootOpposideSide |= other.shootOpposideSide;
         isHoming |= other.isHoming;
@@ -270,6 +277,9 @@ public class PlayerCharacterStats : Upgrade
         lifestealChance = other.lifestealChance;
         isRevenge = other.isRevenge;
         revengeDamage = other.revengeDamage;
+        baseRecoverySpeed = other.baseRecoverySpeed;
+        recoveryAmount = other.recoveryAmount;
+        recoverySpeedAdditive = other.recoverySpeedAdditive;
     }
 
     //Constructor with smart defaults in parameters
@@ -346,6 +356,9 @@ public class PlayerCharacterStats : Upgrade
         float lifestealChance = 0,
         bool isRevenge = false,
         float revengeDamage = 0,
+        float baseRecoverySpeed = 0,
+        float recoverySpeedAdditive = 0,
+        float recoveryAmount = 0,
 
         Sprite characterSprite = null,
         RuntimeAnimatorController characterAnimationController = null,
@@ -425,6 +438,9 @@ public class PlayerCharacterStats : Upgrade
         this.lifestealChance = lifestealChance;
         this.isRevenge = isRevenge;
         this.revengeDamage = revengeDamage;
+        this.baseRecoverySpeed = baseRecoverySpeed;
+        this.recoverySpeedAdditive = recoverySpeedAdditive;
+        this.recoveryAmount = recoveryAmount;
 
         this.shootOpposideSide = shootOpposideSide;
         this.isHoming = isHoming;
@@ -479,5 +495,10 @@ public class PlayerCharacterStats : Upgrade
         // Split by space and remove the last part (which is assumed to be the level)
         var splitName = name.Split(' ');
         return string.Join(" ", splitName.Take(splitName.Length - 1));
+    }
+
+    public float TotalRecoverySpeed
+    {
+        get { return baseRecoverySpeed + recoverySpeedAdditive; }
     }
 }

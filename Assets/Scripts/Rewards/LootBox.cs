@@ -16,7 +16,7 @@ public class LootBox : MonoBehaviour
     private GameObject goldManager;
     private BasicSpawner guiltTracker;
 
-    public float stageScaling = 0.05f;
+    public float stageScaling;
     float finalMultiplier;
     public List<int> minGold;
     public List<int> maxGold;
@@ -45,6 +45,7 @@ public class LootBox : MonoBehaviour
         WaypointManager waypointManager = FindObjectOfType<WaypointManager>();
         waypointManager.AddWaypoint(this.gameObject, false);
         // Calculate the percentage increase based on the scene index
+        stageScaling = GameObject.Find("Spawner").GetComponent<BasicSpawner>().stageGoldScaling;
     }
 
     public void StartBouncing(float startHeight, float startSpeed, float decayRate)
