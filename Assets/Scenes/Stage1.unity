@@ -3072,6 +3072,14 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.019607844
       objectReference: {fileID: 0}
+    - target: {fileID: 5809463209898226967, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: visualIndicatorPrefab
+      value: 
+      objectReference: {fileID: 4053501027209517259, guid: adf3070226affc446a0d1cc131ec722c, type: 3}
+    - target: {fileID: 5978556477329937058, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
+      propertyPath: visualIndicatorPrefab
+      value: 
+      objectReference: {fileID: 4053501027209517259, guid: adf3070226affc446a0d1cc131ec722c, type: 3}
     - target: {fileID: 8009071775860303711, guid: ace0159f81fc461488ce2e12d9f40425, type: 3}
       propertyPath: visualIndicatorPrefab
       value: 

@@ -503,7 +503,7 @@ public class LevelUpManager : MonoBehaviour
 
     IEnumerator DelayedResume(float delayTime)
     {
-        yield return new WaitForSecondsRealtime(delayTime); // Wait for the specified delay
+        yield return new WaitForSecondsRealtime(delayTime);
         DestroyPotentialUpgradeObjects();
         panel.SetActive(false);
         TimelineManager.GetComponent<TimelineUI>().despawnTimeline();

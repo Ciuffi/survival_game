@@ -486,11 +486,17 @@ public class LootBoxManager : MonoBehaviour
 
     public void SignalItemChosen()
     {
+        StartCoroutine(DelayedResume(0.5f));
+    }
+
+    IEnumerator DelayedResume(float delayTime)
+    {
+        yield return new WaitForSecondsRealtime(delayTime); 
         DestroyPotentialUpgradeObjects();
         previousUpgrades.Clear();
+        panel.SetActive(false);
         TimelineManager.GetComponent<TimelineUI>().despawnTimeline();
         GameObject.FindObjectOfType<CanvasClickHandler>().EnableJoystick();
-        panel.SetActive(false);
         ResumeGame();
     }
 

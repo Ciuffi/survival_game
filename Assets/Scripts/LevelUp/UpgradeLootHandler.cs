@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening; 
 
 public class UpgradeLootHandler : MonoBehaviour, IPointerDownHandler
 {
@@ -13,7 +14,9 @@ public class UpgradeLootHandler : MonoBehaviour, IPointerDownHandler
     public float uiDelay;
     public bool startDelay;
     public bool delayFinished;
-    private float timer; // make timer a class member variable
+    private float timer;
+    private Vector3 originalScale;
+    public GameObject visualIndicatorPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +25,17 @@ public class UpgradeLootHandler : MonoBehaviour, IPointerDownHandler
         playerAttacks = player.GetComponent<AttackHandler>();
         playerStats = player.GetComponent<StatsHandler>();
         lootManager = GameObject.FindObjectOfType<LootBoxManager>();
+        originalScale = transform.localScale;
+        visualIndicatorPrefab = Resources.Load<GameObject>("ParticleSystem/upgrade_sparkle");
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (delayFinished)
         {
+            SquashAndStretchAnimation();
+            GameObject visualIndicator = Instantiate(visualIndicatorPrefab, transform.position, Quaternion.identity);
+
             switch (upgrade.GetUpgradeType())
             {
                 case UpgradeType.Weapon:
@@ -67,6 +75,19 @@ public class UpgradeLootHandler : MonoBehaviour, IPointerDownHandler
             }
         }
        
+    }
+
+    private void SquashAndStretchAnimation()
+    {
+        transform.DOScale(new Vector3(originalScale.x * 1.2f, originalScale.y * 1.2f, originalScale.z), 0.15f)
+            .SetEase(Ease.OutBack)
+            .SetUpdate(true)
+            .OnComplete(() => {
+                // Then scale back down to the original scale
+                transform.DOScale(originalScale, 0.35f)
+                    .SetEase(Ease.InBack)
+                    .SetUpdate(true);
+            });
     }
 
     // Update is called once per frame

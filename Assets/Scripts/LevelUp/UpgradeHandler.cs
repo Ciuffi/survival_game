@@ -23,6 +23,8 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
         if (delayFinished)
         {
             SquashAndStretchAnimation();
+            GameObject visualIndicator = Instantiate(visualIndicatorPrefab, transform.position, Quaternion.identity);
+
             switch (upgrade.GetUpgradeType())
             {
                 case UpgradeType.Weapon:
@@ -55,8 +57,6 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
                     levelUpManager.SignalItemChosen();
                     break;
             }
-
-              GameObject visualIndicator = Instantiate(visualIndicatorPrefab, transform.position, Quaternion.identity);
         }
     }
 
