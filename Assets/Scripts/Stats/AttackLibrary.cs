@@ -106,6 +106,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
+            AttackStatsLibrary.GetStat("Infusion 1"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -120,6 +121,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Persistence+ 3"),
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Split 3"),
+            AttackStatsLibrary.GetStat("Infusion 2"),
         };
 
         AttackBuilder Consecrate = new AttackBuilder()
@@ -248,6 +250,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -262,6 +265,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Infusion 2"),
         };
 
 
@@ -393,6 +397,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
+            AttackStatsLibrary.GetStat("Infusion++ 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -406,6 +411,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Cindershot 3"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
+            AttackStatsLibrary.GetStat("Infusion++ 2"),
 
         };
 
@@ -547,6 +553,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -565,6 +572,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder DrainScythe = new AttackBuilder()
@@ -699,6 +707,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -716,6 +725,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder EarthShock = new AttackBuilder()
@@ -843,6 +853,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -859,6 +870,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
         };
 
         AttackBuilder FireStarter = new AttackBuilder()
@@ -1000,6 +1012,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 2"),
             AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Split+ 2"),
+            AttackStatsLibrary.GetStat("Infusion++ 1"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1017,6 +1030,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
+            AttackStatsLibrary.GetStat("Infusion++ 2"),
         };
 
         AttackBuilder GravityGrab = new AttackBuilder()
@@ -1150,6 +1164,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1165,6 +1180,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Infusion 2"),
         };
 
         AttackBuilder GatlingGun = new AttackBuilder()
@@ -1300,6 +1316,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1317,6 +1334,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder GodHand = new AttackBuilder()
@@ -1436,6 +1454,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Concussive 1"),
             AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1451,6 +1470,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder FragGrenade = new AttackBuilder()
@@ -1563,6 +1583,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1579,6 +1600,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder ImpactMine = new AttackBuilder()
@@ -1705,6 +1727,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion 1"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1720,7 +1743,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
-
+            AttackStatsLibrary.GetStat("Infusion 2"),
         };
 
         AttackBuilder ImpactNova = new AttackBuilder()
@@ -1840,6 +1863,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
+            AttackStatsLibrary.GetStat("Infusion++ 1"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1855,6 +1879,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Cindershot 3"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
+            AttackStatsLibrary.GetStat("Infusion++ 2"),
         };
 
         AttackBuilder SuctionBeam = new AttackBuilder()
@@ -1982,6 +2007,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Concussive 1"),
             AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -1998,6 +2024,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder RPG = new AttackBuilder()
@@ -2125,6 +2152,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -2141,6 +2169,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Infusion 2"),
         };
 
         AttackBuilder PainWheel = new AttackBuilder()
@@ -2540,6 +2569,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
+            AttackStatsLibrary.GetStat("Infusion++ 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -2555,6 +2585,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
             AttackStatsLibrary.GetStat("Homing 1"),
+            AttackStatsLibrary.GetStat("Infusion++ 2"),
         };
 
         AttackBuilder PlasmaPistol = new AttackBuilder()
@@ -2685,6 +2716,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -2701,6 +2733,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split+ 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
             AttackStatsLibrary.GetStat("Homing 1"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder Revolver = new AttackBuilder()
@@ -2826,6 +2859,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -2842,6 +2876,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
             AttackStatsLibrary.GetStat("Homing 1"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
 
@@ -2965,6 +3000,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
+            AttackStatsLibrary.GetStat("Infusion 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -2979,6 +3015,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Persistence+ 3"),
             AttackStatsLibrary.GetStat("Homing 1"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
+            AttackStatsLibrary.GetStat("Infusion 2"),
 
         };
 
@@ -3104,7 +3141,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
-
+            AttackStatsLibrary.GetStat("Infusion 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -3121,6 +3158,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
             AttackStatsLibrary.GetStat("Homing 1"),
+            AttackStatsLibrary.GetStat("Infusion 2"),
         };
 
         AttackBuilder SMG = new AttackBuilder()
@@ -3385,6 +3423,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
             AttackStatsLibrary.GetStat("Concussive 1"),
+            AttackStatsLibrary.GetStat("Infusion++ 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -3401,6 +3440,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
             AttackStatsLibrary.GetStat("Concussive 2"),
+            AttackStatsLibrary.GetStat("Infusion++ 2"),
         };
 
         AttackBuilder Sniper = new AttackBuilder()
@@ -3667,6 +3707,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Chain+ 2"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
             //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -3683,6 +3724,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Split 3"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder SuctionGrenade = new AttackBuilder()
@@ -3811,6 +3853,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 2"),
             AttackStatsLibrary.GetStat("Split 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -3827,6 +3870,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Hourglass 3"),
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Split 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder SuctionNova = new AttackBuilder()
@@ -3965,6 +4009,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Split+ 2"),
             AttackStatsLibrary.GetStat("Slow Down 3"),
             AttackStatsLibrary.GetStat("Magnetize 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 1"),
 
           //legendary
             AttackStatsLibrary.GetStat("Damage 4"),
@@ -3981,6 +4026,7 @@ public static class AttackLibrary
             AttackStatsLibrary.GetStat("Ignite 3"),
             AttackStatsLibrary.GetStat("Chain+ 3"),
             AttackStatsLibrary.GetStat("Split+ 3"),
+            AttackStatsLibrary.GetStat("Infusion+ 2"),
         };
 
         AttackBuilder WindBlade = new AttackBuilder()

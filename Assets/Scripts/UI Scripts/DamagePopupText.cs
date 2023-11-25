@@ -14,6 +14,7 @@ public class DamagePopupText : MonoBehaviour
     public float disappearTimer;
     public float disappearSpeed;
     public Color textColor;
+    public Color healColor;
 
     public float scaleUpAmount;
     public float scaleDownAmount;
@@ -28,17 +29,28 @@ public class DamagePopupText : MonoBehaviour
     public float maxFontSize;
 
     public float critScaleUpPercent; //1 = no scaling 2 = double
+    public float healScaleUpPercent;
 
     public float defaultDamageSize; //amount of damage needed for the default size
     public float damageScaleAmount; //number IN FONTSIZE of how much to increase every increment
     public float upScaleIncrement; //every x damage higher than above, scale up by damageScaleAmount
     public float downScaleIncrement;
 
-    public void Setup(float damageAmount, bool isCrit)
+    public void Setup(float damageAmount, bool isCrit, bool isHeal)
     {
         textMesh = gameObject.GetComponent<TextMeshPro>();
-        int damageRounded = Mathf.CeilToInt(damageAmount);
-        textMesh.SetText(damageRounded.ToString());
+
+        if (!isHeal)
+        {
+            int damageRounded = Mathf.CeilToInt(damageAmount);
+            textMesh.SetText(damageRounded.ToString());
+        }
+        else
+        {
+            float damageRounded = damageAmount;
+            textMesh.SetText(damageRounded.ToString());
+        }
+
         moveVector = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(0.5f, 1f)) * moveSpeed;
 
         textMesh.fontSize = baseFontSize;
@@ -56,11 +68,17 @@ public class DamagePopupText : MonoBehaviour
             textMesh.fontSize -= increment * damageScaleAmount;
         }
 
-        if ( isCrit == true ) {
+        if (isCrit) {
 
             textMesh.fontSize *= critScaleUpPercent;
             textColor = new Color32(255, 79, 79, 255);
             textMesh.color = textColor;
+        }
+
+        if (isHeal)
+        {
+            textMesh.fontSize *= healScaleUpPercent;
+            textMesh.color = healColor;
         }
 
         if (textMesh.fontSize >= maxFontSize)

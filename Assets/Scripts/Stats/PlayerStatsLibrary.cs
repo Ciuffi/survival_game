@@ -142,6 +142,29 @@ public static class PlayerStatsLibrary
             )
         );
 
+        //Revenge
+        AddStat(
+            new PlayerCharacterStats(
+                isRevenge: true,
+                revengeDamage: 12,
+                name: "Revenge 1",
+                description: "Damage those who hurt you",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Revenge"),
+                rarity: Rarity.Common
+            )
+        );
+
+        //Regenerate
+        AddStat(
+            new PlayerCharacterStats(
+                recoverySpeedAdditive: 0f,
+                recoveryAmount: 1f,
+                name: "Regenerate 1",
+                description: "Recover health every few seconds",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Regenerate"),
+                rarity: Rarity.Common
+            )
+        );
 
 
         //rare
@@ -421,6 +444,43 @@ public static class PlayerStatsLibrary
                 name: "Sleepy 1",
                 description: "Attacks slow for 2s, Knockback -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Sleepy"),
+                rarity: Rarity.Rare
+            )
+        );
+
+        //Revenge
+        AddStat(
+            new PlayerCharacterStats(
+                isRevenge: true,
+                revengeDamage: 15,
+                name: "Revenge 2",
+                description: "Damage those who hurt you",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Revenge"),
+                rarity: Rarity.Rare
+            )
+        );
+
+        //Regenerate
+        AddStat(
+            new PlayerCharacterStats(
+                recoverySpeedAdditive: -0.2f,
+                recoveryAmount: 1f,
+                name: "Regenerate 2",
+                description: "Recover health every few seconds",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Regenerate"),
+                rarity: Rarity.Rare
+            )
+        );
+
+        //Lifesteal
+        AddStat(
+            new PlayerCharacterStats(
+                isLifesteal: true,
+                lifestealAmount: 0.2f,
+                lifestealChance: 0.02f,
+                name: "Lifesteal 1",
+                description: "Chance to heal on hit",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Lifesteal"),
                 rarity: Rarity.Rare
             )
         );
@@ -819,6 +879,43 @@ public static class PlayerStatsLibrary
                rarity: Rarity.Epic
            )
        );
+
+        //Revenge
+        AddStat(
+            new PlayerCharacterStats(
+                isRevenge: true,
+                revengeDamage: 20,
+                name: "Revenge 3",
+                description: "Damage those who hurt you",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Revenge"),
+                rarity: Rarity.Epic
+            )
+        );
+
+        //Regenerate
+        AddStat(
+            new PlayerCharacterStats(
+                recoverySpeedAdditive: -0.35f,
+                recoveryAmount: 1f,
+                name: "Regenerate 3",
+                description: "Recover health every few seconds",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Regenerate"),
+                rarity: Rarity.Epic
+            )
+        );
+
+        //Lifesteal
+        AddStat(
+            new PlayerCharacterStats(
+                isLifesteal: true,
+                lifestealAmount: 0.25f,
+                lifestealChance: 0.03f,
+                name: "Lifesteal 2",
+                description: "Chance to heal on hit",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Lifesteal"),
+                rarity: Rarity.Epic
+            )
+        );
 
 
         //legendary
@@ -1372,6 +1469,43 @@ public static class PlayerStatsLibrary
                 name: "Multicast 3",
                 description: "All Multicast chance +50%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Multi"),
+                rarity: Rarity.Legendary
+            )
+        );
+
+        //Revenge
+        AddStat(
+            new PlayerCharacterStats(
+                isRevenge: true,
+                revengeDamage: 30,
+                name: "Revenge 4",
+                description: "Damage those who hurt you",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Revenge"),
+                rarity: Rarity.Legendary
+            )
+        );
+
+        //Regenerate
+        AddStat(
+            new PlayerCharacterStats(
+                recoverySpeedAdditive: -0.5f,
+                recoveryAmount: 1.5f,
+                name: "Regenerate 4",
+                description: "Recover health every few seconds",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Regenerate"),
+                rarity: Rarity.Legendary
+            )
+        );
+
+        //Lifesteal
+        AddStat(
+            new PlayerCharacterStats(
+                isLifesteal: true,
+                lifestealAmount: 0.3f,
+                lifestealChance: 0.05f,
+                name: "Lifesteal 3",
+                description: "Chance to heal on hit",
+                icon: Resources.Load<Sprite>("UI_Icons/Relics/Lifesteal"),
                 rarity: Rarity.Legendary
             )
         );

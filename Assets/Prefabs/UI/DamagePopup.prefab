@@ -191,11 +191,13 @@ MonoBehaviour:
   disappearTimer: 0.5
   disappearSpeed: 4
   textColor: {r: 1, g: 1, b: 1, a: 1}
+  healColor: {r: 0, g: 1, b: 0.08928561, a: 1}
   scaleUpAmount: 0.5
   scaleDownAmount: 0.35
   baseFontSize: 90
   maxFontSize: 300
   critScaleUpPercent: 1.4
+  healScaleUpPercent: 1.25
   defaultDamageSize: 10
   damageScaleAmount: 4
   upScaleIncrement: 4

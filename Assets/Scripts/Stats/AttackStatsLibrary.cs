@@ -1312,6 +1312,45 @@ public static class AttackStatsLibrary
        );
         ;
 
+        AddStat(
+           new AttackStats(
+               isLifesteal: true,
+               lifestealAmount: 0.25f,
+               lifestealChance: 0.02f,
+               name: "Infusion 1",
+               description: "Chance to heal on hit",
+               icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
+        AddStat(
+           new AttackStats(
+               isLifesteal: true,
+               lifestealAmount: 0.25f,
+               lifestealChance: 0.04f,
+               name: "Infusion+ 1",
+               description: "Chance to heal on hit",
+               icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
+        AddStat(
+           new AttackStats(
+               isLifesteal: true,
+               lifestealAmount: 0.25f,
+               lifestealChance: 0.05f,
+               name: "Infusion++ 1",
+               description: "Chance to heal on hit",
+               icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
 
         //legendary
 
@@ -1661,6 +1700,45 @@ public static class AttackStatsLibrary
                name: "Concussive 2",
                description: "Attacks stun enemies",
                icon: Resources.Load<Sprite>("UI_Icons/Concussive"),
+               rarity: Rarity.Legendary
+           )
+       );
+        ;
+
+        AddStat(
+           new AttackStats(
+               isLifesteal: true,
+               lifestealAmount: 0.3f,
+               lifestealChance: 0.03f,
+               name: "Infusion 2",
+               description: "Chance to heal on hit",
+               icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
+               rarity: Rarity.Legendary
+           )
+       );
+        ;
+
+        AddStat(
+           new AttackStats(
+               isLifesteal: true,
+               lifestealAmount: 0.3f,
+               lifestealChance: 0.05f,
+               name: "Infusion+ 2",
+               description: "Chance to heal on hit",
+               icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
+               rarity: Rarity.Legendary
+           )
+       );
+        ;
+
+        AddStat(
+           new AttackStats(
+               isLifesteal: true,
+               lifestealAmount: 0.4f,
+               lifestealChance: 0.08f,
+               name: "Infusion++ 2",
+               description: "Chance to heal on hit",
+               icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
                rarity: Rarity.Legendary
            )
        );

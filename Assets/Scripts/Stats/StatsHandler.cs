@@ -6,6 +6,7 @@ using System.Linq;
 
 public class StatsHandler : MonoBehaviour
 {
+    Rigidbody2D rb;
     public int level;
     public float xp;
     public float nextXp;
@@ -46,6 +47,8 @@ public class StatsHandler : MonoBehaviour
     public GameObject weaponsList;
     private RerollHandler rerollHandler;
     private bool IsRecoveryCoroutineRunning = false;
+
+    public GameObject DamagePopup;
 
     private void MatchCharacter()
     {
@@ -118,18 +121,20 @@ public class StatsHandler : MonoBehaviour
     {
         while (true)
         {
-           if (stats.recoveryAmount > 0)
+           if (stats.recoveryAmount != 0)
             {
-                float recoverySpeed = stats.TotalRecoverySpeed;
-                if (recoverySpeed > 0)
+                float recoverySpeed;
+
+                if (stats.TotalRecoverySpeed < 0.5f)
                 {
-                    yield return new WaitForSeconds(recoverySpeed);
-                    AddHealth(stats.recoveryAmount);
-                }
-                else
+                    recoverySpeed = 0.5f;
+                } else
                 {
-                    yield return null;
+                    recoverySpeed = stats.TotalRecoverySpeed;
                 }
+
+                yield return new WaitForSeconds(recoverySpeed);
+                AddHealth(stats.recoveryAmount);
             }
             else
             {
@@ -155,7 +160,16 @@ public class StatsHandler : MonoBehaviour
             BarHelper.AddToBar(healthBar, currentHealth, newHealth, stats.maxHealth, 0.4f)
         );
         currentHealth = newHealth;
+        PopupNumber(amount);
+    }
 
+    public void PopupNumber(float number)
+    {
+        Vector3 popupPosition = rb.position;
+        popupPosition.x = Random.Range(popupPosition.x - 0.05f, popupPosition.x + 0.05f);
+        popupPosition.y = Random.Range(popupPosition.y, popupPosition.y + 0.1f);
+        DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
+        damagePopup.GetComponent<DamagePopupText>().Setup(number, false, true);
     }
 
     private class DamageSource
@@ -427,6 +441,7 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue.StartQueue();
         healthColor = healthBar.fillRect.GetComponent<Image>().color;
         rerollHandler = GetComponentInChildren<RerollHandler>();
+        rb = GetComponent<Rigidbody2D>();
         MatchCharacter();
         MatchUpgrades();
         if (stats.recoveryAmount != 0)

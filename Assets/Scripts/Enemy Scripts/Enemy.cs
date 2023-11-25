@@ -981,19 +981,19 @@ public class Enemy : MonoBehaviour, Attacker
                 if (isCrit == true)
                 {
                     health -= finalDamage;
-                    damagePopup.GetComponent<DamagePopupText>().Setup(finalDamage, true);
+                    damagePopup.GetComponent<DamagePopupText>().Setup(finalDamage, true, false);
                 }
                 else
                 {
                     health -= finalDamage;
-                    damagePopup.GetComponent<DamagePopupText>().Setup(finalDamage, false);
+                    damagePopup.GetComponent<DamagePopupText>().Setup(finalDamage, false, false);
                 }
 
             } else //armor is now active
             {
                 float armoredDamage = finalDamage - (finalDamage * armorPercent);
                 health -= armoredDamage;
-                damagePopup.GetComponent<DamagePopupText>().Setup(armoredDamage, false);
+                damagePopup.GetComponent<DamagePopupText>().Setup(armoredDamage, false, false);
 
             }
 
