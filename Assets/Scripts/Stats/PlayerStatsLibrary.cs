@@ -50,9 +50,8 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 goldGainMultiplier: 0.05f,
-                defense: -0.5f,
                 name: "Greedy 1",
-                description: "Gold +5%, Take +0.5 more damage",
+                description: "Gold +5%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Greedy"),
                 rarity: Rarity.Common
             )
@@ -172,10 +171,9 @@ public static class PlayerStatsLibrary
         //gold
         AddStat(
             new PlayerCharacterStats(
-                goldGainMultiplier: 0.10f,
-                defense: -1f,
+                goldGainMultiplier: 0.08f,
                 name: "Greedy 2",
-                description: "Gold +10%, Take +1 more damage",
+                description: "Gold +8%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Greedy"),
                 rarity: Rarity.Rare
             )
@@ -492,10 +490,9 @@ public static class PlayerStatsLibrary
         //gold
         AddStat(
             new PlayerCharacterStats(
-                goldGainMultiplier: 0.15f,
-                defense: -1.5f,
+                goldGainMultiplier: 0.10f,
                 name: "Greedy 3",
-                description: "Gold +15%, Take +1.5 more damage",
+                description: "Gold +10%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Greedy"),
                 rarity: Rarity.Epic
             )

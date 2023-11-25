@@ -66,6 +66,7 @@ public class LootBoxManager : MonoBehaviour
 
         panel.SetActive(false);
         panelAnimated.SetActive(false);
+
         playerStats = player.GetComponent<StatsHandler>();
         rarityColors = weaponRarityPrefab.GetComponent<InventoryItem>().rarityColors;
         dropTable = GetComponent<DropTableUpgrades>();
@@ -173,7 +174,7 @@ public class LootBoxManager : MonoBehaviour
         setUpgradeWindow(upgradeWindows[0]);
 
         // Set the second UpgradeLootHandler with isWeapon = true
-        isWeapon = true;
+        isWeapon = false;
         setUpgradeWindow(upgradeWindows[1]);
     }
 

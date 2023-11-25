@@ -234,16 +234,15 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
 
         statsString += "Health " + stats.health + "\n";
         statsString += "Speed " + stats.speed + "\n";
-        statsString += "Pickup Range " + stats.pickupRange + "\n";
 
         // Check each stat and add it to the string if it meets the criteria 
-        if (stats.rerollTimes != 0)
+        if (stats.rerollTimes > 1)
         {
             statsString += "Reroll +" + stats.rerollTimes + "\n";
         }
         if (stats.defense != 0)
         {
-            statsString += "Defense " + stats.defense + "\n";
+            statsString += "Reduce damage by " + stats.defense + "\n";
         }
         if (stats.shield != 0)
         {

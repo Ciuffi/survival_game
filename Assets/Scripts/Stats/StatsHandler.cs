@@ -369,7 +369,11 @@ public class StatsHandler : MonoBehaviour
         var statComponent = statsContainer.GetComponent<StatComponent>();
         statComponent.stat = stat;
 
-        currentHealth += stat.health; // Add the health stat as a one-time heal
+        currentHealth += stat.health;
+        if (stat.health != 0)
+        {
+            PopupNumber(stat.health); 
+        }
 
         CalculatePlayerStats();
     }

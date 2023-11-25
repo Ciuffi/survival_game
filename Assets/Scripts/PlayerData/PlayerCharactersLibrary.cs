@@ -134,6 +134,32 @@ public static class PlayerCharactersLibrary
         AI.AddComponent<StatComponent>().stat = AIStats;
         AddCharacter(AI);
 
+        GameObject Wildling = Object.Instantiate(defaultPlayerPrefab, parentObject.transform);
+        PlayerCharacterStats WildlingStats = new PlayerCharacterStats(
+            name: "Wildling",
+            description: "Charge straight in",
+            icon: Resources.Load<Sprite>("PlayerCharacters/SelectionPortrait/ai"),
+            characterSprite: Resources.Load<Sprite>("PlayerCharacters/Sprites/robot/front"),
+            characterAnimationController: Resources.Load<RuntimeAnimatorController>("PlayerCharacters/Sprites/robot/robot_characterPreview"),
+            rarity: Rarity.Legendary,
+            price: 2000,
+            isLocked: true,
+            maxHealth: 50,
+            health: 50,
+            defense: 0.8f,
+            speed: 1.5f,
+            pickupRange: 1.3f,
+            rerollTimes: 1,
+            baseRecoverySpeed: 3,
+            recoveryAmount: 3,
+            isRevenge: true,
+            revengeDamage: 20,
+            damageMultiplier: -1.2f
+        );
+        Wildling.name = WildlingStats.name;
+        Wildling.AddComponent<StatComponent>().stat = WildlingStats;
+        AddCharacter(Wildling);
+
 
         Debug.Log("Finished initalizing PlayerCharacterLibrary");
         isInitialized = true;

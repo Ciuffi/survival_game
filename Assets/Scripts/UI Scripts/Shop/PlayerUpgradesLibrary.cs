@@ -474,11 +474,11 @@ public static class PlayerUpgradesLibrary
 
         GameObject GoldGain2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats GoldGain2Stats = new PlayerCharacterStats(
-           goldGainMultiplier: 0.02f,
+           goldGainMultiplier: 0.03f,
                level: 2,
                price: 1500,
                name: "Greedy 2",
-               description: "+4% Gold",
+               description: "+5% Gold",
                icon: Resources.Load<Sprite>("UI_Icons/Greedy"),
                rarity: Rarity.Epic
              );
@@ -490,11 +490,11 @@ public static class PlayerUpgradesLibrary
 
         GameObject GoldGain3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats GoldGain3Stats = new PlayerCharacterStats(
-           goldGainMultiplier: 0.04f,
+           goldGainMultiplier: 0.05f,
                level: 3,
                price: 2500,
                name: "Greedy 3",
-               description: "+8% Gold",
+               description: "+10% Gold",
                icon: Resources.Load<Sprite>("UI_Icons/Greedy"),
                rarity: Rarity.Legendary
              );

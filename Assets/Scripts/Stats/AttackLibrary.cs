@@ -3786,7 +3786,7 @@ public static class AttackLibrary
         //SuctionNova
         List<AttackStats> SuctionNovaRarity = new List<AttackStats>
         {
-            new AttackStats(rarity: Rarity.Rare, damage: 4, meleeSpacer: 3f, aimRangeAdditive: 2f),
+            new AttackStats(rarity: Rarity.Rare, damage: 3, meleeSpacer: 3f, aimRangeAdditive: 2f),
             new AttackStats(rarity: Rarity.Rare, knockback: 0.15f, effectMultiplier: 0.2f),
 
             new AttackStats(rarity: Rarity.Epic, meleeSizeMultiplier: 0.15f, shakeRotation: 0.1f),
