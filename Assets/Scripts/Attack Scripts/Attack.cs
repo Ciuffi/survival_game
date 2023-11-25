@@ -687,7 +687,7 @@ public class Attack : MonoBehaviour, Upgrade
         }
 
         Vector3 originalScale = projectile.transform.localScale;
-        float scaler = stats.meleeShotsScaleUp + 1;
+        float scalerIncrement = stats.meleeShotsScaleUp;
 
         for (int i = 0; i < stats.comboLength; i++)
         {
@@ -697,6 +697,7 @@ public class Attack : MonoBehaviour, Upgrade
             Vector3 direction = weaponContainer.GetDirection();
 
             float scaledDamage = stats.damage * (1 + (stats.comboAttackBuffMultiplier * i));
+            float scaler = 1f; // Reset scaler for each attack in the combo
 
             //chain spawn
             for (int c = 0; c < stats.shotsPerAttackMelee + 1; c++)
@@ -716,6 +717,10 @@ public class Attack : MonoBehaviour, Upgrade
                     p.transform.rotation = rotation;
 
                     //scale up
+                    if (c > 0)
+                    {
+                        scaler += scalerIncrement;
+                    }
                     Vector3 newScale = originalScale * stats.meleeSize * scaler;
                     p.transform.localScale = newScale;
 
@@ -771,6 +776,10 @@ public class Attack : MonoBehaviour, Upgrade
                     p.transform.up = direction;
 
                     //scale up
+                    if (c > 0)
+                    {
+                        scaler += scalerIncrement;
+                    }
                     Vector3 newScale = originalScale * stats.meleeSize * scaler;
                     p.transform.localScale = newScale;
 

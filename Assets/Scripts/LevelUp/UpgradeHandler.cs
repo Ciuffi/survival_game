@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Linq;
+using DG.Tweening;
 
 public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
 {
@@ -14,10 +15,14 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
     public bool delayFinished;
     private float timer; // make timer a class member variable
 
+    public GameObject visualIndicatorPrefab;
+    private Vector3 originalScale;
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (delayFinished)
         {
+            SquashAndStretchAnimation();
             switch (upgrade.GetUpgradeType())
             {
                 case UpgradeType.Weapon:
@@ -50,7 +55,22 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
                     levelUpManager.SignalItemChosen();
                     break;
             }
+
+              GameObject visualIndicator = Instantiate(visualIndicatorPrefab, transform.position, Quaternion.identity);
         }
+    }
+
+    private void SquashAndStretchAnimation()
+    {
+        transform.DOScale(new Vector3(originalScale.x * 1.2f, originalScale.y * 1.2f, originalScale.z), 0.15f)
+         .SetEase(Ease.OutBack)
+         .SetUpdate(true)
+         .OnComplete(() => {
+            // Then scale back down to the original scale
+            transform.DOScale(originalScale, 0.35f)
+                 .SetEase(Ease.InBack)
+                 .SetUpdate(true);
+         });
     }
 
     // Start is called before the first frame update
@@ -60,6 +80,8 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
         playerAttacks = player.GetComponent<AttackHandler>();
         playerStats = player.GetComponent<StatsHandler>();
         levelUpManager = GameObject.FindObjectOfType<LevelUpManager>();
+        visualIndicatorPrefab = Resources.Load<GameObject>("ParticleSystem/upgrade_sparkle");
+        originalScale = transform.localScale;
     }
 
     // Update is called once per frame

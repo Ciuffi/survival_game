@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Linq;
 
 public class TimelineUI : MonoBehaviour
 {
@@ -106,6 +107,21 @@ public class TimelineUI : MonoBehaviour
 
             delay += 0.075f;
         }
+    }
+
+    public Vector3 GetPositionForAttack(Attack attack)
+    {
+        // Find the icon associated with the given attack
+        GameObject icon = icons.FirstOrDefault(i => i.GetComponent<TimelineIcon>().AssociatedAttack == attack);
+
+        // If the icon is found, return its position
+        if (icon != null)
+        {
+            return icon.transform.position;
+        }
+
+        // If not found, return some default position or handle this case appropriately
+        return Vector3.zero; // or some other default value
     }
 
     public void despawnTimeline()

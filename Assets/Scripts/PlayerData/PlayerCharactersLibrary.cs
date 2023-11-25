@@ -76,8 +76,6 @@ public static class PlayerCharactersLibrary
            effectMultiplier: 0,
            activeDuration: 0,
            activeMultiplier: 0,
-           isHoming: true,
-
             shootOpposideSide: false
         ) ;
 

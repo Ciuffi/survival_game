@@ -498,6 +498,12 @@ public class LevelUpManager : MonoBehaviour
 
     public void SignalItemChosen()
     {
+        StartCoroutine(DelayedResume(0.5f));
+    }
+
+    IEnumerator DelayedResume(float delayTime)
+    {
+        yield return new WaitForSecondsRealtime(delayTime); // Wait for the specified delay
         DestroyPotentialUpgradeObjects();
         panel.SetActive(false);
         TimelineManager.GetComponent<TimelineUI>().despawnTimeline();
