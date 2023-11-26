@@ -925,10 +925,13 @@ public class Enemy : MonoBehaviour, Attacker
             Vector3 popupPosition = rb.position;
             popupPosition.x = Random.Range(rb.position.x - 0.075f, rb.position.x + 0.075f);
             popupPosition.y = Random.Range(rb.position.y, rb.position.y + 0.1f);
+            DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
+
             Vector3 modifier = transform.position;
             modifier.x = Random.Range(-0.1f, 0.1f);
             modifier.y = Random.Range(-0.1f, 0.1f);
-            
+            Instantiate(HitEffect, transform.position + modifier, Quaternion.identity);
+
             spriteRend.material = newMaterial;
             //Debug.Log(spriteRend.material);
             if (!resetMaterial)
@@ -936,9 +939,6 @@ public class Enemy : MonoBehaviour, Attacker
                 StartCoroutine(ResetMaterial());
                 resetMaterial = true;
             }
-
-            DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
-            Instantiate(HitEffect, transform.position + modifier, Quaternion.identity);
 
             //roll for DPS fudging
             float finalDamage;

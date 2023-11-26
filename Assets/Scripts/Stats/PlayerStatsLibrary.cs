@@ -388,9 +388,9 @@ public static class PlayerStatsLibrary
         //Pyro
         AddStat(
             new PlayerCharacterStats(
-                dotDamage: 2,
+                dotDamage: 4,
                 name: "Pyro 1",
-                description: "+2 Burn Damage",
+                description: "+4 Burn Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Rare
             )
@@ -413,7 +413,7 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 splitAmount: -1,
-                splitStatPercentage: 0.4f,
+                splitStatPercentage: 0.5f,
                 name: "Mitosis 1",
                 description: "Split into 1 fewer attack, all splits gain +50% stats",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Mitosis"),
@@ -424,9 +424,9 @@ public static class PlayerStatsLibrary
         //Lucky
         AddStat(
             new PlayerCharacterStats(
-                rerollTimes: 2,
+                rerollTimes: 3,
                 name: "Lucky 1",
-                description: "+2 Rerolls",
+                description: "+3 Rerolls",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Lucky"),
                 rarity: Rarity.Rare
             )
@@ -707,9 +707,9 @@ public static class PlayerStatsLibrary
         //Pyro
         AddStat(
             new PlayerCharacterStats(
-                dotDamage: 4,
+                dotDamage: 6,
                 name: "Pyro 2",
-                description: "+4 Burn Damage",
+                description: "+6 Burn Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Epic
             )
@@ -732,7 +732,7 @@ public static class PlayerStatsLibrary
         AddStat(
             new PlayerCharacterStats(
                 splitAmount: -1,
-                splitStatPercentage: 0.5f,
+                splitStatPercentage: 0.6f,
                 name: "Mitosis 2",
                 description: "Split into 1 fewer attack, all splits gain +60% stats",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Mitosis"),
@@ -743,9 +743,9 @@ public static class PlayerStatsLibrary
         //Lucky
         AddStat(
             new PlayerCharacterStats(
-                rerollTimes: 3,
+                rerollTimes: 5,
                 name: "Lucky 2",
-                description: "+3 Rerolls",
+                description: "+5 Rerolls",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Lucky"),
                 rarity: Rarity.Epic
             )
@@ -1077,9 +1077,9 @@ public static class PlayerStatsLibrary
         //Pyro
         AddStat(
             new PlayerCharacterStats(
-                dotDamage: 6,
+                dotDamage: 10,
                 name: "Pyro 3",
-                description: "+6 Burn Damage",
+                description: "+10 Burn Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Legendary
             )

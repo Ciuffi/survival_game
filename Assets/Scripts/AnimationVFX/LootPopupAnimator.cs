@@ -13,7 +13,7 @@ public class LootPopupAnimator : MonoBehaviour, IPointerDownHandler
     public SpriteRenderer spriteRend;
     public ParticleSystem coinExplosion;
     public ParticleSystem sparkle;
-    private float OGduration = 2;
+    private float OGduration = 1.5f;
 
     private bool isOpen;
     public float disappearSpeed;

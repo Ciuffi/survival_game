@@ -40,6 +40,8 @@ public class AttackHandler : MonoBehaviour
     public List<TimelineUI> timelines = new List<TimelineUI>();
     IEnumerator attackCoroutine; // Declare this variable at the class level
 
+    public GameObject MulticastVFX;
+
     private void Awake()
     {
         timelines = new List<TimelineUI>(FindObjectsOfType<TimelineUI>());

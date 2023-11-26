@@ -13,6 +13,7 @@ public class LevelUpManager : MonoBehaviour
 {
     public float baseXP;
     public float growthMultiplier;
+    public float growthRate; //bigger = slower rate of xp growth
     private Slider xpBar;
     public Color flashColor;
     private Color xpColor;
@@ -54,7 +55,8 @@ public class LevelUpManager : MonoBehaviour
 
     public int GetXpToNextLevel(float level)
     {
-        return (int)(Mathf.Floor(baseXP * (Mathf.Pow(level, growthMultiplier))));
+        float nonLinearMultiplier = growthMultiplier + Mathf.Pow(level / growthRate, 2);
+        return (int)(Mathf.Floor(baseXP * Mathf.Pow(level, nonLinearMultiplier)));
     }
 
     public void ResetXP()

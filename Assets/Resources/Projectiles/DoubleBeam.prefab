@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 567813993, guid: 533c42b2defe7ec4eb52b97469fabf7c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9411765}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -148,6 +148,9 @@ MonoBehaviour:
   chainStatDecayPercent: 0
   chainRange: 0
   chainSpeed: 0
+  isLifesteal: 0
+  lifestealChance: 0
+  lifestealAmount: 0
   isSplitProjectile: 0
   hasDeathrattle: 0
   deathSpawn: {fileID: 0}

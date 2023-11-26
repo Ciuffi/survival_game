@@ -208,6 +208,71 @@ public class deathRattleAttack : MonoBehaviour
             return;
         }
 
+        if (col.gameObject.tag == "Wall")
+        {
+            float finalDotDamage;
+            GameObject enemy = col.gameObject;
+
+            if (!hitEnemies.Contains(enemy)) //if enemy is not within hitDetection List
+            {
+                critRoll = Random.value; //roll for crit
+                if (critChance >= critRoll)
+                { //CRITS
+                    finalDamage = damage * critDmg;
+                    isCrit = true;
+                }
+                else
+                {
+                    //no crit
+                    finalDamage = damage;
+                    isCrit = false;
+                }
+
+                hitEnemies.Add(enemy); //add enemy to hitList
+                timers[enemy] = damageTickDuration;
+
+
+                if (isCrit == true) //deal damage
+                {
+                    enemy.GetComponent<ObstacleScan>().TakeDamage(finalDamage, true);
+
+                    attack.OnDamageDealt(finalDamage);
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        col.gameObject.transform.position,
+                        Quaternion.identity
+                    );
+                }
+                else
+                {
+
+                    enemy.GetComponent<ObstacleScan>().TakeDamage(finalDamage, false);
+
+                    attack.OnDamageDealt(finalDamage);
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        enemy.transform.position,
+                        Quaternion.identity
+                    );
+                }
+
+                if (isChain)
+                {
+                    ApplyChain(enemy);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
         if (col.gameObject.tag == "Enemy")
         {
             GameObject enemy = col.gameObject;
@@ -296,16 +361,7 @@ public class deathRattleAttack : MonoBehaviour
 
                 if (isChain)
                 {
-                    GameObject chainTarget = FindNearestEnemy(transform.position, chainRange, col.gameObject);
-
-                    GameObject chainProjectileGO = Instantiate(chainPrefab, transform.position, Quaternion.identity);
-                    ChainProjectile chainProjectile = chainProjectileGO.GetComponent<ChainProjectile>();
-
-                    chainProjectile.Initialize(chainTimes, chainStatDecayPercent, chainRange, chainTarget, damage, chainSpeed);
-
-                    chainProjectileGO.transform.localScale *= 3f;
-
-                    isChain = false;
+                    ApplyChain(enemy);
                 }
             }
             else
@@ -344,6 +400,19 @@ public class deathRattleAttack : MonoBehaviour
         }
 
         return closestEnemy;
+    }
+
+    public void ApplyChain(GameObject target)
+    {
+        GameObject chainTarget = FindNearestEnemy(transform.position, chainRange, target.gameObject);
+
+        GameObject chainProjectileGO = Instantiate(chainPrefab, transform.position, Quaternion.identity);
+        ChainProjectile chainProjectile = chainProjectileGO.GetComponent<ChainProjectile>();
+
+        chainProjectile.Initialize(chainTimes, chainStatDecayPercent, chainRange, chainTarget, damage, chainSpeed);
+        chainProjectileGO.transform.localScale *= 3f;
+
+        isChain = false;
     }
 
 }

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterButton : MonoBehaviour, IPointerDownHandler
 {
@@ -36,38 +37,45 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
         // Find the CharacterSelector component in the scene
         characterSelector = FindObjectOfType<CharSelectController>();
         playerDataManager = PlayerDataManager.Instance;
-        purchaseButton = GameObject.Find("BuyCharacter").GetComponent<Button>();
-        priceText = purchaseButton.GetComponentInChildren<TextMeshProUGUI>();
-        GameObject text1 = GameObject.Find("CharacterName");
-        nameText = text1.transform.Find("Name").GetComponent<TextMeshProUGUI>();
-        GameObject text2 = GameObject.Find("InfoBox");
-        infoText = text2.transform.Find("Info").GetComponent<TextMeshProUGUI>();
-        descText = GameObject.Find("Canvas/InfoBox_Desc/Info").GetComponent<TextMeshProUGUI>();
-        //GameObject text3 = GameObject.Find("WeaponsName");
-        //weaponsText = text3.GetComponent<TextMeshProUGUI>();
-        hasSelected = false;
-        startBtn = FindObjectOfType<StartRun>();
-        buttonImage = GetComponent<Image>();
-        defaultColor = GetComponent<Image>().color;
 
-        characterPreviewSprite = GameObject.Find("Canvas/CharacterPreview").GetComponent<Image>();
-        characterPreviewAnimator = GameObject.Find("Canvas/CharacterPreview").GetComponent<Animator>();
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            purchaseButton = GameObject.Find("BuyCharacter").GetComponent<Button>();
+            priceText = purchaseButton.GetComponentInChildren<TextMeshProUGUI>();
+            GameObject text1 = GameObject.Find("CharacterName");
+            nameText = text1.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+            GameObject text2 = GameObject.Find("InfoBox");
+            infoText = text2.transform.Find("Info").GetComponent<TextMeshProUGUI>();
+            descText = GameObject.Find("Canvas/InfoBox_Desc/Info").GetComponent<TextMeshProUGUI>();
+            //GameObject text3 = GameObject.Find("WeaponsName");
+            //weaponsText = text3.GetComponent<TextMeshProUGUI>();
+            hasSelected = false;
+            startBtn = FindObjectOfType<StartRun>();
+            buttonImage = GetComponent<Image>();
+            defaultColor = GetComponent<Image>().color;
+
+            characterPreviewSprite = GameObject.Find("Canvas/CharacterPreview").GetComponent<Image>();
+            characterPreviewAnimator = GameObject.Find("Canvas/CharacterPreview").GetComponent<Animator>();
+        }
     }
 
     private void Update()
     {
-        if (hasSelected)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            characterSelector.hasSelected = true;
-        }
+            if (hasSelected)
+            {
+                characterSelector.hasSelected = true;
+            }
 
-        if (stats != null && stats.isLocked)
-        {
-            buttonImage.color = lockedColor;
-        }
-        else
-        {
-            buttonImage.color = defaultColor;
+            if (stats != null && stats.isLocked)
+            {
+                buttonImage.color = lockedColor;
+            }
+            else
+            {
+                buttonImage.color = defaultColor;
+            }
         }
     }
 

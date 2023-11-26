@@ -579,6 +579,91 @@ public class Projectile : MonoBehaviour
             return;
         }
 
+        if (col.gameObject.tag == "Wall")
+        {
+            hitFirstEnemy = true;
+            float finalDotDamage;
+            GameObject enemy = col.gameObject;
+
+            if (!hitEnemies.Contains(enemy)) //if enemy is not within hitDetection List
+            {
+                critRoll = Random.value; //roll for crit
+                if (critChance >= critRoll)
+                { //CRITS
+                    finalDamage = damage * critDmg;
+                    isCrit = true;
+                }
+                else
+                {
+                    //no crit
+                    finalDamage = damage;
+                    isCrit = false;
+                }
+
+                hitEnemies.Add(enemy); //add enemy to hitList
+                timers[enemy] = damageTickDuration;
+
+
+                if (isCrit == true) //deal damage
+                {
+                    enemy.GetComponent<ObstacleScan>().TakeDamage(finalDamage, true);
+
+                    attack.OnDamageDealt(finalDamage);
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        col.gameObject.transform.position,
+                        Quaternion.identity
+                    );
+                }
+                else
+                {
+
+                    enemy.GetComponent<ObstacleScan>().TakeDamage(finalDamage, false);
+                    
+                    attack.OnDamageDealt(finalDamage);
+                    Camera
+                        .GetComponent<ScreenShakeController>()
+                        .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
+                    Instantiate(
+                        onHitParticle,
+                        enemy.transform.position,
+                        Quaternion.identity
+                    );
+                }
+
+                if (isMelee == false)
+                {
+                    pierce -= 1;
+                }
+
+                if (isSplit && !isSplitProjectile) // we only split on the first collision with an enemy
+                {
+                    ApplySplit();
+                }
+
+                if (isChain)
+                {
+                    ApplyChain(enemy);
+                }
+            }
+            else
+            {
+                return;
+            }
+
+            if (!isMelee && pierce < 0)
+            {
+                if (hasDeathrattle)
+                {
+                    SpawnDeathrattle();
+                }
+                Destroy(gameObject);
+            }
+        }
+
         if (col.gameObject.tag == "Enemy")
         {
             hitFirstEnemy = true;
@@ -607,31 +692,19 @@ public class Projectile : MonoBehaviour
 
                 if (isDoT)
                 {
-                    col.gameObject.GetComponent<Enemy>().StartDoT(finalDotDamage, dotTickRate, dotDuration, isCrit);
+                    enemy.GetComponent<Enemy>().StartDoT(finalDotDamage, dotTickRate, dotDuration, isCrit);
                 }
 
                 //apply magnetizing effect
                 if (isMagnet)
                 {
-                    magnetTarget = col.transform; //set collider
-                    magnetStartTime = Time.time;
-                    if (!isMelee)
-                    {
-                        magnetStartPos = transform.position; //set target
-                    }
-                    else
-                    {
-                        magnetStartPos = Player.transform.position;
-                    }
-                    magnetTarget
-                        .GetComponent<Enemy>()
-                        .StartMagnet(magnetStrength, magnetDuration, magnetStartPos, isMelee);
+                    ApplyMagnet(enemy);
                 }
 
                 if (isCrit == true) //deal damage
                 {
 
-                    col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, true);
+                    enemy.GetComponent<Enemy>().TakeDamage(finalDamage, true);
                     if (isLifesteal)
                     {
                         bool doesLifesteal;
@@ -653,7 +726,7 @@ public class Projectile : MonoBehaviour
                     Vector3 knockDirection = isMelee
                         ? (col.transform.position - transform.position).normalized
                         : transform.up;
-                    col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
+                    enemy.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
 
                     attack.OnDamageDealt(finalDamage);
                     Camera
@@ -661,14 +734,14 @@ public class Projectile : MonoBehaviour
                         .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(
                         onHitParticle,
-                        col.gameObject.transform.position,
+                        enemy.transform.position,
                         Quaternion.identity
                     );
                 }
                 else
                 {
 
-                    col.gameObject.GetComponent<Enemy>().TakeDamage(finalDamage, false);
+                    enemy.GetComponent<Enemy>().TakeDamage(finalDamage, false);
                     if (isLifesteal)
                     {
                         bool doesLifesteal;
@@ -689,14 +762,14 @@ public class Projectile : MonoBehaviour
                     Vector3 knockDirection = isMelee
                         ? (col.transform.position - transform.position).normalized
                         : transform.up;
-                    col.gameObject.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
+                    enemy.GetComponent<Enemy>().ApplyKnockback(knockback, knockDirection);
                     attack.OnDamageDealt(finalDamage);
                     Camera
                         .GetComponent<ScreenShakeController>()
                         .StartShake(playerShakeTime, playerShakeStrength, playerShakeRotation);
                     Instantiate(
                         onHitParticle,
-                        col.gameObject.transform.position,
+                        enemy.transform.position,
                         Quaternion.identity
                     );
                 }
@@ -704,13 +777,13 @@ public class Projectile : MonoBehaviour
                 //apply slow effect
                 if (isSlow)
                 {
-                    col.GetComponent<Enemy>().StartSlow(slowPercentage, slowDuration);
+                    enemy.GetComponent<Enemy>().StartSlow(slowPercentage, slowDuration);
                 }
 
                 //apply stun effect
                 if (isStun)
                 {
-                    col.GetComponent<Enemy>().StartStun(stunDuration);
+                    enemy.GetComponent<Enemy>().StartStun(stunDuration);
                 }
 
                 if (isMelee == false)
@@ -720,58 +793,13 @@ public class Projectile : MonoBehaviour
 
                 if (isSplit && !isSplitProjectile) // we only split on the first collision with an enemy
                 {
-                    float randomOffsetAngle = Random.Range(0, 360) * Mathf.Deg2Rad; // Random offset angle in radians
-
-                    for (int i = 0; i < splitAmount; i++)
-                    {
-                        float angle = i * 360f / splitAmount * Mathf.Deg2Rad + randomOffsetAngle;
-                        Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-                        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
-
-                        GameObject newProjectile = Instantiate(gameObject, transform.position, rotation);
-                        Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
-
-                        // Pass the necessary variables to the new projectile
-                        newProjectileScript.isSplitProjectile = true;
-                        if (splitStatPercentage < 0.4)
-                        {
-                            newProjectile.transform.localScale *= 0.4f;
-                        }
-                        else
-                        {
-                            newProjectile.transform.localScale *= splitStatPercentage;
-                        }
-
-                        // If it's a melee attack, move the object
-                        if (isMelee)
-                        {
-                            newProjectile.transform.position += direction * attack.stats.meleeSpacerGap;
-                        }
-
-
-
-                    }
-
-                    // Make sure we don't split again
-                    isSplit = false;
+                    ApplySplit();
                 }
 
 
                 if (isChain)
                 {
-                    GameObject chainTarget = FindNearestEnemy(transform.position, chainRange, col.gameObject);
-
-                    GameObject chainProjectileGO = Instantiate(chainPrefab, transform.position, Quaternion.identity);
-                    ChainProjectile chainProjectile = chainProjectileGO.GetComponent<ChainProjectile>();
-
-                    chainProjectile.Initialize(chainTimes, chainStatDecayPercent, chainRange, chainTarget, damage, chainSpeed);
-
-                    if (isMelee)
-                    {
-                        chainProjectileGO.transform.localScale *= 5f;
-                    }
-
-                    isChain = false;
+                    ApplyChain(enemy);
                 }
             }
             else
@@ -783,21 +811,94 @@ public class Projectile : MonoBehaviour
             {
                 if (hasDeathrattle)
                 {
-                    GameObject rattle = Instantiate(
-                        deathSpawn,
-                        transform.position,
-                        Quaternion.identity
-                    );
-                    rattle.GetComponent<deathRattleAttack>().attack = attack;
-                    Vector3 currentScale = rattle.transform.localScale;
-                    rattle.transform.localScale = new Vector3(
-                        currentScale.x * wpnProjSizeMultiplier,
-                        currentScale.y * wpnProjSizeMultiplier,
-                        currentScale.z * wpnProjSizeMultiplier
-                    );
+                    SpawnDeathrattle();
                 }
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void ApplyMagnet(GameObject target)
+    {
+        magnetTarget = target.transform; //set collider
+        magnetStartTime = Time.time;
+        if (!isMelee)
+        {
+            magnetStartPos = transform.position; //set target
+        }
+        else
+        {
+            magnetStartPos = Player.transform.position;
+        }
+        magnetTarget
+            .GetComponent<Enemy>()
+            .StartMagnet(magnetStrength, magnetDuration, magnetStartPos, isMelee);
+    }
+
+    public void ApplySplit()
+    {
+        float randomOffsetAngle = Random.Range(0, 360) * Mathf.Deg2Rad; // Random offset angle in radians
+
+        for (int i = 0; i < splitAmount; i++)
+        {
+            float angle = i * 360f / splitAmount * Mathf.Deg2Rad + randomOffsetAngle;
+            Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+            Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
+
+            GameObject newProjectile = Instantiate(gameObject, transform.position, rotation);
+            Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
+
+            // Pass the necessary variables to the new projectile
+            newProjectileScript.isSplitProjectile = true;
+            if (splitStatPercentage < 0.4)
+            {
+                newProjectile.transform.localScale *= 0.4f;
+            }
+            else
+            {
+                newProjectile.transform.localScale *= splitStatPercentage;
+            }
+
+            // If it's a melee attack, move the object
+            if (isMelee)
+            {
+                newProjectile.transform.position += direction * attack.stats.meleeSpacerGap;
+            }
+        }
+        // Make sure we don't split again
+        isSplit = false;
+    }
+
+    public void ApplyChain(GameObject target)
+    {
+        GameObject chainTarget = FindNearestEnemy(transform.position, chainRange, target.gameObject);
+
+        GameObject chainProjectileGO = Instantiate(chainPrefab, transform.position, Quaternion.identity);
+        ChainProjectile chainProjectile = chainProjectileGO.GetComponent<ChainProjectile>();
+
+        chainProjectile.Initialize(chainTimes, chainStatDecayPercent, chainRange, chainTarget, damage, chainSpeed);
+
+        if (isMelee)
+        {
+            chainProjectileGO.transform.localScale *= 5f;
+        }
+
+        isChain = false;
+    }
+
+    public void SpawnDeathrattle()
+    {
+        GameObject rattle = Instantiate(
+                        deathSpawn,
+                        transform.position,
+                        Quaternion.identity
+                    );
+        rattle.GetComponent<deathRattleAttack>().attack = attack;
+        Vector3 currentScale = rattle.transform.localScale;
+        rattle.transform.localScale = new Vector3(
+            currentScale.x * wpnProjSizeMultiplier,
+            currentScale.y * wpnProjSizeMultiplier,
+            currentScale.z * wpnProjSizeMultiplier
+        );
     }
 }

@@ -49,6 +49,8 @@ public class StatsHandler : MonoBehaviour
     private bool IsRecoveryCoroutineRunning = false;
 
     public GameObject DamagePopup;
+    public GameObject HealVFX;
+    public GameObject revengeVFX;
 
     private void MatchCharacter()
     {
@@ -170,6 +172,8 @@ public class StatsHandler : MonoBehaviour
         popupPosition.y = Random.Range(popupPosition.y, popupPosition.y + 0.1f);
         DamagePopupText damagePopup = Instantiate(DamagePopup, popupPosition, Quaternion.identity).GetComponent<DamagePopupText>();
         damagePopup.GetComponent<DamagePopupText>().Setup(number, false, true);
+
+        Instantiate(HealVFX, popupPosition, Quaternion.identity);
     }
 
     private class DamageSource

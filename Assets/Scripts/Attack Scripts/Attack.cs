@@ -48,6 +48,9 @@ public class Attack : MonoBehaviour, Upgrade
     public GameObject AutoAim;
     private WpnSpriteRecoil recoil;
 
+    private GameObject MulticastVFX;
+
+
     void Awake()
     {
         Player = GameObject.FindWithTag("Player");
@@ -69,6 +72,7 @@ public class Attack : MonoBehaviour, Upgrade
                 Resources.Load("Prefabs/BasicProjectile", typeof(GameObject)) as GameObject;
         }
         owner = transform.GetComponentInParent<Attacker>();
+        MulticastVFX = Resources.Load("vfx/MulticastVFX", typeof(GameObject)) as GameObject;
 
         weaponContainer = FindObjectOfType<WpnSpriteRotation>();
         CalculateStats();
@@ -916,7 +920,11 @@ public class Attack : MonoBehaviour, Upgrade
     {
         if (numMulticast > 0)
         {
-            yield return new WaitForSeconds(stats.multicastWaitTime * numMulticast);
+            if (stats.multicastWaitTime > 0)
+            {
+                yield return new WaitForSeconds(stats.multicastWaitTime * numMulticast);
+                Instantiate(MulticastVFX, Player.transform.position, Quaternion.identity);
+            }
         }
 
         switch (attackType)

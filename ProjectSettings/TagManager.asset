@@ -13,6 +13,7 @@ TagManager:
   - Deathrattle
   - SelectedCharacter
   - SelectedStage
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX

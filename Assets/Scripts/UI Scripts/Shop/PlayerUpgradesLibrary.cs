@@ -676,7 +676,15 @@ public static class PlayerUpgradesLibrary
 
     public static GameObject getUpgrade(string upgradeName)
     {
-        return UpgradesLibraryMap[upgradeName];
+        if (UpgradesLibraryMap.ContainsKey(upgradeName))
+        {
+            return UpgradesLibraryMap[upgradeName];
+        }
+        else
+        {
+            Debug.LogWarning("Upgrade not found: " + upgradeName);
+            return null;
+        }
     }
 
     public static GameObject[] getUpgrades()

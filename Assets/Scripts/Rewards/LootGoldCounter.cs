@@ -51,7 +51,7 @@ public class LootGoldCounter : MonoBehaviour
     public float GetExtraIncrementTime(int finalGold)
     {
         int goldDiff = finalGold - baseEffectGoldValue;
-        return goldDiff * incrementTime;
+        return goldDiff / increment * incrementTime;
     }
 
 }

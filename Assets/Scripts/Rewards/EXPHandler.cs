@@ -16,7 +16,7 @@ public class EXPHandler : MonoBehaviour
     public float waitTime;
     public float maxAwayDistance;
 
-    private bool waiting = true;
+    public bool waiting = true;
     private bool movingTowardsPlayer = false;
     private Vector3 startPosition;
     private float currentSpeed;
@@ -29,7 +29,8 @@ public class EXPHandler : MonoBehaviour
     private float distancefromPlayer;
     private bool movingAway;
     private Vector3 capturedPos;
-    private bool hasTriggered;
+    public bool hasTriggered;
+    public bool isGathered = false;
 
     public int xpTier;
 
@@ -138,7 +139,7 @@ public class EXPHandler : MonoBehaviour
         }
     }
 
-    IEnumerator Move()
+    public IEnumerator Move()
     {
         while (waiting)
         {
@@ -184,8 +185,16 @@ public class EXPHandler : MonoBehaviour
             {
                 player.gameObject.GetComponent<StatsHandler>().GainXP(xpAmount);
                 Instantiate(particleSystem, transform.position, Quaternion.identity);
+                isGathered = true;
                 Destroy(gameObject);
+
+                yield break; // Exit the coroutine immediately after destroying the object
             }
+
+            // Check if the GameObject still exists before the next loop iteration
+            if (this == null || gameObject == null)
+                yield break;
+
             yield return null;
         }
     }

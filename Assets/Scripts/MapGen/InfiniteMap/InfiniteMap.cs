@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InfiniteMap : MonoBehaviour
@@ -8,7 +9,6 @@ public class InfiniteMap : MonoBehaviour
     [SerializeField] private Sprite[] backgroundSprites;
     [SerializeField] private GameObject[] flourishPrefabs;
     [SerializeField] private int poolSize = 10;
-    [SerializeField] private int flourishSize = 4;
 
     [SerializeField] private int gridSize = 5;
 
@@ -16,11 +16,19 @@ public class InfiniteMap : MonoBehaviour
     private Transform player;
     private Vector2 backgroundSize;
     private Queue<GameObject> backgroundPool;
-    private Queue<GameObject> flourishPool;
+    private ObjectPool flourishPool, rockPool, torchPool;
     public int flourishMin = 1, flourishMax = 3;
+    public int rockMin = 1, rockMax = 3;
+    public int torchMin = 1, torchMax = 3;
+
+    public GameObject[] rockPrefabs;
+    public float[] rockWeights;
+
+    public GameObject[] torchPrefabs;
+    public float[] torchWeights;
 
     private Dictionary<Vector2Int, GameObject> grid;
-    private Dictionary<Vector2Int, List<GameObject>> flourishGrid;
+    private Dictionary<Vector2Int, List<GameObject>> flourishGrid, rockGrid, torchGrid;
 
     private void Start()
     {
@@ -28,9 +36,14 @@ public class InfiniteMap : MonoBehaviour
         player = playerPrefab.transform;
 
         backgroundPool = CreateBackgroundObjectPool(backgroundSprites, poolSize);
-        flourishPool = CreateObjectPool(flourishPrefabs, flourishSize);
+        flourishPool = new ObjectPool(flourishPrefabs, new float[flourishPrefabs.Length].Select(_ => 1f).ToArray(), poolSize);
+        rockPool = new ObjectPool(rockPrefabs, rockWeights, rockPrefabs.Length);
+        torchPool = new ObjectPool(torchPrefabs, torchWeights, torchPrefabs.Length);
+
         grid = new Dictionary<Vector2Int, GameObject>();
         flourishGrid = new Dictionary<Vector2Int, List<GameObject>>();
+        rockGrid = new Dictionary<Vector2Int, List<GameObject>>();
+        torchGrid = new Dictionary<Vector2Int, List<GameObject>>();
 
         Vector2Int playerStartingGridPosition = WorldToGridPosition(player.transform.position);
         UpdateGrid(playerStartingGridPosition);
@@ -42,7 +55,6 @@ public class InfiniteMap : MonoBehaviour
         UpdateGrid(playerGridPosition);
     }
 
-
     private Queue<GameObject> CreateBackgroundObjectPool(Sprite[] sprites, int size)
     {
         Queue<GameObject> pool = new Queue<GameObject>();
@@ -52,10 +64,7 @@ public class InfiniteMap : MonoBehaviour
             GameObject obj = new GameObject("Background");
             SpriteRenderer spriteRenderer = obj.AddComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
-
-            // Apply the colorTint to the spriteRenderer's color
             spriteRenderer.color = colorTint;
-
             spriteRenderer.sortingOrder = -10;
             obj.SetActive(false);
             pool.Enqueue(obj);
@@ -64,21 +73,6 @@ public class InfiniteMap : MonoBehaviour
             {
                 backgroundSize = spriteRenderer.bounds.size;
             }
-        }
-
-        return pool;
-    }
-
-
-    private Queue<GameObject> CreateObjectPool(GameObject[] prefabs, int size)
-    {
-        Queue<GameObject> pool = new Queue<GameObject>();
-
-        for (int i = 0; i < size; i++)
-        {
-            GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Length)]);
-            obj.SetActive(false);
-            pool.Enqueue(obj);
         }
 
         return pool;
@@ -112,16 +106,9 @@ public class InfiniteMap : MonoBehaviour
                         backgroundPool.Enqueue(farthestBackground);
                         farthestBackground.SetActive(false);
                         grid.Remove(farthestKey);
-                        if (flourishGrid.ContainsKey(farthestKey))
-                        {
-                            List<GameObject> farthestFlourishes = flourishGrid[farthestKey];
-                            foreach (GameObject flourish in farthestFlourishes)
-                            {
-                                flourish.SetActive(false);
-                                flourishPool.Enqueue(flourish);
-                            }
-                            flourishGrid.Remove(farthestKey);
-                        }
+                        RemoveObjectsFromGrid(farthestKey, flourishGrid, flourishPool);
+                        RemoveObjectsFromGrid(farthestKey, rockGrid, rockPool);
+                        RemoveObjectsFromGrid(farthestKey, torchGrid, torchPool);
                     }
 
                     GameObject background = backgroundPool.Dequeue();
@@ -131,7 +118,9 @@ public class InfiniteMap : MonoBehaviour
                     );
                     grid[gridPosition] = background;
 
-                    SpawnFlourishes(gridPosition);
+                    SpawnObjects(gridPosition, flourishPool, flourishMin, flourishMax, flourishGrid);
+                    SpawnObjects(gridPosition, rockPool, rockMin, rockMax, rockGrid);
+                    SpawnObjects(gridPosition, torchPool, torchMin, torchMax, torchGrid);
                 }
             }
         }
@@ -154,38 +143,88 @@ public class InfiniteMap : MonoBehaviour
 
         return farthestKey;
     }
-    private void SpawnFlourishes(Vector2Int gridPosition)
+
+    private void SpawnObjects(Vector2Int gridPosition, ObjectPool pool, int min, int max, Dictionary<Vector2Int, List<GameObject>> gridDict)
     {
-        List<GameObject> flourishes = new List<GameObject>();
+        List<GameObject> spawnedObjects = new List<GameObject>();
 
-        for (int i = 0; i < Random.Range(flourishMin, flourishMax); i++)
+        for (int i = 0; i < Random.Range(min, max); i++)
         {
-            if (flourishPool.Count == 0)
-            {
-                GameObject newObj = CreateFlourishObject();
-                flourishPool.Enqueue(newObj);
-            }
-
-            GameObject flourish = flourishPool.Dequeue();
-            flourish.SetActive(true);
-
+            GameObject obj = pool.GetObject();
+            obj.SetActive(true);
             Vector3 spawnPosition = new Vector3(
                 (gridPosition.x - 0.5f) * backgroundSize.x + Random.Range(0, backgroundSize.x),
                 (gridPosition.y - 0.5f) * backgroundSize.y + Random.Range(0, backgroundSize.y),
                 0);
-
-            flourish.transform.position = spawnPosition;
-            flourishes.Add(flourish);
+            obj.transform.position = spawnPosition;
+            spawnedObjects.Add(obj);
         }
 
-        flourishGrid[gridPosition] = flourishes;
+        gridDict[gridPosition] = spawnedObjects;
     }
 
-    private GameObject CreateFlourishObject()
+    private void RemoveObjectsFromGrid(Vector2Int gridPosition, Dictionary<Vector2Int, List<GameObject>> gridDict, ObjectPool pool)
     {
-        GameObject obj = Instantiate(flourishPrefabs[Random.Range(0, flourishPrefabs.Length)]);
-        obj.SetActive(false);
+        if (gridDict.TryGetValue(gridPosition, out List<GameObject> objects))
+        {
+            foreach (GameObject obj in objects)
+            {
+                pool.ReturnObject(obj);
+            }
+            gridDict.Remove(gridPosition);
+        }
+    }
+}
 
-        return obj;
+public class ObjectPool
+{
+    private Queue<GameObject> poolQueue;
+    private GameObject[] prefabs;
+    private float[] weights;
+
+    public ObjectPool(GameObject[] prefabs, float[] weights, int size)
+    {
+        this.prefabs = prefabs;
+        this.weights = weights;
+        poolQueue = new Queue<GameObject>();
+
+        for (int i = 0; i < size; i++)
+        {
+            GameObject chosenPrefab = ChooseByWeight();
+            GameObject obj = GameObject.Instantiate(chosenPrefab);
+            obj.SetActive(false);
+            poolQueue.Enqueue(obj);
+        }
+    }
+
+    private GameObject ChooseByWeight()
+    {
+        float totalWeight = weights.Sum();
+        float randomWeight = Random.Range(0, totalWeight);
+        float cumulativeWeight = 0;
+
+        for (int i = 0; i < prefabs.Length; i++)
+        {
+            cumulativeWeight += weights[i];
+            if (randomWeight <= cumulativeWeight)
+            {
+                return prefabs[i];
+            }
+        }
+        return prefabs[0];
+    }
+
+    public GameObject GetObject()
+    {
+        if (poolQueue.Count > 0)
+            return poolQueue.Dequeue();
+        else
+            return GameObject.Instantiate(ChooseByWeight());
+    }
+
+    public void ReturnObject(GameObject obj)
+    {
+        obj.SetActive(false);
+        poolQueue.Enqueue(obj);
     }
 }
