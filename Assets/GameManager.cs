@@ -80,7 +80,6 @@ public class GameManager : MonoBehaviour
 
     public void playerDeathScreen()
     {
-        GameObject.FindObjectOfType<EndgameStatTracker>().EndGameStats();
         SceneManager.LoadScene("DeathResults");
     }
 

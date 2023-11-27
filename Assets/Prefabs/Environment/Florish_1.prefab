@@ -320,8 +320,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5978276670530140908}
   m_LocalRotation: {x: -0, y: -0, z: -0.0044884514, w: 0.99999}
-  m_LocalPosition: {x: -0.02, y: -0.469, z: -0.0059312293}
-  m_LocalScale: {x: 0.2000624, y: 0.78, z: 1}
+  m_LocalPosition: {x: -0.02, y: -0.49, z: -0.0059312293}
+  m_LocalScale: {x: 0.17066355, y: 0.9308081, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8995778151179090171}
@@ -369,7 +369,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 402c8d2d96de2bf4c997b34c478a1d52, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ea026108c3f7c4f96a415295443641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 25
   deathParticles: {fileID: 4053501027209517259, guid: 8e799548b5955f54d8f82f2fc7cde404, type: 3}
   fadeOutSpeed: 0.9
   shakeIntensity: 0.1
@@ -521,7 +521,7 @@ MonoBehaviour:
   shakeDuration: 0.1
   maxShakeIntensity: 0.5
   damageText: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
-  damageTick: 0
+  damageTick: 1
   defaultMaterial: {fileID: 0}
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   spriteRend: {fileID: 1382149371932676649}

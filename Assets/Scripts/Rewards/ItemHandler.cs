@@ -8,6 +8,7 @@ public class ItemHandler : MonoBehaviour
 
     public float pickupDistance;
     private float consumeDistance = 0.5f;
+    public float baseConsumeDistance = 0.1f; 
 
     public float speed;
     public float speedMultiplier;
@@ -113,7 +114,13 @@ public class ItemHandler : MonoBehaviour
                 currentSpeed * Time.deltaTime
             );
 
-            if (distancefromPlayer <= consumeDistance)
+            float effectiveConsumeDistance = consumeDistance;
+            if (recoverHealth || pickupAll)
+            {
+                effectiveConsumeDistance = baseConsumeDistance;
+            }
+
+            if (distancefromPlayer <= effectiveConsumeDistance)
             {
                 PerformAction();
                 Instantiate(particleSystem, transform.position, Quaternion.identity);
@@ -122,7 +129,7 @@ public class ItemHandler : MonoBehaviour
                 {
                     StartCoroutine(FadeOutAndDestroy(0.5f));
                 }
-                yield break; 
+                yield break;
             }
 
             // Check if the GameObject still exists before the next loop iteration
@@ -134,7 +141,7 @@ public class ItemHandler : MonoBehaviour
 
     }
 
-    private void PerformAction()
+    public  void PerformAction()
     {
         if (recoverHealth)
         {

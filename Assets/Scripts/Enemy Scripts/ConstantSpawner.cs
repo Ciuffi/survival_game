@@ -14,6 +14,7 @@ public class ConstantSpawner : MonoBehaviour
     public bool isCircleSpawn;
     public bool isClumpSpawn;
     public float diameter = 10f;
+    public float diameterMultiplier;
     public float initialDelay;
     public float spawnTimer = 0f;
     private float OGspawnTimer;
@@ -66,8 +67,9 @@ public class ConstantSpawner : MonoBehaviour
         // Check if guilt value has increased since last frame
         if (currentGuilt > prevGuiltValue)
         {
-            // Reset the timer for scaling the spawn rate
+            diameter *= (1 + (diameterMultiplier * currentGuilt));
             elapsedTime = 0f;
+
             if (isEliteSpawner)
             {
                 SpawnEliteEnemy();

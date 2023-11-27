@@ -139,6 +139,8 @@ public class Enemy : MonoBehaviour, Attacker
     private float magnetDuration;
     private bool magnetIsMelee;
     private float magnetStartTime;
+    public bool initialPlayerSideLeft;
+    public bool isMagnetizing = false;
 
     private float animSpeed;
     private bool isSlowed = false;
@@ -166,6 +168,8 @@ public class Enemy : MonoBehaviour, Attacker
     private Animator dotAnimator;
     private GameObject currentDoTAnimation;
     public bool isGamePaused = false; // Set this to true when you pause the game and false when you resume
+
+    public GameObject healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -329,6 +333,55 @@ public class Enemy : MonoBehaviour, Attacker
         }
     }
 
+    public void StartMagnetizing()
+    {
+        isMagnetizing = true;
+        float magDistance = Vector3.Distance(transform.position, player.transform.position);
+        initialPlayerSideLeft = player.transform.position.x < transform.position.x;
+
+        if (magnetIsMelee) //if is meleeAttack, check distance and stop if too close to player
+        {
+            if (magDistance > magnetMinDistance)
+            {
+                float t = (Time.time - magnetStartTime) / magnetDuration;
+                t = EaseInOutCubic(t);
+
+                float effectiveMagnetStrength = magnetStrength;
+                if (weight > 10f)
+                {
+                    float weightReduction = magnetWeightEffect / (1 + Mathf.Exp((weight - magnetWeightThreshold) / 2));
+                    effectiveMagnetStrength = Mathf.Max(effectiveMagnetStrength - weightReduction, 0f);
+                }
+
+                transform.position = Vector3.Lerp(transform.position, magnetTarget, t * effectiveMagnetStrength * Time.deltaTime);
+            }
+            else
+            {
+                magnetDuration = 0;
+            }
+        }
+        else //not melee, no need to check
+        {
+            float t = (Time.time - magnetStartTime) / magnetDuration;
+            t = EaseInOutCubic(t);
+
+            float effectiveMagnetStrength = magnetStrength;
+            if (weight > 10f)
+            {
+                float weightReduction = (((weight - 10f) / magnetWeightThreshold) * magnetWeightEffect);
+                effectiveMagnetStrength -= weightReduction;
+            }
+
+            transform.position = Vector3.Lerp(transform.position, magnetTarget, t * effectiveMagnetStrength * Time.deltaTime);
+        }
+    }
+
+    public void StopMagnetizing()
+    {
+        isMagnetizing = false;
+        magnetDuration = 0;
+    }
+
     void Update()
     {
         CheckDistanceToPlayer();
@@ -486,46 +539,17 @@ public class Enemy : MonoBehaviour, Attacker
         //magnetizing effect
         if (magnetDuration > 0 && Time.time < magnetStartTime + magnetDuration)
         {
-            float magDistance = Vector3.Distance(transform.position, player.transform.position);
-            if (magnetIsMelee) //if is meleeAttack, check distance and stop if too close to player
+            if (!isMagnetizing)
             {
-                if (magDistance > magnetMinDistance)
-                {
-                    float t = (Time.time - magnetStartTime) / magnetDuration;
-                    t = EaseInOutCubic(t);
-
-                    float effectiveMagnetStrength = magnetStrength;
-                    if (weight > 10f)
-                    {
-                        float weightReduction = magnetWeightEffect / (1 + Mathf.Exp((weight - magnetWeightThreshold) / 2));
-                        effectiveMagnetStrength = Mathf.Max(effectiveMagnetStrength - weightReduction, 0f);
-                    }
-
-                    transform.position = Vector3.Lerp(transform.position, magnetTarget, t * effectiveMagnetStrength * Time.deltaTime);
-                }
-                else
-                {
-                    magnetDuration = 0;
-                }
-            }
-            else //not melee, no need to check
-            {
-                float t = (Time.time - magnetStartTime) / magnetDuration;
-                t = EaseInOutCubic(t);
-
-                float effectiveMagnetStrength = magnetStrength;
-                if (weight > 10f)
-                {
-                    float weightReduction = (((weight - 10f) / magnetWeightThreshold) * magnetWeightEffect);
-                    effectiveMagnetStrength -= weightReduction;
-                }
-
-                transform.position = Vector3.Lerp(transform.position, magnetTarget, t * effectiveMagnetStrength * Time.deltaTime);
+                StartMagnetizing();
             }
         }
         else
         {
-            magnetDuration = 0;
+            if (isMagnetizing)
+            {
+                StopMagnetizing();
+            }
         }
 
 
@@ -997,6 +1021,13 @@ public class Enemy : MonoBehaviour, Attacker
 
             }
 
+            if (isElite || isBoss)
+            {
+                if (healthBar != null)
+                {
+                    healthBar.GetComponent<EnemyHealthBar>().SetHealth(health / maxHealth);
+                }
+            }
         }
 
     }

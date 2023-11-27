@@ -22,41 +22,104 @@ public class CharSelectController : MonoBehaviour
         GameObject firstCharacter = null;
         foreach (GameObject prefab in PlayerCharactersLibrary.getCharacters())
         {
+            PlayerCharacterStats prefabStats = prefab.GetComponent<StatComponent>().stat;
 
-            GameObject character = Instantiate(prefab, content.transform);
-            StatComponent statComponent = character.AddComponent<StatComponent>();
-            statComponent.stat = prefab.GetComponent<StatComponent>().stat;
-
-            // Check if the character is unlocked
-            if (playerData.unlockedCharactersNames.Contains(statComponent.stat.name))
+            // Filter based on unlock level
+            if (prefabStats.level <= playerData.playerLevel)
             {
-                statComponent.stat.isLocked = false;
+                GameObject character = Instantiate(prefab, content.transform);
+                StatComponent statComponent = character.AddComponent<StatComponent>();
+                statComponent.stat = prefabStats;
+
+                // Check if the character is unlocked
+                if (playerData.unlockedCharactersNames.Contains(prefabStats.name))
+                {
+                    statComponent.stat.isLocked = false;
+                }
+                character.GetComponent<CharacterButton>().stats = statComponent.stat;
+
+                string characterName = character.name.EndsWith("(Clone)")
+                    ? character.name.Substring(0, character.name.Length - 7)
+                    : character.name;
+
+                character.GetComponent<Image>().sprite = prefabStats.icon;
+
+                // Find the SelectedImage child object and store a reference to it in the CharacterButton script
+                GameObject selectedImage = character.transform.Find("Selected").gameObject;
+                character.GetComponent<CharacterButton>().selectedImage = selectedImage;
+                selectedImage.SetActive(false); // Deactivate the SelectedImage object initially
+
+                if (firstCharacter == null)
+                {
+                    firstCharacter = character;
+                }
+                else
+                {
+                    character.GetComponent<Image>().color = character.GetComponent<CharacterButton>().lockedColor;
+                }
+
+                characterPrefabs.Add(character);
             }
-            character.GetComponent<CharacterButton>().stats = statComponent.stat;
+        }
 
-            string characterName = character.name.EndsWith("(Clone)")
-                ? character.name.Substring(0, character.name.Length - 7)
-                : character.name;
+        if (firstCharacter != null)
+        {
+            firstCharacter.GetComponent<CharacterButton>().SelectThisCharacter();
+            firstCharacter.GetComponent<CharacterButton>().UpdateCharacterPreview(firstCharacter.GetComponent<CharacterButton>().stats);
+        }
+    }
 
-            character.GetComponent<Image>().sprite = prefab.GetComponent<StatComponent>().stat.icon;
+    public void RefreshCharacterSelection()
+    {
+        // Clear existing characters
+        foreach (GameObject character in characterPrefabs)
+        {
+            Destroy(character);
+        }
+        characterPrefabs.Clear();
 
-            // Find the SelectedImage child object and store a reference to it in the CharacterButton script
-            GameObject selectedImage = character.transform.Find("Selected").gameObject;
-            character.GetComponent<CharacterButton>().selectedImage = selectedImage;
-            // Deactivate the SelectedImage object initially
-            selectedImage.SetActive(false);
+        // Instantiate each prefab and add it as a child of the content object
+        GameObject firstCharacter = null;
+        foreach (GameObject prefab in PlayerCharactersLibrary.getCharacters())
+        {
+            PlayerCharacterStats prefabStats = prefab.GetComponent<StatComponent>().stat;
 
-            if (firstCharacter == null)
+            // Filter based on unlock level
+            if (prefabStats.level <= playerData.playerLevel)
             {
-                firstCharacter = character;
-            } else
-            {
-                character.GetComponent<Image>().color = character.GetComponent<CharacterButton>().lockedColor;
+                GameObject character = Instantiate(prefab, content.transform);
+                StatComponent statComponent = character.AddComponent<StatComponent>();
+                statComponent.stat = prefabStats;
+
+                // Check if the character is unlocked
+                if (playerData.unlockedCharactersNames.Contains(prefabStats.name))
+                {
+                    statComponent.stat.isLocked = false;
+                }
+                character.GetComponent<CharacterButton>().stats = statComponent.stat;
+
+                string characterName = character.name.EndsWith("(Clone)")
+                    ? character.name.Substring(0, character.name.Length - 7)
+                    : character.name;
+
+                character.GetComponent<Image>().sprite = prefabStats.icon;
+
+                // Find the SelectedImage child object and store a reference to it in the CharacterButton script
+                GameObject selectedImage = character.transform.Find("Selected").gameObject;
+                character.GetComponent<CharacterButton>().selectedImage = selectedImage;
+                selectedImage.SetActive(false); // Deactivate the SelectedImage object initially
+
+                if (firstCharacter == null)
+                {
+                    firstCharacter = character;
+                }
+                else
+                {
+                    character.GetComponent<Image>().color = character.GetComponent<CharacterButton>().lockedColor;
+                }
+
+                characterPrefabs.Add(character);
             }
-
-            //Debug.Log("First Character: " + firstCharacter);
-
-            characterPrefabs.Add(character);
         }
 
         if (firstCharacter != null)

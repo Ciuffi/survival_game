@@ -14,7 +14,7 @@ public class PlayerCharacterStats : Upgrade
     public string name;
     public bool isLocked;
     public int price;
-    public int level;
+    public int level, unlockLevel;
 
     // Base stats
     public float maxHealth,
@@ -287,6 +287,7 @@ public class PlayerCharacterStats : Upgrade
         bool isLocked = false,
         int price = 0,
         int level = 0,
+        int unlockLevel = 0,
         float maxHealth = 0,
         float health = 0,
         float speed = 0f,
@@ -450,6 +451,7 @@ public class PlayerCharacterStats : Upgrade
         this.price = price;
         this.isLocked = isLocked;
         this.level = level;
+        this.unlockLevel = unlockLevel;
         this.icon = icon == null ? Resources.Load<Sprite>("UI_Icons/DMG_up") : icon;
         this.characterSprite = characterSprite;
         this.characterAnimationController = characterAnimationController;

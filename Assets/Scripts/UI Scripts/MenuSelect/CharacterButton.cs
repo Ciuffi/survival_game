@@ -88,14 +88,28 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler
 
     private void UpdatePurchaseButton()
     {
-        purchaseButton.gameObject.SetActive(stats.isLocked);
-       
+        purchaseButton.interactable = stats.isLocked;
+        if (stats.isLocked)
+        {
+            UpdatePriceText();
+        }
+        else
+        {
+            string text = "Owned";
+            priceText.text = text;
+            Color currentColor = priceText.color;
+            currentColor.a = 0.5f; // Set the alpha to 50%
+            priceText.color = currentColor;
+        }
     }
 
     private void UpdatePriceText()
     {
         string price = "$" + stats.price.ToString();
         priceText.text = price;
+        Color currentColor = priceText.color;
+        currentColor.a = 1f; 
+        priceText.color = currentColor;
     }
 
     public void SelectThisCharacter()

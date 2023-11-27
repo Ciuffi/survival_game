@@ -149,4 +149,23 @@ public class ComboTracker : MonoBehaviour
         }
     }
 
+    public int GetCurrentGuilt()
+    {
+        if (comboCount < guiltThresholds[0])
+        {
+            return 0;
+        }
+
+        for (int i = 0; i < guiltThresholds.Count; i++)
+        {
+            // Check if the comboCount is less than the next threshold (if there is a next threshold)
+            if (i + 1 < guiltThresholds.Count && comboCount < guiltThresholds[i + 1])
+            {
+                return i + 1; // Return the current guilt level
+            }
+        }
+
+        return guiltThresholds.Count;
+    }
+
 }

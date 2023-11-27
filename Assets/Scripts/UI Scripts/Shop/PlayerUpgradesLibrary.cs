@@ -35,6 +35,7 @@ public static class PlayerUpgradesLibrary
         PlayerCharacterStats MaxHp1Stats = new PlayerCharacterStats(
              maxHealth: 5,
              health: 5,
+             unlockLevel: 0,
                 level: 1,
                 price: 300,
                 name: "Healthy 1",
@@ -52,6 +53,7 @@ public static class PlayerUpgradesLibrary
         PlayerCharacterStats MaxHp2Stats = new PlayerCharacterStats(
              maxHealth: 5,
              health: 5,
+             unlockLevel: 0,
                 level: 2,
                 price: 500,
                 name: "Healthy 2",
@@ -69,6 +71,7 @@ public static class PlayerUpgradesLibrary
         PlayerCharacterStats MaxHp3Stats = new PlayerCharacterStats(
              maxHealth: 5,
              health: 5,
+             unlockLevel: 0,
                 level: 3,
                 price: 1000,
                 name: "Healthy 3",
@@ -86,6 +89,7 @@ public static class PlayerUpgradesLibrary
         PlayerCharacterStats MaxHp4Stats = new PlayerCharacterStats(
              maxHealth: 5,
              health: 5,
+             unlockLevel: 0,
                 level: 4,
                 price: 1000,
                 name: "Healthy 4",
@@ -103,6 +107,7 @@ public static class PlayerUpgradesLibrary
         PlayerCharacterStats MaxHp5Stats = new PlayerCharacterStats(
              maxHealth: 10,
              health: 10,
+             unlockLevel: 0,
                 level: 5,
                 price: 2000,
                 name: "Healthy 5",
@@ -121,6 +126,7 @@ public static class PlayerUpgradesLibrary
         GameObject Defense1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Defense1Stats = new PlayerCharacterStats(
              defense: 0.25f,
+             unlockLevel: 1,
                 level: 1,
                 price: 800,
                 name: "Tough 1",
@@ -136,6 +142,7 @@ public static class PlayerUpgradesLibrary
         GameObject Defense2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Defense2Stats = new PlayerCharacterStats(
              defense: 0.25f,
+             unlockLevel: 1,
                 level: 2,
                 price: 1200,
                 name: "Tough 2",
@@ -151,6 +158,7 @@ public static class PlayerUpgradesLibrary
         GameObject Defense3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Defense3Stats = new PlayerCharacterStats(
              defense: 0.4f,
+             unlockLevel: 1,
                 level: 3,
                 price: 1500,
                 name: "Tough 3",
@@ -168,6 +176,7 @@ public static class PlayerUpgradesLibrary
         GameObject Speed1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Speed1Stats = new PlayerCharacterStats(
             speed: 0.10f,
+            unlockLevel: 0,
                level: 1,
                price: 500,
                name: "Agile 1",
@@ -183,6 +192,7 @@ public static class PlayerUpgradesLibrary
         GameObject Speed2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Speed2Stats = new PlayerCharacterStats(
             speed: 0.10f,
+            unlockLevel: 0,
                level: 2,
                price: 1000,
                name: "Agile 2",
@@ -198,6 +208,7 @@ public static class PlayerUpgradesLibrary
         GameObject Speed3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Speed3Stats = new PlayerCharacterStats(
            speed: 0.15f,
+           unlockLevel: 0,
                level: 3,
                price: 2000,
                name: "Agile 3",
@@ -215,6 +226,7 @@ public static class PlayerUpgradesLibrary
         GameObject Damage1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Damage1Stats = new PlayerCharacterStats(
               damageMultiplier: 0.05f,
+              unlockLevel: 0,
                level: 1,
                price: 500,
                name: "Mastery 1",
@@ -231,6 +243,7 @@ public static class PlayerUpgradesLibrary
         GameObject Damage2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Damage2Stats = new PlayerCharacterStats(
           damageMultiplier: 0.05f,
+          unlockLevel: 0,
                level: 2,
                price: 500,
                name: "Mastery 2",
@@ -247,6 +260,7 @@ public static class PlayerUpgradesLibrary
         GameObject Damage3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Damage3Stats = new PlayerCharacterStats(
             damageMultiplier: 0.10f,
+            unlockLevel: 0,
                level: 3,
                price: 1200,
                name: "Mastery 3",
@@ -263,6 +277,7 @@ public static class PlayerUpgradesLibrary
         GameObject Damage4 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Damage4Stats = new PlayerCharacterStats(
             damageMultiplier: 0.10f,
+            unlockLevel: 0,
                level: 4,
                price: 1500,
                name: "Mastery 4",
@@ -278,6 +293,7 @@ public static class PlayerUpgradesLibrary
         GameObject Damage5 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Damage5Stats = new PlayerCharacterStats(
             damageMultiplier: 0.20f,
+            unlockLevel: 0,
                level: 5,
                price: 2000,
                name: "Mastery 5",
@@ -295,6 +311,7 @@ public static class PlayerUpgradesLibrary
         GameObject Crit1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Crit1Stats = new PlayerCharacterStats(
              critChance: 0.04f,
+             unlockLevel: 2,
                level: 1,
                price: 800,
                name: "Accuracy 1",
@@ -311,6 +328,7 @@ public static class PlayerUpgradesLibrary
         GameObject Crit2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Crit2Stats = new PlayerCharacterStats(
              critChance: 0.04f,
+             unlockLevel: 2,
                level: 2,
                price: 1200,
                name: "Accuracy 2",
@@ -327,6 +345,7 @@ public static class PlayerUpgradesLibrary
         GameObject Crit3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Crit3Stats = new PlayerCharacterStats(
               critChance: 0.07f,
+              unlockLevel: 2,
                level: 3,
                price: 2000,
                name: "Accuracy 3",
@@ -344,6 +363,7 @@ public static class PlayerUpgradesLibrary
         GameObject CritDmg1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats CritDmg1Stats = new PlayerCharacterStats(
              critDmg: 0.20f,
+             unlockLevel: 2,
                level: 1,
                price: 500,
                name: "Overkill 1",
@@ -360,6 +380,7 @@ public static class PlayerUpgradesLibrary
         GameObject CritDmg2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats CritDmg2Stats = new PlayerCharacterStats(
              critDmg: 0.20f,
+             unlockLevel: 2,
                level: 2,
                price: 800,
                name: "Overkill 2",
@@ -376,6 +397,7 @@ public static class PlayerUpgradesLibrary
         GameObject CritDmg3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats CritDmg3Stats = new PlayerCharacterStats(
              critDmg: 0.30f,
+             unlockLevel: 2,
                level: 3,
                price: 1200,
                name: "Overkill 3",
@@ -392,6 +414,7 @@ public static class PlayerUpgradesLibrary
         GameObject CritDmg4 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats CritDmg4Stats = new PlayerCharacterStats(
              critDmg: 0.30f,
+             unlockLevel: 2,
                level: 4,
                price: 1500,
                name: "Overkill 4",
@@ -409,6 +432,7 @@ public static class PlayerUpgradesLibrary
         GameObject XPGain1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats XPGain1Stats = new PlayerCharacterStats(
            xpGainMultiplier: 0.03f,
+           unlockLevel: 3,
                level: 1,
                price: 800,
                name: "Talented 1",
@@ -425,6 +449,7 @@ public static class PlayerUpgradesLibrary
         GameObject XPGain2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats XPGain2Stats = new PlayerCharacterStats(
            xpGainMultiplier: 0.03f,
+           unlockLevel: 3,
                level: 2,
                price: 1200,
                name: "Talented 2",
@@ -441,6 +466,7 @@ public static class PlayerUpgradesLibrary
         GameObject XPGain3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats XPGain3Stats = new PlayerCharacterStats(
            xpGainMultiplier: 0.04f,
+           unlockLevel: 3,
                level: 3,
                price: 2000,
                name: "Talented 3",
@@ -459,6 +485,7 @@ public static class PlayerUpgradesLibrary
         GameObject GoldGain1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats GoldGain1Stats = new PlayerCharacterStats(
            goldGainMultiplier: 0.02f,
+           unlockLevel: 3,
                level: 1,
                price: 800,
                name: "Greedy 1",
@@ -475,6 +502,7 @@ public static class PlayerUpgradesLibrary
         GameObject GoldGain2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats GoldGain2Stats = new PlayerCharacterStats(
            goldGainMultiplier: 0.03f,
+           unlockLevel: 3,
                level: 2,
                price: 1500,
                name: "Greedy 2",
@@ -491,6 +519,7 @@ public static class PlayerUpgradesLibrary
         GameObject GoldGain3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats GoldGain3Stats = new PlayerCharacterStats(
            goldGainMultiplier: 0.05f,
+           unlockLevel: 3,
                level: 3,
                price: 2500,
                name: "Greedy 3",
@@ -509,6 +538,7 @@ public static class PlayerUpgradesLibrary
         GameObject Reroll1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Reroll1Stats = new PlayerCharacterStats(
            rerollTimes: 1,
+           unlockLevel: 0,
                level: 1,
                price: 800,
                name: "Indecisive 1",
@@ -525,6 +555,7 @@ public static class PlayerUpgradesLibrary
         GameObject Reroll2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Reroll2Stats = new PlayerCharacterStats(
            rerollTimes: 1,
+           unlockLevel: 0,
                level: 2,
                price: 1200,
                name: "Indecisive 2",
@@ -541,6 +572,7 @@ public static class PlayerUpgradesLibrary
         GameObject Reroll3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Reroll3Stats = new PlayerCharacterStats(
            rerollTimes: 1,
+           unlockLevel: 0,
                level: 3,
                price: 1500,
                name: "Indecisive 3",
@@ -558,6 +590,7 @@ public static class PlayerUpgradesLibrary
         GameObject Pickup1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Pickup1Stats = new PlayerCharacterStats(
            pickupRange: 0.5f,
+           unlockLevel: 1,
                level: 1,
                price: 800,
                name: "Magnetic 1",
@@ -574,6 +607,7 @@ public static class PlayerUpgradesLibrary
         GameObject Pickup2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Pickup2Stats = new PlayerCharacterStats(
            pickupRange: 0.5f,
+           unlockLevel: 1,
                level: 2,
                price: 1200,
                name: "Magnetic 2",
@@ -590,6 +624,7 @@ public static class PlayerUpgradesLibrary
         GameObject Pickup3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Pickup3Stats = new PlayerCharacterStats(
            pickupRange: 1f,
+           unlockLevel: 1,
                level: 3,
                price: 1500,
                name: "Magnetic 3",
@@ -602,73 +637,6 @@ public static class PlayerUpgradesLibrary
         Pickup3Stats.setContainer(Pickup3);
 
         AddUpgrade(Pickup3);
-
-
-        //AimRange;
-        GameObject AimRange1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
-        PlayerCharacterStats AimRange1Stats = new PlayerCharacterStats(
-           aimRangeAdditive: 0.75f,
-               level: 1,
-               price: 500,
-               name: "Vision 1",
-               description: "Increase Aim Assist range",
-               icon: Resources.Load<Sprite>("UI_Icons/Vision"),
-               rarity: Rarity.Rare
-             );
-        AimRange1.name = AimRange1Stats.name;
-        AimRange1.AddComponent<StatComponent>().stat = AimRange1Stats;
-        AimRange1Stats.setContainer(AimRange1);
-
-        AddUpgrade(AimRange1);
-
-        GameObject AimRange2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
-        PlayerCharacterStats AimRange2Stats = new PlayerCharacterStats(
-           aimRangeAdditive: 1.25f,
-               level: 2,
-               price: 1000,
-               name: "Vision 2",
-               description: "Massively increase Aim Assist range",
-               icon: Resources.Load<Sprite>("UI_Icons/Vision"),
-               rarity: Rarity.Epic
-             );
-        AimRange2.name = AimRange2Stats.name;
-        AimRange2.AddComponent<StatComponent>().stat = AimRange2Stats;
-        AimRange2Stats.setContainer(AimRange2);
-
-        AddUpgrade(AimRange2);
-
-        //ConeAngle
-        GameObject ConeAngle1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
-        PlayerCharacterStats ConeAngle1Stats = new PlayerCharacterStats(
-           coneAngle: 30f,
-               level: 1,
-               price: 500,
-               name: "Awareness 1",
-               description: "Increase Aim Assist width",
-               icon: Resources.Load<Sprite>("UI_Icons/AFK"),
-               rarity: Rarity.Rare
-             );
-        ConeAngle1.name = ConeAngle1Stats.name;
-        ConeAngle1.AddComponent<StatComponent>().stat = ConeAngle1Stats;
-        ConeAngle1Stats.setContainer(ConeAngle1);
-
-        AddUpgrade(ConeAngle1);
-
-        GameObject ConeAngle2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
-        PlayerCharacterStats ConeAngle2Stats = new PlayerCharacterStats(
-           coneAngle: 50f,
-               level: 2,
-               price: 1000,
-               name: "Awareness 2",
-               description: "Massively increase Aim Assist width",
-               icon: Resources.Load<Sprite>("UI_Icons/AFK"),
-               rarity: Rarity.Epic
-             );
-        ConeAngle2.name = ConeAngle2Stats.name;
-        ConeAngle2.AddComponent<StatComponent>().stat = ConeAngle2Stats;
-        ConeAngle2Stats.setContainer(ConeAngle2);
-
-        AddUpgrade(ConeAngle2);
 
         // ... Add other upgrades
         isInitialized = true;

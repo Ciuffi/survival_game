@@ -8,9 +8,10 @@ public class EndgameStatTracker : MonoBehaviour
     public GameObject timer, killTracker, goldTracker;
 
     public string timeSurvived;
-    public int enemiesKilled, goldGained;
+    public int enemiesKilled, goldGained, currentGuilt;
     public List<string> weaponNames = new List<string>();
     public List<float> weaponDamage = new List<float>();
+    public int stage;
 
     public GameObject attacks; // reference to the Attacks gameobject
 
@@ -23,51 +24,59 @@ public class EndgameStatTracker : MonoBehaviour
 
     private IEnumerator Start()
     {
-        // Wait for a short amount of time to ensure that all objects are fully loaded
         yield return new WaitForSeconds(0.1f);
-
         playerData = PlayerDataManager.Instance;
-
-        // Try finding and assigning the objects again
-        attacks = FindObjectOfType<AttackHandler>().transform.Find("Weapons").gameObject;
-        timer = FindObjectOfType<GameTimer>().gameObject;
-        killTracker = FindObjectOfType<ComboTracker>().gameObject;
-        goldTracker = FindObjectOfType<GoldTracker>().gameObject;
+        FindGameObjects();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // only reassign if the loaded scene is a game scene
-        if (scene.buildIndex != 0 && scene.buildIndex != SceneManager.sceneCountInBuildSettings - 1)
+        if (IsGameScene(scene.buildIndex))
         {
-            // PlayerDataManager singleton is not destroyed when switching scenes
             playerData = PlayerDataManager.Instance;
-
-            attacks = FindObjectOfType<AttackHandler>().transform.Find("Weapons").gameObject;
-            timer = FindObjectOfType<GameTimer>().gameObject;
-            killTracker = FindObjectOfType<ComboTracker>().gameObject;
-            goldTracker = FindObjectOfType<GoldTracker>().gameObject;
+            FindGameObjects();
         }
     }
 
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to sceneLoaded when this GameObject is enabled
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe from sceneLoaded when this GameObject is disabled
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void EndGameStats()
     {
+        Debug.Log("EndGameStats called");
         weaponNames.Clear();
         weaponDamage.Clear();
 
+        CollectStats();
+
+        // Convert the weapon names and damage lists to JSON strings and save them to PlayerPrefs
+        WeaponStats weaponStats = new WeaponStats
+        {
+            weaponNames = weaponNames,
+            weaponDamage = weaponDamage
+        };
+        string weaponStatsJson = JsonUtility.ToJson(weaponStats);
+        PlayerPrefs.SetString("weaponStats", weaponStatsJson);
+
+        playerData.ProcessEndGameStats(enemiesKilled, goldGained, currentGuilt, weaponStats, stage);
+    }
+
+    private void CollectStats()
+    {
         timeSurvived = timer.GetComponent<GameTimer>().time;
         enemiesKilled = killTracker.GetComponent<ComboTracker>().comboCount;
         goldGained = goldTracker.GetComponent<GoldTracker>().goldCount;
+        currentGuilt = killTracker.GetComponent<ComboTracker>().GetCurrentGuilt();
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        stage = currentScene.buildIndex;
 
         foreach (Transform child in attacks.transform)
         {
@@ -79,20 +88,18 @@ public class EndgameStatTracker : MonoBehaviour
             float totalDamageDealt = attackComponent.totalDamageDealt;
             weaponDamage.Add(totalDamageDealt);
         }
+    }
 
-        // Save the information to PlayerPrefs
-        PlayerPrefs.SetString("timeSurvived", timeSurvived);
-        PlayerPrefs.SetInt("enemiesKilled", enemiesKilled);
-        PlayerPrefs.SetInt("goldGained", goldGained);
-        PlayerPrefs.SetInt("incrementGold", goldGained);
+    private bool IsGameScene(int sceneIndex)
+    {
+        return sceneIndex != 0 && sceneIndex != SceneManager.sceneCountInBuildSettings - 1;
+    }
 
-        playerData.IncrementGold();
-
-        // Convert the weapon names and damage lists to JSON strings and save them to PlayerPrefs
-        WeaponStats weaponStats = new WeaponStats();
-        weaponStats.weaponNames = weaponNames;
-        weaponStats.weaponDamage = weaponDamage;
-        string weaponStatsJson = JsonUtility.ToJson(weaponStats);
-        PlayerPrefs.SetString("weaponStats", weaponStatsJson);
+    private void FindGameObjects()
+    {
+        attacks = FindObjectOfType<AttackHandler>()?.transform.Find("Weapons")?.gameObject;
+        timer = FindObjectOfType<GameTimer>()?.gameObject;
+        killTracker = FindObjectOfType<ComboTracker>()?.gameObject;
+        goldTracker = FindObjectOfType<GoldTracker>()?.gameObject;
     }
 }

@@ -21,13 +21,13 @@ public class GoldTracker : MonoBehaviour
 
         if (goldCount < 10)
         {
-            comboText = "00" + goldCount;
+            comboText = "$00" + goldCount;
         } else if (goldCount >= 10 && goldCount < 100)
         {
-            comboText = "0" + goldCount;
+            comboText = "$0" + goldCount;
         } else
         {
-            comboText = "" + goldCount;
+            comboText = "$" + goldCount;
         }
 
         GetComponentInChildren<TMP_Text>().text = comboText;

@@ -7,6 +7,7 @@ public class AttackStats : Upgrade
     public string name;
     public string description;
     public Sprite icon;
+    public int unlockLevel;
 
     public float aimRange;
     public float damage;
@@ -121,6 +122,10 @@ public class AttackStats : Upgrade
     public float lifestealAmount;
     public float lifestealChance;
 
+    public bool hasDeathrattle;
+    public float deathrattleDamage;
+    public float deathrattleKnockback;
+
     public GameObject statsContainer;
     public string AttackName { get; set; }
     public WeaponSetType weaponSetType { get; set; }
@@ -129,6 +134,7 @@ public class AttackStats : Upgrade
 
     //Constructor that takes in all the values and sets them to the variables while providing meaningful defaults
     public AttackStats(
+        int unlockLevel = 0,
         float aimRange = 0,
         float damage = 0,
         float spread = 0,
@@ -220,12 +226,16 @@ public class AttackStats : Upgrade
         bool isLifesteal = false,
         float lifestealAmount = 0,
         float lifestealChance = 0,
+        bool hasDeathrattle = false,
+        float deathrattleDamage = 0,
+        float deathrattleKnockback = 0,
 
     string name = "",
         string description = "",
         Sprite icon = null
     )
     {
+        this.unlockLevel = unlockLevel;
         this.aimRange = aimRange;
         this.damage = damage;
         this.spread = spread;
@@ -321,6 +331,10 @@ public class AttackStats : Upgrade
         this.isLifesteal = isLifesteal;
         this.lifestealAmount = lifestealAmount;
         this.lifestealChance = lifestealChance;
+        this.hasDeathrattle = hasDeathrattle;
+        this.deathrattleDamage = deathrattleDamage;
+        this.deathrattleKnockback = deathrattleKnockback;
+
     }
 
     //shotsPerAttack and comboLength must be be one or greater.
@@ -364,9 +378,11 @@ public class AttackStats : Upgrade
     public void ApplyMultiplier()
     {
         damage *= damageMultiplier;
+        deathrattleDamage *= damageMultiplier; 
         castTime *= castTimeMultiplier;
         recoveryTime *= recoveryTimeMultiplier;
         knockback *= knockbackMultiplier;
+        deathrattleKnockback *= knockbackMultiplier;
         multicastChance *= multicastChanceMultiplier;
         multicastWaitTime *= multicastWaitTimeMultiplier;
         spread *= spreadMultiplier;
@@ -530,6 +546,9 @@ public class AttackStats : Upgrade
         this.lifestealChance += attackStats.lifestealChance;
         this.lifestealAmount += attackStats.lifestealAmount;
 
+        this.hasDeathrattle |= attackStats.hasDeathrattle;
+        this.deathrattleDamage += attackStats.deathrattleDamage;
+        this.deathrattleKnockback += attackStats.deathrattleKnockback;
     }
 
     public AttackStats MergeInPlayerStats(PlayerCharacterStats playerStats)
@@ -619,6 +638,7 @@ public class AttackStats : Upgrade
     //Copy Constructor
     public AttackStats(AttackStats attackStats)
     {
+        this.unlockLevel = attackStats.unlockLevel;
         this.aimRange = attackStats.aimRange;
         this.damage = attackStats.damage;
         this.spread = attackStats.spread;
@@ -715,6 +735,10 @@ public class AttackStats : Upgrade
         this.isLifesteal = attackStats.isLifesteal;
         this.lifestealAmount = attackStats.lifestealAmount;
         this.lifestealChance = attackStats.lifestealChance;
+
+        this.hasDeathrattle = attackStats.hasDeathrattle;
+        this.deathrattleDamage = attackStats.deathrattleDamage;
+        this.deathrattleKnockback = attackStats.deathrattleKnockback;
     }
 
     public AttackStats Clone()
@@ -725,7 +749,7 @@ public class AttackStats : Upgrade
             name = this.name,
             description = this.description,
             icon = this.icon,
-
+            unlockLevel = this.unlockLevel,
             aimRange = this.aimRange,
             damage = this.damage,
             cantMove = this.cantMove,
@@ -836,7 +860,11 @@ public class AttackStats : Upgrade
 
             isLifesteal = this.isLifesteal,
             lifestealChance = this.lifestealChance,
-            lifestealAmount = this.lifestealAmount
+            lifestealAmount = this.lifestealAmount,
+
+            hasDeathrattle = this.hasDeathrattle,
+            deathrattleDamage = this.deathrattleDamage,
+            deathrattleKnockback = this.deathrattleKnockback
         };
     }
 

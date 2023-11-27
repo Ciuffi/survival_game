@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
 using TMPro;
-using System.Text.RegularExpressions;
 using DG.Tweening;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 public class LootBoxManager : MonoBehaviour
 {
     GameObject player;
     public List<UpgradeLootHandler> upgradeWindows;
-
     public AttackBuilder[] weaponBuilders;
     public Upgrade[] weapons;
     public List<GameObject> playerStatUpgrades;
@@ -24,32 +23,23 @@ public class LootBoxManager : MonoBehaviour
 
     private GameObject panel;
     private GameObject panelAnimated;
-    public GameObject RerollBtn,
-        SwapBtn,
-        TimelineManager;
+    public GameObject RerollBtn, SwapBtn, TimelineManager;
     public GameObject SkipBtn;
-
     public GameObject VFX;
-
     private GameObject lootPopup;
     public int finalGold;
     public GameObject lootOnTap;
     StatsHandler playerStats;
     DropTableUpgrades dropTable;
     BasicSpawner guiltTracker;
-
+    PlayerDataManager playerData;
     TextMeshProUGUI orText;
 
-    public List<string> rarityNames = new List<string>()
-    {
-        "Common",
-        "Rare",
-        "Epic",
-        "Legendary"
-    };
-
+    public List<string> rarityNames = new List<string>() { "Common", "Rare", "Epic", "Legendary" };
     public List<Color> rarityColors;
     public GameObject weaponRarityPrefab;
+
+    private List<GameObject> upgradePool = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -67,11 +57,47 @@ public class LootBoxManager : MonoBehaviour
         panel.SetActive(false);
         panelAnimated.SetActive(false);
 
+        playerData = FindObjectOfType<PlayerDataManager>();
         playerStats = player.GetComponent<StatsHandler>();
         rarityColors = weaponRarityPrefab.GetComponent<InventoryItem>().rarityColors;
         dropTable = GetComponent<DropTableUpgrades>();
         guiltTracker = FindObjectOfType<BasicSpawner>();
         weaponSetUpgrades = getSetUpgrades().ToList();
+
+        InitializeUpgradePool();
+    }
+
+    private void InitializeUpgradePool()
+    {
+        int poolSize = PlayerStatsLibrary.getStats().Length;
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject upgradeGameObject = CreateNewUpgradeGameObject();
+            upgradeGameObject.SetActive(false);
+            upgradePool.Add(upgradeGameObject);
+        }
+    }
+
+    private GameObject CreateNewUpgradeGameObject()
+    {
+        GameObject statObject = new GameObject("Upgrade");
+        // Add necessary components, e.g., AttackStatComponent
+        return statObject;
+    }
+
+    private GameObject GetUpgradeFromPool()
+    {
+        foreach (var upgrade in upgradePool)
+        {
+            if (!upgrade.activeInHierarchy)
+            {
+                return upgrade;
+            }
+        }
+
+        GameObject newUpgrade = CreateNewUpgradeGameObject();
+        upgradePool.Add(newUpgrade);
+        return newUpgrade;
     }
 
     public void ShowLootUI()
@@ -162,53 +188,46 @@ public class LootBoxManager : MonoBehaviour
     }
     public void setUpgrades()
     {
-        // Ensure that there are at least 2 UpgradeLootHandlers.
-        if (upgradeWindows.Count < 2)
-        {
-            Debug.LogError("Less than 2 UpgradeLootHandlers in the scene!");
-            return;
-        }
-
-        // Set the first UpgradeLootHandler with isWeapon = false
-        isWeapon = false;
+        isWeapon = false; // Set to false if you're setting up player stat upgrades
         setUpgradeWindow(upgradeWindows[0]);
-
-        // Set the second UpgradeLootHandler with isWeapon = true
-        isWeapon = false;
         setUpgradeWindow(upgradeWindows[1]);
     }
 
     private void setUpgradeWindow(UpgradeLootHandler upgradeWindow)
     {
+        // Declare variables at the beginning
+        Rarity chosenRarity;
+        float rarityRoll;
+        float[] rarityChances;
+
+        // Determine rarity based on guiltDropTables
+        rarityRoll = Random.Range(1, 101); // adjust to 101 so that 100 can be included
+        rarityChances = dropTable.lootDropTables[guiltTracker.currentGuilt].dropRates;
+
+        float legendaryStart = rarityChances[3];
+        float epicStart = legendaryStart + rarityChances[2];
+        float rareStart = epicStart + rarityChances[1];
+        float commonStart = rareStart + rarityChances[0];
+
+        if (rarityRoll <= legendaryStart)
+        {
+            chosenRarity = Rarity.Legendary;
+        }
+        else if (rarityRoll <= epicStart)
+        {
+            chosenRarity = Rarity.Epic;
+        }
+        else if (rarityRoll <= rareStart)
+        {
+            chosenRarity = Rarity.Rare;
+        }
+        else
+        {
+            chosenRarity = Rarity.Common;
+        }
+
         if (isWeapon)
         {
-            // Determine rarity based on guiltDropTables
-            Rarity chosenRarity;
-            float rarityRoll = Random.Range(1, 101);  // adjust to 101 so that 100 can be included
-            float[] rarityChances = dropTable.lootDropTables[guiltTracker.currentGuilt].dropRates;
-
-            float legendaryStart = rarityChances[3];
-            float epicStart = legendaryStart + rarityChances[2];
-            float rareStart = epicStart + rarityChances[1];
-            float commonStart = rareStart + rarityChances[0];
-
-            if (rarityRoll <= legendaryStart)
-            {
-                chosenRarity = Rarity.Legendary;
-            }
-            else if (rarityRoll <= epicStart)
-            {
-                chosenRarity = Rarity.Epic;
-            }
-            else if (rarityRoll <= rareStart)
-            {
-                chosenRarity = Rarity.Rare;
-            }
-            else  // this will catch anything that is not less than or equal to rareStart
-            {
-                chosenRarity = Rarity.Common;
-            }
-
             GameObject GO = null;
             while (GO == null)
             {
@@ -250,39 +269,12 @@ public class LootBoxManager : MonoBehaviour
         }
         else
         {
-
-            // Determine rarity based on guiltDropTables
-            Rarity chosenRarity;
-            float rarityRoll = Random.Range(1, 101);  // adjust to 101 so that 100 can be included
-            float[] rarityChances = dropTable.lootDropTables[guiltTracker.currentGuilt].dropRates;
-
-            float legendaryStart = rarityChances[3];
-            float epicStart = legendaryStart + rarityChances[2];
-            float rareStart = epicStart + rarityChances[1];
-            float commonStart = rareStart + rarityChances[0];
-
-            if (rarityRoll <= legendaryStart)
-            {
-                chosenRarity = Rarity.Legendary;
-            }
-            else if (rarityRoll <= epicStart)
-            {
-                chosenRarity = Rarity.Epic;
-            }
-            else if (rarityRoll <= rareStart)
-            {
-                chosenRarity = Rarity.Rare;
-            }
-            else  // this will catch anything that is not less than or equal to rareStart
-            {
-                chosenRarity = Rarity.Common;
-            }
-
+            int playerLevel = playerData.playerLevel;
+            upgrades = playerStatUpgrades.Where(u =>
+                u.GetComponent<StatComponent>().stat.GetRarity() == chosenRarity &&
+                u.GetComponent<StatComponent>().stat.unlockLevel <= playerLevel
+            ).ToList();
     
-            // Player Stat upgrade
-            upgrades = playerStatUpgrades;
-            upgrades = upgrades.Where(u => u.GetComponent<StatComponent>().stat.GetRarity() == chosenRarity).ToList();
-
             GameObject GO = null;
             while (GO == null)
             {
@@ -299,7 +291,7 @@ public class LootBoxManager : MonoBehaviour
             TMP_Text[] textComponents = upgradeWindow.GetComponentsInChildren<TMP_Text>();
 
             if (statComponent != null)
-            {
+            { 
                 // It's a PlayerStat upgrade
                 upgradeWindow.upgrade = statComponent.stat;
 
@@ -331,7 +323,7 @@ public class LootBoxManager : MonoBehaviour
     {
         foreach (var upgrade in potentialUpgrades)
         {
-            Destroy(upgrade);
+            upgrade.SetActive(false); // Deactivate instead of destroying
         }
         potentialUpgrades.Clear();
     }

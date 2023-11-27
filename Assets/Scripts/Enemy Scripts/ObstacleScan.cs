@@ -38,24 +38,29 @@ public class ObstacleScan : MonoBehaviour
         defaultMaterial = spriteRend.material;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
             //PathScanController.Instance.RequestScan();
-            TakeEnemyDamage(other.GetComponent<Enemy>().damage, false);
+            if (Time.time - lastDamageTime >= damageTick)
+            {
+                if (other.GetComponent<Enemy>().isElite || other.GetComponent<Enemy>().isBoss)
+                {
+                    TakeEnemyDamage(other.GetComponent<Enemy>().damage * 2, false);
+                }
+                else
+                {
+                    TakeEnemyDamage(other.GetComponent<Enemy>().damage, false);
+                }
+                lastDamageTime = Time.time; // Update the last damage time
+            }
         } 
     }
 
     private void TakeEnemyDamage(float amount, bool isCrit)
     {
-        if (Time.time - lastDamageTime < damageTick)
-        {
-            return;
-        }
-
-        TakeDamage(amount, isCrit); 
-        lastDamageTime = Time.time;
+        TakeDamage(amount, isCrit);
     }
 
     public void TakeDamage(float amount, bool isCrit)

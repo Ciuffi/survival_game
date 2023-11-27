@@ -51,6 +51,7 @@ public class StatsHandler : MonoBehaviour
     public GameObject DamagePopup;
     public GameObject HealVFX;
     public GameObject revengeVFX;
+    private bool isDeathProcessed = false;
 
     private void MatchCharacter()
     {
@@ -121,33 +122,18 @@ public class StatsHandler : MonoBehaviour
 
     private IEnumerator PassiveRecovery()
     {
-        while (true)
+        while (stats.recoveryAmount != 0)
         {
-           if (stats.recoveryAmount != 0)
-            {
-                float recoverySpeed;
-
-                if (stats.TotalRecoverySpeed < 0.5f)
-                {
-                    recoverySpeed = 0.5f;
-                } else
-                {
-                    recoverySpeed = stats.TotalRecoverySpeed;
-                }
-
-                yield return new WaitForSeconds(recoverySpeed);
-                AddHealth(stats.recoveryAmount);
-            }
-            else
-            {
-                IsRecoveryCoroutineRunning = false;
-                yield break; 
-            }
+            float recoverySpeed = Mathf.Max(stats.TotalRecoverySpeed, 0.5f);
+            yield return new WaitForSeconds(recoverySpeed);
+            AddHealth(stats.recoveryAmount);
         }
+        IsRecoveryCoroutineRunning = false;
     }
 
     public void AddHealth(float amount)
     {
+        Debug.Log("begin health function");
         float newHealth;
         if (currentHealth + amount >= stats.maxHealth)
         {
@@ -163,6 +149,7 @@ public class StatsHandler : MonoBehaviour
         );
         currentHealth = newHealth;
         PopupNumber(amount);
+        Debug.Log("popup amount");
     }
 
     public void PopupNumber(float number)
@@ -239,11 +226,13 @@ public class StatsHandler : MonoBehaviour
                 BarHelper.RemoveFromBar(healthBar, currentHealth, newHealth, stats.maxHealth, 0.3f)
             );
             currentHealth = newHealth;
-            if (currentHealth <= 0)
+            if (currentHealth <= 0 && !isDeathProcessed)
             {
+                isDeathProcessed = true; 
                 GameObject.FindObjectOfType<EndgameStatTracker>().EndGameStats();
                 GameObject.FindObjectOfType<GameManager>().EndGame();
             }
+
 
             if (stats.isRevenge && enemy != null)
             {
@@ -265,24 +254,12 @@ public class StatsHandler : MonoBehaviour
                     revengeDamageAmount *= stats.critDmg;
                 }
 
-                enemy.GetComponent<Enemy>().TakeDamage(revengeDamageAmount, isCrit);
-
-                if (stats.isLifesteal)
+                if (stats.isRevenge)
                 {
-                    bool isLifesteal;
-                    if (stats.lifestealChance >= 1)
-                    {
-                        isLifesteal = true;
-                    }
-                    else
-                    {
-                        isLifesteal = UnityEngine.Random.Range(0f, 1f) < stats.lifestealChance;
-                    }
-
-                    if (isLifesteal)
-                    {
-                        AddHealth(stats.lifestealAmount);
-                    }
+                    // Instantiate AoE attack at player's position
+                    var aoeAttack = Instantiate(revengeVFX, transform.position, Quaternion.identity);
+                    var aoeAttackScript = aoeAttack.GetComponent<RevengeAOEAttack>();
+                    aoeAttackScript.onHitEnemy += HandleAoEHit; // Subscribe to the hit event
                 }
             }
             // Clear the stored damage sources
@@ -290,6 +267,47 @@ public class StatsHandler : MonoBehaviour
         }
 
         isEvaluatingDamage = false;
+    }
+
+    private void HandleAoEHit(GameObject enemy)
+    {
+        float finalDamage;
+        if (baseStats.damageMultiplier <= 0)
+        {
+            finalDamage = stats.revengeDamage * (1 + stats.damageMultiplier - baseStats.damageMultiplier);
+        } else
+        {
+            finalDamage = stats.revengeDamage * (1 + stats.damageMultiplier);
+        }
+
+        bool isCrit;
+        if (stats.critChance >= 1)
+        {
+            isCrit = true;
+        }
+        else
+        {
+            isCrit = UnityEngine.Random.Range(0f, 1f) < stats.critChance;
+        }
+
+        if (isCrit)
+        {
+            finalDamage *= 1.25f + stats.critDmg;
+        }
+
+        enemy.GetComponent<Enemy>().TakeDamage(finalDamage, isCrit);
+
+        Vector3 knockDirection = (enemy.transform.position - transform.position).normalized;
+        enemy.GetComponent<Enemy>().ApplyKnockback(revengeVFX.GetComponent<RevengeAOEAttack>().knockbackForce * stats.knockbackMultiplier, knockDirection);
+
+        if (stats.isLifesteal)
+        {
+            bool isLifesteal = UnityEngine.Random.Range(0f, 1f) < stats.lifestealChance;
+            if (isLifesteal)
+            {
+                AddHealth(stats.lifestealAmount);
+            }
+        }
     }
 
     void ResetMaterial()
@@ -416,16 +434,17 @@ public class StatsHandler : MonoBehaviour
         healthBarQueue.AddToQueue(BarHelper.ForceUpdateBar(healthBar, currentHealth, stats.maxHealth));
 
         CalculateWeaponStats(weaponsList);
+        OnStatChange();
+    }
 
-        if (stats.recoveryAmount > 0)
+    public void OnStatChange() // Call this method when the player's stats change
+    {
+        if (stats.recoveryAmount > 0 && !IsRecoveryCoroutineRunning)
         {
-            if (!IsRecoveryCoroutineRunning)
-            {
-                StartCoroutine(PassiveRecovery());
-                IsRecoveryCoroutineRunning = true;
-            }
+            StartCoroutine(PassiveRecovery());
+            IsRecoveryCoroutineRunning = true;
         }
-        else if (IsRecoveryCoroutineRunning)
+        else if (stats.recoveryAmount <= 0 && IsRecoveryCoroutineRunning)
         {
             StopCoroutine("PassiveRecovery");
             IsRecoveryCoroutineRunning = false;
@@ -452,7 +471,7 @@ public class StatsHandler : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         MatchCharacter();
         MatchUpgrades();
-        if (stats.recoveryAmount != 0)
+        if (stats.recoveryAmount != 0 && !IsRecoveryCoroutineRunning)
         {
             StartCoroutine(PassiveRecovery());
             IsRecoveryCoroutineRunning = true;

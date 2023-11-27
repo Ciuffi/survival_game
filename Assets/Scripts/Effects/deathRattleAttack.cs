@@ -76,8 +76,8 @@ public class deathRattleAttack : MonoBehaviour
         Camera = GameObject.FindWithTag("MainCamera");
         startPos = transform.position;
 
-        damage = attack.stats.damage;
-        knockback = attack.stats.knockback;
+        damage = attack.stats.deathrattleDamage;
+        knockback = attack.stats.deathrattleKnockback;
         critChance = attack.stats.critChance;
         critDmg = attack.stats.critDmg;
 

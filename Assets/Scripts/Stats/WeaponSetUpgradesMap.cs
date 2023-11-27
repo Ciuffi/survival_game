@@ -601,6 +601,19 @@ public static class WeaponSetUpgradeMap
         return weaponSets;
     }
 
+    public static List<AttackStats> GetAllWeaponSetStats()
+    {
+        var allStats = new List<AttackStats>();
+        foreach (var weaponSet in AttackStatsMap)
+        {
+            foreach (var rarityList in weaponSet.Value)
+            {
+                allStats.AddRange(rarityList.Value);
+            }
+        }
+        return allStats;
+    }
+
 }
 
 

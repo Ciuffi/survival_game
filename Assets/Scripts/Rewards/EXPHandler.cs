@@ -22,7 +22,7 @@ public class EXPHandler : MonoBehaviour
     private float currentSpeed;
     private float waitTimer;
 
-    public List<Sprite> spriteList; // List of sprites
+    public List<Color> xpTierColors; 
     public List<int> xpTierThresholds; // List of XP thresholds
     public float xpAmount;
 
@@ -132,10 +132,10 @@ public class EXPHandler : MonoBehaviour
             }
         }
 
-        // Set the sprite based on the xpTier
-        if (xpTier > 0 && xpTier <= spriteList.Count)
+        // Apply the color based on the xpTier
+        if (xpTier > 0 && xpTier <= xpTierColors.Count)
         {
-            GetComponent<SpriteRenderer>().sprite = spriteList[xpTier - 1];
+            GetComponent<SpriteRenderer>().color = xpTierColors[xpTier - 1];
         }
     }
 

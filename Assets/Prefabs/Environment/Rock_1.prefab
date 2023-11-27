@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5131524507522320751}
   m_LocalRotation: {x: -0, y: -0, z: -0.0044884514, w: 0.99999}
-  m_LocalPosition: {x: 0.045, y: -0.821, z: -0.0059312293}
+  m_LocalPosition: {x: -0.079, y: -0.764, z: -0.0059312293}
   m_LocalScale: {x: 0.4520606, y: 1.852747, z: 0.94697}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ea026108c3f7c4f96a415295443641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 80
   deathParticles: {fileID: 4053501027209517259, guid: 0f608c0a16fe9724caccc0b830846ae4, type: 3}
   fadeOutSpeed: 0.9
   shakeIntensity: 0.1
@@ -141,7 +141,7 @@ MonoBehaviour:
   shakeDuration: 0.1
   maxShakeIntensity: 0.5
   damageText: {fileID: 5320852165480064998, guid: 80c6da0fcc023e642a639863905d4de1, type: 3}
-  damageTick: 1
+  damageTick: 1.25
   defaultMaterial: {fileID: 0}
   newMaterial: {fileID: 2100000, guid: 5aa0542978a0a92409d542d70c49e85f, type: 2}
   spriteRend: {fileID: 8995778151179090164}
@@ -160,12 +160,12 @@ MonoBehaviour:
     maxDrop: 5
   - itemPrefab: {fileID: 9040451915024097044, guid: 919ee146bc5f2dd48a964e5e4d2cd367, type: 3}
     doesDrop: 1
-    dropChance: 0.05
+    dropChance: 0.03
     minDrop: 1
     maxDrop: 1
   - itemPrefab: {fileID: 9040451915024097044, guid: 090b69a4bc04725408bfa3d5fb355c22, type: 3}
     doesDrop: 1
-    dropChance: 0.03
+    dropChance: 0.01
     minDrop: 1
     maxDrop: 1
   xpAmount: 5
@@ -210,7 +210,7 @@ SpriteRenderer:
   m_SortingLayerID: -95893495
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -217921489, guid: 87194825a16d86d47839d3677c368f86, type: 3}
+  m_Sprite: {fileID: -139699937, guid: 87194825a16d86d47839d3677c368f86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -234,7 +234,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09768665, y: -0.45085126}
+  m_Offset: {x: -0.05201745, y: -0.40094993}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -245,7 +245,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.78409934, y: 0.7192695}
+  m_Size: {x: 1.0835077, y: 0.7941217}
   m_EdgeRadius: 0
 --- !u!50 &-1195511871230879344
 Rigidbody2D:
@@ -281,6 +281,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0878638, y: -0.056177497}
+  m_Offset: {x: -0.105504155, y: -0.018751383}
   serializedVersion: 2
-  m_Radius: 1.1878892
+  m_Radius: 1.2752165

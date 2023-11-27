@@ -104,6 +104,7 @@ public class Projectile : MonoBehaviour
     public bool isSplitProjectile; //to be turned on after splitting to acquire scaled stats
 
     public bool hasDeathrattle;
+    private float deathrattleDamage;
     public GameObject deathSpawn;
 
     public float wpnProjSizeMultiplier;
@@ -199,6 +200,9 @@ public class Projectile : MonoBehaviour
         chainRange = attack.stats.chainRange;
         chainSpeed = attack.stats.chainSpeed;
         if (isChain) { chainPrefab = Resources.Load<GameObject>("Projectiles/ChainProjectile"); }
+
+        hasDeathrattle = attack.stats.hasDeathrattle;
+        deathrattleDamage = attack.stats.deathrattleDamage;
 
         hitEnemies = new List<GameObject>();
         timers = new Dictionary<GameObject, float>();

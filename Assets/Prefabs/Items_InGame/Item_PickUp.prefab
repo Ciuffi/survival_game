@@ -165,10 +165,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   pickupDistance: 0
+  baseConsumeDistance: 0.1
   speed: 2
   speedMultiplier: 10
   waitTime: 0.5
   maxAwayDistance: 1
+  waiting: 1
+  hasTriggered: 0
+  isGathered: 0
   bounceHeight: 0.5
   bounceSpeed: 25
   bounceDecay: 1

@@ -6751,6 +6751,7 @@ MonoBehaviour:
   uiDelay: 0.7
   startDelay: 0
   delayFinished: 0
+  visualIndicatorPrefab: {fileID: 0}
 --- !u!1001 &3718228835501933528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6881,6 +6882,7 @@ MonoBehaviour:
   uiDelay: 0.7
   startDelay: 0
   delayFinished: 0
+  visualIndicatorPrefab: {fileID: 0}
 --- !u!224 &38284460335574523 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3679949894535949859, guid: 37c4577aa5a8f254c807a1c244353aeb, type: 3}

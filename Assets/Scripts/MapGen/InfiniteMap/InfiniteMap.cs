@@ -16,19 +16,25 @@ public class InfiniteMap : MonoBehaviour
     private Transform player;
     private Vector2 backgroundSize;
     private Queue<GameObject> backgroundPool;
-    private ObjectPool flourishPool, rockPool, torchPool;
+    private ObjectPool flourishPool, rockPool, ore1Pool, ore2Pool, torchPool;
     public int flourishMin = 1, flourishMax = 3;
     public int rockMin = 1, rockMax = 3;
+    public int ore1Min = 1, ore1Max = 3;
+    public int ore2Min = 1, ore2Max = 3;
     public int torchMin = 1, torchMax = 3;
 
     public GameObject[] rockPrefabs;
     public float[] rockWeights;
+    public GameObject[] ore1Prefabs;
+    public float[] ore1Weights;
+    public GameObject[] ore2Prefabs;
+    public float[] ore2Weights;
 
     public GameObject[] torchPrefabs;
     public float[] torchWeights;
 
     private Dictionary<Vector2Int, GameObject> grid;
-    private Dictionary<Vector2Int, List<GameObject>> flourishGrid, rockGrid, torchGrid;
+    private Dictionary<Vector2Int, List<GameObject>> flourishGrid, rockGrid, torchGrid, ore1Grid, ore2Grid;
 
     private void Start()
     {
@@ -39,10 +45,14 @@ public class InfiniteMap : MonoBehaviour
         flourishPool = new ObjectPool(flourishPrefabs, new float[flourishPrefabs.Length].Select(_ => 1f).ToArray(), poolSize);
         rockPool = new ObjectPool(rockPrefabs, rockWeights, rockPrefabs.Length);
         torchPool = new ObjectPool(torchPrefabs, torchWeights, torchPrefabs.Length);
+        ore1Pool = new ObjectPool(ore1Prefabs, ore1Weights, ore1Prefabs.Length);
+        ore2Pool = new ObjectPool(ore2Prefabs, ore2Weights, ore2Prefabs.Length);
 
         grid = new Dictionary<Vector2Int, GameObject>();
         flourishGrid = new Dictionary<Vector2Int, List<GameObject>>();
         rockGrid = new Dictionary<Vector2Int, List<GameObject>>();
+        ore1Grid = new Dictionary<Vector2Int, List<GameObject>>();
+        ore2Grid = new Dictionary<Vector2Int, List<GameObject>>();
         torchGrid = new Dictionary<Vector2Int, List<GameObject>>();
 
         Vector2Int playerStartingGridPosition = WorldToGridPosition(player.transform.position);
@@ -108,6 +118,8 @@ public class InfiniteMap : MonoBehaviour
                         grid.Remove(farthestKey);
                         RemoveObjectsFromGrid(farthestKey, flourishGrid, flourishPool);
                         RemoveObjectsFromGrid(farthestKey, rockGrid, rockPool);
+                        RemoveObjectsFromGrid(farthestKey, ore1Grid, ore1Pool);
+                        RemoveObjectsFromGrid(farthestKey, ore2Grid, ore2Pool);
                         RemoveObjectsFromGrid(farthestKey, torchGrid, torchPool);
                     }
 
@@ -120,6 +132,8 @@ public class InfiniteMap : MonoBehaviour
 
                     SpawnObjects(gridPosition, flourishPool, flourishMin, flourishMax, flourishGrid);
                     SpawnObjects(gridPosition, rockPool, rockMin, rockMax, rockGrid);
+                    SpawnObjects(gridPosition, ore1Pool, ore1Min, ore1Max, ore1Grid);
+                    SpawnObjects(gridPosition, ore2Pool, ore2Min, ore2Max, ore2Grid);
                     SpawnObjects(gridPosition, torchPool, torchMin, torchMax, torchGrid);
                 }
             }
@@ -224,7 +238,10 @@ public class ObjectPool
 
     public void ReturnObject(GameObject obj)
     {
-        obj.SetActive(false);
-        poolQueue.Enqueue(obj);
+        if (obj != null)
+        {
+            obj.SetActive(false);
+            poolQueue.Enqueue(obj);
+        }
     }
 }

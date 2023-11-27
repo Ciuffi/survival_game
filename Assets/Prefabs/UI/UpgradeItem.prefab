@@ -389,6 +389,7 @@ MonoBehaviour:
   uiDelay: 0.7
   startDelay: 0
   delayFinished: 0
+  visualIndicatorPrefab: {fileID: 0}
 --- !u!1 &3679949894654580200
 GameObject:
   m_ObjectHideFlags: 0

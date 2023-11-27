@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackBuilder
 {
     private string attackName;
+    private int unlockLevel;
     private GameObject projectile;
     private AttackStats baseStats;
     private List<AttackStats> rarityUpgrades;
@@ -28,6 +29,18 @@ public class AttackBuilder
     private float muzzleFlashXOffset;
     private float muzzleFlashYOffset;
     private string description;
+
+
+    public AttackBuilder SetUnlockLevel(int level)
+    {
+        this.unlockLevel = level;
+        return this;
+    }
+
+    public int GetUnlockLevel()
+    {
+        return unlockLevel;
+    }
 
     public AttackBuilder SetProjectile(GameObject projectile)
     {

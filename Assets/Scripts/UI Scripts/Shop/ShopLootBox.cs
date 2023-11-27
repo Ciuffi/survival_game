@@ -15,18 +15,31 @@ public class ShopLootBox : MonoBehaviour
     private void Start()
     {
         gachaManager = FindObjectOfType<GachaManager>();
-
         RarityData rarityData = gachaManager.GetRarityData(rarity);
-
         costText.text = "$" + rarityData.cost.ToString();
+        purchaseButton.onClick.AddListener(() => gachaManager.PurchaseLootBox(this));
+        RefreshLootboxPool();
+    }
 
-        purchaseButton.onClick.AddListener(() =>
+    public void RefreshLootboxPool()
+    {
+        possibleWeapons = GetAttackNamesBasedOnLevel(PlayerDataManager.Instance.playerLevel);
+    }
+
+    private List<string> GetAttackNamesBasedOnLevel(int playerLevel)
+    {
+        var attackBuilders = AttackLibrary.getAttackBuilders();
+        var attackNames = new List<string>();
+
+        foreach (var attackBuilder in attackBuilders)
         {
-            gachaManager.PurchaseLootBox(this);
-        });
+            if (attackBuilder.GetUnlockLevel() <= playerLevel)
+            {
+                attackNames.Add(attackBuilder.GetAttackName());
+            }
+        }
 
-        // Retrieve the attack names from the AttackLibrary
-        possibleWeapons = GetAttackNames();
+        return attackNames;
     }
 
     public bool AllWeaponsOwned(PlayerInventory inventory)

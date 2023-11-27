@@ -18,6 +18,11 @@ public class UpgradeHandler : MonoBehaviour, IPointerDownHandler
     public GameObject visualIndicatorPrefab;
     private Vector3 originalScale;
 
+    public void SetUpgrade(Upgrade newUpgrade)
+    {
+        upgrade = newUpgrade;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (delayFinished)
