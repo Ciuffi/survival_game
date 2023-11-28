@@ -46,7 +46,7 @@ public static class PlayerCharactersLibrary
             level: 0,
             isLocked: false,
             maxHealth: 40,
-            health: 2,
+            health: 40,
             speed: 1.1f,
             pickupRange: 1.5f,
             rerollTimes: 3,

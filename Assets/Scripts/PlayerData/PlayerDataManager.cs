@@ -22,6 +22,7 @@ public class PlayerDataManager : MonoBehaviour
 
     private PlayerInventory playerInventory;
     public List<TextMeshProUGUI> goldDisplay;
+    TextMeshProUGUI playerLevelText;
     CharSelectController charSelectController;
     public Transform upgradeButtonParent;
     public static PlayerDataManager Instance { get; private set; }
@@ -50,6 +51,7 @@ public class PlayerDataManager : MonoBehaviour
         };
         charSelectController = FindObjectOfType<CharSelectController>();
         upgradeButtonParent = GameObject.Find("Canvas_Upgrades/PlayerUpgradesScrollView/Viewport/Content").transform;
+        playerLevelText = GameObject.Find("PlayerLevelText").GetComponent<TextMeshProUGUI>();
         LoadData();
     }
 
@@ -309,6 +311,9 @@ public class PlayerDataManager : MonoBehaviour
         {
             goldDisplay[i].text = goldAmount;
         }
+
+        string levelText = "Level " + playerLevel.ToString();
+        playerLevelText.text = levelText;
     }
 
     void OnEnable()
