@@ -36,6 +36,8 @@ public class InfiniteMap : MonoBehaviour
     private Dictionary<Vector2Int, GameObject> grid;
     private Dictionary<Vector2Int, List<GameObject>> flourishGrid, rockGrid, torchGrid, ore1Grid, ore2Grid;
 
+    private BasicSpawner spawner;
+
     private void Start()
     {
         playerPrefab = GameObject.FindWithTag("Player");
@@ -57,6 +59,7 @@ public class InfiniteMap : MonoBehaviour
 
         Vector2Int playerStartingGridPosition = WorldToGridPosition(player.transform.position);
         UpdateGrid(playerStartingGridPosition);
+        spawner = GameObject.Find("Spawner").GetComponent<BasicSpawner>();
     }
 
     private void Update()

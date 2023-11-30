@@ -39,8 +39,21 @@ public class ChainProjectile : MonoBehaviour
 
     private void Chain()
     {
+        if (currentTarget == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         // Find next target
         GameObject nextTarget = FindNearestEnemy(currentTarget.transform.position, chainRange, currentTarget);
+
+        if (nextTarget == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         // move chain
         StartCoroutine(MoveChain(this.gameObject, transform.position, nextTarget.transform.position, chainSpeed, () =>
         {

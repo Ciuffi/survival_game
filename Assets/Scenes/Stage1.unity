@@ -384,8 +384,10 @@ MonoBehaviour:
   timeSurvived: 
   enemiesKilled: 0
   goldGained: 0
+  currentGuilt: 0
   weaponNames: []
   weaponDamage: []
+  stage: 0
   attacks: {fileID: 1821778121}
   playerData: {fileID: 0}
 --- !u!114 &142728916
@@ -3570,6 +3572,30 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G1
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G2
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G3
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G5
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G6
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 816418933301712799, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: diameterMultiplier
       value: 0.1
       objectReference: {fileID: 0}
@@ -3718,13 +3744,77 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6469275836928157862, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G3
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469275836928157862, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G4
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469275836928157862, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469275836928157862, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G6
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469275836928157862, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: diameterMultiplier
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnTimer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: scaleRateSeconds
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G5
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: spawnRateLimit_G6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: diameterMultiplier
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: enemies.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 1423453834646843868, guid: f0ba01a9254be1c47bce903f5ffe6447, type: 3}
+    - target: {fileID: 7181704713390127744, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
+      propertyPath: enemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 1423453834646843868, guid: 558ef957fad818245b932140cf2dd553, type: 3}
     - target: {fileID: 8363155532757008864, guid: 45ae303cbd70fd548a84840c7531596c, type: 3}
       propertyPath: spawnRate
       value: 2
@@ -3949,11 +4039,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5214182018016210236, guid: d85f5f0161e167a46a88c18a61c5bca5, type: 3}
       propertyPath: guiltThresholds.Array.data[0]
-      value: 1
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5214182018016210236, guid: d85f5f0161e167a46a88c18a61c5bca5, type: 3}
       propertyPath: guiltThresholds.Array.data[1]
-      value: 350
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 5214182018016210236, guid: d85f5f0161e167a46a88c18a61c5bca5, type: 3}
       propertyPath: guiltThresholds.Array.data[2]

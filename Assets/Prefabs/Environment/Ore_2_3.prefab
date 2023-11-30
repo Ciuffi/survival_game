@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ea026108c3f7c4f96a415295443641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 80
+  health: 90
   deathParticles: {fileID: 4053501027209517259, guid: 0f608c0a16fe9724caccc0b830846ae4, type: 3}
   fadeOutSpeed: 0.9
   shakeIntensity: 0.1
