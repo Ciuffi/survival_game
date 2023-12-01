@@ -121,6 +121,8 @@ MonoBehaviour:
   flybyDistance: 15
   isObstacle: 0
   obstacleLifetime: 0
+  initialPlayerSideLeft: 0
+  isMagnetizing: 0
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 4303292662091484887}
@@ -129,6 +131,7 @@ MonoBehaviour:
   destroyDistance: 30
   dotVFX: {fileID: 2677117378039099232, guid: 4f9b261974775ac4399f9085c74aae25, type: 3}
   isGamePaused: 0
+  healthBar: {fileID: 0}
 --- !u!114 &1321576414662445604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +148,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 0.38
+  maxSpeed: 0.36
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

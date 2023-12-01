@@ -64,13 +64,13 @@ MonoBehaviour:
   isBasic: 0
   isElite: 1
   isBoss: 0
-  damage: 2
+  damage: 1
   health: 300
   maxHealth: 0
   xpAmount: 250
   weight: 22
-  stopDistanceMin: 4.5
-  stopDistanceMax: 5.2
+  stopDistanceMin: 5
+  stopDistanceMax: 6
   moveDistanceCheck: 0
   canMove: 1
   timeCheck: 0
@@ -126,6 +126,8 @@ MonoBehaviour:
   flybyDistance: 15
   isObstacle: 0
   obstacleLifetime: 0
+  initialPlayerSideLeft: 0
+  isMagnetizing: 0
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 3682808208575244435}
@@ -267,7 +269,7 @@ MonoBehaviour:
   radius: 1
   height: 1
   canMove: 1
-  maxSpeed: 1.25
+  maxSpeed: 1.1
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -286,7 +288,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0
+  slowdownDistance: 0.5
   pickNextWaypointDist: 1
   endReachedDistance: 0
   alwaysDrawGizmos: 0

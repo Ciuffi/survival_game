@@ -132,7 +132,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 spreadMultiplier: -0.10f,
-                name: "Glattt 1",
+                name: "Rapid Fire 1",
                 description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Glattt"),
                 rarity: Rarity.Common
@@ -290,6 +290,17 @@ public static class AttackStatsLibrary
         );
         ;
 
+        AddStat(
+           new AttackStats(
+               comboAttackBuffMultiplier: 0.05f,
+               name: "C-combo 1",
+               description: "Consecutive attacks deal more damage",
+               icon: Resources.Load<Sprite>("UI_Icons/Charged"),
+               rarity: Rarity.Common
+           )
+       );
+        ;
+
 
         //rare
         AddStat(
@@ -374,7 +385,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 spreadMultiplier: -0.15f,
-                name: "Glattt 2",
+                name: "Rapid Fire 2",
                 description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Glattt"),
                 rarity: Rarity.Rare
@@ -805,6 +816,17 @@ public static class AttackStatsLibrary
         );
         ;
 
+        AddStat(
+           new AttackStats(
+               comboAttackBuffMultiplier: 0.08f,
+               name: "C-combo 2",
+               description: "Consecutive attacks deal more damage",
+               icon: Resources.Load<Sprite>("UI_Icons/Charged"),
+               rarity: Rarity.Rare
+           )
+       );
+        ;
+
 
 
 
@@ -891,7 +913,7 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 spreadMultiplier: -0.25f,
-                name: "Glattt 3",
+                name: "Rapid Fire 3",
                 description: "Increase Rate of Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Glattt"),
                 rarity: Rarity.Epic
@@ -1351,6 +1373,17 @@ public static class AttackStatsLibrary
        );
         ;
 
+        AddStat(
+           new AttackStats(
+               comboAttackBuffMultiplier: 0.12f,
+               name: "C-combo 3",
+               description: "Consecutive attacks deal more damage",
+               icon: Resources.Load<Sprite>("UI_Icons/Charged"),
+               rarity: Rarity.Epic
+           )
+       );
+        ;
+
 
         //legendary
 
@@ -1739,6 +1772,17 @@ public static class AttackStatsLibrary
                name: "Infusion++ 2",
                description: "Chance to heal on hit",
                icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
+               rarity: Rarity.Legendary
+           )
+       );
+        ;
+
+        AddStat(
+           new AttackStats(
+               comboAttackBuffMultiplier: 0.20f,
+               name: "C-combo 4",
+               description: "Consecutive attacks deal more damage",
+               icon: Resources.Load<Sprite>("UI_Icons/Charged"),
                rarity: Rarity.Legendary
            )
        );

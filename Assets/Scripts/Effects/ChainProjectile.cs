@@ -116,7 +116,10 @@ public class ChainProjectile : MonoBehaviour
             yield return null;
         }
         // Deal damage
-        currentTarget.GetComponent<Enemy>().TakeDamage(Mathf.Max(currentDamage, 1), false);
-        callback?.Invoke();
+        if (currentTarget != null)
+        {
+            currentTarget.GetComponent<Enemy>().TakeDamage(Mathf.Max(currentDamage, 1), false);
+            callback?.Invoke();
+        }
     }
 }

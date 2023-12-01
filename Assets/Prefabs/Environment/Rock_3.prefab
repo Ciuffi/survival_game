@@ -151,13 +151,13 @@ MonoBehaviour:
   - itemPrefab: {fileID: 9040451915024097044, guid: 7cb6000f3688522458525e0d169ebdf1, type: 3}
     doesDrop: 1
     dropChance: 1
-    minDrop: 1
-    maxDrop: 2
+    minDrop: 3
+    maxDrop: 4
   - itemPrefab: {fileID: 9040451915024097044, guid: e03bae8b44443a344b6dfeba87ea6b8d, type: 3}
     doesDrop: 1
     dropChance: 1
-    minDrop: 3
-    maxDrop: 6
+    minDrop: 4
+    maxDrop: 7
   - itemPrefab: {fileID: 9040451915024097044, guid: 919ee146bc5f2dd48a964e5e4d2cd367, type: 3}
     doesDrop: 1
     dropChance: 0.03

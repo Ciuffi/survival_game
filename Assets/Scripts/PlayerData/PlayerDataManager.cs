@@ -336,6 +336,7 @@ public class PlayerDataManager : MonoBehaviour
             goldDisplay.Add(GameObject.Find("playerGold2").GetComponentInChildren<TextMeshProUGUI>());
             goldDisplay.Add(GameObject.Find("playerGold3").GetComponentInChildren<TextMeshProUGUI>());
             upgradeButtonParent = GameObject.Find("Canvas_Upgrades/PlayerUpgradesScrollView/Viewport/Content").transform;
+            playerLevelText = GameObject.Find("PlayerLevelText").GetComponent<TextMeshProUGUI>();
 
         }
     }

@@ -62,7 +62,7 @@ MonoBehaviour:
   isBasic: 0
   isElite: 1
   isBoss: 0
-  damage: 3
+  damage: 2
   health: 280
   maxHealth: 0
   xpAmount: 250
@@ -132,6 +132,8 @@ MonoBehaviour:
   flybyDistance: 15
   isObstacle: 0
   obstacleLifetime: 0
+  initialPlayerSideLeft: 0
+  isMagnetizing: 0
   isStunned: 0
   stunColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   shadow: {fileID: 2331833043301358605}
