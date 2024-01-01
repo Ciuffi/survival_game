@@ -27,7 +27,7 @@ public class EndGameText : MonoBehaviour
     public TextMeshProUGUI outcomeText;
     public List<string> winMessages;
     public List<string> loseMessages;
-
+    public GameObject winParticle;
 
     private void Update() // Listen for a screen tap
     {
@@ -71,6 +71,15 @@ public class EndGameText : MonoBehaviour
 
         outcomeText.text = message;
         outcomeText.color = new Color(outcomeText.color.r, outcomeText.color.g, outcomeText.color.b, 0); // Set alpha to 0
+                                                                                                         // Activate or hide winParticle based on the game outcome
+        if (isPlayerVictory)
+        {
+            winParticle.SetActive(true); // Activate winParticle if player won
+        }
+        else
+        {
+            winParticle.SetActive(false); // Hide winParticle if player lost
+        }
 
         // Fade in
         yield return outcomeText.DOFade(1f, 3f).WaitForCompletion(); // Fade in over 1 second

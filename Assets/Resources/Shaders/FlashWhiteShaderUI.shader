@@ -73,5 +73,5 @@ Shader "Unlit/FlashWhiteShaderUI"
                 ENDCG
             }
         }
-            FallBack "Diffuse"
+            FallBack "Universal Render Pipeline/Unlit"
 }

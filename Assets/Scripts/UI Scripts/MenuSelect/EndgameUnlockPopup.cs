@@ -120,6 +120,7 @@ public class EndgameUnlockPopup : MonoBehaviour
             unlockBackgroundRect.SetActive(false);
             unlockBackgroundSquare.SetActive(true);
             unlockBackgroundSquare.GetComponent<Image>().sprite = unlock.Image;
+            unlockBackgroundSquare.GetComponent<Image>().color = GetBackgroundColor(unlock);
         }
 
         // Reset the scales to 0 for animation

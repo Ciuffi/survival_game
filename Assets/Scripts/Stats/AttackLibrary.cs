@@ -146,7 +146,7 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
                     comboWaitTime: 1.25f,
-                    meleeShotsScaleUp: -0.25f,
+                    meleeShotsScaleUp: -0.2f,
                     meleeSpacer: 0.5f,
                     meleeSpacerGap: 2.2f,
                     shakeTime: 0.1f,
@@ -615,7 +615,7 @@ public static class AttackLibrary
                     comboWaitTime: 1f,
                     meleeSpacer: 1.25f,
                     meleeSpacerGap: 1.5f,
-                    meleeShotsScaleUp: -0.20f,
+                    meleeShotsScaleUp: -0.12f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
                     shakeRotation: 0.1f,
@@ -1078,7 +1078,7 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
                     comboWaitTime: 1.1f,
-                    meleeShotsScaleUp: -0.1f,
+                    meleeShotsScaleUp: -0.08f,
                     meleeSpacer: 0.5f,
                     meleeSpacerGap: 1.1f,
                     shakeTime: 0.1f,
@@ -1391,7 +1391,7 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
                     comboWaitTime: 1f,
-                    meleeShotsScaleUp: -0.20f,
+                    meleeShotsScaleUp: -0.15f,
                     meleeSpacer: 1f,
                     meleeSpacerGap: 1.3f,
                     shakeTime: 0.15f,
@@ -2547,7 +2547,7 @@ public static class AttackLibrary
                     multicastWaitTime: 0.25f,
                     comboLength: 1,
                     comboWaitTime: 1.2f,
-                    meleeShotsScaleUp: -0.20f,
+                    meleeShotsScaleUp: -0.18f,
                     meleeSpacer: 0.5f,
                     meleeSpacerGap: 1.5f,
                     shakeTime: 0.1f,
@@ -2836,8 +2836,14 @@ public static class AttackLibrary
             .SetAttackName("Revolver")
             .SetUnlockLevel(0)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
+            .SetAttackObjects(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
+            .SetAttackObjects(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
+            .SetAttackObjects(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
+            .SetAttackObjects(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
+            .SetAttackObjects(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
+            .SetAttackObjects(Resources.Load<GameObject>("Projectiles/BasicBullet_long"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
-            .SetDescription("It's high noon.")
+            .SetDescription("Lucky 6's")
             .SetBaseStats(
                 new AttackStats(
                     aimRange: 2f,
@@ -2859,7 +2865,8 @@ public static class AttackLibrary
                     shakeStrength: 0.1f,
                     shakeRotation: 0.05f,
                     thrownDamage: 6f,
-                    thrownSpeed: 0.5f
+                    thrownSpeed: 0.5f,
+                    swapAnimOnAttack: true
                 )
             )
             .SetProperties(
@@ -4177,6 +4184,9 @@ public static class AttackLibrary
             .SetAttackName("Wind Blade")
             .SetUnlockLevel(0)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/KatanaSlash"))
+            .SetAttackObjects(Resources.Load<GameObject>("Projectiles/Melee/KatanaSlash_3"))
+            .SetAttackObjects(Resources.Load<GameObject>("Projectiles/Melee/KatanaSlash_2"))
+            .SetAttackObjects(Resources.Load<GameObject>("Projectiles/Melee/KatanaSlash"))
             .SetWeaponSetType(WeaponSetType.Melee)
             .SetDescription("Power of God and Anime.")
             .SetBaseStats(
@@ -4193,10 +4203,10 @@ public static class AttackLibrary
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
                     comboLength: 3,
-                    comboWaitTime: 0.45f,
-                    meleeSpacer: 1.2f,
+                    comboWaitTime: 0.5f,
+                    meleeSpacer: 1.4f,
                     meleeSpacerGap: 1.2f,
-                    meleeShotsScaleUp: -0.2f,
+                    meleeShotsScaleUp: -0.10f,
                     shakeTime: 0.08f,
                     shakeStrength: 0.12f,
                     shakeRotation: 0.1f,

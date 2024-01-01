@@ -225,8 +225,8 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeSpacerMultiplier: 0.15f,
-                meleeSpacerGapMultiplier: 0.10f,
+                meleeSpacer: 0.3f,
+                meleeSpacerGap: 0.3f,
                 name: "Extend 1",
                 description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Extend"),
@@ -237,8 +237,8 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeSpacerMultiplier: -0.20f,
-                meleeSpacerGapMultiplier: -0.10f,
+                meleeSpacer: -0.3f,
+                meleeSpacerGap: -0.3f,
                 name: "Kamakazi 1",
                 description: "Decrease Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Kamakazi"),
@@ -484,8 +484,8 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeSpacerMultiplier: 0.25f,
-                meleeSpacerGapMultiplier: 0.15f,
+                meleeSpacer: 0.6f,
+                meleeSpacerGap: 0.6f,
                 name: "Extend 2",
                 description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Extend"),
@@ -496,8 +496,8 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeSpacerMultiplier: -0.35f,
-                meleeSpacerGapMultiplier: -0.15f,
+                meleeSpacer: -0.6f,
+                meleeSpacerGap: -0.6f,
                 name: "Kamakazi 2",
                 description: "Decrease Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Kamakazi"),
@@ -1007,8 +1007,8 @@ public static class AttackStatsLibrary
 
         AddStat(
             new AttackStats(
-                meleeSpacerMultiplier: 0.40f,
-                meleeSpacerGapMultiplier: 0.20f,
+                meleeSpacer: 1f,
+                meleeSpacerGap: 1f,
                 name: "Extend 3",
                 description: "Increase Range",
                 icon: Resources.Load<Sprite>("UI_Icons/Extend"),

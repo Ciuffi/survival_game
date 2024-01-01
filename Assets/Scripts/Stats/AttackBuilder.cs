@@ -7,6 +7,7 @@ public class AttackBuilder
     private string attackName;
     private int unlockLevel;
     private GameObject projectile;
+    private List<GameObject> attackObjects = new List<GameObject>();
     private AttackStats baseStats;
     private List<AttackStats> rarityUpgrades;
     private List<AttackStats> weaponUpgrades;
@@ -45,6 +46,12 @@ public class AttackBuilder
     public AttackBuilder SetProjectile(GameObject projectile)
     {
         this.projectile = projectile;
+        return this;
+    }
+
+    public AttackBuilder SetAttackObjects(GameObject attackObject)
+    {
+        attackObjects.Add(attackObject);
         return this;
     }
 
@@ -199,6 +206,7 @@ public class AttackBuilder
         // Set the properties of the Attack component
         attack.name = attackName;
         attack.projectile = projectile;
+        attack.attackObjects = attackObjects;
 
         if (rarity > 0)
         {
@@ -285,4 +293,10 @@ public class AttackBuilder
     {
         return description;
     }
+
+    public List<GameObject> GetAttackObjects()
+    {
+        return attackObjects;
+    }
+
 }
