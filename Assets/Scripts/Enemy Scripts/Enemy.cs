@@ -155,7 +155,7 @@ public class Enemy : MonoBehaviour, Attacker
     
     Vector3 deathPos;
     Vector3 stunPos;
-    private GameObject maxEnemiesTracker;
+    private MaxEnemyTracker maxEnemiesTracker;
 
     public float xpSizeScaling = 0.5f;
     public float destroyDistance = 12f;
@@ -190,7 +190,7 @@ public class Enemy : MonoBehaviour, Attacker
 
         canDamage = true;
         isDead = false;
-        maxEnemiesTracker = GameObject.Find("EnemyTracker");
+        maxEnemiesTracker = GameObject.Find("EnemyTracker").GetComponent<MaxEnemyTracker>();
 
         OGcolor = Sprite.GetComponent<SpriteRenderer>().color;
         color = Sprite.GetComponent<SpriteRenderer>().color;
@@ -318,6 +318,8 @@ public class Enemy : MonoBehaviour, Attacker
             return 0.5f * f * f * f + 1;
         }
     }
+
+    //check this once and reuse it everywhere else. 
     private void CheckDistanceToPlayer()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
@@ -416,7 +418,7 @@ public class Enemy : MonoBehaviour, Attacker
             if (Vector3.Distance(transform.position, endPosition) < 1f)
             {
                 Destroy(gameObject);
-                maxEnemiesTracker.GetComponent<MaxEnemyTracker>().DecreaseCount();
+                maxEnemiesTracker.DecreaseCount();
             }
         }
 
@@ -427,7 +429,7 @@ public class Enemy : MonoBehaviour, Attacker
             isDead = true;
             canMove = false;
             deathPos = transform.position;
-            maxEnemiesTracker.GetComponent<MaxEnemyTracker>().DecreaseCount();
+            maxEnemiesTracker.DecreaseCount();
 
             if (currentDoTAnimation != null)
             {
@@ -526,7 +528,7 @@ public class Enemy : MonoBehaviour, Attacker
         {
             if (isBoss)
             {
-                FindObjectOfType<GameManager>().EndGame();
+                FindObjectOfType<GameManager>().WinGame();
             } 
 
             if (isElite || isBoss)

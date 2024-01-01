@@ -55,6 +55,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: -1f,
                 critChance: 0.05f,
                 name: "MLG 1",
+                unlockLevel: 18,
                 description: "Decrease Aim Range, increase Crit Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Common
@@ -67,6 +68,7 @@ public static class AttackStatsLibrary
                 coneAngle: -30f,
                 critDmg: 0.25f,
                 name: "Gamer 1",
+                unlockLevel: 18,
                 description: "Decrease Aim Width, increase Crit Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Common
@@ -177,6 +179,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 speedMultiplier: 0.10f,
                 name: "Velocity 1",
+                unlockLevel: 8,
                 description: "Increase Projectile Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Velocity"),
                 rarity: Rarity.Common
@@ -188,6 +191,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                speedMultiplier: -0.12f,
                name: "Gravity 1",
+                unlockLevel: 8,
                description: "Decrease Projectile Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
                rarity: Rarity.Common
@@ -270,6 +274,7 @@ public static class AttackStatsLibrary
                 slowPercentage: 0.9f,
                 slowDuration: 1f,
                 name: "Slow Down 1",
+                unlockLevel: 2,
                 description: "Attacks slow enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
                 rarity: Rarity.Common
@@ -283,6 +288,7 @@ public static class AttackStatsLibrary
                 magnetStrength: 0.25f,
                 magnetDuration: 0.25f,
                 name: "Magnetize 1",
+                unlockLevel: 10,
                 description: "Attacks are magnetic",
                 icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
                 rarity: Rarity.Common
@@ -308,6 +314,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: -2f,
                 critChance: 0.1f,
                 name: "MLG 2",
+                unlockLevel: 18,
                 description: "Decrease Aim Range, increase Crit Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Rare
@@ -320,6 +327,7 @@ public static class AttackStatsLibrary
                 coneAngle: -60f,
                 critDmg: 0.45f,
                 name: "Gamer 2",
+                unlockLevel: 18,
                 description: "Decrease Aim Width, increase Crit Dmg",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Rare
@@ -430,6 +438,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 speedMultiplier: 0.20f,
                 name: "Velocity 2",
+                unlockLevel: 8,
                 description: "Increase Projectile Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Velocity"),
                 rarity: Rarity.Rare
@@ -441,6 +450,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                speedMultiplier: -0.22f,
                name: "Gravity 2",
+                unlockLevel: 8,
                description: "Decrease Projectile Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
                rarity: Rarity.Rare
@@ -612,6 +622,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttackMelee: 1,
                 name: "Aftershock 1",
+                unlockLevel: 6,
                 description: "Attacks release an Aftershock",
                 icon: Resources.Load<Sprite>("UI_Icons/Aftershock"),
                 rarity: Rarity.Rare
@@ -634,6 +645,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeShotsScaleUp: 0.08f,
                 name: "Wave Surge 1",
+                unlockLevel: 6,
                 description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
                 rarity: Rarity.Rare
@@ -645,6 +657,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 activeMultiplier: 0.3f,
                 name: "Persistence 1",
+                unlockLevel: 9,
                 description: "Increase Attack duration",
                 icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
                 rarity: Rarity.Rare
@@ -667,6 +680,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectDuration: 0.5f,
                 name: "Hourglass 1",
+                unlockLevel: 12,
                 description: "Increase Effect duration",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Rare
@@ -678,6 +692,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectMultiplier: 0.25f,
                 name: "Saboteur 1",
+                unlockLevel: 12,
                 description: "Increase Effect Power",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Rare
@@ -713,6 +728,7 @@ public static class AttackStatsLibrary
                dotDuration: 5,
                dotTickRate: 2,
                name: "Ignite 1",
+               unlockLevel: 4,
                description: "Attacks set enemies on Fire",
                icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
                rarity: Rarity.Rare
@@ -727,6 +743,7 @@ public static class AttackStatsLibrary
                 dotDuration: 3,
                 dotTickRate: 2,
                 name: "Cindershot 1",
+                unlockLevel: 4,
                 description: "Attacks set enemies on Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Rare
@@ -742,6 +759,7 @@ public static class AttackStatsLibrary
                 chainRange: 2.5f,
                 chainSpeed: 10f,
                 name: "Chain 1",
+                unlockLevel: 3,
                 description: "Attacks jump to 1 more target",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Rare
@@ -757,6 +775,7 @@ public static class AttackStatsLibrary
                 chainRange: 5f,
                 chainSpeed: 5f,
                 name: "Chain+ 1",
+                unlockLevel: 3,
                 description: "Attacks jump to 2 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Rare
@@ -770,6 +789,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.20f,
                 name: "Split 1",
+                unlockLevel: 7,
                 description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Rare
@@ -783,6 +803,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.3f,
                 name: "Split+ 1",
+                unlockLevel: 7,
                 description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Rare
@@ -796,6 +817,7 @@ public static class AttackStatsLibrary
                 slowPercentage: 0.8f,
                 slowDuration: 1.5f,
                 name: "Slow Down 2",
+                unlockLevel: 2,
                 description: "Attacks slow enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
                 rarity: Rarity.Rare
@@ -809,6 +831,7 @@ public static class AttackStatsLibrary
                 magnetStrength: 0.5f,
                 magnetDuration: 0.5f,
                 name: "Magnetize 2",
+                unlockLevel: 10,
                 description: "Attacks are magnetic",
                 icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
                 rarity: Rarity.Rare
@@ -836,6 +859,7 @@ public static class AttackStatsLibrary
                 aimRangeAdditive: -4f,
                 critChance: 0.15f,
                 name: "MLG 3",
+                unlockLevel: 18,
                 description: "Decrease Aim Range, increase Crit Chance",
                 icon: Resources.Load<Sprite>("UI_Icons/MLG"),
                 rarity: Rarity.Epic
@@ -848,6 +872,7 @@ public static class AttackStatsLibrary
                 coneAngle: -150f,
                 critDmg: 0.70f,
                 name: "Gamer 3",
+                unlockLevel: 18,
                 description: "Decrease Aim Width, increase Crit Dmg",
                 icon: Resources.Load<Sprite>("UI_Icons/Gamer"),
                 rarity: Rarity.Epic
@@ -936,6 +961,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 speedMultiplier: 0.3f,
                 name: "Velocity 3",
+                unlockLevel: 8,
                 description: "Increase Projectile Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Velocity"),
                 rarity: Rarity.Epic
@@ -947,6 +973,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                speedMultiplier: -0.35f,
                name: "Gravity 3",
+                unlockLevel: 8,
                description: "Decrease Projectile Speed",
                icon: Resources.Load<Sprite>("UI_Icons/Gravity"),
                rarity: Rarity.Rare
@@ -1126,6 +1153,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttackMelee: 1,
                 name: "Aftershock 2",
+                unlockLevel: 6,
                 description: "Attacks release an Aftershock",
                 icon: Resources.Load<Sprite>("UI_Icons/Aftershock"),
                 rarity: Rarity.Epic
@@ -1148,6 +1176,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 meleeShotsScaleUp: 0.12f,
                 name: "Wave Surge 2",
+                unlockLevel: 6,
                 description: "Increase Aftershock size",
                 icon: Resources.Load<Sprite>("UI_Icons/WaveSurge"),
                 rarity: Rarity.Epic
@@ -1160,6 +1189,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                activeMultiplier: 0.5f,
                name: "Persistence 2",
+                unlockLevel: 9,
                description: "Increase Attack duration",
                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
                rarity: Rarity.Epic
@@ -1182,6 +1212,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectDuration: 1f,
                 name: "Hourglass 2",
+                unlockLevel: 12,
                 description: "Increase Effect duration",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Epic
@@ -1193,6 +1224,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectMultiplier: 0.5f,
                 name: "Saboteur 2",
+                unlockLevel: 12,
                 description: "Increase Effect Power",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Epic
@@ -1207,6 +1239,7 @@ public static class AttackStatsLibrary
               dotDuration: 8,
               dotTickRate: 0.8f,
               name: "Ignite 2",
+              unlockLevel: 4,
               description: "Attacks set enemies on Fire",
               icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
               rarity: Rarity.Epic
@@ -1221,6 +1254,7 @@ public static class AttackStatsLibrary
                 dotDuration: 5,
                 dotTickRate: 0.8f,
                 name: "Cindershot 2",
+                unlockLevel: 4,
                 description: "Attacks set enemies on Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Epic
@@ -1233,6 +1267,7 @@ public static class AttackStatsLibrary
                 dotDuration: 10,
                 dotTickRate: 0.75f,
                 name: "Cindershot+ 2",
+                unlockLevel: 0,
                 description: "Longer, quicker burn. (Doesn't stack)",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Epic
@@ -1248,6 +1283,7 @@ public static class AttackStatsLibrary
                chainRange: 3f,
                chainSpeed: 14f,
                name: "Chain 2",
+               unlockLevel: 3,
                description: "Attacks jump to 1 more target",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                rarity: Rarity.Epic
@@ -1263,6 +1299,7 @@ public static class AttackStatsLibrary
                 chainRange: 6f,
                 chainSpeed: 7f,
                 name: "Chain+ 2",
+                unlockLevel: 3,
                 description: "Attacks jump to 4 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Epic
@@ -1276,6 +1313,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.33f,
                 name: "Split 2",
+                unlockLevel: 7,
                 description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Epic
@@ -1289,6 +1327,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.5f,
                 name: "Split+ 2",
+                unlockLevel: 7,
                 description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Epic
@@ -1302,6 +1341,7 @@ public static class AttackStatsLibrary
                slowPercentage: 0.65f,
                slowDuration: 2f,
                name: "Slow Down 3",
+                unlockLevel: 2,
                description: "Attacks slow enemies",
                icon: Resources.Load<Sprite>("UI_Icons/SlowDown"),
                rarity: Rarity.Epic
@@ -1315,6 +1355,7 @@ public static class AttackStatsLibrary
                 magnetStrength: 1f,
                 magnetDuration: 0.5f,
                 name: "Magnetize 3",
+                unlockLevel: 10,
                 description: "Attacks are magnetic",
                 icon: Resources.Load<Sprite>("UI_Icons/Magnetize"),
                 rarity: Rarity.Epic
@@ -1327,6 +1368,7 @@ public static class AttackStatsLibrary
                isStun: true,
                stunDuration: 0.5f,
                name: "Concussive 1",
+                unlockLevel: 11,
                description: "Attacks stun enemies",
                icon: Resources.Load<Sprite>("UI_Icons/Concussive"),
                rarity: Rarity.Epic
@@ -1340,6 +1382,7 @@ public static class AttackStatsLibrary
                lifestealAmount: 0.25f,
                lifestealChance: 0.02f,
                name: "Infusion 1",
+                unlockLevel: 13,
                description: "Chance to heal on hit",
                icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
                rarity: Rarity.Epic
@@ -1353,6 +1396,7 @@ public static class AttackStatsLibrary
                lifestealAmount: 0.25f,
                lifestealChance: 0.04f,
                name: "Infusion+ 1",
+                unlockLevel: 13,
                description: "Chance to heal on hit",
                icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
                rarity: Rarity.Epic
@@ -1366,6 +1410,7 @@ public static class AttackStatsLibrary
                lifestealAmount: 0.25f,
                lifestealChance: 0.05f,
                name: "Infusion++ 1",
+                unlockLevel: 13,
                description: "Chance to heal on hit",
                icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
                rarity: Rarity.Epic
@@ -1557,6 +1602,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 shotsPerAttackMelee: 2,
                 name: "Aftershock 3",
+                unlockLevel: 6,
                 description: "Attacks release 2 Aftershocks",
                 icon: Resources.Load<Sprite>("UI_Icons/Aftershock"),
                 rarity: Rarity.Legendary
@@ -1579,6 +1625,7 @@ public static class AttackStatsLibrary
            new AttackStats(
                activeMultiplier: 0.75f,
                name: "Persistence 3",
+                unlockLevel: 9,
                description: "Increase Attack duration",
                icon: Resources.Load<Sprite>("UI_Icons/ActiveTime"),
                rarity: Rarity.Legendary
@@ -1601,6 +1648,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectDuration: 1.5f,
                 name: "Hourglass 3",
+                unlockLevel: 12,
                 description: "Increase Effect duration",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectTime"),
                 rarity: Rarity.Legendary
@@ -1612,6 +1660,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 effectMultiplier: 0.75f,
                 name: "Saboteur 3",
+                unlockLevel: 12,
                 description: "Increase Effect Power",
                 icon: Resources.Load<Sprite>("UI_Icons/EffectPower"),
                 rarity: Rarity.Legendary
@@ -1622,9 +1671,10 @@ public static class AttackStatsLibrary
         AddStat(
             new AttackStats(
                 isHoming: true,
-                damage: -3,
+                damage: -1,
                 name: "Homing 1",
-                description: "Projectiles follow enemies, -3 Damage",
+                unlockLevel: 5,
+                description: "Projectiles follow enemies, -1 Damage",
                 icon: Resources.Load<Sprite>("UI_Icons/Homing"),
                 rarity: Rarity.Legendary
             )
@@ -1638,6 +1688,7 @@ public static class AttackStatsLibrary
               dotDuration: 10,
               dotTickRate: 0.75f,
               name: "Ignite 3",
+                unlockLevel: 4,
               description: "Attacks set enemies on Fire",
               icon: Resources.Load<Sprite>("UI_Icons/Ignite"),
               rarity: Rarity.Legendary
@@ -1652,6 +1703,7 @@ public static class AttackStatsLibrary
                 dotDuration: 6,
                 dotTickRate: 0.7f,
                 name: "Cindershot 3",
+                unlockLevel: 4,
                 description: "Attacks set enemies on Fire",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Legendary
@@ -1663,6 +1715,7 @@ public static class AttackStatsLibrary
             new AttackStats(
                 dotDamage: 5,
                 name: "Cindershot+ 3",
+                unlockLevel: 0,
                 description: "Burns like hell.",
                 icon: Resources.Load<Sprite>("UI_Icons/Cindershot"),
                 rarity: Rarity.Legendary
@@ -1678,6 +1731,7 @@ public static class AttackStatsLibrary
                chainRange: 4f,
                chainSpeed: 18f,
                name: "Chain 3",
+                unlockLevel: 3,
                description: "Attacks jump to 2 more targets",
                icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                rarity: Rarity.Legendary
@@ -1693,6 +1747,7 @@ public static class AttackStatsLibrary
                 chainRange: 8f,
                 chainSpeed: 10f,
                 name: "Chain+ 3",
+                unlockLevel: 3,
                 description: "Attacks jump to 5 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Chain"),
                 rarity: Rarity.Legendary
@@ -1706,6 +1761,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.50f,
                 name: "Split 3",
+                unlockLevel: 7,
                 description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Legendary
@@ -1719,6 +1775,7 @@ public static class AttackStatsLibrary
                 splitAmount: 1,
                 splitStatPercentage: 0.60f,
                 name: "Split+ 3",
+                unlockLevel: 7,
                 description: "Attacks create a lesser clone on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Split"),
                 rarity: Rarity.Legendary
@@ -1731,6 +1788,7 @@ public static class AttackStatsLibrary
                isStun: true,
                stunDuration: 1f,
                name: "Concussive 2",
+                unlockLevel: 11,
                description: "Attacks stun enemies",
                icon: Resources.Load<Sprite>("UI_Icons/Concussive"),
                rarity: Rarity.Legendary
@@ -1744,6 +1802,7 @@ public static class AttackStatsLibrary
                lifestealAmount: 0.3f,
                lifestealChance: 0.03f,
                name: "Infusion 2",
+                unlockLevel: 13,
                description: "Chance to heal on hit",
                icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
                rarity: Rarity.Legendary
@@ -1757,6 +1816,7 @@ public static class AttackStatsLibrary
                lifestealAmount: 0.3f,
                lifestealChance: 0.05f,
                name: "Infusion+ 2",
+                unlockLevel: 13,
                description: "Chance to heal on hit",
                icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
                rarity: Rarity.Legendary
@@ -1770,6 +1830,7 @@ public static class AttackStatsLibrary
                lifestealAmount: 0.4f,
                lifestealChance: 0.08f,
                name: "Infusion++ 2",
+                unlockLevel: 13,
                description: "Chance to heal on hit",
                icon: Resources.Load<Sprite>("UI_Icons/Infusion"),
                rarity: Rarity.Legendary

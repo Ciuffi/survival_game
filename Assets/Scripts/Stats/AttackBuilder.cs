@@ -280,4 +280,9 @@ public class AttackBuilder
     {
         return weaponSetType.ToString();
     }
+
+    public string GetDescription()
+    {
+        return description;
+    }
 }

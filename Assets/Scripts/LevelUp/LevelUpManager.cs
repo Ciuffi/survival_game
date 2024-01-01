@@ -136,6 +136,7 @@ public class LevelUpManager : MonoBehaviour
 
     public void setUpgrades()
     {
+        int playerLevel = PlayerDataManager.Instance.playerLevel; // Get the player's current level
         previousUpgrades.Clear();
 
         if (isWeapon)
@@ -552,6 +553,7 @@ public class LevelUpManager : MonoBehaviour
 
     public GameObject[] GetAttackStatsGameObjects()
     {
+        int playerLevel = PlayerDataManager.Instance.playerLevel; // Get the player's current level
         var attackHandler = FindObjectOfType<AttackHandler>();
         GameObject statObject = new GameObject();
 
@@ -559,11 +561,14 @@ public class LevelUpManager : MonoBehaviour
         {
             foreach (AttackStats stats in attack.weaponUpgrades)
             {
-                GameObject upgradeGameObject = Instantiate(statObject);
-                upgradeGameObject.AddComponent<AttackStatComponent>().stat = stats;
-                upgradeGameObject.GetComponent<AttackStatComponent>().stat.statsContainer = upgradeGameObject;
-                upgradeGameObject.name = upgradeGameObject.GetComponent<AttackStatComponent>().stat.name;
-                potentialUpgrades.Add(upgradeGameObject);
+                if (stats.unlockLevel <= playerLevel) // Filter based on unlockLevel
+                {
+                    GameObject upgradeGameObject = Instantiate(statObject);
+                    upgradeGameObject.AddComponent<AttackStatComponent>().stat = stats;
+                    upgradeGameObject.GetComponent<AttackStatComponent>().stat.statsContainer = upgradeGameObject;
+                    upgradeGameObject.name = upgradeGameObject.GetComponent<AttackStatComponent>().stat.name;
+                    potentialUpgrades.Add(upgradeGameObject);
+                }
             }
         }
 

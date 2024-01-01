@@ -115,7 +115,7 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
-    private void SaveInventory()
+    public void SaveInventory()
     {
         string weaponsJson = JsonConvert.SerializeObject(weaponInventory);
         PlayerPrefs.SetString("Weapons", weaponsJson);

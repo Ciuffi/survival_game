@@ -28,6 +28,8 @@ public class PlayerDataManager : MonoBehaviour
     public static PlayerDataManager Instance { get; private set; }
     public Dictionary<string, int> upgradeIndices = new Dictionary<string, int>();
 
+    public bool HasLeveledUp { get; private set; }
+
     private void Awake()
     {
         if (Instance == null)
@@ -280,7 +282,7 @@ public class PlayerDataManager : MonoBehaviour
     private void CalculateAndApplyXp(int guilt, int stage)
     {
         int baseXp = GetBaseXpForCurrentStage(stage); // Implement this based on your game's logic
-        int xpMultiplier = guilt + 1;
+        int xpMultiplier = Mathf.RoundToInt(1 + ((guilt + 1)  * 0.1f));
         int xpEarned = baseXp * xpMultiplier;
         Debug.Log("xp +" + xpEarned);
         currentXp += xpEarned;
@@ -295,12 +297,12 @@ public class PlayerDataManager : MonoBehaviour
 
     private void CheckLevelUp()
     {
+        HasLeveledUp = false;
         while (currentXp >= LevelArray[playerLevel])
         {
             currentXp -= LevelArray[playerLevel];
             playerLevel++;
-            Debug.Log("currentLevel " + playerLevel);
-            // Additional level-up logic (e.g., rewards, notifications) goes here
+            HasLeveledUp = true;
         }
     }
 
@@ -362,4 +364,107 @@ public class PlayerDataManager : MonoBehaviour
         }
     }
 
+
+    public Unlockable[] GetUnlocksAtLevel(int level)
+    {
+        List<Unlockable> unlocks = new List<Unlockable>();
+
+        unlocks.AddRange(GetPlayerStatsUnlocks(level));
+        unlocks.AddRange(GetAttackStatsUnlocks(level));
+        unlocks.AddRange(GetPlayerCharactersUnlocks(level));
+        unlocks.AddRange(GetPlayerUpgradesUnlocks(level));
+        unlocks.AddRange(GetWeaponsUnlocks(level));
+
+        return unlocks.ToArray();
+    }
+
+    private IEnumerable<Unlockable> GetPlayerStatsUnlocks(int level)
+    {
+        return PlayerStatsLibrary.getStats()
+        .Where(stat => stat.unlockLevel == level)
+        .GroupBy(stat => stat.name.Substring(0, stat.name.Length - 2))
+        .Select(group => group.First())
+        .Select(stat => new Unlockable
+        {
+            Name = stat.name,
+            Description = stat.description,
+            Image = stat.icon,
+            Type = UnlockableType.PlayerStat
+        });
+    }
+
+    private IEnumerable<Unlockable> GetAttackStatsUnlocks(int level)
+    {
+        return AttackStatsLibrary.GetStats()
+          .Where(stat => stat.unlockLevel == level)
+          .GroupBy(stat => stat.name.Substring(0, stat.name.Length - 2))
+          .Select(group => group.First())
+          .Select(stat => new Unlockable
+          {
+              Name = stat.name,
+              Description = stat.description,
+              Image = stat.icon,
+              Type = UnlockableType.AttackStat
+          });
+    }
+
+    private IEnumerable<Unlockable> GetPlayerCharactersUnlocks(int level)
+    {
+        return PlayerCharactersLibrary.getCharacters()
+         .Where(characterObject => characterObject.GetComponent<StatComponent>().stat.level == level)
+         .Select(characterObject => new Unlockable
+         {
+             Name = characterObject.name,
+             Description = characterObject.GetComponent<StatComponent>().stat.description,
+             Image = characterObject.GetComponent<StatComponent>().stat.icon,
+             Type = UnlockableType.PlayerCharacter
+         });
+    }
+
+    private IEnumerable<Unlockable> GetPlayerUpgradesUnlocks(int level)
+    {
+        return PlayerUpgradesLibrary.getUpgrades()
+        .Where(upgradeObject => upgradeObject.GetComponent<StatComponent>().stat.unlockLevel == level)
+        .GroupBy(upgradeObject => upgradeObject.name.Substring(0, upgradeObject.name.Length - 2))
+        .Select(group => group.First())
+        .Select(upgradeObject => new Unlockable
+        {
+            Name = upgradeObject.name,
+            Description = upgradeObject.GetComponent<StatComponent>().stat.description,
+            Image = upgradeObject.GetComponent<StatComponent>().stat.icon,
+            Type = UnlockableType.PlayerUpgrade
+        });
+    }
+
+    private IEnumerable<Unlockable> GetWeaponsUnlocks(int level)
+    {
+        return AttackLibrary.getAttackBuilders()
+            .Where(builder => builder.GetUnlockLevel() == level)
+            .Select(builder =>
+            {
+                UnlockWeapon(builder.GetAttackName(), 0); // Add the weapon to the inventory when it's unlocked
+
+            return new Unlockable
+                {
+                    Name = builder.GetAttackName(),
+                    Description = builder.GetDescription(),
+                    Image = builder.GetDisplaySprite(0),
+                    Type = UnlockableType.Weapon
+                };
+            });
+    }
+
+    public void UnlockWeapon(string weaponName, int rarity)
+    {
+        // Add the new weapon to the player's inventory
+        PlayerInventory.Instance.AddWeapon(new Weapon(weaponName, rarity, false, 1));
+    }
+}
+
+public class Unlockable
+{
+    public string Name;
+    public string Description;
+    public Sprite Image;
+    public UnlockableType Type; // Enum for type (PlayerStat, AttackStat, etc.)
 }

@@ -71,11 +71,17 @@ public class GameManager : MonoBehaviour
         DeathTransition.Instance.StartTransition();
         int currentStageID = SceneManager.GetActiveScene().buildIndex;
         playerData.UnlockNextStage(currentStageID);
+
+        PlayerPrefs.SetInt("isPlayerVictory", 1); // 1 for victory
+        Debug.Log("Victory");
     }
 
     public void EndGame()
     {
         DeathTransition.Instance.StartTransition();
+        PlayerPrefs.SetInt("isPlayerVictory", 0); // 0 for loss
+        Debug.Log("Defeat");
+
     }
 
     public void playerDeathScreen()

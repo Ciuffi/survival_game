@@ -24,6 +24,11 @@ public class EndGameText : MonoBehaviour
     private Color totalDmgColor, wpnDmgColor, runStatsColor, timeSurvivedColor, goldGainedColor, enemiesKilledColor;
     private bool skipToEnd = false; // Added to allow skip
 
+    public TextMeshProUGUI outcomeText;
+    public List<string> winMessages;
+    public List<string> loseMessages;
+
+
     private void Update() // Listen for a screen tap
     {
         if (Input.GetMouseButtonDown(0))
@@ -55,7 +60,20 @@ public class EndGameText : MonoBehaviour
         enemiesKilledColor = enemiesKilledText.color;
 
         HideTextElements();
+        StartCoroutine(DisplayOutcomeMessage());
         StartCoroutine(StartCounting(finalDmg, timeSurvived, goldGained, enemiesKilled, weaponStats));
+    }
+
+    private IEnumerator DisplayOutcomeMessage()
+    {
+        bool isPlayerVictory = PlayerPrefs.GetInt("isPlayerVictory", 0) == 1; // Retrieves and converts the int to a bool
+        string message = isPlayerVictory ? winMessages[Random.Range(0, winMessages.Count)] : loseMessages[Random.Range(0, loseMessages.Count)];
+
+        outcomeText.text = message;
+        outcomeText.color = new Color(outcomeText.color.r, outcomeText.color.g, outcomeText.color.b, 0); // Set alpha to 0
+
+        // Fade in
+        yield return outcomeText.DOFade(1f, 3f).WaitForCompletion(); // Fade in over 1 second
     }
 
     private void HideTextElements()

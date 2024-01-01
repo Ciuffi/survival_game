@@ -130,7 +130,7 @@ public static class AttackLibrary
 
         AttackBuilder Consecrate = new AttackBuilder()
             .SetAttackName("Consecrate")
-            .SetUnlockLevel(3)
+            .SetUnlockLevel(9)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Consecrate"))
             .SetWeaponSetType(WeaponSetType.Nova)
             .SetDescription("The light shall burn you.")
@@ -595,7 +595,7 @@ public static class AttackLibrary
 
         AttackBuilder DrainScythe = new AttackBuilder()
             .SetAttackName("Drain Scythe")
-            .SetUnlockLevel(3)
+            .SetUnlockLevel(6)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/DrainScythe"))
             .SetWeaponSetType(WeaponSetType.Melee)
             .SetDescription("Why you walkin' so slow?")
@@ -614,7 +614,7 @@ public static class AttackLibrary
                     comboLength: 1,
                     comboWaitTime: 1f,
                     meleeSpacer: 1.25f,
-                    meleeSpacerGap: 1.25f,
+                    meleeSpacerGap: 1.5f,
                     meleeShotsScaleUp: -0.20f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
@@ -752,7 +752,7 @@ public static class AttackLibrary
 
         AttackBuilder EarthShock = new AttackBuilder()
             .SetAttackName("Earth Shock")
-            .SetUnlockLevel(1)
+            .SetUnlockLevel(21)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/EarthShock"))
             .SetWeaponSetType(WeaponSetType.Melee)
             .SetDescription("Pound the ground.")
@@ -1059,7 +1059,7 @@ public static class AttackLibrary
 
         AttackBuilder GravityGrab = new AttackBuilder()
             .SetAttackName("Eldritch Grasp")
-            .SetUnlockLevel(4)
+            .SetUnlockLevel(13)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/GravityGrab"))
             .SetWeaponSetType(WeaponSetType.Melee)
             .SetDescription("Pull 'em in, maybe too in.")
@@ -1080,7 +1080,7 @@ public static class AttackLibrary
                     comboWaitTime: 1.1f,
                     meleeShotsScaleUp: -0.1f,
                     meleeSpacer: 0.5f,
-                    meleeSpacerGap: 1f,
+                    meleeSpacerGap: 1.1f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.3f,
                     shakeRotation: 1f,
@@ -1214,7 +1214,7 @@ public static class AttackLibrary
 
         AttackBuilder GatlingGun = new AttackBuilder()
             .SetAttackName("Gatling Gun")
-            .SetUnlockLevel(1)
+            .SetUnlockLevel(5)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_Tiny"))
             .SetWeaponSetType(WeaponSetType.Automatic)
             .SetDescription("Spray 'n pray.")
@@ -1372,7 +1372,7 @@ public static class AttackLibrary
 
         AttackBuilder GodHand = new AttackBuilder()
             .SetAttackName("God Hand")
-            .SetUnlockLevel(5)
+            .SetUnlockLevel(17)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/MeleeFist"))
             .SetWeaponSetType(WeaponSetType.Melee)
             .SetDescription("Violence is the answer.")
@@ -1393,7 +1393,7 @@ public static class AttackLibrary
                     comboWaitTime: 1f,
                     meleeShotsScaleUp: -0.20f,
                     meleeSpacer: 1f,
-                    meleeSpacerGap: 1f,
+                    meleeSpacerGap: 1.3f,
                     shakeTime: 0.15f,
                     shakeStrength: 0.7f,
                     shakeRotation: 0.5f
@@ -1646,7 +1646,7 @@ public static class AttackLibrary
 
         AttackBuilder ImpactMine = new AttackBuilder()
             .SetAttackName("Impact Mine")
-            .SetUnlockLevel(3)
+            .SetUnlockLevel(19)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/mine_impact"))
             .SetWeaponSetType(WeaponSetType.Explosive)
             .SetDescription("Lure 'em in and watch 'em fly.")
@@ -1796,7 +1796,7 @@ public static class AttackLibrary
 
         AttackBuilder ImpactNova = new AttackBuilder()
             .SetAttackName("Impact Nova")
-            .SetUnlockLevel(1)
+            .SetUnlockLevel(11)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_impact"))
             .SetWeaponSetType(WeaponSetType.Nova)
             .SetDescription("Do I have to aim? No?")
@@ -1815,7 +1815,7 @@ public static class AttackLibrary
                     comboWaitTime: 1.5f,
                     meleeShotsScaleUp: -0.12f,
                     meleeSpacer: 0.5f,
-                    meleeSpacerGap: 0.5f,
+                    meleeSpacerGap: 1f,
                     shakeTime: 0.1f,
                     shakeStrength: 0.5f,
                     shakeRotation: 0.1f,
@@ -1942,7 +1942,7 @@ public static class AttackLibrary
 
         AttackBuilder SuctionBeam = new AttackBuilder()
             .SetAttackName("Suction Beam")
-            .SetUnlockLevel(4)
+            .SetUnlockLevel(20)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/DoubleBeam"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetDescription("Firin' mah lazer!")
@@ -2094,7 +2094,7 @@ public static class AttackLibrary
 
         AttackBuilder RPG = new AttackBuilder()
             .SetAttackName("RPG")
-            .SetUnlockLevel(5)
+            .SetUnlockLevel(7)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/missile_frag"))
             .SetWeaponSetType(WeaponSetType.Explosive)
             .SetDescription("Heat seeking missiles.")
@@ -2243,7 +2243,7 @@ public static class AttackLibrary
 
         AttackBuilder PainWheel = new AttackBuilder()
             .SetAttackName("Pain Wheel")
-            .SetUnlockLevel(2)
+            .SetUnlockLevel(16)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetDescription("Keep on spinnin'")
@@ -2386,7 +2386,7 @@ public static class AttackLibrary
 
         AttackBuilder PetrifyGrenade = new AttackBuilder()
             .SetAttackName("Petrify Grenade")
-            .SetUnlockLevel(4)
+            .SetUnlockLevel(15)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_stun"))
             .SetWeaponSetType(WeaponSetType.Explosive)
             .SetDescription("Stay right where you are.")
@@ -2530,7 +2530,7 @@ public static class AttackLibrary
 
         AttackBuilder PetrifyNova = new AttackBuilder()
             .SetAttackName("Petrify Nova")
-            .SetUnlockLevel(5)
+            .SetUnlockLevel(15)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_Petrify"))
             .SetWeaponSetType(WeaponSetType.Nova)
             .SetDescription("Freeze!")
@@ -2676,7 +2676,7 @@ public static class AttackLibrary
 
         AttackBuilder PlasmaPistol = new AttackBuilder()
             .SetAttackName("Plasma Pistol")
-            .SetUnlockLevel(2)
+            .SetUnlockLevel(3)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/PlasmaBullet"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetDescription("Lightning in your pocket.")
@@ -2834,7 +2834,7 @@ public static class AttackLibrary
 
         AttackBuilder Revolver = new AttackBuilder()
             .SetAttackName("Revolver")
-            .SetUnlockLevel(1)
+            .SetUnlockLevel(0)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_Magnum"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetDescription("It's high noon.")
@@ -2851,7 +2851,7 @@ public static class AttackLibrary
                     shotsPerAttack: 6,
                     speed: 0.18f,
                     knockback: 0.5f,
-                    pierce: 2,
+                    pierce: 4,
                     critChance: 0.05f,
                     critDmg: 1.5f,
                     multicastWaitTime: 0.25f,
@@ -2982,7 +2982,7 @@ public static class AttackLibrary
 
         AttackBuilder Shotgun = new AttackBuilder()
             .SetAttackName("Pump-Action")
-            .SetUnlockLevel(1)
+            .SetUnlockLevel(2)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_wide"))
             .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetDescription("Up close and personal.")
@@ -3122,7 +3122,7 @@ public static class AttackLibrary
 
         AttackBuilder Shuriken = new AttackBuilder()
             .SetAttackName("Shuriken")
-            .SetUnlockLevel(2)
+            .SetUnlockLevel(8)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Shuriken_small"))
             .SetWeaponSetType(WeaponSetType.Shotgun)
             .SetDescription("Dattebayo!")
@@ -3274,7 +3274,7 @@ public static class AttackLibrary
 
         AttackBuilder SMG = new AttackBuilder()
             .SetAttackName("SMG")
-            .SetUnlockLevel(0)
+            .SetUnlockLevel(1)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_SMG"))
             .SetWeaponSetType(WeaponSetType.Automatic)
             .SetDescription("Lil' Uzi Vertical")
@@ -3420,7 +3420,7 @@ public static class AttackLibrary
 
         AttackBuilder SmokeGrenade = new AttackBuilder()
             .SetAttackName("Smoke Grenade")
-            .SetUnlockLevel(0)
+            .SetUnlockLevel(12)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_slow"))
             .SetWeaponSetType(WeaponSetType.Explosive)
             .SetDescription("Hotbox the world.")
@@ -3573,7 +3573,7 @@ public static class AttackLibrary
 
         AttackBuilder Sniper = new AttackBuilder()
             .SetAttackName("Sniper Rifle")
-            .SetUnlockLevel(2)
+            .SetUnlockLevel(18)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/BasicBullet_long"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetDescription("Cheers, mate.")
@@ -3715,7 +3715,7 @@ public static class AttackLibrary
 
         AttackBuilder GravityCannon = new AttackBuilder()
             .SetAttackName("Gravity Cannon")
-            .SetUnlockLevel(6)
+            .SetUnlockLevel(10)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/SuctionCannon_Orb"))
             .SetWeaponSetType(WeaponSetType.SemiAuto)
             .SetDescription("Mini-black hole dispenser.")
@@ -3862,7 +3862,7 @@ public static class AttackLibrary
 
         AttackBuilder SuctionGrenade = new AttackBuilder()
             .SetAttackName("Suction Grenade")
-            .SetUnlockLevel(6)
+            .SetUnlockLevel(14)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Grenade/grenade_suction"))
             .SetWeaponSetType(WeaponSetType.Explosive)
             .SetDescription("Maintain a safe distance.")
@@ -4014,7 +4014,7 @@ public static class AttackLibrary
 
         AttackBuilder SuctionNova = new AttackBuilder()
             .SetAttackName("Suction Nova")
-            .SetUnlockLevel(6)
+            .SetUnlockLevel(14)
             .SetProjectile(Resources.Load<GameObject>("Projectiles/Melee/Nova_gravity"))
             .SetWeaponSetType(WeaponSetType.Nova)
             .SetDescription("GET OVER HERE!")
@@ -4195,7 +4195,7 @@ public static class AttackLibrary
                     comboLength: 3,
                     comboWaitTime: 0.45f,
                     meleeSpacer: 1.2f,
-                    meleeSpacerGap: 1.1f,
+                    meleeSpacerGap: 1.2f,
                     meleeShotsScaleUp: -0.2f,
                     shakeTime: 0.08f,
                     shakeStrength: 0.12f,

@@ -64,7 +64,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 isRevenge: true,
                 revengeDamage: 10,
-                unlockLevel: 1,
+                unlockLevel: 13,
                 name: "Revenge 1",
                 description: "Damage those who hurt you",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Revenge"),
@@ -143,7 +143,7 @@ public static class PlayerStatsLibrary
                 critChance: 0.10f,
                 critDmg: 1f,
                 damageMultiplier: -0.25f,
-                unlockLevel: 1,
+                unlockLevel: 18,
                 name: "Gambler 2",
                 description: "Crit Chance +10%, Crit Damage +100%, Damage -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
@@ -159,7 +159,7 @@ public static class PlayerStatsLibrary
                 thrownDamageMultiplier: 1f,
                 thrownWeaponSizeMultiplier: 0.25f,
                 name: "Pitcher 2",
-                unlockLevel: 1,
+                unlockLevel: 0,
                 description: "Weapon Throw: Speed and Damage +100%, Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Pitch"),
                 rarity: Rarity.Rare
@@ -173,7 +173,7 @@ public static class PlayerStatsLibrary
                 thrownDamageMultiplier: 0.5f,
                 thrownWeaponSizeMultiplier: 0.15f,
                 name: "Tosser 2",
-                unlockLevel: 1,
+                unlockLevel: 0,
                 description: "Weapon Throw: Speed -70%, Damage +50%, Size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Toss"),
                 rarity: Rarity.Rare
@@ -247,7 +247,7 @@ public static class PlayerStatsLibrary
                 projectileSizeMultiplier: -0.2f,
                 meleeSizeMultiplier: -0.2f,
                 name: "Hoverball 1",
-                unlockLevel: 2,
+                unlockLevel: 21,
                 description: "Attack Duration +50%, Pierce +5, Size -20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Hover"),
                 rarity: Rarity.Rare
@@ -260,7 +260,7 @@ public static class PlayerStatsLibrary
                 projectileSizeMultiplier: 0.15f,
                 meleeSizeMultiplier: 0.15f,
                 name: "Biggenball 1",
-                unlockLevel: 0,
+                unlockLevel: 17,
                 description: "Attack, Projectile Size +15%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Biggen"),
                 rarity: Rarity.Rare
@@ -273,7 +273,7 @@ public static class PlayerStatsLibrary
                 effectDuration: 1f,
                 effectMultiplier: -0.5f,
                 name: "Curse 1",
-                unlockLevel: 5,
+                unlockLevel: 14,
                 description: "Effect Duration +1s, Effect Power -50%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Curse"),
                 rarity: Rarity.Rare
@@ -286,7 +286,7 @@ public static class PlayerStatsLibrary
                 effectDuration: -1f,
                 effectMultiplier: 0.5f,
                 name: "Doom 1",
-                unlockLevel: 5,
+                unlockLevel: 15,
                 description: "Effect Power +50%, Effect Duration -1s",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Doom"),
                 rarity: Rarity.Rare
@@ -313,7 +313,7 @@ public static class PlayerStatsLibrary
                 slowPercentage: 0.6f,
                 knockbackMultiplier: -0.25f,
                 name: "Sleepy 1",
-                unlockLevel: 3,
+                unlockLevel: 19,
                 description: "Attacks slow for 2s, Knockback -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Sleepy"),
                 rarity: Rarity.Rare
@@ -325,7 +325,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 isRevenge: true,
                 revengeDamage: 15,
-                unlockLevel: 1,
+                unlockLevel: 13,
                 name: "Revenge 2",
                 description: "Damage those who hurt you",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Revenge"),
@@ -353,7 +353,7 @@ public static class PlayerStatsLibrary
                 lifestealAmount: 0.25f,
                 lifestealChance: 0.02f,
                 name: "Lifesteal 1",
-                unlockLevel: 0,
+                unlockLevel: 16,
                 description: "Chance to heal on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Lifesteal"),
                 rarity: Rarity.Rare
@@ -419,7 +419,7 @@ public static class PlayerStatsLibrary
                 critChance: 0.20f,
                 critDmg: 2f,
                 damageMultiplier: -0.40f,
-                unlockLevel: 1,
+                unlockLevel: 18,
                 name: "Gambler 3",
                 description: "Crit Chance +20%, Crit Damage +200%, Damage -40%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
@@ -434,7 +434,7 @@ public static class PlayerStatsLibrary
                 thrownSpeedMultiplier: 1.5f,
                 thrownDamageMultiplier: 1.5f,
                 thrownWeaponSizeMultiplier: 0.3f,
-                unlockLevel: 1,
+                unlockLevel: 0,
                 name: "Pitcher 3",
                 description: "Weapon Throw: Speed and Damage +150%, Size +30%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Pitch"),
@@ -448,7 +448,7 @@ public static class PlayerStatsLibrary
                 thrownSpeedMultiplier: -0.9f,
                 thrownDamageMultiplier: 0.75f,
                 thrownWeaponSizeMultiplier: 0.2f,
-                unlockLevel: 1,
+                unlockLevel: 0,
                 name: "Tosser 3",
                 description: "Weapon Throw: Speed -90%, Damage +75%, Size +20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Toss"),
@@ -550,7 +550,7 @@ public static class PlayerStatsLibrary
                 pierce: 10,
                 projectileSizeMultiplier: -0.25f,
                 meleeSizeMultiplier: -0.25f,
-                unlockLevel: 2,
+                unlockLevel: 21,
                 name: "Hoverball 2",
                 description: "Attack Duration +75%, Pierce +10, Size -25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Hover"),
@@ -564,7 +564,7 @@ public static class PlayerStatsLibrary
                 projectileSizeMultiplier: 0.25f,
                 meleeSizeMultiplier: 0.25f,
                 name: "Biggenball 2",
-                unlockLevel: 0,
+                unlockLevel: 17,
                 description: "Attack, Projectile Size +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Biggen"),
                 rarity: Rarity.Epic
@@ -577,7 +577,7 @@ public static class PlayerStatsLibrary
                 effectDuration: 1.5f,
                 effectMultiplier: -0.75f,
                 name: "Curse 2",
-                unlockLevel: 5,
+                unlockLevel: 14,
                 description: "Effect Duration +1.5s, Effect Power -75%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Curse"),
                 rarity: Rarity.Epic
@@ -590,7 +590,7 @@ public static class PlayerStatsLibrary
                 effectDuration: -1.5f,
                 effectMultiplier: 0.75f,
                 name: "Doom 2",
-                unlockLevel: 5,
+                unlockLevel: 15,
                 description: "Effect Power +75%, Effect Duration -1.5s",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Doom"),
                 rarity: Rarity.Epic
@@ -603,7 +603,7 @@ public static class PlayerStatsLibrary
                 dotDamage: 6,
                 name: "Pyro 2",
                 description: "+6 Burn Damage",
-                unlockLevel: 5,
+                unlockLevel: 4,
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Pyro"),
                 rarity: Rarity.Epic
             )
@@ -616,7 +616,7 @@ public static class PlayerStatsLibrary
                 chainRange: 0.5f,
                 chainSpeed: 3,
                 name: "Link 2",
-                unlockLevel: 5,
+                unlockLevel: 3,
                 description: "Improve Chain Amount, Range and Speed",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Link"),
                 rarity: Rarity.Epic
@@ -629,7 +629,7 @@ public static class PlayerStatsLibrary
                 splitAmount: -1,
                 splitStatPercentage: 0.6f,
                 name: "Mitosis 2",
-                unlockLevel: 5,
+                unlockLevel: 7,
                 description: "Split into 1 fewer attack, all splits gain +60% stats",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Mitosis"),
                 rarity: Rarity.Epic
@@ -656,7 +656,7 @@ public static class PlayerStatsLibrary
                 slowPercentage: 0.5f,
                 knockbackMultiplier: -0.5f,
                 name: "Sleepy 2",
-                unlockLevel: 3,
+                unlockLevel: 19,
                 description: "Attacks slow for 4s, Knockback -50%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Sleepy"),
                 rarity: Rarity.Epic
@@ -668,7 +668,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 is360: true,
                 name: "Visor 1",
-                unlockLevel: 4,
+                unlockLevel: 0,
                 description: "360 Aim",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Visor"),
                 rarity: Rarity.Epic
@@ -681,7 +681,7 @@ public static class PlayerStatsLibrary
                 isHoming: true,
                 spreadMultiplier: -0.2f,
                 name: "Telekinesis 1",
-                unlockLevel: 4,
+                unlockLevel: 5,
                 description: "Projectiles follow enemies, Rate of Fire -20%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Telekinesis"),
                 rarity: Rarity.Epic
@@ -698,7 +698,7 @@ public static class PlayerStatsLibrary
                 shotsPerAttack: -1000,
                 shotsPerAttackMelee: -1000,
                 comboLength: -1000,
-                unlockLevel: 2,
+                unlockLevel: 8,
                 name: "Quarterback 1",
                 description: "Weapon throw: Damage, Size +150%, Cooldowns -50%, Cannot attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Quarterback"),
@@ -713,7 +713,7 @@ public static class PlayerStatsLibrary
                 dotDuration: 10f,
                 dotTickRate: 0.5f,
                 name: "Gasoline 1",
-                unlockLevel: 3,
+                unlockLevel: 4,
                 description: "All attacks Ignite for 10 seconds and burn twice as quickly.",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gasoline"),
                 rarity: Rarity.Epic
@@ -730,7 +730,7 @@ public static class PlayerStatsLibrary
                 projectileSizeMultiplier: -0.6f,
                 meleeSizeMultiplier: -0.6f,
                 name: "Clone 1",
-                unlockLevel: 3,
+                unlockLevel: 7,
                 description: "Split amount +1, -60% Damage and Size",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Clone"),
                 rarity: Rarity.Epic
@@ -746,7 +746,7 @@ public static class PlayerStatsLibrary
                 chainRange: 2f,
                 chainSpeed: 5f,
                 name: "Battery 1",
-                unlockLevel: 2,
+                unlockLevel: 3,
                 description: "Damage jumps to 2 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Battery"),
                 rarity: Rarity.Epic
@@ -761,7 +761,7 @@ public static class PlayerStatsLibrary
                 magnetStrength: 0.75f,
                 knockbackMultiplier: 0.25f,
                 name: "Polarity 1",
-                unlockLevel: 2,
+                unlockLevel: 10,
                 description: "Attacks pull targets in, Knockback +25%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Polarity"),
                 rarity: Rarity.Epic
@@ -775,7 +775,7 @@ public static class PlayerStatsLibrary
                critChance: 0.1f,
                critDmg: 0.5f,
                name: "Glass 1",
-               unlockLevel: 1,
+               unlockLevel: 0,
                description: "Crit Chance +10%, Crit Damage +50%, take +1 more Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Relics/Glass"),
                rarity: Rarity.Epic
@@ -787,7 +787,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 isRevenge: true,
                 revengeDamage: 20,
-                unlockLevel: 1,
+                unlockLevel: 13,
                 name: "Revenge 3",
                 description: "Damage those who hurt you",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Revenge"),
@@ -815,7 +815,7 @@ public static class PlayerStatsLibrary
                 lifestealAmount: 0.4f,
                 lifestealChance: 0.03f,
                 name: "Lifesteal 2",
-                unlockLevel: 0,
+                unlockLevel: 16,
                 description: "Chance to heal on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Lifesteal"),
                 rarity: Rarity.Epic
@@ -857,7 +857,7 @@ public static class PlayerStatsLibrary
                 critChance: 0.25f,
                 critDmg: 2f,
                 damageMultiplier: -0.5f,
-                unlockLevel: 1,
+                unlockLevel: 18,
                 name: "Gambler 4",
                 description: "Crit Chance +25%, Crit Damage +200%, Damage -50%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gambler"),
@@ -935,7 +935,7 @@ public static class PlayerStatsLibrary
                 pierce: 15,
                 projectileSizeMultiplier: -0.35f,
                 meleeSizeMultiplier: -0.35f,
-                unlockLevel: 2,
+                unlockLevel: 21,
                 name: "Hoverball 3",
                 description: "Attack Duration +100%, Pierce +15, Size -35%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Hover"),
@@ -948,7 +948,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 isHoming: true,
                 name: "Telekinesis 2",
-                unlockLevel: 3,
+                unlockLevel: 5,
                 description: "Projectiles follow enemies",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Telekinesis"),
                 rarity: Rarity.Legendary
@@ -965,7 +965,7 @@ public static class PlayerStatsLibrary
                 shotsPerAttack: -1000,
                 shotsPerAttackMelee: -1000,
                 comboLength: -1000,
-                unlockLevel: 2,
+                unlockLevel: 8,
                 name: "Quarterback 2",
                 description: "Weapon throw: Damage, Size +200%, Cooldowns -60%, Cannot attack",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Quarterback"),
@@ -980,7 +980,7 @@ public static class PlayerStatsLibrary
                 dotDuration: 10f,
                 dotTickRate: 0.35f,
                 dotDamage: 1,
-                unlockLevel: 3,
+                unlockLevel: 4,
                 name: "Gasoline 2",
                 description: "All attacks Ignite for 10 seconds and burn twice as quickly.",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Gasoline"),
@@ -998,7 +998,7 @@ public static class PlayerStatsLibrary
                 projectileSizeMultiplier: -0.50f,
                 meleeSizeMultiplier: -0.50f,
                 name: "Clone 2",
-                unlockLevel: 3,
+                unlockLevel: 7,
                 description: "Split amount +1, -50% Damage and Size",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Clone"),
                 rarity: Rarity.Legendary
@@ -1014,7 +1014,7 @@ public static class PlayerStatsLibrary
                 chainRange: 2f,
                 chainSpeed: 5f,
                 name: "Battery 2",
-                unlockLevel: 2,
+                unlockLevel: 3,
                 description: "Damage jumps to 3 more targets",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Battery"),
                 rarity: Rarity.Legendary
@@ -1029,7 +1029,7 @@ public static class PlayerStatsLibrary
                 magnetStrength: 1f,
                 knockbackMultiplier: 0.4f,
                 name: "Polarity 2",
-                unlockLevel: 2,
+                unlockLevel: 10,
                 description: "Attacks pull targets in, Knockback +40%",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Polarity"),
                 rarity: Rarity.Legendary
@@ -1043,7 +1043,7 @@ public static class PlayerStatsLibrary
                 isStun: true,
                 stunDuration: 0.5f,
                 name: "Stopsign 1",
-                unlockLevel: 4,
+                unlockLevel: 20,
                 description: "Attacks stun for 0.5s",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Stopsign"),
                 rarity: Rarity.Legendary
@@ -1056,7 +1056,7 @@ public static class PlayerStatsLibrary
                 shootOpposideSide: true,
                 recoveryAdditive: 3f,
                 name: "Hindsight 1",
-                unlockLevel: 6,
+                unlockLevel: 0,
                 description: "Attack again behind you, exhausted after attacking",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Hindsight"),
                 rarity: Rarity.Legendary
@@ -1070,7 +1070,7 @@ public static class PlayerStatsLibrary
                critChance: 0.25f,
                critDmg: 0.5f,
                name: "Glass 2",
-               unlockLevel: 1,
+               unlockLevel: 0,
                description: "Crit Chance +25% & Crit Damage +50%, take +1 more Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Relics/Glass"),
                rarity: Rarity.Legendary
@@ -1313,7 +1313,7 @@ public static class PlayerStatsLibrary
             new PlayerCharacterStats(
                 isRevenge: true,
                 revengeDamage: 30,
-                unlockLevel: 1,
+                unlockLevel: 13,
                 name: "Revenge 4",
                 description: "Damage those who hurt you",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Revenge"),
@@ -1341,7 +1341,7 @@ public static class PlayerStatsLibrary
                 lifestealAmount: 0.75f,
                 lifestealChance: 0.05f,
                 name: "Lifesteal 3",
-                unlockLevel: 0,
+                unlockLevel: 16,
                 description: "Chance to heal on hit",
                 icon: Resources.Load<Sprite>("UI_Icons/Relics/Lifesteal"),
                 rarity: Rarity.Legendary

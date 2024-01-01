@@ -3415,8 +3415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLevel: 0
-  LevelArray: 64000000c80000002c01000090010000f40100005802000058020000bc020000bc02000020030000ffe0f505
-  StageXpArray: 000000003200000064000000
+  LevelArray: 6400000064000000820000008c00000096000000dc0000008c000000a00000000e010000c80000008200000004010000dc000000040100002c010000540100005e0100002c0100005e01000090010000cc010000ffe0f505
+  StageXpArray: 000000006400000064000000
   currentXp: 0
   xpGained: 0
   gold: 420
@@ -4123,7 +4123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.78039217}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

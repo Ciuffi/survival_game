@@ -126,7 +126,7 @@ public static class PlayerUpgradesLibrary
         GameObject Defense1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Defense1Stats = new PlayerCharacterStats(
              defense: 0.25f,
-             unlockLevel: 1,
+             unlockLevel: 11,
                 level: 1,
                 price: 800,
                 name: "Tough 1",
@@ -142,7 +142,7 @@ public static class PlayerUpgradesLibrary
         GameObject Defense2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Defense2Stats = new PlayerCharacterStats(
              defense: 0.25f,
-             unlockLevel: 1,
+             unlockLevel: 11,
                 level: 2,
                 price: 1200,
                 name: "Tough 2",
@@ -158,7 +158,7 @@ public static class PlayerUpgradesLibrary
         GameObject Defense3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Defense3Stats = new PlayerCharacterStats(
              defense: 0.4f,
-             unlockLevel: 1,
+             unlockLevel: 11,
                 level: 3,
                 price: 1500,
                 name: "Tough 3",
@@ -292,12 +292,12 @@ public static class PlayerUpgradesLibrary
 
         GameObject Damage5 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Damage5Stats = new PlayerCharacterStats(
-            damageMultiplier: 0.20f,
+            damageMultiplier: 0.10f,
             unlockLevel: 0,
                level: 5,
                price: 2000,
                name: "Mastery 5",
-               description: "+50% Damage",
+               description: "+40% Damage",
                icon: Resources.Load<Sprite>("UI_Icons/Mastery"),
                rarity: Rarity.Legendary
              );
@@ -310,12 +310,12 @@ public static class PlayerUpgradesLibrary
         //Crit
         GameObject Crit1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Crit1Stats = new PlayerCharacterStats(
-             critChance: 0.04f,
-             unlockLevel: 2,
+             critChance: 0.03f,
+             unlockLevel: 1,
                level: 1,
                price: 800,
                name: "Accuracy 1",
-               description: "+4% Critical Hit Chance",
+               description: "+3% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Rare
              );
@@ -328,11 +328,11 @@ public static class PlayerUpgradesLibrary
         GameObject Crit2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Crit2Stats = new PlayerCharacterStats(
              critChance: 0.04f,
-             unlockLevel: 2,
+             unlockLevel: 1,
                level: 2,
                price: 1200,
                name: "Accuracy 2",
-               description: "+8% Critical Hit Chance",
+               description: "+7% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Epic
              );
@@ -344,12 +344,12 @@ public static class PlayerUpgradesLibrary
 
         GameObject Crit3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Crit3Stats = new PlayerCharacterStats(
-              critChance: 0.07f,
-              unlockLevel: 2,
+              critChance: 0.05f,
+              unlockLevel: 1,
                level: 3,
                price: 2000,
                name: "Accuracy 3",
-               description: "+15% Critical Hit Chance",
+               description: "+12% Critical Hit Chance",
                icon: Resources.Load<Sprite>("UI_Icons/CritChance"),
                rarity: Rarity.Legendary
              );
@@ -362,12 +362,12 @@ public static class PlayerUpgradesLibrary
         //CritDmg
         GameObject CritDmg1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats CritDmg1Stats = new PlayerCharacterStats(
-             critDmg: 0.20f,
-             unlockLevel: 2,
+             critDmg: 0.15f,
+             unlockLevel: 1,
                level: 1,
                price: 500,
                name: "Overkill 1",
-               description: "+20% Critical Hit Damage",
+               description: "+15% Critical Hit Damage",
                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                rarity: Rarity.Rare
              );
@@ -379,12 +379,12 @@ public static class PlayerUpgradesLibrary
 
         GameObject CritDmg2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats CritDmg2Stats = new PlayerCharacterStats(
-             critDmg: 0.20f,
-             unlockLevel: 2,
+             critDmg: 0.15f,
+             unlockLevel: 1,
                level: 2,
                price: 800,
                name: "Overkill 2",
-               description: "+40% Critical Hit Damage",
+               description: "+30% Critical Hit Damage",
                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                rarity: Rarity.Rare
              );
@@ -396,12 +396,12 @@ public static class PlayerUpgradesLibrary
 
         GameObject CritDmg3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats CritDmg3Stats = new PlayerCharacterStats(
-             critDmg: 0.30f,
-             unlockLevel: 2,
+             critDmg: 0.15f,
+             unlockLevel: 1,
                level: 3,
                price: 1200,
                name: "Overkill 3",
-               description: "+70% Critical Hit Damage",
+               description: "+45% Critical Hit Damage",
                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                rarity: Rarity.Epic
              );
@@ -413,12 +413,12 @@ public static class PlayerUpgradesLibrary
 
         GameObject CritDmg4 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats CritDmg4Stats = new PlayerCharacterStats(
-             critDmg: 0.30f,
-             unlockLevel: 2,
+             critDmg: 0.15f,
+             unlockLevel: 1,
                level: 4,
                price: 1500,
                name: "Overkill 4",
-               description: "+100% Critical Hit Damage",
+               description: "+60% Critical Hit Damage",
                icon: Resources.Load<Sprite>("UI_Icons/CritDamage"),
                rarity: Rarity.Legendary
              );
@@ -432,7 +432,7 @@ public static class PlayerUpgradesLibrary
         GameObject XPGain1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats XPGain1Stats = new PlayerCharacterStats(
            xpGainMultiplier: 0.03f,
-           unlockLevel: 3,
+           unlockLevel: 0,
                level: 1,
                price: 800,
                name: "Talented 1",
@@ -449,7 +449,7 @@ public static class PlayerUpgradesLibrary
         GameObject XPGain2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats XPGain2Stats = new PlayerCharacterStats(
            xpGainMultiplier: 0.03f,
-           unlockLevel: 3,
+           unlockLevel: 0,
                level: 2,
                price: 1200,
                name: "Talented 2",
@@ -466,7 +466,7 @@ public static class PlayerUpgradesLibrary
         GameObject XPGain3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats XPGain3Stats = new PlayerCharacterStats(
            xpGainMultiplier: 0.04f,
-           unlockLevel: 3,
+           unlockLevel: 0,
                level: 3,
                price: 2000,
                name: "Talented 3",
@@ -485,7 +485,7 @@ public static class PlayerUpgradesLibrary
         GameObject GoldGain1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats GoldGain1Stats = new PlayerCharacterStats(
            goldGainMultiplier: 0.02f,
-           unlockLevel: 3,
+           unlockLevel: 0,
                level: 1,
                price: 800,
                name: "Greedy 1",
@@ -502,7 +502,7 @@ public static class PlayerUpgradesLibrary
         GameObject GoldGain2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats GoldGain2Stats = new PlayerCharacterStats(
            goldGainMultiplier: 0.03f,
-           unlockLevel: 3,
+           unlockLevel: 0,
                level: 2,
                price: 1500,
                name: "Greedy 2",
@@ -518,12 +518,12 @@ public static class PlayerUpgradesLibrary
 
         GameObject GoldGain3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats GoldGain3Stats = new PlayerCharacterStats(
-           goldGainMultiplier: 0.05f,
-           unlockLevel: 3,
+           goldGainMultiplier: 0.03f,
+           unlockLevel: 0,
                level: 3,
                price: 2500,
                name: "Greedy 3",
-               description: "+10% Gold",
+               description: "+8% Gold",
                icon: Resources.Load<Sprite>("UI_Icons/Greedy"),
                rarity: Rarity.Legendary
              );
@@ -538,7 +538,7 @@ public static class PlayerUpgradesLibrary
         GameObject Reroll1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Reroll1Stats = new PlayerCharacterStats(
            rerollTimes: 1,
-           unlockLevel: 0,
+           unlockLevel: 2,
                level: 1,
                price: 800,
                name: "Indecisive 1",
@@ -555,7 +555,7 @@ public static class PlayerUpgradesLibrary
         GameObject Reroll2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Reroll2Stats = new PlayerCharacterStats(
            rerollTimes: 1,
-           unlockLevel: 0,
+           unlockLevel: 2,
                level: 2,
                price: 1200,
                name: "Indecisive 2",
@@ -572,7 +572,7 @@ public static class PlayerUpgradesLibrary
         GameObject Reroll3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Reroll3Stats = new PlayerCharacterStats(
            rerollTimes: 1,
-           unlockLevel: 0,
+           unlockLevel: 2,
                level: 3,
                price: 1500,
                name: "Indecisive 3",
@@ -590,7 +590,7 @@ public static class PlayerUpgradesLibrary
         GameObject Pickup1 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Pickup1Stats = new PlayerCharacterStats(
            pickupRange: 0.5f,
-           unlockLevel: 1,
+           unlockLevel: 5,
                level: 1,
                price: 800,
                name: "Magnetic 1",
@@ -607,7 +607,7 @@ public static class PlayerUpgradesLibrary
         GameObject Pickup2 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Pickup2Stats = new PlayerCharacterStats(
            pickupRange: 0.5f,
-           unlockLevel: 1,
+           unlockLevel: 5,
                level: 2,
                price: 1200,
                name: "Magnetic 2",
@@ -624,7 +624,7 @@ public static class PlayerUpgradesLibrary
         GameObject Pickup3 = Object.Instantiate(defaultUpgradePrefab, parentObject.transform);
         PlayerCharacterStats Pickup3Stats = new PlayerCharacterStats(
            pickupRange: 1f,
-           unlockLevel: 1,
+           unlockLevel: 5,
                level: 3,
                price: 1500,
                name: "Magnetic 3",
